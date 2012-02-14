@@ -50,6 +50,7 @@ import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
@@ -127,6 +128,7 @@ import org.wso2.carbonstudio.eclipse.ds.DocumentRoot;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl;
 import org.wso2.carbonstudio.eclipse.ds.presentation.custom.CustomAdapterFactoryContentProvider;
+import org.wso2.carbonstudio.eclipse.ds.presentation.data.DataSourcePage;
 import org.wso2.carbonstudio.eclipse.ds.presentation.md.MasterDetailsPage;
 import org.wso2.carbonstudio.eclipse.ds.presentation.source.DsObjectSourceEditor;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsItemProviderAdapterFactory;
@@ -143,6 +145,7 @@ import org.wso2.carbonstudio.eclipse.ds.provider.DsItemProviderAdapterFactory;
 public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	
+	private DataService dataService;
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -172,7 +175,6 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
 
-
 	/**
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc --> <!--
@@ -188,6 +190,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	private MasterDetailsPage mdPage;
 	
 	/**
+	 * This is Data Source detail page
+	 * 
+	 */
+	private DataSourcePage dataSourcePage;
+	/**
 	 * This is SourceViwer
 	 * 
 	 */
@@ -200,16 +207,20 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	private static final int DESIGN_VIEW_INDEX = 0;
 	
 	/**
+	 * Data Source Page index
+	 * 
+	 */
+	private static final int DATA_SOURCE_PAGE_INDEX = 1;
+	/**
 	 * Source view index
 	 * 
 	 */
-	private static final int SOURCE_VIEW_INDEX = 1;
+	private static final int SOURCE_VIEW_INDEX = 2;
 	
 	/**
 	 * Resource holder for the Dseditor
 	 * 
 	 */
-
 	private Resource domainResource;
 	
 	/**
@@ -977,9 +988,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @generated
+	 * @throws PartInitException 
+	 * @generated NOT
 	 */
-	public void createModel() {
+	public void createModel(){
 		URI initialResourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
 		Resource resource = null;
@@ -992,6 +1004,19 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(initialResourceURI, false);
 		}
+		
+		try {
+			resource.load(Collections.EMPTY_MAP);
+			EList<EObject> contents = resource.getContents();
+			
+			if (!contents.isEmpty() && contents.get(0) instanceof DocumentRoot ) {
+				dataService = ((DocumentRoot) contents.get(0)).getData();		
+				
+			}
+		} catch (IOException e) {
+			MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error", "Can not load Data Service Configuration");
+		}
+		
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
@@ -1012,7 +1037,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			mdPage = new MasterDetailsPage(this, adapterFactory, editingDomain);
 			addPage(DESIGN_VIEW_INDEX,mdPage);
 			setPageText(DESIGN_VIEW_INDEX,"Outline");
-						
+				
+		    dataSourcePage = new DataSourcePage(this, dataService);
+			addPage(DATA_SOURCE_PAGE_INDEX,dataSourcePage);
+			setPageText(DATA_SOURCE_PAGE_INDEX,"Data Sources");
+			
 			sourceEditor = new DsObjectSourceEditor(this, editingDomain);
 			addPage(SOURCE_VIEW_INDEX, sourceEditor.getEditor(), sourceEditor.getInput());
 			setPageText(SOURCE_VIEW_INDEX,"Source");
@@ -1106,14 +1135,21 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		
 		switch (pageIndex) {
 		case DESIGN_VIEW_INDEX: {
+			
 			designViewActivated = true;
 			
 			break;
 		 }
 		case SOURCE_VIEW_INDEX:{
+			
 			designViewActivated = false;
 			
 			break;
+		}
+		case DATA_SOURCE_PAGE_INDEX:{
+			
+			designViewActivated = false;
+			dataSourcePage.updateDataSourceViewer();
 		}
 		}
 		
@@ -1171,6 +1207,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 				if (addDataCommand.canExecute()) {
 					editingDomain.getCommandStack().execute(addDataCommand);
 					mdPage.getOutLineBlock().getViewer().setAutoExpandLevel(TreeViewer.ALL_LEVELS);
+					
+					updateAllPagesWithNewDataServiceObject(nwdata);
 				}else{
 					//
 				}
@@ -1181,8 +1219,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			}
 		}
 	}
-	
-	
+		
 	/**
 	 * This is how the framework determines which interfaces we implement. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -1815,6 +1852,15 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 
 	public static int getSourceViewIndex() {
 		return SOURCE_VIEW_INDEX;
+	}
+	
+	/**
+	 * update the all data service references to new data service object
+	 * @param newDataService
+	 */
+	private void updateAllPagesWithNewDataServiceObject(DataService newDataService){
+		
+		dataSourcePage.setDataService(newDataService);
 	}
 	
 	
