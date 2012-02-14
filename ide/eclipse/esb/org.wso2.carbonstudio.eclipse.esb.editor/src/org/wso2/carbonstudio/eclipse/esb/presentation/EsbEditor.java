@@ -116,7 +116,11 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -161,6 +165,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 		IViewerProvider, IGotoMarker {
 	
 	SynapseConfiguration synapseConfiguration;
+	private Menu menu;
 	
 	/**
 	 * Unfortunately this value must be hard-coded; otherwise
@@ -939,7 +944,7 @@ public class EsbEditor extends MultiPageEditorPart implements
         contextMenu.add(new Separator("additions"));
         contextMenu.setRemoveAllWhenShown(true);
         contextMenu.addMenuListener(this);
-        Menu menu= contextMenu.createContextMenu(viewer.getControl());
+        menu= contextMenu.createContextMenu(viewer.getControl());
         viewer.getControl().setMenu(menu);
 
         int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
@@ -1103,6 +1108,34 @@ public class EsbEditor extends MultiPageEditorPart implements
 							iDoubleClickListener.doubleClick(new DoubleClickEvent(treeViewer, iSelection));
 				        } catch (Exception ex) {/* ignore*/}
 						
+					}
+				});
+				
+				Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
+
+					@Override
+					public void handleEvent(Event e) {
+						if (e.keyCode == SWT.INSERT) {
+							try {
+								if (menu != null && getSelection() != null) {
+									TreeItem[] selection = treeViewer.getTree().getSelection();
+									if (selection != null) {
+										if (selection.length > 0 && selection[0] != null) {
+											Point point = treeViewer.getControl()
+											                        .toDisplay(selection[0].getBounds().x,
+											                                   selection[0].getBounds().y);
+											menu.setLocation(point.x, point.y);
+											menu.setVisible(true);
+											while (!menu.isDisposed() && menu.isVisible()) {
+												if (!Display.getCurrent().readAndDispatch())
+													Display.getCurrent().sleep();
+											}
+										}
+									}
+
+								}
+							} catch (Exception ex) {/* ignore */}
+						}
 					}
 				});
 
