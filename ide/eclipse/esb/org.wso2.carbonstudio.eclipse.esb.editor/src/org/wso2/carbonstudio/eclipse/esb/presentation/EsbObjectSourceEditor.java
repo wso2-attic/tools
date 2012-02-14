@@ -47,7 +47,7 @@ public class EsbObjectSourceEditor {
 	/**
 	 * Used to execute commands.
 	 */
-	private AdapterFactoryEditingDomain editingDomain;
+	private EsbAdapterFactoryEditingDomain editingDomain;
 	
 	/**
 	 * Internal {@link StructuredTextEditor} instance.
@@ -75,7 +75,7 @@ public class EsbObjectSourceEditor {
 	 * @param dummyFile temporary {@link IFile} to be used as {@link IEditorInput}.
 	 * @param editingDomain used to execute commands.
 	 */
-	public EsbObjectSourceEditor(IFile dummyFile, AdapterFactoryEditingDomain editingDomain) {
+	public EsbObjectSourceEditor(IFile dummyFile, EsbAdapterFactoryEditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
 		this.editor = new StructuredTextEditor();
 		this.input = new FileEditorInput(dummyFile);
