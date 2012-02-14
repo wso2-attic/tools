@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-newbpelproject-plugin</id>
+ <resources>
+    <resource>src/main/resources/BPELWorkflow</resource>
+  </resources>
+</archetype>

@@ -1,0 +1,28 @@
+<bpel:process name="{0}"
+         targetNamespace="{1}"
+         suppressJoinFailure="yes"
+         xmlns:tns="{1}"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         >
+         
+    <!-- ================================================================= -->         
+    <!-- PARTNERLINKS                                                      -->
+    <!-- List of services participating in this BPEL process               -->
+    <!-- ================================================================= -->         
+    <bpel:partnerLinks>       
+    </bpel:partnerLinks>
+  
+    <!-- ================================================================= -->         
+    <!-- VARIABLES                                                         -->
+    <!-- List of messages and XML documents used within this BPEL process  -->
+    <!-- ================================================================= -->         
+    <bpel:variables>
+    </bpel:variables>
+
+    <!-- ================================================================= -->         
+    <!-- ORCHESTRATION LOGIC                                               -->
+    <!-- Set of activities coordinating the flow of messages across the    -->
+    <!-- services integrated within this business process                  -->
+    <!-- ================================================================= -->         
+    <bpel:sequence/>    
+</bpel:process>

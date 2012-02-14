@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="maven-synapse-plugin">
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>src/main/resources/synapse</directory>
+		</fileSet>
+	</fileSets>
+</archetype-descriptor>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.core.resources.natures"
+		id="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" name="Carbon Modules Project Nature">
+		<runtime>
+			<run
+				class="org.wso2.carbonstudio.eclipse.capp.project.nature.CAppProjectNature">
+			</run>
+		</runtime>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard name="Carbon Modules Project" category="org.wso2.carbonstudio.eclipse.capp.project"
+			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.WSO2ArtifactWizard"
+			icon="resources/icons/module-16.png"
+            finalPerspective="org.eclipse.jst.j2ee.J2EEPerspective"
+			project="true"
+			archeTypeId="org.wso2.carbonstudio.eclipse.maven.plugin.carbonmodules"
+			artifactType="carbon/modules"
+			wizardIcon="resources/icons/modules-wizard.png"
+			id="org.wso2.carbonstudio.eclipse.carbonmodules.project">
+			<description>WSO2 Carbon Modules Project</description>
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image id="org.wso2.carbonstudio.eclipse.carbonmodules.project.natureImage"
+			natureId="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" icon="resources/icons/module-12.png">
+		</image>
+	</extension>
+ <extension
+       point="org.wso2.carbonstudio.eclipse.maven.definitions">
+    <archetype
+          artifactId="carbon-modules-plugin"
+          executeMode="DEFAULT"
+          groupId="org.wso2.maven"
+          id="org.wso2.carbonstudio.eclipse.maven.plugin.carbonmodules"
+          name="Carbon Modules Project"
+          version="1.0-SNAPSHOT">
+    </archetype>
+ </extension>
+</plugin>

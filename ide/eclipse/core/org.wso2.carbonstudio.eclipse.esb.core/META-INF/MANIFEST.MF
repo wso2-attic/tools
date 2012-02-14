@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ESB Core
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.esb.core;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: org.wso2.carbonstudio.eclipse.esb.core.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Export-Package: org.wso2.carbonstudio.eclipse.esb.core,
+ org.wso2.carbonstudio.eclipse.esb.core.configuration.impl,
+ org.wso2.carbonstudio.eclipse.esb.core.interfaces,
+ org.wso2.carbonstudio.eclipse.esb.core.preferences.ui,
+ org.wso2.carbonstudio.eclipse.esb.core.utils
+Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
+ org.apache.axiom.om,
+ org.apache.axiom.om.impl.builder,
+ org.wso2.carbonstudio.eclipse.logging.core,
+ org.wso2.carbonstudio.eclipse.platform.core.interfaces,
+ org.wso2.carbonstudio.eclipse.platform.core.mediatype,
+ org.wso2.carbonstudio.eclipse.utils.jdt

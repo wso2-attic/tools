@@ -1,0 +1,11 @@
+<endpoint xmlns="http://ws.apache.org/ns/synapse" name="{0}" >
+	<wsdl uri="http://localhost:9000/services/SimpleStockQuoteService?wsdl" service="SimpleStockQuoteService" port="SimpleStockQuoteServiceHttpSoap11Endpoint" >
+      <suspendOnFailure>
+         <progressionFactor>1.0</progressionFactor>
+      </suspendOnFailure>
+      <markForSuspension>
+         <retriesBeforeSuspension>0</retriesBeforeSuspension>
+         <retryDelay>0</retryDelay>
+      </markForSuspension>
+   </wsdl>
+</endpoint>

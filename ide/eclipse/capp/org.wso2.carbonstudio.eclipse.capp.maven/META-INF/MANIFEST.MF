@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CApp Maven
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.capp.maven;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: org.wso2.carbonstudio.eclipse.capp.maven.Activator
+Bundle-Vendor: WSO2
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.wso2.carbonstudio.eclipse.maven,
+ org.eclipse.core.resources
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.maven.project,
+ org.wso2.carbonstudio.eclipse.capp.core.artifacts.manager,
+ org.wso2.carbonstudio.eclipse.logging.core,
+ org.wso2.carbonstudio.eclipse.samples.contributor,
+ org.wso2.carbonstudio.eclipse.utils.file
+Export-Package: org.wso2.carbonstudio.eclipse.capp.maven,
+ org.wso2.carbonstudio.eclipse.capp.maven.sample,
+ org.wso2.carbonstudio.eclipse.capp.maven.utils

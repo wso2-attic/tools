@@ -1,0 +1,7 @@
+# Tracing options for the org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram plug-in
+
+# Common issues
+org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram/debug=false
+
+# Visual IDs
+org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram/debug/visualID=false

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+       <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.esb"
+            class="org.wso2.carbonstudio.eclipse.esb.mediator.ui.wizard.NewMediatorWizard"
+            icon="icons/new-mediator-16x16.png"
+            id="org.wso2.carbonstudio.eclipse.esb.mediator.NewMediatorWizard"
+            name="Synapse Custom Mediator">
+            <description>Create new synapse custom mediator class</description>
+      </wizard>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		</category>
+		<category name="ESB" id="org.wso2.carbonstudio.eclipse.esb" 
+			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		</category>
+   </extension>
+</plugin>

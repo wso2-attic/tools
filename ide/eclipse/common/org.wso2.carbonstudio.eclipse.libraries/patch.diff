@@ -1,0 +1,58 @@
+Index: .classpath
+===================================================================
+--- .classpath	(revision 107723)
++++ .classpath	(revision 105920)
+@@ -1,8 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <classpath>
+-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.securevault-1.0.0.SNAPSHOT.jar"/>
+-	<classpathentry exported="true" kind="lib" path="lib/axiom-1.2.11.wso2v1.jar"/>
+-	<classpathentry exported="true" kind="lib" path="lib/axis2-1.6.1.wso2v1.jar"/>
++	<classpathentry exported="true" kind="lib" path="lib/axiom-1.2.9.wso2v1.jar"/>
++	<classpathentry exported="true" kind="lib" path="lib/axis2-1.6.0.wso2v1.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="lib/woden-1.0.0.M8-wso2v1.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.core-3.0.0.jar"/>
+ 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.user.core-3.0.0.jar"/>
+Index: META-INF/MANIFEST.MF
+===================================================================
+--- META-INF/MANIFEST.MF	(revision 107723)
++++ META-INF/MANIFEST.MF	(revision 105920)
+@@ -2,7 +2,7 @@
+ Bundle-ManifestVersion: 2
+ Bundle-Name: Libraries
+ Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.libraries;singleton:=true
+-Bundle-Version: 2.0.0-SNAPSHOT
++Bundle-Version: 1.0.10
+ Bundle-ActivationPolicy: lazy
+ Export-Package: javax.activation;version="1.2.9.wso2v1",
+  javax.wsdl;version="1.6.2.wso2v1",
+@@ -31,7 +31,6 @@
+  org.apache.axis2.description,
+  org.apache.axis2.description.java2wsdl,
+  org.apache.axis2.engine,
+- org.apache.axis2.java.security,
+  org.apache.axis2.transport,
+  org.apache.axis2.transport.http,
+  org.apache.axis2.util,
+@@ -40,8 +39,7 @@
+  org.apache.axis2.wsdl.codegen.writer,
+  org.apache.commons.httpclient,
+  org.apache.commons.httpclient.contrib.ssl,
+- org.apache.commons.httpclient.params,
+- org.apache.commons.httpclient.protocol;version="3.1.0.wso2v1",
++ org.apache.commons.httpclient.protocol,
+  org.apache.commons.io,
+  org.apache.woden,
+  org.apache.ws.java2wsdl,
+@@ -72,9 +70,8 @@
+  lib/org.wso2.carbon.registry.core-3.0.0.jar,
+  lib/org.wso2.carbon.user.core-3.0.0.jar,
+  lib/woden-1.0.0.M8-wso2v1.jar,
+- lib/axis2-1.6.1.wso2v1.jar,
+- lib/axiom-1.2.11.wso2v1.jar,
+- lib/org.wso2.securevault-1.0.0.SNAPSHOT.jar
++ lib/axis2-1.6.0.wso2v1.jar,
++ lib/axiom-1.2.9.wso2v1.jar
+ Require-Bundle: org.eclipse.ui,
+  org.eclipse.core.runtime,
+  org.eclipse.jdt.ui,

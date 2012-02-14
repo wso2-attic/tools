@@ -1,0 +1,160 @@
+/* 
+----------------------------------------------------------------------
+WSO2 - Tools Page
+Screen, Projection Stylesheet
+Authored by: Vesess - http://vesess.com
+----------------------------------------------------------------------- 
+*/
+
+
+/* Generic element styles 
+----------------------------------------------------------------------- */
+
+body {
+	font: 75%/1.5 "Lucida Grande","Lucida Sans","Lucida Sans Unicode","trebuchet ms",verdana,sans-serif;
+	color: #111;
+	background: url(../images/body_bk.jpg) #FFF repeat-x left top;
+}
+
+h1,h2,h3 {
+	font-weight: normal;
+}
+
+a, a:link {
+	color: #039;
+}
+
+a:hover {
+	color: #03C;
+	text-decoration: none;
+}
+
+a:visited {
+	/* color: #969; */ /* No need to discolour visited links as this is a system */
+}
+
+ul, ol {
+	margin-left: 2em;
+}
+
+
+div#wrapper {
+}
+
+/* Main content area 
+-------------------------------------------------------------------------- */
+div#content {
+	padding: 10px 45px;
+	background-color: #ffffff;
+}
+
+div#breadcrumbs {
+	padding-bottom: 10px;
+	font-size: 90%;
+	color: #999;
+	border-bottom: #CCC 1px solid;
+	background-color: #ffffff;
+}
+
+div#breadcrumbs a {
+	color: #F60;
+	text-decoration: none;
+}
+
+div#content h2 {
+	color: #666;
+}
+
+div#content h3 {
+	color: #039;
+	border-bottom: #A3B2CC 1px solid;
+}
+
+div#content h4 {
+	color: #666;
+	font-weight: bold;
+}
+
+div#content div#intro {
+	padding: 0 1em;
+	background: url(../images/intro_bk.jpg) #E8E8D0 repeat-x left top;
+	border: #E8E8D0 1px solid;
+}
+
+div#content div#intro p {
+	font-size: 110%;
+}
+
+div#content dl dt {
+	margin-top: 1em;
+	font-weight: bold;
+}
+
+
+/* Tables
+--------------------------------------------------------------------------------- */
+
+table {
+	margin-bottom: 1em;
+	border-collapse: collapse;
+}
+
+table th, 
+table td {
+	padding: 3px;
+}
+
+table thead th {
+	text-align: left;
+	vertical-align: top;
+}
+
+table td {
+	text-align: left;
+	vertical-align: top;
+}
+
+table thead th {
+	color: #FFF;
+	background-color: #A3B2CC;
+	border: #A3B2CC 1px solid;
+}
+
+table tbody td {
+	border: #A3B2CC 1px solid;
+}
+
+
+/* For the xml validator*/
+
+p.error{
+	color: #ff0000;
+}
+
+p.warning{
+	color: #996633;
+}
+
+p.info{
+	color: #336600;
+}
+
+p.success{
+	color: #33ff33;
+}
+
+/* Breadcrumbs for HTML runs on Tungsten*/
+
+div#breadcrumbs-HTML{
+    padding-left: 45px;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	font-size: 90%;
+	color: #999;
+	border-bottom: #CCC 1px solid;
+}
+div#breadcrumbs-HTML a {
+	color: #F60;
+	text-decoration: none;
+}

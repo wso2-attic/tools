@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard name="Web Application (WAR)" category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.war.ui.wizard.NewWARArtifactWizard"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.newwarartifact"
+			icon="icons/war-16x16.png">
+			<description>Web Application (WAR)</description>
+		</wizard>
+	</extension>
+	<extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.war.core.WARArtifactHandler"
+			id="org.wso2.capp.artifact.war">
+		</artifact>
+	</extension>
+	<extension point="org.eclipse.ui.navigator.viewer">
+		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<contentExtension
+					pattern="org.wso2.carbonstudio.eclipse.capp.artifact.war.navigator.content" />
+			</includes>
+		</viewerContentBinding>
+		<viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<actionExtension
+					pattern="org.wso2.carbonstudio.eclipse.capp.artifact.war.navigator.content.actionProvider" />
+			</includes>
+		</viewerActionBinding>
+	</extension>
+	<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.war.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="WAR Artifacts" priority="high">
+			<triggerPoints>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.capp.artifact.war.model.WARArtifactLocationNode" />
+				</or>
+			</triggerPoints>
+			<commonWizard menuGroupId="5org.wso2.carbonstudio.eclipse.capp.newartifacts.ui"
+				type="new" wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.newwarartifact">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+		<actionProvider
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.war.provider.WARArtifactActionProvider"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.war.navigator.content.actionProvider">
+			<enablement>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.capp.artifact.war.model.WARArtifactLocationNode" />
+				</or>
+			</enablement>
+		</actionProvider>
+	</extension>
+
+
+	<extension point="org.eclipse.ui.decorators">
+		<decorator id="org.wso2.carbonstudio.capp.eclipse.artifact.war.archive.decorator"
+			label="Web Application (WAR) File" state="true"
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.war.ui.decorator.WARArchiveDecorator"
+			lightweight="false" icon="icons/axis2.png">	
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IFile" />
+			</enablement>
+		</decorator>
+	</extension>
+
+
+</plugin>

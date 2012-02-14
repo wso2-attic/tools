@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.ui.wizard.NewGadgetArtifactWizard"
+            icon="icons/Gadget-16x16.png"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.ui.wizard.NewGadgetArtifactWizard"
+            name="Gadget">
+      </wizard>
+   </extension>
+   
+  <extension point="org.eclipse.ui.navigator.viewer">
+	<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+	   	<includes>
+			<contentExtension
+				pattern="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.navigator.content" />
+	    </includes>
+	 </viewerContentBinding>
+   </extension>
+   
+   <extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.core.GadgetArtifactHandler"
+			id="org.wso2.capp.artifact.gadget">
+		</artifact>
+	</extension>
+   
+   
+   
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			icon="icons/Gadget-16x16.png"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="Gadget Artifact" priority="high">
+		    <triggerPoints>
+			  	<or>
+					<instanceof
+						value="org.eclipse.core.resources.IProject" />
+				</or>
+			</triggerPoints>			
+			<commonWizard type="new" menuGroupId="5org.wso2.carbonstudio.eclipse.capp.newartifacts.ui"
+				wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.ui.wizard.NewGadgetArtifactWizard">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+	<extension point="org.wso2.carbonstudio.eclipse.samples">
+      <sample
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.gadgets.sample.GadgetSampleContributor"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.gadget.sample1"
+            isCustomCreateSample="false">
+      </sample>
+   </extension>
+   
+</plugin>

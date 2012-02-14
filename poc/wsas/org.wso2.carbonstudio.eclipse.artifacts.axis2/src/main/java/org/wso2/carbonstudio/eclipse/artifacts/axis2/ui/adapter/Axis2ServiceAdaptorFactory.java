@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.adapter;
+
+import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.ui.IActionFilter;
+
+public class Axis2ServiceAdaptorFactory implements IAdapterFactory {
+
+	public Object getAdapter(Object adaptableObject, Class adapterType) {
+		if(adapterType == IActionFilter.class)
+			return Axis2ServiceFolderFilterAdapter.getInstance();
+		return null;
+	}
+
+	public Class[] getAdapterList() {
+		return new Class[] {IActionFilter.class};
+	}
+
+}

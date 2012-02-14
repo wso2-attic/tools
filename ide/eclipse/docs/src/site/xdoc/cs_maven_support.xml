@@ -1,0 +1,132 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>WSO2 Carbon Studio Maven Support</h1>
+		<p>
+		For each and every project created by <strong>WSO2 Carbon Studio</strong>, you can 
+		find a <strong>pom</strong> file has been created in order to build it using 
+		<strong>Maven</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/maven1.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		To build individual level <strong>Deployable Artifacts</strong> using maven command, go to the project 
+		location in the command line and run the command <strong>mvn clean install</strong>. Once the build was 
+		successful, you will see the <strong>Deployable Artigact</strong> has been created under 
+		<strong>target</strong> folder of your project location.
+		</p>
+		
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/maven2.png"></img>
+			<br></br>
+		</p>
+		<p>
+		Following deployable artifacts will be generated when you run the maven command.
+		</p>
+		
+		<table border="2">
+			<tbody>
+				<tr>
+					<td><strong>Artifact Type</strong></td>
+					<td><strong>Project Type</strong></td>
+				</tr>
+				<tr>
+					<td>Apache Axis2 Artifact</td>
+					<td>Axis2 Archive [aar]</td>
+				</tr>
+				<tr>
+					<td>Web Application</td>
+					<td>Web Application Archive [war]</td>
+				</tr>
+				<tr>
+					<td>JAX-WS Artifact</td>
+					<td>Java Archive [jar]</td>
+				</tr>
+				<tr>
+					<td>Endpoint Artifact</td>
+					<td>xml</td>
+				</tr>
+				<tr>
+					<td>Sequence Artifact</td>
+					<td>xml</td>
+				</tr>
+				<tr>
+					<td>Proxy Service Artifact</td>
+					<td>xml</td>
+				</tr>
+				<tr>
+					<td>Local Entry Artifact</td>
+					<td>xml</td>
+				</tr>
+				<tr>
+					<td>Synapse Configuration</td>
+					<td>xml</td>
+				</tr>
+				<tr>
+					<td>ESB Mediator</td>
+					<td>Java Archive [jar]</td>
+				</tr>
+				<tr>
+					<td>Registry Resource</td>
+					<td>Registry Resource with necessary meta-data</td>
+				</tr>
+				<tr>
+					<td>Registry Handler Artifact</td>
+					<td>OSGI Bundle [jar]</td>
+				</tr>
+				<tr>
+					<td>Registry Filter Artifact</td>
+					<td>OSGI Bundle [jar]</td>
+				</tr>
+				<tr>
+					<td>Data Service Artifact</td>
+					<td>Data Services Descriptor file [dbs]</td>
+				</tr>
+				<tr>
+					<td>Data Services Validator Artifact</td>
+					<td>OSGI Bundle [jar]</td>
+				</tr>
+				<tr>
+					<td>BPEL Workflow</td>
+					<td>BPEL Archive [zip]</td>
+				</tr>
+				<tr>
+					<td>Gadget</td>
+					<td>Dashboard Archive [dar]</td>
+				</tr>
+				<tr>
+					<td>Carbon UI Bundle</td>
+					<td>OSGI Bundle [jar]</td>
+				</tr>
+				<tr>
+					<td>Third Party Library Artifact</td>
+					<td>OSGI Bundle [jar]</td>
+				</tr>
+				<tr>
+					<td>Carbon Application Project</td>
+					<td>Carbon Application Archive [CAR]</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

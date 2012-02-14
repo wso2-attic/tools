@@ -1,0 +1,362 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Advanced Server Extensions</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#CustomMediator">ESB Custom Mediator</a>
+				</li>
+				<li>
+					<a href="registry_category.html#RegistryFilter">Registry Filter</a>
+				</li>
+				<li>
+					<a href="registry_category.html#RegistryHandler">Registry Handler</a>
+				</li>
+				<li>
+					<a href="registry_category.html#RegistryAspect">Registry Aspect</a>
+				</li>
+				<li>
+					<a href="#DSValidator">Data Service Validator</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="CustomMediator">ESB Custom Mediator</h2>
+		<p>
+        To create an ESB Custom Mediator, right click on the CApp project and select <strong>ESB Mediator</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/esbMed1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create an ESB Custom Mediator Artifact.    
+		</p>
+		<ol>
+			<li>From Workspace</li>
+			<li>From File System</li>
+		</ol>
+
+			<p>If you select <strong>From Workspace</strong> option, it will list all the projects that include a mediator class
+			 which is created by extending <strong>org.apache.synapse.mediators.AbstractMediator</strong> class, if there is any.
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/esbMed4.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>If you do not have any projects with Mediator class, you can create a new class extending <strong>org.apache.synapse.mediators.AbstractMediator</strong> 
+			 base class by clicking on <strong>New</strong> button of the <strong>From Workspace</strong> option. Give the necessary 
+			 information and it will create a class, extending the base class.  
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/esbMed3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>With the second option, you can point a jar file which contains a <strong>mediator</strong> class from the file 
+			system. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/esbMed5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+	
+			<p>Select the CApp project you want to create <strong>ESB Custom Mediator Artifact</strong> and and give a name to the 
+			ESB Custom Mediator artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/esbMed6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>ESB Custom Mediator Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/esbMed7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+		<!-- h2 id="RegistryFilter">Registry Filter</h2>
+		<p>
+        To create a Registry Filter Artifact, right click on the CApp project and select <strong>Registry Filter</strong> from 
+        the menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/mal-regfil1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create an Registry Filter Artifact.    
+		</p>
+		<ol>
+			<li>From Workspace</li>
+			<li>From File System</li>
+		</ol>
+
+			<p>If you select <strong>From Workspace</strong> option, it will list all the projects that include a Filter class
+			 which is created by extending <strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong> class, 
+			 if there is any.
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regFil4.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>If you do not have any projects with Filter class, you can create a new class extending <strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong> 
+			 base class by clicking on <strong>New</strong> button of the <strong>From Workspace</strong> option. Give the necessary 
+			 information and it will create a class, extending the base class.  
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regFil3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>With the second option, you can point a jar file which contains a <strong>filter</strong> class from the file 
+			system. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regFil5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+	
+			<p>Select the CApp project you want to create <strong>Registry Filter Artifact</strong> and and give a name to the 
+			Registry Filter Artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regFil6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Registry Filter Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			
+		<h2 id="RegistryHandler">Registry Handler</h2>
+		<p>
+        To create a Registry Handler Artifact, right click on the CApp project and select <strong>Registry Handler</strong> from 
+        the menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/regHand1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		To create a <strong>Registry Handler Artifact</strong>, you need to have two types of classes. Handler class which is exteneded 
+		by <strong>org.wso2.carbon.registry.core.jdbc.handlers.Handler</strong> and a Filter class which is extended by 
+		<strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong>.
+		</p>
+		
+		<p>First wizard page is regarding information of <strong>Handler</strong> class. If you have a class extending 
+		<strong>org.wso2.carbon.registry.core.jdbc.handlers.Handler</strong> in the workspce, information regarding that class and 
+		project will be filled for you. 
+		</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHand2.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+		<p>You can create a new <strong>Handler</strong> class by clicking on <strong>New</strong> option as well. 
+		</p>
+		
+		<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHand3.PNG"></img>
+				<br></br>
+				<br></br>
+		</p>
+			<p>You can select <strong>Handler Properties</strong> and <strong>Hanlder methods</strong> and click <strong>Next</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHandl3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>In the next wizard page, you have to give the information regarding <strong>Filter</strong> class. If you have Filter class 
+			already in the workspace, those information will be filled in the drop-down box. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHand5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>As you did for <strong>Handlers</strong>, you can create a new Filter class by clicking <strong>New</strong> option.
+			</p>
+			
+			<p>Define filter criteria and click <strong>Next</strong>. </p>
+			
+			<p>Select the CApp project you want to create <strong>Registry Handler Artifact</strong> and and give a name to the 
+			Registry Handler Artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHand6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Registry Handler Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/regHand7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p-->
+			
+		<h2 id="DSValidator">Data Service Validator</h2>
+		<p>
+        To create a Data Service Validator Artifact, right click on the CApp project and select <strong>Data Service Validator</strong> 
+        from the menu.  
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dsv1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create an ESB Custom Mediator Artifact.    
+		</p>
+		<ol>
+			<li>From Workspace</li>
+			<li>From File System</li>
+		</ol>
+
+			<p>If you select <strong>From Workspace</strong> option, it will list all the projects that include a validator class
+			 which is created by implementing <strong>org.wso2.carbon.dataservices.validation.Validator</strong> interface, if there is any.
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/dsv2.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>If you do not have any projects with Validator class, you can create a new class implementing <strong>
+			org.wso2.carbon.dataservices.validation.Validator</strong> interface by clicking on <strong>New</strong> button of the 
+			<strong>From Workspace</strong> option. Give the necessary information and it will create a class, implementing the interface.  
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/dsv3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>With the second option, you can point a jar file which contains a <strong>data service validator</strong> class from the file 
+			system. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/dsv5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+	
+			<p>Select the CApp project you want to create <strong>Data Service Validator Artifact</strong> and and give a name to the 
+			Data Service Validator artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/dsv6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Data Service Validator Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/dsv7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+									
+	</body>
+</html>

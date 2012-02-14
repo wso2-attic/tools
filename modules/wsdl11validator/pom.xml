@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+    <parent>
+        <groupId>org.wso2.tools</groupId>
+        <artifactId>tools-parent</artifactId>
+        <version>SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>wsdl11validator</artifactId>
+    <packaging>jar</packaging>
+    <version>SNAPSHOT</version>
+    <name>WSO2 Tools - WSDL11 Validator</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wtp</groupId>
+            <artifactId>org.eclipse.wst.wsdl.validation_1.1.0.v</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.0-alpha-1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>initialize-copy</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>wtp</groupId>
+                                    <artifactId>org.eclipse.wst.wsdl.validation_1.1.0.v</artifactId>
+                                    <version>200606130645</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>target/WSDL11Validator/lib</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <id>mar</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <!-- Create aar for WSDL Validator -->
+                                <property name="aar.dir.xsl" value="target/WSDL11Validator"/>
+
+                                <mkdir dir="${aar.dir.xsl}"/>
+                                <mkdir dir="${aar.dir.xsl}/META-INF"/>
+                                <mkdir dir="${aar.dir.xsl}/lib"/>
+                                <mkdir dir="${aar.dir.xsl}/www"/>
+                                <mkdir dir="${aar.dir.xsl}/www/images"/>
+                                <mkdir dir="${aar.dir.xsl}/www/style"/>
+
+
+                                <copy todir="${aar.dir.xsl}">
+                                    <fileset dir="target/classes">
+                                        <include name="**"/>
+                                    </fileset>
+                                </copy>
+
+                                <copy todir="${aar.dir.xsl}/www">
+                                    <fileset dir="www"/>
+                                </copy>
+                                <copy todir="${aar.dir.xsl}/www/style">
+                                    <fileset dir="../../site/assets/style"/>
+                                </copy>
+                                <copy todir="${aar.dir.xsl}/www/images">
+                                    <fileset dir="../../site/assets/images"/>
+                                </copy>
+
+                                <jar jarfile="target/WSDL11Validator.aar"
+                                     basedir="${aar.dir.xsl}"/>
+
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>mar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/${pom.artifactId}-${wso2xfer.version}.mar</file>
+                                    <type>mar</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+
+        </plugins>
+    </build>
+
+
+</project>

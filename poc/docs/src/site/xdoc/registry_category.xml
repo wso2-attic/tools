@@ -1,0 +1,583 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Registry Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#regConArtifact">Registry Connection</a>
+				</li>
+				<li>
+					<a href="#regResourceArtifact">Registry Resources</a>
+				</li>
+				<li>
+					<a href="greg_user_guide.html">Manage your registry</a>
+				</li>
+				<li>
+					<a href="#RegistryFilter">Registry Filters</a>
+				</li>
+				<li>
+					<a href="#RegistryHandler">Registry Handlers</a>
+				</li>
+				<li>
+					<a href="#RegistryAspect">Registry Aspects</a>
+				</li>
+				
+			</ul>
+		</div>
+		<h2 id="regConArtifact">Registry Connection</h2>
+		<p>When you are creating artifacts, you may need to point to resources inside a running registry instance. For that, first 
+		you need a create a registry connection to that running server.For this release, we support only 
+		<strong><a href="http://wso2.com/products/governance-registry/" target="_blank">WSO2 Governance 
+		Registry</a></strong> version <strong>3.5</strong> or  higher. 
+        </p>
+        <p>
+        To create a registry connection, right click on the CApp project select <strong>New</strong> and then select <strong>Registry Connection</strong> from the 
+        menu, as shown in Figure 1.
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/reg_con1.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 1</div>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Give a name, URL and path  for the registry connection and click <strong>Finish</strong> (Figure 2). Default information is filled for 
+		you. You can change them with your preference.   
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/reg_con2.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 2</div>
+			<br></br>
+			<br></br>
+		</p>
+
+		<p>Now you will see a new registry connection is created with the given name, under <strong>Registry Connections</strong>
+		 folder. When you right click on the newly created registry instance, you have two options as shown in Figure 3. You can either open it on 
+		 the <strong>WSO2 Registry Browser</strong> which gives you the ability to add, view and manage resources and collections or 
+		 you can delete the added registry instance. 
+		</p>
+		<p>
+			<br></br>
+		<div style="text-align:center;">
+		<img src="images/reg_con3.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 3</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>When you select <strong>Open</strong> option, Figure 4 shows how it will be opened in the <strong>WSO2 Registry Browser</strong>. 
+		</p>
+		<p>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/reg_con4.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 4</div>
+			<br></br>
+			<br></br>
+		</p>	
+		<p>Now you have successfully created a registry instance. You can point resources from the created <strong>WSO2 
+		Governance Registy</strong> instance when you create other artifact types. 
+		</p>		
+		<br></br>
+
+		<h2 id="regResourceArtifact">Registry Resource</h2>
+		<p>To create a registry resource, right click on the CApp project select <strong>New</strong> and then select <strong>Registry Resource</strong>
+                   from the menu as illustrated in Figure 5.
+                </p>
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/reg1.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 5</div>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are four ways to create a registry resource.    
+		</p>
+		<ol>
+			<li>From existing template</li>
+			<li>Import from File System</li>
+			<li>Check-out from registry</li>
+			<li>Import registry dump file from the file system</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/reg.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 6</div>
+			<br></br>
+			<br></br>
+		</p>
+
+		<p>
+		<strong>From existing template</strong> option, you can select a template from which you can create a registry 
+		resource.
+		</p>		
+		<p>
+		Here, we will select <strong>WSDL File</strong> template. (Figure 7)
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/wsdl2.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 7</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Give the necessary information as you preferred and Click <strong>Next</strong>. (Figure 8)
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/wsdl3.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 8</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Give a name to the artifact if it is not filled already and Click <strong>Finish</strong>. (Figure 9)
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/wsdl4.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 9</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see <strong>wsdl-config</strong> file has been created and it will be open 
+		in the embedded WSDL editor as shown in Figure 10.
+		</p>
+		
+		<p>
+			<br></br>
+			<div style="text-align:center;">
+			<img src="images/wsdl5.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 10</div>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		With the <strong>Import from File System</strong> option, you can import a file or a folder. (Figure 11)
+		</p>
+		<p>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg2.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 11</div>
+				<br></br>
+				<br></br>
+		</p>
+
+		<p>
+		With the <strong>Check-out from registry</strong> option, you can point to a collection or resource in the registry. You 
+		can browse resources from the registry instance that you 
+		have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+		<strong>Browse</strong> to browse resources in registry. (Figure 12)
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg5.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 12</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>With the <strong>Import registry dump file from file system</strong>, you can browse resources of the registry instance that you 
+		have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+		<strong>Browse</strong> to browse resources in registry. (Figure 13)
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg6.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 13</div>
+			<br></br>
+			<br></br>
+		</p>	
+		
+		<p><strong>Registry Path To Deploy</strong> is common for all the three options. With this, you are specifying, to where 
+		that registry resource should be checked-in at the time of deployment. (Figure 14)
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg7.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 14</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>Select the CApp project you want to create the <strong>Registry Resource</strong> and click <strong>Finish</strong>. (Figure 15)
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg8.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 15</div>
+			<br></br>
+			<br></br>
+		</p>	
+		
+		<p>Now you will see new registry resource has been created under the selected CApp project as shown in Figure 16.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg9.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 16</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>If you look in to the structure of Registry Resource that you have just created, you will see there is an extra file 
+		called <strong>registry-info.xml</strong>. (Figure 17)
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg13.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 17</div>
+			<br></br>
+			<br></br>
+		</p>
+
+		<p>This file is to keep all the necessary information regarding the registry resource.  (Figure 18)
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/reg14.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 18</div>
+			<br></br>
+			<br></br>
+		</p>
+			
+		<h2 id="RegistryFilter">Registry Filter</h2>
+		<p>
+        To create a Registry Filter Artifact, right click on the CApp project select <strong>New</strong>  and then select <strong>Registry Filter</strong> from 
+        the menu as shown in Figure 19.
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/mal-regfil1.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 19</div>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create an Registry Filter Artifact.    
+		</p>
+		<ol>
+			<li>From Workspace</li>
+			<li>From File System</li>
+		</ol>
+
+			<p>If you select <strong>From Workspace</strong> option, it will list all the projects that include a Filter class
+			 which is created by extending <strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong> class, 
+			 if there is any. (Figure 20)
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regFil4.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 20</div>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>If you do not have any projects with Filter class, you can create a new class extending <strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong> 
+			 base class by clicking on <strong>New</strong> button of the <strong>From Workspace</strong> option. Give the necessary 
+			 information and it will create a class, extending the base class. (Figure 21)
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regFil3.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 21</div>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>With the second option, you can point a jar file which contains a <strong>filter</strong> class from the file 
+			system. (Figure 22)
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regFil5.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 22</div>
+				<br></br>
+				<br></br>
+			</p>
+			
+	
+			<p>Select the CApp project you want to create <strong>Registry Filter Artifact</strong> and give a name to the 
+			Registry Filter Artifact as shown in Figure 23. 
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regFil6.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 23</div>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Registry Filter Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			
+		<h2 id="RegistryHandler">Registry Handler</h2>
+		<p>
+        To create a Registry Handler Artifact, right click on the CApp project select <strong>New</strong> and then select <strong>Registry Handler</strong> from 
+        the menu. (Figure 24)
+        </p> 
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand1.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 24</div>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		To create a <strong>Registry Handler Artifact</strong>, you need to have two types of classes. Handler class which is exteneded 
+		by <strong>org.wso2.carbon.registry.core.jdbc.handlers.Handler</strong> and a Filter class which is extended by 
+		<strong>org.wso2.carbon.registry.core.jdbc.handlers.filters.Filter</strong>.
+		</p>
+		
+		<p>First wizard page is regarding information of <strong>Handler</strong> class. If you have a class extending 
+		<strong>org.wso2.carbon.registry.core.jdbc.handlers.Handler</strong> in the workspce, information regarding that class and 
+		project will be filled for you. (Figure 25)
+		</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand2.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 25</div>
+				<br></br>
+				<br></br>
+			</p>
+		<p>You can create a new <strong>Handler</strong> class by clicking on <strong>New</strong> option as well. (Figure 26)
+		</p>
+		
+		<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand3.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 26</div>
+				<br></br>
+				<br></br>
+		</p>
+			<p>You can select <strong>Handler Properties</strong> and <strong>Handler methods</strong> and click <strong>Next</strong>. (Figure 27)
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand4.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 27</div>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>In the next wizard page, you have to give the information regarding <strong>Filter</strong> class. If you have Filter class 
+			already in the workspace, those information will be filled in the drop-down box. (Figure 28)
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand5.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 28</div>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>As you did for <strong>Handlers</strong>, you can create a new Filter class by clicking <strong>New</strong> option.
+			</p>
+			
+			<p>Define filter criteria and click <strong>Next</strong>. </p>
+			
+			<p>Select the CApp project you want to create <strong>Registry Handler Artifact</strong> and and give a name to the 
+			Registry Handler Artifact.
+			 Then click <strong>Finish</strong>. (Figure 29)
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand6.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 29</div>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Registry Handler Artifact</strong> has been created under <strong>Artifacts</strong> 
+			folder of the CApp project, as shown in Figure 30.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regHand7.PNG" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 30</div>
+				<br></br>
+				<br></br>
+			</p>
+			
+		<h2 id="RegistryAspect">Registry Aspect</h2>	
+		<p>
+        You can create a <strong>Registry Aspect</strong> class from <strong>WSO2 Carbon Studio</strong>. 
+        To create a Registry Aspect class, select the C-App project and press <strong>Ctrl + n</strong> to 
+        open the <strong>New</strong> wizard. You can open the same wizard by <strong>File -> New -> Other</strong> 
+        as well. 
+        </p>
+        <p>
+		Select <strong>WSO2 Registry Aspect</strong> and click <strong>Next</strong>, as shown in Figure 31.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+				<div style="text-align:center;">
+				<img src="images/regAspect1.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 31</div>
+			<br></br>
+			<br></br>
+		</p>
+		
+		
+		<p>Then you will get normal Eclipse class generating wizard page. (Figure 32)
+		</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regAspect2.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 32</div>
+				<br></br>
+				<br></br>
+			</p>
+		<p>
+		Give necessary information and click <strong>Finish</strong>. (Figure 33)
+		</p>
+		
+		<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regAspect3.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 33</div>
+				<br></br>
+				<br></br>
+		</p>
+			<p>Now you will see Aspect class is created which is extended from <strong>org.wso2.carbon.registry.core.Aspect</strong> 
+			super class. (Figure 34)
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regAspect4.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 34</div>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			<p>You can implement the functionality you want in this class and deploy this 
+			aspect class in to <strong>WSO2 G-Reg</strong> by making it as a library artifact. 
+			</p>
+			<p>
+			Please refer <a href="carbon_category.html#JavaLibArtifact">Third Party Java Library Artifact</a> 
+			section for more details on how to create library artifact using <strong>WSO2 Carbon 
+			Studio</strong>.
+			</p>
+			
+			<p>
+			There, you have an option to select a project in your workspace when creating the 
+			library artifact. With that option, it will compile the selected project and make 
+			it a deployable bundle. To deploy the <strong>registry aspect</strong>, that we have 
+			just created for <strong>WSO2 G-Reg</strong> server, first we will make it a 
+			<strong>library</strong> artifact. Select the project which has the created 
+			<strong>aspect</strong> class when creating the library artifact. 
+			</p>
+			
+			<p>
+			When creating a library artifact, there is a checkbox called <strong>Make this a 
+			fragment bundle</strong>. To deploy a bundle which includes the <strong>aspect</strong> 
+			class, we need to make it a fragment host of <strong>org.wso2.carbon.regisrty.core</strong>.
+			 Otherwise it will not be visible at the runtime. So we will check that check box and 
+			 make <strong>org.wso2.carbon.regisrty.core</strong> as the fragment host.  (Figure 35)
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/regAspect5.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 35</div>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Now you can deploy this library artifact in to <strong>WSO2 G-Reg</strong> as a CAR file.Before 
+			deploying the <strong>CAR</strong> file in to server, make sure server role of created 
+			library bundle is <strong>GovernanceRegistry</strong>. For library artifacts default 
+			server role is set as <strong>ApplicationServer</strong>. (Figure 36)
+			</p>
+			<p>				
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/appser.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 36</div>
+				<br></br>
+				<br></br>
+			</p>
+			<p>To deploy it to <strong>
+			WSO2 G-Reg</strong>, you need to change it to correct server role.(Figure 37) 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<div style="text-align:center;">
+				<img src="images/greg9.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/><br></br>Figure 37</div>
+				<br></br>
+				<br></br>
+			</p>
+
+			<p>
+			After deploying the library artifact, you will have to restart the server to make 
+			<strong>Aspect</strong> class available in the runtime. 
+			</p>
+			
+			<p>
+			You can access this class by configure it via <strong>registry.xml</strong> or through the
+			<strong>WSO2 G-Reg</strong> management console. 
+			</p>
+			
+	</body>
+</html>

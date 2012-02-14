@@ -1,0 +1,13 @@
+<service name="WSDL11Validator">
+    <schema schemaNamespace="http://org.wso2.tools.wsdl/xsd"  elementFormDefaultQualified="false"/>
+    <description>
+        This is a service to validate a WSDL 1.1 document
+    </description>
+    <parameter name="ServiceClass" locked="false">org.wso2.tools.wsdl.WSDL11Validator</parameter>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2006/01/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2006/01/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+</service>

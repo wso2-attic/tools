@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.wso2.carbonstudio.eclipse.platform.ui.artifact" name="Artifact information" schema="schema/org.wso2.carbonstudio.eclipse.platform.ui.artifact.exsd"/>
+
+	<extension point="org.eclipse.ui.startup">
+		<startup class="org.wso2.carbonstudio.eclipse.platform.ui.startup.PlatformStartup"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page id="org.wso2.carbonstudio.eclipse.ui.carbonstudio.preferences" name="Carbon Studio" class="org.wso2.carbonstudio.eclipse.platform.ui.preferences.CarbonStudioPreferencePage">
+		</page>
+	</extension>
+	<extension
+	       point="org.eclipse.core.runtime.preferences">
+	    <initializer
+	          class="org.wso2.carbonstudio.eclipse.platform.ui.preferences.PreferenceInitializer">
+	    </initializer>
+	 </extension>
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu label="Carbon Studio"
+               mnemonic="C"
+               id="org.wso2.carbonstudio.eclipse.platform.ui.main">
+           <dynamic class="org.wso2.carbonstudio.eclipse.samples.menu.CarbonStudioSampleMenuContributor"
+				id="org.wso2.carbonstudio.eclipse.capp.samples.menu.items" />
+         </menu>
+      </menuContribution>
+	</extension> 
+</plugin>

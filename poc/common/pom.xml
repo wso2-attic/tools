@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+    	<groupId>org.wso2.eclipse</groupId>
+    	<artifactId>wso2-eclipse-parent</artifactId>
+    	<version>1.1.0.SNAPSHOT</version>
+    </parent>
+	<artifactId>wso2-eclipse-common</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <name>WSO2 Eclipse Common</name>
+    <repositories>
+    	<repository>
+    		<id>wso2-maven2-repo</id>
+    		<name>WSO2 Maven2 Repo</name>
+    		<url>http://dist.wso2.org/maven2/</url>
+    	</repository>
+    </repositories>
+    <modules>
+        <module>org.wso2.carbonstudio.eclipse.libraries</module>
+        <module>org.wso2.carbonstudio.eclipse.logging</module>
+        <!--module>org.wso2.carbonstudio.eclipse.p2manager</module-->
+        <!--module>org.wso2.carbonstudio.eclipse.p2manager.36</module-->
+        <module>org.wso2.carbonstudio.eclipse.ui</module>
+        <module>org.wso2.carbonstudio.eclipse.utils</module>
+    </modules>
+</project>
+

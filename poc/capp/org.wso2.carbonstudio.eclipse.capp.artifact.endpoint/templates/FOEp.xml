@@ -1,0 +1,7 @@
+<endpoint xmlns="{1}" name="{0}" > 
+	<failover>
+		<endpoint name="endpoint_urn_uuid_6179155B57847314A656794419902014617670556">
+			<address uri="http://localhost"/>
+		</endpoint>
+	</failover>
+</endpoint>

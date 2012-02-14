@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension point="org.eclipse.ui.editors">
+	 <editor id="org.wso2.carbonstudio.eclipse.ds.presentation.DsEditorID"
+			name="%_UI_DsEditor_label" icon="icons/wso2/dbsIcon.gif"
+			extensions="dbs" class="org.wso2.carbonstudio.eclipse.ds.presentation.DsEditor"
+			contributorClass="org.wso2.carbonstudio.eclipse.ds.presentation.DsActionBarContributor">
+			<contentTypeBinding
+				contentTypeId="org.wso2.carbonstudio.eclipse.ds.contenttype.dsconfxml">
+			</contentTypeBinding>
+		</editor> 
+	</extension> 
+	
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type base-type="org.eclipse.core.runtime.xml"
+			file-extensions="dbs"
+			id="org.wso2.carbonstudio.eclipse.ds.contenttype.dsconfxml"
+			name="DS Editor File" priority="high"
+		    describer=" org.eclipse.core.runtime.content.XMLRootElementContentDescriber:data">
+		</content-type>
+	</extension> 
+	
+ <extension
+       point="org.eclipse.ui.newWizards">
+    <wizard
+          category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.ds"
+          class="org.wso2.carbonstudio.eclipse.ds.wizards.DataServiceCreationWizard"
+          id="org.wso2.carbonstudio.eclipse.ds.editor.DsWizardID"
+          name="New Data Service Wizard">
+         <description>%_UI_DsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+    </wizard>
+ </extension>
+
+</plugin>

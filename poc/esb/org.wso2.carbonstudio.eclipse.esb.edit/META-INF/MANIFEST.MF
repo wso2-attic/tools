@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.esb.edit;singleton:=true
+Bundle-Version: 1.1.0.SNAPSHOT
+Bundle-ClassPath: .
+Bundle-Activator: org.wso2.carbonstudio.eclipse.esb.provider.EsbEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.wso2.carbonstudio.eclipse.esb.mediator.provider,
+ org.wso2.carbonstudio.eclipse.esb.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.wso2.carbonstudio.eclipse.esb;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.apache.commons.lang
+Bundle-ActivationPolicy: lazy

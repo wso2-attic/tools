@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wso2.tools</groupId>
+    <artifactId>tools-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>SNAPSHOT</version>
+    <name>WSO2 Tools</name>
+    <url>http://www.wso2.org</url>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <!-- Axis2 Jars -->
+            <dependency>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2</artifactId>
+                <version>SNAPSHOT</version>
+            </dependency>
+            <!-- AIOM Dependencies -->
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-impl</artifactId>
+                <version>SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-api</artifactId>
+                <version>SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>wtp</groupId>
+                <artifactId>org.eclipse.wst.wsdl.validation_1.1.0.v</artifactId>
+                <version>200606130645</version>
+            </dependency>
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+                <version>1.6.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.woden</groupId>
+                <artifactId>woden</artifactId>
+                <version>1.0-incubating-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>3.8.2</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <source>1.4</source>
+                    <target>1.4</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>maven-snapshots</id>
+            <name>Maven Central Development Repository</name>
+            <url>http://snapshots.maven.codehaus.org/maven2</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>dist-wso2</id>
+            <name>WSO2 Standard Repository</name>
+            <url>http://dist.wso2.org/maven2</url>
+        </repository>
+        <repository>
+            <id>m2-snapshot-repository</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- Others are available from http://repo1.maven.org/maven2 -->
+    </repositories>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>snapshot-apache</id>
+            <name>Apache Snapshot repository</name>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>snapshot</id>
+            <name>Snapshot repository</name>
+            <url>http://snapshots.maven.codehaus.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+
+    </pluginRepositories>
+
+
+    <distributionManagement>
+        <repository>
+            <id>wso2-maven2-repository</id>
+            <name>WSO2 Maven2 Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>wso2-maven2-snapshot-repository</id>
+            <name>WSO2 Maven2 Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/maven2/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <modules>
+        <module>modules/marvalidator</module>
+        <module>modules/wsdl11validator</module>
+        <module>modules/wsdlconverter</module>
+        <module>modules/aarvalidator</module>
+    </modules>
+
+
+</project>

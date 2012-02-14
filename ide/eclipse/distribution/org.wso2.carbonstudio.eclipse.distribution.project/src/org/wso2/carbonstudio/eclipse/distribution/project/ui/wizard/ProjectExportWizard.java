@@ -1,0 +1,191 @@
+/*
+ * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.wso2.carbonstudio.eclipse.distribution.project.ui.wizard;
+
+import java.io.File;
+import java.util.List;
+
+import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.ui.IExportWizard;
+import org.eclipse.ui.IWorkbench;
+import org.wso2.carbonstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
+import org.wso2.carbonstudio.eclipse.distribution.project.util.Constants;
+import org.wso2.carbonstudio.eclipse.distribution.project.util.DistProjectUtils;
+import org.wso2.carbonstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.carbonstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.carbonstudio.eclipse.platform.core.project.export.util.ExportUtil;
+import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+
+public class ProjectExportWizard extends Wizard implements IExportWizard {
+	private ExportDetailsWizardPage detailsPage;
+	private final int ESB_PROJECT=1;
+	private final int GENERAL_PROJECT=2;
+
+	public void init(IWorkbench wb, IStructuredSelection selection) {
+		detailsPage = new ExportDetailsWizardPage(wb, selection);
+
+	}
+
+	public void addPages() {
+		addPage(detailsPage);
+		super.addPages();
+	}
+
+	public boolean performFinish() {
+		MessageBox exportMsg = new MessageBox(getShell(), SWT.ICON_ERROR);
+		exportMsg.setText("WSO2 Platform Distribution");
+		IProject project = detailsPage.getSelectedProject();
+		try {
+			if(project.hasNature(Constants.AXIS2_PROJECT_NATURE) ||
+					   project.hasNature(Constants.BPEL_PROJECT_NATURE) ||
+					   project.hasNature(Constants.DS_PROJECT_NATURE) ||
+					   project.hasNature(Constants.DS_VALIDATOR_PROJECT_NATURE) ||
+					   project.hasNature(Constants.JAXWS_PROJECT_NATURE) ||
+					   project.hasNature(Constants.WEBAPP_PROJECT_NATURE) ||
+					   project.hasNature(Constants.GADGET_PROJECT_NATURE) ||
+					   project.hasNature(Constants.LIBRARY_PROJECT_NATURE) ||
+					   project.hasNature(Constants.MEDIATOR_PROJECT_NATURE) ||
+					   project.hasNature(Constants.REGISTRY_FILTER_PROJECT_NATURE) ||
+					   project.hasNature(Constants.REGISTRY_HANDLER_PROJECT_NATURE) ||
+					   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)){
+				exportArchivable(project);
+			} else if(project.hasNature(Constants.ESB_PROJECT_NATURE)){
+				exportNonArchivable(project,ESB_PROJECT);
+			} else if(project.hasNature(Constants.GENERAL_PROJECT_NATURE)){
+				exportNonArchivable(project,GENERAL_PROJECT);
+			}
+		} catch (Exception e) {
+			exportMsg
+					.setMessage("Error occurred while exporting the archive :\n"
+							+ e.getMessage());
+			exportMsg.open();
+		}
+		return true;
+	}
+
+	private void exportArchivable(IProject project) throws Exception{
+		String cAppType = new String();
+		MavenProject mavenProject;
+		String ext = new String();
+		String finalFileName = new String();
+		mavenProject = DistProjectUtils.getMavenProject(project);
+		cAppType = mavenProject.getModel().getPackaging();
+		String version = mavenProject.getModel().getVersion();
+		if (cAppType == null
+				|| !ArtifactTypeMapping.isValidArtifactType(cAppType)) {
+			if (mavenProject.getModel().getProperties()
+					.containsKey("CApp.type")) {
+				cAppType = (String) mavenProject.getModel().getProperties()
+						.get("CApp.type");
+			}
+		}
+		List<IResource> archive = ExportUtil.buildProject(
+				detailsPage.getSelectedProject(), cAppType);
+		if (archive.size() == 1) {
+			ext = ArtifactTypeMapping.getType(cAppType);
+			finalFileName = String.format("%s_%s.%s", project.getName(),
+					version, ext);
+			File destFileName = new File(detailsPage.getExportPath(),
+					finalFileName);
+			FileUtils.copy(archive.get(0).getLocation().toFile(), destFileName);
+		} else {
+			throw new Exception("No resource found that matches the given type " + cAppType);
+		}
+	}
+	
+	private void exportNonArchivable(IProject project, int type) throws Exception{
+		MavenProject mavenProject = DistProjectUtils.getMavenProject(project);
+		String version = mavenProject.getModel().getVersion();
+		String finalFileName = String.format("%s_%s", project.getName(),
+		version);
+		File destFileName = new File(detailsPage.getExportPath(),
+		finalFileName);
+		IFile artifactXMLFile = project.getFile(Constants.ARTIFACT_XML);
+		if (artifactXMLFile.exists()) {
+			ESBProjectArtifact artifactXMLDoc = new ESBProjectArtifact();
+				artifactXMLDoc.fromFile(artifactXMLFile.getLocation().toFile());
+				List<ESBArtifact> artifacts = artifactXMLDoc.getAllESBArtifacts();
+				if(type==ESB_PROJECT){
+					exportESBArtifact(artifacts,project,destFileName);
+				} else if (type==GENERAL_PROJECT){
+					exportRegResources(artifacts,project,destFileName);
+				}
+		}
+	}
+	
+	private void exportESBArtifact(List<ESBArtifact> artifacts,
+			IProject project, File dir) throws Exception {
+		File synapseConfigDir = new File(dir, "synapse-config");
+		File endpointsDir = new File(synapseConfigDir, "endpoints");
+		File localEntriesDir = new File(synapseConfigDir, "local-entries");
+		File proxyServicesDir = new File(synapseConfigDir, "proxy-services");
+		File sequencesDir = new File(synapseConfigDir, "sequences");
+		if (!synapseConfigDir.exists())
+			synapseConfigDir.mkdirs();
+		if (!endpointsDir.exists())
+			endpointsDir.mkdirs();
+		if (!proxyServicesDir.exists())
+			proxyServicesDir.mkdirs();
+		if (!localEntriesDir.exists())
+			localEntriesDir.mkdirs();
+		if (!sequencesDir.exists())
+			sequencesDir.mkdirs();
+		for (ESBArtifact artifact : artifacts) {
+			String type = artifact.getType();
+			File file = project.getFile(artifact.getFile()).getLocation().toFile();
+			File dstFile=null;
+			if(file.exists()){
+				String artifactFile = file.getName();
+				if("synapse/local-entry".equals(type)){
+					dstFile = new File(localEntriesDir,artifactFile);
+				} else if("synapse/proxy-service".equals(type)){
+					dstFile = new File(proxyServicesDir,artifactFile);
+				} else if("synapse/endpoint".equals(type)){
+					dstFile = new File(endpointsDir,artifactFile);
+				} else if("synapse/sequence".equals(type)){
+					dstFile = new File(sequencesDir,artifactFile);
+				} else if("synapse/configuration".equals(type)){
+					dstFile = new File(synapseConfigDir,artifactFile);
+				} else{
+					continue;
+				}
+				FileUtils.copy(file, dstFile);
+			}
+		}
+	}
+	
+	private void exportRegResources(List<ESBArtifact> artifacts,IProject project,File dir) throws Exception{
+		List<IResource> buildProject = ExportUtil.buildProject(
+				project,
+				"registry/resource");
+		for(IResource res : buildProject) {
+			if(res instanceof IFolder){
+				File dstFile= new File(dir,res.getName());
+				FileUtils.copyDirectory(res.getLocation().toFile(),
+						dstFile);
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Web Application Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#WARArtifact">Web Application Artifact</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="WARArtifact">Web Application Artifact</h2>
+       	<p>
+        To create a Web Application (WAR), right click on the CApp project and select <strong>Web Application (WAR)</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/war1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a Web Application (WAR).  
+		</p>
+		<ol>
+			<li>Web Application (WAR) from Web Project</li>
+			<li>Web Application (WAR) in the File System</li>
+		</ol>
+
+			<p>With the <strong>Web Application (WAR) from Web Project</strong> option, all the <strong>Dynamic Web Projects</strong> 
+			in the workspace will be listed. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/war2.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Select the project you need and click <strong>Next</strong>.
+			</p>
+			
+			<p>Select the CApp project you want to create <strong>Web Application (WAR)</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/war3.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Web Application (WAR) artifact is created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/war4.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+  		
+									
+	</body>
+</html>

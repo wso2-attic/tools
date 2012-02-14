@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+         <wizard name="Endpoint" 
+         category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.message.mediation/org.wso2.carbonstudio.eclipse.message.mediation.features"
+			class="org.wso2.carbonstudio.eclipse.artifact.endpoint.ui.wizard.EndpointProjectCreationWizard"
+			wizardManifest="project_wizard.xml"
+			id="org.wso2.carbonstudio.eclipse.artifact.newendpointartifact"
+			icon="icons/endpoint-normal.png">
+			<description>Endpoint</description>
+		</wizard>
+   </extension>
+   <extension point="org.eclipse.ui.navigator.navigatorContent">	
+	   <navigatorContent activeByDefault="true"
+			priority="high"
+			id="org.eclipse.ui.navigator.resourceContent"
+			name="test">
+				<commonWizard 
+					menuGroupId="2org.wso2.carbonstudio.eclipse.artifact.esb"
+			  	 	type="new"
+					wizardId="org.wso2.carbonstudio.eclipse.artifact.newendpointartifact">
+					<enablement>
+						<or>
+							<adapt type="org.eclipse.core.resources.IProject"/>
+							<adapt type="org.eclipse.core.resources.IFolder"/>
+						</or>
+					</enablement>
+				</commonWizard>
+				<triggerPoints>
+				           <or>         
+				              <instanceof 
+				                    value="org.eclipse.core.resources.IWorkspaceRoot" /> 
+				              <instanceof
+				                    value="org.eclipse.core.resources.IProject" />  
+				              <instanceof  
+				                     value="org.eclipse.core.resources.IFolder" /> 
+				           </or>
+				  </triggerPoints>
+		</navigatorContent>
+	</extension>
+	<extension point="org.eclipse.core.resources.natures"
+		id="org.wso2.carbonstudio.eclipse.endpoint.project.nature" name="Endpoint Project Nature">
+		<runtime>
+			<run
+				class="org.wso2.carbonstudio.eclipse.artifact.endpoint.project.nature.EndpointProjectNature">
+			</run>
+		</runtime>
+	</extension>
+	<!--extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image id="org.wso2.carbonstudio.eclipse.ep.project.natureImage"
+			natureId="org.wso2.carbonstudio.eclipse.endpoint.project.nature" icon="icons/endpoint-normal.png">
+		</image>
+	</extension-->
+	<extension
+         point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
+      <endpoint
+            class="org.wso2.carbonstudio.eclipse.artifact.endpoint.provider.EndpointProvider"
+            id="org.wso2.carbonstudio.eclipse.artifact.endpoint"
+            name="Carbon Application Endpoints">
+      </endpoint>
+   </extension>
+   
+</plugin>

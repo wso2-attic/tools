@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-dataservice-plugin</id>
+ <resources>
+    <resource>src/main/resources/dataservice/dataservice.dbs</resource>
+  </resources>
+</archetype>

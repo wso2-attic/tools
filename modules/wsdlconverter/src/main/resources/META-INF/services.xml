@@ -1,0 +1,10 @@
+<service name="WSDLConverter">
+    <schema schemaNamespace="http://org.wso2.tools.wsdl/xsd"  elementFormDefaultQualified="false"/>
+    <description>
+        This is a service to convert WSDL 1.1 document in to WSDL 2.0 document
+    </description>
+    <parameter name="ServiceClass" locked="false">org.wso2.tools.wsdl.WSDLConverter</parameter>
+    <operation name="convert">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </operation>
+</service>

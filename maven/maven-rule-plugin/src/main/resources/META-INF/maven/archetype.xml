@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-rule-plugin</id>
+ <resources>
+    <resource>src/main/resources/RuleService1</resource>
+  </resources>
+</archetype>

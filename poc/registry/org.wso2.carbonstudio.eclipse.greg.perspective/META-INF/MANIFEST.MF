@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Perspective
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.greg.perspective;singleton:=true
+Bundle-Version: 1.1.0.SNAPSHOT
+Bundle-Activator: org.wso2.carbonstudio.eclipse.greg.perspective.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

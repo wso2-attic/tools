@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.wso2.carbonstudio.eclipse.samples" name="Carbon Studio Samples" schema="schema/org.wso2.carbonstudio.eclipse.samples.exsd"/>
+	<extension point="org.eclipse.ui.menus">
+       <menuContribution
+            locationURI="menu:org.wso2.carbonstudio.eclipse.platform.ui.main?after=additions">
+         <menu label="Samples" mnemonic="S"
+               id="org.wso2.carbonstudio.eclipse.samples.menu">
+			<dynamic class="org.wso2.carbonstudio.eclipse.samples.menu.contributors.CarbonStudioSampleMenuContributor"
+				id="org.wso2.carbonstudio.eclipse.samples.menu.items" />
+         </menu>
+      </menuContribution>
+	</extension> 
+</plugin>

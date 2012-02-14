@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-js-plugin</id>
+ <resources>
+    <resource>src/main/resources/js-project</resource>
+  </resources>
+</archetype>

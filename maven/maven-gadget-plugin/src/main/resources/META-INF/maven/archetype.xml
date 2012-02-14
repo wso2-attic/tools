@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-gadget-plugin</id>
+ <resources>
+    <resource>src/main/resources/sample-gadget.xml</resource>
+  </resources>
+</archetype>

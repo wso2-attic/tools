@@ -1,0 +1,102 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Data Service Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#DSArtifact">Data Service Artifact</a>
+				</li>
+				<li>
+					<a href="server_extensions_category.html#DSValidator">Data Service Validator</a>
+				</li>				
+			</ul>
+		</div>
+		<h2 id="DSArtifact">Data Service Artifact</h2>
+        <p>
+        To create a data service, right click on the CApp project and select <strong>Data Service</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/ds1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create a data service.    
+		</p>
+		<ol>
+			<li>New Data Service</li>
+			<li>Import Data Service from File System</li>
+			<li>Import Data Service from Registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/ds2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>New Data Service</strong> option, you will get an empty data service with the specified name. At the same time, 
+			you can upload a <strong>Data Service</strong> file or any file with the extension of <strong>.dbs</strong> from the 
+			file system or from the registry.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ds3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import Data Service from Registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+			<strong>Browse</strong> to browse resources in registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ds4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Select the CApp project you want to create <strong>Data Service</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ds5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Data Service artifact is created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ds6.png"></img>
+				<br></br>
+				<br></br>
+			</p>			
+									
+	</body>
+</html>

@@ -1,0 +1,6 @@
+<archetype>
+  <id>maven-synapse-plugin</id>
+ <resources>
+    <resource>src/main/resources/synapse/synapse.xml</resource>
+  </resources>
+</archetype>

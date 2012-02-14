@@ -1,0 +1,516 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package org.wso2.carbonstudio.eclipse.ds.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.wso2.carbonstudio.eclipse.ds.AttributeMapping;
+import org.wso2.carbonstudio.eclipse.ds.CallQuery;
+import org.wso2.carbonstudio.eclipse.ds.DsPackage;
+import org.wso2.carbonstudio.eclipse.ds.ElementMapping;
+import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Result Mapping</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getElementMappings <em>Element Mappings</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getCallQuery <em>Call Query</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getDefaultNamespace <em>Default Namespace</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getElementName <em>Element Name</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getRowName <em>Row Name</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getUseColumnNumbers <em>Use Column Numbers</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getXsltPath <em>Xslt Path</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
+	/**
+	 * The cached value of the '{@link #getElementMappings() <em>Element Mappings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementMappings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ElementMapping> elementMappings;
+
+	/**
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AttributeMapping> attribute;
+
+	/**
+	 * The cached value of the '{@link #getCallQuery() <em>Call Query</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCallQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CallQuery> callQuery;
+
+	/**
+	 * The default value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEFAULT_NAMESPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String defaultNamespace = DEFAULT_NAMESPACE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ELEMENT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String elementName = ELEMENT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROW_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rowName = ROW_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseColumnNumbers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USE_COLUMN_NUMBERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseColumnNumbers()
+	 * @generated
+	 * @ordered
+	 */
+	protected String useColumnNumbers = USE_COLUMN_NUMBERS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getXsltPath() <em>Xslt Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXsltPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String XSLT_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getXsltPath() <em>Xslt Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXsltPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String xsltPath = XSLT_PATH_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResultMappingImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return DsPackage.Literals.RESULT_MAPPING;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ElementMapping> getElementMappings() {
+		if (elementMappings == null) {
+			elementMappings = new EObjectContainmentEList<ElementMapping>(ElementMapping.class, this, DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS);
+		}
+		return elementMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AttributeMapping> getAttribute() {
+		if (attribute == null) {
+			attribute = new EObjectContainmentEList<AttributeMapping>(AttributeMapping.class, this, DsPackage.RESULT_MAPPING__ATTRIBUTE);
+		}
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CallQuery> getCallQuery() {
+		if (callQuery == null) {
+			callQuery = new EObjectContainmentEList<CallQuery>(CallQuery.class, this, DsPackage.RESULT_MAPPING__CALL_QUERY);
+		}
+		return callQuery;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDefaultNamespace() {
+		return defaultNamespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultNamespace(String newDefaultNamespace) {
+		String oldDefaultNamespace = defaultNamespace;
+		defaultNamespace = newDefaultNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getElementName() {
+		return elementName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElementName(String newElementName) {
+		String oldElementName = elementName;
+		elementName = newElementName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__ELEMENT_NAME, oldElementName, elementName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRowName() {
+		return rowName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRowName(String newRowName) {
+		String oldRowName = rowName;
+		rowName = newRowName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__ROW_NAME, oldRowName, rowName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getUseColumnNumbers() {
+		return useColumnNumbers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseColumnNumbers(String newUseColumnNumbers) {
+		String oldUseColumnNumbers = useColumnNumbers;
+		useColumnNumbers = newUseColumnNumbers;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS, oldUseColumnNumbers, useColumnNumbers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getXsltPath() {
+		return xsltPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setXsltPath(String newXsltPath) {
+		String oldXsltPath = xsltPath;
+		xsltPath = newXsltPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__XSLT_PATH, oldXsltPath, xsltPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+				return ((InternalEList<?>)getElementMappings()).basicRemove(otherEnd, msgs);
+			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
+				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
+			case DsPackage.RESULT_MAPPING__CALL_QUERY:
+				return ((InternalEList<?>)getCallQuery()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+				return getElementMappings();
+			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
+				return getAttribute();
+			case DsPackage.RESULT_MAPPING__CALL_QUERY:
+				return getCallQuery();
+			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
+				return getDefaultNamespace();
+			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
+				return getElementName();
+			case DsPackage.RESULT_MAPPING__ROW_NAME:
+				return getRowName();
+			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
+				return getUseColumnNumbers();
+			case DsPackage.RESULT_MAPPING__XSLT_PATH:
+				return getXsltPath();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+				getElementMappings().clear();
+				getElementMappings().addAll((Collection<? extends ElementMapping>)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
+				getAttribute().clear();
+				getAttribute().addAll((Collection<? extends AttributeMapping>)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__CALL_QUERY:
+				getCallQuery().clear();
+				getCallQuery().addAll((Collection<? extends CallQuery>)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
+				setDefaultNamespace((String)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
+				setElementName((String)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__ROW_NAME:
+				setRowName((String)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
+				setUseColumnNumbers((String)newValue);
+				return;
+			case DsPackage.RESULT_MAPPING__XSLT_PATH:
+				setXsltPath((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+				getElementMappings().clear();
+				return;
+			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
+				getAttribute().clear();
+				return;
+			case DsPackage.RESULT_MAPPING__CALL_QUERY:
+				getCallQuery().clear();
+				return;
+			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
+				setDefaultNamespace(DEFAULT_NAMESPACE_EDEFAULT);
+				return;
+			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
+				setElementName(ELEMENT_NAME_EDEFAULT);
+				return;
+			case DsPackage.RESULT_MAPPING__ROW_NAME:
+				setRowName(ROW_NAME_EDEFAULT);
+				return;
+			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
+				setUseColumnNumbers(USE_COLUMN_NUMBERS_EDEFAULT);
+				return;
+			case DsPackage.RESULT_MAPPING__XSLT_PATH:
+				setXsltPath(XSLT_PATH_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+				return elementMappings != null && !elementMappings.isEmpty();
+			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
+				return attribute != null && !attribute.isEmpty();
+			case DsPackage.RESULT_MAPPING__CALL_QUERY:
+				return callQuery != null && !callQuery.isEmpty();
+			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
+				return DEFAULT_NAMESPACE_EDEFAULT == null ? defaultNamespace != null : !DEFAULT_NAMESPACE_EDEFAULT.equals(defaultNamespace);
+			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
+				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
+			case DsPackage.RESULT_MAPPING__ROW_NAME:
+				return ROW_NAME_EDEFAULT == null ? rowName != null : !ROW_NAME_EDEFAULT.equals(rowName);
+			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
+				return USE_COLUMN_NUMBERS_EDEFAULT == null ? useColumnNumbers != null : !USE_COLUMN_NUMBERS_EDEFAULT.equals(useColumnNumbers);
+			case DsPackage.RESULT_MAPPING__XSLT_PATH:
+				return XSLT_PATH_EDEFAULT == null ? xsltPath != null : !XSLT_PATH_EDEFAULT.equals(xsltPath);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (defaultNamespace: ");
+		result.append(defaultNamespace);
+		result.append(", elementName: ");
+		result.append(elementName);
+		result.append(", rowName: ");
+		result.append(rowName);
+		result.append(", useColumnNumbers: ");
+		result.append(useColumnNumbers);
+		result.append(", xsltPath: ");
+		result.append(xsltPath);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ResultMappingImpl

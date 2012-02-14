@@ -1,0 +1,313 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+		<h1>Apache Axis2 and JAX-WS Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#Axis2Artifact">Apache Axis2 Artifact</a>
+				</li>
+				<li>
+					<a href="#JAX-WSArtifact">JAX-WS Artifact</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="Axis2Artifact">Apache Axis2 Artifact</h2>
+		<p>
+		 To create a Apache Axis2 Service Artifact, right click on the CApp project and select 
+		 <strong>Axis2 Service</strong> from the 
+        menu.
+        </p>
+        <p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		There are three ways to create an Apache Axis2 Service Artifact.    
+		</p>
+		
+		<div class="toc2">
+			<ul>
+				<li>
+					<a href="#Axis2ArtifactNew">Create an Apache Axis2 Service Artifact pointing a class file in the workspace</a>
+				</li>
+				<li>
+					<a href="#Axis2ArtifactWS">Apache Axis2 Service in the workspace</a>
+				</li>
+				<li>
+					<a href="#Axis2ArtifactFS">Apache Axis2 archive in the file system</a>
+				</li>
+			</ul>
+		</div>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<h3 id="Axis2ArtifactNew">Create an Apache Axis2 Service Artifact pointing a class file in the workspace</h3>
+		
+		<p>
+		This option will be selected by default. If you already have a service class in your workspace, 
+		select <b>Browse</b> button and type the class name you want to specify. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis11.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		You can create a new class from the scratch as well. To point a new service class, select 
+		<b>New</b> button. Now you will see, general java class creation page of Eclipse appears. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis3.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		In the class creation wizard page give necessary information and click <b>Finish</b>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis4.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that the given information has been filled in to Apache Axis2 Service artifact 
+		creation wizard page. Then click <b>Next</b>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis5.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Give a name to the Apache Axis2 Service artifact. This field will be filled automatically. If not, 
+		give a name you preferred. Then click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis6.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see axis2 artifact is created under <strong>artifacts</strong> folder. You can see 
+		<strong>HelloWorld.service</strong> and <strong>services.xml</strong> files also have been created.
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis7.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we will add a method to HelloWorld java class. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis10.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		There are several things you can do with the service file that has been created. 
+		</p>
+		
+		<ol>
+			<li>Create a WSDL </li>
+			<li>Create a service client</li>
+			<li>Create an Axis2 Archive (aar) file</li>
+		</ol>
+		
+		
+		<p>
+		Those options are available when you right click on the <strong>.service</strong> file 
+		which has been created. 
+		</p>
+		
+		<br></br>
+		<br></br>
+		<p>
+		<strong>Create a WSDL</strong>
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis12.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		<strong>Create a service client</strong>
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis9.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		<strong>Create Apache Axis2 Archive(aar) file</strong>
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis8.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<h3 id="Axis2ArtifactWS">Apache Axis2 Service in the workspace</h3>
+		
+		<p> 
+		This is the second option to create an Axis2 Service artifact. If you already have a Web Services project in your workspace, you can create a service from that as 
+		well. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis010.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<h3 id="Axis2ArtifactFS">Apache Axis2 archive(aar) in the file system</h3>
+		
+		<p>
+		This is the third option to create an Axis2 Service artifact. With this option, you have to give 
+		the location of Apache Axis2 archive(aar) file in your file system.
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/axis012.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you have successfully created an Apache Axis2 Service artifact from WSO2 Carbon Studio. You can 
+		deploy the created service to WSO2 Application Server and test. Detailed description of how to deploy 
+		any type of artifact to a Carbon Server can be found <a href="testing_deploying_category.html">here</a>. 
+		</p>
+		
+		<h2 id="JAX-WSArtifact">JAX-WS Artifact</h2>
+        <p>
+        To create a JAX-WS Artifact, right click on the CApp project and select <strong>JAX-WS</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/jaxws1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a JAX-WS Artifact.    
+		</p>
+		<ol>
+			<li>Create a JAX-WS Pointing to a jar in the file system</li>
+			<li>Create a JAX-WS Pointing to a jar in the registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/jaxws2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+		<p>With the first option, you can point to a jar file in the file system.  
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Create a JAX-WS Pointing to a jar in the registry</strong>, you can browse resources of the registry 
+			instance that you have already created or you can create a new registry instance as well. After selecting the registry 
+			instance, click on <strong>Browse</strong> to browse resources in registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			
+			<p>Select the CApp project you want to create <strong>JAX-WS</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws6.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new JAX-WS artifact is created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws7.png"></img>
+				<br></br>
+				<br></br>
+			</p>								
+	</body>
+</html>

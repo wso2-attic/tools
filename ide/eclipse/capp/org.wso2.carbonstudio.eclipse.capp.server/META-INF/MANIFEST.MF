@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Carbon Application Deployment Monitor
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.capp.server
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: org.wso2.carbonstudio.eclipse.capp.server.Activator
+Bundle-Vendor: WSO2
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

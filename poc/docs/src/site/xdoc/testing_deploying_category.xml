@@ -1,0 +1,196 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Testing and Deploying</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#Deploy">Deploy CApp to a running server inside Eclipse</a>
+				</li>
+				<li>
+					<a href="#CarGen">Create Carbon Application Archive (Car) file</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="Deploy">Deploy CApp to a running server inside Eclipse</h2>
+		<p>
+        Before deploy the created CApp project, you have to choose the artifacts you need to deploy. For that, double click on 
+        the <strong>root-artifact.xml</strong> and select artifacts you need to deploy and save the changes.
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Go to <strong>Servers</strong> view, right click and select <strong>New -> Server </strong>.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Select <strong>WSO2 Carbon 3.0</strong> under the catogery of <strong>WSO2</strong>.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep3.png"></img>
+			<br></br>
+			<br></br>
+		</p>	
+		<p>
+		If you have not added WSO2 Server instances before, you will need to specify location of the downloaded WSO2 Server 
+		instance.  
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep5.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Now you will see <strong>WSO2 Carbon 3.0</strong> is added for <strong>Server Runtime Environments</strong>. Then click 
+		<strong>OK</strong>. 
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep7.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		You can change ports if you want. If the default ports are not used by any other application, you can keep them as they are. 
+		After setting the ports click <strong>Next</strong>.  
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep8.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Add the CApp project and click <strong>Finish</strong>.  
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep11.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Now you will see newly added server is listed in the <strong>Servers</strong> view. Right click on the <strong>WSO2 Carbon
+		 3.0 at localhost</strong> and select <strong>Start</strong> from the menu. 
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep13.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		You will see messages are pop up in the console and when the deployment is done, it will ask to restart the server. 
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep12.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep14.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+									
+		<p>
+		When the server is restarted, you can check whether your CApp project is deployed.  
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/dep15.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<h2 id="CarGen">Create Carbon Application Archive (Car) file</h2>
+		<p>
+        There are two ways you can create a <strong>.car</strong> file. One way is to right click on the <strong>CApp</strong> 
+        project and select <strong>Carbon Application Archive [CAR]</strong> from the <strong>Export</strong> menu. 
+        
+         </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/car1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		The other way is to select the option from the <strong>root-artifact.xml</strong>. Open the <strong>root-artifact.xml</strong> 
+		and there is a button to create the <strong>Carbon Application Archive [CAR]</strong> at the right most top corner. 
+		</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/car2.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Then select the artifacts you want to include to the <strong>Carbon Application Archive [CAR]</strong> and click finish.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/car3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Specify the location to save the <strong>Carbon Application Archive [CAR]</strong> file. 
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/car4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+						
+			<p>Now you have successfully created a <strong>Carbon Application Archive [CAR]</strong> file which is ready to be deployed.
+			</p>
+	</body>
+</html>

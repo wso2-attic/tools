@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard name="Axis2 Service" category="org.wso2.carbonstudio.eclipse.category.artifacts/org.wso2.carbonstudio.eclipse.category.artifacts.axis2.service"
+			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.WSO2ArtifactWizard"
+			id="org.wso2.carbonstudio.eclipse.artifacts.wizard.axis2service"
+			icon="resources/icons/axis2.png" archeTypeId="org.wso2.carbonstudio.eclipse.maven.plugin.axis2"
+			artifactType="service/axis2" wizardIcon="resources/icons/axis2-wizard.png">
+			<!-- here we can have further attributes as archeTemplate="<use this template id>" defaultTemplate="<by default select this template id>"-->
+			<description>WSO2 Axis2 Service</description>
+		</wizard>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard name="Axis2 Client" category="org.wso2.carbonstudio.eclipse.category.artifacts/org.wso2.carbonstudio.eclipse.artifacts.wizard.axis2client"
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.wizard.Axis2ClientGenerationWizard"
+			id="org.wso2.carbonstudio.eclipse.artifacts.wizard.axis2client"
+			icon="resources/icons/axis2.png">
+			<description>WSO2 Axis2 Client</description>
+		</wizard>
+	</extension>
+	<!--extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.core.Axis2ArtifactHandler"
+			id="org.wso2.capp.artifact.axis2">
+		</artifact>
+	</extension-->
+	<extension point="org.eclipse.ui.navigator.viewer">
+		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<contentExtension
+					pattern="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.axis2.service" />
+			</includes>
+		</viewerContentBinding>
+		<!--viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<actionExtension
+					pattern="org.wso2.carbonstudio.eclipse.artifacts.axis2.navigator.content.actionProvider" />
+			</includes>
+		</viewerActionBinding-->
+	</extension>
+	<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			id="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.axis2.service"
+			contentProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorLabelProvider"
+			name="Axis2 Artifacts" priority="high">
+			<triggerPoints>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.artifacts.axis2.model.Axis2ArtifactLocationNode" />
+				</or>
+			</triggerPoints>
+			<!--
+				possibleChildren> <or> <instanceof
+				value="org.eclipse.core.resources.IResource" /> </or>
+				</possibleChildren
+			-->
+			<commonWizard menuGroupId="5org.wso2.carbonstudio.eclipse.category.artifacts"
+				type="new" wizardId="org.wso2.carbonstudio.eclipse.artifacts.wizard.axis2service">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+			<!--
+				commonWizard
+				menuGroupId="1org.wso2.carbonstudio.eclipse.capp.newartifacts"
+				type="new"
+				wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.newaxis2service">
+				<enablement> <or> <adapt type="org.eclipse.core.resources.IProject">
+				<test property="org.eclipse.core.resources.projectNature"
+				value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+				</adapt> </or> </enablement> </commonWizard
+			-->
+		</navigatorContent>
+		<actionProvider
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.provider.Axis2ArtifactActionProvider"
+			id="org.wso2.carbonstudio.eclipse.artifacts.axis2.navigator.content.actionProvider">
+			<enablement>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.artifacts.axis2.model.Axis2ArtifactLocationNode" />
+				</or>
+			</enablement>
+		</actionProvider>
+	</extension>
+	<extension
+       point="org.wso2.carbonstudio.eclipse.maven.definitions">
+	    <archetype
+	          artifactId="maven-axis2-plugin"
+	          executeMode="DEFAULT"
+	          groupId="org.wso2.maven"
+	          id="org.wso2.carbonstudio.eclipse.maven.plugin.axis2"
+	          name="Axis2 Service Project"
+	          version="1.0-SNAPSHOT">
+   		</archetype>
+	</extension>
+
+	<!--
+		extension point="org.eclipse.ui.editors"> <editor default="true"
+		class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.editor.CAppAxis2ServiceEditor"
+		id="org.wso2.carbonstudio.eclipse.artifacts.axis2.serviceeditor"
+		name="CApp Service Editor" icon="icons/axis2.png"
+		extensions="service"> </editor> </extension
+	-->
+
+	<!--
+		extension point="org.eclipse.ui.exportWizards"> <wizard
+		id="org.wso2.carbonstudio.capp.eclipse.export.axis2archive"
+		name="Axis2 Archive"
+		category="org.wso2.carbonstudio.capp.eclipse.export"
+		class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.wizard.Axis2ArchiveExportWizard"
+		icon="icons/axis2.png"> <description> A simple engine that exports Web
+		project </description> <selection name="*.service"
+		class="org.eclipse.core.resources.IFile" /> </wizard> </extension
+	-->
+
+
+	<!--extension point="org.eclipse.ui.decorators">
+		<decorator id="org.wso2.carbonstudio.capp.eclipse.artifact.axis2.archive.decorator"
+			label="Axis2 Archive" state="true"
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.decorator.Axis2ArchiveDecorator"
+			lightweight="false" icon="icons/axis2.png">
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IFile" />
+			</enablement>
+		</decorator>
+		<decorator id="org.wso2.carbonstudio.capp.eclipse.artifact.axis2.folder.decorator"
+			label="Axis2 Service Folder" state="true"
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.decorator.Axis2ServiceFolderDecorator"
+			location="TOP_LEFT"
+			lightweight="true" icon="icons/axis2.png">
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IFolder" />
+			</enablement>
+		</decorator>
+	</extension-->
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution objectClass="org.eclipse.core.resources.IProject"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.descriptor.archiver"
+			nameFilter="*.service">
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.descriptor.archiver"
+				label="Create axis2 archive (AAR)"
+				icon="icons/axis2.png"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.Axis2ServiceArchiveCreateAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<objectContribution objectClass="org.eclipse.core.resources.IFile"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.descriptor"
+			nameFilter="*.service">
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.client.descriptor"
+				label="Create client"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.StubGenerationAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<objectContribution objectClass="org.eclipse.core.resources.IFile"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.archive"
+			nameFilter="*.aar">
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.client.archive"
+				label="Create client"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.StubGenerationAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<objectContribution objectClass="org.eclipse.core.resources.IFile"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.descriptor.wsdlcreate"
+			nameFilter="*.service">
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.client.descriptor"
+				label="Create WSDL"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.WSDLGenerationAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<objectContribution objectClass="org.eclipse.core.resources.IFile"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.wsdlcreate"
+			nameFilter="*.aar">
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.client.archive"
+				label="Create WSDL"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.WSDLGenerationAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<!--objectContribution objectClass="org.eclipse.core.resources.IFolder"
+			id="org.wso2.carbonstudio.eclipse.capp.axis2.folder">
+			<visibility>
+               <objectState
+                     name="axis2Service"
+                     value="true">
+               </objectState>
+         	</visibility>
+			<action
+				id="org.wso2.carbonstudio.eclipse.axis2.client.folder"
+				label="Create client"
+				icon="icons/axis2.png"
+				menubarPath="additions"
+				class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.actions.StubGenerationAction"
+				enablesFor="1">
+						<enablement>
+       			<test property="axis2Service" value="true"/>
+   			</enablement>
+			</action>
+		</objectContribution-->
+	</extension>
+ <extension
+       point="org.wso2.carbonstudio.eclipse.samples">
+    <sample
+          class="org.wso2.carbonstudio.eclipse.artifacts.axis2.sample.Axis2SampleContributor"
+          id="org.wso2.carbonstudio.eclipse.artifacts.axis2.sample"
+          isCustomCreateSample="false">
+    </sample>
+ </extension>
+   <!--extension
+        point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+           id="org.wso2.carbonstudio.eclipse.axis2serviceproptester"
+           class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.adapter.Axis2ServicePropertyTester"
+           namespace="org.eclipse.core.resources"
+           properties="axis2Service"
+           type="org.eclipse.core.resources.IFolder"/>
+   </extension>
+	<extension point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.core.resources.IFolder"
+            class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.adapter.Axis2ServiceAdaptorFactory">
+	         <adapter
+	               type="org.eclipse.ui.IActionFilter">
+	         </adapter>
+      </factory>
+	</extension-->
+	<extension point="org.eclipse.core.resources.natures"
+		id="org.wso2.carbonstudio.eclipse.artifacts.axis2.service.nature" name="Axis2 Service Project Nature">
+	</extension>
+	<extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image id="org.wso2.carbonstudio.eclipse.carbonmodules.project.natureImage"
+			natureId="org.wso2.carbonstudio.eclipse.artifacts.axis2.service.nature" icon="resources/icons/axis2-12x12.png">
+		</image>
+	</extension>
+	<extension point="org.eclipse.ui.decorators">
+		<decorator id="org.wso2.carbonstudio.eclipse.artifacts.axis2.archive.decorator"
+			label="Axis2 Archive" state="true"
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.decorator.Axis2ArchiveDecorator"
+			lightweight="false" icon="resources/icons/axis2.png">	
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IFile" />
+			</enablement>
+		</decorator>
+		<decorator id="org.wso2.carbonstudio.eclipse.artifact.axis2.folder.decorator"
+			label="Axis2 Service Folder" state="true"
+			class="org.wso2.carbonstudio.eclipse.artifacts.axis2.ui.decorator.Axis2ServiceFolderDecorator"
+			location="TOP_LEFT"
+			lightweight="true" icon="resources/icons/axis2.png">	
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IFolder" />
+			</enablement>
+		</decorator>
+	</extension>
+</plugin>

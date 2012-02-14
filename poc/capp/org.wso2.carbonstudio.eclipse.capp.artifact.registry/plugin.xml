@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.registry.ui.wizard.NewRegistryArtifactWizard"
+            icon="icons/registry.png"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.newregistryartifact"
+            name="Registry Resource">
+      </wizard>
+   </extension>
+   
+  <extension point="org.eclipse.ui.navigator.viewer">
+	<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+	   	<includes>
+			<contentExtension
+				pattern="org.wso2.carbonstudio.eclipse.capp.artifact.registry.navigator.content" />
+	    </includes>
+	 </viewerContentBinding>
+   </extension>
+   
+   <extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.registry.core.RegistryArtifactHandler"
+			id="org.wso2.capp.artifact.registry">
+		</artifact>
+	</extension>
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			icon="icons/registry-artifact-16x16.png"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.registry.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="Registry Resource Artifact" priority="high">
+		    <triggerPoints>
+			  	<or>
+					<instanceof
+						value="org.eclipse.core.resources.IProject" />
+				</or>
+			</triggerPoints>			
+			<commonWizard type="new" menuGroupId="4org.wso2.carbonstudio.eclipse.capp.newartifacts.registry"
+				wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.registry.ui.wizard.NewRegistryArtifactWizard">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.greg.resourceProvider">
+      <provider
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.registry.core.CAppRegistryResourceProvider"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.registry.provider"
+            name="Carbon Application Registry Resources">
+      </provider>
+   </extension>
+</plugin>

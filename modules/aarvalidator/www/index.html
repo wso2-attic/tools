@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>WSO2 Tools - AAR (Service Archive) & services.xml Validator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <link rel="stylesheet" type="text/css" href="style/initial.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="style/wso2_tools.css"
+          media="screen, projection"/>
+    <link href="http://wso2.org/themes/wso2-v2/style.css" rel="stylesheet" type="text/css"
+          media="all"/>
+    <script language="javascript" src="js/servicesValidate.js"></script>
+
+</head>
+
+<body onload="javascript:initURL()">
+
+<div id="wrapper"> <!-- wrapper div -->
+
+    <div id="header">
+        <div id="header-image">
+            <a href="http://wso2.org/"><img
+                    src="http://wso2.org/themes/wso2-v2/images/ot-header-logo.gif"
+                    alt="Oxygen Tank"/></a>
+        </div>
+
+        <div id="header-search">
+
+        </div>
+    </div><!-- /header -->
+    <div id="header-nav">
+        <ul>
+            <li><a href="http://wso2.org/">Home</a></li>
+            <li class="left-border"><a href="http://wso2.org/library">Library</a></li>
+            <li class="left-border"><a href="http://wso2.org/svn">SVN</a></li>
+
+            <li class="left-border"><a href="http://wso2.org/wiki">Wiki</a></li>
+            <li class="left-border"><a href="http://wso2.org/jira">JIRA</a></li>
+            <li class="left-border"><a href="http://wso2.org/mail">Mail</a></li>
+            <li class="left-border"><a href="http://wso2.org/forum">Forum</a></li>
+            <li class="left-border"><a href="http://wso2.org/downloads">Downloads</a></li>
+            <li class="left-border"><a href="http://wso2.org/tools">Tools</a></li>
+
+            <li class="left-border"><a href="http://wso2.org/blog">Blog</a></li>
+        </ul>
+    </div>
+
+    <div id="content"> <!-- content div -->
+
+        <div id="breadcrumbs">
+            <a href="http://www.wso2.org/tools">Tools Home</a> &raquo; <a
+                href="http://tools.wso2.org/validators/index.php">Validators</a> &raquo; Aar &amp; services.xml Validator
+        </div>
+
+        <h2>AAR (Services Archive) & services.xml Validator</h2>
+
+        <p> With this service you can validate either AAR or services.xml</p>
+
+        <a href="#"
+           onclick="javascript:showDiv(document.getElementById('aarValidatorDivId'));return false;">AAR
+            (Service Archive) Validator</a>
+        <br/>
+        <a href="#"
+           onclick="javascript:showDiv(document.getElementById('services_xmlValidatorDivId'));return false;">services.xml
+            Validator</a>
+
+        <div id='aarValidatorDivId' style="display:none;">
+            <form id="aarValidatorDivFormId" method="post" name="wsdlUpload"
+                  enctype="multipart/form-data"
+                  target="globalIFrame">
+                <input type="file" id="filenameAARId" name="filename" size="50"/><br/>
+                <input type="button" value="Validate AAR"
+                       onclick="javascript:return validateAndSubmitAAR();"/>
+            </form>
+
+        </div>
+
+        <div id='services_xmlValidatorDivId' style="display:none;">
+            <form id="services_xmlValidatorDivIdFormId" method="post" name="wsdlUpload"
+                  enctype="multipart/form-data"
+                  target="globalIFrame">
+                <input type="file" id="filenameModule_xmlId" name="filename" size="50"/><br/>
+                <input type="button" value="Validate services.xml"
+                       onclick="javascript:return validateAndSubmitServicesXml();"/>
+            </form>
+
+        </div>
+
+    </div> <!-- end of content div-->
+
+    <div id="divGlobalIFrame" style="display:none;">
+        <iframe src="_blank.html" id="globalIFrame" name="globalIFrame"></iframe>
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+        &copy; 2006 WSO2
+        <div id="footer-links">
+            <a href="http://wso2.org/about">About</a>|
+            <a href="http://wso2.org/feedback">Feedback</a>
+        </div>
+
+    </div>
+    <!-- /footer -->
+
+</div> <!-- end of wrapper div -->
+
+</body>
+</html>

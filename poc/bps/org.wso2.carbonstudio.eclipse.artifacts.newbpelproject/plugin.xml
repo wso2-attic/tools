@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.maven.definitions">
+          <archetype
+	          artifactId="maven-newbpelproject-plugin"
+	          executeMode="DEFAULT"
+	          groupId="org.wso2.maven"
+	          id="org.wso2.carbonstudio.eclipse.maven.plugin.newbpelproject"
+	          name="WSO2 BPEL project"
+	          version="1.0-SNAPSHOT">
+    </archetype>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+         <wizard name="WSO2 BPEL project" category="org.wso2.carbonstudio.eclipse.category.artifacts/org.wso2.carbonstudio.eclipse.category.artifacts.newbpelproject"
+			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.WSO2ArtifactWizard"
+			id="org.wso2.carbonstudio.eclipse.artifacts.wizard.newbpelproject"
+			archeTypeId="org.wso2.carbonstudio.eclipse.maven.plugin.newbpelproject"
+			artifactType="bpel/workflow"
+			wizardIcon="resources/icons/bpel-wizard.png"
+			icon="resources/icons/bpel-16x16.png">
+			<description>WSO2 newbpelproject Service Project</description>
+		</wizard>
+   </extension>
+      	<extension point="org.eclipse.ui.navigator.viewer">
+		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<contentExtension
+					pattern="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.newbpelproject" />
+			</includes>
+		</viewerContentBinding>
+		<viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<actionExtension
+					pattern="org.wso2.carbonstudio.artifact.newbpelproject.navigator.content.actionProvider" />
+			</includes>
+		</viewerActionBinding>
+	</extension>
+	<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			id="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.newbpelproject"
+			contentProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorLabelProvider"
+			name="WSO2 BPEL project" priority="high">
+			<triggerPoints>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.capp.artifact.war.model.WARArtifactLocationNode" />
+				</or>
+			</triggerPoints>
+			<commonWizard menuGroupId="4org.wso2.carbonstudio.eclipse.category.artifacts"
+				type="new" wizardId="org.wso2.carbonstudio.eclipse.artifacts.wizard.newbpelproject">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+</plugin>

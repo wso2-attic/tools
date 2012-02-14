@@ -1,0 +1,13 @@
+<projectDescription>
+  <name>Carbon-Studio</name>
+  <comment>WSO2 Carbon Studio is a fully functioned eclipse environment that provides you the ability to develop, test, run and deploy carbon artifacts.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

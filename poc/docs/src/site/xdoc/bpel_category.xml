@@ -1,0 +1,152 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>BPEL Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#BPELArtifact">BPEL Artifact</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="BPELArtifact">BPEL Artifact</h2>
+		<p>
+        To create an BPEL workflow, right click on the C-App project and select <strong>BPEL Workflow</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/bpel1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create a BPEL artifact.    
+		</p>
+		<ol>
+			<li>New BPEL Project</li>
+			<li>BPEL Workflow in the workspace</li>
+			<li>Import BPEL Workflow</li>
+		</ol>
+
+		<p><strong>New BPEL Project</strong> is a sub-option of <strong>Create BPEL Workflow in workspace</strong> option.
+		If you do not have any created BPEL workflows in your workspace, you can select <strong>New BPEL Project</strong>,
+		 and create a new BPEL workflow. In this option, it will list all the available projects in the workspace to the 
+		 drop-down box. You have to choose the correct BPEL project among them if you already have created BPEL projects 
+		 in your workspace.
+		</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel2.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>If you click <strong>New BPEL Project</strong> button, you will get a wizard to create a BPEL project 
+			in the workspace, which will be pointed by the C-App project at the end. Give a name to the project. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel8.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+
+			<p>Click <strong>Modify</strong> under <strong>Configuration</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel9.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Go to <strong>Runtimes</strong> and you will see <strong>Apache Ode 1.x Runtime</strong> is listed if you run Apache 
+			Ode atleast once before. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel10.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Select <strong>Apache Ode 1.x Runtime</strong> and <strong>BPEL 2.0 Facet</strong> and click <strong>OK</strong>.
+			</p>
+			<p>Then you will see <strong>Target Runtime</strong> has been set to <strong>Apache Ode 1.x Runtime</strong>. Now click 
+			<strong>Finish</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel11.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Now you will see a new <strong>BPEL Workflow</strong> has been created under the C-App project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel12.png"></img>
+				<br></br>
+				<br></br>
+			</p>		
+			
+			<p>A new BPEL project is also created in the workspace according to the name given in the BPEL Project wizard. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel13.png"></img>
+				<br></br>
+				<br></br>
+			</p>		
+			
+				
+			<p>With <strong>Import BPEL Workflow</strong> option, you can import a BPEL workflow which is saved 
+			in the <strong>Zip</strong> format, from the file system. 	
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+						
+			<p>Select the C-App project you want to create <strong>BPEL Workflow</strong> and and give a name to the workflow.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/bpel6.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+	</body>
+</html>

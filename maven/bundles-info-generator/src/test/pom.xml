@@ -1,0 +1,43 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wso2.maven.test</groupId>
+    <artifactId>equinox-bundlesinfo-plugin-test</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <name>Test for the bundlesinfo plugin</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wso2.maven</groupId>
+                <artifactId>equinox-bundlesinfo-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>bundlesinfo</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <bundlesDirectories>
+                        <param>
+                            /home/azeez/Desktop/p2-jars
+                        </param>
+                    </bundlesDirectories>
+                    <bundleInfoOutputDir>target/bundles</bundleInfoOutputDir>
+                    <bundlesUrlPrefix>file:plugins/</bundlesUrlPrefix>
+                    <defaultStartLevel>10</defaultStartLevel>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

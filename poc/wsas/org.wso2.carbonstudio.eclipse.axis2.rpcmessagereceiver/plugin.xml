@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+       <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.wsas"
+            class="org.wso2.carbonstudio.eclipse.axis2.rpcmessagereceiver.ui.wizard.NewRPCMessageReceiverClassWizard"
+            icon="icons/axis2-message-receiver-16x16.png"
+            id="org.wso2.carbonstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard"
+            name="Axis2 RPC Message Receiver Class">
+            <description>Create new axis2 RPC Message Receiver class</description>
+      </wizard>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		</category>
+		<category name="WSAS" id="org.wso2.carbonstudio.eclipse.wsas" 
+			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		</category>
+   </extension>
+</plugin>

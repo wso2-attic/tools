@@ -1,0 +1,107 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+		<h1>Gadget Editor Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#GadgetArtifact">Gadget Artifact</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="GadgetArtifact">Gadget Artifact</h2>		
+        <p>
+        To create a gadget, right click on the CApp project and select <strong>Gadget</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/gadget1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create a gadget.    
+		</p>
+		<ol>
+			<li>New Gadget</li>
+			<li>Import Gadget from File System</li>
+			<li>Import Gadget from Registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/gadget2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>New Gadget</strong> option, you will get a simple gadget.xml with the specified name. At the same time, 
+			you can upload a <strong>Gadget</strong> file or any file with the extension of <strong>.xml</strong> from the 
+			file system or from the registry.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/gadget3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import Gadget from Registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+			<strong>Browse</strong> to browse resources in registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/gadget4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Select the CApp project you want to create <strong>Gadget</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/gadget5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Gadget artifact is created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/gadget6.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			<p>When you double click on the <strong>gadget.xml</strong> file, it will open in the gadget editor. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/gadget7.png"></img>
+				<br></br>
+				<br></br>
+			</p>			
+									
+	</body>
+</html>

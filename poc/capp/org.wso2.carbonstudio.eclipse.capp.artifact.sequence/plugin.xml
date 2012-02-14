@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.ui.wizard.NewSequenceArtifactWizard"
+            icon="icons/sequence-normal.png"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.ui.wizard.NewSequenceArtifactWizard"
+            name="Sequence">
+      </wizard>
+   </extension>
+   
+  <extension point="org.eclipse.ui.navigator.viewer">
+	<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+	   	<includes>
+			<contentExtension
+				pattern="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.navigator.content" />
+	    </includes>
+	 </viewerContentBinding>
+   </extension>
+   
+   <extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.core.SequenceArtifactHandler"
+			id="org.wso2.capp.artifact.sequence">
+		</artifact>
+	</extension>
+   
+   
+   
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			icon="icons/sequence-normal.png"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="Sequence Artifact" priority="high">
+		    <triggerPoints>
+			  	<or>
+					<instanceof
+						value="org.eclipse.core.resources.IProject" />
+				</or>
+			</triggerPoints>			
+			<commonWizard type="new" menuGroupId="3org.wso2.carbonstudio.eclipse.capp.newartifacts.esb"
+				wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.ui.wizard.NewSequenceArtifactWizard">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
+      <sequence
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.internal.impl.CAppSequenceProvider"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.sequence.sequence"
+            name="Carbon Application Sequences">
+      </sequence>
+   </extension>
+   
+</plugin>

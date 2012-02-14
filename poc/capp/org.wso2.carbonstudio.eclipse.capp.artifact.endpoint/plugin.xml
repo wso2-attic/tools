@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.endpoints.ui.wizard.NewEndPointArtifactWizard"
+            icon="icons/endpoint-normal.png"
+            id="org.wso2.capp.artifact.endpoints.ui.wizard.NewEndPointArtifactWizard"
+            name="EndPoint">
+      </wizard>
+   </extension>
+   
+  <extension point="org.eclipse.ui.navigator.viewer">
+	<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+	   	<includes>
+			<contentExtension
+				pattern="org.wso2.capp.artifact.endpoints.navigator.content" />
+	    </includes>
+	 </viewerContentBinding>
+   </extension>
+   
+   <extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.endpoints.core.EndPointArtifactHandler"
+			id="org.wso2.capp.artifact.endpoint">
+		</artifact>
+	</extension>
+   
+   
+   
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			icon="icons/endpoint-normal.png"
+			id="org.wso2.capp.artifact.endpoints.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="EndPoint Artifact" priority="high">
+		    <triggerPoints>
+			  	<or>
+					<instanceof
+						value="org.eclipse.core.resources.IProject" />
+				</or>
+			</triggerPoints>			
+			<commonWizard type="new" menuGroupId="3org.wso2.carbonstudio.eclipse.capp.newartifacts.esb"
+				wizardId="org.wso2.capp.artifact.endpoints.ui.wizard.NewEndPointArtifactWizard">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
+      <endpoint
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.endpoints.internal.impl.CAppEndpointProvider"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.endpoints.endpoint"
+            name="Carbon Application Endpoints">
+      </endpoint>
+   </extension>
+   
+</plugin>

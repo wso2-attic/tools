@@ -1,0 +1,237 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com)
+~
+~ Licensed under the Apache License, Version 2.0 (the "License");
+~ you may not use this file except in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~ http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing, software
+~ distributed under the License is distributed on an "AS IS" BASIS,
+~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~ See the License for the specific language governing permissions and
+~ limitations under the License.
+-->
+<html>
+<head>
+    <meta http-equiv="content-type" content=""/>
+    <title>WSO2 Carbon Studio Release Notes</title>
+    <link href="./tools/cmd/css/wsas-dist-doc.css" rel="stylesheet"
+          type="text/css" media="all"/>
+</head>
+
+<body>
+<h1>WSO2 Carbon Studio 1.1.0.SNAPSHOT Release Notes</h1>
+
+<h3>6th April 2011</h3>
+
+<p>
+We introduce WSO2 Carbon Studio, is a fully functioned tooling environment which facilitate you to develop, test, deploy and 
+test WSO2 Carbon Artifacts. The tool is created as a plug-in for the popular IDE Eclipse.
+
+</p>
+
+
+<p>These tools are available under the
+    <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0.html">
+        Apache Software License (v2.0)
+    </a>
+   . This includes all of the extra integration and management
+   functionality as well.
+</p>
+
+<h2>New Features</h2>
+	<ul>
+	    <li>Carbon Application Tools</li>
+	    <ul>
+	        <li>Ability to create Registry Aspect class</li>
+	        <li>Allow creating the library artifact as a fragment bundle</li>	        
+	        <li>Create sequences and endpoints as registry resources</li>
+	        <li>Creating registry resources through templates</li>
+	    </ul>
+	    <li>General</li>
+	    <ul>
+	        <li>Adding WSO2 related libraries when developing applications</li>
+	        <li>Other usability improvements</li>
+	    </ul>
+	    <li>ESB tools</li>
+	    <ul>
+	        <li>Ability to specify references of ESB artifacts from a filtered list of resources in the workspace</li>
+	        <li>Ability to create registry resource references on the fly for ESB artifacts</li>
+    	    <li>JBoss Smooks tools integration</li>
+        </ul>
+	    <li>Governance Registry Tools</li>
+	    <ul>
+	        <li>Enable/disable actions and update icons based on permissions for registry resources for the specified user</li>
+	        <li>Upload wsdl resources to the registry as governance archives (GAR support)</li>
+	    </ul>
+	    <li>Introduced Carbon Studio contribution features [Documentation pending]</li>
+	    <ul>
+	        <li>Extensions to add custom proxy service templates</li>
+	        <li>Extensions to add registry resource templates</li>
+    	    <li>Extensions to allow adding mediatype resolvers</li>
+    	    <li>Extensions to specify new 3rd party libraries</li>
+    	    <li>Extensions to specify resource providers for</li>
+    	    <ul>
+    	        <li>Registry Resources</li>
+    	        <li>ESB Sequences</li>
+    	        <li>ESB Endpoints</li>
+    	        <li>ESB Local Entries</li>
+    	    </ul>
+	    </ul>
+
+	</ul>
+
+<h2>Key Features</h2>
+
+<ul>
+	<li>Application Server Tools<ul>
+		<li>Create and Edit Apache Axis2 Web Service</li>
+		<li>Create WSDL for Apache Axis2 Web Service archive (aar file)</li>
+		<li>Generate Web Service client</li>
+		<li>Web Applications</li>
+		<li>JAX-WS services</li>
+	</ul>
+	</li>
+	<li>Enterprise Service Bus Tools<ul>
+		<li>Sequences</li>
+		<li>Endpoints</li>
+		<li>Proxy Services</li>
+		<li>Local Entries</li>
+		<li>Create custom mediators</li>
+		<li>Registry Referencing</li>
+	</ul>
+	</li>
+	<li>Governance Registry Tools<ul>
+		<li>Create and deploy registry resources</li>
+		<li>Create, edit, debug and deploy registry handlers, filters and registry aspects</li>
+		<li>Manage your remote registry instance</li>
+	</ul>
+	</li>
+	<li>Business Process Server Tools<ul>
+		<li>View, create and edit BPEL projects</li>
+	</ul>
+	</li>
+	<li>Gadget Server Tools<ul>
+		<li>Create and edit gadgets</li>
+	</ul>
+	</li>
+	<li>Data Services Server Tools<ul>
+		<li>Create and edit data services (XML configurations)</li>
+		<li>Create and edit data services validators</li>
+	</ul>
+	</li>
+	<li>Carbon Tools<ul>
+		<li>Create, edit, debug and deploy Carbon UI bundles</li>
+		<li>Deploy third party libraries as bundles</li>
+	</ul>
+	</li>
+	<li>Testing, Deploying and Redeploying</li>
+</ul>
+
+<p>
+You can find a more detailed version of all the features available in Carbon Studio from <a href="cstudio-features.html">
+WSO2 Carbon Studio Features</a> page. 
+</p>
+
+<h2>Project Resources</h2>
+<ol>
+    <li><strong>Home page :</strong> <a href="http://wso2.org/library/carbon-studio">WSO2 Carbon Studio</a></li>
+    <li><strong>JIRA-Issue Tracker :</strong> <a href="https://wso2.org/jira/browse/tools">
+    			WSO2 Carbon Studio - JIRA Issues</a></li>
+</ol>
+<!--p>
+The full feature list is available at
+    <a href="http://wso2.org/projects/tools/bps/bpel-exporter/features">
+        http://wso2.org/projects/tools/bps/bpel-exporter/features
+    </a>
+</p-->
+
+
+<!-- h2>Known Issues</h2>
+<ul>
+    <li><a href="https://wso2.org/jira/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10330">WSO2 Governance Registry Eclipse Plugin</a></li>
+</ul-->
+
+<h2>Reporting Problems</h2>
+Issues can be reported using the public JIRA available at
+<a href="https://wso2.org/jira/browse/TOOLS" target="_blank">
+    https://wso2.org/jira/browse/TOOLS</a>
+
+<h2>Contact us</h2>
+WSO2 Tools developers can be contacted via the mailing lists:
+<br/>
+<strong>For Users:</strong>
+<a href="mailto:tools-user@wso2.org">tools-user@wso2.org</a>
+<br/>
+<strong>For Developers:</strong>
+<a href="mailto:carbon-dev@wso2.org">carbon-dev@wso2.org</a>
+<br/>
+<!--strong>For Developers:</strong>
+<a href="mailto:tools-dev@wso2.org">tools-dev@wso2.org</a-->
+<br/>
+For details on subscriptions see
+<a href="http://wso2.org/projects/tools#mail">
+    http://wso2.org/projects/tools#mail</a>
+<br/>
+<br/>
+<br/>
+Alternatively, questions can also be raised in the WSO2 Tools forum:
+<br/>
+<strong>Forum</strong>
+<a href="http://wso2.org/forum/194" target="_blank">http://www.wso2.org/forum/194</a>
+<br/>
+
+<!-- h2>Training</h2>
+
+<p>
+    WSO2 Inc. offers a variety of professional Training Programs, including
+    training on Eclipse IDE Tools.
+
+    For additional support information please refer to
+    <a target="_blank" href="http://wso2.com/training/course-catalog/">
+        http://wso2.com/training/course-catalog/</a>
+</p -->
+
+<h2>Support</h2>
+
+<p>
+    We are committed to ensuring that your enterprise middleware deployment is completely supported from evaluation to production. 
+    Our unique approach ensures that all support leverages our open development methodology and is provided by the very same 
+    engineers who build the technology.
+    <br/>
+    <br/>
+</p>
+<p>
+	For more details and to take advantage of this unique opportunity please visit 
+    <a target="_blank"
+       href="http://wso2.com/support/">http://wso2.com/support/</a>
+</p>
+<br></br>
+<br></br>
+<p>
+For more information about WSO2 Carbon Studio please see, 
+    <a href="http://wso2.org/library/carbon-studio/" target="_blank">http://wso2.org/library/carbon-studio/</a>. 
+    visit the <a href="http://wso2.org">WSO2 Oxygen Tank developer portal</a>  for additional resources.
+</p>
+
+<!--<p>
+    <strong>How to do various things with WSAS</strong>-
+    <a href="http://wso2.org/library/2707" target="_blank">WSAS HOWTO Series</a>
+</p>-->
+
+<br></br>
+<br></br>
+<p>
+Thank you for your interest in WSO2 Carbon Studio.</p>
+<br></br>
+<br></br>
+<strong>
+    <em>-The WSO2 Tooling Team</em>
+</strong>
+
+<hr/>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.maven.definitions">
+          <archetype
+          artifactId="maven-endpoint-plugin"
+          executeMode="DEFAULT"
+          groupId="org.wso2.maven"
+          id="org.wso2.carbonstudio.eclipse.maven.plugin.endpoint"
+          name="WSO2 ESB Endpoint Project"
+          version="1.0-SNAPSHOT">
+    </archetype>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+         <wizard name="Endpoint Application" category="org.wso2.carbonstudio.eclipse.category.artifacts/org.wso2.carbonstudio.eclipse.category.artifacts.endpoint"
+			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.WSO2ArtifactWizard"
+			id="org.wso2.carbonstudio.eclipse.artifacts.wizard.endpoint"
+			archeTypeId="org.wso2.carbonstudio.eclipse.maven.plugin.endpoint"
+			artifactType="synapse/endpoint"
+			wizardIcon="resources/icons/endpoint-wizard.png"
+			icon="resources/icons/endpoint-normal.png">
+			<description>WSO2 ESB Endpoint Project</description>
+		</wizard>
+   </extension>
+   	<extension point="org.eclipse.ui.navigator.viewer">
+		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<contentExtension
+					pattern="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.endpoint" />
+			</includes>
+		</viewerContentBinding>
+		<viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<actionExtension
+					pattern="org.wso2.carbonstudio.artifact.endpoint.navigator.content.actionProvider" />
+			</includes>
+		</viewerActionBinding>
+	</extension>
+	<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			id="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.endpoint"
+			contentProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorLabelProvider"
+			name="Endpoint Artifacts" priority="high">
+			<triggerPoints>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.capp.artifact.war.model.WARArtifactLocationNode" />
+				</or>
+			</triggerPoints>
+			<commonWizard menuGroupId="1org.wso2.carbonstudio.eclipse.category.artifacts"
+				type="new" wizardId="org.wso2.carbonstudio.eclipse.artifacts.wizard.endpoint">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+</plugin>

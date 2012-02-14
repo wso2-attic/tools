@@ -1,0 +1,696 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>ESB Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#SequenceArtifact">Sequence Artifact</a>
+				</li>
+				<li>
+					<a href="#EndpointArtifact">Endpoint Artifact</a>
+				</li>
+				<li>
+					<a href="#LocalEntryArtifact">Local Entry Artifact</a>
+				</li>
+				<li>
+					<a href="#ProxyServiceArtifact">Proxy Service Artifact</a>
+				</li>
+				<li>
+					<a href="#SynapseConfArtifact">Synapse Configuration Artifact</a>
+				</li>
+				<li>
+					<a href="#SmooksConfArtifact">Smoooks Configuration Artifact</a>
+				</li>
+				<li>
+					<a href="server_extensions_category.html#CustomMediator">Custom Mediator</a>
+				</li>				
+			</ul>
+		</div>
+				
+		<h2 id="SequenceArtifact">Sequence Artifact</h2>		
+		<p>
+        To create a Sequence, right click on the CApp project and select <strong>Sequence</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/seq1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create a Sequence.    
+		</p>
+		<ol>
+			<li>New Sequence</li>
+			<li>Import Sequence from File System</li>
+			<li>Import Sequence from Registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/seq2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>When the <strong>Create sequence as a registry resource</strong> check box is selected the Sequence will be added to the the registry.
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq12.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+
+			<p>With the <strong>New Sequence</strong> option, you will get a simple Sequence with the specified name. At the same time, 
+			you can upload a <strong>Synapse Configuration</strong> file or any XML file from the file system or from the registry which 
+			may contain <strong>Sequences</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import Sequence from Registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			<p>After selecting the registry instance, click on <strong>Browse</strong> to browse resources in registry. 
+			</p>	
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq6.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>When you select the XML file, it will list all the Sequences available in a table. 
+			Select the Sequences you want and click <strong>Next</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq7.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Select the CApp project you want to create <strong>Sequences</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq8.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Sequence artifacts are created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq9.png"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/seq11.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<h2 id="EndpointArtifact">Endpoint Artifact</h2>
+        <p>
+        To create an Endpoint, right click on the CApp project and select <strong>EndPoint</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/ep1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create an Endpoint.    
+		</p>
+		<ol>
+			<li>New EndPoint</li>
+			<li>Import EndPoint from File System</li>
+			<li>Import EndPoint from Registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/ep2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>New EndPoint</strong> option, you will get a simple Endpoint with the specified name. At the same time, 
+			you can upload a <strong>Synapse Configuration</strong> file or any XML file from the file system or from the registry which 
+			may contains <strong>EndPoints</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ep3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import EndPoint from Registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+			<strong>Browse</strong> to browse resources in registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ep4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>When you select the XML file, it will list all the Endpoints available, in a table. 
+			Select the Endpoints you want and click <strong>Next</strong>.
+			</p>
+			
+			<p>Select the CApp project you want to create <strong>EndPoints</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ep6.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Endpoint artifacts are created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/ep5.png"></img>
+				<br></br>
+				<br></br>
+			</p>				
+			
+			<h2 id="LocalEntryArtifact">Local Entry Artifact</h2>
+        <p>
+        To create an ESB Local Entry, right click on the CApp project and select <strong>Local Entry</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/localEntry1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are four ways to create Local entry.    
+		</p>
+		<ol>
+			<li>New Local Entry</li>
+			<li>Import From a Source URL Entry</li>
+			<li>Import Local Entries from synapse.xml of the file system</li>
+			<li>Import Local Entries from a synapse.xml of the registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/localEntry2.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>New Local Entry</strong> option, you can create Local entries
+			 with <strong>In-lined Text Entry</strong> or <strong>In-lined XML Entry</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			<p>You can edit the created Local entry with ESB editor later with graphical editor that is provided. </p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry8.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>		
+			
+			<p>With the <strong>Import From a Source URL Entry</strong>, you can point to a file of the 
+			local file system. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the next two options <strong>Import Local Entries from synapse.xml of the file system</strong> and 
+			<strong>Import Local Entries from a synapse.xml of the registry</strong>, you can point to a 
+			<strong>synapse.xml</strong> file of the file system or registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>When you select the XML file, it will list all the Local entries available, in a table. 
+			Select the Local entries you want and click <strong>Next</strong>.
+			</p>
+			
+			<p>Select the CApp project you want to create <strong>Local Entries</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry4.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Endpoint artifacts are created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>You can edit created <strong>Local Entries</strong> later with the help of ESB editor.
+			</p>	
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/localEntry9.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			
+			
+			<h2 id="ProxyServiceArtifact">Proxy Service Artifact</h2>
+        <p>
+        To create a Proxy Service, right click on the CApp project and select <strong>Proxy Service</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/proxy1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are three ways to create a <strong>Proxy Service</strong>.    
+		</p>
+		<ol>
+			<li>New Proxy Service</li>
+			<li>Import Proxy Service from File System</li>
+			<li>Import Proxy Service from Registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/proxy2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>New Proxy Service</strong> option, you will get a simple Proxy service with the specified name. At 
+			the same time, you can upload a <strong>Synapse Configuration</strong> file or any XML file from the file system or from 
+			the registry which may contains <strong>Proxy Services</strong>. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/proxy3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import Proxy Service from Registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+			<strong>Browse</strong> to browse resources in registry.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/proxy4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+
+			<p>When you select the XML file, it will list all the Proxy services available in a table. 
+			Select the Proxy services you want and click <strong>Next</strong>.
+			</p>
+
+			
+			<p>Select the CApp project you want to create <strong>Proxy Services</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/proxy5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Proxy services are created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/proxy6.png"></img>
+				<br></br>
+				<br></br>
+			</p>				
+			
+			<h2 id="SynapseConfArtifact">Synapse Configuration Artifact</h2>
+        <p>
+        To create a Synapse configuration, right click on the CApp project and select <strong>Synapse Configuration</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/synapse1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are four ways to create a Synapse configuration.    
+		</p>
+		<ol>
+			<li>Create Synapse Configuration from template</li>
+			<li>Create Empty Synapse Configuration</li>
+			<li>Import Synapse file from the file system</li>
+			<li>Import Synapse file from the registry</li>
+		</ol>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/synapse2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>With the <strong>Create Synapse Configuration from template</strong> option, you will get a simple Synapse configuration 
+			which will contains <strong>main</strong> Sequence and <strong>fault</strong> Sequence by default. 
+			</p>
+
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/synapse6.png"></img>
+			<br></br>
+			<br></br>
+		</p>			
+			<p>
+			If you select <strong>Create Empty Synapse Configuration</strong>, you will get an empty Synapse configuration file. At the same time, 
+			you can upload a <strong>Synapse Configuration</strong> file or any XML file from the file system or from the registry. 
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/synapse3.png"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the <strong>Import Synapse file from the registry</strong>, you can browse resources of the registry instance that you 
+			have already created or you can create a new registry instance as well. After selecting the registry instance, click on 
+			<strong>Browse</strong> to browse resources in registry. When you select the XML file, it will list all the Sequences, 
+			Endpoints and Proxy services available, in a table. 
+			Select the artifacts you want and click <strong>Next</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/synapse4.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Select the CApp project you want to create <strong>Synapse Configuration</strong> and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/synapse7.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see new Endpoint, Proxy or Sequence artifacts are created under the selected CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/synapse5.png"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			<h2 id="SmooksConfArtifact">Smooks Configuration Artifact</h2>	
+		<p>In order to create a Smooks Configuration Artifact, first you need to create a Registry Resource, right click on the CApp project select 
+		<strong>New</strong> and then select <strong>Registry Resource</strong>
+                   from the menu.
+                </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/reg1.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		Then <strong>From existing template</strong> option,select <strong>Smooks Configuration</strong> template. 
+		</p>		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks2.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Give the necessary information as you preferred and click <strong>Next</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks3.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Give a name to the artifact if it is not filled already and click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks4.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see <strong>smooks-configuration</strong> file has been created and it will be open 
+		in the embedded JBoss Smooks editor. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks5.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		You can find more information regarding how to map data using <strong>smooks configuration</strong> from 
+		<a href="http://smooks.org/mediawiki/index.php?title=Eclipse_IDE" >here</a>. 
+		</p>
+		
+		<p> 
+		To run the created <strong>smooks-configuration</strong>, you will need to add libraries from 
+		<strong>smooks framework</strong>. To add these libraries select the C-App project and go to 
+		<strong>Project -> Properties</strong>.
+		</p>
+
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks6.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p> 
+		Select <strong>Java Build Path</strong> and go to <strong>Libraries</strong> tab.
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks7.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Click on <strong>Add Library</strong> button and you will see <strong>Add Library</strong> page 
+		which has <strong>WSO2 Classpath Libraries</strong> entry at the bottom. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks8.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p> 
+		Select <strong>WSO2 Classpath Libraries</strong> and click <strong>Next</strong>. Now you will see a
+		 multi-tab page which includes most of the third party libraries that will be needed for your SOA 
+		 development. To add smooks related libraries, go to <strong>Smooks</strong> tab. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks9.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Select all the libraries by clicking <strong>Select All</strong> button and click <strong>Finish</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks10.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see, all the smooks related libraries are added to project classpath.
+		</p>	
+		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks11.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+			
+		<p>
+		Now you can run smooks configuration file by right click on the file and select <strong>Run As -> 
+		Smooks Run Configuration</strong> after doing the mapping you need. 
+		</p>		
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks12.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		You can add this newly created smooks configuration artifact in to ESB Tools via <strong>Proxy Service</strong>.To do so, you need to creat a  			<strong>Proxy Service artifact</strong> as mentioned previously in this article.Then you can see there is a selection called 
+		<strong>Anonymous</strong> under <strong>InSequance</strong> drop down.If it is not there click on <strong>InsSquance</strong> and set 
+		<strong>Anonymous</strong> from its properties.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks13.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>Next right click on <strong>Anonymous</strong> and then select <strong> New Child -> Advanced -> Smooks </strong> from the menu.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks14.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>Then select <strong>Properties</strong> from the Smooks sequence.
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks15.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>Then add the created Smooks Registry Resource in to the proxy server artifact.</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks16.png"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/smooks17.png"></img>
+			<br></br>
+			<br></br>
+		</p>		
+	</body>
+</html>

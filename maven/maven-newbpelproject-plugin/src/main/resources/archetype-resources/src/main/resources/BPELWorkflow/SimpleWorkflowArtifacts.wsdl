@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<definitions name="SimpleWorkflow"
+        targetNamespace="org.wso2.bps"
+        xmlns:tns="org.wso2.bps"
+        xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        >
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of services participating in this BPEL process 
+     The default output of the BPEL designer uses strings as input and 
+     output to the BPEL Process. But you can define or import any XML 
+     Schema type and us them as part of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <types>  
+        <schema attributeFormDefault="unqualified" 
+                elementFormDefault="qualified" 
+                targetNamespace="org.wso2.bps" 
+                xmlns="http://www.w3.org/2001/XMLSchema"
+                >
+                
+            <element name="SimpleWorkflowRequest">
+                <complexType>
+                    <sequence>
+                        <element name="input" type="string" />
+                    </sequence>
+                </complexType>
+            </element>
+                  
+            <element name="SimpleWorkflowResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            
+        </schema>
+    </types>
+  
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="SimpleWorkflowRequestMessage">
+        <part name="payload" element="tns:SimpleWorkflowRequest"/>
+    </message>
+    
+    <message name="SimpleWorkflowResponseMessage">
+        <part name="payload" element="tns:SimpleWorkflowResponse"/>
+    </message>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- portType implemented by the SimpleWorkflow BPEL process -->
+    <portType name="SimpleWorkflow">
+        <operation name="initiate">
+            <input message="tns:SimpleWorkflowRequestMessage"/>
+        </operation>
+    </portType>
+
+    <!-- portType implemented by the requester of SimpleWorkflow BPEL process 
+         for asynchronous callback purposes
+         -->
+    <portType name="SimpleWorkflowCallback">
+        <operation name="onResult">
+            <input message="tns:SimpleWorkflowResponseMessage"/>
+        </operation>
+    </portType>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+         the SimpleWorkflow partnerLinkType binds the provider and
+         requester portType into an asynchronous conversation.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="SimpleWorkflow">
+        <plnk:role name="SimpleWorkflowProvider" portType="tns:SimpleWorkflow"/>
+        <plnk:role name="SimpleWorkflowRequester" portType="tns:SimpleWorkflowCallback"/>
+    </plnk:partnerLinkType>   
+</definitions>

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Libraries
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.greg.libraries
+Bundle-Version: 1.1.0.SNAPSHOT
+Bundle-ActivationPolicy: lazy
+Export-Package: org.wso2.carbon.registry.app,
+ org.wso2.carbon.registry.core,
+ org.wso2.carbon.registry.core.exceptions,
+ org.wso2.carbon.registry.core.jdbc,
+ org.wso2.carbon.registry.core.utils,
+ org.wso2.carbon.user.core,
+ org.wso2.carbon.user.core.service,
+ org.wso2.carbonstudio.eclipse.greg.libraries.utils
+Bundle-ClassPath: .,
+ lib/org.wso2.carbon.registry.core-3.0.0.jar,
+ lib/org.wso2.carbon.user.core-3.0.0.jar
+Import-Package: javax.wsdl,
+ javax.wsdl.extensions.soap,
+ org.wso2.carbonstudio.eclipse.logging.core,
+ org.wso2.carbonstudio.eclipse.utils.jdt
+Require-Bundle: org.wso2.carbonstudio.eclipse.libraries;bundle-version="1.0.2",
+ org.eclipse.ui.workbench,
+ org.eclipse.osgi,
+ org.eclipse.core.runtime
+Bundle-Activator: org.wso2.carbonstudio.eclipse.greg.libraries.Activator
+Bundle-Vendor: WSO2
+
+
+

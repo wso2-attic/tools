@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.maven.definitions">
+          <archetype
+	          artifactId="maven-proxy-plugin"
+	          executeMode="DEFAULT"
+	          groupId="org.wso2.maven"
+	          id="org.wso2.carbonstudio.eclipse.maven.plugin.proxy"
+	          name="WSO2 ESB Proxy Service project"
+	          version="1.0-SNAPSHOT">
+    </archetype>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+         <wizard name="Proxy Service Application" category="org.wso2.carbonstudio.eclipse.category.artifacts/org.wso2.carbonstudio.eclipse.category.artifacts.proxy"
+			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.WSO2ArtifactWizard"
+			id="org.wso2.carbonstudio.eclipse.artifacts.wizard.proxy"
+			archeTypeId="org.wso2.carbonstudio.eclipse.maven.plugin.proxy"
+			artifactType="synapse/proxy-service"
+			wizardIcon="resources/icons/proxy-service-wizard.png"
+			icon="resources/icons/proxy.png">
+			<description>WSO2 ESB Proxy Service Project</description>
+		</wizard>
+   </extension>
+      	<extension point="org.eclipse.ui.navigator.viewer">
+		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<contentExtension
+					pattern="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.proxyservice" />
+			</includes>
+		</viewerContentBinding>
+		<viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+			<includes>
+				<actionExtension
+					pattern="org.wso2.carbonstudio.artifact.proxyservice.navigator.content.actionProvider" />
+			</includes>
+		</viewerActionBinding>
+	</extension>
+	<extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			id="org.wso2.carbonstudio.eclipse.navigator.content.artifacts.proxyservice"
+			contentProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.ui.cnf.provider.EmptyNavigatorLabelProvider"
+			name="ProxyService Artifacts" priority="high">
+			<triggerPoints>
+				<or>
+					<instanceof
+						value="org.wso2.carbonstudio.eclipse.capp.artifact.war.model.WARArtifactLocationNode" />
+				</or>
+			</triggerPoints>
+			<commonWizard menuGroupId="1org.wso2.carbonstudio.eclipse.category.artifacts"
+				type="new" wizardId="org.wso2.carbonstudio.eclipse.artifacts.wizard.proxy">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.carbonmodules.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+</plugin>

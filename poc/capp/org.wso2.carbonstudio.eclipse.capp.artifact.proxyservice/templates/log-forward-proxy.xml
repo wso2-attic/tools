@@ -1,0 +1,15 @@
+<proxy xmlns="{1}" 
+	name="{0}" transports="https,http" statistics="disable" 
+	trace="disable" startOnLoad="true">
+   <target>
+      <inSequence>
+         <log level="full" />
+      </inSequence>
+      <outSequence>
+         <send />
+      </outSequence>
+      <endpoint name="endpoint_urn_uuid_6A1E53EA7540A6718F14941520192787522153871">
+         <address uri="https://localhost" />
+      </endpoint>
+   </target>
+</proxy>

@@ -1,0 +1,181 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Carbon Tools</h1>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#JavaLibArtifact">Third Party Java Library Artifact</a>
+				</li>
+				<li>
+					<a href="#CarbonUIArtifact">Carbon UI Bundle Artifact</a>
+				</li>
+			</ul>
+		</div>
+		<h2 id="JavaLibArtifact">Third Party Java Library Artifact</h2>		
+        <p>
+        To create a third party Java Library, right click on the CApp project and select <strong>Java Library Artifact</strong> from the 
+        menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/jarLib1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a Java Library Artifact.    
+		</p>
+		<ol>
+			<li>From File System</li>
+			<li>From Workspace</li>
+		</ol>
+
+			<p>With the <strong>File System</strong> option, you can point to a jar file of the file system which you may use in 
+			the CApp project.
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jarLib3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>With the second option, it will list all the available projects in the workspace and you can select the project 
+			you want to create a Java Library dependency.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jarLib5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+				
+			<p>Select the CApp project you want to create <strong>Java Library Artifact</strong> and and give a name to the 
+			Java Library artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jarLib6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			
+			<p>Now you will see a new <strong>Java Library Artifact</strong> has been created under the CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jarLib7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+
+		<h2 id="CarbonUIArtifact">Carbon UI Bundle Artifact</h2>
+        <p>
+        To create a Carbon UI Bundle Artifact, right click on the CApp project and select <strong>Carbon UI Bundle Artifact</strong> 
+        from the menu. 
+        </p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/carbon1.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+		<p>
+		To create a Carbon UI Bundle Artifact, first you need to have a Carbon UI Bundle already created in the workspace. 
+		</p>
+		<p>
+			<br></br>
+			<br></br>
+			<img alt="New Server Runtime" src="images/carbon2.PNG"></img>
+			<br></br>
+			<br></br>
+		</p>
+
+			<p>If you do not have a Carbon UI Bundle in the workspace, you can create a new Carbon UI bundle by clicking <strong>New</strong> 
+			</p>
+			
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon3.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			
+			<p>Give necessary information to the project creation wizard and click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon4.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon5.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>			
+			<p>Now you will see new project has been created in the workspace and it is already selected to the drop down box of the 
+			<strong>Carbon UI Bundle Artifact</strong> wizard. Then click <strong>Next</strong>. 
+			</p>
+
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon6.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+						
+			<p>Select the CApp project you want to create <strong>Carbon UI Bundle Artifact</strong> and and give a name to the artifact.
+			 Then click <strong>Finish</strong>.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon7.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+						
+			<p>Now you will see a new <strong>Carbon UI Bundle Artifact</strong> has been created under the <strong>Artifacts</strong> 
+			folder of the CApp project.
+			</p>
+			<p>
+				<br></br>
+				<br></br>
+				<img alt="New Server Runtime" src="images/carbon8.PNG"></img>
+				<br></br>
+				<br></br>
+			</p>	
+			<p>You can add your jsps/js/html files under the "web/customui/org.wso2.tools.eclipse.carbon.test.ui" folder in the created project for
+			Carbon UI Component</p>												
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<service name="MarValidatorXSL">
+    <schema schemaNamespace="http://mar.tools.wso2.org/xsd" elementFormDefaultQualified="false"/>
+    <description>
+        This is a service to validate mar files and module xmls
+    </description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2006/01/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2006/01/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <parameter name="ServiceClass" locked="false">org.wso2.tools.mar.ModuleXSLValidator</parameter>
+</service>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="carbon-modules-plugin">
+	<modules>
+		<module dir="modules/distribution"
+			name="CAR Distribution">
+			<fileSet filtered="true" encoding="UTF-8">
+				<directory>distribution</directory>
+			</fileSet>
+		</module>
+	</modules>
+</archetype-descriptor>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.wso2.carbonstudio.proxy.templates" name="carbon studio proxy service template" schema="schema/org.wso2.carbonstudio.proxy.template.exsd"/>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.capp.artifacts"
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.ui.wizard.NewProxyServiceArtifactWizard"
+            icon="icons/proxy.png"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.ui.wizard.NewProxyServiceArtifactWizard"
+            name="Proxy Service">
+      </wizard>
+   </extension>
+   
+  <extension point="org.eclipse.ui.navigator.viewer">
+	<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+	   	<includes>
+			<contentExtension
+				pattern="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.navigator.content" />
+	    </includes>
+	 </viewerContentBinding>
+   </extension>
+   
+   <extension point="org.wso2.carbonstudio.eclipse.capp.project.artifacts">
+		<artifact
+			class="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.core.ProxyServiceArtifactHandler"
+			id="org.wso2.capp.artifact.proxyservice">
+		</artifact>
+	</extension>
+   
+   
+   
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+		<navigatorContent activeByDefault="true"
+			icon="icons/proxy.png"
+			id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.navigator.content"
+			contentProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorContentProvider"
+			labelProvider="org.wso2.carbonstudio.eclipse.capp.core.provider.EmptyNavigatorLabelProvider"
+			name="Proxy Service Artifact" priority="high">
+		    <triggerPoints>
+			  	<or>
+					<instanceof
+						value="org.eclipse.core.resources.IProject" />
+				</or>
+			</triggerPoints>			
+			<commonWizard type="new" menuGroupId="3org.wso2.carbonstudio.eclipse.capp.newartifacts.esb"
+				wizardId="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.ui.wizard.NewProxyServiceArtifactWizard">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.carbonstudio.eclipse.capp.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+		</navigatorContent>
+	</extension>
+   <extension
+         point="org.wso2.carbonstudio.eclipse.samples">
+      <sample
+            class="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.sample.ProxyServiceSampleContributor"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.sample"
+            isCustomCreateSample="false">
+      </sample>
+   </extension>
+   <extension
+         point="org.wso2.carbonstudio.proxy.templates">
+      <template
+            file="templates/custom-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.template.custom_proxy"
+            name="Custom Proxy">
+      </template>
+      <template
+            file="templates/pass-through-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.pass_through_proxy"
+            name="Pass Through Proxy">
+      </template>
+      <template
+            file="templates/secure-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.secure_proxy"
+            name="Secure Proxy">
+      </template>
+      <template
+            file="templates/wsdl-based-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.wsdl_based_proxy"
+            name="WSDL Based Proxy">
+      </template>
+      <template
+            file="templates/log-forward-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.log_forward_proxy"
+            name="Log and Forward Proxy">
+      </template>
+      <template
+            file="templates/transformer-proxy.xml"
+            id="org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice.transformer_proxy"
+            name="Transformer Proxy">
+      </template>
+   </extension>
+   
+</plugin>

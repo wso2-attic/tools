@@ -1,0 +1,6 @@
+<archetype>
+  <id>carbon-modules-plugin</id>
+  <resources>
+    <resource>modules/distribution/pom.xml</resource>
+  </resources>
+</archetype>

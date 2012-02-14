@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbDiagram') and _containmentMF_.name = 'server')">
+    <compartmentTraces
+        visualID="7001"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyService') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyService') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyService') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3007"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3008"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3009"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3010"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3011"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorPassOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'passOutputConnector')"/>
+  <childNodeTraces
+      visualID="3012"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorFailOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'failOutputConnector')"/>
+  <childNodeTraces
+      visualID="3013"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNode') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3014"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNodeFirstInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNode') and _containmentMF_.name = 'firstInputConnector')"/>
+  <childNodeTraces
+      visualID="3015"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNodeSecondInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNode') and _containmentMF_.name = 'secondInputConnector')"/>
+  <childNodeTraces
+      visualID="3016"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNodeOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MergeNode') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3017"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5006"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3018"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3019"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3020"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3021"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPointInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPoint') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3022"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPoint') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3029"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3030"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPointInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPoint') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3031"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPoint') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3032"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5002"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3033"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3034"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3035"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5007"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3036"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3037"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3038"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3039"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3040"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3041"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3042"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3043"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchCaseBranchOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'caseBranches')"/>
+  <childNodeTraces
+      visualID="3044"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchDefaultBranchOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'defaultBranch')"/>
+  <childNodeTraces
+      visualID="3045"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MessageMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'messageMediator')"/>
+  <childNodeTraces
+      visualID="3046"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MessageInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MessageMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3047"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MessageOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'MessageMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3048"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5041"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3049"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SequenceInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3050"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SequenceOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3051"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EventMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3052"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EventMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EventMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3053"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EventMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EventMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3054"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EntitlementMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5010"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3055"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EntitlementMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EntitlementMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3056"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EntitlementMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EntitlementMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3057"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ClassMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5011"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3058"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ClassMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ClassMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3059"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ClassMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ClassMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3060"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SpringMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5012"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3061"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SpringMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SpringMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3062"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SpringMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SpringMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3063"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ScriptMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5013"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3064"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ScriptMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ScriptMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3065"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ScriptMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ScriptMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3066"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5014"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3067"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3068"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3069"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XQueryMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5015"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3070"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XQueryMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XQueryMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3071"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XQueryMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XQueryMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3072"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CommandMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5016"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3073"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CommandMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CommandMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3074"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CommandMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CommandMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3075"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5017"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3076"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3077"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3078"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5018"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3079"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3080"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3081"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SmooksMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3082"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SmooksMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SmooksMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3083"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SmooksMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SmooksMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3084"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3085"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'InputConnector')"/>
+  <childNodeTraces
+      visualID="3086"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'OutputConnector')"/>
+  <childNodeTraces
+      visualID="3087"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5019"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3088"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPointInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3090"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and _containmentMF_.name = 'OutputConnector')"/>
+  <childNodeTraces
+      visualID="3091"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5020"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3092"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPointInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPoint') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3093"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPoint') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3094"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5021"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3095"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPointInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3096"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3097"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPointWestOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and _containmentMF_.name = 'westOutputConnector')"/>
+  <childNodeTraces
+      visualID="3098"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPointWestOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and _containmentMF_.name = 'westOutputConnector')"/>
+  <childNodeTraces
+      visualID="3099"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5022"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3100"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3101"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3102"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5023"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3103"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3104"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3105"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CacheMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5024"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3106"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CacheMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CacheMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3107"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CacheMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CacheMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3108"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5025"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3109"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3110"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3111"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5026"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7002"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3112"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3113"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3114"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5027"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3115"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3116"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3117"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3118"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3119"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3120"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5028"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3121"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3122"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3123"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3124"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3125"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3126"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3127"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3128"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3129"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'OAuthMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbServer') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5029"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3130"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'OAuthMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'OAuthMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3131"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'OAuthMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'OAuthMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3132"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediatorOnCompleteOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'onCompleteOutputConnector')"/>
+  <childNodeTraces
+      visualID="3133"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorTargetOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'targetsOutputConnector')"/>
+  <childNodeTraces
+      visualID="3134"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5030"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3135"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3136"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'LogMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3137"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3138"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DropMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3139"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5031"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3140"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3141"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorPassOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'passOutputConnector')"/>
+  <childNodeTraces
+      visualID="3142"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorFailOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'failOutputConnector')"/>
+  <childNodeTraces
+      visualID="3143"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5032"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3144"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3145"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'PropertyMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3146"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5033"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3147"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3148"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EnrichMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3149"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3150"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3151"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'XSLTMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3152"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3153"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3154"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchCaseBranchOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'caseBranches')"/>
+  <childNodeTraces
+      visualID="3155"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchDefaultBranchOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SwitchMediator') and _containmentMF_.name = 'defaultBranch')"/>
+  <childNodeTraces
+      visualID="3156"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5034"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3157"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3158"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'FaultMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3159"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5035"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3160"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3161"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBLookupMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3162"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5036"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3163"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3164"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'DBReportMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3165"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3166"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'InputConnector')"/>
+  <childNodeTraces
+      visualID="3167"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'OutputConnector')"/>
+  <childNodeTraces
+      visualID="3168"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5037"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3169"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3170"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'HeaderMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3171"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5038"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3172"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3173"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3174"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediatorTargetOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CloneMediator') and _containmentMF_.name = 'targetsOutputConnector')"/>
+  <childNodeTraces
+      visualID="3175"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5039"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3176"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3177"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'IterateMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3178"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5040"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3179"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3180"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3181"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3182"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'CalloutMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3183"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3184"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'TransactionMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3185"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3186"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'RMSequenceMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3187"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'AggregateMediator') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3188"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SequenceInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3189"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'SequenceOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'Sequence') and _containmentMF_.name = 'outputConnector')"/>
+  <linkTraces
+      visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/carbonstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbLink')"/>
+</trace:TraceModel>

@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.wso2.eclipse</groupId>
+        <artifactId>wso2-eclipse-parent</artifactId>
+        <version>1.1.0.SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>wso2-eclipse-tools-features</artifactId>
+    <packaging>pom</packaging>
+    <name>WSO2 Eclipse Features</name>
+    <repositories>
+    	<repository>
+    		<id>wso2-maven2-repo</id>
+    		<name>WSO2 Maven2 Repo</name>
+    		<url>http://dist.wso2.org/maven2/</url>
+    	</repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>wso2-maven2-repository</id>
+            <name>WSO2 Maven2 Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>wso2-maven2-snapshot-repository</id>
+            <name>WSO2 Maven2 Snapshot Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/snapshots/maven2/</url>
+        </snapshotRepository>
+    </distributionManagement>    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>wso2-maven2-repository</id>
+            <url>http://dist.wso2.org/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>wso2-maven2-repository</id>
+            <url>http://dist.wso2.org/snapshots/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <modules>
+        <module>server</module>    
+        <module>core</module>      
+        <module>usermgt</module>                    
+        <module>registry</module>
+        <module>wsas</module>
+        <module>bps</module>
+        <module>esb</module>
+        <module>data-services</module>
+        <module>carbon</module>
+        <module>capp</module>
+        <module>connectors</module>                
+        <module>gadgets</module>                        
+        <module>carbon-studio</module>
+	    <!--module>zest</module-->        
+        <module>repository</module>
+    </modules>        
+    <properties>
+        <!--********** bundle plugin versions **********-->
+        <wsas.tools.version>3.2.0</wsas.tools.version>
+        <axis2.mr.tools.version>1.1.0.SNAPSHOT</axis2.mr.tools.version>
+        <capp.tools.version>1.1.0.SNAPSHOT</capp.tools.version>
+        <greg.tools.version>1.1.0.SNAPSHOT</greg.tools.version>
+        <bps.tools.version>0.5.0.wso2v1</bps.tools.version>
+        <bps.export.tool.version>1.2.1</bps.export.tool.version>
+        <ds.tools.version>1.1.0.SNAPSHOT</ds.tools.version>
+        <usermgt.tools.version>1.1.0.SNAPSHOT</usermgt.tools.version>
+        <carbon.tools.version>1.1.0.SNAPSHOT</carbon.tools.version>
+        <esb.tools.version>1.1.0.SNAPSHOT</esb.tools.version>
+        <server.plugins.version>1.1.0.SNAPSHOT</server.plugins.version>
+        <carbonserver.30.version>1.1.0.SNAPSHOT</carbonserver.30.version>
+        <carbonserver.31.version>1.1.0.SNAPSHOT</carbonserver.31.version>
+        <core.tools.version>1.1.0.SNAPSHOT</core.tools.version>
+        
+        <greg.connector.version>1.1.0.SNAPSHOT</greg.connector.version>
+        <bps.connector.version>1.1.0.SNAPSHOT</bps.connector.version>
+        
+        <p2.manager.version>1.1.0.SNAPSHOT</p2.manager.version>
+        <p2.manager36.version>1.1.0.SNAPSHOT</p2.manager36.version>
+        <common.logging.version>1.1.0.SNAPSHOT</common.logging.version>        
+        <common.libraries.version>1.1.0.SNAPSHOT</common.libraries.version>
+        <common.utils.version>1.1.0.SNAPSHOT</common.utils.version>
+        <common.ui.version>1.1.0.SNAPSHOT</common.ui.version>
+        
+        <osde.tools.version>0.9.5</osde.tools.version>
+	<smooks.tools.version>1.1.0.v20110215-1231-H25-GA</smooks.tools.version>
+
+        <!--********** p2 features versions **********-->
+        <server.framework.feature.version>1.1.0.SNAPSHOT</server.framework.feature.version>
+        <core.framework.feature.version>1.1.0.SNAPSHOT</core.framework.feature.version>
+
+        <wsas.tools.feature.version>1.1.0.SNAPSHOT</wsas.tools.feature.version>
+        <bps.tools.feature.version>1.1.0.SNAPSHOT</bps.tools.feature.version>        
+        <usermgt.tools.feature.version>1.1.0.SNAPSHOT</usermgt.tools.feature.version>        
+        <greg.tools.feature.version>1.1.0.SNAPSHOT</greg.tools.feature.version>
+        <carbon.tools.feature.version>1.1.0.SNAPSHOT</carbon.tools.feature.version>
+        <ds.tools.feature.version>1.1.0.SNAPSHOT</ds.tools.feature.version>
+        <esb.tools.feature.version>1.1.0.SNAPSHOT</esb.tools.feature.version>
+        <capp.tools.feature.version>1.1.0.SNAPSHOT</capp.tools.feature.version>
+        
+        <carbonstudio.tools.feature.version>1.1.0.SNAPSHOT</carbonstudio.tools.feature.version>
+
+        <greg.connector.tools.feature.version>1.1.0.SNAPSHOT</greg.connector.tools.feature.version>
+        <bps.connector.tools.feature.version>1.1.0.SNAPSHOT</bps.connector.tools.feature.version>
+
+        <carbonserver.30.feature.version>1.1.0.SNAPSHOT</carbonserver.30.feature.version>        
+        <carbonserver.31.feature.version>1.1.0.SNAPSHOT</carbonserver.31.feature.version>                
+        <osde.feature.version>1.1.0.SNAPSHOT</osde.feature.version>
+	<smooks.feature.version>1.1.0.v20110215-1231-H25-GA</smooks.feature.version>
+    </properties>
+</project>
+

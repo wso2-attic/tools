@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gadget
+Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.artifacts.gadget;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.wso2.carbonstudio.eclipse.artifact.gadget.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Import-Package: org.wso2.carbonstudio.eclipse.maven,
+ org.wso2.carbonstudio.eclipse.maven.executor,
+ org.wso2.carbonstudio.eclipse.maven.types,
+ org.wso2.carbonstudio.eclipse.platform.ui.wizard
