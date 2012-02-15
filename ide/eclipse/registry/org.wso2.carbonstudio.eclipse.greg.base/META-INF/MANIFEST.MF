@@ -71,6 +71,7 @@ Bundle-ClassPath: .,
  lib/org.wso2.carbon.core-3.2.2.jar,
  lib/org.wso2.carbon.core.commons.stub-3.2.0.jar,
  lib/org.wso2.carbon.utils-3.2.2.jar,
- lib/org.wso2.carbon.component.mgt.stub-3.2.0.jar
+ lib/org.wso2.carbon.component.mgt.stub-3.2.0.jar,
+ lib/org.wso2.carbon.user.core-3.2.2.jar
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -26,6 +26,7 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
@@ -41,8 +42,11 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.wso2.carbonstudio.eclipse.greg.base.logger.ExceptionHandler;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryContentContainer;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryUserContainer;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryUserRoleContainer;
 import org.wso2.carbonstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.carbonstudio.eclipse.greg.base.ui.controls.RegistryTreeViewer;
 import org.wso2.carbonstudio.eclipse.greg.base.ui.controls.RegistryTreeViewer.IRegistryTreeItemSelectionListener;
@@ -128,6 +132,10 @@ public class RegistryTreeBrowserDialog extends Dialog {
 		removeRegistry = new Button(toolBarBomposite, SWT.PUSH);
 		removeRegistry.setImage(ImageUtils.getImageDescriptor("deleteRegistry.png").createImage());
 		removeRegistry.setToolTipText("Remove Registry Connection");
+		
+		Button refreshRegistry = new Button(toolBarBomposite, SWT.PUSH);
+		refreshRegistry.setImage(ImageUtils.getImageDescriptor("refresh.png").createImage());
+		refreshRegistry.setToolTipText("Refresh Registry Connection");
 		
 
 		treeViewer = new RegistryTreeViewer(container, 
@@ -232,6 +240,31 @@ public class RegistryTreeBrowserDialog extends Dialog {
 				
 			}
 		});
+		
+		refreshRegistry.addSelectionListener(new SelectionListener() {
+			
+			public void widgetSelected(SelectionEvent arg0) {
+				ISelection selectedObj = treeViewer.getSelection();
+				Object firstElement = ((TreeSelection)selectedObj).getFirstElement();
+				if (firstElement instanceof RegistryNode) {
+					((RegistryNode) firstElement).setIterativeRefresh(true);
+				} else if (firstElement instanceof RegistryContentContainer) {
+					((RegistryContentContainer) firstElement).setIterativeRefresh(true);
+				} else if (firstElement instanceof RegistryResourceNode) {
+					((RegistryResourceNode) firstElement).setIterativeRefresh(true);
+				} else if (firstElement instanceof RegistryUserContainer) {
+					((RegistryUserContainer) firstElement).setIterativeRefresh(true);
+				} else if (firstElement instanceof RegistryUserRoleContainer) {
+					((RegistryUserRoleContainer) firstElement).setIterativeRefresh(true);
+				}
+				treeViewer.getRegistryUrlNode().dataChanged(false);
+			}
+			
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
+			}
+		});
+		
 		updateSelection();
 		return super.createDialogArea(parent);
 	}

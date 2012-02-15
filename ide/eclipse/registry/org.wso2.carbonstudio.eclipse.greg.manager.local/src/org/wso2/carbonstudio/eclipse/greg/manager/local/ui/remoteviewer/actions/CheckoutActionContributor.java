@@ -82,7 +82,8 @@ public class CheckoutActionContributor implements IRegistryAction {
 	public boolean isEnabled(Object selected) {
 		if (selected instanceof RegistryResourceNode) {
 			RegistryResourceNode r = (RegistryResourceNode) selected;
-			return (r.getResourceType()==RegistryResourceType.COLLECTION) && !r.isError();
+			return (r.getResourceType()==RegistryResourceType.COLLECTION || 
+					r.getResourceType() == RegistryResourceType.RESOURCE) && !r.isError();
 		}
 		return false;
 	}
@@ -93,7 +94,8 @@ public class CheckoutActionContributor implements IRegistryAction {
 	public boolean isVisible(Object selected) {
 		if (selected instanceof RegistryResourceNode) {
 			RegistryResourceNode r = (RegistryResourceNode) selected;
-			return (r.getResourceType()==RegistryResourceType.COLLECTION) && !r.isError();
+			return (r.getResourceType()==RegistryResourceType.COLLECTION || 
+					r.getResourceType() == RegistryResourceType.RESOURCE) && !r.isError();
 		}
 		return false;
 	}
@@ -103,6 +105,7 @@ public class CheckoutActionContributor implements IRegistryAction {
 	 * @throws Exception 
 	 */
 	private void checkoutRegistryPath() throws Exception {
+		String checkoutPath = "";
 		if (getSelectedObj() instanceof RegistryResourceNode) {
 			RegistryResourceNode r = (RegistryResourceNode) getSelectedObj();
 			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -119,11 +122,13 @@ public class CheckoutActionContributor implements IRegistryAction {
 							String chkoutFolder;
 							if (r.getResourceType()==RegistryResourceType.RESOURCE){
 								chkoutFolder = r.getRegistryResourceNodeParent().getLastSegmentInPath();
+								checkoutPath = r.getRegistryResourceNodeParent().getRegistryResourcePath();
 							}else if(r.getResourceType()==RegistryResourceType.UNDEFINED){
 								throw new Exception("Resource not Defined");
 							}
 							else{
 								chkoutFolder = r.getLastSegmentInPath();
+								checkoutPath = r.getRegistryResourcePath();
 							}
 							if (chkoutFolder.equals("/")){
 								chkoutFolder = "ROOT";
