@@ -245,7 +245,7 @@
 		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
 			<includes>
 				<!--contentExtension pattern="org.wso2.carbonstudio.eclipse.ui.cnf.artifact.content" /-->
-				<contentExtension pattern="org.wso2.carbonstudio.eclipse.ui.cnf.artifact.filter" />					
+				<!--contentExtension pattern="org.wso2.carbonstudio.eclipse.ui.cnf.artifact.filter" /-->					
 			</includes>
 		</viewerContentBinding>
 	</extension>
@@ -265,12 +265,12 @@
 				<instanceof value="org.eclipse.core.resources.IFolder"/>
 			</possibleChildren>
 		</navigatorContent-->
-		<commonFilter id="org.wso2.carbonstudio.eclipse.ui.cnf.artifact.filter"
+		<!--commonFilter id="org.wso2.carbonstudio.eclipse.ui.cnf.artifact.filter"
 			name="Hide CApp Artifact Folders"
 			description="Hides CApp artifact metadata from the view"
 			class="org.wso2.carbonstudio.eclipse.capp.project.filters.FilterCAppMetaResources"
 			activeByDefault="true"
-			visibleInUI="true" />
+			visibleInUI="true" /-->
 	</extension>
 	<extension point="org.eclipse.ui.popupMenus">
 		<objectContribution objectClass="org.eclipse.core.resources.IProject"
