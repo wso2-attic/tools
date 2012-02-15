@@ -25,6 +25,7 @@ import org.eclipse.bpel.apache.ode.deploy.model.dd.TDeployment;
 import org.eclipse.bpel.apache.ode.deploy.model.dd.ddFactory;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
@@ -246,7 +247,13 @@ public class DeployUtils {
 			}
 		};
 		try {
-			IResource[] reses = project.getFolder(getWebContentRootPath(project)).members();
+			IResource[] reses=null;
+			if(project.exists(getWebContentRootPath(project))){
+				reses = project.getFolder(getWebContentRootPath(project)).members();
+			}
+			else{
+				reses = project.members();
+			}
 			for (IResource res : reses) {
 				res.accept(visitor);
 
