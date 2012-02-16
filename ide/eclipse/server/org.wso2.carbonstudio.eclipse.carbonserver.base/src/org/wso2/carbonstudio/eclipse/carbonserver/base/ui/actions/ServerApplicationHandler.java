@@ -46,11 +46,11 @@ public class ServerApplicationHandler extends AbstractHandler{
 		IServerModule object = (IServerModule) selection.getFirstElement();
 
 		// There is always only one module in the IServerModule for our case.
-		IProject project = object.getModule()[0].getProject();
+		String projectName = object.getModule()[0].getName();
 		IServer server = object.getServer();
 
 		CarbonServerManager.getInstance().redeployServiceModule(server.getId(), WEB_TEMP_PATH,
-		                                                         project.getName());
+				projectName);
 		return null;
 	}
 
