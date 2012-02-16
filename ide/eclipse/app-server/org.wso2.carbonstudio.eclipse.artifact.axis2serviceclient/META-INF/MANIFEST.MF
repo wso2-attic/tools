@@ -13,8 +13,6 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.wsdl,
- org.apache.axis2.util,
- org.apache.xerces.parsers,
  org.eclipse.core.expressions,
  org.eclipse.core.resources,
  org.eclipse.emf.common.ui.dialogs,
