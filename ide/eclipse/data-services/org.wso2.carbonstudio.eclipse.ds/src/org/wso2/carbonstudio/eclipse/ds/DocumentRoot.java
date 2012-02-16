@@ -25,8 +25,10 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getData <em>Data</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getProperty <em>Property</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSql <em>Sql</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,6 +145,33 @@ public interface DocumentRoot extends EObject {
 	void setData(DataService value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(Description)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Description()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Description getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(Description value);
+
+	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -195,5 +224,32 @@ public interface DocumentRoot extends EObject {
 	 * @generated
 	 */
 	void setSql(Sql value);
+
+	/**
+	 * Returns the value of the '<em><b>Subscription</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subscription</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subscription</em>' containment reference.
+	 * @see #setSubscription(Subscription)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Subscription()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='subscription' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Subscription getSubscription();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subscription</em>' containment reference.
+	 * @see #getSubscription()
+	 * @generated
+	 */
+	void setSubscription(Subscription value);
 
 } // DocumentRoot

@@ -35,7 +35,7 @@ import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getElementMappings <em>Element Mappings</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getDefaultNamespace <em>Default Namespace</em>}</li>
@@ -50,14 +50,14 @@ import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
  */
 public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
-	 * The cached value of the '{@link #getElementMappings() <em>Element Mappings</em>}' containment reference list.
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementMappings()
+	 * @see #getElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementMapping> elementMappings;
+	protected EList<ElementMapping> element;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
@@ -203,11 +203,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ElementMapping> getElementMappings() {
-		if (elementMappings == null) {
-			elementMappings = new EObjectContainmentEList<ElementMapping>(ElementMapping.class, this, DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS);
+	public EList<ElementMapping> getElement() {
+		if (element == null) {
+			element = new EObjectContainmentEList<ElementMapping>(ElementMapping.class, this, DsPackage.RESULT_MAPPING__ELEMENT);
 		}
-		return elementMappings;
+		return element;
 	}
 
 	/**
@@ -347,8 +347,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
-				return ((InternalEList<?>)getElementMappings()).basicRemove(otherEnd, msgs);
+			case DsPackage.RESULT_MAPPING__ELEMENT:
+				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
@@ -365,8 +365,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
-				return getElementMappings();
+			case DsPackage.RESULT_MAPPING__ELEMENT:
+				return getElement();
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				return getAttribute();
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
@@ -394,9 +394,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
-				getElementMappings().clear();
-				getElementMappings().addAll((Collection<? extends ElementMapping>)newValue);
+			case DsPackage.RESULT_MAPPING__ELEMENT:
+				getElement().clear();
+				getElement().addAll((Collection<? extends ElementMapping>)newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				getAttribute().clear();
@@ -433,8 +433,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
-				getElementMappings().clear();
+			case DsPackage.RESULT_MAPPING__ELEMENT:
+				getElement().clear();
 				return;
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				getAttribute().clear();
@@ -469,8 +469,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
-				return elementMappings != null && !elementMappings.isEmpty();
+			case DsPackage.RESULT_MAPPING__ELEMENT:
+				return element != null && !element.isEmpty();
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				return attribute != null && !attribute.isEmpty();
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:

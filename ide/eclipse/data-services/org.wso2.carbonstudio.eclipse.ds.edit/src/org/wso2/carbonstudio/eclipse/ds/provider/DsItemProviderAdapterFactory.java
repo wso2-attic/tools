@@ -237,6 +237,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Description} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DescriptionItemProvider descriptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.Description}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDescriptionAdapter() {
+		if (descriptionItemProvider == null) {
+			descriptionItemProvider = new DescriptionItemProvider(this);
+		}
+
+		return descriptionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +697,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Subscription} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubscriptionItemProvider subscriptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.Subscription}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubscriptionAdapter() {
+		if (subscriptionItemProvider == null) {
+			subscriptionItemProvider = new SubscriptionItemProvider(this);
+		}
+
+		return subscriptionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,6 +825,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		if (customValidatorItemProvider != null) customValidatorItemProvider.dispose();
 		if (dataServiceItemProvider != null) dataServiceItemProvider.dispose();
 		if (dataSourceConfigurationItemProvider != null) dataSourceConfigurationItemProvider.dispose();
+		if (descriptionItemProvider != null) descriptionItemProvider.dispose();
 		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
 		if (doubleRangeValidatorItemProvider != null) doubleRangeValidatorItemProvider.dispose();
 		if (elementMappingItemProvider != null) elementMappingItemProvider.dispose();
@@ -798,6 +845,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		if (resourceItemProvider != null) resourceItemProvider.dispose();
 		if (resultMappingItemProvider != null) resultMappingItemProvider.dispose();
 		if (sqlItemProvider != null) sqlItemProvider.dispose();
+		if (subscriptionItemProvider != null) subscriptionItemProvider.dispose();
 	}
 
 }

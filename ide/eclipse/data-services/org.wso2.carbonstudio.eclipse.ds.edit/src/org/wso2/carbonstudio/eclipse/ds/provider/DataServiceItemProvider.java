@@ -75,7 +75,6 @@ public class DataServiceItemProvider
 			addNamePropertyDescriptor(object);
 			addServiceGroupPropertyDescriptor(object);
 			addServiceStatusPropertyDescriptor(object);
-			addServiceNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -257,28 +256,6 @@ public class DataServiceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Service Namespace feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addServiceNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataService_serviceNamespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataService_serviceNamespace_feature", "_UI_DataService_type"),
-				 DsPackage.Literals.DATA_SERVICE__SERVICE_NAMESPACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -357,7 +334,6 @@ public class DataServiceItemProvider
 			case DsPackage.DATA_SERVICE__NAME:
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
-			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DsPackage.DATA_SERVICE__CONFIG:

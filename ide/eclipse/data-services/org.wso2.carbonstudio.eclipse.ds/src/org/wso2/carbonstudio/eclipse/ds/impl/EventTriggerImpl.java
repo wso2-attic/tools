@@ -39,24 +39,44 @@ import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
  */
 public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject expression;
+	protected static final String EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTargetTopic() <em>Target Topic</em>}' containment reference.
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String expression = EXPRESSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetTopic() <em>Target Topic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject targetTopic;
+	protected static final String TARGET_TOPIC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetTopic() <em>Target Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetTopic = TARGET_TOPIC_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSubscriptions() <em>Subscriptions</em>}' containment reference.
@@ -132,7 +152,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getExpression() {
+	public String getExpression() {
 		return expression;
 	}
 
@@ -141,14 +161,11 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs) {
-		EObject oldExpression = expression;
+	public void setExpression(String newExpression) {
+		String oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, oldExpression, newExpression);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, oldExpression, expression));
 	}
 
 	/**
@@ -156,26 +173,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpression(EObject newExpression) {
-		if (newExpression != expression) {
-			NotificationChain msgs = null;
-			if (expression != null)
-				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
-			if (newExpression != null)
-				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
-			msgs = basicSetExpression(newExpression, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, newExpression, newExpression));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObject getTargetTopic() {
+	public String getTargetTopic() {
 		return targetTopic;
 	}
 
@@ -184,33 +182,11 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetTopic(EObject newTargetTopic, NotificationChain msgs) {
-		EObject oldTargetTopic = targetTopic;
+	public void setTargetTopic(String newTargetTopic) {
+		String oldTargetTopic = targetTopic;
 		targetTopic = newTargetTopic;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, oldTargetTopic, newTargetTopic);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTargetTopic(EObject newTargetTopic) {
-		if (newTargetTopic != targetTopic) {
-			NotificationChain msgs = null;
-			if (targetTopic != null)
-				msgs = ((InternalEObject)targetTopic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
-			if (newTargetTopic != null)
-				msgs = ((InternalEObject)newTargetTopic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
-			msgs = basicSetTargetTopic(newTargetTopic, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, newTargetTopic, newTargetTopic));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, oldTargetTopic, targetTopic));
 	}
 
 	/**
@@ -306,10 +282,6 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				return basicSetExpression(null, msgs);
-			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				return basicSetTargetTopic(null, msgs);
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				return basicSetSubscriptions(null, msgs);
 		}
@@ -347,10 +319,10 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				setExpression((EObject)newValue);
+				setExpression((String)newValue);
 				return;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				setTargetTopic((EObject)newValue);
+				setTargetTopic((String)newValue);
 				return;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				setSubscriptions((EventSubscriptionList)newValue);
@@ -374,10 +346,10 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				setExpression((EObject)null);
+				setExpression(EXPRESSION_EDEFAULT);
 				return;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				setTargetTopic((EObject)null);
+				setTargetTopic(TARGET_TOPIC_EDEFAULT);
 				return;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				setSubscriptions((EventSubscriptionList)null);
@@ -401,9 +373,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				return expression != null;
+				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				return targetTopic != null;
+				return TARGET_TOPIC_EDEFAULT == null ? targetTopic != null : !TARGET_TOPIC_EDEFAULT.equals(targetTopic);
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				return subscriptions != null;
 			case DsPackage.EVENT_TRIGGER__ID:
@@ -424,7 +396,11 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (expression: ");
+		result.append(expression);
+		result.append(", targetTopic: ");
+		result.append(targetTopic);
+		result.append(", id: ");
 		result.append(id);
 		result.append(", language: ");
 		result.append(language);

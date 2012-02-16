@@ -26,9 +26,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.carbonstudio.eclipse.ds.CallQuery;
 import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.DataService;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DocumentRoot;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
+import org.wso2.carbonstudio.eclipse.ds.Subscription;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +44,10 @@ import org.wso2.carbonstudio.eclipse.ds.Sql;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getData <em>Data</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getSql <em>Sql</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getSubscription <em>Subscription</em>}</li>
  * </ul>
  * </p>
  *
@@ -194,6 +198,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Description getDescription() {
+		return (Description)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, newDescription, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(Description newDescription) {
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, newDescription);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ConfigurationProperty getProperty() {
 		return (ConfigurationProperty)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__PROPERTY, true);
 	}
@@ -248,6 +279,33 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Subscription getSubscription() {
+		return (Subscription)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubscription(Subscription newSubscription, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, newSubscription, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubscription(Subscription newSubscription) {
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, newSubscription);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -261,10 +319,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCallQuery(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return basicSetData(null, msgs);
+			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return basicSetProperty(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return basicSetSql(null, msgs);
+			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+				return basicSetSubscription(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -290,10 +352,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallQuery();
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return getData();
+			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+				return getDescription();
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return getProperty();
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return getSql();
+			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+				return getSubscription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,11 +387,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				setData((DataService)newValue);
 				return;
+			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+				setDescription((Description)newValue);
+				return;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				setProperty((ConfigurationProperty)newValue);
 				return;
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				setSql((Sql)newValue);
+				return;
+			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+				setSubscription((Subscription)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -354,11 +426,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				setData((DataService)null);
 				return;
+			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+				setDescription((Description)null);
+				return;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				setProperty((ConfigurationProperty)null);
 				return;
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				setSql((Sql)null);
+				return;
+			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+				setSubscription((Subscription)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -382,10 +460,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallQuery() != null;
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return getData() != null;
+			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+				return getDescription() != null;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return getProperty() != null;
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return getSql() != null;
+			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+				return getSubscription() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,30 +15,27 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
-import org.wso2.carbonstudio.eclipse.ds.EventSubscriptionList;
+import org.wso2.carbonstudio.eclipse.ds.Subscription;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.carbonstudio.eclipse.ds.EventSubscriptionList} object.
+ * This is the item provider adapter for a {@link org.wso2.carbonstudio.eclipse.ds.Subscription} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventSubscriptionListItemProvider
+public class SubscriptionItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +49,7 @@ public class EventSubscriptionListItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventSubscriptionListItemProvider(AdapterFactory adapterFactory) {
+	public SubscriptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,49 +64,42 @@ public class EventSubscriptionListItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(DsPackage.Literals.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
-		}
-		return childrenFeatures;
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Subscription_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Subscription_value_feature", "_UI_Subscription_type"),
+				 DsPackage.Literals.SUBSCRIPTION__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This returns Subscription.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns EventSubscriptionList.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("wso2/subscription"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Subscription"));
 	}
 
 	/**
@@ -120,7 +110,10 @@ public class EventSubscriptionListItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EventSubscriptionList_type");
+		String label = ((Subscription)object).getValue();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Subscription_type") :
+			getString("_UI_Subscription_type") + " " + label;
 	}
 
 	/**
@@ -134,9 +127,9 @@ public class EventSubscriptionListItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EventSubscriptionList.class)) {
-			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(Subscription.class)) {
+			case DsPackage.SUBSCRIPTION__VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -152,11 +145,6 @@ public class EventSubscriptionListItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DsPackage.Literals.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION,
-				 DsFactory.eINSTANCE.createSubscription()));
 	}
 
 	/**

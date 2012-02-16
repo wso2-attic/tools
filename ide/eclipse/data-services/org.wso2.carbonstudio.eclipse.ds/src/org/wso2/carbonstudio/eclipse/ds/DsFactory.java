@@ -89,6 +89,15 @@ public interface DsFactory extends EFactory {
 	DataSourceConfiguration createDataSourceConfiguration();
 
 	/**
+	 * Returns a new object of class '<em>Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Description</em>'.
+	 * @generated
+	 */
+	Description createDescription();
+
+	/**
 	 * Returns a new object of class '<em>Document Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +267,15 @@ public interface DsFactory extends EFactory {
 	 * @generated
 	 */
 	Sql createSql();
+
+	/**
+	 * Returns a new object of class '<em>Subscription</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Subscription</em>'.
+	 * @generated
+	 */
+	Subscription createSubscription();
 
 	/**
 	 * Returns the package supported by this factory.

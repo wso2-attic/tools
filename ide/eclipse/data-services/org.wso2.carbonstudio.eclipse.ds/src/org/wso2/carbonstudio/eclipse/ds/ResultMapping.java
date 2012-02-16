@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElementMappings <em>Element Mappings</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElement <em>Element</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getDefaultNamespace <em>Default Namespace</em>}</li>
@@ -35,21 +35,21 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ResultMapping extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Element Mappings</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
 	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.ds.ElementMapping}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Element Mappings</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Mappings</em>' containment reference list.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getResultMapping_ElementMappings()
+	 * @return the value of the '<em>Element</em>' containment reference list.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getResultMapping_Element()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='element' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ElementMapping> getElementMappings();
+	EList<ElementMapping> getElement();
 
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.

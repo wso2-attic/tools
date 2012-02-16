@@ -20,11 +20,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
 import org.wso2.carbonstudio.eclipse.ds.Operation;
@@ -52,7 +54,6 @@ import org.wso2.carbonstudio.eclipse.ds.ServiceStatus;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceStatus <em>Service Status</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceNamespace <em>Service Namespace</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +68,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> description;
+	protected EList<Description> description;
 
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference list.
@@ -296,26 +297,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	protected boolean serviceStatusESet;
 
 	/**
-	 * The default value of the '{@link #getServiceNamespace() <em>Service Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SERVICE_NAMESPACE_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getServiceNamespace() <em>Service Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String serviceNamespace = SERVICE_NAMESPACE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -339,9 +320,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getDescription() {
+	public EList<Description> getDescription() {
 		if (description == null) {
-			description = new EObjectContainmentEList<EObject>(EObject.class, this, DsPackage.DATA_SERVICE__DESCRIPTION);
+			description = new EObjectContainmentEList<Description>(Description.class, this, DsPackage.DATA_SERVICE__DESCRIPTION);
 		}
 		return description;
 	}
@@ -658,27 +639,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getServiceNamespace() {
-		return serviceNamespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceNamespace(String newServiceNamespace) {
-		String oldServiceNamespace = serviceNamespace;
-		serviceNamespace = newServiceNamespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__SERVICE_NAMESPACE, oldServiceNamespace, serviceNamespace));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -732,8 +692,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return getServiceGroup();
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return getServiceStatus();
-			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
-				return getServiceNamespace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -749,7 +707,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 				getDescription().clear();
-				getDescription().addAll((Collection<? extends EObject>)newValue);
+				getDescription().addAll((Collection<? extends Description>)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__CONFIG:
 				getConfig().clear();
@@ -791,9 +749,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return;
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				setServiceStatus((ServiceStatus)newValue);
-				return;
-			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
-				setServiceNamespace((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -846,9 +801,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				unsetServiceStatus();
 				return;
-			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
-				setServiceNamespace(SERVICE_NAMESPACE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -887,8 +839,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return SERVICE_GROUP_EDEFAULT == null ? serviceGroup != null : !SERVICE_GROUP_EDEFAULT.equals(serviceGroup);
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return isSetServiceStatus();
-			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
-				return SERVICE_NAMESPACE_EDEFAULT == null ? serviceNamespace != null : !SERVICE_NAMESPACE_EDEFAULT.equals(serviceNamespace);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -917,8 +867,6 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 		result.append(serviceGroup);
 		result.append(", serviceStatus: ");
 		if (serviceStatusESet) result.append(serviceStatus); else result.append("<unset>");
-		result.append(", serviceNamespace: ");
-		result.append(serviceNamespace);
 		result.append(')');
 		return result.toString();
 	}

@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface EventSubscriptionList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Subscription</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.ds.Subscription}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Subscription</em>' containment reference list isn't clear,
@@ -42,6 +42,6 @@ public interface EventSubscriptionList extends EObject {
 	 *        extendedMetaData="kind='element' name='subscription' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<EObject> getSubscription();
+	EList<Subscription> getSubscription();
 
 } // EventSubscriptionList

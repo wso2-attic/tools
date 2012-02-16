@@ -100,6 +100,10 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 				return createDataSourceConfigurationAdapter();
 			}
 			@Override
+			public Adapter caseDescription(Description object) {
+				return createDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseDocumentRoot(DocumentRoot object) {
 				return createDocumentRootAdapter();
 			}
@@ -174,6 +178,10 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSql(Sql object) {
 				return createSqlAdapter();
+			}
+			@Override
+			public Adapter caseSubscription(Subscription object) {
+				return createSubscriptionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -290,6 +298,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataSourceConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Description <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Description
+	 * @generated
+	 */
+	public Adapter createDescriptionAdapter() {
 		return null;
 	}
 
@@ -556,6 +578,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSqlAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Subscription <em>Subscription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Subscription
+	 * @generated
+	 */
+	public Adapter createSubscriptionAdapter() {
 		return null;
 	}
 

@@ -24,6 +24,7 @@ import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.CustomValidator;
 import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DocumentRoot;
 import org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator;
 import org.wso2.carbonstudio.eclipse.ds.DsFactory;
@@ -46,6 +47,7 @@ import org.wso2.carbonstudio.eclipse.ds.Resource;
 import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
 import org.wso2.carbonstudio.eclipse.ds.ServiceStatus;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
+import org.wso2.carbonstudio.eclipse.ds.Subscription;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,6 +104,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	private EClass dataSourceConfigurationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass descriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,6 +244,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	private EClass sqlEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subscriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -580,15 +596,6 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_ServiceNamespace() {
-		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDataSourceConfiguration() {
 		return dataSourceConfigurationEClass;
 	}
@@ -609,6 +616,24 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 */
 	public EAttribute getDataSourceConfiguration_Id() {
 		return (EAttribute)dataSourceConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDescription() {
+		return descriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDescription_Value() {
+		return (EAttribute)descriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -670,7 +695,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Property() {
+	public EReference getDocumentRoot_Description() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -679,8 +704,26 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Sql() {
+	public EReference getDocumentRoot_Property() {
 		return (EReference)documentRootEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_Sql() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_Subscription() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -796,8 +839,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventTrigger_Expression() {
-		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEventTrigger_Expression() {
+		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -805,8 +848,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventTrigger_TargetTopic() {
-		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(1);
+	public EAttribute getEventTrigger_TargetTopic() {
+		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1426,7 +1469,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultMapping_ElementMappings() {
+	public EReference getResultMapping_Element() {
 		return (EReference)resultMappingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1525,6 +1568,24 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSubscription() {
+		return subscriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubscription_Value() {
+		return (EAttribute)subscriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getServiceStatus() {
 		return serviceStatusEEnum;
 	}
@@ -1600,11 +1661,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(dataServiceEClass, DATA_SERVICE__NAME);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_GROUP);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_STATUS);
-		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_NAMESPACE);
 
 		dataSourceConfigurationEClass = createEClass(DATA_SOURCE_CONFIGURATION);
 		createEReference(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__PROPERTY);
 		createEAttribute(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__ID);
+
+		descriptionEClass = createEClass(DESCRIPTION);
+		createEAttribute(descriptionEClass, DESCRIPTION__VALUE);
 
 		documentRootEClass = createEClass(DOCUMENT_ROOT);
 		createEAttribute(documentRootEClass, DOCUMENT_ROOT__MIXED);
@@ -1612,8 +1675,10 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		createEReference(documentRootEClass, DOCUMENT_ROOT__CALL_QUERY);
 		createEReference(documentRootEClass, DOCUMENT_ROOT__DATA);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__DESCRIPTION);
 		createEReference(documentRootEClass, DOCUMENT_ROOT__PROPERTY);
 		createEReference(documentRootEClass, DOCUMENT_ROOT__SQL);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__SUBSCRIPTION);
 
 		doubleRangeValidatorEClass = createEClass(DOUBLE_RANGE_VALIDATOR);
 		createEAttribute(doubleRangeValidatorEClass, DOUBLE_RANGE_VALIDATOR__MAXIMUM);
@@ -1630,8 +1695,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEReference(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
 
 		eventTriggerEClass = createEClass(EVENT_TRIGGER);
-		createEReference(eventTriggerEClass, EVENT_TRIGGER__EXPRESSION);
-		createEReference(eventTriggerEClass, EVENT_TRIGGER__TARGET_TOPIC);
+		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__EXPRESSION);
+		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__TARGET_TOPIC);
 		createEReference(eventTriggerEClass, EVENT_TRIGGER__SUBSCRIPTIONS);
 		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__ID);
 		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__LANGUAGE);
@@ -1713,7 +1778,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(resourceEClass, RESOURCE__RETURN_REQUEST_STATUS);
 
 		resultMappingEClass = createEClass(RESULT_MAPPING);
-		createEReference(resultMappingEClass, RESULT_MAPPING__ELEMENT_MAPPINGS);
+		createEReference(resultMappingEClass, RESULT_MAPPING__ELEMENT);
 		createEReference(resultMappingEClass, RESULT_MAPPING__ATTRIBUTE);
 		createEReference(resultMappingEClass, RESULT_MAPPING__CALL_QUERY);
 		createEAttribute(resultMappingEClass, RESULT_MAPPING__DEFAULT_NAMESPACE);
@@ -1725,6 +1790,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		sqlEClass = createEClass(SQL);
 		createEAttribute(sqlEClass, SQL__VALUE);
 		createEAttribute(sqlEClass, SQL__DIALECT);
+
+		subscriptionEClass = createEClass(SUBSCRIPTION);
+		createEAttribute(subscriptionEClass, SUBSCRIPTION__VALUE);
 
 		// Create enums
 		serviceStatusEEnum = createEEnum(SERVICE_STATUS);
@@ -1787,7 +1855,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getCustomValidator_Class(), theXMLTypePackage.getString(), "class", null, 1, 1, CustomValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataServiceEClass, DataService.class, "DataService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataService_Description(), ecorePackage.getEObject(), null, "description", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Description(), this.getDescription(), null, "description", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataService_Config(), this.getDataSourceConfiguration(), null, "config", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataService_Query(), this.getQuery(), null, "query", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataService_EventTrigger(), this.getEventTrigger(), null, "eventTrigger", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1800,11 +1868,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getDataService_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceGroup(), theXMLTypePackage.getString(), "serviceGroup", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceStatus(), this.getServiceStatus(), "serviceStatus", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataService_ServiceNamespace(), theXMLTypePackage.getString(), "serviceNamespace", "", 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceConfigurationEClass, DataSourceConfiguration.class, "DataSourceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataSourceConfiguration_Property(), this.getConfigurationProperty(), null, "property", null, 1, -1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceConfiguration_Id(), theXMLTypePackage.getString(), "id", null, 0, 1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDescription_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1812,8 +1882,10 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_Data(), this.getDataService(), null, "data", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_Description(), this.getDescription(), null, "description", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_Property(), this.getConfigurationProperty(), null, "property", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocumentRoot_Sql(), this.getSql(), null, "sql", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentRoot_Subscription(), this.getSubscription(), null, "subscription", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(doubleRangeValidatorEClass, DoubleRangeValidator.class, "DoubleRangeValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoubleRangeValidator_Maximum(), theXMLTypePackage.getDouble(), "maximum", null, 0, 1, DoubleRangeValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1827,11 +1899,11 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_XsdType(), theXMLTypePackage.getString(), "xsdType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventSubscriptionList_Subscription(), ecorePackage.getEObject(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventTriggerEClass, EventTrigger.class, "EventTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventTrigger_Expression(), ecorePackage.getEObject(), null, "expression", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventTrigger_TargetTopic(), ecorePackage.getEObject(), null, "targetTopic", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEventTrigger_Expression(), theXMLTypePackage.getString(), "expression", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEventTrigger_TargetTopic(), theXMLTypePackage.getString(), "targetTopic", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventTrigger_Subscriptions(), this.getEventSubscriptionList(), null, "subscriptions", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventTrigger_Id(), theXMLTypePackage.getString(), "id", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventTrigger_Language(), theXMLTypePackage.getString(), "language", null, 0, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1913,7 +1985,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getResource_ReturnRequestStatus(), theXMLTypePackage.getBoolean(), "returnRequestStatus", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultMappingEClass, ResultMapping.class, "ResultMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResultMapping_ElementMappings(), this.getElementMapping(), null, "elementMappings", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResultMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResultMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResultMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResultMapping_DefaultNamespace(), theXMLTypePackage.getString(), "defaultNamespace", null, 0, 1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1925,6 +1997,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEClass(sqlEClass, Sql.class, "Sql", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSql_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Sql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSql_Dialect(), theXMLTypePackage.getString(), "dialect", null, 0, 1, Sql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(subscriptionEClass, Subscription.class, "Subscription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSubscription_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Subscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(serviceStatusEEnum, ServiceStatus.class, "ServiceStatus");
@@ -2205,6 +2280,20 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
+		  (descriptionEClass, 
+		   source, 
+		   new String[] {
+			 "name", "description_._type",
+			 "kind", "simple"
+		   });		
+		addAnnotation
+		  (getDescription_Value(), 
+		   source, 
+		   new String[] {
+			 "name", ":0",
+			 "kind", "simple"
+		   });		
+		addAnnotation
 		  (documentRootEClass, 
 		   source, 
 		   new String[] {
@@ -2249,6 +2338,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
+		  (getDocumentRoot_Description(), 
+		   source, 
+		   new String[] {
+			 "kind", "element",
+			 "name", "description",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
 		  (getDocumentRoot_Property(), 
 		   source, 
 		   new String[] {
@@ -2262,6 +2359,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "element",
 			 "name", "sql",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getDocumentRoot_Subscription(), 
+		   source, 
+		   new String[] {
+			 "kind", "element",
+			 "name", "subscription",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
@@ -2903,7 +3008,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "kind", "elementOnly"
 		   });		
 		addAnnotation
-		  (getResultMapping_ElementMappings(), 
+		  (getResultMapping_Element(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -3000,6 +3105,20 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "kind", "attribute",
 			 "name", "dialect",
 			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (subscriptionEClass, 
+		   source, 
+		   new String[] {
+			 "name", "subscription_._type",
+			 "kind", "simple"
+		   });		
+		addAnnotation
+		  (getSubscription_Value(), 
+		   source, 
+		   new String[] {
+			 "name", ":0",
+			 "kind", "simple"
 		   });
 	}
 

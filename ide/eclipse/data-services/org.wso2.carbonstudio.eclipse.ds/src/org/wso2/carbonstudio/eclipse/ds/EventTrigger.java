@@ -30,58 +30,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface EventTrigger extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expression</em>' containment reference.
-	 * @see #setExpression(EObject)
+	 * @return the value of the '<em>Expression</em>' attribute.
+	 * @see #setExpression(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getEventTrigger_Expression()
-	 * @model containment="true" required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EObject getExpression();
+	String getExpression();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @param value the new value of the '<em>Expression</em>' attribute.
 	 * @see #getExpression()
 	 * @generated
 	 */
-	void setExpression(EObject value);
+	void setExpression(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Topic</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Topic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target Topic</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Topic</em>' containment reference.
-	 * @see #setTargetTopic(EObject)
+	 * @return the value of the '<em>Target Topic</em>' attribute.
+	 * @see #setTargetTopic(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getEventTrigger_TargetTopic()
-	 * @model containment="true" required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='element' name='target-topic' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EObject getTargetTopic();
+	String getTargetTopic();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Topic</em>' containment reference.
+	 * @param value the new value of the '<em>Target Topic</em>' attribute.
 	 * @see #getTargetTopic()
 	 * @generated
 	 */
-	void setTargetTopic(EObject value);
+	void setTargetTopic(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Subscriptions</b></em>' containment reference.

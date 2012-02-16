@@ -68,6 +68,7 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 			case DsPackage.CUSTOM_VALIDATOR: return createCustomValidator();
 			case DsPackage.DATA_SERVICE: return createDataService();
 			case DsPackage.DATA_SOURCE_CONFIGURATION: return createDataSourceConfiguration();
+			case DsPackage.DESCRIPTION: return createDescription();
 			case DsPackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case DsPackage.DOUBLE_RANGE_VALIDATOR: return createDoubleRangeValidator();
 			case DsPackage.ELEMENT_MAPPING: return createElementMapping();
@@ -87,6 +88,7 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 			case DsPackage.RESOURCE: return createResource();
 			case DsPackage.RESULT_MAPPING: return createResultMapping();
 			case DsPackage.SQL: return createSql();
+			case DsPackage.SUBSCRIPTION: return createSubscription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -194,6 +196,16 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	public DataSourceConfiguration createDataSourceConfiguration() {
 		DataSourceConfigurationImpl dataSourceConfiguration = new DataSourceConfigurationImpl();
 		return dataSourceConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Description createDescription() {
+		DescriptionImpl description = new DescriptionImpl();
+		return description;
 	}
 
 	/**
@@ -384,6 +396,16 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	public Sql createSql() {
 		SqlImpl sql = new SqlImpl();
 		return sql;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Subscription createSubscription() {
+		SubscriptionImpl subscription = new SubscriptionImpl();
+		return subscription;
 	}
 
 	/**

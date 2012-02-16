@@ -198,7 +198,7 @@ public class ResultMappingItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DsPackage.Literals.RESULT_MAPPING__ELEMENT_MAPPINGS);
+			childrenFeatures.add(DsPackage.Literals.RESULT_MAPPING__ELEMENT);
 			childrenFeatures.add(DsPackage.Literals.RESULT_MAPPING__ATTRIBUTE);
 			childrenFeatures.add(DsPackage.Literals.RESULT_MAPPING__CALL_QUERY);
 		}
@@ -262,7 +262,7 @@ public class ResultMappingItemProvider
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DsPackage.RESULT_MAPPING__ELEMENT_MAPPINGS:
+			case DsPackage.RESULT_MAPPING__ELEMENT:
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -284,7 +284,7 @@ public class ResultMappingItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DsPackage.Literals.RESULT_MAPPING__ELEMENT_MAPPINGS,
+				(DsPackage.Literals.RESULT_MAPPING__ELEMENT,
 				 DsFactory.eINSTANCE.createElementMapping()));
 
 		newChildDescriptors.add

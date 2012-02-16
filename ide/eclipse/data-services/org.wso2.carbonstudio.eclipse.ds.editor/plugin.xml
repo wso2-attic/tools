@@ -30,8 +30,7 @@
 		</content-type>
 	</extension> 
 	
- <extension
-       point="org.eclipse.ui.newWizards">
+ <extension point="org.eclipse.ui.newWizards">
     <wizard
           category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.ds"
           class="org.wso2.carbonstudio.eclipse.ds.wizards.DataServiceCreationWizard"
@@ -41,5 +40,51 @@
          <selection class="org.eclipse.core.resources.IResource"/>
     </wizard>
  </extension>
+ 
+ <!--<extension point="org.eclipse.ui.commands">
+ 	<category
+          description="WSO2 Data Service Editor Command Category"
+          id="org.wso2.carbonstudio.eclipse.ds.editor.keybindings.category"
+          name="WSO2 Data Service Category">
+    </category>
+    
+   <command categoryId="org.wso2.carbonstudio.eclipse.ds.editor.keybindings.category"
+   			id="org.wso2.carbonstudio.eclipse.ds.editor.delcommand" 
+   			name="DsDelete">
+   </command>
+</extension>
+
+ <extension point="org.eclipse.ui.bindings">
+   <key commandId="org.wso2.carbonstudio.eclipse.ds.editor.delcommand" 
+        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+        sequence="DELETE"/>
+ </extension>
+ 
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.wso2.carbonstudio.eclipse.ds.command.DeleteHandler"
+          commandId="org.wso2.carbonstudio.eclipse.ds.editor.delcommand" >
+         
+        <activeWhen>
+       	<with variable="activeEditor">
+       		<test
+             property="org.wso2.carbonstudio.eclipse.ds.editor.prop.Index">
+       		</test>
+       	</with>
+       </activeWhen> 
+    </handler>
+ </extension>
+ 
+ <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+          class="org.wso2.carbonstudio.eclipse.ds.command.PropertyTester"
+          id="org.wso2.carbonstudio.eclipse.ds.editor.propertyTester"
+          namespace="org.wso2.carbonstudio.eclipse.ds.editor.prop"
+          properties="Index"
+          type="org.eclipse.ui.IEditorPart">
+    </propertyTester>
+ </extension> -->
 
 </plugin>

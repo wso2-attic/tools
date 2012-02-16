@@ -102,6 +102,8 @@ import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
@@ -126,6 +128,7 @@ import org.eclipse.ui.views.properties.PropertySheetSorter;
 import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.DocumentRoot;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
+import org.wso2.carbonstudio.eclipse.ds.command.DesignViewActionHandler;
 import org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl;
 import org.wso2.carbonstudio.eclipse.ds.presentation.custom.CustomAdapterFactoryContentProvider;
 import org.wso2.carbonstudio.eclipse.ds.presentation.data.DataSourcePage;
@@ -140,10 +143,16 @@ import org.wso2.carbonstudio.eclipse.ds.provider.DsItemProviderAdapterFactory;
  * This is an example of a Ds model editor.
  * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * @generated
+ * @generated NOT
  */
 public class DsEditor extends FormEditor implements IEditingDomainProvider,
-		ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+		ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker{
+	
+	private DsEditor dsEditor;
+	
+	
+	private DesignViewActionHandler designViewActionHandler;
+	
 	
 	private DataService dataService;
 	/**
@@ -695,6 +704,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	public DsEditor() {
 		super();
 		initializeEditingDomain();
+		dsEditor = this;
 	}
 	
 	/**
@@ -705,7 +715,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 *            the site
 	 * @param editorInput
 	 *            the editor input
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	public void init(IEditorSite site, IEditorInput editorInput) {
@@ -716,6 +726,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		site.getPage().addPartListener(partListener);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 		createModel();
+		
 	}
 
 	/**
@@ -1037,7 +1048,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			mdPage = new MasterDetailsPage(this, adapterFactory, editingDomain);
 			addPage(DESIGN_VIEW_INDEX,mdPage);
 			setPageText(DESIGN_VIEW_INDEX,"Outline");
-				
+			
 		    dataSourcePage = new DataSourcePage(this, dataService);
 			addPage(DATA_SOURCE_PAGE_INDEX,dataSourcePage);
 			setPageText(DATA_SOURCE_PAGE_INDEX,"Data Sources");
@@ -1047,6 +1058,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			setPageText(SOURCE_VIEW_INDEX,"Source");
 			sourceEditor.init();
 			
+			 addDesignViewAction();
 			
 		} catch (PartInitException e) {
 			e.printStackTrace();
@@ -1860,10 +1872,36 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 */
 	private void updateAllPagesWithNewDataServiceObject(DataService newDataService){
 		
+		this.dataService = newDataService;
 		dataSourcePage.setDataService(newDataService);
 	}
-	
-	
 
+	public MasterDetailsPage getMdPage() {
+		return mdPage;
+	}
+
+	public DataService getDataService() {
+		return dataService;
+	}
 	
+	private void addDesignViewAction(){
+		
+		designViewActionHandler = new DesignViewActionHandler();
+		
+		Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
+			
+			@Override
+			public void handleEvent(Event event) {
+				
+				if (dsEditor.getActivePage() == DESIGN_VIEW_INDEX) {
+					if (event.keyCode == SWT.DEL) {
+
+						designViewActionHandler.delete(dsEditor);
+					}
+				}
+			}
+		}); 
+	}
+
+		
 }

@@ -46,11 +46,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceStatus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceNamespace"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DataSourceConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DataSourceConfiguration/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataSourceConfiguration/id"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Description/value"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DocumentRoot">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DocumentRoot/mixed"/>
@@ -58,8 +60,10 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/callQuery"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/property"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/sql"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/subscription"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DoubleRangeValidator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DoubleRangeValidator/maximum"/>
@@ -76,8 +80,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventSubscriptionList/subscription"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/targetTopic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/targetTopic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/subscriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/language"/>
@@ -159,7 +163,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/returnRequestStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ResultMapping">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/elementMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/element"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/attribute"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/callQuery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/defaultNamespace"/>
@@ -171,6 +175,9 @@
     <genClasses ecoreClass="ds.ecore#//Sql">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Sql/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Sql/dialect"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//Subscription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Subscription/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

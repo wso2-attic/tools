@@ -1,8 +1,6 @@
 package org.wso2.carbonstudio.eclipse.ds.presentation.data;
 
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IMessageProvider;
@@ -185,11 +183,7 @@ public class DataSourcePage extends FormPage {
 	}
 	
 	public Object getDataSourceModel(){
-		EList<DataSourceConfiguration> list = dataService.getConfig();
 		
-		for(DataSourceConfiguration config : list){
-			System.out.println("ID :- "+config.getId());
-		}
 		return dataService.getConfig().toArray();
 	}
 	

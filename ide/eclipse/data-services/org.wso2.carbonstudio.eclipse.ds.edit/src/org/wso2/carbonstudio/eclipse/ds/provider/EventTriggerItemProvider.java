@@ -92,7 +92,7 @@ public class EventTriggerItemProvider
 				 true,
 				 false,
 				 false,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -114,7 +114,7 @@ public class EventTriggerItemProvider
 				 true,
 				 false,
 				 false,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -201,7 +201,7 @@ public class EventTriggerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("event-trigger"));
+		return overlayImage(object, getResourceLocator().getImage("wso2/event-trigger"));
 	}
 
 	/**

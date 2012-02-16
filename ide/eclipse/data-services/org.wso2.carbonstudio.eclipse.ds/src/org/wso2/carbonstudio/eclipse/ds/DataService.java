@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceStatus <em>Service Status</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,7 +41,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataService extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.ds.Description}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Description</em>' containment reference list isn't clear,
@@ -55,7 +54,7 @@ public interface DataService extends EObject {
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<EObject> getDescription();
+	EList<Description> getDescription();
 
 	/**
 	 * Returns the value of the '<em><b>Config</b></em>' containment reference list.
@@ -441,32 +440,5 @@ public interface DataService extends EObject {
 	 * @generated
 	 */
 	boolean isSetServiceStatus();
-
-	/**
-	 * Returns the value of the '<em><b>Service Namespace</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Namespace</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Namespace</em>' attribute.
-	 * @see #setServiceNamespace(String)
-	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDataService_ServiceNamespace()
-	 * @model default="" dataType="org.eclipse.emf.ecore.xml.type.String"
-	 * @generated
-	 */
-	String getServiceNamespace();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Namespace</em>' attribute.
-	 * @see #getServiceNamespace()
-	 * @generated
-	 */
-	void setServiceNamespace(String value);
 
 } // DataService

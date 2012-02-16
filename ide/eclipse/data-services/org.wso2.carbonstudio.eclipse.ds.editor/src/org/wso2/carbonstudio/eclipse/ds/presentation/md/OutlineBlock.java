@@ -12,6 +12,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -42,12 +43,13 @@ public class OutlineBlock extends MasterDetailsBlock {
 	private DsEditor dseditor;
 	private ScrolledForm scrolledForm;
 	private TreeViewer viewer;
+	private ISelection currentSelection;
 	
 	public OutlineBlock(DsEditor editor,ComposedAdapterFactory adapterFactory,EditingDomain domain) {
 		this.adapterFactory = adapterFactory;
 		this.domain = domain;
 		this.dseditor = editor;
-		dsDetailsPageProvider =new DetailPageProvider(dseditor);
+		dsDetailsPageProvider = new DetailPageProvider(dseditor);
 	}
 
 	
@@ -82,10 +84,14 @@ public class OutlineBlock extends MasterDetailsBlock {
 		viewer = new TreeViewer(tr);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				managedForm.fireSelectionChanged(spart, event.getSelection());
+				
+				currentSelection = event.getSelection();
 				
 				DsActionBarContributor dscbc =(DsActionBarContributor)dseditor.getActionBarContributor();
 				dscbc.selectionChanged(event);
+				
+				managedForm.fireSelectionChanged(spart, event.getSelection());
+
 			}
 		});
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
@@ -189,5 +195,12 @@ public class OutlineBlock extends MasterDetailsBlock {
 	public void setViewer(TreeViewer viewer) {
 		this.viewer = viewer;
 	}
+
+
+	public ISelection getCurrentSelection() {
+		return currentSelection;
+	}
+	
+	
 
 }

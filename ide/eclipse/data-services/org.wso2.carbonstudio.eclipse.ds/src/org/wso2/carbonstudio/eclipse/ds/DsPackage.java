@@ -375,22 +375,13 @@ public interface DsPackage extends EPackage {
 	int DATA_SERVICE__SERVICE_STATUS = 12;
 
 	/**
-	 * The feature id for the '<em><b>Service Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SERVICE__SERVICE_NAMESPACE = 13;
-
-	/**
 	 * The number of structural features of the '<em>Data Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE_FEATURE_COUNT = 14;
+	int DATA_SERVICE_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.
@@ -430,6 +421,34 @@ public interface DsPackage extends EPackage {
 	int DATA_SOURCE_CONFIGURATION_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DescriptionImpl <em>Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DescriptionImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getDescription()
+	 * @generated
+	 */
+	int DESCRIPTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTION__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTION_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl <em>Document Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -437,7 +456,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getDocumentRoot()
 	 * @generated
 	 */
-	int DOCUMENT_ROOT = 7;
+	int DOCUMENT_ROOT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -485,13 +504,22 @@ public interface DsPackage extends EPackage {
 	int DOCUMENT_ROOT__DATA = 4;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__DESCRIPTION = 5;
+
+	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROPERTY = 5;
+	int DOCUMENT_ROOT__PROPERTY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Sql</b></em>' containment reference.
@@ -500,7 +528,16 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SQL = 6;
+	int DOCUMENT_ROOT__SQL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Subscription</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__SUBSCRIPTION = 8;
 
 	/**
 	 * The number of structural features of the '<em>Document Root</em>' class.
@@ -509,7 +546,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 7;
+	int DOCUMENT_ROOT_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DoubleRangeValidatorImpl <em>Double Range Validator</em>}' class.
@@ -519,7 +556,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getDoubleRangeValidator()
 	 * @generated
 	 */
-	int DOUBLE_RANGE_VALIDATOR = 8;
+	int DOUBLE_RANGE_VALIDATOR = 9;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -556,7 +593,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getElementMapping()
 	 * @generated
 	 */
-	int ELEMENT_MAPPING = 9;
+	int ELEMENT_MAPPING = 10;
 
 	/**
 	 * The feature id for the '<em><b>Column</b></em>' attribute.
@@ -620,7 +657,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getEventSubscriptionList()
 	 * @generated
 	 */
-	int EVENT_SUBSCRIPTION_LIST = 10;
+	int EVENT_SUBSCRIPTION_LIST = 11;
 
 	/**
 	 * The feature id for the '<em><b>Subscription</b></em>' containment reference list.
@@ -648,10 +685,10 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getEventTrigger()
 	 * @generated
 	 */
-	int EVENT_TRIGGER = 11;
+	int EVENT_TRIGGER = 12;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -660,7 +697,7 @@ public interface DsPackage extends EPackage {
 	int EVENT_TRIGGER__EXPRESSION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Target Topic</b></em>' containment reference.
+	 * The feature id for the '<em><b>Target Topic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -712,7 +749,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getExcelQuery()
 	 * @generated
 	 */
-	int EXCEL_QUERY = 12;
+	int EXCEL_QUERY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Workbookname</b></em>' attribute.
@@ -767,7 +804,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getGSpreadQuery()
 	 * @generated
 	 */
-	int GSPREAD_QUERY = 13;
+	int GSPREAD_QUERY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Worksheetnumber</b></em>' attribute.
@@ -822,7 +859,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getLengthValidator()
 	 * @generated
 	 */
-	int LENGTH_VALIDATOR = 14;
+	int LENGTH_VALIDATOR = 15;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -859,7 +896,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getLongRangeValidator()
 	 * @generated
 	 */
-	int LONG_RANGE_VALIDATOR = 15;
+	int LONG_RANGE_VALIDATOR = 16;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -896,7 +933,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 16;
+	int OPERATION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
@@ -951,7 +988,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getParameterMapping()
 	 * @generated
 	 */
-	int PARAMETER_MAPPING = 17;
+	int PARAMETER_MAPPING = 18;
 
 	/**
 	 * The feature id for the '<em><b>Column</b></em>' attribute.
@@ -997,7 +1034,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getPatternValidator()
 	 * @generated
 	 */
-	int PATTERN_VALIDATOR = 18;
+	int PATTERN_VALIDATOR = 19;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -1025,7 +1062,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQuery()
 	 * @generated
 	 */
-	int QUERY = 19;
+	int QUERY = 20;
 
 	/**
 	 * The feature id for the '<em><b>Sql</b></em>' containment reference list.
@@ -1161,7 +1198,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryParameter()
 	 * @generated
 	 */
-	int QUERY_PARAMETER = 20;
+	int QUERY_PARAMETER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Validate Long Range</b></em>' containment reference.
@@ -1288,7 +1325,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryProperty()
 	 * @generated
 	 */
-	int QUERY_PROPERTY = 21;
+	int QUERY_PROPERTY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1325,7 +1362,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryPropertyList()
 	 * @generated
 	 */
-	int QUERY_PROPERTY_LIST = 22;
+	int QUERY_PROPERTY_LIST = 23;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1353,7 +1390,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 23;
+	int RESOURCE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
@@ -1408,16 +1445,16 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getResultMapping()
 	 * @generated
 	 */
-	int RESULT_MAPPING = 24;
+	int RESULT_MAPPING = 25;
 
 	/**
-	 * The feature id for the '<em><b>Element Mappings</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__ELEMENT_MAPPINGS = 0;
+	int RESULT_MAPPING__ELEMENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
@@ -1499,7 +1536,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSql()
 	 * @generated
 	 */
-	int SQL = 25;
+	int SQL = 26;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1529,6 +1566,34 @@ public interface DsPackage extends EPackage {
 	int SQL_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl <em>Subscription</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSubscription()
+	 * @generated
+	 */
+	int SUBSCRIPTION = 27;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBSCRIPTION__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Subscription</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBSCRIPTION_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1536,7 +1601,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getServiceStatus()
 	 * @generated
 	 */
-	int SERVICE_STATUS = 26;
+	int SERVICE_STATUS = 28;
 
 	/**
 	 * The meta object id for the '<em>Service Status Object</em>' data type.
@@ -1546,7 +1611,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getServiceStatusObject()
 	 * @generated
 	 */
-	int SERVICE_STATUS_OBJECT = 27;
+	int SERVICE_STATUS_OBJECT = 29;
 
 
 	/**
@@ -1863,17 +1928,6 @@ public interface DsPackage extends EPackage {
 	EAttribute getDataService_ServiceStatus();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Namespace</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace()
-	 * @see #getDataService()
-	 * @generated
-	 */
-	EAttribute getDataService_ServiceNamespace();
-
-	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration <em>Data Source Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1904,6 +1958,27 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataSourceConfiguration_Id();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Description <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Description</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Description
+	 * @generated
+	 */
+	EClass getDescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Description#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Description#getValue()
+	 * @see #getDescription()
+	 * @generated
+	 */
+	EAttribute getDescription_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot <em>Document Root</em>}'.
@@ -1971,6 +2046,17 @@ public interface DsPackage extends EPackage {
 	EReference getDocumentRoot_Data();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Description</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_Description();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1991,6 +2077,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocumentRoot_Sql();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Subscription</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_Subscription();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator <em>Double Range Validator</em>}'.
@@ -2121,26 +2218,26 @@ public interface DsPackage extends EPackage {
 	EClass getEventTrigger();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @return the meta object for the attribute '<em>Expression</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression()
 	 * @see #getEventTrigger()
 	 * @generated
 	 */
-	EReference getEventTrigger_Expression();
+	EAttribute getEventTrigger_Expression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Target Topic</em>'.
+	 * @return the meta object for the attribute '<em>Target Topic</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic()
 	 * @see #getEventTrigger()
 	 * @generated
 	 */
-	EReference getEventTrigger_TargetTopic();
+	EAttribute getEventTrigger_TargetTopic();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getSubscriptions <em>Subscriptions</em>}'.
@@ -2878,15 +2975,15 @@ public interface DsPackage extends EPackage {
 	EClass getResultMapping();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElementMappings <em>Element Mappings</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Element Mappings</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElementMappings()
+	 * @return the meta object for the containment reference list '<em>Element</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElement()
 	 * @see #getResultMapping()
 	 * @generated
 	 */
-	EReference getResultMapping_ElementMappings();
+	EReference getResultMapping_Element();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getAttribute <em>Attribute</em>}'.
@@ -2996,6 +3093,27 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSql_Dialect();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Subscription <em>Subscription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Subscription</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Subscription
+	 * @generated
+	 */
+	EClass getSubscription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Subscription#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Subscription#getValue()
+	 * @see #getSubscription()
+	 * @generated
+	 */
+	EAttribute getSubscription_Value();
 
 	/**
 	 * Returns the meta object for enum '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}'.
@@ -3286,14 +3404,6 @@ public interface DsPackage extends EPackage {
 		EAttribute DATA_SERVICE__SERVICE_STATUS = eINSTANCE.getDataService_ServiceStatus();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Namespace</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_SERVICE__SERVICE_NAMESPACE = eINSTANCE.getDataService_ServiceNamespace();
-
-		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3318,6 +3428,24 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SOURCE_CONFIGURATION__ID = eINSTANCE.getDataSourceConfiguration_Id();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DescriptionImpl <em>Description</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DescriptionImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getDescription()
+		 * @generated
+		 */
+		EClass DESCRIPTION = eINSTANCE.getDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIPTION__VALUE = eINSTANCE.getDescription_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl <em>Document Root</em>}' class.
@@ -3370,6 +3498,14 @@ public interface DsPackage extends EPackage {
 		EReference DOCUMENT_ROOT__DATA = eINSTANCE.getDocumentRoot_Data();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__DESCRIPTION = eINSTANCE.getDocumentRoot_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3384,6 +3520,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOCUMENT_ROOT__SQL = eINSTANCE.getDocumentRoot_Sql();
+
+		/**
+		 * The meta object literal for the '<em><b>Subscription</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__SUBSCRIPTION = eINSTANCE.getDocumentRoot_Subscription();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DoubleRangeValidatorImpl <em>Double Range Validator</em>}' class.
@@ -3490,20 +3634,20 @@ public interface DsPackage extends EPackage {
 		EClass EVENT_TRIGGER = eINSTANCE.getEventTrigger();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVENT_TRIGGER__EXPRESSION = eINSTANCE.getEventTrigger_Expression();
+		EAttribute EVENT_TRIGGER__EXPRESSION = eINSTANCE.getEventTrigger_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Topic</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Target Topic</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVENT_TRIGGER__TARGET_TOPIC = eINSTANCE.getEventTrigger_TargetTopic();
+		EAttribute EVENT_TRIGGER__TARGET_TOPIC = eINSTANCE.getEventTrigger_TargetTopic();
 
 		/**
 		 * The meta object literal for the '<em><b>Subscriptions</b></em>' containment reference feature.
@@ -4076,12 +4220,12 @@ public interface DsPackage extends EPackage {
 		EClass RESULT_MAPPING = eINSTANCE.getResultMapping();
 
 		/**
-		 * The meta object literal for the '<em><b>Element Mappings</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_MAPPING__ELEMENT_MAPPINGS = eINSTANCE.getResultMapping_ElementMappings();
+		EReference RESULT_MAPPING__ELEMENT = eINSTANCE.getResultMapping_Element();
 
 		/**
 		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
@@ -4164,6 +4308,24 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SQL__DIALECT = eINSTANCE.getSql_Dialect();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl <em>Subscription</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSubscription()
+		 * @generated
+		 */
+		EClass SUBSCRIPTION = eINSTANCE.getSubscription();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBSCRIPTION__VALUE = eINSTANCE.getSubscription_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}' enum.
