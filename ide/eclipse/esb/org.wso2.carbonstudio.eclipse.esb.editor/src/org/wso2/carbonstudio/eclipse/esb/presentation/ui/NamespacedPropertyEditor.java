@@ -28,17 +28,17 @@ public class NamespacedPropertyEditor extends CustomDialogCellEditor {
 	/**
 	 * {@link NamespacedProperty} instance used for editing.
 	 */
-	private NamespacedProperty namespacedProperty;
+	protected NamespacedProperty namespacedProperty;
 
 	/**
 	 * Property owner.
 	 */
-	private Object propertyContainer;
+	protected Object propertyContainer;
 
 	/**
 	 * Property descriptor.
 	 */
-	private IItemPropertyDescriptor propertyDescriptor;
+	protected IItemPropertyDescriptor propertyDescriptor;
 
 	/**
 	 * Creates a new {@link NamespacedPropertyEditor) instance.

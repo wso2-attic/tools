@@ -50,83 +50,83 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
  */
 public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	/**
-     * The cached value of the '{@link #getHeaderName() <em>Header Name</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getHeaderName() <em>Header Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getHeaderName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getHeaderName()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty headerName;
 
 	/**
-     * The default value of the '{@link #getHeaderAction() <em>Header Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getHeaderAction() <em>Header Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getHeaderAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getHeaderAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final HeaderAction HEADER_ACTION_EDEFAULT = HeaderAction.SET;
 
 	/**
-     * The cached value of the '{@link #getHeaderAction() <em>Header Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getHeaderAction() <em>Header Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getHeaderAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getHeaderAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected HeaderAction headerAction = HEADER_ACTION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final HeaderValueType VALUE_TYPE_EDEFAULT = HeaderValueType.LITERAL;
 
 	/**
-     * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected HeaderValueType valueType = VALUE_TYPE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_LITERAL_EDEFAULT = "header_value";
 
 	/**
-     * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueLiteral = VALUE_LITERAL_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty valueExpression;
 
 	/**
@@ -140,7 +140,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		NamespacedProperty headerName = getEsbFactory().createNamespacedProperty();
 		headerName.setPrettyName("Header Name");
 		headerName.setPropertyName("name");
-		headerName.setPropertyValue("header_name");
+		headerName.setPropertyValue("");
 		setHeaderName(headerName);
 
 		// Value expression.
@@ -250,296 +250,296 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.HEADER_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.HEADER_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getHeaderName() {
-        return headerName;
-    }
+		return headerName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetHeaderName(NamespacedProperty newHeaderName, NotificationChain msgs) {
-        NamespacedProperty oldHeaderName = headerName;
-        headerName = newHeaderName;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, oldHeaderName, newHeaderName);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldHeaderName = headerName;
+		headerName = newHeaderName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, oldHeaderName, newHeaderName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setHeaderName(NamespacedProperty newHeaderName) {
-        if (newHeaderName != headerName) {
-            NotificationChain msgs = null;
-            if (headerName != null)
-                msgs = ((InternalEObject)headerName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, null, msgs);
-            if (newHeaderName != null)
-                msgs = ((InternalEObject)newHeaderName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, null, msgs);
-            msgs = basicSetHeaderName(newHeaderName, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, newHeaderName, newHeaderName));
-    }
+		if (newHeaderName != headerName) {
+			NotificationChain msgs = null;
+			if (headerName != null)
+				msgs = ((InternalEObject)headerName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, null, msgs);
+			if (newHeaderName != null)
+				msgs = ((InternalEObject)newHeaderName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, null, msgs);
+			msgs = basicSetHeaderName(newHeaderName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME, newHeaderName, newHeaderName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public HeaderAction getHeaderAction() {
-        return headerAction;
-    }
+		return headerAction;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setHeaderAction(HeaderAction newHeaderAction) {
-        HeaderAction oldHeaderAction = headerAction;
-        headerAction = newHeaderAction == null ? HEADER_ACTION_EDEFAULT : newHeaderAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION, oldHeaderAction, headerAction));
-    }
+		HeaderAction oldHeaderAction = headerAction;
+		headerAction = newHeaderAction == null ? HEADER_ACTION_EDEFAULT : newHeaderAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION, oldHeaderAction, headerAction));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public HeaderValueType getValueType() {
-        return valueType;
-    }
+		return valueType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueType(HeaderValueType newValueType) {
-        HeaderValueType oldValueType = valueType;
-        valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE, oldValueType, valueType));
-    }
+		HeaderValueType oldValueType = valueType;
+		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE, oldValueType, valueType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueLiteral() {
-        return valueLiteral;
-    }
+		return valueLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueLiteral(String newValueLiteral) {
-        String oldValueLiteral = valueLiteral;
-        valueLiteral = newValueLiteral;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL, oldValueLiteral, valueLiteral));
-    }
+		String oldValueLiteral = valueLiteral;
+		valueLiteral = newValueLiteral;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL, oldValueLiteral, valueLiteral));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getValueExpression() {
-        return valueExpression;
-    }
+		return valueExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueExpression(NamespacedProperty newValueExpression, NotificationChain msgs) {
-        NamespacedProperty oldValueExpression = valueExpression;
-        valueExpression = newValueExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldValueExpression = valueExpression;
+		valueExpression = newValueExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueExpression(NamespacedProperty newValueExpression) {
-        if (newValueExpression != valueExpression) {
-            NotificationChain msgs = null;
-            if (valueExpression != null)
-                msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, null, msgs);
-            if (newValueExpression != null)
-                msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, null, msgs);
-            msgs = basicSetValueExpression(newValueExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, newValueExpression, newValueExpression));
-    }
+		if (newValueExpression != valueExpression) {
+			NotificationChain msgs = null;
+			if (valueExpression != null)
+				msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, null, msgs);
+			if (newValueExpression != null)
+				msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, null, msgs);
+			msgs = basicSetValueExpression(newValueExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION, newValueExpression, newValueExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
-                return basicSetHeaderName(null, msgs);
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
-                return basicSetValueExpression(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
+				return basicSetHeaderName(null, msgs);
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
+				return basicSetValueExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
-                return getHeaderName();
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
-                return getHeaderAction();
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
-                return getValueType();
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
-                return getValueLiteral();
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
-                return getValueExpression();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
+				return getHeaderName();
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
+				return getHeaderAction();
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
+				return getValueType();
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
+				return getValueLiteral();
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
+				return getValueExpression();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
-                setHeaderName((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
-                setHeaderAction((HeaderAction)newValue);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
-                setValueType((HeaderValueType)newValue);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
-                setValueLiteral((String)newValue);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
+				setHeaderName((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
+				setHeaderAction((HeaderAction)newValue);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
+				setValueType((HeaderValueType)newValue);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
+				setValueLiteral((String)newValue);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
-                setHeaderName((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
-                setHeaderAction(HEADER_ACTION_EDEFAULT);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
-                setValueType(VALUE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
-                setValueLiteral(VALUE_LITERAL_EDEFAULT);
-                return;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
+				setHeaderName((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
+				setHeaderAction(HEADER_ACTION_EDEFAULT);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
+				setValueType(VALUE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
+				setValueLiteral(VALUE_LITERAL_EDEFAULT);
+				return;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
-                return headerName != null;
-            case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
-                return headerAction != HEADER_ACTION_EDEFAULT;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
-                return valueType != VALUE_TYPE_EDEFAULT;
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
-                return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
-            case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
-                return valueExpression != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_NAME:
+				return headerName != null;
+			case MediatorsPackage.HEADER_MEDIATOR__HEADER_ACTION:
+				return headerAction != HEADER_ACTION_EDEFAULT;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_TYPE:
+				return valueType != VALUE_TYPE_EDEFAULT;
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_LITERAL:
+				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
+			case MediatorsPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
+				return valueExpression != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (headerAction: ");
-        result.append(headerAction);
-        result.append(", valueType: ");
-        result.append(valueType);
-        result.append(", valueLiteral: ");
-        result.append(valueLiteral);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (headerAction: ");
+		result.append(headerAction);
+		result.append(", valueType: ");
+		result.append(valueType);
+		result.append(", valueLiteral: ");
+		result.append(valueLiteral);
+		result.append(')');
+		return result.toString();
+	}
 
 } //HeaderMediatorImpl

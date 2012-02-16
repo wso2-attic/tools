@@ -17,9 +17,13 @@ package org.wso2.carbonstudio.eclipse.esb.presentation.custom;
 
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.widgets.Composite;
+import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
+import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderMediator;
+import org.wso2.carbonstudio.eclipse.esb.presentation.ui.NamespacedPropertyDecoratorHeaderMediator;
 
 /**
  * Custom {@link PropertyDescriptor} class.
@@ -39,8 +43,20 @@ public class CustomPropertyDescriptor extends PropertyDescriptor {
 	/**
 	 * {@inheritDoc}
 	 */
-	public CellEditor createPropertyEditor(Composite composite) {		
-		CellEditor result = CustomPropertyEditorFactory.createCustomPropertyEditor(composite, object, itemPropertyDescriptor);		
-		return (null == result) ? super.createPropertyEditor(composite) : result;				
+	public CellEditor createPropertyEditor(Composite composite) {
+		CellEditor result = null;
+		
+		if (object instanceof HeaderMediator) {
+			PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
+			NamespacedProperty namespacedProperty = (NamespacedProperty) wrapper.getEditableValue(object);
+			result = new NamespacedPropertyDecoratorHeaderMediator(
+					(CustomPropertyEditorFactory.createCustomPropertyEditor(
+							composite, object, itemPropertyDescriptor)),
+					composite, namespacedProperty, object,itemPropertyDescriptor);
+		} else {
+			result = CustomPropertyEditorFactory.createCustomPropertyEditor(
+					composite, object, itemPropertyDescriptor);
+		}
+		return (null == result) ? super.createPropertyEditor(composite)	: result;
 	}
 }

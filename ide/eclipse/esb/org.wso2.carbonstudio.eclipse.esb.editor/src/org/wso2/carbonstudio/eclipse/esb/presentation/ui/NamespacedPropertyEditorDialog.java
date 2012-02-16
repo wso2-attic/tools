@@ -49,22 +49,22 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	/**
 	 * Dialog shell.
 	 */
-	private Shell dialogShell;
+	protected Shell dialogShell;
 	
 	/**
 	 * Group box for separating property value edit area.
 	 */
-	private Group propertyGroupBox;
+	protected Group propertyGroupBox;
 	
 	/**
 	 * Text field used for manipulating property value.
 	 */
-	private Text propertyTextField;
+	protected Text propertyTextField;
 	
 	/**
 	 * Button used to fire up the xpath editor.
 	 */
-	private Button selectXpathButton;
+	protected Button selectXpathButton;
 	
 	/**
 	 * Group box for separating namespaces edit area.
@@ -79,7 +79,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	/**
 	 * Namespace prefix text field.
 	 */
-	private Text nsPrefixTextField;
+	protected Text nsPrefixTextField;
 	
 	/**
 	 * Namespace 'URI' label.
@@ -89,37 +89,37 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	/**
 	 * Namespace URI text field.
 	 */
-	private Text nsUriTextField;
+	protected Text nsUriTextField;
 	
 	/**
 	 * Namespace list box.
 	 */
-	private List nsListBox;
+	protected List nsListBox;
 	
 	/**
 	 * Add namespace button.
 	 */
-	private Button addButton;
+	protected Button addButton;
 	
 	/**
 	 * Edit namespace button.
 	 */
-	private Button editButton;
+	protected Button editButton;
 	
 	/**
 	 * Remove namespace button.
 	 */
-	private Button removeButton;
+	protected Button removeButton;
 	
 	/**
 	 * Cancel button.
 	 */
-	private Button cancelButton;
+	protected Button cancelButton;
 	
 	/**
 	 * Ok button.
 	 */
-	private Button okButton;
+	protected Button okButton;
 	
 	/**
 	 * {@link NamespacedProperty} being edited.
@@ -129,7 +129,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	/**
 	 * Namespaces collected.
 	 */
-	private Map<String, String> collectedNamespaces;
+	protected Map<String, String> collectedNamespaces;
 
 	/**
 	 * Format string used for displaying namespaces.
@@ -372,7 +372,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		}
 	}
 	
-	private void initActions() {
+	protected void initActions() {
 		selectXpathButton.addListener(SWT.Selection, new Listener() {			
 			public void handleEvent(Event event) {			
 				XPathSelectorDialog xpathEditorDialog = new XPathSelectorDialog(dialogShell);
@@ -444,7 +444,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		});
 	}
 	
-	private boolean isValidNamespace(String prefix, String uri) {
+	protected boolean isValidNamespace(String prefix, String uri) {
 		// TODO: Perform proper validation here.
 		if (StringUtils.isBlank(prefix) || StringUtils.isBlank(uri) || collectedNamespaces.containsKey(prefix)) {
 			return false;
@@ -452,14 +452,14 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		return true;
 	}
 
-	private void addNamespace(String prefix, String uri) {
+	protected void addNamespace(String prefix, String uri) {
 		collectedNamespaces.put(prefix, uri);
 		String namespaceDisplayValue = String.format(namespaceDisplayFormat,
 				prefix, uri);
 		nsListBox.add(namespaceDisplayValue);
 	}
 
-	private void removeNamespace(String namespace) {
+	protected void removeNamespace(String namespace) {
 		nsListBox.remove(namespace);
 		String prefix = extractPrefix(namespace);
 		if (!StringUtils.isBlank(prefix)) {
@@ -467,7 +467,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		}
 	}
 
-	private String extractPrefix(String namespace) {
+	protected String extractPrefix(String namespace) {
 		Matcher matcher = namespaceDisplayPattern.matcher(namespace);
 		if (matcher.find()) {
 			return matcher.group(1);
@@ -495,13 +495,13 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		dialogShell.setTabList(tabOrder);
 	}
 	
-	private void saveConfiguration() throws Exception {
+	protected void saveConfiguration() throws Exception {
 		nsProperty.setPropertyValue(propertyTextField.getText());
 		nsProperty.getNamespaces().clear();
 		nsProperty.getNamespaces().putAll(collectedNamespaces);
 	}
 	
-	private void setSaved(boolean saved) {
+	protected void setSaved(boolean saved) {
 		this.saved = saved;
 	}
 	
