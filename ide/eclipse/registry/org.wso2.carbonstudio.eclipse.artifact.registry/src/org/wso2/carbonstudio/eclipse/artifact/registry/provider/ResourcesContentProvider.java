@@ -30,11 +30,9 @@ import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryEleme
 public class ResourcesContentProvider implements ITreeContentProvider {
 	private IProject project;
 	NavigatorNode root;
-	private boolean init;
 	
 	public void initContent(){
 		List<RegistryElement> content = new ArrayList<RegistryElement>();
-		if(init) return;
 		GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
 		   try {
 			    File artifactXml =  getProject().getFile("artifact.xml").getLocation().toFile();
@@ -51,7 +49,6 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 			    root.setContent(content);
 			    root.setPath("/");
 			    root.setProject(project);
-			    init=true;
 		      } catch (Exception e) {
 			 /*ignore*/
 		  }
