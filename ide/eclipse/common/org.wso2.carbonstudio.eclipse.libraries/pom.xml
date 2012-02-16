@@ -31,7 +31,7 @@
     <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
   <packaging>eclipse-plugin</packaging>
     <name>Carbon Studio Libraries</name>
-    <dependencies>
+    <!--  dependencies>
 		<dependency>
     			<groupId>commons-io.wso2</groupId>
     			<artifactId>commons-io</artifactId>
@@ -376,7 +376,7 @@
 			<name>JBoss deprecated maven repo</name>
 			<url>https://repository.jboss.org/nexus/content/repositories/deprecated/</url>
 		</repository>
-  	</repositories>
+  	</repositories-->
     <!--build>
 		<plugins>
 			<plugin>
