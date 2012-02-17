@@ -2,5 +2,5 @@ package org.wso2.carbonstudio.eclipse.greg.base.model;
 
 public enum RegistryResourceType {
 	
-RESOURCE,COLLECTION,UNDEFINED,SYMLINK;
+RESOURCE,COLLECTION,UNDEFINED,SYMLINK,REMOTELINK;
 }

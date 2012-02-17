@@ -229,7 +229,11 @@ public class RegistryResourceNode {
 				}
 				if (registryResource == RegistryResourceType.UNDEFINED) {
 					if ("true".equalsIgnoreCase(resourceItem.getProperty("registry.link"))) {
-						registryResource = RegistryResourceType.SYMLINK;
+						if ("true".equalsIgnoreCase(resourceItem.getProperty("registry.mount"))) {
+							registryResource = RegistryResourceType.REMOTELINK;
+						}else{
+							registryResource = RegistryResourceType.SYMLINK;
+						}
 					} else {
 						registryResource = RegistryResourceType.RESOURCE;
 					}

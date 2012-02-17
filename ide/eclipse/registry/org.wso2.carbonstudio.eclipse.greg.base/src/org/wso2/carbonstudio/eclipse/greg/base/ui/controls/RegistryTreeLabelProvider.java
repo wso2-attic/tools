@@ -80,6 +80,10 @@ public class RegistryTreeLabelProvider implements ILabelProvider {
 				connectionValid = ele.getConnectionInfo().isConnectionValid();
 				descriptor = ImageUtils
 						.getImageDescriptor(ImageUtils.ICON_SYMLINK);
+			}else if(ele.getResourceType() == RegistryResourceType.REMOTELINK){
+				connectionValid = ele.getConnectionInfo().isConnectionValid();
+				descriptor = ImageUtils
+						.getImageDescriptor(ImageUtils.ICON_REMOTE_LINK);
 			} else {
 				connectionValid = ele.getConnectionInfo().isConnectionValid();
 				descriptor = ImageUtils

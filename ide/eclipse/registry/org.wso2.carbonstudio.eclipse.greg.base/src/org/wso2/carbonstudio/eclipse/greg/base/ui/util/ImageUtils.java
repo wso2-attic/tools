@@ -99,6 +99,7 @@ public class ImageUtils {
 	public static final String ICON_REGISTRY_SEARCH = "registry-search.png";
 	public static final String ICON_RESOURCE = "resource.png";
 	public static final String ICON_SYMLINK = "resource-extn.gif";
+	public static final String ICON_REMOTE_LINK = "resource-extn-mounted.gif";
 	public static final String ICON_INFORMATION = "registryProperties.png";
 	public static final String ICON_DISCONNECTED_REGISTRY = "registry_disconnected.png";
 	public static final String ICON_VERSIONS = "versions.gif";
