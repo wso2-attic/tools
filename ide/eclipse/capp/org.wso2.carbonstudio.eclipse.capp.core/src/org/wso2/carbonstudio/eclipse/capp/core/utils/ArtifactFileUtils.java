@@ -17,21 +17,8 @@
 package org.wso2.carbonstudio.eclipse.capp.core.utils;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamException;
-
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMException;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-
-import com.sun.org.apache.xpath.internal.operations.Quo;
 
 public class ArtifactFileUtils {
 

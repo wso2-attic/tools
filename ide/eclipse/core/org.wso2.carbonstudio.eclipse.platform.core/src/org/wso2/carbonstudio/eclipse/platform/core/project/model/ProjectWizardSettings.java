@@ -30,7 +30,7 @@ import org.wso2.carbonstudio.eclipse.platform.core.model.AbstractFieldController
 import org.wso2.carbonstudio.eclipse.platform.core.model.AbstractListDataProvider;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.RegistryOptionsConstants;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+//import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -406,7 +406,7 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 
 	
 	protected String serialize() {
-		throw new NotImplementedException();
+		return null;//throw new NotImplementedException();
 	}
 
 	

@@ -34,13 +34,10 @@ import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 //import org.wso2.carbonstudio.eclipse.esb.impl.ModelObjectImpl.ObjectHandler;
 
-import org.wso2.carbonstudio.eclipse.esb.mediators.ConditionalRouteBranch;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
-import org.wso2.carbonstudio.eclipse.esb.mediators.RuleCondition;
 import org.wso2.carbonstudio.eclipse.esb.mediators.URLRewriteMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.URLRewriteRule;
 
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 
 /**
  * <!-- begin-user-doc -->
