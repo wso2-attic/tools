@@ -23,6 +23,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.carbonstudio.eclipse.utils.constants.ProjectConstants;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 
 import java.io.File;
@@ -64,55 +65,65 @@ public class JavaLibraryUtil {
 	                                                                                 throws Exception {
 		HashMap<String, JavaLibraryBean> dependencyInfoMap = new HashMap<String, JavaLibraryBean>();
 
-		// TODO: Verify the entries returned by following 2 methods are distinct
-		// or not.
-		IPackageFragmentRoot[] jarLibs = JavaUtils.getReferencedLibrariesForProject(project);
-		IPackageFragmentRoot[] varJarLibs = JavaUtils.getReferencedVariableLibrariesForProject(project);
-		IPackageFragmentRoot[] newLibList = null;
-		if (jarLibs != null && varJarLibs != null) {
-			newLibList = new IPackageFragmentRoot[jarLibs.length + varJarLibs.length];
+		if (project.isOpen() && project.hasNature(ProjectConstants.JAVA_NATURE_ID)) {
+
+			// TODO: Verify the entries returned by following 2 methods are
+			// distinct
+			// or not.
+			IPackageFragmentRoot[] jarLibs = JavaUtils.getReferencedLibrariesForProject(project);
+			IPackageFragmentRoot[] varJarLibs =
+			                                    JavaUtils.getReferencedVariableLibrariesForProject(project);
+			IPackageFragmentRoot[] newLibList = null;
+			if (jarLibs != null && varJarLibs != null) {
+				newLibList = new IPackageFragmentRoot[jarLibs.length + varJarLibs.length];
+				for (int i = 0; i < jarLibs.length; i++) {
+					newLibList[i] = jarLibs[i];
+				}
+
+				for (int i = 0; i < varJarLibs.length; i++) {
+					newLibList[jarLibs.length + i] = varJarLibs[i];
+				}
+			}
+
+			if (newLibList == null) {
+				if (varJarLibs != null) {
+					// So jar list has been null. Hence assign varjar list to
+					// jar.
+					jarLibs = varJarLibs;
+				}
+			} else {
+				jarLibs = newLibList;
+			}
+
 			for (int i = 0; i < jarLibs.length; i++) {
-				newLibList[i] = jarLibs[i];
-			}
 
-			for (int i = 0; i < varJarLibs.length; i++) {
-				newLibList[jarLibs.length + i] = varJarLibs[i];
-			}
-		}
-
-		if (newLibList == null) {
-			if (varJarLibs != null) {
-				// So jar list has been null. Hence assign varjar list to jar.
-				jarLibs = varJarLibs;
-			}
-		} else {
-			jarLibs = newLibList;
-		}
-
-		for (int i = 0; i < jarLibs.length; i++) {
-			
-			File libraryFile=jarLibs[i].getPath().toFile();
-			JarFile jarFile = new JarFile(libraryFile);
-			String pomFilePath = getPomFilePath(jarFile);
-			if (pomFilePath != null) {
-				try {
-	                InputStream is = jarFile.getInputStream(jarFile.getEntry(pomFilePath));
-	                MavenProject mavenProject = getMavenProject(new Scanner(is).useDelimiter("\\A").next());
-	                JavaLibraryBean bean = new JavaLibraryBean(jarLibs[i].getPath().toOSString(),
-	                                                           mavenProject.getGroupId(),
-	                                                           mavenProject.getArtifactId(),
-	                                                           mavenProject.getVersion());
-	                if (isProperty(bean.toString())) {
-	                	resolveBeanProperties(mavenProject, bean);
-	                }
-	                dependencyInfoMap.put(libraryFile.getPath(), bean);
-                } catch (Exception e) {
-                	// TODO: invalid pom or getPomFilePath() is wrong
-    				//dependencyInfoMap.put(libraryFile.getPath(), null);
-                }
-			} else{
-				// TODO: Not used maven to build or invalid
-				//dependencyInfoMap.put(libraryFile.getPath(), null);
+				File libraryFile = jarLibs[i].getPath().toFile();
+				JarFile jarFile = new JarFile(libraryFile);
+				String pomFilePath = getPomFilePath(jarFile);
+				if (pomFilePath != null) {
+					try {
+						InputStream is = jarFile.getInputStream(jarFile.getEntry(pomFilePath));
+						MavenProject mavenProject =
+						                            getMavenProject(new Scanner(is).useDelimiter("\\A")
+						                                                           .next());
+						JavaLibraryBean bean =
+						                       new JavaLibraryBean(jarLibs[i].getPath()
+						                                                     .toOSString(),
+						                                           mavenProject.getGroupId(),
+						                                           mavenProject.getArtifactId(),
+						                                           mavenProject.getVersion());
+						if (isProperty(bean.toString())) {
+							resolveBeanProperties(mavenProject, bean);
+						}
+						dependencyInfoMap.put(libraryFile.getPath(), bean);
+					} catch (Exception e) {
+						// TODO: invalid pom or getPomFilePath() is wrong
+						// dependencyInfoMap.put(libraryFile.getPath(), null);
+					}
+				} else {
+					// TODO: Not used maven to build or invalid
+					// dependencyInfoMap.put(libraryFile.getPath(), null);
+				}
 			}
 		}
 		return (Map<String, JavaLibraryBean>) Collections.unmodifiableMap(dependencyInfoMap);
