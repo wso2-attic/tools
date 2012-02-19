@@ -143,11 +143,11 @@
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.is" />
 		<library jar="lib/not-yet-commons-ssl-0.3.9.jar"
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.is" />
-		<library jar="lib/opensaml2-2.0.0-SNAPSHOT.alpha1-wso2v1.jar"
+		<library jar="lib/opensaml2-2.0.0.alpha1-wso2v1.jar"
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.is" />
-		<library jar="lib/org.wso2.carbon.registry.core-3.0.0.jar"
+		<library jar="lib/org.wso2.carbon.registry.core-3.2.2.jar"
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.greg" />
-		<library jar="lib/org.wso2.carbon.user.core-3.0.0.jar"
+		<library jar="lib/org.wso2.carbon.user.core-3.2.2.jar"
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.greg" />
 		<library jar="lib/rampart-core-1.6.0.wso2v1.jar"
 			categoryId="org.wso2.carbonstudio.eclipse.libraries.category.is" />
