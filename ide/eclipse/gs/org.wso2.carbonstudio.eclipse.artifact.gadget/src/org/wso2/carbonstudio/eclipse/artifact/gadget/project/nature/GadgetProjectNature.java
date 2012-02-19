@@ -51,23 +51,6 @@ public class GadgetProjectNature extends AbstractWSO2ProjectNature {
 		repo.setId(REPO_ID);
 		mavenProject.getModel().addRepository(repo);
 		mavenProject.getModel().addPluginRepository(repo);
-		List<Dependency> dependencyList = new ArrayList<Dependency>();
-		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(getProject());
-		Map<String, String> map = ProjectDependencyConstants.dependencyMap;
-		for (JavaLibraryBean bean : dependencyInfoMap.values()) {
-			if (bean.getVersion().contains("${")) {
-				for (String path : map.keySet()) {
-					bean.setVersion(bean.getVersion().replace(path,
-							map.get(path)));
-				}
-			}
-			Dependency dependency = new Dependency();
-			dependency.setArtifactId(bean.getArtifactId());
-			dependency.setGroupId(bean.getGroupId());
-			dependency.setVersion(bean.getVersion());
-			dependencyList.add(dependency);
-		}
-		MavenUtils.addMavenDependency(mavenProject, dependencyList);
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
