@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.carbon.registry.core.exceptions.RegistryException;
 //import org.wso2.carbonstudio.eclipse.capp.artifact.registry.utils.RegistryResourceUtils;
 import org.wso2.carbonstudio.eclipse.capp.core.model.RegistryConnection;
 import org.wso2.carbonstudio.eclipse.capp.core.model.RegistryData;
@@ -52,7 +51,7 @@ import org.wso2.carbonstudio.eclipse.greg.manager.local.utils.RegistryCheckInCli
 import org.wso2.carbonstudio.eclipse.greg.manager.remote.views.RegistryBrowserView;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.registry.checkin.CheckinClientException;
+import org.wso2.carbon.registry.synchronization.SynchronizationException;
 
 import java.io.File;
 import java.io.IOException;
@@ -90,7 +89,7 @@ public class RegistryHandler implements IRegistryHandler {
 	public void importRegistryPathToFileSystem(IRegistryData registryData, File toPath) {
 		try {
 	        RegistryCheckInClientUtils.checkout(registryData.getUsername(), registryData.getPassword(), toPath.toString(), registryData.getURL().toString(), registryData.getPath());
-        } catch (CheckinClientException e) {
+        } catch (SynchronizationException e) {
 	        log.error(e);
         }
 	}
