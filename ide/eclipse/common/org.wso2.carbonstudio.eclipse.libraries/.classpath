@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.utils-3.2.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.securevault-1.0.0.SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/resolver.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/serializer.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/xercesImpl.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/xml-apis.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axiom-1.2.9.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axis2-1.6.0.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/abdera-1.0.0.wso2v1.jar"/>
@@ -33,5 +28,9 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.api-3.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/rampart-core-1.6.0.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/rampart-policy-1.6.0.wso2v1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.securevault-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/serializer-2.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xercesImpl-2.8.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
