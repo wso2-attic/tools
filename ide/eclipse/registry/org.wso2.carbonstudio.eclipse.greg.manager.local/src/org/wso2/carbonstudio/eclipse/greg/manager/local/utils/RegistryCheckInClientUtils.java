@@ -28,7 +28,8 @@ import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
 import org.eclipse.core.runtime.Path;
-import org.wso2.carbon.registry.core.exceptions.RegistryException;
+import org.wso2.carbon.registry.synchronization.SynchronizationException;
+import org.wso2.carbon.registry.synchronization.message.MessageCode;
 import org.wso2.carbonstudio.eclipse.greg.core.exception.InvalidRegistryURLException;
 import org.wso2.carbonstudio.eclipse.greg.core.exception.RegistryContentRetrieveException;
 import org.wso2.carbonstudio.eclipse.greg.core.exception.UnknownRegistryException;
@@ -37,14 +38,13 @@ import org.wso2.carbonstudio.eclipse.greg.manager.local.bean.RemoteRegistryInfo;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.registry.checkin.Checkin;
-import org.wso2.registry.checkin.CheckinClientException;
 import org.wso2.registry.checkin.Checkout;
 import org.wso2.registry.checkin.ClientOptions;
-import org.wso2.registry.checkin.MessageCode;
+import org.wso2.registry.checkin.ClientOptions.RegistryType;
 import org.wso2.registry.checkin.Update;
 import org.wso2.registry.checkin.UserInputCode;
 import org.wso2.registry.checkin.UserInteractor;
-import org.wso2.registry.checkin.Utils;
+import org.wso2.carbon.registry.synchronization.Utils;
 
 public class RegistryCheckInClientUtils {
 	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -345,7 +345,7 @@ public class RegistryCheckInClientUtils {
 		try {
 			//get the OM element containing the meta information about the registry resource 
 			metaFileElement = Utils.getOMElementFromMetaFile(metaFile.getAbsolutePath());
-		} catch (CheckinClientException e) {
+		} catch (SynchronizationException e) {
 			log.error(e);
 		}
 		
@@ -367,7 +367,7 @@ public class RegistryCheckInClientUtils {
 					//The checksums exists and differ => modified
 					state = RESOURCE_STATE_MODIFIED;
 				} 
-			} catch (CheckinClientException e) {
+			} catch (SynchronizationException e) {
 				log.error(e);
 			}
 		}
@@ -422,25 +422,23 @@ public class RegistryCheckInClientUtils {
 	 * @param path
 	 * @param username
 	 * @param password
+	 * @throws SynchronizationException 
 	 * @throws CheckinClientException
 	 */
-	public static void update(String registryUrl,String checkoutPath, String path, String username, String password)
-	                                                                 throws CheckinClientException {
+	public static void update(String registryUrl,String checkoutPath, String path, String username, String password) 
+							throws SynchronizationException{
 		ClientOptions clientOptions = new ClientOptions();
 		clientOptions.setUsername(username);
 		clientOptions.setPassword(password);
 		clientOptions.setWorkingDir(path);
 		clientOptions.setUserUrl(registryUrl + checkoutPath);
 		clientOptions.setTesting(true);
-		clientOptions.setUserInterator(new UserInteractor() {
+		clientOptions.setUserInteractor(new UserInteractor() {
+			
 			public String showMessage(MessageCode arg0, String[] arg1) {
-				return "";
-			}
-
-			public UserInputCode getInput(MessageCode arg0, String[] arg1) {
 				return null;
 			}
-
+			
 			public UserInputCode getInput(MessageCode arg0, String[] arg1, String arg2) {
 				return null;
 			}
@@ -469,27 +467,27 @@ public class RegistryCheckInClientUtils {
 	 * @param path
 	 * @param username
 	 * @param password
-	 * @throws CheckinClientException
+	 * @throws SynchronizationException 
 	 */
 	public static void checkin(String registryUrl, String checkoutPath,	String path, String username,
-			String password)throws CheckinClientException {
+			String password) throws SynchronizationException{
 		ClientOptions clientOptions = new ClientOptions();
 		clientOptions.setUsername(username);
 		clientOptions.setPassword(password);
 		clientOptions.setWorkingDir(path);
 		clientOptions.setUserUrl(registryUrl + checkoutPath);
 		clientOptions.setTesting(true);
-		clientOptions.setUserInterator(new UserInteractor() {
-			public String showMessage(MessageCode arg0, String[] arg1) {
-				return "";
-			}
-
-			public UserInputCode getInput(MessageCode arg0, String[] context) {
+		clientOptions.setUserInteractor(new UserInteractor() {
+			public UserInputCode getInput(
+					org.wso2.carbon.registry.synchronization.message.MessageCode arg0,
+					String[] arg1, String arg2) {
+				// TODO Auto-generated method stub
 				return null;
 			}
 
-			public UserInputCode getInput(MessageCode arg0, String[] arg1,
-					String arg2) {
+			public String showMessage(
+					org.wso2.carbon.registry.synchronization.message.MessageCode arg0,
+					String[] arg1) {
 				// TODO Auto-generated method stub
 				return null;
 			}
@@ -519,28 +517,30 @@ public class RegistryCheckInClientUtils {
 	 * @param workingDirectory
 	 * @param registryUrl
 	 * @param checkoutPath
+	 * @throws SynchronizationException 
 	 * @throws CheckinClientException
 	 */
 	public static void checkout(String username, String password,String workingDirectory, 
-			String registryUrl, String checkoutPath)throws CheckinClientException {
+			String registryUrl, String checkoutPath) throws SynchronizationException {
 		ClientOptions clientOptions = new ClientOptions();
 		clientOptions.setUsername(username);
 		clientOptions.setPassword(password);
 		clientOptions.setWorkingDir(workingDirectory);
-		clientOptions.setUserUrl(registryUrl + checkoutPath);
-		clientOptions.setUserInterator(new UserInteractor() {
-			public String showMessage(MessageCode arg0, String[] arg1) {
-				return "";
-			}
-
-			public UserInputCode getInput(MessageCode arg0, String[] arg1) {
-				return null;
-			}
+		clientOptions.setUserUrl(registryUrl + "registry" + checkoutPath);
+//		clientOptions.setType(RegistryType.WS);
+		clientOptions.setUserInteractor(new UserInteractor() {
 
 			public UserInputCode getInput(MessageCode arg0, String[] arg1,
 					String arg2) {
+				// TODO Auto-generated method stub
 				return null;
 			}
+
+			public String showMessage(MessageCode arg0, String[] arg1) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
 		});
 		new Checkout(clientOptions).execute();
 	}

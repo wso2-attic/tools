@@ -28,7 +28,7 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.wso2.carbonstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 import org.wso2.carbonstudio.eclipse.platform.core.MediaManager;
-import org.wso2.registry.checkin.Utils;
+import org.wso2.carbon.registry.synchronization.Utils;
 
 public class ResourceMetaData extends AbstractXMLDoc{
 

@@ -38,7 +38,7 @@ import org.wso2.carbonstudio.eclipse.greg.manager.local.Activator;
 import org.wso2.carbonstudio.eclipse.greg.manager.local.utils.RegistryCheckInClientUtils;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.registry.checkin.CheckinClientException;
+import org.wso2.carbon.registry.synchronization.SynchronizationException;
 
 public class CheckoutActionContributor implements IRegistryAction {
 	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -146,7 +146,7 @@ public class CheckoutActionContributor implements IRegistryAction {
 												path.toOSString(),
 												r.getConnectionInfo().getUrl().toString(), 
 												r.getRegistryResourcePath());
-									} catch (CheckinClientException e1) {
+									} catch (SynchronizationException e1) {
 										e1.printStackTrace();
 									}
 									try {

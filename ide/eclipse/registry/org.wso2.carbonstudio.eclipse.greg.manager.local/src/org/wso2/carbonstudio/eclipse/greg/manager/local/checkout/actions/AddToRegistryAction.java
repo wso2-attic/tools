@@ -49,7 +49,7 @@ import org.wso2.carbonstudio.eclipse.greg.manager.local.utils.RegistryCheckInCli
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.platform.core.MediaManager;
-import org.wso2.registry.checkin.CheckinClientException;
+import org.wso2.carbon.registry.synchronization.SynchronizationException;
 
 public class AddToRegistryAction extends BaseRegistryAction {
 	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -181,7 +181,7 @@ public class AddToRegistryAction extends BaseRegistryAction {
 						                              "Check-in Info",
 						                              "Successfully check-in the changes..");
 						registryCheckinSuccessful = true;
-					} catch (CheckinClientException e) {
+					} catch (SynchronizationException e) {
 						log.error(e);
 					} finally {
 						action.setEnabled(!registryCheckinSuccessful);
@@ -203,7 +203,7 @@ public class AddToRegistryAction extends BaseRegistryAction {
 						                              "Check-in Info",
 						                              "Successfully check-in the changes..");
 						registryCheckinSuccessful = true;
-					} catch (CheckinClientException e) {
+					} catch (SynchronizationException e) {
 						MessageDialog.openError(Display.getCurrent().getActiveShell(),
 						                        "Check-in Info", "Failed to check-in the changes..");
 						log.error(e);

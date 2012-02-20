@@ -27,12 +27,12 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
+import org.wso2.carbon.registry.synchronization.SynchronizationException;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceType;
 import org.wso2.carbonstudio.eclipse.greg.manager.local.Activator;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.registry.checkin.CheckinClientException;
 
 public class Utils {
 	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -76,7 +76,7 @@ public class Utils {
 											 path.toOSString(), 
 											 r.getConnectionInfo().getUrl().toString(), 
 											 r.getRegistryResourcePath());
-			} catch (CheckinClientException e1) {
+			} catch (SynchronizationException e1) {
 				e1.printStackTrace();
 			}
 
