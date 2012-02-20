@@ -274,19 +274,25 @@ public class ResourceInfoViewer extends ViewPart implements
 	}
 
 	private void updateViewValues(String[] values) {
-	    lblValue1.setText(values[0]);
-	    lblValue2.setText(values[1]);
-	    lblValue3.setText(values[2]);
-	    lblValue4.setText(values[3]);
-	    lblValue5.setText(values[4]);
-	    lblValue6.setText(values[5]);
-	    lblValue7.setText(values[6]);
-	    lblValue8.setText(values[7]);
-	    lblValue9.setText(values[8]);
-	    lblValue10.setText(values[9]);
-	    lblValue11.setText(values[10]);
+	    lblValue1.setText(toNotNullString(values[0]));
+	    lblValue2.setText(toNotNullString(values[1]));
+	    lblValue3.setText(toNotNullString(values[2]));
+	    lblValue4.setText(toNotNullString(values[3]));
+	    lblValue5.setText(toNotNullString(values[4]));
+	    lblValue6.setText(toNotNullString(values[5]));
+	    lblValue7.setText(toNotNullString(values[6]));
+	    lblValue8.setText(toNotNullString(values[7]));
+	    lblValue9.setText(toNotNullString(values[8]));
+	    lblValue10.setText(toNotNullString(values[9]));
+	    lblValue11.setText(toNotNullString(values[10]));
     }
 
+	private String toNotNullString(String str){
+		if(null!=str){
+			return str.trim();
+		}
+		else return "";
+	}
 	public void updateMe() throws InvalidRegistryURLException, UnknownRegistryException {
 		updateInfo();
 		decideToolBarButtons();

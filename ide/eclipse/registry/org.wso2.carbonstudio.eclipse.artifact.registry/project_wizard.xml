@@ -43,7 +43,7 @@
 				  title="Import Registry Dump File"
 				  description="Browse the location of a registry dump file"
 				  error="Browse and select a Proxy Service configuration file">
-			<data modelProperty="import.file" type="file" filter="*.xml" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Registry Dump File</data>
+			<data modelProperty="import.file" type="file" filter="*.dump" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Registry Dump File</data>
 
 			<data modelProperty="reg.location" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Registry path to deploy</data>
 			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController" controlData="filterClass=org.wso2.carbonstudio.eclipse.artifact.registry.validators.ProjectFilter">Save resource in:</data>
