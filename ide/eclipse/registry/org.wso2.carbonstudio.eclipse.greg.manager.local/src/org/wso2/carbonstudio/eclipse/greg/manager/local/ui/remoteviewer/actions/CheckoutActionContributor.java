@@ -145,7 +145,7 @@ public class CheckoutActionContributor implements IRegistryAction {
 												r.getConnectionInfo().getPassword(),
 												path.toOSString(),
 												r.getConnectionInfo().getUrl().toString(), 
-												r.getRegistryResourcePath());
+												checkoutPath);
 									} catch (SynchronizationException e1) {
 										e1.printStackTrace();
 									}
