@@ -612,7 +612,17 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 					} else if (selectedObj instanceof RegistryUserContainer) {
 						regUserContainer = (RegistryUserContainer) selectedObj;
-						mgr.add(addUsers);
+						 List<RegistryUserRole> rolesList=regUserContainer.getRegistryUserManagerContainer().getUserRoleContent().getUserRoles();
+						    if(rolesList!=null){
+						    	if(!rolesList.isEmpty()){
+						    		for (RegistryUserRole registryUserRole : rolesList) {
+						    			if("admin".equals(registryUserRole.getUserRoleName())){
+						    				 mgr.add(addUsers);
+						    				 break;
+						    			}
+									}
+						    	}
+						    }
 					} else if (selectedObj instanceof RegistryUserRoleContainer) {
 						regRoleContainer = (RegistryUserRoleContainer) selectedObj;
 						mgr.add(addRoles);
