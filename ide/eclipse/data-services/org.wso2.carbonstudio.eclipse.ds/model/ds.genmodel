@@ -3,10 +3,10 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.wso2.carbonstudio.eclipse.ds/src"
     modelPluginID="org.wso2.carbonstudio.eclipse.ds" modelName="Ds" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" language="">
+    complianceLevel="6.0" copyrightFields="false">
   <foreignModel>ds.ecore</foreignModel>
   <genPackages prefix="Ds" basePackage="org.wso2.carbonstudio.eclipse" resource="XML"
-      disposableProviderFactory="true" fileExtensions="dbs" ecorePackage="ds.ecore#/">
+      disposableProviderFactory="true" ecorePackage="ds.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ds.ecore#//ServiceStatus">
       <genEnumLiterals ecoreEnumLiteral="ds.ecore#//ServiceStatus/active"/>
       <genEnumLiterals ecoreEnumLiteral="ds.ecore#//ServiceStatus/inactive"/>
@@ -33,7 +33,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//CustomValidator/class"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DataService">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ds.ecore#//DataService/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DataService/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DataService/config"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DataService/query"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DataService/eventTrigger"/>
@@ -60,10 +60,11 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/callQuery"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/data"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/hasheader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/maxrowcount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/property"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/sql"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/subscription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//DocumentRoot/startingrow"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DoubleRangeValidator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DoubleRangeValidator/maximum"/>
@@ -80,23 +81,29 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventSubscriptionList/subscription"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/targetTopic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/targetTopic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventTrigger/subscriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//EventTrigger/language"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ExcelQuery">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//ExcelQuery/workbookname"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//ExcelQuery/hasheader"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//ExcelQuery/startingrow"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//ExcelQuery/maxrowcount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ExcelQuery/workbookname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ExcelQuery/hasheader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ExcelQuery/startingrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ExcelQuery/maxrowcount"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Expression/value"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//GSpreadQuery">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//GSpreadQuery/worksheetnumber"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//GSpreadQuery/startingrow"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//GSpreadQuery/maxrowcount"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//GSpreadQuery/hasheader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//GSpreadQuery/worksheetnumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//GSpreadQuery/startingrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//GSpreadQuery/maxrowcount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//GSpreadQuery/hasheader"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//HasHeader">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//HasHeader/value"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//LengthValidator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//LengthValidator/maximum"/>
@@ -105,6 +112,9 @@
     <genClasses ecoreClass="ds.ecore#//LongRangeValidator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//LongRangeValidator/maximum"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//LongRangeValidator/minimum"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//MaxRowCount">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//MaxRowCount/value"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//Operation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Operation/callQuery"/>
@@ -130,7 +140,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Query/param"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/inputEventTrigger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/keyColumns"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/outputEventTrigger"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/returnGeneratedKeys"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/useConfig"/>
@@ -160,7 +169,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Resource/callQuery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/returnRequestStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ResultMapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/element"/>
@@ -172,12 +180,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/useColumnNumbers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/xsltPath"/>
     </genClasses>
+    <genClasses ecoreClass="ds.ecore#//Sparql">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Sparql/value"/>
+    </genClasses>
     <genClasses ecoreClass="ds.ecore#//Sql">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Sql/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Sql/dialect"/>
     </genClasses>
+    <genClasses ecoreClass="ds.ecore#//StartingRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//StartingRow/value"/>
+    </genClasses>
     <genClasses ecoreClass="ds.ecore#//Subscription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Subscription/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//TargetTopic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//TargetTopic/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//WorkBookName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//WorkBookName/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ds.ecore#//WorkSheetNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//WorkSheetNumber/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -56,7 +56,9 @@ import org.wso2.carbonstudio.eclipse.ds.CallQuery;
 import org.wso2.carbonstudio.eclipse.ds.CallQueryList;
 import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
+import org.wso2.carbonstudio.eclipse.ds.ExcelQuery;
 import org.wso2.carbonstudio.eclipse.ds.Operation;
 import org.wso2.carbonstudio.eclipse.ds.Query;
 import org.wso2.carbonstudio.eclipse.ds.QueryParameter;
@@ -104,12 +106,14 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * to be displayed.
 	 */
 	private boolean generateDataSourceMenu = false;
+	
+	
 
 	/**
 	 * Indicates whether the menu items common to Query, Operation and Resource
 	 * elements need to be displayed.
 	 */
-	private boolean generateQueryAndOperationAndResourceMenu = false;
+	private boolean generateQueryMenu = false;
 
 	/**
 	 * Indicates whether the menu items belonging to a Query element need to be
@@ -122,6 +126,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * displayed.
 	 */
 	private boolean generateOutputMappingMenu = false;
+	
+	
+	private boolean generateExcelMenu = false;
 
 	/**
 	 * Indicates whether the menu items belonging to Call-Query and Input
@@ -134,6 +141,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * belonging to a Validator element need to be displayed.
 	 */
 	private boolean generateValidatorMenu = false;
+	
+	
+	private boolean generateEventTriggerMenu = false;
 
 	/**
 	 * Indicates whether the menu items belonging to a Subscription element need
@@ -200,6 +210,10 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The event trigger action. */
 	private IAction eventTriggerAction;
+	
+	private IAction expressionAction;
+	
+	private IAction targetTopicAcion;
 
 	/** The subscription action. */
 	private IAction subscriptionAction;
@@ -218,6 +232,8 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The shell. */
 	private final Shell shell = new Shell();
+	
+	private DSAction descriptionAction;
 
 	/** The data source configuration instance. */
 	private DataSourceConfiguration config;
@@ -230,9 +246,23 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The result. */
 	private ResultMapping result;
-
+	
+	private DSAction sqlAction;
+	
+	private DSAction sparqlAction;
+	
+	private DSAction excelAction;
+	
+	private DSAction gspredAction;
+	
+	private DSAction queryParmAction;
+	
+	
 	/** The selected object in the editor. */
 	private Object referenceObject = null;
+
+	
+	
 
 	/**
 	 * This action opens the Properties view.
@@ -364,7 +394,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			submenuManager.insertBefore("additions", dsMenuManager);
 		}
 
-		if (generateQueryAndOperationAndResourceMenu) {
+		if (generateQueryMenu) {
 			submenuManager.insertBefore("additions", configPropertyAction);
 			submenuManager.insertBefore("additions", queryAction);
 			submenuManager.insertBefore("additions", operationAction);
@@ -399,6 +429,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		}
 
 		if (generateQueryPropertyListMenu) {
+			
 			submenuManager.insertBefore("additions", queryPropertyAction);
 		}
 
@@ -455,7 +486,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            querying for the children and siblings that can be added to
 	 *            the selected object and updating the menus accordingly. <!--
 	 *            begin-user-doc --> <!-- end-user-doc -->
-	 * @generated_not
+	 * @generated NOT
 	 */
 	public void selectionChanged(SelectionChangedEvent event) {
 
@@ -508,8 +539,21 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			// If the selected element is of type DataService
 
 			if (referenceObject != null && referenceObject instanceof DataService) {
+				
 				generateDataSourceMenu = true;
+				
 				populateAddDatasourceActions(selection, domain, newChildDescriptors);
+				
+				generateQueryMenu = true;
+				
+				descriptionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_DESCRIPTION_ACTION);
+				
+				operationAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_OPERATION_ACTION);
+				
+				eventTriggerAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EVENT_TRIGGER_ACTION);
+				
+				resourceAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_RESOURCE_ACTION);
+
 			} else {
 				generateDataSourceMenu = false;
 			}
@@ -520,101 +564,122 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 				config = (DataSourceConfigurationImpl) referenceObject;
 
-				generateQueryAndOperationAndResourceMenu = true;
-				configPropertyAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_CONFIG_PROPERTY_ACTION);
-				queryAction = new QueryAction(selection, domain, newSiblingDescriptors,
-						(DataSourceConfigurationImpl) referenceObject);
-				operationAction = new DSAction(selection, domain, newSiblingDescriptors,
-						DSActionConstants.ADD_OPERATION_ACTION);
-				resourceAction = new DSAction(selection, domain, newSiblingDescriptors,
-						DSActionConstants.ADD_RESOURCE_ACTION);
-
-			} else {
-				generateQueryAndOperationAndResourceMenu = false;
-			}
+				//do noting we do nto give add properties to the configuration
+				
+			} 
 
 			// If the selected element is of type Query
 
 			if (referenceObject != null && referenceObject instanceof Query) {
 				query = (QueryImpl) referenceObject;
-				generateQueryChildrenMenu = true;
-				queryPropertyGroupAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
-				resultAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_RESULT_ACTION);
-				inputParamAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_INPUT_MAPPING_ACTION);
-				eventTriggerAction = new DSAction(selection, domain, newSiblingDescriptors,
-						DSActionConstants.ADD_EVENT_TRIGGER_ACTION);
-
+				generateQueryMenu = true;
+				
+				sqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SQL_ACTION);
+				
+				//sparqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SPARQL_ACTION);
+				
+				queryPropertyGroupAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
+				
+				resultAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_RESULT_ACTION);
+				
+				excelAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EXCEL_QUERY_ACTION);
+				
+				gspredAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_GSPREAD_QUERY_ACTION);
+				
+				queryParmAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_INPUT_MAPPING_ACTION);//DSActionConstants.ADD_QUERY_PARAM_ACTION);
+	
 			} else {
-				generateQueryChildrenMenu = false;
+				generateQueryMenu = false;
+				
 			}
 
 			// If the selected element is of type QueryPropertyList
 
 			if (referenceObject != null && referenceObject instanceof QueryPropertyList) {
 				generateQueryPropertyListMenu = true;
-				queryPropertyAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_QUERY_PROPERTY_ACTION);
+				
+				queryPropertyAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_QUERY_PROPERTY_ACTION);
+				
 			} else {
+				
 				generateQueryPropertyListMenu = false;
+			}
+			
+			//if the selected element is ResultMapping
+
+			if (referenceObject != null && referenceObject instanceof ResultMapping) {
+				
+				result = (ResultMapping) referenceObject;
+				generateOutputMappingMenu = true;
+				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
+				
+			} else {
+				
+				generateOutputMappingMenu = false;
+			}
+			
+			//If the selected element is of type QueryParameter
+
+			if (referenceObject != null && referenceObject instanceof QueryParameter) {
+				
+				generateValidatorMenu = true;
+				populateAddValidatorAction(selection, domain, newChildDescriptors);
+				
+			} else {
+				generateValidatorMenu = false;
 			}
 
 			// If the selected element is of type EventTrigger
 
 			if (referenceObject != null && referenceObject instanceof EventTrigger) {
 				eventTrigger = (EventTriggerImpl) referenceObject;
-				generateSubscriptionMenu = true;
-				subscriptionAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_SUBSCRIPTION_ACTION);
+				generateEventTriggerMenu = true;
+				
+				expressionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EXPRESSION_ACTION);
+				targetTopicAcion = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_TARGET_TOPOIC_ACTION);
+				subscriptionAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_SUBSCRIPTIONS_ACTION);
+				
+				
 			} else {
+				generateEventTriggerMenu = false;
+				
+			}
+			
+			// if the selected element is of type EventSubscriptionList
+			
+			if(referenceObject != null && referenceObject instanceof EventSubscriptionList){
+				
+				generateSubscriptionMenu = true;
+				
+				subscriptionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SUBSCRIPTION_ACTION);
+			}else{
+				
 				generateSubscriptionMenu = false;
 			}
-
+			
 			// If the selected element is of type Operation or Resource or
 			// CallQueryList (to generate the Add Call Query menu item since
 			// CallQuery is a common child)
-
 			if (referenceObject != null
 					&& (referenceObject instanceof Operation || referenceObject instanceof Resource || referenceObject instanceof CallQueryList)) {
 				generateCallQueryMenu = true;
-				callQueryAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION);
+				callQueryAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION);
 			} else {
+				
 				generateCallQueryMenu = false;
 			}
-
-			// If the selected element is of type ResultMapping
-
-			if (referenceObject != null && referenceObject instanceof ResultMapping) {
-				result = (ResultMapping) referenceObject;
-				generateOutputMappingMenu = true;
-				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
-			} else {
-				generateOutputMappingMenu = false;
-			}
-
+			
 			// If the selected element is of type CallQuery
-
+		
 			if (referenceObject != null && referenceObject instanceof CallQuery) {
 				generateCallQueryInputMappingMenu = true;
-				callQueryInputMappingAction = new DSAction(selection, domain, newChildDescriptors,
-						DSActionConstants.ADD_INPUT_MAPPING_ACTION);
+				callQueryInputMappingAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_INPUT_MAPPING_ACTION);
 
 			} else {
 				generateCallQueryInputMappingMenu = false;
 			}
-
-			// If the selected element is of type QueryParameter
-
-			if (referenceObject != null && referenceObject instanceof QueryParameter) {
-				generateValidatorMenu = true;
-				populateAddValidatorAction(selection, domain, newChildDescriptors);
-			} else {
-				generateValidatorMenu = false;
-			}
+			
+			
 		}
 	}
 
@@ -706,120 +771,109 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * This populates the pop-up menu before it appears. <!-- begin-user-doc -->
+	 * This populates the pop-up menu(context menu) before it appears. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param menuManager
 	 *            the menu manager
-	 * @generated_not
+	 * @generated NOT
 	 */
 	
 	public void menuAboutToShow(IMenuManager menuManager) {
 		super.menuAboutToShow(menuManager);
 
+		//Menu for data service item
+		
 		if (generateDataSourceMenu) {
 			generateDataSourceSubMenusAndActions();
 			menuManager.insertBefore("edit", dsMenuManager);
+			menuManager.insertBefore("edit", descriptionAction );
+			menuManager.insertBefore("edit", eventTriggerAction);
+			menuManager.insertBefore("edit", operationAction );
+			menuManager.insertBefore("edit", resourceAction );
 			generateDataSourceMenu = false;
 		}
-
-		if (generateQueryAndOperationAndResourceMenu) {
-			if (config != null && StringUtils.isNotBlank(config.getId())) {
-				menuManager.insertBefore("edit", configPropertyAction);
-				menuManager.insertBefore("edit", queryAction);
-				menuManager.insertBefore("edit", operationAction);
-				menuManager.insertBefore("edit", resourceAction);
-				generateQueryAndOperationAndResourceMenu = false;
-
-			} else {
-				displayError("Enter the DataSource Id to proceed.");
-			}
-		}
-
-		if (generateQueryChildrenMenu) {
+		
+		//Menu for query item
+		
+		if(generateQueryMenu){
 			if (query != null && StringUtils.isNotBlank(query.getId())) {
-				menuManager.insertBefore("edit", queryPropertyGroupAction);
-				menuManager.insertBefore("edit", resultAction);
-
-				DataServiceImpl dsImpl = (DataServiceImpl) query.eContainer();
-
-				// Get all the config elements in the tree
-				Iterator<DataSourceConfiguration> iterator = dsImpl.getConfig().iterator();
-
-				// Get the config element that corresponds to the selected query
-				while (iterator.hasNext()) {
-					config = (DataSourceConfigurationImpl) iterator.next();
-					if (config.getId() != null && config.getId().equals(query.getUseConfig())) {
-						break;
-					}
-				}
-
-				// Check the type of the configuration (config). If the type is
-				// not a csv, excel or gspread
-				// (if the type is rdbms, jndi or carbon data source) show the
-				// "Add Input Parameter" menu item.
-				if (config != null) {
-					String confProperty = config.getProperty().get(0).getName();
-					if (!(confProperty.equals(DSActionConstants.CSV_DATASOURCE_PROPERTY)
-							|| confProperty.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY) || confProperty
-							.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY))) {
-						menuManager.insertBefore("edit", inputParamAction);
-					}
-				}
-				menuManager.insertBefore("edit", eventTriggerAction);
-				generateQueryChildrenMenu = false;
-
+			menuManager.insertBefore("edit", sqlAction);
+			//menuManager.insertBefore("edit", sparqlAction);
+			menuManager.insertBefore("edit", queryPropertyGroupAction);
+			menuManager.insertBefore("edit", resultAction);
+			menuManager.insertBefore("edit", excelAction);
+			menuManager.insertBefore("edit", gspredAction);
+			menuManager.insertBefore("edit", queryParmAction);
+			generateQueryMenu = false;
 			} else {
 				displayError("Enter the Query Id to proceed.");
 			}
 		}
-
-		if (generateSubscriptionMenu) {
-			if (eventTrigger != null && StringUtils.isNotBlank(eventTrigger.getId())) {
-				menuManager.insertBefore("edit", subscriptionAction);
-				generateSubscriptionMenu = false;
-			} else {
-				displayError("Enter the Event Id to proceed.");
-			}
+		
+		//Menu for query property list item
+		
+		if(generateQueryPropertyListMenu){
+			menuManager.insertBefore("edit", queryPropertyAction);
+			
 		}
-
+		
 		// To add an Output Mapping to a Result element, the Grouped By Element
 		// and Row Name values should be provided.
 		if (generateOutputMappingMenu) {
-			if (result != null
-					&& (result.getElementName() == null || StringUtils.isBlank(result
-							.getElementName()))) {
+			
+			if (result != null && (result.getElementName() == null || StringUtils.isBlank(result.getElementName()))) {
+				
 				displayError("Enter value for Grouped by Element");
-			} else if (result != null
-					&& (result.getRowName() == null || (StringUtils.isBlank(result.getRowName())))) {
+				
+			} else if (result != null && (result.getRowName() == null || (StringUtils.isBlank(result.getRowName())))) {
+				
 				displayError("Enter value for Row Name");
+				
 			} else {
+				
 				generateOutputMappingSubMenusAndActions();
 				menuManager.insertBefore("edit", outputMappingsMenuManager);
 				generateOutputMappingMenu = false;
 			}
 		}
-
-		if (generateCallQueryInputMappingMenu) {
-			menuManager.insertBefore("edit", callQueryInputMappingAction);
-			generateCallQueryInputMappingMenu = false;
-		}
-
+		 //Validator menu
+		
 		if (generateValidatorMenu) {
 			generateValidatorSubMenusAndActions();
 			menuManager.insertBefore("edit", validatorMenuManager);
 			generateValidatorMenu = false;
 		}
-
+		
+		//event trigger menu
+		
+		if(generateEventTriggerMenu){
+			
+			menuManager.insertBefore("edit", expressionAction);
+			menuManager.insertBefore("edit", targetTopicAcion);
+			menuManager.insertBefore("edit", subscriptionAction);
+			generateEventTriggerMenu = false;
+		}
+		
+		//subscription menu
+		
+		if (generateSubscriptionMenu) {
+			
+				menuManager.insertBefore("edit", subscriptionAction);
+				generateSubscriptionMenu = false;
+		}	
+		
 		if (generateCallQueryMenu) {
 			menuManager.insertBefore("edit", callQueryAction);
 			generateCallQueryMenu = false;
 		}
-
-		if (generateQueryPropertyListMenu) {
-			menuManager.insertBefore("edit", queryPropertyAction);
-			generateQueryPropertyListMenu = false;
+		
+		if (generateCallQueryInputMappingMenu) {
+			menuManager.insertBefore("edit", callQueryInputMappingAction);
+			generateCallQueryInputMappingMenu = false;
 		}
+
+
 	}
 
 	/**

@@ -152,6 +152,15 @@ public interface DsFactory extends EFactory {
 	ExcelQuery createExcelQuery();
 
 	/**
+	 * Returns a new object of class '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Expression</em>'.
+	 * @generated
+	 */
+	Expression createExpression();
+
+	/**
 	 * Returns a new object of class '<em>GSpread Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,6 +168,15 @@ public interface DsFactory extends EFactory {
 	 * @generated
 	 */
 	GSpreadQuery createGSpreadQuery();
+
+	/**
+	 * Returns a new object of class '<em>Has Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Has Header</em>'.
+	 * @generated
+	 */
+	HasHeader createHasHeader();
 
 	/**
 	 * Returns a new object of class '<em>Length Validator</em>'.
@@ -177,6 +195,15 @@ public interface DsFactory extends EFactory {
 	 * @generated
 	 */
 	LongRangeValidator createLongRangeValidator();
+
+	/**
+	 * Returns a new object of class '<em>Max Row Count</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Max Row Count</em>'.
+	 * @generated
+	 */
+	MaxRowCount createMaxRowCount();
 
 	/**
 	 * Returns a new object of class '<em>Operation</em>'.
@@ -260,6 +287,15 @@ public interface DsFactory extends EFactory {
 	ResultMapping createResultMapping();
 
 	/**
+	 * Returns a new object of class '<em>Sparql</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sparql</em>'.
+	 * @generated
+	 */
+	Sparql createSparql();
+
+	/**
 	 * Returns a new object of class '<em>Sql</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +305,15 @@ public interface DsFactory extends EFactory {
 	Sql createSql();
 
 	/**
+	 * Returns a new object of class '<em>Starting Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Starting Row</em>'.
+	 * @generated
+	 */
+	StartingRow createStartingRow();
+
+	/**
 	 * Returns a new object of class '<em>Subscription</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +321,33 @@ public interface DsFactory extends EFactory {
 	 * @generated
 	 */
 	Subscription createSubscription();
+
+	/**
+	 * Returns a new object of class '<em>Target Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Target Topic</em>'.
+	 * @generated
+	 */
+	TargetTopic createTargetTopic();
+
+	/**
+	 * Returns a new object of class '<em>Work Book Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Work Book Name</em>'.
+	 * @generated
+	 */
+	WorkBookName createWorkBookName();
+
+	/**
+	 * Returns a new object of class '<em>Work Sheet Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Work Sheet Number</em>'.
+	 * @generated
+	 */
+	WorkSheetNumber createWorkSheetNumber();
 
 	/**
 	 * Returns the package supported by this factory.

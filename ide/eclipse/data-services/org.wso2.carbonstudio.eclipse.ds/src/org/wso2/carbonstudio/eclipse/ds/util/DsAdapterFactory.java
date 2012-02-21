@@ -128,8 +128,16 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 				return createExcelQueryAdapter();
 			}
 			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
 			public Adapter caseGSpreadQuery(GSpreadQuery object) {
 				return createGSpreadQueryAdapter();
+			}
+			@Override
+			public Adapter caseHasHeader(HasHeader object) {
+				return createHasHeaderAdapter();
 			}
 			@Override
 			public Adapter caseLengthValidator(LengthValidator object) {
@@ -138,6 +146,10 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseLongRangeValidator(LongRangeValidator object) {
 				return createLongRangeValidatorAdapter();
+			}
+			@Override
+			public Adapter caseMaxRowCount(MaxRowCount object) {
+				return createMaxRowCountAdapter();
 			}
 			@Override
 			public Adapter caseOperation(Operation object) {
@@ -176,12 +188,32 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 				return createResultMappingAdapter();
 			}
 			@Override
+			public Adapter caseSparql(Sparql object) {
+				return createSparqlAdapter();
+			}
+			@Override
 			public Adapter caseSql(Sql object) {
 				return createSqlAdapter();
 			}
 			@Override
+			public Adapter caseStartingRow(StartingRow object) {
+				return createStartingRowAdapter();
+			}
+			@Override
 			public Adapter caseSubscription(Subscription object) {
 				return createSubscriptionAdapter();
+			}
+			@Override
+			public Adapter caseTargetTopic(TargetTopic object) {
+				return createTargetTopicAdapter();
+			}
+			@Override
+			public Adapter caseWorkBookName(WorkBookName object) {
+				return createWorkBookNameAdapter();
+			}
+			@Override
+			public Adapter caseWorkSheetNumber(WorkSheetNumber object) {
+				return createWorkSheetNumberAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -400,6 +432,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery <em>GSpread Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -410,6 +456,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGSpreadQueryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader <em>Has Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.HasHeader
+	 * @generated
+	 */
+	public Adapter createHasHeaderAdapter() {
 		return null;
 	}
 
@@ -438,6 +498,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLongRangeValidatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount <em>Max Row Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.MaxRowCount
+	 * @generated
+	 */
+	public Adapter createMaxRowCountAdapter() {
 		return null;
 	}
 
@@ -568,6 +642,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Sparql <em>Sparql</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Sparql
+	 * @generated
+	 */
+	public Adapter createSparqlAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Sql <em>Sql</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -582,6 +670,20 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.StartingRow <em>Starting Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.StartingRow
+	 * @generated
+	 */
+	public Adapter createStartingRowAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.Subscription <em>Subscription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -592,6 +694,48 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubscriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.TargetTopic <em>Target Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.TargetTopic
+	 * @generated
+	 */
+	public Adapter createTargetTopicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.WorkBookName <em>Work Book Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkBookName
+	 * @generated
+	 */
+	public Adapter createWorkBookNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber <em>Work Sheet Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber
+	 * @generated
+	 */
+	public Adapter createWorkSheetNumberAdapter() {
 		return null;
 	}
 

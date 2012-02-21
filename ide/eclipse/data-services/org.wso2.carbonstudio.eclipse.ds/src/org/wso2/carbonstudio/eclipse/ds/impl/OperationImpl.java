@@ -29,7 +29,7 @@ import org.wso2.carbonstudio.eclipse.ds.Operation;
  * <ul>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl#getCallQueryGroup <em>Call Query Group</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl#isDisableStreaming <em>Disable Streaming</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl#getDisableStreaming <em>Disable Streaming</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -58,33 +58,24 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected CallQueryList callQueryGroup;
 
 	/**
-	 * The default value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * The default value of the '{@link #getDisableStreaming() <em>Disable Streaming</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDisableStreaming()
+	 * @see #getDisableStreaming()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DISABLE_STREAMING_EDEFAULT = false;
+	protected static final String DISABLE_STREAMING_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * The cached value of the '{@link #getDisableStreaming() <em>Disable Streaming</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDisableStreaming()
+	 * @see #getDisableStreaming()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean disableStreaming = DISABLE_STREAMING_EDEFAULT;
-
-	/**
-	 * This is true if the Disable Streaming attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean disableStreamingESet;
+	protected String disableStreaming = DISABLE_STREAMING_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -216,7 +207,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isDisableStreaming() {
+	public String getDisableStreaming() {
 		return disableStreaming;
 	}
 
@@ -225,36 +216,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDisableStreaming(boolean newDisableStreaming) {
-		boolean oldDisableStreaming = disableStreaming;
+	public void setDisableStreaming(String newDisableStreaming) {
+		String oldDisableStreaming = disableStreaming;
 		disableStreaming = newDisableStreaming;
-		boolean oldDisableStreamingESet = disableStreamingESet;
-		disableStreamingESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__DISABLE_STREAMING, oldDisableStreaming, disableStreaming, !oldDisableStreamingESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetDisableStreaming() {
-		boolean oldDisableStreaming = disableStreaming;
-		boolean oldDisableStreamingESet = disableStreamingESet;
-		disableStreaming = DISABLE_STREAMING_EDEFAULT;
-		disableStreamingESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, DsPackage.OPERATION__DISABLE_STREAMING, oldDisableStreaming, DISABLE_STREAMING_EDEFAULT, oldDisableStreamingESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetDisableStreaming() {
-		return disableStreamingESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__DISABLE_STREAMING, oldDisableStreaming, disableStreaming));
 	}
 
 	/**
@@ -307,7 +273,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
 				return getCallQueryGroup();
 			case DsPackage.OPERATION__DISABLE_STREAMING:
-				return isDisableStreaming();
+				return getDisableStreaming();
 			case DsPackage.OPERATION__NAME:
 				return getName();
 		}
@@ -329,7 +295,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				setCallQueryGroup((CallQueryList)newValue);
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
-				setDisableStreaming((Boolean)newValue);
+				setDisableStreaming((String)newValue);
 				return;
 			case DsPackage.OPERATION__NAME:
 				setName((String)newValue);
@@ -353,7 +319,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				setCallQueryGroup((CallQueryList)null);
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
-				unsetDisableStreaming();
+				setDisableStreaming(DISABLE_STREAMING_EDEFAULT);
 				return;
 			case DsPackage.OPERATION__NAME:
 				setName(NAME_EDEFAULT);
@@ -375,7 +341,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
 				return callQueryGroup != null;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
-				return isSetDisableStreaming();
+				return DISABLE_STREAMING_EDEFAULT == null ? disableStreaming != null : !DISABLE_STREAMING_EDEFAULT.equals(disableStreaming);
 			case DsPackage.OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -393,7 +359,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (disableStreaming: ");
-		if (disableStreamingESet) result.append(disableStreaming); else result.append("<unset>");
+		result.append(disableStreaming);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

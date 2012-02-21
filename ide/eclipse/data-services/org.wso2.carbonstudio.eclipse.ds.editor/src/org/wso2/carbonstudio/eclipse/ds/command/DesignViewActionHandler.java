@@ -18,6 +18,7 @@ import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.CustomValidator;
 import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.ElementMapping;
@@ -73,6 +74,12 @@ public class DesignViewActionHandler {
 					MessageDialog.openError(Display.getCurrent().getActiveShell().getShell(), 
 							"Can not Complete Action", "You can not delete "+ dataService.getName()+" service!");
 					
+				}else if(referenceObject != null && referenceObject instanceof Description){
+				
+					value = (Description)referenceObject;
+					feature = DsPackage.Literals.DATA_SERVICE__DESCRIPTION;
+					parent = dataService;
+				
 				}else if(referenceObject != null && referenceObject instanceof DataSourceConfiguration){
 					
 					value  = (DataSourceConfiguration)referenceObject;

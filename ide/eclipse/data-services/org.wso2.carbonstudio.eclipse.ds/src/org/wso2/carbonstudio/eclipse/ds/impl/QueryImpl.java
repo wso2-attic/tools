@@ -30,6 +30,7 @@ import org.wso2.carbonstudio.eclipse.ds.Query;
 import org.wso2.carbonstudio.eclipse.ds.QueryParameter;
 import org.wso2.carbonstudio.eclipse.ds.QueryPropertyList;
 import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
+import org.wso2.carbonstudio.eclipse.ds.Sparql;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
 
 /**
@@ -48,9 +49,8 @@ import org.wso2.carbonstudio.eclipse.ds.Sql;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getParam <em>Param</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getInputEventTrigger <em>Input Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getUseConfig <em>Use Config</em>}</li>
  * </ul>
  * </p>
@@ -76,7 +76,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EObject> sparql;
+	protected EList<Sparql> sparql;
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -169,26 +169,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 	protected String inputEventTrigger = INPUT_EVENT_TRIGGER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getKeyColumns() <em>Key Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String KEY_COLUMNS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected String keyColumns = KEY_COLUMNS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getOutputEventTrigger() <em>Output Event Trigger</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,33 +189,24 @@ public class QueryImpl extends EObjectImpl implements Query {
 	protected String outputEventTrigger = OUTPUT_EVENT_TRIGGER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
+	 * The default value of the '{@link #getReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isReturnGeneratedKeys()
+	 * @see #getReturnGeneratedKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean RETURN_GENERATED_KEYS_EDEFAULT = false;
+	protected static final String RETURN_GENERATED_KEYS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
+	 * The cached value of the '{@link #getReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isReturnGeneratedKeys()
+	 * @see #getReturnGeneratedKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean returnGeneratedKeys = RETURN_GENERATED_KEYS_EDEFAULT;
-
-	/**
-	 * This is true if the Return Generated Keys attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean returnGeneratedKeysESet;
+	protected String returnGeneratedKeys = RETURN_GENERATED_KEYS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUseConfig() <em>Use Config</em>}' attribute.
@@ -293,9 +264,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> getSparql() {
+	public EList<Sparql> getSparql() {
 		if (sparql == null) {
-			sparql = new EObjectContainmentEList<EObject>(EObject.class, this, DsPackage.QUERY__SPARQL);
+			sparql = new EObjectContainmentEList<Sparql>(Sparql.class, this, DsPackage.QUERY__SPARQL);
 		}
 		return sparql;
 	}
@@ -407,27 +378,6 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getKeyColumns() {
-		return keyColumns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setKeyColumns(String newKeyColumns) {
-		String oldKeyColumns = keyColumns;
-		keyColumns = newKeyColumns;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY__KEY_COLUMNS, oldKeyColumns, keyColumns));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getOutputEventTrigger() {
 		return outputEventTrigger;
 	}
@@ -449,7 +399,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isReturnGeneratedKeys() {
+	public String getReturnGeneratedKeys() {
 		return returnGeneratedKeys;
 	}
 
@@ -458,36 +408,11 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnGeneratedKeys(boolean newReturnGeneratedKeys) {
-		boolean oldReturnGeneratedKeys = returnGeneratedKeys;
+	public void setReturnGeneratedKeys(String newReturnGeneratedKeys) {
+		String oldReturnGeneratedKeys = returnGeneratedKeys;
 		returnGeneratedKeys = newReturnGeneratedKeys;
-		boolean oldReturnGeneratedKeysESet = returnGeneratedKeysESet;
-		returnGeneratedKeysESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY__RETURN_GENERATED_KEYS, oldReturnGeneratedKeys, returnGeneratedKeys, !oldReturnGeneratedKeysESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetReturnGeneratedKeys() {
-		boolean oldReturnGeneratedKeys = returnGeneratedKeys;
-		boolean oldReturnGeneratedKeysESet = returnGeneratedKeysESet;
-		returnGeneratedKeys = RETURN_GENERATED_KEYS_EDEFAULT;
-		returnGeneratedKeysESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, DsPackage.QUERY__RETURN_GENERATED_KEYS, oldReturnGeneratedKeys, RETURN_GENERATED_KEYS_EDEFAULT, oldReturnGeneratedKeysESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetReturnGeneratedKeys() {
-		return returnGeneratedKeysESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY__RETURN_GENERATED_KEYS, oldReturnGeneratedKeys, returnGeneratedKeys));
 	}
 
 	/**
@@ -563,12 +488,10 @@ public class QueryImpl extends EObjectImpl implements Query {
 				return getId();
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
 				return getInputEventTrigger();
-			case DsPackage.QUERY__KEY_COLUMNS:
-				return getKeyColumns();
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				return getOutputEventTrigger();
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				return isReturnGeneratedKeys();
+				return getReturnGeneratedKeys();
 			case DsPackage.QUERY__USE_CONFIG:
 				return getUseConfig();
 		}
@@ -590,7 +513,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 				return;
 			case DsPackage.QUERY__SPARQL:
 				getSparql().clear();
-				getSparql().addAll((Collection<? extends EObject>)newValue);
+				getSparql().addAll((Collection<? extends Sparql>)newValue);
 				return;
 			case DsPackage.QUERY__PROPERTIES:
 				getProperties().clear();
@@ -618,14 +541,11 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
 				setInputEventTrigger((String)newValue);
 				return;
-			case DsPackage.QUERY__KEY_COLUMNS:
-				setKeyColumns((String)newValue);
-				return;
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				setOutputEventTrigger((String)newValue);
 				return;
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				setReturnGeneratedKeys((Boolean)newValue);
+				setReturnGeneratedKeys((String)newValue);
 				return;
 			case DsPackage.QUERY__USE_CONFIG:
 				setUseConfig((String)newValue);
@@ -669,14 +589,11 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
 				setInputEventTrigger(INPUT_EVENT_TRIGGER_EDEFAULT);
 				return;
-			case DsPackage.QUERY__KEY_COLUMNS:
-				setKeyColumns(KEY_COLUMNS_EDEFAULT);
-				return;
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				setOutputEventTrigger(OUTPUT_EVENT_TRIGGER_EDEFAULT);
 				return;
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				unsetReturnGeneratedKeys();
+				setReturnGeneratedKeys(RETURN_GENERATED_KEYS_EDEFAULT);
 				return;
 			case DsPackage.QUERY__USE_CONFIG:
 				setUseConfig(USE_CONFIG_EDEFAULT);
@@ -711,12 +628,10 @@ public class QueryImpl extends EObjectImpl implements Query {
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
 				return INPUT_EVENT_TRIGGER_EDEFAULT == null ? inputEventTrigger != null : !INPUT_EVENT_TRIGGER_EDEFAULT.equals(inputEventTrigger);
-			case DsPackage.QUERY__KEY_COLUMNS:
-				return KEY_COLUMNS_EDEFAULT == null ? keyColumns != null : !KEY_COLUMNS_EDEFAULT.equals(keyColumns);
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				return OUTPUT_EVENT_TRIGGER_EDEFAULT == null ? outputEventTrigger != null : !OUTPUT_EVENT_TRIGGER_EDEFAULT.equals(outputEventTrigger);
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				return isSetReturnGeneratedKeys();
+				return RETURN_GENERATED_KEYS_EDEFAULT == null ? returnGeneratedKeys != null : !RETURN_GENERATED_KEYS_EDEFAULT.equals(returnGeneratedKeys);
 			case DsPackage.QUERY__USE_CONFIG:
 				return USE_CONFIG_EDEFAULT == null ? useConfig != null : !USE_CONFIG_EDEFAULT.equals(useConfig);
 		}
@@ -737,12 +652,10 @@ public class QueryImpl extends EObjectImpl implements Query {
 		result.append(id);
 		result.append(", inputEventTrigger: ");
 		result.append(inputEventTrigger);
-		result.append(", keyColumns: ");
-		result.append(keyColumns);
 		result.append(", outputEventTrigger: ");
 		result.append(outputEventTrigger);
 		result.append(", returnGeneratedKeys: ");
-		if (returnGeneratedKeysESet) result.append(returnGeneratedKeys); else result.append("<unset>");
+		result.append(returnGeneratedKeys);
 		result.append(", useConfig: ");
 		result.append(useConfig);
 		result.append(')');

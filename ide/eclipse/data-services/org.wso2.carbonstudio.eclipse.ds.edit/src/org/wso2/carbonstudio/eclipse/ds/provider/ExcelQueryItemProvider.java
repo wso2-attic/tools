@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.ExcelQuery;
 
@@ -176,16 +177,15 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	
+	@Override
 	public String getText(Object object) {
-		String label = ((ExcelQuery) object).getWorkbookname();
-		String type = " (" + getString("_UI_ExcelQuery_type") + ")";
-		return label != null ? label.toString() + type : type;
+		return getString("_UI_ExcelQuery_type");
 	}
 
 	/**
@@ -201,13 +201,11 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExcelQuery.class)) {
+			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 			case DsPackage.EXCEL_QUERY__HASHEADER:
 			case DsPackage.EXCEL_QUERY__STARTINGROW:
 			case DsPackage.EXCEL_QUERY__MAXROWCOUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -228,22 +226,22 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME,
-				 ""));
+				 DsFactory.eINSTANCE.createWorkBookName()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__HASHEADER,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.BOOLEAN, "false")));
+				 DsFactory.eINSTANCE.createHasHeader()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__STARTINGROW,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.UNSIGNED_LONG, "0")));
+				 DsFactory.eINSTANCE.createStartingRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.UNSIGNED_LONG, "0")));
+				 DsFactory.eINSTANCE.createMaxRowCount()));
 	}
 
 	/**

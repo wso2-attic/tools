@@ -21,6 +21,8 @@ public interface DSActionConstants {
 
 	// Actions
 
+	public String ADD_DESCRIPTION_ACTION= "ADD_Description";
+	
 	public String ADD_DATASOURCE_ACTION = "Add DataSource";
 
 	public String ADD_CONFIG_PROPERTY_ACTION = "Add Property";
@@ -30,6 +32,10 @@ public interface DSActionConstants {
 	public String ADD_OPERATION_ACTION = "Add Operation";
 
 	public String ADD_RESOURCE_ACTION = "Add Resource";
+	
+	public String ADD_SQL_ACTION ="Add Sql Action";
+	
+	public String ADD_SPARQL_ACTION = "Add sparql Action";
 
 	public String ADD_RESULT_ACTION = "Add Result";
 
@@ -48,8 +54,14 @@ public interface DSActionConstants {
 	public String ADD_INPUT_MAPPING_ACTION = "Add Input Mapping";
 
 	public String ADD_VALIDATOR_ACTION = "Add Validator";
+	
+	public String ADD_EXPRESSION_ACTION = "Add Expression";
+	
+	public String ADD_TARGET_TOPOIC_ACTION = "Add Target Topic";
 
-	public String ADD_SUBSCRIPTION_ACTION = "Add Subscription";
+	public String ADD_SUBSCRIPTIONS_ACTION = "Add Subscriptions";
+	
+	public String ADD_SUBSCRIPTION_ACTION = "ADD Subscription";
 
 	public String ADD_LONG_RANGE_VALIDATOR_ACTION = "Add Long Range Validator";
 
@@ -64,6 +76,18 @@ public interface DSActionConstants {
 	public String ADD_QUERY_PROPERTY_LIST_ACTION = "Add Properties";
 
 	public String ADD_QUERY_PROPERTY_ACTION = "Add Property";
+	
+	//excel query
+	
+	public String ADD_EXCEL_QUERY_ACTION ="Add Excel Query";
+	
+	//gspred query
+	
+	public String ADD_GSPREAD_QUERY_ACTION = "Add Gspread Query";
+	
+	//query param
+	
+	public String ADD_QUERY_PARAM_ACTION = "Add Query Param";
 
 	// RDBMS Properties
 

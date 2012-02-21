@@ -216,50 +216,23 @@ public interface QueryParameter extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ordinal</em>' attribute.
-	 * @see #isSetOrdinal()
-	 * @see #unsetOrdinal()
-	 * @see #setOrdinal(long)
+	 * @see #setOrdinal(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQueryParameter_Ordinal()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.UnsignedInt"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='ordinal' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	long getOrdinal();
+	String getOrdinal();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.QueryParameter#getOrdinal <em>Ordinal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Ordinal</em>' attribute.
-	 * @see #isSetOrdinal()
-	 * @see #unsetOrdinal()
 	 * @see #getOrdinal()
 	 * @generated
 	 */
-	void setOrdinal(long value);
-
-	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.QueryParameter#getOrdinal <em>Ordinal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetOrdinal()
-	 * @see #getOrdinal()
-	 * @see #setOrdinal(long)
-	 * @generated
-	 */
-	void unsetOrdinal();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.QueryParameter#getOrdinal <em>Ordinal</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Ordinal</em>' attribute is set.
-	 * @see #unsetOrdinal()
-	 * @see #getOrdinal()
-	 * @see #setOrdinal(long)
-	 * @generated
-	 */
-	boolean isSetOrdinal();
+	void setOrdinal(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Param Type</b></em>' attribute.

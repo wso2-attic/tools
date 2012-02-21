@@ -83,10 +83,11 @@ public class DocumentRootItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__CALL_QUERY);
 			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__DATA);
-			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION);
+			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__HASHEADER);
+			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__MAXROWCOUNT);
 			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__PROPERTY);
 			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__SQL);
-			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION);
+			childrenFeatures.add(DsPackage.Literals.DOCUMENT_ROOT__STARTINGROW);
 		}
 		return childrenFeatures;
 	}
@@ -140,10 +141,11 @@ public class DocumentRootItemProvider
 		switch (notification.getFeatureID(DocumentRoot.class)) {
 			case DsPackage.DOCUMENT_ROOT__CALL_QUERY:
 			case DsPackage.DOCUMENT_ROOT__DATA:
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 			case DsPackage.DOCUMENT_ROOT__SQL:
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,8 +175,13 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION,
-				 DsFactory.eINSTANCE.createDescription()));
+				(DsPackage.Literals.DOCUMENT_ROOT__HASHEADER,
+				 DsFactory.eINSTANCE.createHasHeader()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DOCUMENT_ROOT__MAXROWCOUNT,
+				 DsFactory.eINSTANCE.createMaxRowCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -188,8 +195,8 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION,
-				 DsFactory.eINSTANCE.createSubscription()));
+				(DsPackage.Literals.DOCUMENT_ROOT__STARTINGROW,
+				 DsFactory.eINSTANCE.createStartingRow()));
 	}
 
 	/**

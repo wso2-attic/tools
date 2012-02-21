@@ -504,13 +504,22 @@ public interface DsPackage extends EPackage {
 	int DOCUMENT_ROOT__DATA = 4;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * The feature id for the '<em><b>Hasheader</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__DESCRIPTION = 5;
+	int DOCUMENT_ROOT__HASHEADER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Maxrowcount</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__MAXROWCOUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference.
@@ -519,7 +528,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PROPERTY = 6;
+	int DOCUMENT_ROOT__PROPERTY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Sql</b></em>' containment reference.
@@ -528,16 +537,16 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SQL = 7;
+	int DOCUMENT_ROOT__SQL = 8;
 
 	/**
-	 * The feature id for the '<em><b>Subscription</b></em>' containment reference.
+	 * The feature id for the '<em><b>Startingrow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__SUBSCRIPTION = 8;
+	int DOCUMENT_ROOT__STARTINGROW = 9;
 
 	/**
 	 * The number of structural features of the '<em>Document Root</em>' class.
@@ -546,7 +555,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 9;
+	int DOCUMENT_ROOT_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DoubleRangeValidatorImpl <em>Double Range Validator</em>}' class.
@@ -688,7 +697,7 @@ public interface DsPackage extends EPackage {
 	int EVENT_TRIGGER = 12;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -697,7 +706,7 @@ public interface DsPackage extends EPackage {
 	int EVENT_TRIGGER__EXPRESSION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Target Topic</b></em>' attribute.
+	 * The feature id for the '<em><b>Target Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -752,7 +761,7 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY = 13;
 
 	/**
-	 * The feature id for the '<em><b>Workbookname</b></em>' attribute.
+	 * The feature id for the '<em><b>Workbookname</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -761,7 +770,7 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY__WORKBOOKNAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Hasheader</b></em>' attribute.
+	 * The feature id for the '<em><b>Hasheader</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -770,7 +779,7 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY__HASHEADER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Startingrow</b></em>' attribute.
+	 * The feature id for the '<em><b>Startingrow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -779,7 +788,7 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY__STARTINGROW = 2;
 
 	/**
-	 * The feature id for the '<em><b>Maxrowcount</b></em>' attribute.
+	 * The feature id for the '<em><b>Maxrowcount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -797,6 +806,34 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.ExpressionImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getExpression()
+	 * @generated
+	 */
+	int EXPRESSION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.GSpreadQueryImpl <em>GSpread Query</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -804,10 +841,10 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getGSpreadQuery()
 	 * @generated
 	 */
-	int GSPREAD_QUERY = 14;
+	int GSPREAD_QUERY = 15;
 
 	/**
-	 * The feature id for the '<em><b>Worksheetnumber</b></em>' attribute.
+	 * The feature id for the '<em><b>Worksheetnumber</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -816,7 +853,7 @@ public interface DsPackage extends EPackage {
 	int GSPREAD_QUERY__WORKSHEETNUMBER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Startingrow</b></em>' attribute.
+	 * The feature id for the '<em><b>Startingrow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -825,7 +862,7 @@ public interface DsPackage extends EPackage {
 	int GSPREAD_QUERY__STARTINGROW = 1;
 
 	/**
-	 * The feature id for the '<em><b>Maxrowcount</b></em>' attribute.
+	 * The feature id for the '<em><b>Maxrowcount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -834,7 +871,7 @@ public interface DsPackage extends EPackage {
 	int GSPREAD_QUERY__MAXROWCOUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Hasheader</b></em>' attribute.
+	 * The feature id for the '<em><b>Hasheader</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -852,6 +889,34 @@ public interface DsPackage extends EPackage {
 	int GSPREAD_QUERY_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.HasHeaderImpl <em>Has Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.HasHeaderImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getHasHeader()
+	 * @generated
+	 */
+	int HAS_HEADER = 16;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_HEADER__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Has Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_HEADER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.LengthValidatorImpl <em>Length Validator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -859,7 +924,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getLengthValidator()
 	 * @generated
 	 */
-	int LENGTH_VALIDATOR = 15;
+	int LENGTH_VALIDATOR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -896,7 +961,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getLongRangeValidator()
 	 * @generated
 	 */
-	int LONG_RANGE_VALIDATOR = 16;
+	int LONG_RANGE_VALIDATOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
@@ -926,6 +991,34 @@ public interface DsPackage extends EPackage {
 	int LONG_RANGE_VALIDATOR_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.MaxRowCountImpl <em>Max Row Count</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.MaxRowCountImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getMaxRowCount()
+	 * @generated
+	 */
+	int MAX_ROW_COUNT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAX_ROW_COUNT__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Max Row Count</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAX_ROW_COUNT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl <em>Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -933,7 +1026,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 17;
+	int OPERATION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
@@ -988,7 +1081,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getParameterMapping()
 	 * @generated
 	 */
-	int PARAMETER_MAPPING = 18;
+	int PARAMETER_MAPPING = 21;
 
 	/**
 	 * The feature id for the '<em><b>Column</b></em>' attribute.
@@ -1034,7 +1127,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getPatternValidator()
 	 * @generated
 	 */
-	int PATTERN_VALIDATOR = 19;
+	int PATTERN_VALIDATOR = 22;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -1062,7 +1155,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQuery()
 	 * @generated
 	 */
-	int QUERY = 20;
+	int QUERY = 23;
 
 	/**
 	 * The feature id for the '<em><b>Sql</b></em>' containment reference list.
@@ -1146,22 +1239,13 @@ public interface DsPackage extends EPackage {
 	int QUERY__INPUT_EVENT_TRIGGER = 8;
 
 	/**
-	 * The feature id for the '<em><b>Key Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUERY__KEY_COLUMNS = 9;
-
-	/**
 	 * The feature id for the '<em><b>Output Event Trigger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__OUTPUT_EVENT_TRIGGER = 10;
+	int QUERY__OUTPUT_EVENT_TRIGGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Return Generated Keys</b></em>' attribute.
@@ -1170,7 +1254,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__RETURN_GENERATED_KEYS = 11;
+	int QUERY__RETURN_GENERATED_KEYS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Use Config</b></em>' attribute.
@@ -1179,7 +1263,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__USE_CONFIG = 12;
+	int QUERY__USE_CONFIG = 11;
 
 	/**
 	 * The number of structural features of the '<em>Query</em>' class.
@@ -1188,7 +1272,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 13;
+	int QUERY_FEATURE_COUNT = 12;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryParameterImpl <em>Query Parameter</em>}' class.
@@ -1198,7 +1282,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryParameter()
 	 * @generated
 	 */
-	int QUERY_PARAMETER = 21;
+	int QUERY_PARAMETER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Validate Long Range</b></em>' containment reference.
@@ -1325,7 +1409,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryProperty()
 	 * @generated
 	 */
-	int QUERY_PROPERTY = 22;
+	int QUERY_PROPERTY = 25;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1362,7 +1446,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getQueryPropertyList()
 	 * @generated
 	 */
-	int QUERY_PROPERTY_LIST = 23;
+	int QUERY_PROPERTY_LIST = 26;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -1390,7 +1474,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 24;
+	int RESOURCE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
@@ -1420,22 +1504,13 @@ public interface DsPackage extends EPackage {
 	int RESOURCE__PATH = 2;
 
 	/**
-	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__RETURN_REQUEST_STATUS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 4;
+	int RESOURCE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
@@ -1445,7 +1520,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getResultMapping()
 	 * @generated
 	 */
-	int RESULT_MAPPING = 25;
+	int RESULT_MAPPING = 28;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
@@ -1529,6 +1604,34 @@ public interface DsPackage extends EPackage {
 	int RESULT_MAPPING_FEATURE_COUNT = 8;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SparqlImpl <em>Sparql</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.SparqlImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSparql()
+	 * @generated
+	 */
+	int SPARQL = 29;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPARQL__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Sparql</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPARQL_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SqlImpl <em>Sql</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1536,7 +1639,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSql()
 	 * @generated
 	 */
-	int SQL = 26;
+	int SQL = 30;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1566,6 +1669,34 @@ public interface DsPackage extends EPackage {
 	int SQL_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.StartingRowImpl <em>Starting Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.StartingRowImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getStartingRow()
+	 * @generated
+	 */
+	int STARTING_ROW = 31;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARTING_ROW__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Starting Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STARTING_ROW_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl <em>Subscription</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1573,7 +1704,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSubscription()
 	 * @generated
 	 */
-	int SUBSCRIPTION = 27;
+	int SUBSCRIPTION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1594,6 +1725,90 @@ public interface DsPackage extends EPackage {
 	int SUBSCRIPTION_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.TargetTopicImpl <em>Target Topic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.TargetTopicImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getTargetTopic()
+	 * @generated
+	 */
+	int TARGET_TOPIC = 33;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_TOPIC__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Target Topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_TOPIC_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.WorkBookNameImpl <em>Work Book Name</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.WorkBookNameImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getWorkBookName()
+	 * @generated
+	 */
+	int WORK_BOOK_NAME = 34;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_BOOK_NAME__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Work Book Name</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_BOOK_NAME_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.WorkSheetNumberImpl <em>Work Sheet Number</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.WorkSheetNumberImpl
+	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getWorkSheetNumber()
+	 * @generated
+	 */
+	int WORK_SHEET_NUMBER = 35;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_SHEET_NUMBER__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Work Sheet Number</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_SHEET_NUMBER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1601,7 +1816,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getServiceStatus()
 	 * @generated
 	 */
-	int SERVICE_STATUS = 28;
+	int SERVICE_STATUS = 36;
 
 	/**
 	 * The meta object id for the '<em>Service Status Object</em>' data type.
@@ -1611,7 +1826,7 @@ public interface DsPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getServiceStatusObject()
 	 * @generated
 	 */
-	int SERVICE_STATUS_OBJECT = 29;
+	int SERVICE_STATUS_OBJECT = 37;
 
 
 	/**
@@ -1862,33 +2077,33 @@ public interface DsPackage extends EPackage {
 	EAttribute getDataService_BaseURI();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests <em>Enable Batch Requests</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests <em>Enable Batch Requests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Batch Requests</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests()
 	 * @see #getDataService()
 	 * @generated
 	 */
 	EAttribute getDataService_EnableBatchRequests();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring <em>Enable Boxcarring</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring <em>Enable Boxcarring</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Boxcarring</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring()
 	 * @see #getDataService()
 	 * @generated
 	 */
 	EAttribute getDataService_EnableBoxcarring();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP <em>Enable DTP</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP <em>Enable DTP</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable DTP</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP()
 	 * @see #getDataService()
 	 * @generated
 	 */
@@ -2046,15 +2261,26 @@ public interface DsPackage extends EPackage {
 	EReference getDocumentRoot_Data();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getHasheader <em>Hasheader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Description</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription()
+	 * @return the meta object for the containment reference '<em>Hasheader</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getHasheader()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
-	EReference getDocumentRoot_Description();
+	EReference getDocumentRoot_Hasheader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getMaxrowcount <em>Maxrowcount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Maxrowcount</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getMaxrowcount()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_Maxrowcount();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getProperty <em>Property</em>}'.
@@ -2079,15 +2305,15 @@ public interface DsPackage extends EPackage {
 	EReference getDocumentRoot_Sql();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getStartingrow <em>Startingrow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Subscription</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription()
+	 * @return the meta object for the containment reference '<em>Startingrow</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getStartingrow()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
-	EReference getDocumentRoot_Subscription();
+	EReference getDocumentRoot_Startingrow();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator <em>Double Range Validator</em>}'.
@@ -2218,26 +2444,26 @@ public interface DsPackage extends EPackage {
 	EClass getEventTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.EventTrigger#getExpression()
 	 * @see #getEventTrigger()
 	 * @generated
 	 */
-	EAttribute getEventTrigger_Expression();
+	EReference getEventTrigger_Expression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Topic</em>'.
+	 * @return the meta object for the containment reference '<em>Target Topic</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.EventTrigger#getTargetTopic()
 	 * @see #getEventTrigger()
 	 * @generated
 	 */
-	EAttribute getEventTrigger_TargetTopic();
+	EReference getEventTrigger_TargetTopic();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.EventTrigger#getSubscriptions <em>Subscriptions</em>}'.
@@ -2283,48 +2509,69 @@ public interface DsPackage extends EPackage {
 	EClass getExcelQuery();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Workbookname</em>'.
+	 * @return the meta object for the containment reference '<em>Workbookname</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname()
 	 * @see #getExcelQuery()
 	 * @generated
 	 */
-	EAttribute getExcelQuery_Workbookname();
+	EReference getExcelQuery_Workbookname();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader <em>Hasheader</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getHasheader <em>Hasheader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hasheader</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader()
+	 * @return the meta object for the containment reference '<em>Hasheader</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getHasheader()
 	 * @see #getExcelQuery()
 	 * @generated
 	 */
-	EAttribute getExcelQuery_Hasheader();
+	EReference getExcelQuery_Hasheader();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow <em>Startingrow</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow <em>Startingrow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Startingrow</em>'.
+	 * @return the meta object for the containment reference '<em>Startingrow</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow()
 	 * @see #getExcelQuery()
 	 * @generated
 	 */
-	EAttribute getExcelQuery_Startingrow();
+	EReference getExcelQuery_Startingrow();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount <em>Maxrowcount</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount <em>Maxrowcount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maxrowcount</em>'.
+	 * @return the meta object for the containment reference '<em>Maxrowcount</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount()
 	 * @see #getExcelQuery()
 	 * @generated
 	 */
-	EAttribute getExcelQuery_Maxrowcount();
+	EReference getExcelQuery_Maxrowcount();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Expression
+	 * @generated
+	 */
+	EClass getExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Expression#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Expression#getValue()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EAttribute getExpression_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery <em>GSpread Query</em>}'.
@@ -2337,48 +2584,69 @@ public interface DsPackage extends EPackage {
 	EClass getGSpreadQuery();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getWorksheetnumber <em>Worksheetnumber</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getWorksheetnumber <em>Worksheetnumber</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Worksheetnumber</em>'.
+	 * @return the meta object for the containment reference '<em>Worksheetnumber</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getWorksheetnumber()
 	 * @see #getGSpreadQuery()
 	 * @generated
 	 */
-	EAttribute getGSpreadQuery_Worksheetnumber();
+	EReference getGSpreadQuery_Worksheetnumber();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getStartingrow <em>Startingrow</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getStartingrow <em>Startingrow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Startingrow</em>'.
+	 * @return the meta object for the containment reference '<em>Startingrow</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getStartingrow()
 	 * @see #getGSpreadQuery()
 	 * @generated
 	 */
-	EAttribute getGSpreadQuery_Startingrow();
+	EReference getGSpreadQuery_Startingrow();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getMaxrowcount <em>Maxrowcount</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getMaxrowcount <em>Maxrowcount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maxrowcount</em>'.
+	 * @return the meta object for the containment reference '<em>Maxrowcount</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getMaxrowcount()
 	 * @see #getGSpreadQuery()
 	 * @generated
 	 */
-	EAttribute getGSpreadQuery_Maxrowcount();
+	EReference getGSpreadQuery_Maxrowcount();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#isHasheader <em>Hasheader</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getHasheader <em>Hasheader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hasheader</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#isHasheader()
+	 * @return the meta object for the containment reference '<em>Hasheader</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.GSpreadQuery#getHasheader()
 	 * @see #getGSpreadQuery()
 	 * @generated
 	 */
-	EAttribute getGSpreadQuery_Hasheader();
+	EReference getGSpreadQuery_Hasheader();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader <em>Has Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Has Header</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.HasHeader
+	 * @generated
+	 */
+	EClass getHasHeader();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue()
+	 * @see #getHasHeader()
+	 * @generated
+	 */
+	EAttribute getHasHeader_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.LengthValidator <em>Length Validator</em>}'.
@@ -2445,6 +2713,27 @@ public interface DsPackage extends EPackage {
 	EAttribute getLongRangeValidator_Minimum();
 
 	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount <em>Max Row Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Max Row Count</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.MaxRowCount
+	 * @generated
+	 */
+	EClass getMaxRowCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.MaxRowCount#getValue()
+	 * @see #getMaxRowCount()
+	 * @generated
+	 */
+	EAttribute getMaxRowCount_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Operation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2477,11 +2766,11 @@ public interface DsPackage extends EPackage {
 	EReference getOperation_CallQueryGroup();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming <em>Disable Streaming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Disable Streaming</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming()
+	 * @see org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming()
 	 * @see #getOperation()
 	 * @generated
 	 */
@@ -2672,17 +2961,6 @@ public interface DsPackage extends EPackage {
 	EAttribute getQuery_InputEventTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key Columns</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns()
-	 * @see #getQuery()
-	 * @generated
-	 */
-	EAttribute getQuery_KeyColumns();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#getOutputEventTrigger <em>Output Event Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2694,11 +2972,11 @@ public interface DsPackage extends EPackage {
 	EAttribute getQuery_OutputEventTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Return Generated Keys</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys()
+	 * @see org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys()
 	 * @see #getQuery()
 	 * @generated
 	 */
@@ -2954,17 +3232,6 @@ public interface DsPackage extends EPackage {
 	EAttribute getResource_Path();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Resource#isReturnRequestStatus <em>Return Request Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Request Status</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Resource#isReturnRequestStatus()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_ReturnRequestStatus();
-
-	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping <em>Result Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3063,6 +3330,27 @@ public interface DsPackage extends EPackage {
 	EAttribute getResultMapping_XsltPath();
 
 	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Sparql <em>Sparql</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sparql</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Sparql
+	 * @generated
+	 */
+	EClass getSparql();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Sparql#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Sparql#getValue()
+	 * @see #getSparql()
+	 * @generated
+	 */
+	EAttribute getSparql_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Sql <em>Sql</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3095,6 +3383,27 @@ public interface DsPackage extends EPackage {
 	EAttribute getSql_Dialect();
 
 	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.StartingRow <em>Starting Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Starting Row</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.StartingRow
+	 * @generated
+	 */
+	EClass getStartingRow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.StartingRow#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.StartingRow#getValue()
+	 * @see #getStartingRow()
+	 * @generated
+	 */
+	EAttribute getStartingRow_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.Subscription <em>Subscription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3114,6 +3423,69 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSubscription_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.TargetTopic <em>Target Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Target Topic</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.TargetTopic
+	 * @generated
+	 */
+	EClass getTargetTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.TargetTopic#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.TargetTopic#getValue()
+	 * @see #getTargetTopic()
+	 * @generated
+	 */
+	EAttribute getTargetTopic_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.WorkBookName <em>Work Book Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Work Book Name</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkBookName
+	 * @generated
+	 */
+	EClass getWorkBookName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.WorkBookName#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkBookName#getValue()
+	 * @see #getWorkBookName()
+	 * @generated
+	 */
+	EAttribute getWorkBookName_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber <em>Work Sheet Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Work Sheet Number</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber
+	 * @generated
+	 */
+	EClass getWorkSheetNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber#getValue()
+	 * @see #getWorkSheetNumber()
+	 * @generated
+	 */
+	EAttribute getWorkSheetNumber_Value();
 
 	/**
 	 * Returns the meta object for enum '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}'.
@@ -3498,12 +3870,20 @@ public interface DsPackage extends EPackage {
 		EReference DOCUMENT_ROOT__DATA = eINSTANCE.getDocumentRoot_Data();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Hasheader</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__DESCRIPTION = eINSTANCE.getDocumentRoot_Description();
+		EReference DOCUMENT_ROOT__HASHEADER = eINSTANCE.getDocumentRoot_Hasheader();
+
+		/**
+		 * The meta object literal for the '<em><b>Maxrowcount</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__MAXROWCOUNT = eINSTANCE.getDocumentRoot_Maxrowcount();
 
 		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
@@ -3522,12 +3902,12 @@ public interface DsPackage extends EPackage {
 		EReference DOCUMENT_ROOT__SQL = eINSTANCE.getDocumentRoot_Sql();
 
 		/**
-		 * The meta object literal for the '<em><b>Subscription</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Startingrow</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__SUBSCRIPTION = eINSTANCE.getDocumentRoot_Subscription();
+		EReference DOCUMENT_ROOT__STARTINGROW = eINSTANCE.getDocumentRoot_Startingrow();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DoubleRangeValidatorImpl <em>Double Range Validator</em>}' class.
@@ -3634,20 +4014,20 @@ public interface DsPackage extends EPackage {
 		EClass EVENT_TRIGGER = eINSTANCE.getEventTrigger();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVENT_TRIGGER__EXPRESSION = eINSTANCE.getEventTrigger_Expression();
+		EReference EVENT_TRIGGER__EXPRESSION = eINSTANCE.getEventTrigger_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Topic</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Target Topic</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVENT_TRIGGER__TARGET_TOPIC = eINSTANCE.getEventTrigger_TargetTopic();
+		EReference EVENT_TRIGGER__TARGET_TOPIC = eINSTANCE.getEventTrigger_TargetTopic();
 
 		/**
 		 * The meta object literal for the '<em><b>Subscriptions</b></em>' containment reference feature.
@@ -3684,36 +4064,54 @@ public interface DsPackage extends EPackage {
 		EClass EXCEL_QUERY = eINSTANCE.getExcelQuery();
 
 		/**
-		 * The meta object literal for the '<em><b>Workbookname</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Workbookname</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXCEL_QUERY__WORKBOOKNAME = eINSTANCE.getExcelQuery_Workbookname();
+		EReference EXCEL_QUERY__WORKBOOKNAME = eINSTANCE.getExcelQuery_Workbookname();
 
 		/**
-		 * The meta object literal for the '<em><b>Hasheader</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Hasheader</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXCEL_QUERY__HASHEADER = eINSTANCE.getExcelQuery_Hasheader();
+		EReference EXCEL_QUERY__HASHEADER = eINSTANCE.getExcelQuery_Hasheader();
 
 		/**
-		 * The meta object literal for the '<em><b>Startingrow</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Startingrow</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXCEL_QUERY__STARTINGROW = eINSTANCE.getExcelQuery_Startingrow();
+		EReference EXCEL_QUERY__STARTINGROW = eINSTANCE.getExcelQuery_Startingrow();
 
 		/**
-		 * The meta object literal for the '<em><b>Maxrowcount</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Maxrowcount</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXCEL_QUERY__MAXROWCOUNT = eINSTANCE.getExcelQuery_Maxrowcount();
+		EReference EXCEL_QUERY__MAXROWCOUNT = eINSTANCE.getExcelQuery_Maxrowcount();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ExpressionImpl <em>Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.ExpressionImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getExpression()
+		 * @generated
+		 */
+		EClass EXPRESSION = eINSTANCE.getExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.GSpreadQueryImpl <em>GSpread Query</em>}' class.
@@ -3726,36 +4124,54 @@ public interface DsPackage extends EPackage {
 		EClass GSPREAD_QUERY = eINSTANCE.getGSpreadQuery();
 
 		/**
-		 * The meta object literal for the '<em><b>Worksheetnumber</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Worksheetnumber</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GSPREAD_QUERY__WORKSHEETNUMBER = eINSTANCE.getGSpreadQuery_Worksheetnumber();
+		EReference GSPREAD_QUERY__WORKSHEETNUMBER = eINSTANCE.getGSpreadQuery_Worksheetnumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Startingrow</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Startingrow</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GSPREAD_QUERY__STARTINGROW = eINSTANCE.getGSpreadQuery_Startingrow();
+		EReference GSPREAD_QUERY__STARTINGROW = eINSTANCE.getGSpreadQuery_Startingrow();
 
 		/**
-		 * The meta object literal for the '<em><b>Maxrowcount</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Maxrowcount</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GSPREAD_QUERY__MAXROWCOUNT = eINSTANCE.getGSpreadQuery_Maxrowcount();
+		EReference GSPREAD_QUERY__MAXROWCOUNT = eINSTANCE.getGSpreadQuery_Maxrowcount();
 
 		/**
-		 * The meta object literal for the '<em><b>Hasheader</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Hasheader</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GSPREAD_QUERY__HASHEADER = eINSTANCE.getGSpreadQuery_Hasheader();
+		EReference GSPREAD_QUERY__HASHEADER = eINSTANCE.getGSpreadQuery_Hasheader();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.HasHeaderImpl <em>Has Header</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.HasHeaderImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getHasHeader()
+		 * @generated
+		 */
+		EClass HAS_HEADER = eINSTANCE.getHasHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HAS_HEADER__VALUE = eINSTANCE.getHasHeader_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.LengthValidatorImpl <em>Length Validator</em>}' class.
@@ -3808,6 +4224,24 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LONG_RANGE_VALIDATOR__MINIMUM = eINSTANCE.getLongRangeValidator_Minimum();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.MaxRowCountImpl <em>Max Row Count</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.MaxRowCountImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getMaxRowCount()
+		 * @generated
+		 */
+		EClass MAX_ROW_COUNT = eINSTANCE.getMaxRowCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAX_ROW_COUNT__VALUE = eINSTANCE.getMaxRowCount_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.OperationImpl <em>Operation</em>}' class.
@@ -3984,14 +4418,6 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__INPUT_EVENT_TRIGGER = eINSTANCE.getQuery_InputEventTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Key Columns</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QUERY__KEY_COLUMNS = eINSTANCE.getQuery_KeyColumns();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Event Trigger</b></em>' attribute feature.
@@ -4202,14 +4628,6 @@ public interface DsPackage extends EPackage {
 		EAttribute RESOURCE__PATH = eINSTANCE.getResource_Path();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Request Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__RETURN_REQUEST_STATUS = eINSTANCE.getResource_ReturnRequestStatus();
-
-		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4284,6 +4702,24 @@ public interface DsPackage extends EPackage {
 		EAttribute RESULT_MAPPING__XSLT_PATH = eINSTANCE.getResultMapping_XsltPath();
 
 		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SparqlImpl <em>Sparql</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.SparqlImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getSparql()
+		 * @generated
+		 */
+		EClass SPARQL = eINSTANCE.getSparql();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPARQL__VALUE = eINSTANCE.getSparql_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SqlImpl <em>Sql</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4310,6 +4746,24 @@ public interface DsPackage extends EPackage {
 		EAttribute SQL__DIALECT = eINSTANCE.getSql_Dialect();
 
 		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.StartingRowImpl <em>Starting Row</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.StartingRowImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getStartingRow()
+		 * @generated
+		 */
+		EClass STARTING_ROW = eINSTANCE.getStartingRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STARTING_ROW__VALUE = eINSTANCE.getStartingRow_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.SubscriptionImpl <em>Subscription</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4326,6 +4780,60 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SUBSCRIPTION__VALUE = eINSTANCE.getSubscription_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.TargetTopicImpl <em>Target Topic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.TargetTopicImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getTargetTopic()
+		 * @generated
+		 */
+		EClass TARGET_TOPIC = eINSTANCE.getTargetTopic();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TARGET_TOPIC__VALUE = eINSTANCE.getTargetTopic_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.WorkBookNameImpl <em>Work Book Name</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.WorkBookNameImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getWorkBookName()
+		 * @generated
+		 */
+		EClass WORK_BOOK_NAME = eINSTANCE.getWorkBookName();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORK_BOOK_NAME__VALUE = eINSTANCE.getWorkBookName_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.WorkSheetNumberImpl <em>Work Sheet Number</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.WorkSheetNumberImpl
+		 * @see org.wso2.carbonstudio.eclipse.ds.impl.DsPackageImpl#getWorkSheetNumber()
+		 * @generated
+		 */
+		EClass WORK_SHEET_NUMBER = eINSTANCE.getWorkSheetNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORK_SHEET_NUMBER__VALUE = eINSTANCE.getWorkSheetNumber_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.ServiceStatus <em>Service Status</em>}' enum.

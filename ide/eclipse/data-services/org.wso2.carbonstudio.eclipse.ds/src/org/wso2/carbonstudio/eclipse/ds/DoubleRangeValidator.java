@@ -35,50 +35,23 @@ public interface DoubleRangeValidator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maximum</em>' attribute.
-	 * @see #isSetMaximum()
-	 * @see #unsetMaximum()
-	 * @see #setMaximum(double)
+	 * @see #setMaximum(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDoubleRangeValidator_Maximum()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='maximum' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	double getMaximum();
+	String getMaximum();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMaximum <em>Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Maximum</em>' attribute.
-	 * @see #isSetMaximum()
-	 * @see #unsetMaximum()
 	 * @see #getMaximum()
 	 * @generated
 	 */
-	void setMaximum(double value);
-
-	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMaximum <em>Maximum</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetMaximum()
-	 * @see #getMaximum()
-	 * @see #setMaximum(double)
-	 * @generated
-	 */
-	void unsetMaximum();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMaximum <em>Maximum</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Maximum</em>' attribute is set.
-	 * @see #unsetMaximum()
-	 * @see #getMaximum()
-	 * @see #setMaximum(double)
-	 * @generated
-	 */
-	boolean isSetMaximum();
+	void setMaximum(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
@@ -89,49 +62,22 @@ public interface DoubleRangeValidator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Minimum</em>' attribute.
-	 * @see #isSetMinimum()
-	 * @see #unsetMinimum()
-	 * @see #setMinimum(double)
+	 * @see #setMinimum(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDoubleRangeValidator_Minimum()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='minimum' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	double getMinimum();
+	String getMinimum();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMinimum <em>Minimum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Minimum</em>' attribute.
-	 * @see #isSetMinimum()
-	 * @see #unsetMinimum()
 	 * @see #getMinimum()
 	 * @generated
 	 */
-	void setMinimum(double value);
-
-	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMinimum <em>Minimum</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetMinimum()
-	 * @see #getMinimum()
-	 * @see #setMinimum(double)
-	 * @generated
-	 */
-	void unsetMinimum();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator#getMinimum <em>Minimum</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Minimum</em>' attribute is set.
-	 * @see #unsetMinimum()
-	 * @see #getMinimum()
-	 * @see #setMinimum(double)
-	 * @generated
-	 */
-	boolean isSetMinimum();
+	void setMinimum(String value);
 
 } // DoubleRangeValidator

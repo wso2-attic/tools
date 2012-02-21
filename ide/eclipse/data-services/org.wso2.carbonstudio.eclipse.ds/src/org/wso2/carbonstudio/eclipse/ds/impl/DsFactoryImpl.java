@@ -75,9 +75,12 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 			case DsPackage.EVENT_SUBSCRIPTION_LIST: return createEventSubscriptionList();
 			case DsPackage.EVENT_TRIGGER: return createEventTrigger();
 			case DsPackage.EXCEL_QUERY: return createExcelQuery();
+			case DsPackage.EXPRESSION: return createExpression();
 			case DsPackage.GSPREAD_QUERY: return createGSpreadQuery();
+			case DsPackage.HAS_HEADER: return createHasHeader();
 			case DsPackage.LENGTH_VALIDATOR: return createLengthValidator();
 			case DsPackage.LONG_RANGE_VALIDATOR: return createLongRangeValidator();
+			case DsPackage.MAX_ROW_COUNT: return createMaxRowCount();
 			case DsPackage.OPERATION: return createOperation();
 			case DsPackage.PARAMETER_MAPPING: return createParameterMapping();
 			case DsPackage.PATTERN_VALIDATOR: return createPatternValidator();
@@ -87,8 +90,13 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 			case DsPackage.QUERY_PROPERTY_LIST: return createQueryPropertyList();
 			case DsPackage.RESOURCE: return createResource();
 			case DsPackage.RESULT_MAPPING: return createResultMapping();
+			case DsPackage.SPARQL: return createSparql();
 			case DsPackage.SQL: return createSql();
+			case DsPackage.STARTING_ROW: return createStartingRow();
 			case DsPackage.SUBSCRIPTION: return createSubscription();
+			case DsPackage.TARGET_TOPIC: return createTargetTopic();
+			case DsPackage.WORK_BOOK_NAME: return createWorkBookName();
+			case DsPackage.WORK_SHEET_NUMBER: return createWorkSheetNumber();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -273,9 +281,29 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Expression createExpression() {
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GSpreadQuery createGSpreadQuery() {
 		GSpreadQueryImpl gSpreadQuery = new GSpreadQueryImpl();
 		return gSpreadQuery;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HasHeader createHasHeader() {
+		HasHeaderImpl hasHeader = new HasHeaderImpl();
+		return hasHeader;
 	}
 
 	/**
@@ -296,6 +324,16 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	public LongRangeValidator createLongRangeValidator() {
 		LongRangeValidatorImpl longRangeValidator = new LongRangeValidatorImpl();
 		return longRangeValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MaxRowCount createMaxRowCount() {
+		MaxRowCountImpl maxRowCount = new MaxRowCountImpl();
+		return maxRowCount;
 	}
 
 	/**
@@ -393,6 +431,16 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Sparql createSparql() {
+		SparqlImpl sparql = new SparqlImpl();
+		return sparql;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Sql createSql() {
 		SqlImpl sql = new SqlImpl();
 		return sql;
@@ -403,9 +451,49 @@ public class DsFactoryImpl extends EFactoryImpl implements DsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StartingRow createStartingRow() {
+		StartingRowImpl startingRow = new StartingRowImpl();
+		return startingRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Subscription createSubscription() {
 		SubscriptionImpl subscription = new SubscriptionImpl();
 		return subscription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetTopic createTargetTopic() {
+		TargetTopicImpl targetTopic = new TargetTopicImpl();
+		return targetTopic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WorkBookName createWorkBookName() {
+		WorkBookNameImpl workBookName = new WorkBookNameImpl();
+		return workBookName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WorkSheetNumber createWorkSheetNumber() {
+		WorkSheetNumberImpl workSheetNumber = new WorkSheetNumberImpl();
+		return workSheetNumber;
 	}
 
 	/**

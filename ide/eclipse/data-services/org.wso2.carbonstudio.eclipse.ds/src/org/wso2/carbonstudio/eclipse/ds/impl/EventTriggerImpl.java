@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
+import org.wso2.carbonstudio.eclipse.ds.Expression;
+import org.wso2.carbonstudio.eclipse.ds.TargetTopic;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,44 +41,24 @@ import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
  */
 public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	/**
-	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EXPRESSION_EDEFAULT = null;
+	protected Expression expression;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String expression = EXPRESSION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTargetTopic() <em>Target Topic</em>}' attribute.
+	 * The cached value of the '{@link #getTargetTopic() <em>Target Topic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TARGET_TOPIC_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTargetTopic() <em>Target Topic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetTopic()
-	 * @generated
-	 * @ordered
-	 */
-	protected String targetTopic = TARGET_TOPIC_EDEFAULT;
+	protected TargetTopic targetTopic;
 
 	/**
 	 * The cached value of the '{@link #getSubscriptions() <em>Subscriptions</em>}' containment reference.
@@ -152,7 +134,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getExpression() {
+	public Expression getExpression() {
 		return expression;
 	}
 
@@ -161,11 +143,14 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpression(String newExpression) {
-		String oldExpression = expression;
+	public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
+		Expression oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, oldExpression, expression));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, oldExpression, newExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -173,7 +158,26 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTargetTopic() {
+	public void setExpression(Expression newExpression) {
+		if (newExpression != expression) {
+			NotificationChain msgs = null;
+			if (expression != null)
+				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
+			if (newExpression != null)
+				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
+			msgs = basicSetExpression(newExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, newExpression, newExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetTopic getTargetTopic() {
 		return targetTopic;
 	}
 
@@ -182,11 +186,33 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetTopic(String newTargetTopic) {
-		String oldTargetTopic = targetTopic;
+	public NotificationChain basicSetTargetTopic(TargetTopic newTargetTopic, NotificationChain msgs) {
+		TargetTopic oldTargetTopic = targetTopic;
 		targetTopic = newTargetTopic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, oldTargetTopic, targetTopic));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, oldTargetTopic, newTargetTopic);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetTopic(TargetTopic newTargetTopic) {
+		if (newTargetTopic != targetTopic) {
+			NotificationChain msgs = null;
+			if (targetTopic != null)
+				msgs = ((InternalEObject)targetTopic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
+			if (newTargetTopic != null)
+				msgs = ((InternalEObject)newTargetTopic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
+			msgs = basicSetTargetTopic(newTargetTopic, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, newTargetTopic, newTargetTopic));
 	}
 
 	/**
@@ -282,6 +308,10 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__EXPRESSION:
+				return basicSetExpression(null, msgs);
+			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
+				return basicSetTargetTopic(null, msgs);
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				return basicSetSubscriptions(null, msgs);
 		}
@@ -319,10 +349,10 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				setExpression((String)newValue);
+				setExpression((Expression)newValue);
 				return;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				setTargetTopic((String)newValue);
+				setTargetTopic((TargetTopic)newValue);
 				return;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				setSubscriptions((EventSubscriptionList)newValue);
@@ -346,10 +376,10 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				setExpression(EXPRESSION_EDEFAULT);
+				setExpression((Expression)null);
 				return;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				setTargetTopic(TARGET_TOPIC_EDEFAULT);
+				setTargetTopic((TargetTopic)null);
 				return;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				setSubscriptions((EventSubscriptionList)null);
@@ -373,9 +403,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
+				return expression != null;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				return TARGET_TOPIC_EDEFAULT == null ? targetTopic != null : !TARGET_TOPIC_EDEFAULT.equals(targetTopic);
+				return targetTopic != null;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				return subscriptions != null;
 			case DsPackage.EVENT_TRIGGER__ID:
@@ -396,11 +426,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (expression: ");
-		result.append(expression);
-		result.append(", targetTopic: ");
-		result.append(targetTopic);
-		result.append(", id: ");
+		result.append(" (id: ");
 		result.append(id);
 		result.append(", language: ");
 		result.append(language);

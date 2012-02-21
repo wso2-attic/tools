@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Operation#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Operation#getCallQueryGroup <em>Call Query Group</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming <em>Disable Streaming</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Operation#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -91,50 +91,23 @@ public interface Operation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Disable Streaming</em>' attribute.
-	 * @see #isSetDisableStreaming()
-	 * @see #unsetDisableStreaming()
-	 * @see #setDisableStreaming(boolean)
+	 * @see #setDisableStreaming(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getOperation_DisableStreaming()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='disableStreaming' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isDisableStreaming();
+	String getDisableStreaming();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming <em>Disable Streaming</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Disable Streaming</em>' attribute.
-	 * @see #isSetDisableStreaming()
-	 * @see #unsetDisableStreaming()
-	 * @see #isDisableStreaming()
+	 * @see #getDisableStreaming()
 	 * @generated
 	 */
-	void setDisableStreaming(boolean value);
-
-	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetDisableStreaming()
-	 * @see #isDisableStreaming()
-	 * @see #setDisableStreaming(boolean)
-	 * @generated
-	 */
-	void unsetDisableStreaming();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Disable Streaming</em>' attribute is set.
-	 * @see #unsetDisableStreaming()
-	 * @see #isDisableStreaming()
-	 * @see #setDisableStreaming(boolean)
-	 * @generated
-	 */
-	boolean isSetDisableStreaming();
+	void setDisableStreaming(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

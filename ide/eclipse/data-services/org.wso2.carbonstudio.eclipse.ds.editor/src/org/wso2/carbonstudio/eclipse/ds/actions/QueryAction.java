@@ -37,9 +37,13 @@ import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.ExcelQuery;
 import org.wso2.carbonstudio.eclipse.ds.GSpreadQuery;
+import org.wso2.carbonstudio.eclipse.ds.HasHeader;
+import org.wso2.carbonstudio.eclipse.ds.MaxRowCount;
 import org.wso2.carbonstudio.eclipse.ds.Query;
 import org.wso2.carbonstudio.eclipse.ds.QueryProperty;
 import org.wso2.carbonstudio.eclipse.ds.QueryPropertyList;
+import org.wso2.carbonstudio.eclipse.ds.StartingRow;
+import org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber;
 import org.wso2.carbonstudio.eclipse.ds.impl.ConfigurationPropertyImpl;
 import org.wso2.carbonstudio.eclipse.ds.impl.DataSourceConfigurationImpl;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsEditPlugin;
@@ -224,7 +228,26 @@ public class QueryAction extends StaticSelectionCommandAction {
 
 						if (isSpreadSheetQuery) {
 							ExcelQuery excelQuery = DsFactory.eINSTANCE.createExcelQuery();
-							excelQuery.setHasheader(false);
+							HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
+							hasHeader.setValue("false");
+							excelQuery.setHasheader(hasHeader);
+							
+							MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
+							mrc.setValue("-1");
+							excelQuery.setMaxrowcount(mrc);
+							
+							StartingRow str = DsFactory.eINSTANCE.createStartingRow();
+							str.setValue("1");
+							excelQuery.setStartingrow(str);
+
+							CommandParameter param2 = new CommandParameter(query,
+									DsPackage.Literals.QUERY__EXCEL, excelQuery);
+							Command cmd2 = CreateChildCommand.create(editingDomain, query, param2,
+									collection);
+
+							compoundCmd.append(cmd2);
+						/*	ExcelQuery excelQuery = DsFactory.eINSTANCE.createExcelQuery();
+							excelQuery.setHasheader()
 							excelQuery.setMaxrowcount(new BigInteger("-1"));
 							excelQuery.setStartingrow(new BigInteger("1"));
 
@@ -233,11 +256,35 @@ public class QueryAction extends StaticSelectionCommandAction {
 							Command cmd2 = CreateChildCommand.create(editingDomain, query, param2,
 									collection);
 
-							compoundCmd.append(cmd2);
+							compoundCmd.append(cmd2);*/
 						}
 
 						if (isGSpreadQuery) {
 							GSpreadQuery gspreadQuery = DsFactory.eINSTANCE.createGSpreadQuery();
+							
+							HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
+							hasHeader.setValue("false");
+							gspreadQuery.setHasheader(hasHeader);
+			                
+							WorkSheetNumber wshnum = DsFactory.eINSTANCE.createWorkSheetNumber();
+							wshnum.setValue("1");
+							gspreadQuery.setWorksheetnumber(wshnum);
+							
+							StartingRow str = DsFactory.eINSTANCE.createStartingRow();
+							str.setValue("1");
+							gspreadQuery.setStartingrow(str);
+							
+							MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
+							mrc.setValue("-1");
+							gspreadQuery.setMaxrowcount(mrc);
+
+							CommandParameter param2 = new CommandParameter(query,
+									DsPackage.Literals.QUERY__GSPREAD, gspreadQuery);
+							Command cmd2 = CreateChildCommand.create(editingDomain, query, param2,
+									collection);
+
+							compoundCmd.append(cmd2);
+							/*GSpreadQuery gspreadQuery = DsFactory.eINSTANCE.createGSpreadQuery();
 							gspreadQuery.setHasheader(false);
 							gspreadQuery.setWorksheetnumber(new BigInteger("1"));
 							gspreadQuery.setStartingrow(new BigInteger("1"));
@@ -248,7 +295,7 @@ public class QueryAction extends StaticSelectionCommandAction {
 							Command cmd2 = CreateChildCommand.create(editingDomain, query, param2,
 									collection);
 
-							compoundCmd.append(cmd2);
+							compoundCmd.append(cmd2);*/
 						}
 
 						return compoundCmd;

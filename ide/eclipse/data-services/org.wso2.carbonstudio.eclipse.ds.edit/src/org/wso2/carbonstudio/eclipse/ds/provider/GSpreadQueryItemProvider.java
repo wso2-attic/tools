@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.GSpreadQuery;
 
@@ -125,11 +126,7 @@ public class GSpreadQueryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BigInteger labelValue = ((GSpreadQuery)object).getWorksheetnumber();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_GSpreadQuery_type") :
-			getString("_UI_GSpreadQuery_type") + " " + label;
+		return getString("_UI_GSpreadQuery_type");
 	}
 
 	/**
@@ -144,13 +141,11 @@ public class GSpreadQueryItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GSpreadQuery.class)) {
+			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
 			case DsPackage.GSPREAD_QUERY__STARTINGROW:
 			case DsPackage.GSPREAD_QUERY__MAXROWCOUNT:
 			case DsPackage.GSPREAD_QUERY__HASHEADER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -170,22 +165,22 @@ public class GSpreadQueryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.GSPREAD_QUERY__WORKSHEETNUMBER,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.UNSIGNED_LONG, "0")));
+				 DsFactory.eINSTANCE.createWorkSheetNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.GSPREAD_QUERY__STARTINGROW,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.UNSIGNED_LONG, "0")));
+				 DsFactory.eINSTANCE.createStartingRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.GSPREAD_QUERY__MAXROWCOUNT,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.UNSIGNED_LONG, "0")));
+				 DsFactory.eINSTANCE.createMaxRowCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.GSPREAD_QUERY__HASHEADER,
-				 XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.BOOLEAN, "false")));
+				 DsFactory.eINSTANCE.createHasHeader()));
 	}
 
 	/**

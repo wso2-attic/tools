@@ -398,6 +398,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Expression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExpressionItemProvider expressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.Expression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExpressionAdapter() {
+		if (expressionItemProvider == null) {
+			expressionItemProvider = new ExpressionItemProvider(this);
+		}
+
+		return expressionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.GSpreadQuery} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,6 +441,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		}
 
 		return gSpreadQueryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.HasHeader} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HasHeaderItemProvider hasHeaderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.HasHeader}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHasHeaderAdapter() {
+		if (hasHeaderItemProvider == null) {
+			hasHeaderItemProvider = new HasHeaderItemProvider(this);
+		}
+
+		return hasHeaderItemProvider;
 	}
 
 	/**
@@ -464,6 +510,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		}
 
 		return longRangeValidatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MaxRowCountItemProvider maxRowCountItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMaxRowCountAdapter() {
+		if (maxRowCountItemProvider == null) {
+			maxRowCountItemProvider = new MaxRowCountItemProvider(this);
+		}
+
+		return maxRowCountItemProvider;
 	}
 
 	/**
@@ -674,6 +743,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Sparql} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SparqlItemProvider sparqlItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.Sparql}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSparqlAdapter() {
+		if (sparqlItemProvider == null) {
+			sparqlItemProvider = new SparqlItemProvider(this);
+		}
+
+		return sparqlItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Sql} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,6 +789,29 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.StartingRow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StartingRowItemProvider startingRowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.StartingRow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStartingRowAdapter() {
+		if (startingRowItemProvider == null) {
+			startingRowItemProvider = new StartingRowItemProvider(this);
+		}
+
+		return startingRowItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.Subscription} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,6 +832,75 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		}
 
 		return subscriptionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.TargetTopic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TargetTopicItemProvider targetTopicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.TargetTopic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTargetTopicAdapter() {
+		if (targetTopicItemProvider == null) {
+			targetTopicItemProvider = new TargetTopicItemProvider(this);
+		}
+
+		return targetTopicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.WorkBookName} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WorkBookNameItemProvider workBookNameItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.WorkBookName}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWorkBookNameAdapter() {
+		if (workBookNameItemProvider == null) {
+			workBookNameItemProvider = new WorkBookNameItemProvider(this);
+		}
+
+		return workBookNameItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WorkSheetNumberItemProvider workSheetNumberItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWorkSheetNumberAdapter() {
+		if (workSheetNumberItemProvider == null) {
+			workSheetNumberItemProvider = new WorkSheetNumberItemProvider(this);
+		}
+
+		return workSheetNumberItemProvider;
 	}
 
 	/**
@@ -832,9 +1016,12 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		if (eventSubscriptionListItemProvider != null) eventSubscriptionListItemProvider.dispose();
 		if (eventTriggerItemProvider != null) eventTriggerItemProvider.dispose();
 		if (excelQueryItemProvider != null) excelQueryItemProvider.dispose();
+		if (expressionItemProvider != null) expressionItemProvider.dispose();
 		if (gSpreadQueryItemProvider != null) gSpreadQueryItemProvider.dispose();
+		if (hasHeaderItemProvider != null) hasHeaderItemProvider.dispose();
 		if (lengthValidatorItemProvider != null) lengthValidatorItemProvider.dispose();
 		if (longRangeValidatorItemProvider != null) longRangeValidatorItemProvider.dispose();
+		if (maxRowCountItemProvider != null) maxRowCountItemProvider.dispose();
 		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (parameterMappingItemProvider != null) parameterMappingItemProvider.dispose();
 		if (patternValidatorItemProvider != null) patternValidatorItemProvider.dispose();
@@ -844,8 +1031,13 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 		if (queryPropertyListItemProvider != null) queryPropertyListItemProvider.dispose();
 		if (resourceItemProvider != null) resourceItemProvider.dispose();
 		if (resultMappingItemProvider != null) resultMappingItemProvider.dispose();
+		if (sparqlItemProvider != null) sparqlItemProvider.dispose();
 		if (sqlItemProvider != null) sqlItemProvider.dispose();
+		if (startingRowItemProvider != null) startingRowItemProvider.dispose();
 		if (subscriptionItemProvider != null) subscriptionItemProvider.dispose();
+		if (targetTopicItemProvider != null) targetTopicItemProvider.dispose();
+		if (workBookNameItemProvider != null) workBookNameItemProvider.dispose();
+		if (workSheetNumberItemProvider != null) workSheetNumberItemProvider.dispose();
 	}
 
 }

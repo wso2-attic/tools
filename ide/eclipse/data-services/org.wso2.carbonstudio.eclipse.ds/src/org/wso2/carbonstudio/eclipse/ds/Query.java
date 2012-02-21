@@ -27,9 +27,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getParam <em>Param</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getId <em>Id</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getInputEventTrigger <em>Input Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getUseConfig <em>Use Config</em>}</li>
  * </ul>
  * </p>
@@ -58,7 +57,7 @@ public interface Query extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Sparql</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.ds.Sparql}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sparql</em>' containment reference list isn't clear,
@@ -71,7 +70,7 @@ public interface Query extends EObject {
 	 *        extendedMetaData="kind='element' name='sparql' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<EObject> getSparql();
+	EList<Sparql> getSparql();
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
@@ -213,33 +212,6 @@ public interface Query extends EObject {
 	void setInputEventTrigger(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Key Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Key Columns</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key Columns</em>' attribute.
-	 * @see #setKeyColumns(String)
-	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQuery_KeyColumns()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='keyColumns' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	String getKeyColumns();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Columns</em>' attribute.
-	 * @see #getKeyColumns()
-	 * @generated
-	 */
-	void setKeyColumns(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Output Event Trigger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -275,50 +247,23 @@ public interface Query extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Generated Keys</em>' attribute.
-	 * @see #isSetReturnGeneratedKeys()
-	 * @see #unsetReturnGeneratedKeys()
-	 * @see #setReturnGeneratedKeys(boolean)
+	 * @see #setReturnGeneratedKeys(String)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQuery_ReturnGeneratedKeys()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='attribute' name='returnGeneratedKeys' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isReturnGeneratedKeys();
+	String getReturnGeneratedKeys();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Return Generated Keys</em>' attribute.
-	 * @see #isSetReturnGeneratedKeys()
-	 * @see #unsetReturnGeneratedKeys()
-	 * @see #isReturnGeneratedKeys()
+	 * @see #getReturnGeneratedKeys()
 	 * @generated
 	 */
-	void setReturnGeneratedKeys(boolean value);
-
-	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetReturnGeneratedKeys()
-	 * @see #isReturnGeneratedKeys()
-	 * @see #setReturnGeneratedKeys(boolean)
-	 * @generated
-	 */
-	void unsetReturnGeneratedKeys();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Return Generated Keys</em>' attribute is set.
-	 * @see #unsetReturnGeneratedKeys()
-	 * @see #isReturnGeneratedKeys()
-	 * @see #setReturnGeneratedKeys(boolean)
-	 * @generated
-	 */
-	boolean isSetReturnGeneratedKeys();
+	void setReturnGeneratedKeys(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Config</b></em>' attribute.

@@ -87,7 +87,7 @@ public class LongRangeValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -109,7 +109,7 @@ public class LongRangeValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -133,8 +133,10 @@ public class LongRangeValidatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		LongRangeValidator longRangeValidator = (LongRangeValidator)object;
-		return getString("_UI_LongRangeValidator_type") + " " + longRangeValidator.getMaximum();
+		String label = ((LongRangeValidator)object).getMaximum();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LongRangeValidator_type") :
+			getString("_UI_LongRangeValidator_type") + " " + label;
 	}
 
 	/**

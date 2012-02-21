@@ -29,7 +29,10 @@ import org.wso2.carbonstudio.eclipse.ds.DataService;
 import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DocumentRoot;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
+import org.wso2.carbonstudio.eclipse.ds.HasHeader;
+import org.wso2.carbonstudio.eclipse.ds.MaxRowCount;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
+import org.wso2.carbonstudio.eclipse.ds.StartingRow;
 import org.wso2.carbonstudio.eclipse.ds.Subscription;
 
 /**
@@ -44,10 +47,11 @@ import org.wso2.carbonstudio.eclipse.ds.Subscription;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getData <em>Data</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getHasheader <em>Hasheader</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getMaxrowcount <em>Maxrowcount</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getSql <em>Sql</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getSubscription <em>Subscription</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl#getStartingrow <em>Startingrow</em>}</li>
  * </ul>
  * </p>
  *
@@ -198,8 +202,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Description getDescription() {
-		return (Description)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, true);
+	public HasHeader getHasheader() {
+		return (HasHeader)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__HASHEADER, true);
 	}
 
 	/**
@@ -207,8 +211,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, newDescription, msgs);
+	public NotificationChain basicSetHasheader(HasHeader newHasheader, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__HASHEADER, newHasheader, msgs);
 	}
 
 	/**
@@ -216,8 +220,35 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(Description newDescription) {
-		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__DESCRIPTION, newDescription);
+	public void setHasheader(HasHeader newHasheader) {
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__HASHEADER, newHasheader);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MaxRowCount getMaxrowcount() {
+		return (MaxRowCount)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__MAXROWCOUNT, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMaxrowcount(MaxRowCount newMaxrowcount, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__MAXROWCOUNT, newMaxrowcount, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxrowcount(MaxRowCount newMaxrowcount) {
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__MAXROWCOUNT, newMaxrowcount);
 	}
 
 	/**
@@ -279,8 +310,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Subscription getSubscription() {
-		return (Subscription)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, true);
+	public StartingRow getStartingrow() {
+		return (StartingRow)getMixed().get(DsPackage.Literals.DOCUMENT_ROOT__STARTINGROW, true);
 	}
 
 	/**
@@ -288,8 +319,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubscription(Subscription newSubscription, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, newSubscription, msgs);
+	public NotificationChain basicSetStartingrow(StartingRow newStartingrow, NotificationChain msgs) {
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DOCUMENT_ROOT__STARTINGROW, newStartingrow, msgs);
 	}
 
 	/**
@@ -297,8 +328,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubscription(Subscription newSubscription) {
-		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__SUBSCRIPTION, newSubscription);
+	public void setStartingrow(StartingRow newStartingrow) {
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DOCUMENT_ROOT__STARTINGROW, newStartingrow);
 	}
 
 	/**
@@ -319,14 +350,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return basicSetCallQuery(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return basicSetData(null, msgs);
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return basicSetDescription(null, msgs);
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+				return basicSetHasheader(null, msgs);
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
+				return basicSetMaxrowcount(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return basicSetProperty(null, msgs);
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return basicSetSql(null, msgs);
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
-				return basicSetSubscription(null, msgs);
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
+				return basicSetStartingrow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,14 +385,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallQuery();
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return getData();
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return getDescription();
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+				return getHasheader();
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
+				return getMaxrowcount();
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return getProperty();
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return getSql();
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
-				return getSubscription();
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
+				return getStartingrow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -387,8 +422,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				setData((DataService)newValue);
 				return;
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
-				setDescription((Description)newValue);
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+				setHasheader((HasHeader)newValue);
+				return;
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
+				setMaxrowcount((MaxRowCount)newValue);
 				return;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				setProperty((ConfigurationProperty)newValue);
@@ -396,8 +434,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				setSql((Sql)newValue);
 				return;
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
-				setSubscription((Subscription)newValue);
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
+				setStartingrow((StartingRow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -426,8 +464,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				setData((DataService)null);
 				return;
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
-				setDescription((Description)null);
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+				setHasheader((HasHeader)null);
+				return;
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
+				setMaxrowcount((MaxRowCount)null);
 				return;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				setProperty((ConfigurationProperty)null);
@@ -435,8 +476,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				setSql((Sql)null);
 				return;
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
-				setSubscription((Subscription)null);
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
+				setStartingrow((StartingRow)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -460,14 +501,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return getCallQuery() != null;
 			case DsPackage.DOCUMENT_ROOT__DATA:
 				return getData() != null;
-			case DsPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return getDescription() != null;
+			case DsPackage.DOCUMENT_ROOT__HASHEADER:
+				return getHasheader() != null;
+			case DsPackage.DOCUMENT_ROOT__MAXROWCOUNT:
+				return getMaxrowcount() != null;
 			case DsPackage.DOCUMENT_ROOT__PROPERTY:
 				return getProperty() != null;
 			case DsPackage.DOCUMENT_ROOT__SQL:
 				return getSql() != null;
-			case DsPackage.DOCUMENT_ROOT__SUBSCRIPTION:
-				return getSubscription() != null;
+			case DsPackage.DOCUMENT_ROOT__STARTINGROW:
+				return getStartingrow() != null;
 		}
 		return super.eIsSet(featureID);
 	}

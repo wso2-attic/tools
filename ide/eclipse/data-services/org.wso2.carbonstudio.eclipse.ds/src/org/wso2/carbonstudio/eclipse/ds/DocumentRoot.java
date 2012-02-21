@@ -25,10 +25,11 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getData <em>Data</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getHasheader <em>Hasheader</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getMaxrowcount <em>Maxrowcount</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getProperty <em>Property</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSql <em>Sql</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getStartingrow <em>Startingrow</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,31 +146,58 @@ public interface DocumentRoot extends EObject {
 	void setData(DataService value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Hasheader</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Hasheader</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(Description)
-	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Description()
+	 * @return the value of the '<em>Hasheader</em>' containment reference.
+	 * @see #setHasheader(HasHeader)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Hasheader()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='hasheader' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Description getDescription();
+	HasHeader getHasheader();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getDescription <em>Description</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getHasheader <em>Hasheader</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
+	 * @param value the new value of the '<em>Hasheader</em>' containment reference.
+	 * @see #getHasheader()
 	 * @generated
 	 */
-	void setDescription(Description value);
+	void setHasheader(HasHeader value);
+
+	/**
+	 * Returns the value of the '<em><b>Maxrowcount</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Maxrowcount</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Maxrowcount</em>' containment reference.
+	 * @see #setMaxrowcount(MaxRowCount)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Maxrowcount()
+	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='maxrowcount' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	MaxRowCount getMaxrowcount();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getMaxrowcount <em>Maxrowcount</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Maxrowcount</em>' containment reference.
+	 * @see #getMaxrowcount()
+	 * @generated
+	 */
+	void setMaxrowcount(MaxRowCount value);
 
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference.
@@ -226,30 +254,30 @@ public interface DocumentRoot extends EObject {
 	void setSql(Sql value);
 
 	/**
-	 * Returns the value of the '<em><b>Subscription</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Startingrow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Subscription</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Startingrow</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subscription</em>' containment reference.
-	 * @see #setSubscription(Subscription)
-	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Subscription()
+	 * @return the value of the '<em>Startingrow</em>' containment reference.
+	 * @see #setStartingrow(StartingRow)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDocumentRoot_Startingrow()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='subscription' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='startingrow' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Subscription getSubscription();
+	StartingRow getStartingrow();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getSubscription <em>Subscription</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DocumentRoot#getStartingrow <em>Startingrow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subscription</em>' containment reference.
-	 * @see #getSubscription()
+	 * @param value the new value of the '<em>Startingrow</em>' containment reference.
+	 * @see #getStartingrow()
 	 * @generated
 	 */
-	void setSubscription(Subscription value);
+	void setStartingrow(StartingRow value);
 
 } // DocumentRoot

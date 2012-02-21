@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader <em>Hasheader</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getHasheader <em>Hasheader</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow <em>Startingrow</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount <em>Maxrowcount</em>}</li>
  * </ul>
@@ -31,138 +31,111 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ExcelQuery extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Workbookname</b></em>' attribute.
+	 * Returns the value of the '<em><b>Workbookname</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Workbookname</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workbookname</em>' attribute.
-	 * @see #setWorkbookname(String)
+	 * @return the value of the '<em>Workbookname</em>' containment reference.
+	 * @see #setWorkbookname(WorkBookName)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getExcelQuery_Workbookname()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='workbookname' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getWorkbookname();
+	WorkBookName getWorkbookname();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Workbookname</em>' attribute.
+	 * @param value the new value of the '<em>Workbookname</em>' containment reference.
 	 * @see #getWorkbookname()
 	 * @generated
 	 */
-	void setWorkbookname(String value);
+	void setWorkbookname(WorkBookName value);
 
 	/**
-	 * Returns the value of the '<em><b>Hasheader</b></em>' attribute.
+	 * Returns the value of the '<em><b>Hasheader</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hasheader</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Hasheader</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hasheader</em>' attribute.
-	 * @see #isSetHasheader()
-	 * @see #unsetHasheader()
-	 * @see #setHasheader(boolean)
+	 * @return the value of the '<em>Hasheader</em>' containment reference.
+	 * @see #setHasheader(HasHeader)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getExcelQuery_Hasheader()
-	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='hasheader' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	boolean isHasheader();
+	HasHeader getHasheader();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader <em>Hasheader</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getHasheader <em>Hasheader</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hasheader</em>' attribute.
-	 * @see #isSetHasheader()
-	 * @see #unsetHasheader()
-	 * @see #isHasheader()
+	 * @param value the new value of the '<em>Hasheader</em>' containment reference.
+	 * @see #getHasheader()
 	 * @generated
 	 */
-	void setHasheader(boolean value);
+	void setHasheader(HasHeader value);
 
 	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader <em>Hasheader</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetHasheader()
-	 * @see #isHasheader()
-	 * @see #setHasheader(boolean)
-	 * @generated
-	 */
-	void unsetHasheader();
-
-	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#isHasheader <em>Hasheader</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Hasheader</em>' attribute is set.
-	 * @see #unsetHasheader()
-	 * @see #isHasheader()
-	 * @see #setHasheader(boolean)
-	 * @generated
-	 */
-	boolean isSetHasheader();
-
-	/**
-	 * Returns the value of the '<em><b>Startingrow</b></em>' attribute.
+	 * Returns the value of the '<em><b>Startingrow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Startingrow</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Startingrow</em>' attribute.
-	 * @see #setStartingrow(BigInteger)
+	 * @return the value of the '<em>Startingrow</em>' containment reference.
+	 * @see #setStartingrow(StartingRow)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getExcelQuery_Startingrow()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.UnsignedLong" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='startingrow' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	BigInteger getStartingrow();
+	StartingRow getStartingrow();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow <em>Startingrow</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getStartingrow <em>Startingrow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Startingrow</em>' attribute.
+	 * @param value the new value of the '<em>Startingrow</em>' containment reference.
 	 * @see #getStartingrow()
 	 * @generated
 	 */
-	void setStartingrow(BigInteger value);
+	void setStartingrow(StartingRow value);
 
 	/**
-	 * Returns the value of the '<em><b>Maxrowcount</b></em>' attribute.
+	 * Returns the value of the '<em><b>Maxrowcount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Maxrowcount</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Maxrowcount</em>' attribute.
-	 * @see #setMaxrowcount(BigInteger)
+	 * @return the value of the '<em>Maxrowcount</em>' containment reference.
+	 * @see #setMaxrowcount(MaxRowCount)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getExcelQuery_Maxrowcount()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.UnsignedLong" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='maxrowcount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	BigInteger getMaxrowcount();
+	MaxRowCount getMaxrowcount();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount <em>Maxrowcount</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ExcelQuery#getMaxrowcount <em>Maxrowcount</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Maxrowcount</em>' attribute.
+	 * @param value the new value of the '<em>Maxrowcount</em>' containment reference.
 	 * @see #getMaxrowcount()
 	 * @generated
 	 */
-	void setMaxrowcount(BigInteger value);
+	void setMaxrowcount(MaxRowCount value);
 
 } // ExcelQuery

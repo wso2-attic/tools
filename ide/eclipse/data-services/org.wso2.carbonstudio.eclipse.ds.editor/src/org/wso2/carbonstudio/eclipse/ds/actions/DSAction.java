@@ -17,6 +17,8 @@ package org.wso2.carbonstudio.eclipse.ds.actions;
 import java.net.URL;
 import java.util.Collection;
 
+import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -33,14 +35,20 @@ import org.wso2.carbonstudio.eclipse.ds.CallQueryList;
 import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.CustomValidator;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DoubleRangeValidator;
 import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.ElementMapping;
 import org.wso2.carbonstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.carbonstudio.eclipse.ds.EventTrigger;
+import org.wso2.carbonstudio.eclipse.ds.ExcelQuery;
+import org.wso2.carbonstudio.eclipse.ds.Expression;
+import org.wso2.carbonstudio.eclipse.ds.GSpreadQuery;
+import org.wso2.carbonstudio.eclipse.ds.HasHeader;
 import org.wso2.carbonstudio.eclipse.ds.LengthValidator;
 import org.wso2.carbonstudio.eclipse.ds.LongRangeValidator;
+import org.wso2.carbonstudio.eclipse.ds.MaxRowCount;
 import org.wso2.carbonstudio.eclipse.ds.Operation;
 import org.wso2.carbonstudio.eclipse.ds.ParameterMapping;
 import org.wso2.carbonstudio.eclipse.ds.PatternValidator;
@@ -50,6 +58,14 @@ import org.wso2.carbonstudio.eclipse.ds.QueryProperty;
 import org.wso2.carbonstudio.eclipse.ds.QueryPropertyList;
 import org.wso2.carbonstudio.eclipse.ds.Resource;
 import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
+import org.wso2.carbonstudio.eclipse.ds.Sparql;
+import org.wso2.carbonstudio.eclipse.ds.Sql;
+import org.wso2.carbonstudio.eclipse.ds.StartingRow;
+import org.wso2.carbonstudio.eclipse.ds.Subscription;
+import org.wso2.carbonstudio.eclipse.ds.TargetTopic;
+import org.wso2.carbonstudio.eclipse.ds.WorkBookName;
+import org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber;
+import org.wso2.carbonstudio.eclipse.ds.presentation.DsActionBarContributor;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsEditPlugin;
 
 /**
@@ -81,8 +97,7 @@ public class DSAction extends StaticSelectionCommandAction {
 	 * @param commandName
 	 *            the command name
 	 */
-	public DSAction(ISelection selection, EditingDomain domain, Collection<?> newChildDescriptors,
-			String commandName) {
+	public DSAction(ISelection selection, EditingDomain domain, Collection<?> newChildDescriptors,String commandName) {
 		super(domain);
 		this.selection = selection;
 		this.newChildDescriptors = newChildDescriptors;
@@ -104,7 +119,7 @@ public class DSAction extends StaticSelectionCommandAction {
 		if (commandName.equals(DSActionConstants.ADD_CONFIG_PROPERTY_ACTION)) {
 			imageURL = "wso2/property";
 		}
-		if (commandName.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)) {
+		if (commandName.equals(DSActionConstants.ADD_SUBSCRIPTIONS_ACTION)) {
 			imageURL = "wso2/subscription";
 		}
 
@@ -175,6 +190,34 @@ public class DSAction extends StaticSelectionCommandAction {
 		if (commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_ACTION)) {
 			imageURL = "wso2/property";
 		}
+		if(commandName.equals(DSActionConstants.ADD_DESCRIPTION_ACTION)){
+			
+			imageURL ="wso2/call-query";
+		}
+		if(commandName.equals(DSActionConstants.ADD_SQL_ACTION)){
+			
+			imageURL ="wso2/sql";
+		}
+		
+		if(commandName.equals(DSActionConstants.ADD_RESULT_ACTION)){
+			
+			imageURL ="wso2/result";
+		}
+		
+		if(commandName.equals(DSActionConstants.ADD_EXCEL_QUERY_ACTION)){
+			
+			imageURL = "wso2/excel";
+		}
+		
+		if(commandName.equals(DSActionConstants.ADD_GSPREAD_QUERY_ACTION)){
+			
+			imageURL = "wso2/gspread";
+		}
+		
+		if(command.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)){
+			
+			imageURL = "wso2/subscription";
+		}
 
 		URL url = (URL) DsEditPlugin.INSTANCE.getImage(imageURL);
 		return ImageDescriptor.createFromURL(url);
@@ -192,37 +235,184 @@ public class DSAction extends StaticSelectionCommandAction {
 		if (collection.size() == 1 && newChildDescriptors != null) {
 			// owner is the element that was selected
 			Object owner = collection.iterator().next();
-
+			
 			for (Object descriptor : newChildDescriptors) {
 				CommandParameter param = (CommandParameter) descriptor;
 				EObject childObj = param.getEValue();
-
-				if (childObj instanceof ConfigurationProperty
-						&& commandName.equals(DSActionConstants.ADD_CONFIG_PROPERTY_ACTION)) {
+				
+				//Data service related Actions 
+				
+				if(childObj instanceof Description && commandName.equals(DSActionConstants.ADD_DESCRIPTION_ACTION)){
+					
 					return getChildCommand(param, collection, owner);
 				}
+				
+				if (childObj instanceof Operation && commandName.equals(DSActionConstants.ADD_OPERATION_ACTION)) {
 
+					CompoundCommand compoundCmd = new CompoundCommand(commandName);
+					compoundCmd.append(getChildCommand(param, collection,owner));
+
+					Operation owner2 = (Operation) childObj;
+					CallQuery callQuery = DsFactory.eINSTANCE.createCallQuery();
+					CommandParameter param2 = new CommandParameter(owner2, DsPackage.Literals.OPERATION__CALL_QUERY, callQuery);
+					compoundCmd.append(getChildCommand(param2, collection, owner2));
+					return compoundCmd;
+
+				}
+				
 				if (childObj instanceof EventTrigger
 						&& commandName.equals(DSActionConstants.ADD_EVENT_TRIGGER_ACTION)
 						&& !(owner instanceof DataSourceConfiguration)) {
-					return getChildCommand(param, collection, ((Query) owner).eContainer());
+					return getChildCommand(param, collection,owner);
 				}
+				
 
-				if (childObj instanceof EventSubscriptionList
-						&& commandName.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)) {
+				if (childObj instanceof Resource && commandName.equals(DSActionConstants.ADD_RESOURCE_ACTION)) {
+
+					CompoundCommand compoundCmd = new CompoundCommand(commandName);
+					compoundCmd.append(getChildCommand(param, collection,owner));
+
+					Resource owner2 = (Resource) childObj;
+					CallQuery callQuery = DsFactory.eINSTANCE.createCallQuery();
+					CommandParameter param2 = new CommandParameter(owner2,DsPackage.Literals.RESOURCE__CALL_QUERY, callQuery);
+					compoundCmd.append(getChildCommand(param2, collection, owner2));
+					return compoundCmd;
+				}
+				
+				//query Actions 
+				
+				if(childObj instanceof Sql && commandName.equals(DSActionConstants.ADD_SQL_ACTION) ){
+					
+					return getChildCommand(param, collection, owner);
+				}
+				
+				// TODO sparql action here
+				
+				//query property list
+				
+				if(childObj instanceof QueryPropertyList && commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION)){
+					
+					return getChildCommand(param, collection, owner);
+				}
+				
+				//result action
+				
+				if(childObj instanceof ResultMapping && commandName.equals(DSActionConstants.ADD_RESULT_ACTION)){
+					
+					return getChildCommand(param, collection, owner);
+				}
+				
+				//excel query action
+				
+				if(childObj instanceof ExcelQuery && commandName.equals(DSActionConstants.ADD_EXCEL_QUERY_ACTION)){
+					
+					CompoundCommand compoundCmd = new CompoundCommand(commandName);
+					compoundCmd.append(getChildCommand(param, collection,owner));
+					
+					ExcelQuery owner2 =(ExcelQuery)childObj;
+					
+					WorkBookName workbookName = DsFactory.eINSTANCE.createWorkBookName();
+					workbookName.setValue("");
+					CommandParameter param1 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME,workbookName);
+					
+					HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
+					hasHeader.setValue("false");
+					CommandParameter param2 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__HASHEADER, hasHeader);
+					
+					
+					MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
+					mrc.setValue("-1");
+					CommandParameter param3 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT, mrc);
+					
+					
+					StartingRow str = DsFactory.eINSTANCE.createStartingRow();
+					str.setValue("1");
+					CommandParameter param4 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__STARTINGROW, str);
+					
+
+					compoundCmd.append(getChildCommand(param1, collection, owner2));
+					compoundCmd.append(getChildCommand(param2, collection, owner2));
+					compoundCmd.append(getChildCommand(param3, collection, owner2));
+					compoundCmd.append(getChildCommand(param4, collection, owner2));
+					
+					return compoundCmd;
+					
+				}
+				
+				//gspread query action
+				
+				if(childObj instanceof GSpreadQuery && commandName.equals(DSActionConstants.ADD_GSPREAD_QUERY_ACTION)){
+					
+					CompoundCommand compoundCmd = new CompoundCommand(commandName);
+					compoundCmd.append(getChildCommand(param, collection,owner));
+					
+					GSpreadQuery owner2 = (GSpreadQuery)childObj;
+					
+					WorkSheetNumber wrksheetNumber  = DsFactory.eINSTANCE.createWorkSheetNumber();
+					wrksheetNumber.setValue("1");
+					CommandParameter param1 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__WORKSHEETNUMBER,wrksheetNumber);
+					
+					HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
+					hasHeader.setValue("false");
+					CommandParameter param2 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__HASHEADER, hasHeader);
+					
+					
+					MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
+					mrc.setValue("-1");
+					CommandParameter param3 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__MAXROWCOUNT, mrc);
+					
+					
+					StartingRow str = DsFactory.eINSTANCE.createStartingRow();
+					str.setValue("1");
+					CommandParameter param4 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__STARTINGROW, str);
+				
+					compoundCmd.append(getChildCommand(param1, collection, owner2));
+					compoundCmd.append(getChildCommand(param2, collection, owner2));
+					compoundCmd.append(getChildCommand(param3, collection, owner2));
+					compoundCmd.append(getChildCommand(param4, collection, owner2));
+					
+					return compoundCmd;
+				}
+				
+				//query param action
+				
+				if (childObj instanceof QueryParameter && commandName.equals(DSActionConstants.ADD_INPUT_MAPPING_ACTION)) {
+					return getChildCommand(param, collection, owner);
+				}
+				
+				if (childObj instanceof QueryProperty
+						&& commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_ACTION)) {
+					return getChildCommand(param, collection, owner);
+				}
+				
+				if (childObj instanceof ResultMapping
+						&& commandName.equals(DSActionConstants.ADD_RESULT_ACTION)) {
+					return getChildCommand(param, collection, owner);
+				}
+				
+				if (childObj instanceof ElementMapping
+						&& commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ELEMENT_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
 
-				if (childObj instanceof QueryParameter
-						&& commandName.equals(DSActionConstants.ADD_INPUT_MAPPING_ACTION)) {
+				if (childObj instanceof AttributeMapping
+						&& commandName
+								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ATTRIBUTE_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
 
+				if (childObj instanceof CallQuery
+						&& commandName
+								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION)) {
+					return getChildCommand(param, collection, owner);
+				}
+				
 				if (childObj instanceof LongRangeValidator
 						&& commandName.equals(DSActionConstants.ADD_LONG_RANGE_VALIDATOR_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
-
+				
+				//Validation actions
 				if (childObj instanceof DoubleRangeValidator
 						&& commandName.equals(DSActionConstants.ADD_DOUBLE_RANGE_VALIDATOR_ACTION)) {
 					return getChildCommand(param, collection, owner);
@@ -242,90 +432,42 @@ public class DSAction extends StaticSelectionCommandAction {
 						&& commandName.equals(DSActionConstants.ADD_CUSTOM_VALIDATOR_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
-
-				if (childObj instanceof Operation
-						&& commandName.equals(DSActionConstants.ADD_OPERATION_ACTION)) {
-
-					CompoundCommand compoundCmd = new CompoundCommand(commandName);
-					compoundCmd.append(getChildCommand(param, collection,
-							((DataSourceConfiguration) owner).eContainer()));
-
-					Operation owner2 = (Operation) childObj;
-					CallQuery callQuery = DsFactory.eINSTANCE.createCallQuery();
-					CommandParameter param2 = new CommandParameter(owner2,
-							DsPackage.Literals.OPERATION__CALL_QUERY, callQuery);
-					compoundCmd.append(getChildCommand(param2, collection, owner2));
-					return compoundCmd;
-
-				}
-
-				if (childObj instanceof Resource
-						&& commandName.equals(DSActionConstants.ADD_RESOURCE_ACTION)) {
-
-					CompoundCommand compoundCmd = new CompoundCommand(commandName);
-					compoundCmd.append(getChildCommand(param, collection,
-							((DataSourceConfiguration) owner).eContainer()));
-
-					Resource owner2 = (Resource) childObj;
-					CallQuery callQuery = DsFactory.eINSTANCE.createCallQuery();
-					CommandParameter param2 = new CommandParameter(owner2,
-							DsPackage.Literals.RESOURCE__CALL_QUERY, callQuery);
-					compoundCmd.append(getChildCommand(param2, collection, owner2));
-					return compoundCmd;
-				}
-
-				if (childObj instanceof ResultMapping
-						&& commandName.equals(DSActionConstants.ADD_RESULT_ACTION)) {
+				
+				if (childObj instanceof EventSubscriptionList && commandName.equals(DSActionConstants.ADD_SUBSCRIPTIONS_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
-
-				if (childObj instanceof ElementMapping
-						&& commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ELEMENT_ACTION)) {
+				
+				if(childObj instanceof Expression && commandName.equals(DSActionConstants.ADD_EXPRESSION_ACTION)){
+					
 					return getChildCommand(param, collection, owner);
 				}
-
-				if (childObj instanceof AttributeMapping
-						&& commandName
-								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ATTRIBUTE_ACTION)) {
+				
+				if(childObj instanceof TargetTopic && commandName.equals(DSActionConstants.ADD_TARGET_TOPOIC_ACTION)){
+					
 					return getChildCommand(param, collection, owner);
 				}
-
-				if (childObj instanceof CallQuery
-						&& commandName
-								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION)) {
+				
+				if(childObj instanceof Subscription && commandName.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)){
+					
 					return getChildCommand(param, collection, owner);
 				}
-
+				if (childObj instanceof ParameterMapping
+						&& commandName.equals(DSActionConstants.ADD_INPUT_MAPPING_ACTION)) {
+					return getChildCommand(param, collection, owner);
+				}
+					
 				if (childObj instanceof CallQueryList
 						&& commandName
 								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_GROUP_ACTION)) {
 					return getChildCommand(param, collection, owner);
 				}
-
-				if (childObj instanceof ParameterMapping
-						&& commandName.equals(DSActionConstants.ADD_INPUT_MAPPING_ACTION)) {
+				
+				/*
+				if (childObj instanceof ConfigurationProperty
+						&& commandName.equals(DSActionConstants.ADD_CONFIG_PROPERTY_ACTION)) {
 					return getChildCommand(param, collection, owner);
-				}
+				} */
 
-				if (childObj instanceof QueryPropertyList
-						&& commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION)) {
-					CompoundCommand compoundCmd = new CompoundCommand(commandName);
-					compoundCmd.append(getChildCommand(param, collection, owner));
-
-					QueryPropertyList owner2 = (QueryPropertyList) childObj;
-					QueryProperty queryProperty = DsFactory.eINSTANCE.createQueryProperty();
-					CommandParameter param2 = new CommandParameter(owner2,
-							DsPackage.Literals.QUERY_PROPERTY_LIST__PROPERTY, queryProperty);
-
-					compoundCmd.append(getChildCommand(param2, collection, owner2));
-					return compoundCmd;
-
-				}
-
-				if (childObj instanceof QueryProperty
-						&& commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_ACTION)) {
-					return getChildCommand(param, collection, owner);
-				}
 			}
 		}
 		return UnexecutableCommand.INSTANCE;

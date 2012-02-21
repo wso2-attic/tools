@@ -153,7 +153,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long ORDINAL_EDEFAULT = 0L;
+	protected static final String ORDINAL_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getOrdinal() <em>Ordinal</em>}' attribute.
@@ -163,16 +163,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected long ordinal = ORDINAL_EDEFAULT;
-
-	/**
-	 * This is true if the Ordinal attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean ordinalESet;
+	protected String ordinal = ORDINAL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParamType() <em>Param Type</em>}' attribute.
@@ -473,7 +464,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getOrdinal() {
+	public String getOrdinal() {
 		return ordinal;
 	}
 
@@ -482,36 +473,11 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrdinal(long newOrdinal) {
-		long oldOrdinal = ordinal;
+	public void setOrdinal(String newOrdinal) {
+		String oldOrdinal = ordinal;
 		ordinal = newOrdinal;
-		boolean oldOrdinalESet = ordinalESet;
-		ordinalESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__ORDINAL, oldOrdinal, ordinal, !oldOrdinalESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetOrdinal() {
-		long oldOrdinal = ordinal;
-		boolean oldOrdinalESet = ordinalESet;
-		ordinal = ORDINAL_EDEFAULT;
-		ordinalESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, DsPackage.QUERY_PARAMETER__ORDINAL, oldOrdinal, ORDINAL_EDEFAULT, oldOrdinalESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetOrdinal() {
-		return ordinalESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__ORDINAL, oldOrdinal, ordinal));
 	}
 
 	/**
@@ -689,7 +655,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 				setName((String)newValue);
 				return;
 			case DsPackage.QUERY_PARAMETER__ORDINAL:
-				setOrdinal((Long)newValue);
+				setOrdinal((String)newValue);
 				return;
 			case DsPackage.QUERY_PARAMETER__PARAM_TYPE:
 				setParamType((String)newValue);
@@ -737,7 +703,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 				setName(NAME_EDEFAULT);
 				return;
 			case DsPackage.QUERY_PARAMETER__ORDINAL:
-				unsetOrdinal();
+				setOrdinal(ORDINAL_EDEFAULT);
 				return;
 			case DsPackage.QUERY_PARAMETER__PARAM_TYPE:
 				setParamType(PARAM_TYPE_EDEFAULT);
@@ -778,7 +744,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 			case DsPackage.QUERY_PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.QUERY_PARAMETER__ORDINAL:
-				return isSetOrdinal();
+				return ORDINAL_EDEFAULT == null ? ordinal != null : !ORDINAL_EDEFAULT.equals(ordinal);
 			case DsPackage.QUERY_PARAMETER__PARAM_TYPE:
 				return PARAM_TYPE_EDEFAULT == null ? paramType != null : !PARAM_TYPE_EDEFAULT.equals(paramType);
 			case DsPackage.QUERY_PARAMETER__SQL_TYPE:
@@ -806,7 +772,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 		result.append(", name: ");
 		result.append(name);
 		result.append(", ordinal: ");
-		if (ordinalESet) result.append(ordinal); else result.append("<unset>");
+		result.append(ordinal);
 		result.append(", paramType: ");
 		result.append(paramType);
 		result.append(", sqlType: ");

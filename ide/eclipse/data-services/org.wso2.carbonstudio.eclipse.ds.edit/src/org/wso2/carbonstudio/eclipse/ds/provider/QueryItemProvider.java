@@ -71,7 +71,6 @@ public class QueryItemProvider
 
 			addIdPropertyDescriptor(object);
 			addInputEventTriggerPropertyDescriptor(object);
-			addKeyColumnsPropertyDescriptor(object);
 			addOutputEventTriggerPropertyDescriptor(object);
 			addReturnGeneratedKeysPropertyDescriptor(object);
 			addUseConfigPropertyDescriptor(object);
@@ -124,28 +123,6 @@ public class QueryItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Key Columns feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addKeyColumnsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Query_keyColumns_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Query_keyColumns_feature", "_UI_Query_type"),
-				 DsPackage.Literals.QUERY__KEY_COLUMNS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Output Event Trigger feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,7 +161,7 @@ public class QueryItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -286,7 +263,6 @@ public class QueryItemProvider
 		switch (notification.getFeatureID(Query.class)) {
 			case DsPackage.QUERY__ID:
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
-			case DsPackage.QUERY__KEY_COLUMNS:
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
 			case DsPackage.QUERY__USE_CONFIG:
@@ -324,7 +300,7 @@ public class QueryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DsPackage.Literals.QUERY__SPARQL,
-				 XMLTypeFactory.eINSTANCE.createAnyType()));
+				 DsFactory.eINSTANCE.createSparql()));
 
 		newChildDescriptors.add
 			(createChildParameter

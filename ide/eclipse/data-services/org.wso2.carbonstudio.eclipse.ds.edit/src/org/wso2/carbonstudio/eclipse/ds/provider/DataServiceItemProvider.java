@@ -67,7 +67,6 @@ public class DataServiceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
 			addBaseURIPropertyDescriptor(object);
 			addEnableBatchRequestsPropertyDescriptor(object);
 			addEnableBoxcarringPropertyDescriptor(object);
@@ -77,28 +76,6 @@ public class DataServiceItemProvider
 			addServiceStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataService_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataService_description_feature", "_UI_DataService_type"),
-				 DsPackage.Literals.DATA_SERVICE__DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -140,7 +117,7 @@ public class DataServiceItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -162,7 +139,7 @@ public class DataServiceItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -184,7 +161,7 @@ public class DataServiceItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -267,6 +244,7 @@ public class DataServiceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__DESCRIPTION);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__CONFIG);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__QUERY);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__EVENT_TRIGGER);
@@ -326,7 +304,6 @@ public class DataServiceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DataService.class)) {
-			case DsPackage.DATA_SERVICE__DESCRIPTION:
 			case DsPackage.DATA_SERVICE__BASE_URI:
 			case DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS:
 			case DsPackage.DATA_SERVICE__ENABLE_BOXCARRING:
@@ -336,6 +313,7 @@ public class DataServiceItemProvider
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DsPackage.DATA_SERVICE__DESCRIPTION:
 			case DsPackage.DATA_SERVICE__CONFIG:
 			case DsPackage.DATA_SERVICE__QUERY:
 			case DsPackage.DATA_SERVICE__EVENT_TRIGGER:
@@ -357,6 +335,11 @@ public class DataServiceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__DESCRIPTION,
+				 DsFactory.eINSTANCE.createDescription()));
 
 		newChildDescriptors.add
 			(createChildParameter

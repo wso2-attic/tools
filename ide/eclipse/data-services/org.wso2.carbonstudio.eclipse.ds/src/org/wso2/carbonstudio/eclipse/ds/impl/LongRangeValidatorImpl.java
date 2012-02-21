@@ -39,7 +39,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long MAXIMUM_EDEFAULT = 0L;
+	protected static final String MAXIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -49,16 +49,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * @generated
 	 * @ordered
 	 */
-	protected long maximum = MAXIMUM_EDEFAULT;
-
-	/**
-	 * This is true if the Maximum attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean maximumESet;
+	protected String maximum = MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -68,7 +59,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long MINIMUM_EDEFAULT = 0L;
+	protected static final String MINIMUM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -78,16 +69,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * @generated
 	 * @ordered
 	 */
-	protected long minimum = MINIMUM_EDEFAULT;
-
-	/**
-	 * This is true if the Minimum attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean minimumESet;
+	protected String minimum = MINIMUM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,7 +95,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getMaximum() {
+	public String getMaximum() {
 		return maximum;
 	}
 
@@ -122,13 +104,11 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaximum(long newMaximum) {
-		long oldMaximum = maximum;
+	public void setMaximum(String newMaximum) {
+		String oldMaximum = maximum;
 		maximum = newMaximum;
-		boolean oldMaximumESet = maximumESet;
-		maximumESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM, oldMaximum, maximum, !oldMaximumESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM, oldMaximum, maximum));
 	}
 
 	/**
@@ -136,30 +116,7 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void unsetMaximum() {
-		long oldMaximum = maximum;
-		boolean oldMaximumESet = maximumESet;
-		maximum = MAXIMUM_EDEFAULT;
-		maximumESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM, oldMaximum, MAXIMUM_EDEFAULT, oldMaximumESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetMaximum() {
-		return maximumESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public long getMinimum() {
+	public String getMinimum() {
 		return minimum;
 	}
 
@@ -168,36 +125,11 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinimum(long newMinimum) {
-		long oldMinimum = minimum;
+	public void setMinimum(String newMinimum) {
+		String oldMinimum = minimum;
 		minimum = newMinimum;
-		boolean oldMinimumESet = minimumESet;
-		minimumESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LONG_RANGE_VALIDATOR__MINIMUM, oldMinimum, minimum, !oldMinimumESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetMinimum() {
-		long oldMinimum = minimum;
-		boolean oldMinimumESet = minimumESet;
-		minimum = MINIMUM_EDEFAULT;
-		minimumESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, DsPackage.LONG_RANGE_VALIDATOR__MINIMUM, oldMinimum, MINIMUM_EDEFAULT, oldMinimumESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetMinimum() {
-		return minimumESet;
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LONG_RANGE_VALIDATOR__MINIMUM, oldMinimum, minimum));
 	}
 
 	/**
@@ -225,10 +157,10 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM:
-				setMaximum((Long)newValue);
+				setMaximum((String)newValue);
 				return;
 			case DsPackage.LONG_RANGE_VALIDATOR__MINIMUM:
-				setMinimum((Long)newValue);
+				setMinimum((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -243,10 +175,10 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM:
-				unsetMaximum();
+				setMaximum(MAXIMUM_EDEFAULT);
 				return;
 			case DsPackage.LONG_RANGE_VALIDATOR__MINIMUM:
-				unsetMinimum();
+				setMinimum(MINIMUM_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,9 +193,9 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.LONG_RANGE_VALIDATOR__MAXIMUM:
-				return isSetMaximum();
+				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
 			case DsPackage.LONG_RANGE_VALIDATOR__MINIMUM:
-				return isSetMinimum();
+				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -279,9 +211,9 @@ public class LongRangeValidatorImpl extends EObjectImpl implements LongRangeVali
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (maximum: ");
-		if (maximumESet) result.append(maximum); else result.append("<unset>");
+		result.append(maximum);
 		result.append(", minimum: ");
-		if (minimumESet) result.append(minimum); else result.append("<unset>");
+		result.append(minimum);
 		result.append(')');
 		return result.toString();
 	}

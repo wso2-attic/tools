@@ -171,9 +171,21 @@ public class DsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DsPackage.EXPRESSION: {
+				Expression expression = (Expression)theEObject;
+				T result = caseExpression(expression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DsPackage.GSPREAD_QUERY: {
 				GSpreadQuery gSpreadQuery = (GSpreadQuery)theEObject;
 				T result = caseGSpreadQuery(gSpreadQuery);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DsPackage.HAS_HEADER: {
+				HasHeader hasHeader = (HasHeader)theEObject;
+				T result = caseHasHeader(hasHeader);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,6 +198,12 @@ public class DsSwitch<T> {
 			case DsPackage.LONG_RANGE_VALIDATOR: {
 				LongRangeValidator longRangeValidator = (LongRangeValidator)theEObject;
 				T result = caseLongRangeValidator(longRangeValidator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DsPackage.MAX_ROW_COUNT: {
+				MaxRowCount maxRowCount = (MaxRowCount)theEObject;
+				T result = caseMaxRowCount(maxRowCount);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -243,15 +261,45 @@ public class DsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DsPackage.SPARQL: {
+				Sparql sparql = (Sparql)theEObject;
+				T result = caseSparql(sparql);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DsPackage.SQL: {
 				Sql sql = (Sql)theEObject;
 				T result = caseSql(sql);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DsPackage.STARTING_ROW: {
+				StartingRow startingRow = (StartingRow)theEObject;
+				T result = caseStartingRow(startingRow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DsPackage.SUBSCRIPTION: {
 				Subscription subscription = (Subscription)theEObject;
 				T result = caseSubscription(subscription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DsPackage.TARGET_TOPIC: {
+				TargetTopic targetTopic = (TargetTopic)theEObject;
+				T result = caseTargetTopic(targetTopic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DsPackage.WORK_BOOK_NAME: {
+				WorkBookName workBookName = (WorkBookName)theEObject;
+				T result = caseWorkBookName(workBookName);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DsPackage.WORK_SHEET_NUMBER: {
+				WorkSheetNumber workSheetNumber = (WorkSheetNumber)theEObject;
+				T result = caseWorkSheetNumber(workSheetNumber);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -470,6 +518,21 @@ public class DsSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpression(Expression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>GSpread Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -481,6 +544,21 @@ public class DsSwitch<T> {
 	 * @generated
 	 */
 	public T caseGSpreadQuery(GSpreadQuery object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Has Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Has Header</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHasHeader(HasHeader object) {
 		return null;
 	}
 
@@ -511,6 +589,21 @@ public class DsSwitch<T> {
 	 * @generated
 	 */
 	public T caseLongRangeValidator(LongRangeValidator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Max Row Count</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Max Row Count</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMaxRowCount(MaxRowCount object) {
 		return null;
 	}
 
@@ -650,6 +743,21 @@ public class DsSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sparql</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sparql</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSparql(Sparql object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Sql</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -665,6 +773,21 @@ public class DsSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Starting Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Starting Row</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartingRow(StartingRow object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Subscription</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -676,6 +799,51 @@ public class DsSwitch<T> {
 	 * @generated
 	 */
 	public T caseSubscription(Subscription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Target Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Target Topic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTargetTopic(TargetTopic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Work Book Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Work Book Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWorkBookName(WorkBookName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Work Sheet Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Work Sheet Number</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWorkSheetNumber(WorkSheetNumber object) {
 		return null;
 	}
 

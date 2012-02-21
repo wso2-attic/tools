@@ -67,56 +67,10 @@ public class EventTriggerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExpressionPropertyDescriptor(object);
-			addTargetTopicPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addLanguagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Expression feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExpressionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventTrigger_expression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventTrigger_expression_feature", "_UI_EventTrigger_type"),
-				 DsPackage.Literals.EVENT_TRIGGER__EXPRESSION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Target Topic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTargetTopicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventTrigger_targetTopic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventTrigger_targetTopic_feature", "_UI_EventTrigger_type"),
-				 DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -175,6 +129,8 @@ public class EventTriggerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION);
+			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC);
 			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS);
 		}
 		return childrenFeatures;
@@ -230,12 +186,12 @@ public class EventTriggerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EventTrigger.class)) {
-			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
 			case DsPackage.EVENT_TRIGGER__ID:
 			case DsPackage.EVENT_TRIGGER__LANGUAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DsPackage.EVENT_TRIGGER__EXPRESSION:
+			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -253,6 +209,16 @@ public class EventTriggerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION,
+				 DsFactory.eINSTANCE.createExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC,
+				 DsFactory.eINSTANCE.createTargetTopic()));
 
 		newChildDescriptors.add
 			(createChildParameter
