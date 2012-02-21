@@ -544,9 +544,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				
 				populateAddDatasourceActions(selection, domain, newChildDescriptors);
 				
-				generateQueryMenu = true;
-				
 				descriptionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_DESCRIPTION_ACTION);
+				
+				queryAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_QUERY_ACTION);
 				
 				operationAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_OPERATION_ACTION);
 				
@@ -788,6 +788,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			generateDataSourceSubMenusAndActions();
 			menuManager.insertBefore("edit", dsMenuManager);
 			menuManager.insertBefore("edit", descriptionAction );
+			menuManager.insertBefore("edit", queryAction);
 			menuManager.insertBefore("edit", eventTriggerAction);
 			menuManager.insertBefore("edit", operationAction );
 			menuManager.insertBefore("edit", resourceAction );

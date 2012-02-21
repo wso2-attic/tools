@@ -32,6 +32,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.carbonstudio.eclipse.ds.Description;
 import org.wso2.carbonstudio.eclipse.ds.DsFactory;
 import org.wso2.carbonstudio.eclipse.ds.DsPackage;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsEditPlugin;
@@ -238,7 +239,11 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 			// owner is the DataService element that was selected
 			Object owner = collection.iterator().next();
 			for (Object descriptor : newChildDescriptors) {
-
+				
+				CommandParameter compar = (CommandParameter) descriptor;
+				// ensure that only the DataSourceconfiguration elements are empowerd
+				if(compar.getValue() instanceof DataSourceConfiguration){
+					
 				// A compound command can execute several commands at once. A
 				// config element and corresponding property elements need to be
 				// added, hence a compound command is used.
@@ -250,7 +255,7 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 				CommandParameter param = (CommandParameter) descriptor;
 
 				EObject childObj = param.getEValue();
-
+				
 				// Add the config command to the compound command
 				compoundCmd.append(configCmd);
 
@@ -286,9 +291,12 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 					}
 
 				}
+				
 				return compoundCmd;
+				}
 			}
-		}
+			}
+			
 		// return a command that cannot be executed
 		return UnexecutableCommand.INSTANCE;
 	}

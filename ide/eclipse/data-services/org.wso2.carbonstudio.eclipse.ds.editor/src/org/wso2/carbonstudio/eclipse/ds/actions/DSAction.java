@@ -214,9 +214,14 @@ public class DSAction extends StaticSelectionCommandAction {
 			imageURL = "wso2/gspread";
 		}
 		
-		if(command.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)){
+		if(commandName.equals(DSActionConstants.ADD_SUBSCRIPTION_ACTION)){
 			
 			imageURL = "wso2/subscription";
+		}
+		
+		if(commandName.equals(DSActionConstants.ADD_QUERY_ACTION)){
+			
+			imageURL = "wso2/query";
 		}
 
 		URL url = (URL) DsEditPlugin.INSTANCE.getImage(imageURL);
@@ -243,6 +248,11 @@ public class DSAction extends StaticSelectionCommandAction {
 				//Data service related Actions 
 				
 				if(childObj instanceof Description && commandName.equals(DSActionConstants.ADD_DESCRIPTION_ACTION)){
+					
+					return getChildCommand(param, collection, owner);
+				}
+				
+				if(childObj instanceof Query && commandName.equals(DSActionConstants.ADD_QUERY_ACTION)){
 					
 					return getChildCommand(param, collection, owner);
 				}
