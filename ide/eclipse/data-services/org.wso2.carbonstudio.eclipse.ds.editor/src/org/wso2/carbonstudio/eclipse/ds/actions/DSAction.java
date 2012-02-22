@@ -17,8 +17,6 @@ package org.wso2.carbonstudio.eclipse.ds.actions;
 import java.net.URL;
 import java.util.Collection;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -32,7 +30,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.wso2.carbonstudio.eclipse.ds.AttributeMapping;
 import org.wso2.carbonstudio.eclipse.ds.CallQuery;
 import org.wso2.carbonstudio.eclipse.ds.CallQueryList;
-import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.CustomValidator;
 import org.wso2.carbonstudio.eclipse.ds.DataSourceConfiguration;
 import org.wso2.carbonstudio.eclipse.ds.Description;
@@ -58,14 +55,12 @@ import org.wso2.carbonstudio.eclipse.ds.QueryProperty;
 import org.wso2.carbonstudio.eclipse.ds.QueryPropertyList;
 import org.wso2.carbonstudio.eclipse.ds.Resource;
 import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
-import org.wso2.carbonstudio.eclipse.ds.Sparql;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
 import org.wso2.carbonstudio.eclipse.ds.StartingRow;
 import org.wso2.carbonstudio.eclipse.ds.Subscription;
 import org.wso2.carbonstudio.eclipse.ds.TargetTopic;
 import org.wso2.carbonstudio.eclipse.ds.WorkBookName;
 import org.wso2.carbonstudio.eclipse.ds.WorkSheetNumber;
-import org.wso2.carbonstudio.eclipse.ds.presentation.DsActionBarContributor;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsEditPlugin;
 
 /**
