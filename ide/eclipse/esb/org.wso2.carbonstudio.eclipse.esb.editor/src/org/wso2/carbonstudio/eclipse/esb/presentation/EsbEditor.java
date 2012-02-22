@@ -986,6 +986,12 @@ public class EsbEditor extends MultiPageEditorPart implements
 			//throw new PartInitException(e.getMessage(), e);
 		}
 		
+		// Support for live validations.
+		if (!resourceHasLiveValidationContentAdapter(resource)) {
+			resource.eAdapters().add(new LiveValidationContentAdapter(this, editingDomain));
+		}
+
+		
 		
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
