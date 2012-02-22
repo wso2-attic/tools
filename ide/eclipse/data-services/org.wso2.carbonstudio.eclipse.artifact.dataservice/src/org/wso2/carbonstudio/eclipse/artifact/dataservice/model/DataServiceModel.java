@@ -1,6 +1,7 @@
 package org.wso2.carbonstudio.eclipse.artifact.dataservice.model;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import org.wso2.carbonstudio.eclipse.artifact.dataservice.utils.DataServiceArtifactConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.exception.ObserverFailedException;
@@ -182,7 +183,7 @@ public class DataServiceModel extends ProjectDataModel {
 	}
 
 	public static class RdbmsConfig implements DataSourceConfig{
-		private HashMap<String,String> config;
+		private LinkedHashMap<String,String> config;
 		private boolean xaDs;
 		private String driverClass;
 		private String xaDsClass;
@@ -238,22 +239,22 @@ public class DataServiceModel extends ProjectDataModel {
 			this.jdbcPassword = jdbcPassword;
 		}
 		
-		public HashMap<String,String> getConfig(){
-			config= new HashMap<String,String>();
+		public LinkedHashMap<String,String> getConfig(){
+			config= new LinkedHashMap<String,String>();
 			if(!isXaDs()){
-			config.put("org.wso2.ws.dataservice.driver",getDriverClass());
-			config.put("org.wso2.ws.dataservice.protocol",getJdbcUrl());
 			config.put("org.wso2.ws.dataservice.user",getJdbcUser());
 			config.put("org.wso2.ws.dataservice.password",getJdbcPassword());
+			config.put("org.wso2.ws.dataservice.protocol",getJdbcUrl());
+			config.put("org.wso2.ws.dataservice.driver",getDriverClass());
 			config.put("org.wso2.ws.dataservice.minpoolsize","");
 			config.put("org.wso2.ws.dataservice.minpoolsize","");
 			config.put("org.wso2.ws.dataservice.validation_query","");
 			} else {
 				config.put("org.wso2.ws.dataservice.xa_datasource_class",getXaDsClass());	
 				String xaProperties = "\n";
-				xaProperties+= "\t\t\t<property name=\"URL\">" + getJdbcUrl() +"</property>\n";
 				xaProperties+= "\t\t\t<property name=\"User\">" + getJdbcUser() + "</property>\n";
 				xaProperties+= "\t\t\t<property name=\"Password\">" + getJdbcPassword() + "</property>\n";
+				xaProperties+= "\t\t\t<property name=\"URL\">" + getJdbcUrl() +"</property>\n";
 				config.put("org.wso2.ws.dataservice.xa_datasource_properties",xaProperties);
 				}
 			return config;
@@ -261,15 +262,15 @@ public class DataServiceModel extends ProjectDataModel {
 	}
 	
 	public static class CsvConfig implements DataSourceConfig{
-		private HashMap<String,String>  config;
+		private LinkedHashMap<String,String>  config;
 		private String csvFileLocation;
 		private String columnSeperator;
 		private int startReadingFromRow;
 		private int maxRowsToRead;
 		private boolean containsColumnHeaderRow;
 		
-		public HashMap<String,String>  getConfig(){
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String,String>  getConfig(){
+			config = new LinkedHashMap<String, String>();
 			config.put("csv_datasource", getCsvFileLocation());
 			config.put("csv_columnseperator", getColumnSeperator());
 			config.put("csv_startingrow", String.valueOf(getStartReadingFromRow()));
@@ -320,7 +321,7 @@ public class DataServiceModel extends ProjectDataModel {
 	}
 	
 	public static class JndiConfig implements DataSourceConfig{
-		private HashMap<String,String>  config;
+		private LinkedHashMap<String,String>  config;
 		private String JndiContextClass;
 		private String provideUrl;
 		private String resourceName;
@@ -358,8 +359,8 @@ public class DataServiceModel extends ProjectDataModel {
 			this.password = password;
 		}
 		
-		public HashMap<String,String>  getConfig(){
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String,String>  getConfig(){
+			config = new LinkedHashMap<String, String>();
 			config.put("jndi_context_class", getJndiContextClass());
 			config.put("jndi_provider_url", getProvideUrl());
 			config.put("jndi_resource_name", getResourceName());
@@ -369,7 +370,7 @@ public class DataServiceModel extends ProjectDataModel {
 	}
 	
 	public static class GoogleSpreadsheetConfig implements DataSourceConfig{
-		private HashMap<String,String>  config;
+		private LinkedHashMap<String,String>  config;
 		private String spreadsheetURL;
 		private boolean PublicVisible;
 		private String userName;
@@ -407,8 +408,8 @@ public class DataServiceModel extends ProjectDataModel {
 			this.password = password;
 		}
 
-		public HashMap<String,String>  getConfig(){
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String,String>  getConfig(){
+			config = new LinkedHashMap<String, String>();
 			config.put("gspread_datasource", getSpreadsheetURL());
 			if(!isPublicVisible()){
 				config.put("gspread_visibility", "private");
@@ -424,7 +425,7 @@ public class DataServiceModel extends ProjectDataModel {
 	}
 	
 	public static class ExcelConfig implements DataSourceConfig{
-		private HashMap<String,String>  config;
+		private LinkedHashMap<String,String>  config;
 		private String excelFileLocation;
 
 		public void setExcelFileLocation(String excelFileLocation){
@@ -435,15 +436,15 @@ public class DataServiceModel extends ProjectDataModel {
 			return excelFileLocation;
 		}
 		
-		public HashMap<String,String>  getConfig(){
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String,String>  getConfig(){
+			config = new LinkedHashMap<String, String>();
 			config.put("excel_datasource", getExcelFileLocation());
 			return config;
 		}
 	}
 	
 	public static class RdfConfig implements DataSourceConfig {
-		private HashMap<String, String> config;
+		private LinkedHashMap<String, String> config;
 		private String rdfFileLocation;
 
 		public void setRdfFileLocation(String rdfFileLocation) {
@@ -454,15 +455,15 @@ public class DataServiceModel extends ProjectDataModel {
 			return rdfFileLocation;
 		}
 
-		public HashMap<String, String> getConfig() {
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String, String> getConfig() {
+			config = new LinkedHashMap<String, String>();
 			config.put("rdf_datasource", getRdfFileLocation());
 			return config;
 		}
 	}
 
 	public static class CarbonDataConfig implements DataSourceConfig {
-		private HashMap<String, String> config;
+		private LinkedHashMap<String, String> config;
 		private String carbonDataSourceName;
 
 		public void setCarbonDataSourceName(String carbonDataSourceName) {
@@ -473,15 +474,15 @@ public class DataServiceModel extends ProjectDataModel {
 			return carbonDataSourceName;
 		}
 
-		public HashMap<String, String> getConfig() {
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String, String> getConfig() {
+			config = new LinkedHashMap<String, String>();
 			config.put("carbon_datasource_name", getCarbonDataSourceName());
 			return config;
 		}
 	}
 	
 	public static class WebDataSourceConfig implements DataSourceConfig{
-		private HashMap<String,String>  config;
+		private LinkedHashMap<String,String>  config;
 		private boolean inlineConfig;
 		private String webConfigPath;
 		private String webConfigInlineText;
@@ -510,15 +511,15 @@ public class DataServiceModel extends ProjectDataModel {
 			this.webConfigInlineText = webConfigInlineText;
 		}
 
-		public HashMap<String,String>  getConfig(){
-			config = new HashMap<String, String>();
+		public LinkedHashMap<String,String>  getConfig(){
+			config = new LinkedHashMap<String, String>();
 			config.put("web_harvest_config", isInlineConfig()?getWebConfigInlineText():getWebConfigPath());
 			return config;
 		}
 	}
 	
 	public interface DataSourceConfig{
-		public HashMap<String,String>  getConfig();
+		public LinkedHashMap<String,String>  getConfig();
 	}
 	
 }

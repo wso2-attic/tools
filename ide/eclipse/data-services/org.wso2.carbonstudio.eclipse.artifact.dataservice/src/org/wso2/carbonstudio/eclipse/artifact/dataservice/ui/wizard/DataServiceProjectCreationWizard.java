@@ -1,31 +1,29 @@
 package org.wso2.carbonstudio.eclipse.artifact.dataservice.ui.wizard;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.wizard.IWizardPage;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.wso2.carbonstudio.eclipse.artifact.dataservice.model.DataServiceModel;
 import org.wso2.carbonstudio.eclipse.artifact.dataservice.utils.DataServiceTemplateUtils;
+import org.wso2.carbonstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 import org.wso2.carbonstudio.eclipse.utils.project.ProjectUtils;
-import org.wso2.carbonstudio.eclipse.platform.core.utils.XMLUtil;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
-
-
-
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private final DataServiceModel dsModel;
@@ -102,7 +100,7 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 		templateContent = templateContent.replaceAll("<service.description>",dsModel.getServiceDescription());
 		templateContent = templateContent.replaceAll("<config.id>",dsModel.getDataSourceId());
 		
-		HashMap<String,String> config = dsModel.getDataSourceConfig().getConfig();
+		LinkedHashMap<String,String> config = dsModel.getDataSourceConfig().getConfig();
 		Iterator<String> iterator = config.keySet().iterator();
 		    while (iterator.hasNext()) {
 		      String key = (String) iterator.next();
