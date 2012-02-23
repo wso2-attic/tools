@@ -18,9 +18,11 @@ package org.wso2.carbonstudio.eclipse.distributionproject.module.factory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.wst.server.core.IModule;
@@ -35,11 +37,12 @@ import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 public class CarbonModuleFactory extends ModuleFactoryDelegate{
 	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	protected static final IModule[] NO_MODULES = new IModule[0];
+	@SuppressWarnings("unused")
 	private HashMap moduleDelegates;
 	protected IWorkspaceRoot root;
+	@SuppressWarnings("unused")
 	private CarbonModuleFactory instance;
-	private ArrayList<IModule> modules;
+	private Map<IProject, IModule> modules = new HashMap<IProject, IModule>();
 
 	public CarbonModuleFactory() {
 		super();
@@ -47,51 +50,77 @@ public class CarbonModuleFactory extends ModuleFactoryDelegate{
 		instance = this;
 	}
 	
-	public ModuleDelegate getModuleDelegate(IModule arg0) {
+	public ModuleDelegate getModuleDelegate(IModule module) {
 		return null;
 	}
 
 	public IModule[] getModules() {
 		cacheModules();
-		return modules.toArray(new IModule[]{});
+		List<IModule> list = new ArrayList<IModule>();
+		Iterator<IModule> iter = modules.values().iterator();
+		while (iter.hasNext()) {
+			IModule m = (IModule) iter.next();
+			if (m != null) {
+				list.add(m);
+			}
+		}
+
+		IModule[] modulesArray = new IModule[list.size()];
+		list.toArray(modulesArray);
+		return modulesArray;
 	}
 
 	public final void cacheModules() {
 		try {
 			clearCache();
-			IProject[] projects2 = root.getProjects();
-			int size = projects2.length;
-			modules = new ArrayList<IModule>(size);
-			
+			IProject[] projects = root.getProjects();
+			int size = projects.length;
+
 			for (int i = 0; i < size; i++) {
-				final ArrayList carbonFileResources = new ArrayList();
+				if (projects[i].isAccessible()) {
+					boolean cache = true;
+					try {
+						Object o = modules.get(projects[i]);
+						if (o != null) {
+							cache = false;
+						}
 
-				if (projects2[i].isAccessible()) {
-					IResource[] prjResources = projects2[i].members();
-					if (projects2[i].hasNature(Constants.CAPP_NATURE_ID)){
-//						IFacetedProject facetedProject = ProjectFacetsManager.create(projects2[i]);
-//						Set<IProjectFacet> fixedProjectFacets = facetedProject.getFixedProjectFacets();
-//						for (IProjectFacet iProjectFacet : fixedProjectFacets) {
-//							if (iProjectFacet.getId().equals(Constants.CAPP_FACET_ID)){
-								IModule module = createModule(projects2[i].getName(),projects2[i].getName(),Constants.CAPP_MODULE_ID,Constants.CAPP_MODULE_VERSION,projects2[i]);
-								if (module != null) {							
-									modules.add(module);
-								}								
-//							}
-//						}
-
+					} catch (Exception e) {
+						// ignore
 					}
+
+					if (cache) {
+						try {
+							if (projects[i].hasNature(Constants.CAPP_NATURE_ID)) {
+								/*
+								 * TODO: Use ProjectFacetsManager.isProjectFacetDefined() instead of
+								 *   project.hasNature()
+								 */
+								IModule module = createModule(projects[i].getName(),
+								                              projects[i].getName(),
+								                              Constants.CAPP_MODULE_ID,
+								                              Constants.CAPP_MODULE_VERSION,
+								                              projects[i]);
+								if (module != null) {
+									modules.put(projects[i], module);
+								}
+							}
+						} catch (Throwable t) {
+							log.error("Error creating module for " + projects[i].getName(), t);
+						}
+					}
+
 				}
 			}
 		} catch (Exception e) {
 			log.error(e);
 		}
 	}
+	
 	protected void clearCache() {
+		modules = new HashMap<IProject, IModule>();
 		moduleDelegates = new HashMap();
 	}
-
-	public IModule createModuleObj(String id, String name, String type, String version, IProject project) {
-		return createModule(id, name, type, version, project);
-	}
+	
+	
 }

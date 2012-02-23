@@ -17,12 +17,9 @@
 package org.wso2.carbonstudio.eclipse.distributionproject.module.factory;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IModuleArtifact;
 import org.eclipse.wst.server.core.model.ModuleArtifactAdapterDelegate;
 import org.wso2.carbonstudio.eclipse.distributionproject.module.Activator;
-import org.wso2.carbonstudio.eclipse.distributionproject.module.utils.Constants;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 
@@ -31,17 +28,13 @@ public class CarbonModuleArtifactAdapterImpl extends ModuleArtifactAdapterDelega
 	private static CarbonModuleFactory factory;
 	
 	public IModuleArtifact getModuleArtifact(Object selection) {
-		if (selection instanceof IProject){
-			IProject project=(IProject)selection;
-			try {
-	            if (project.hasNature(Constants.CAPP_NATURE_ID)){
-	            	IModule module = getFactory().createModuleObj(project.getName(),project.getName(),Constants.CAPP_MODULE_ID,Constants.CAPP_MODULE_VERSION,project);
-	            	return new CarbonModuleArtifact(module);
-	            }
-            } catch (CoreException e) {
-	            log.error(e);
-            }
-		}
+		try {
+	        if (selection instanceof IProject){
+	        	return CarbonModuleArtifactAdapterUtil.getModuleObject(selection);
+	        }
+        } catch (Exception e) {
+        	log.error(e);
+        }
 		return null;
 	}
 	
