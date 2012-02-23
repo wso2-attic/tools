@@ -321,7 +321,7 @@ public class DSAction extends StaticSelectionCommandAction {
 					CommandParameter param1 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME,workbookName);
 					
 					HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
-					hasHeader.setValue("false");
+					hasHeader.setValue(false);
 					CommandParameter param2 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__HASHEADER, hasHeader);
 					
 					
@@ -358,7 +358,7 @@ public class DSAction extends StaticSelectionCommandAction {
 					CommandParameter param1 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__WORKSHEETNUMBER,wrksheetNumber);
 					
 					HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
-					hasHeader.setValue("false");
+					hasHeader.setValue(false);
 					CommandParameter param2 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__HASHEADER, hasHeader);
 					
 					

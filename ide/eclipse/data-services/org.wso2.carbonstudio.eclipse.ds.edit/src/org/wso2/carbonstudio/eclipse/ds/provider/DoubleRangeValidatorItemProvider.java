@@ -87,7 +87,7 @@ public class DoubleRangeValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -109,7 +109,7 @@ public class DoubleRangeValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -133,10 +133,8 @@ public class DoubleRangeValidatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DoubleRangeValidator)object).getMaximum();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DoubleRangeValidator_type") :
-			getString("_UI_DoubleRangeValidator_type") + " " + label;
+		DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator)object;
+		return getString("_UI_DoubleRangeValidator_type") + " " + doubleRangeValidator.getMaximum();
 	}
 
 	/**

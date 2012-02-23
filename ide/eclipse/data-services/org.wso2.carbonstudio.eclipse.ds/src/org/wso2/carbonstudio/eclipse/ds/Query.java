@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getId <em>Id</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getInputEventTrigger <em>Input Event Trigger</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getUseConfig <em>Use Config</em>}</li>
  * </ul>
  * </p>
@@ -247,23 +247,23 @@ public interface Query extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Generated Keys</em>' attribute.
-	 * @see #setReturnGeneratedKeys(String)
+	 * @see #setReturnGeneratedKeys(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQuery_ReturnGeneratedKeys()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="kind='attribute' name='returnGeneratedKeys' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getReturnGeneratedKeys();
+	boolean isReturnGeneratedKeys();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Return Generated Keys</em>' attribute.
-	 * @see #getReturnGeneratedKeys()
+	 * @see #isReturnGeneratedKeys()
 	 * @generated
 	 */
-	void setReturnGeneratedKeys(String value);
+	void setReturnGeneratedKeys(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Use Config</b></em>' attribute.

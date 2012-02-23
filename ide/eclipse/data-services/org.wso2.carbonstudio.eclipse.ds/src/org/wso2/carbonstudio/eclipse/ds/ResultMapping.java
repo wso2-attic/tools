@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getDefaultNamespace <em>Default Namespace</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getElementName <em>Element Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getRowName <em>Row Name</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getUseColumnNumbers <em>Use Column Numbers</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#isUseColumnNumbers <em>Use Column Numbers</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getXsltPath <em>Xslt Path</em>}</li>
  * </ul>
  * </p>
@@ -175,23 +175,23 @@ public interface ResultMapping extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Column Numbers</em>' attribute.
-	 * @see #setUseColumnNumbers(String)
+	 * @see #setUseColumnNumbers(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getResultMapping_UseColumnNumbers()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="kind='attribute' name='useColumnNumbers' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getUseColumnNumbers();
+	boolean isUseColumnNumbers();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getUseColumnNumbers <em>Use Column Numbers</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#isUseColumnNumbers <em>Use Column Numbers</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Use Column Numbers</em>' attribute.
-	 * @see #getUseColumnNumbers()
+	 * @see #isUseColumnNumbers()
 	 * @generated
 	 */
-	void setUseColumnNumbers(String value);
+	void setUseColumnNumbers(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Xslt Path</b></em>' attribute.

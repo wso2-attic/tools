@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue <em>Value</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#isValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,22 +34,22 @@ public interface HasHeader extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
+	 * @see #setValue(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getHasHeader_Value()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="name=':0' kind='simple'"
 	 * @generated
 	 */
-	String getValue();
+	boolean isValue();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#isValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @see #isValue()
 	 * @generated
 	 */
-	void setValue(String value);
+	void setValue(boolean value);
 
 } // HasHeader

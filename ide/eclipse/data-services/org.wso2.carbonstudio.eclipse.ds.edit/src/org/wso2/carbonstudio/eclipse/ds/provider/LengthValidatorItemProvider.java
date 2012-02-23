@@ -135,7 +135,8 @@ public class LengthValidatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LengthValidator)object).getMaximum();
+		BigInteger labelValue = ((LengthValidator)object).getMaximum();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LengthValidator_type") :
 			getString("_UI_LengthValidator_type") + " " + label;

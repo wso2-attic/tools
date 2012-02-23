@@ -25,9 +25,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getOperation <em>Operation</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getResource <em>Resource</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getBaseURI <em>Base URI</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests <em>Enable Batch Requests</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring <em>Enable Boxcarring</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP <em>Enable DTP</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests <em>Enable Batch Requests</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring <em>Enable Boxcarring</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP <em>Enable DTP</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceStatus <em>Service Status</em>}</li>
@@ -177,23 +177,23 @@ public interface DataService extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Enable Batch Requests</em>' attribute.
-	 * @see #setEnableBatchRequests(String)
+	 * @see #setEnableBatchRequests(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDataService_EnableBatchRequests()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="kind='attribute' name='enableBatchRequests' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getEnableBatchRequests();
+	boolean isEnableBatchRequests();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests <em>Enable Batch Requests</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests <em>Enable Batch Requests</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Enable Batch Requests</em>' attribute.
-	 * @see #getEnableBatchRequests()
+	 * @see #isEnableBatchRequests()
 	 * @generated
 	 */
-	void setEnableBatchRequests(String value);
+	void setEnableBatchRequests(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Enable Boxcarring</b></em>' attribute.
@@ -204,23 +204,23 @@ public interface DataService extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Enable Boxcarring</em>' attribute.
-	 * @see #setEnableBoxcarring(String)
+	 * @see #setEnableBoxcarring(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDataService_EnableBoxcarring()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="kind='attribute' name='enableBoxcarring' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getEnableBoxcarring();
+	boolean isEnableBoxcarring();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring <em>Enable Boxcarring</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring <em>Enable Boxcarring</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Enable Boxcarring</em>' attribute.
-	 * @see #getEnableBoxcarring()
+	 * @see #isEnableBoxcarring()
 	 * @generated
 	 */
-	void setEnableBoxcarring(String value);
+	void setEnableBoxcarring(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Enable DTP</b></em>' attribute.
@@ -231,23 +231,23 @@ public interface DataService extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Enable DTP</em>' attribute.
-	 * @see #setEnableDTP(String)
+	 * @see #setEnableDTP(boolean)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDataService_EnableDTP()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 *        extendedMetaData="kind='attribute' name='enableDTP' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getEnableDTP();
+	boolean isEnableDTP();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP <em>Enable DTP</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP <em>Enable DTP</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Enable DTP</em>' attribute.
-	 * @see #getEnableDTP()
+	 * @see #isEnableDTP()
 	 * @generated
 	 */
-	void setEnableDTP(String value);
+	void setEnableDTP(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

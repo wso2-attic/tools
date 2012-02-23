@@ -50,7 +50,7 @@ import org.wso2.carbonstudio.eclipse.ds.Sql;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getInputEventTrigger <em>Input Event Trigger</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getUseConfig <em>Use Config</em>}</li>
  * </ul>
  * </p>
@@ -189,24 +189,24 @@ public class QueryImpl extends EObjectImpl implements Query {
 	protected String outputEventTrigger = OUTPUT_EVENT_TRIGGER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
+	 * The default value of the '{@link #isReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnGeneratedKeys()
+	 * @see #isReturnGeneratedKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RETURN_GENERATED_KEYS_EDEFAULT = null;
+	protected static final boolean RETURN_GENERATED_KEYS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
+	 * The cached value of the '{@link #isReturnGeneratedKeys() <em>Return Generated Keys</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnGeneratedKeys()
+	 * @see #isReturnGeneratedKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected String returnGeneratedKeys = RETURN_GENERATED_KEYS_EDEFAULT;
+	protected boolean returnGeneratedKeys = RETURN_GENERATED_KEYS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUseConfig() <em>Use Config</em>}' attribute.
@@ -399,7 +399,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getReturnGeneratedKeys() {
+	public boolean isReturnGeneratedKeys() {
 		return returnGeneratedKeys;
 	}
 
@@ -408,8 +408,8 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnGeneratedKeys(String newReturnGeneratedKeys) {
-		String oldReturnGeneratedKeys = returnGeneratedKeys;
+	public void setReturnGeneratedKeys(boolean newReturnGeneratedKeys) {
+		boolean oldReturnGeneratedKeys = returnGeneratedKeys;
 		returnGeneratedKeys = newReturnGeneratedKeys;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY__RETURN_GENERATED_KEYS, oldReturnGeneratedKeys, returnGeneratedKeys));
@@ -491,7 +491,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				return getOutputEventTrigger();
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				return getReturnGeneratedKeys();
+				return isReturnGeneratedKeys();
 			case DsPackage.QUERY__USE_CONFIG:
 				return getUseConfig();
 		}
@@ -545,7 +545,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 				setOutputEventTrigger((String)newValue);
 				return;
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				setReturnGeneratedKeys((String)newValue);
+				setReturnGeneratedKeys((Boolean)newValue);
 				return;
 			case DsPackage.QUERY__USE_CONFIG:
 				setUseConfig((String)newValue);
@@ -631,7 +631,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 				return OUTPUT_EVENT_TRIGGER_EDEFAULT == null ? outputEventTrigger != null : !OUTPUT_EVENT_TRIGGER_EDEFAULT.equals(outputEventTrigger);
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
-				return RETURN_GENERATED_KEYS_EDEFAULT == null ? returnGeneratedKeys != null : !RETURN_GENERATED_KEYS_EDEFAULT.equals(returnGeneratedKeys);
+				return returnGeneratedKeys != RETURN_GENERATED_KEYS_EDEFAULT;
 			case DsPackage.QUERY__USE_CONFIG:
 				return USE_CONFIG_EDEFAULT == null ? useConfig != null : !USE_CONFIG_EDEFAULT.equals(useConfig);
 		}

@@ -41,7 +41,7 @@ import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getDefaultNamespace <em>Default Namespace</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getElementName <em>Element Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getRowName <em>Row Name</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getUseColumnNumbers <em>Use Column Numbers</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#isUseColumnNumbers <em>Use Column Numbers</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl#getXsltPath <em>Xslt Path</em>}</li>
  * </ul>
  * </p>
@@ -140,24 +140,24 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected String rowName = ROW_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * The default value of the '{@link #isUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUseColumnNumbers()
+	 * @see #isUseColumnNumbers()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String USE_COLUMN_NUMBERS_EDEFAULT = null;
+	protected static final boolean USE_COLUMN_NUMBERS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * The cached value of the '{@link #isUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUseColumnNumbers()
+	 * @see #isUseColumnNumbers()
 	 * @generated
 	 * @ordered
 	 */
-	protected String useColumnNumbers = USE_COLUMN_NUMBERS_EDEFAULT;
+	protected boolean useColumnNumbers = USE_COLUMN_NUMBERS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getXsltPath() <em>Xslt Path</em>}' attribute.
@@ -302,7 +302,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUseColumnNumbers() {
+	public boolean isUseColumnNumbers() {
 		return useColumnNumbers;
 	}
 
@@ -311,8 +311,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUseColumnNumbers(String newUseColumnNumbers) {
-		String oldUseColumnNumbers = useColumnNumbers;
+	public void setUseColumnNumbers(boolean newUseColumnNumbers) {
+		boolean oldUseColumnNumbers = useColumnNumbers;
 		useColumnNumbers = newUseColumnNumbers;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS, oldUseColumnNumbers, useColumnNumbers));
@@ -378,7 +378,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 			case DsPackage.RESULT_MAPPING__ROW_NAME:
 				return getRowName();
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
-				return getUseColumnNumbers();
+				return isUseColumnNumbers();
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				return getXsltPath();
 		}
@@ -416,7 +416,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 				setRowName((String)newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
-				setUseColumnNumbers((String)newValue);
+				setUseColumnNumbers((Boolean)newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				setXsltPath((String)newValue);
@@ -482,7 +482,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 			case DsPackage.RESULT_MAPPING__ROW_NAME:
 				return ROW_NAME_EDEFAULT == null ? rowName != null : !ROW_NAME_EDEFAULT.equals(rowName);
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
-				return USE_COLUMN_NUMBERS_EDEFAULT == null ? useColumnNumbers != null : !USE_COLUMN_NUMBERS_EDEFAULT.equals(useColumnNumbers);
+				return useColumnNumbers != USE_COLUMN_NUMBERS_EDEFAULT;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				return XSLT_PATH_EDEFAULT == null ? xsltPath != null : !XSLT_PATH_EDEFAULT.equals(xsltPath);
 		}

@@ -229,7 +229,7 @@ public class QueryAction extends StaticSelectionCommandAction {
 						if (isSpreadSheetQuery) {
 							ExcelQuery excelQuery = DsFactory.eINSTANCE.createExcelQuery();
 							HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
-							hasHeader.setValue("false");
+							hasHeader.setValue(false);
 							excelQuery.setHasheader(hasHeader);
 							
 							MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
@@ -263,7 +263,7 @@ public class QueryAction extends StaticSelectionCommandAction {
 							GSpreadQuery gspreadQuery = DsFactory.eINSTANCE.createGSpreadQuery();
 							
 							HasHeader hasHeader = DsFactory.eINSTANCE.createHasHeader();
-							hasHeader.setValue("false");
+							hasHeader.setValue(false);
 							gspreadQuery.setHasheader(hasHeader);
 			                
 							WorkSheetNumber wshnum = DsFactory.eINSTANCE.createWorkSheetNumber();

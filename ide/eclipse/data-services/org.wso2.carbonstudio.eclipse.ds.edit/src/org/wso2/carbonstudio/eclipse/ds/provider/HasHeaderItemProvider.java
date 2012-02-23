@@ -86,7 +86,7 @@ public class HasHeaderItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -110,10 +110,8 @@ public class HasHeaderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((HasHeader)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_HasHeader_type") :
-			getString("_UI_HasHeader_type") + " " + label;
+		HasHeader hasHeader = (HasHeader)object;
+		return getString("_UI_HasHeader_type") + " " + hasHeader.isValue();
 	}
 
 	/**

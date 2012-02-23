@@ -1,10 +1,9 @@
 package org.wso2.carbonstudio.eclipse.ds.presentation.md;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -27,8 +26,8 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.wso2.carbonstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.carbonstudio.eclipse.ds.presentation.DsEditor;
-import java.math.BigInteger;
 
 public class DetailSection {
 
@@ -38,7 +37,7 @@ public class DetailSection {
 	private ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = null;
 	private HashMap<String, StyledText> widgetlist = null;
 	private Object input;
-	private final String DS_PROPERTY ="(property)";
+	
 	
 	public DetailSection(FormToolkit toolkit,
 			AdapterFactoryItemDelegator adapterFactoryItemDelegator,
@@ -58,7 +57,7 @@ public class DetailSection {
 
 	public void createSection(final Object input) {
 		
-		boolean isProperty = isPropertyText(adapterFactoryItemDelegator.getText(input));
+		//boolean isProperty = isPropertyText(adapterFactoryItemDelegator.getText(input));
 		
 		if (input != null) {
 			if (adapterFactoryItemDelegator.getPropertyDescriptors(input) != null) {
@@ -77,7 +76,7 @@ public class DetailSection {
 
 				String displayName = desc.getDisplayName(input);
 				
-				if(isProperty && (displayName.equals("Name") || displayName.equals("name"))){
+				if((input instanceof ConfigurationProperty) && (displayName.equals("Name") || displayName.equals("name"))){
 					
 					isEditable = false;
 				}
@@ -98,17 +97,17 @@ public class DetailSection {
 				}
 
 				else if (desc.getFeature(input) instanceof EReferenceImpl) {
-					
+					/*
 					if (((EObject) adapterFactoryItemDelegator
 							.getEditableValue(input))
 							.eGet((EStructuralFeature) desc.getFeature(input))
 							.toString().compareTo("[]") == 0) {
 
 					} else {
-						/*labelMaker(((EObject) adapterFactoryItemDelegator
+						labelMaker(((EObject) adapterFactoryItemDelegator
 							.getEditableValue(input))
-							.eGet((EStructuralFeature) desc.getFeature(input)).toString());*/
-					}
+							.eGet((EStructuralFeature) desc.getFeature(input)).toString());
+					}*/
 				} else {
 					labelMaker(desc.getFeature(input).toString()
 							+ " ?: "
@@ -400,14 +399,5 @@ public class DetailSection {
 		return controlDecoration;
 	}
 	
-
-	private boolean isPropertyText(String text){
-	
-		Pattern p = Pattern.compile(DS_PROPERTY);
-		Matcher m = p.matcher(text);
-		
-		return m.find();
-
-	}
 
 }

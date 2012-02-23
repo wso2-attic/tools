@@ -2077,33 +2077,33 @@ public interface DsPackage extends EPackage {
 	EAttribute getDataService_BaseURI();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests <em>Enable Batch Requests</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests <em>Enable Batch Requests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Batch Requests</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBatchRequests()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBatchRequests()
 	 * @see #getDataService()
 	 * @generated
 	 */
 	EAttribute getDataService_EnableBatchRequests();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring <em>Enable Boxcarring</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring <em>Enable Boxcarring</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Boxcarring</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableBoxcarring()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableBoxcarring()
 	 * @see #getDataService()
 	 * @generated
 	 */
 	EAttribute getDataService_EnableBoxcarring();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP <em>Enable DTP</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP <em>Enable DTP</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable DTP</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getEnableDTP()
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP()
 	 * @see #getDataService()
 	 * @generated
 	 */
@@ -2638,11 +2638,11 @@ public interface DsPackage extends EPackage {
 	EClass getHasHeader();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.HasHeader#isValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.HasHeader#getValue()
+	 * @see org.wso2.carbonstudio.eclipse.ds.HasHeader#isValue()
 	 * @see #getHasHeader()
 	 * @generated
 	 */
@@ -2766,11 +2766,11 @@ public interface DsPackage extends EPackage {
 	EReference getOperation_CallQueryGroup();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming <em>Disable Streaming</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Disable Streaming</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Operation#getDisableStreaming()
+	 * @see org.wso2.carbonstudio.eclipse.ds.Operation#isDisableStreaming()
 	 * @see #getOperation()
 	 * @generated
 	 */
@@ -2972,11 +2972,11 @@ public interface DsPackage extends EPackage {
 	EAttribute getQuery_OutputEventTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys <em>Return Generated Keys</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Return Generated Keys</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.Query#getReturnGeneratedKeys()
+	 * @see org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys()
 	 * @see #getQuery()
 	 * @generated
 	 */
@@ -3308,11 +3308,11 @@ public interface DsPackage extends EPackage {
 	EAttribute getResultMapping_RowName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#getUseColumnNumbers <em>Use Column Numbers</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping#isUseColumnNumbers <em>Use Column Numbers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Use Column Numbers</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.ds.ResultMapping#getUseColumnNumbers()
+	 * @see org.wso2.carbonstudio.eclipse.ds.ResultMapping#isUseColumnNumbers()
 	 * @see #getResultMapping()
 	 * @generated
 	 */

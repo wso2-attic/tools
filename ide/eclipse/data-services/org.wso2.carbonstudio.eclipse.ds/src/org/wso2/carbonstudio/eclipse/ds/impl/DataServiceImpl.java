@@ -48,9 +48,9 @@ import org.wso2.carbonstudio.eclipse.ds.ServiceStatus;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getBaseURI <em>Base URI</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getEnableBatchRequests <em>Enable Batch Requests</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getEnableBoxcarring <em>Enable Boxcarring</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getEnableDTP <em>Enable DTP</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#isEnableBatchRequests <em>Enable Batch Requests</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#isEnableBoxcarring <em>Enable Boxcarring</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#isEnableDTP <em>Enable DTP</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceStatus <em>Service Status</em>}</li>
@@ -141,64 +141,64 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	protected String baseURI = BASE_URI_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEnableBatchRequests() <em>Enable Batch Requests</em>}' attribute.
+	 * The default value of the '{@link #isEnableBatchRequests() <em>Enable Batch Requests</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableBatchRequests()
+	 * @see #isEnableBatchRequests()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENABLE_BATCH_REQUESTS_EDEFAULT = null;
+	protected static final boolean ENABLE_BATCH_REQUESTS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getEnableBatchRequests() <em>Enable Batch Requests</em>}' attribute.
+	 * The cached value of the '{@link #isEnableBatchRequests() <em>Enable Batch Requests</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableBatchRequests()
+	 * @see #isEnableBatchRequests()
 	 * @generated
 	 * @ordered
 	 */
-	protected String enableBatchRequests = ENABLE_BATCH_REQUESTS_EDEFAULT;
+	protected boolean enableBatchRequests = ENABLE_BATCH_REQUESTS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEnableBoxcarring() <em>Enable Boxcarring</em>}' attribute.
+	 * The default value of the '{@link #isEnableBoxcarring() <em>Enable Boxcarring</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableBoxcarring()
+	 * @see #isEnableBoxcarring()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENABLE_BOXCARRING_EDEFAULT = null;
+	protected static final boolean ENABLE_BOXCARRING_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getEnableBoxcarring() <em>Enable Boxcarring</em>}' attribute.
+	 * The cached value of the '{@link #isEnableBoxcarring() <em>Enable Boxcarring</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableBoxcarring()
+	 * @see #isEnableBoxcarring()
 	 * @generated
 	 * @ordered
 	 */
-	protected String enableBoxcarring = ENABLE_BOXCARRING_EDEFAULT;
+	protected boolean enableBoxcarring = ENABLE_BOXCARRING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEnableDTP() <em>Enable DTP</em>}' attribute.
+	 * The default value of the '{@link #isEnableDTP() <em>Enable DTP</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableDTP()
+	 * @see #isEnableDTP()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENABLE_DTP_EDEFAULT = null;
+	protected static final boolean ENABLE_DTP_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getEnableDTP() <em>Enable DTP</em>}' attribute.
+	 * The cached value of the '{@link #isEnableDTP() <em>Enable DTP</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnableDTP()
+	 * @see #isEnableDTP()
 	 * @generated
 	 * @ordered
 	 */
-	protected String enableDTP = ENABLE_DTP_EDEFAULT;
+	protected boolean enableDTP = ENABLE_DTP_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -386,7 +386,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEnableBatchRequests() {
+	public boolean isEnableBatchRequests() {
 		return enableBatchRequests;
 	}
 
@@ -395,8 +395,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnableBatchRequests(String newEnableBatchRequests) {
-		String oldEnableBatchRequests = enableBatchRequests;
+	public void setEnableBatchRequests(boolean newEnableBatchRequests) {
+		boolean oldEnableBatchRequests = enableBatchRequests;
 		enableBatchRequests = newEnableBatchRequests;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS, oldEnableBatchRequests, enableBatchRequests));
@@ -407,7 +407,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEnableBoxcarring() {
+	public boolean isEnableBoxcarring() {
 		return enableBoxcarring;
 	}
 
@@ -416,8 +416,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnableBoxcarring(String newEnableBoxcarring) {
-		String oldEnableBoxcarring = enableBoxcarring;
+	public void setEnableBoxcarring(boolean newEnableBoxcarring) {
+		boolean oldEnableBoxcarring = enableBoxcarring;
 		enableBoxcarring = newEnableBoxcarring;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__ENABLE_BOXCARRING, oldEnableBoxcarring, enableBoxcarring));
@@ -428,7 +428,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEnableDTP() {
+	public boolean isEnableDTP() {
 		return enableDTP;
 	}
 
@@ -437,8 +437,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnableDTP(String newEnableDTP) {
-		String oldEnableDTP = enableDTP;
+	public void setEnableDTP(boolean newEnableDTP) {
+		boolean oldEnableDTP = enableDTP;
 		enableDTP = newEnableDTP;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__ENABLE_DTP, oldEnableDTP, enableDTP));
@@ -579,11 +579,11 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__BASE_URI:
 				return getBaseURI();
 			case DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS:
-				return getEnableBatchRequests();
+				return isEnableBatchRequests();
 			case DsPackage.DATA_SERVICE__ENABLE_BOXCARRING:
-				return getEnableBoxcarring();
+				return isEnableBoxcarring();
 			case DsPackage.DATA_SERVICE__ENABLE_DTP:
-				return getEnableDTP();
+				return isEnableDTP();
 			case DsPackage.DATA_SERVICE__NAME:
 				return getName();
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
@@ -631,13 +631,13 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				setBaseURI((String)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS:
-				setEnableBatchRequests((String)newValue);
+				setEnableBatchRequests((Boolean)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__ENABLE_BOXCARRING:
-				setEnableBoxcarring((String)newValue);
+				setEnableBoxcarring((Boolean)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__ENABLE_DTP:
-				setEnableDTP((String)newValue);
+				setEnableDTP((Boolean)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__NAME:
 				setName((String)newValue);
@@ -726,11 +726,11 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__BASE_URI:
 				return BASE_URI_EDEFAULT == null ? baseURI != null : !BASE_URI_EDEFAULT.equals(baseURI);
 			case DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS:
-				return ENABLE_BATCH_REQUESTS_EDEFAULT == null ? enableBatchRequests != null : !ENABLE_BATCH_REQUESTS_EDEFAULT.equals(enableBatchRequests);
+				return enableBatchRequests != ENABLE_BATCH_REQUESTS_EDEFAULT;
 			case DsPackage.DATA_SERVICE__ENABLE_BOXCARRING:
-				return ENABLE_BOXCARRING_EDEFAULT == null ? enableBoxcarring != null : !ENABLE_BOXCARRING_EDEFAULT.equals(enableBoxcarring);
+				return enableBoxcarring != ENABLE_BOXCARRING_EDEFAULT;
 			case DsPackage.DATA_SERVICE__ENABLE_DTP:
-				return ENABLE_DTP_EDEFAULT == null ? enableDTP != null : !ENABLE_DTP_EDEFAULT.equals(enableDTP);
+				return enableDTP != ENABLE_DTP_EDEFAULT;
 			case DsPackage.DATA_SERVICE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
