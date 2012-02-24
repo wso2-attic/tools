@@ -50,7 +50,8 @@ public class NewRegistryAspectsClassWizardPage extends NewClassWizardPage{
 									"woden-1.0.0.M8-wso2v1.jar",
 									"wsdl4j-1.6.2.wso2v1.jar",
 									"XmlSchema-1.4.2.wso2v1.jar",
-									"org.wso2.carbon.registry.api-3.2.0.jar"};
+									"org.wso2.carbon.registry.api-3.2.0.jar",
+									"org.wso2.carbon.registry.core-3.2.2.jar"};
 	
 	public String getSelectedProject() {
 		return selectedProject;
@@ -72,7 +73,7 @@ public class NewRegistryAspectsClassWizardPage extends NewClassWizardPage{
 	}
 
 	public String createClass() throws CoreException, InterruptedException{
-		addSynapseLibrary();
+	//	addSynapseLibrary();
 		addOtherDependencies();
 		createType(new NullProgressMonitor());
 		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)getCreatedType().getResource());
