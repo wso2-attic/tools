@@ -38,7 +38,7 @@
 		</div>
 
 		<h2 id="Introduction">Introduction</h2>
-		<p>WSO2 Carbon Studio is a fully tooling environment which facilitate you to develop, test, deploy and test WSO2 Carbon Artifacts.</p>
+		<p>WSO2 Carbon Studio is a fully tooling environment which facilitate you to develop, test, debug and deploy WSO2 Carbon Artifacts.</p>
 
 		<h2 id="System">Prerequisites</h2>
 		<table border="2">
@@ -56,11 +56,11 @@
 					<td>WSO2 Carbon Studio</td>
 					<td>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">2.0.0-without dependencies</a>
+							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">2.0.0-without dependencies</a>
 						</p>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">2.0.0-with dependencies</a>
-						</p>
+							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">2.0.0-with dependencies</a>
+						</p >
 					</td>
 				</tr>
 				<tr>
@@ -90,9 +90,9 @@
 			from the download page and you are using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>.
 		</p>
 		<p>
-		If you download <a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Carbon Studio With 
+		If you download <a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">WSO2 Carbon Studio With 
 		Dependencies</a> version, you can go ahead with the <strong>Offline Installation</strong>. But if you download 
-		<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Carbon Studio Without 
+		<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">WSO2 Carbon Studio Without 
 		Dependencies</a> version, you need to go with the <strong>Online Installation</strong>.
 		</p>
 		<p>
@@ -274,8 +274,8 @@
 		<p>
 			For online installation of all the WSO2 Eclipse Tools use the update
 			site url:
-			<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/p2-repo">
-				<strong>http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/p2-repo</strong>
+			<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/p2-repo">
+				<strong>http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/p2-repo</strong>
 			</a>
 		</p>
 		<p>
