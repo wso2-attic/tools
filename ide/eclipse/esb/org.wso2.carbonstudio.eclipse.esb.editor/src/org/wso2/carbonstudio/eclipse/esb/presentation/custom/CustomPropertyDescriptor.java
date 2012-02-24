@@ -48,15 +48,25 @@ public class CustomPropertyDescriptor extends PropertyDescriptor {
 		
 		if (object instanceof HeaderMediator) {
 			PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
-			NamespacedProperty namespacedProperty = (NamespacedProperty) wrapper.getEditableValue(object);
-			result = new NamespacedPropertyDecoratorHeaderMediator(
-					(CustomPropertyEditorFactory.createCustomPropertyEditor(
-							composite, object, itemPropertyDescriptor)),
-					composite, namespacedProperty, object,itemPropertyDescriptor);
-		} else {
-			result = CustomPropertyEditorFactory.createCustomPropertyEditor(
-					composite, object, itemPropertyDescriptor);
+			if(wrapper.getEditableValue(object) instanceof NamespacedProperty){
+				//PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
+				
+				NamespacedProperty namespacedProperty = (NamespacedProperty) wrapper.getEditableValue(object);
+				result = new NamespacedPropertyDecoratorHeaderMediator(
+						(CustomPropertyEditorFactory.createCustomPropertyEditor(
+								composite, object, itemPropertyDescriptor)),
+						composite, namespacedProperty, object,itemPropertyDescriptor);
+			} else {
+				result = CustomPropertyEditorFactory.createCustomPropertyEditor(
+						composite, object, itemPropertyDescriptor);
+			}
+			return (null == result) ? super.createPropertyEditor(composite)	: result;
+			}
+		else{
+			
+			 result = CustomPropertyEditorFactory.createCustomPropertyEditor(composite, object, itemPropertyDescriptor);		
+			return (null == result) ? super.createPropertyEditor(composite) : result;	
 		}
-		return (null == result) ? super.createPropertyEditor(composite)	: result;
+			
 	}
 }
