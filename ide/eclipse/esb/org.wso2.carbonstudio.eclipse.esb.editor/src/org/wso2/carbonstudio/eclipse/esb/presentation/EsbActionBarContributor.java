@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -34,7 +33,6 @@ import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -178,12 +176,15 @@ public class EsbActionBarContributor
      * This creates an instance of the contributor.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
 	public EsbActionBarContributor() {
         super(ADDITIONS_LAST_STYLE);
         loadResourceAction = new LoadResourceAction();
-        validateAction = new ValidateAction();
+        /**
+         * batch validation need to be implemented
+         */
+//        validateAction = new ESBValidateAction();
         controlAction = new ControlAction();
     }
 

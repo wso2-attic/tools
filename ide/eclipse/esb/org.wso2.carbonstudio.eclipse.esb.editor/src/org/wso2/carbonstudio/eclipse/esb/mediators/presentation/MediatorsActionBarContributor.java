@@ -56,6 +56,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
+import org.wso2.carbonstudio.eclipse.esb.presentation.ESBValidateAction;
 import org.wso2.carbonstudio.eclipse.esb.presentation.EsbEditorPlugin;
 
 /**
@@ -181,12 +182,15 @@ public class MediatorsActionBarContributor
      * This creates an instance of the contributor.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
 	public MediatorsActionBarContributor() {
         super(ADDITIONS_LAST_STYLE);
         loadResourceAction = new LoadResourceAction();
-        validateAction = new ValidateAction();
+        /**
+         * batch validation need to be implemented
+         */
+//        validateAction = new ESBValidateAction();
         controlAction = new ControlAction();
     }
 

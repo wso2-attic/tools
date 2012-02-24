@@ -140,7 +140,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		NamespacedProperty headerName = getEsbFactory().createNamespacedProperty();
 		headerName.setPrettyName("Header Name");
 		headerName.setPropertyName("name");
-		headerName.setPropertyValue("");
+		headerName.setPropertyValue("header_name");
 		setHeaderName(headerName);
 
 		// Value expression.

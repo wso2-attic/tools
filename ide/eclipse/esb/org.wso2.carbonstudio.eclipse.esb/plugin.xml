@@ -614,6 +614,584 @@
 						</event>											
 					</target>																														
 				</constraint>
+				<constraint lang="Java"
+					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
+					severity="ERROR" mode="Batch" name="Mandatory string properties"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryStringPropertyConstraint"
+					statusCode="1">
+					<description>
+						Mandatory string properties should not be assigned blank values.
+					</description>
+					<message>
+						This property is mandatory and should not be left blank.
+					</message>
+					<target class="LogProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>						
+					</target>					
+					<target class="PropertyMediator">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="EventMediator">
+						<event name="Set">
+							<feature name="eventSourceName" />
+						</event>						
+					</target>
+					<target class="EnrichMediator">
+						<event name="Set">
+							<feature name="sourceProperty" />
+							<feature name="targetProperty" />
+						</event>						
+					</target>
+					<target class="EnqueueMediator">
+						<event name="Set">
+							<feature name="executor" />
+						</event>						
+					</target>
+					<target class="FilterMediator">
+						<event name="Set">
+							<feature name="filterRegex" />
+						</event>											
+					</target>
+					<target class="SwitchCaseBranch">
+						<event name="Set">
+							<feature name="caseRegex" />
+						</event>
+					</target>
+					<target class="ValidateFeature">
+						<event name="Set">
+							<feature name="featureName" />
+						</event>
+					</target>
+					<target class="XSLTFeature">
+						<event name="Set">
+							<feature name="featureName" />
+						</event>
+					</target>
+					<target class="XSLTProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>
+					</target>
+					<target class="XSLTResource">
+						<event name="Set">
+							<feature name="location" />
+						</event>						
+					</target>
+					<target class="XQueryVariable">
+						<event name="Set">
+							<feature name="variableName" />
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="HeaderMediator">
+						<event name="Set">
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="FaultMediator">
+						<event name="Set">
+							<feature name="faultStringValue" />
+							<feature name="faultReasonValue" />
+						</event>
+					</target>
+					<target class="ClassMediator">
+						<event name="Set">
+							<feature name="className" />
+						</event>						
+					</target>
+					<target class="ClassProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>
+					</target>
+					<target class="CommandMediator">
+						<event name="Set">
+							<feature name="className" />
+						</event>						
+					</target>
+					<target class="CommandProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="valueLiteral" />
+							<feature name="valueContextPropertyName" />
+						</event>
+					</target>
+					<target class="ScriptMediator">
+						<event name="Set">
+							<feature name="scriptBody" />
+						</event>						
+					</target>
+					<target class="SpringMediator">
+						<event name="Set">
+							<feature name="beanName" />
+						</event>						
+					</target>
+					<target class="CalloutMediator">
+						<event name="Set">
+							<feature name="serviceURL" />
+							<feature name="resultContextProperty" />
+						</event>						
+					</target>
+					<target class="ThrottleMediator">
+						<event name="Set">
+							<feature name="groupId" />
+						</event>						
+					</target>
+					<target class="ThrottlePolicyEntry">
+						<event name="Set">
+							<feature name="throttleRange" />
+						</event>						
+					</target>
+					<target class="EntitlementMediator">
+						<event name="Set">
+							<feature name="serverURL" />
+							<feature name="username" />
+							<feature name="password" />
+						</event>						
+					</target>
+					<target class="RuleSetCreationProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>						
+					</target>
+					<target class="RuleSessionProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>						
+					</target>
+					<target class="RuleFact">
+						<event name="Set">
+							<feature name="factCustomType" />
+							<feature name="factName" />
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="RuleResult">
+						<event name="Set">
+							<feature name="resultCustomType" />
+							<feature name="resultName" />
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="AbstractSqlExecutorMediator">
+						<event name="Set">
+							<feature name="connectionDbDriver" />
+							<feature name="connectionDsInitialContext" />
+							<feature name="connectionDsName" />
+							<feature name="connectionURL" />
+							<feature name="connectionUsername" />
+							<feature name="connectionPassword" />
+						</event>						
+					</target>
+					<target class="SqlStatement">
+						<event name="Set">
+							<feature name="queryString" />
+						</event>						
+					</target>
+					<target class="SqlParameterDefinition">
+						<event name="Set">
+							<feature name="valueLiteral" />
+						</event>						
+					</target>
+					<target class="SqlResultMapping">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="columnId" />
+						</event>						
+					</target>
+					<target class="ProxyService">
+						<event name="Set">
+							<feature name="name" />
+						</event>						
+					</target>
+					<target class="ProxyEndpointConfiguration">
+						<event name="Set">
+							<feature name="endpointName" />
+						</event>						
+					</target>
+					<target class="AbstractProxySequenceConfiguration">
+						<event name="Set">
+							<feature name="sequenceName" />
+						</event>						
+					</target>
+					<target class="ProxyServiceParameter">
+						<event name="Set">
+							<feature name="name" />
+							<feature name="value" />
+						</event>						
+					</target>
+					<target class="ProxyWsdlConfiguration">
+						<event name="Set">
+							<feature name="wsdlURL" />
+						</event>											
+					</target>
+					<target class="ProxyWsdlResource">
+						<event name="Set">
+							<feature name="location" />
+						</event>											
+					</target>
+					<target class="EndPoint">
+						<event name="Set">
+							<feature name="endpointName" />
+						</event>											
+					</target>
+					<target class="AddressEndPoint">
+						<event name="Set">
+							<feature name="uri" />
+						</event>											
+					</target>
+					<target class="MediatorSequence">
+						<event name="Set">
+							<feature name="sequenceName" />
+						</event>											
+					</target>
+					<target class="WsdlEndPoint">
+						<event name="Set">
+							<feature name="wsdlURI" />
+							<feature name="service" />
+							<feature name="port" />
+						</event>											
+					</target>
+					<target class="DynamicLoadBalanceEndPoint">
+						<event name="Set">
+							<feature name="membershipHandlerClass" />
+						</event>											
+					</target>
+					<target class="DynamicLoadBalanceProperty">
+						<event name="Set">
+							<feature name="propertyName" />
+							<feature name="propertyValue" />
+						</event>											
+					</target>
+					<target class="MessageBuilder">
+						<event name="Set">
+							<feature name="contentType" />
+							<feature name="builderClass" />
+						</event>											
+					</target>
+					<target class="LocalEntry">
+						<event name="Set">
+							<feature name="entryName" />
+							<feature name="valueLiteral" />
+							<feature name="valueURL" />
+						</event>											
+					</target>
+				</constraint>
+				<constraint lang="Java"
+					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
+					severity="ERROR" mode="Batch" name="Mandatory xml string properties"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryXmlStringPropertyConstraint"
+					statusCode="1">
+					<description>
+						Mandatory XML string properties should always contain valid XML strings.
+					</description>
+					<message>
+						This property can only contain valid XML strings.
+					</message>
+					<target class="PropertyMediator">
+						<event name="Set">
+							<feature name="valueOM" />
+						</event>
+					</target>
+					<target class="EnrichMediator">
+						<event name="Set">
+							<feature name="sourceXML" />
+						</event>											
+					</target>
+					<target class="RuleSetConfiguration">
+						<event name="Set">
+							<feature name="sourceCode" />
+						</event>											
+					</target>
+					<target class="ProxyWsdlConfiguration">
+						<event name="Set">
+							<feature name="wsdlXML" />
+						</event>											
+					</target>			
+					<target class="WsdlEndPoint">
+						<event name="Set">
+							<feature name="wsdlXML" />
+						</event>											
+					</target>
+					<target class="LocalEntry">
+						<event name="Set">							
+							<feature name="valueXML" />
+						</event>											
+					</target>															
+				</constraint>
+				<constraint lang="Java"
+					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
+					severity="ERROR" mode="Batch" name="Mandatory namespaced properties"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryNamespacedPropertyConstraint"
+					statusCode="1">
+					<description>
+						Mandatory namespaced properties should not be assigned blank values.
+					</description>
+					<message>
+						This namespaced property is mandatory and should not be left blank.
+					</message>
+					<target class="XPathEndPointReference">
+						<event name="Set">
+							<feature name="endpointXpath" />
+						</event>
+					</target>					
+					<target class="LogProperty">
+						<event name="Set">
+							<feature name="propertyExpression" />
+						</event>
+					</target>		
+					<target class="PropertyMediator">
+						<event name="Set">
+							<feature name="valueExpression" />
+						</event>						
+					</target>
+					<target class="EnrichMediator">
+						<event name="Set">
+							<feature name="sourceXpath" />
+							<feature name="targetXpath" />
+						</event>
+					</target>
+					<target class="FilterMediator">
+						<event name="Set">
+							<feature name="filterXpath" />
+							<feature name="filterSource" />
+						</event>
+					</target>			
+					<target class="SwitchMediator">
+						<event name="Set">
+							<feature name="sourceXpath" />
+						</event>
+					</target>
+					<target class="RouterRoute">
+						<event name="Set">
+							<feature name="routeExpression" />
+						</event>
+					</target>
+					<target class="XSLTProperty">
+						<event name="Set">
+							<feature name="propertyExpression" />
+						</event>
+					</target>
+					<target class="XQueryVariable">
+						<event name="Set">
+							<feature name="valueExpression" />
+						</event>						
+					</target>
+					<target class="HeaderMediator">
+						<event name="Set">
+							<feature name="headerName" />
+							<feature name="valueExpression" />
+						</event>	
+					</target>	
+					<target class="FaultMediator">
+						<event name="Set">
+							<feature name="faultStringExpression" />
+							<feature name="faultReasonExpression" />
+						</event>
+					</target>	
+					<target class="CommandProperty">
+						<event name="Set">
+							<feature name="valueMessageElementXpath" />
+						</event>						
+					</target>
+					<target class="IterateMediator">
+						<event name="Set">
+							<feature name="iterateExpression" />
+						</event>						
+					</target>
+					<target class="AggregateOnCompleteBranch">
+						<event name="Set">
+							<feature name="aggregationExpression" />
+						</event>						
+					</target>	
+					<target class="CalloutMediator">
+						<event name="Set">
+							<feature name="payloadMessageXpath" />
+							<feature name="resultMessageXpath" />
+						</event>						
+					</target>
+					<target class="RMSequenceMediator">
+						<event name="Set">
+							<feature name="correlationXpath" />
+						</event>						
+					</target>
+					<target class="RuleFact">
+						<event name="Set">
+							<feature name="valueExpression" />
+						</event>						
+					</target>	
+					<target class="RuleResult">
+						<event name="Set">
+							<feature name="valueExpression" />
+						</event>						
+					</target>	
+					<target class="SqlParameterDefinition">
+						<event name="Set">
+							<feature name="valueExpression" />
+						</event>						
+					</target>										
+				</constraint>				
+				<constraint lang="Java"
+					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
+					severity="ERROR" mode="Batch" name="Mandatory registry key properties"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryRegistryKeyPropertyConstraint"
+					statusCode="1">
+					<description>
+						Mandatory registry key properties should not be assigned blank values.
+					</description>
+					<message>
+						This registry key property is mandatory and should not be left blank.
+					</message>
+					<target class="EnqueueMediator">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="SequenceMediator">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="RouteTarget">
+						<event name="Set">
+							<feature name="sequenceKey" />
+							<feature name="endpointKey" />
+						</event>
+					</target>
+					<target class="ValidateSchema">
+						<event name="Set">
+							<feature name="schemaKey" />
+						</event>						
+					</target>
+					<target class="XSLTMediator">
+						<event name="Set">
+							<feature name="xsltKey" />
+						</event>						
+					</target>
+					<target class="XSLTResource">
+						<event name="Set">
+							<feature name="key" />
+						</event>						
+					</target>
+					<target class="XQueryMediator">
+						<event name="Set">
+							<feature name="queryKey" />
+						</event>						
+					</target>
+					<target class="ScriptMediator">
+						<event name="Set">
+							<feature name="scriptKey" />
+						</event>						
+					</target>
+					<target class="SpringMediator">
+						<event name="Set">
+							<feature name="configurationKey" />
+						</event>						
+					</target>
+					<target class="CacheOnHitBranch">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="CloneTarget">
+						<event name="Set">
+							<feature name="sequenceKey"/>
+							<feature name="endpointKey"/>
+						</event>
+					</target>	
+					<target class="IterateTarget">
+						<event name="Set">
+							<feature name="sequenceKey" />
+							<feature name="endpointKey" />
+						</event>						
+					</target>
+					<target class="AggregateOnCompleteBranch">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>			
+					<target class="CalloutMediator">
+						<event name="Set">
+							<feature name="payloadRegistryKey" />
+						</event>						
+					</target>
+					<target class="ThrottleOnAcceptBranch">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="ThrottleOnRejectBranch">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="ThrottlePolicyConfiguration">
+						<event name="Set">
+							<feature name="policyKey" />
+						</event>						
+					</target>	
+					<target class="RuleSetConfiguration">
+						<event name="Set">
+							<feature name="sourceKey" />
+						</event>											
+					</target>	
+					<target class="RuleFact">
+						<event name="Set">
+							<feature name="valueKey" />
+						</event>						
+					</target>
+					<target class="RuleResult">
+						<event name="Set">
+							<feature name="valueKey" />
+						</event>						
+					</target>
+					<target class="SmooksMediator">
+						<event name="Set">
+							<feature name="configurationKey" />
+						</event>						
+					</target>
+					<target class="ProxyEndpointConfiguration">
+						<event name="Set">
+							<feature name="endpointKey" />
+						</event>						
+					</target>
+					<target class="AbstractProxySequenceConfiguration">
+						<event name="Set">
+							<feature name="sequenceKey" />
+						</event>						
+					</target>
+					<target class="ProxyServicePolicy">
+						<event name="Set">
+							<feature name="policyKey" />
+						</event>						
+					</target>	
+					<target class="ProxyWsdlConfiguration">
+						<event name="Set">
+							<feature name="wsdlKey" />
+						</event>											
+					</target>
+					<target class="ProxyWsdlResource">
+						<event name="Set">
+							<feature name="key" />
+						</event>											
+					</target>
+					<target class="AbstractEndPoint">
+						<event name="Set">
+							<feature name="reliableMessagingPolicy" />
+							<feature name="securityPolicy" />
+						</event>											
+					</target>																														
+				</constraint>
 			</constraints>
 		</constraintProvider>
 	</extension>

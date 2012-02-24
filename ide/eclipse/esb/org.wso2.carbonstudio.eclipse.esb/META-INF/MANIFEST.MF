@@ -25,4 +25,5 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.wso2.carbonstudio.eclipse.esb.core.preferences.ui,
  org.wso2.carbonstudio.eclipse.esb.core.utils,
  org.wso2.carbonstudio.eclipse.platform.core.mediatype,
- org.wso2.carbonstudio.eclipse.platform.core.utils
+ org.wso2.carbonstudio.eclipse.platform.core.utils,
+ org.wso2.carbonstudio.eclipse.utils.file
