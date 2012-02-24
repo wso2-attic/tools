@@ -617,7 +617,7 @@
 				<constraint lang="Java"
 					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryStringPropertyConstraint"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory string properties should not be assigned blank values.
@@ -890,7 +890,7 @@
 				<constraint lang="Java"
 					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory xml string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryXmlStringPropertyConstraint"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryXmlStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory XML string properties should always contain valid XML strings.
@@ -932,7 +932,7 @@
 				<constraint lang="Java"
 					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory namespaced properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryNamespacedPropertyConstraint"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryNamespacedPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory namespaced properties should not be assigned blank values.
@@ -1044,7 +1044,7 @@
 				<constraint lang="Java"
 					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory registry key properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryRegistryKeyPropertyConstraint"
+					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryRegistryKeyPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory registry key properties should not be assigned blank values.
