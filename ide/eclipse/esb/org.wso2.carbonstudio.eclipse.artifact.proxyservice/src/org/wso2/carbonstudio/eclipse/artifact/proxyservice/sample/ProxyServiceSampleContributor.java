@@ -13,7 +13,7 @@ public class ProxyServiceSampleContributor extends AbstractSampleContributor{
 	static String caption="Stock Quote Proxy Service";
 	static ImageDescriptor image=ProxyServiceImageUtils.getInstance().getImageDescriptor("proxy-sample-16x16.png");
 	static String tooltip="Create a carbon application project containing a proxy service artifact";
-	static String proxySampleProject = "SimpleStockQuoteESBSample";
+	static String proxySampleProject = "SimpleStockQuoteSample";
 	static ImageDescriptor wizardImage = ProxyServiceImageUtils.getInstance().getImageDescriptor("proxy-service-wizard.png");
 	static String resourceRelativePath = "src/main/synapse-config/proxy-services/StockQuoteProxy.xml";
 	
