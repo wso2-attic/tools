@@ -65,7 +65,7 @@
             class="org.wso2.carbonstudio.eclipse.artifact.gadget.sample.GadgetSampleContributor"
             id="org.wso2.carbonstudio.eclipse.capp.artifact.gadget.sample"
             isCustomCreateSample="false"
-            sampleProjectName="AcmeProductGadget">
+            sampleProjectName="AcmeProductGadgetProject">
       </sample>
    </extension>
 </plugin>
