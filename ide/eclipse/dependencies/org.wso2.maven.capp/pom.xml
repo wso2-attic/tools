@@ -18,7 +18,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wso2.maven</groupId>
 	<artifactId>org.wso2.maven.capp</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<packaging>jar</packaging>
 
 	<name>CApp Maven</name>
@@ -26,12 +26,12 @@
 	<description>Library to work with CApp artifacts</description>
 	<build>
 		<extensions>
-		      <extension>
-			<groupId>org.apache.maven.wagon</groupId>
-			<artifactId>wagon-ssh</artifactId>
-			<version>1.0-beta-6</version>
-		      </extension>
-    		</extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>1.0-beta-6</version>
+      </extension>
+    </extensions>  
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -1,7 +1,10 @@
 <projectDescription>
   <name>org.wso2.maven.registry</name>
   <comment>Library to work with CApp artifacts. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects/>
+  <projects>
+    <project>org.wso2.maven.core</project>
+    <project>org.wso2.maven.utils</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

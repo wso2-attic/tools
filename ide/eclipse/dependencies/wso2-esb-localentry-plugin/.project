@@ -2,8 +2,8 @@
   <name>wso2-esb-localentry-plugin</name>
   <comment>Maven plugin which creates and builds Local Entry artifacts. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>org.wso2.maven.capp</project>
     <project>org.wso2.maven.core</project>
+    <project>org.wso2.maven.esb</project>
     <project>org.wso2.maven.utils</project>
   </projects>
   <buildSpec>
