@@ -19,55 +19,55 @@ package org.wso2.carbonstudio.eclipse.artifact.registry.handler.project.export;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
 
+import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IClassFile;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.osgi.storagemanager.StorageManager;
 import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.carbonstudio.eclipse.platform.core.manifest.BundleManifest;
 import org.wso2.carbonstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.carbonstudio.eclipse.utils.file.TempFileUtils;
 
 public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
+	private static final String ACTIVATOR_FQN= "org.osgi.framework.BundleActivator";
 
 	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
 		List<String> exportedPackageList = new ArrayList<String>();
-		String activatorClass=null; 
+		String activatorClass=new String(); 
+		String existingActivatorClass= new String();
 
 			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
-			NullProgressMonitor nullProgressMonitor = new NullProgressMonitor();
 
 			//getting maven details
 			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
 					.getLocation().toFile());
 
-			// First compile the code
-			project.build(IncrementalProjectBuilder.FULL_BUILD, nullProgressMonitor);
-
 			// Get the output location
 			IJavaProject javaProject = JavaCore.create(project);
-			IPath outPutPath = ResourcesPlugin.getWorkspace().getRoot().getFolder(
-					javaProject.getOutputLocation()).getLocation();
+			//IPath outPutPath = ResourcesPlugin.getWorkspace().getRoot().getFolder(
+			//		javaProject.getOutputLocation()).getLocation();
+			clearTarget(project);
+			IPath outPutPath = buildJavaProject(project);
 
 			// get resource location
-			IPath resources = project.getFolder(
-					"src" + File.separator + "main" + File.separator + "resources").getLocation();
+			IPath resources = getResourcePath(project);
 
 			// getting export packages
 			for (IPackageFragment pkg : javaProject.getPackageFragments()) {
@@ -87,24 +87,60 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 					}
 				}
 			}
+			 
+	        File tempProject = createTempProject();
 
-			IProject tempProject = ResourcesPlugin.getWorkspace().getRoot().getProject(
-					".temp" + System.currentTimeMillis());
-			tempProject.create(nullProgressMonitor);
-			tempProject.open(nullProgressMonitor);
-			tempProject.setHidden(true);
+			File bundleResources =createTempDir(tempProject,"bundle_resources");
+			
+		if (exportedPackageList.size() > 0) {
+			FileUtils.copyDirectoryContents(outPutPath.toFile(), bundleResources); // copy
+																				   // binaries
+		}
 
-			org.eclipse.osgi.storagemanager.StorageManager manager = new StorageManager(tempProject
-					.getLocation().toFile(), "false");
-
-			File bundleResources = manager.createTempFile("bundle_resources");
-			bundleResources.delete();
-			bundleResources.mkdir();
-
-			FileUtils.copyDirectoryContents(outPutPath.toFile(), bundleResources); // copy binaries
 			if (resources.toFile().exists()) {
 				FileUtils.copyDirectoryContents(resources.toFile(), bundleResources); // copy resources
 			}
+			
+		@SuppressWarnings("unchecked")
+		List<Dependency> dependencies = mavenProject.getDependencies();
+		Iterator<Dependency> iterator = dependencies.iterator();
+		while (iterator.hasNext()) {
+			Dependency dependency = iterator.next();
+			if ("system".equals(dependency.getScope())) {
+				String systemPath = dependency.getSystemPath();
+				if (systemPath != null && !systemPath.trim().isEmpty()) {
+					systemPath = systemPath.replaceAll("^".concat(Pattern.quote("${basedir}/")), "");
+					IFile jarFile = project.getFile(systemPath);
+					if (jarFile.exists()) {
+						archiveManipulator.extract(jarFile.getLocation().toFile(), bundleResources);
+						// getting export packages
+						IPackageFragmentRoot rootPkg = JavaCore.createJarPackageFragmentRootFrom(jarFile);
+
+						for (IJavaElement item : rootPkg.getChildren()) {
+							if (item instanceof IPackageFragment) {
+								IPackageFragment pkg = (IPackageFragment) item;
+								if (pkg.hasChildren()) {
+									exportedPackageList.add(pkg.getElementName());
+									for (IClassFile clazz : pkg.getClassFiles()) {
+										IType type = clazz.getType();
+										if (type.getSuperInterfaceNames().length > 0 &&
+										    Arrays.asList(type.getSuperInterfaceNames())
+										          .contains(ACTIVATOR_FQN)) {
+											existingActivatorClass = type.getFullyQualifiedName();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+			
+		if (activatorClass.trim().isEmpty()) {
+			activatorClass = existingActivatorClass;
+		}
 
 			/* writing manifest */
 			BundleManifest manifest = new BundleManifest();
@@ -130,20 +166,15 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 			File manifestFile = new File(metaInfDir, "MANIFEST.MF");
 			FileUtils.createFile(manifestFile, manifest.toString());
 
-			File tmpArchive = new File(tempProject.getLocation().toFile(), project.getName()
+			File tmpArchive = new File(tempProject, project.getName()
 					.concat(".jar"));
 			archiveManipulator.archiveDir(tmpArchive.toString(), bundleResources.toString());
-			IFolder binaries = project.getFolder("target");
-			if (!binaries.exists()) {
-				binaries.create(true, false, nullProgressMonitor);
-				binaries.setHidden(true);
-			}
-			IFile bundleArchive = project.getFile("target/" + project.getName().concat(".jar"));
+			
+			IFile bundleArchive = getTargetArchive(project,"jar");
 			FileUtils.copy(tmpArchive, bundleArchive.getLocation().toFile());
 			exportResources.add((IResource) bundleArchive);
 
-			// cleaning temp project
-			tempProject.delete(true, nullProgressMonitor);
+			TempFileUtils.cleanUp();
 
 		return exportResources;
 
