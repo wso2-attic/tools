@@ -50,56 +50,56 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
 		List<String> exportedPackageList = new ArrayList<String>();
-		String activatorClass=new String(); 
-		String existingActivatorClass= new String();
+		String activatorClass = new String();
+		String existingActivatorClass = new String();
 
-			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
+		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 
-			//getting maven details
-			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
-					.getLocation().toFile());
+		// getting maven details
+		MavenProject mavenProject =  MavenUtils.getMavenProject(project.getFile("pom.xml")
+		                                                              .getLocation().toFile());
 
-			// Get the output location
-			IJavaProject javaProject = JavaCore.create(project);
-			//IPath outPutPath = ResourcesPlugin.getWorkspace().getRoot().getFolder(
-			//		javaProject.getOutputLocation()).getLocation();
-			clearTarget(project);
-			IPath outPutPath = buildJavaProject(project);
+		// Get the output location
+		IJavaProject javaProject = JavaCore.create(project);
 
-			// get resource location
-			IPath resources = getResourcePath(project);
+		clearTarget(project);
+		IPath outPutPath = buildJavaProject(project);
 
-			// getting export packages
-			for (IPackageFragment pkg : javaProject.getPackageFragments()) {
-				if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
-					if (pkg.hasChildren()) {
-						exportedPackageList.add(pkg.getElementName());
-						 for (ICompilationUnit compilationUnit : pkg.getCompilationUnits()) {
-							  IType[] types = compilationUnit.getTypes();
-							  for(IType type: types){
-								if (type.getSuperInterfaceNames().length > 0
-										&& Arrays.asList(type.getSuperInterfaceNames())
-												.contains("BundleActivator")) {
-									activatorClass = type.getFullyQualifiedName();
-								}
-							 }
-						 }
+		// get resource location
+		IPath resources = getResourcePath(project);
+
+		// getting export packages
+		for (IPackageFragment pkg : javaProject.getPackageFragments()) {
+			if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
+				if (pkg.hasChildren()) {
+					exportedPackageList.add(pkg.getElementName());
+					for (ICompilationUnit compilationUnit : pkg.getCompilationUnits()) {
+						IType[] types = compilationUnit.getTypes();
+						for (IType type : types) {
+							if (type.getSuperInterfaceNames().length > 0 &&
+							    Arrays.asList(type.getSuperInterfaceNames())
+							          .contains("BundleActivator")) {
+								activatorClass = type.getFullyQualifiedName();
+							}
+						}
 					}
 				}
 			}
-			 
-	        File tempProject = createTempProject();
-
-			File bundleResources =createTempDir(tempProject,"bundle_resources");
-			
-		if (exportedPackageList.size() > 0) {
-			FileUtils.copyDirectoryContents(outPutPath.toFile(), bundleResources); // copy
-																				   // binaries
 		}
 
-			if (resources.toFile().exists()) {
-				FileUtils.copyDirectoryContents(resources.toFile(), bundleResources); // copy resources
-			}
+		File tempProject = createTempProject();
+
+		File bundleResources = createTempDir(tempProject, "bundle_resources");
+
+		if (exportedPackageList.size() > 0) {
+			FileUtils.copyDirectoryContents(outPutPath.toFile(), bundleResources); // copy
+			                                                                       // binaries
+		}
+
+		if (resources.toFile().exists()) {
+			FileUtils.copyDirectoryContents(resources.toFile(), bundleResources); // copy
+																				  // resources
+		}
 			
 		@SuppressWarnings("unchecked")
 		List<Dependency> dependencies = mavenProject.getDependencies();
@@ -142,39 +142,38 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 			activatorClass = existingActivatorClass;
 		}
 
-			/* writing manifest */
-			BundleManifest manifest = new BundleManifest();
-			manifest.setBundleName(project.getName());
-			manifest.setBundleSymbolicName(project.getName());
-			if (null != mavenProject.getModel().getDescription()
-					&& !"".equals(mavenProject.getModel().getDescription())) {
-				manifest.setBundleDescription(mavenProject.getModel().getDescription());
-			} else {
-				manifest.setBundleDescription(project.getName());
-			}
-			if (null != mavenProject.getModel().getVersion()
-					&& !"".equals(mavenProject.getDescription())) {
-				manifest.setBundleVersion(mavenProject.getModel().getVersion());
-			} else {
-				manifest.setBundleVersion("1.0.0");
-			}
-			manifest.setBundleActivatorName(activatorClass);
-			manifest.setExportPackagesList(exportedPackageList);
-			File metaInfDir = new File(bundleResources, "META-INF");
-			if (!metaInfDir.exists())
-				metaInfDir.mkdir();
-			File manifestFile = new File(metaInfDir, "MANIFEST.MF");
-			FileUtils.createFile(manifestFile, manifest.toString());
+		/* writing manifest */
+		BundleManifest manifest = new BundleManifest();
+		manifest.setBundleName(project.getName());
+		manifest.setBundleSymbolicName(project.getName());
+		if (null != mavenProject.getModel().getDescription() &&
+		    !"".equals(mavenProject.getModel().getDescription())) {
+			manifest.setBundleDescription(mavenProject.getModel().getDescription());
+		} else {
+			manifest.setBundleDescription(project.getName());
+		}
+		if (null != mavenProject.getModel().getVersion() &&
+		    !"".equals(mavenProject.getDescription())) {
+			manifest.setBundleVersion(mavenProject.getModel().getVersion());
+		} else {
+			manifest.setBundleVersion("1.0.0");
+		}
+		manifest.setBundleActivatorName(activatorClass);
+		manifest.setExportPackagesList(exportedPackageList);
+		File metaInfDir = new File(bundleResources, "META-INF");
+		if (!metaInfDir.exists())
+			metaInfDir.mkdir();
+		File manifestFile = new File(metaInfDir, "MANIFEST.MF");
+		FileUtils.createFile(manifestFile, manifest.toString());
 
-			File tmpArchive = new File(tempProject, project.getName()
-					.concat(".jar"));
-			archiveManipulator.archiveDir(tmpArchive.toString(), bundleResources.toString());
-			
-			IFile bundleArchive = getTargetArchive(project,"jar");
-			FileUtils.copy(tmpArchive, bundleArchive.getLocation().toFile());
-			exportResources.add((IResource) bundleArchive);
+		File tmpArchive = new File(tempProject, project.getName().concat(".jar"));
+		archiveManipulator.archiveDir(tmpArchive.toString(), bundleResources.toString());
 
-			TempFileUtils.cleanUp();
+		IFile bundleArchive = getTargetArchive(project, "jar");
+		FileUtils.copy(tmpArchive, bundleArchive.getLocation().toFile());
+		exportResources.add((IResource) bundleArchive);
+
+		TempFileUtils.cleanUp();
 
 		return exportResources;
 
