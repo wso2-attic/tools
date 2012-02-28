@@ -26,8 +26,10 @@ public class Constants extends NLS{
 	public static String DEPENDENCY_DELIMITER;
 	public static String OPT_NEW_HANDLER_CLASS;
 	public static String OPT_IMPORT_HANDLER_CLASS_FROM_WS;
+	public static String OPT_IMPORT_HANDLER_CLASS_FROM_FS;
 	public static String NEW_HANDLER_CLASS_TEXT;
-	public static String IMPORT_HANDLER_CLASS_FROM_WS_TEXT;	
+	public static String IMPORT_HANDLER_CLASS_FROM_WS_TEXT;
+	public static String IMPORT_HANDLER_CLASS_FROM_FS_TEXT;
 	public static String HANDLER_PROJECT_NAME;
 	public static String FROM_EXISTING_FILTER_CLASS;
 	public static String NEW_FILTER_CLASS;

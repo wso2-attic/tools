@@ -19,6 +19,7 @@ package org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -37,7 +38,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -53,6 +57,7 @@ import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.F
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.HandlerMethodsInfoPage;
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.ImportFilterClassWizardPage;
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.ImportHandlerClassWizardPage;
+import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.ImportHandlerJarWizardPage;
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.NewFilterClassWizardPage;
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.ui.wizard.pages.NewHandlerClassWizardPage;
 import org.wso2.carbonstudio.eclipse.artifact.registry.handler.util.Constants;
@@ -67,22 +72,24 @@ import org.wso2.carbonstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 import org.wso2.carbonstudio.eclipse.utils.jdt.JavaLibraryBean;
 import org.wso2.carbonstudio.eclipse.utils.jdt.JavaLibraryUtil;
 import org.wso2.carbonstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.carbonstudio.eclipse.utils.jdt.JavaUtils.WSO2JavaMethod;
 import org.wso2.carbonstudio.eclipse.utils.project.ProjectUtils;
-import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
 
 public class RegistryHandlerCreationWizard extends
 		AbstractWSO2ProjectCreationWizard {
 	
+	private static final String ACTIVATOR_FQN= "org.osgi.framework.BundleActivator";
 	private NewHandlerClassWizardPage newHandlerClassWizardPage;
 	private ImportHandlerClassWizardPage importHandlerClassWizardPage;
 	private NewFilterClassWizardPage newFilterClassWizardPage;
 	private ImportFilterClassWizardPage importFilterClassWizardPage;
 	private HandlerMethodsInfoPage handlerMethodsInfoPage;
 	private FilterCreationOptionsWizardPage filterCreationOptionsWizardPage;
+	private ImportHandlerJarWizardPage importHandlerJarWizardPage;
 	private IWizardPage[] pages;
 	private RegistryHandlerModel regModel;
 	private IProject project;
@@ -129,168 +136,221 @@ public class RegistryHandlerCreationWizard extends
 
 	public boolean performFinish() {
 		try {
-			project = createNewProject();
-			sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
-			javaProject = JavaCore.create(project);
-			root = javaProject.getPackageFragmentRoot(sourceFolder);
-			JavaUtils.addJavaSupportAndSourceFolder(project, sourceFolder);
-			
-			
-			handlerSelectedMethod =  regModel.getHandlerClassSeletionMethod();
-			if(handlerSelectedMethod.equals(Constants.NEW_HANDLER_CLASS_TEXT)){
-				handlerClass = newHandlerClassWizardPage.getClassName();
-				handlerPackageName = newHandlerClassWizardPage.getPackageName();
-				fullyQualifiedHandlerClassName = handlerPackageName + "." + handlerClass;
-			}else if(handlerSelectedMethod.equals(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT)){
-				fullyQualifiedHandlerClassName = importHandlerClassWizardPage.getHandlerClassName();
-				importHandlerFromWs=true;
-				importHandlerProject = getKeyByValue(regModel.getImportHandlerList(), fullyQualifiedHandlerClassName);
-			}
-			
-			addDependancies(project);
-			
-			selectedHandlerMethods = handlerMethodsInfoPage.getSelectedMethods();
-			handlerProperties = handlerMethodsInfoPage.getHandlerPropertyMap();
-			
-			filterClassSelectedMethod = filterCreationOptionsWizardPage.getFilterClassCreationMethod();
-			
-			if(filterClassSelectedMethod.equals(Constants.NEW_FILTER_CLASS)){
-				filterClass = newFilterClassWizardPage.getClassName();
-				filterPackageName = newFilterClassWizardPage.getPackageName();
-				fullyQualifiedFilterClassName = filterPackageName + "." + filterClass;
-				filterProperties = newFilterClassWizardPage.getFilterMap();
-			}else if(filterClassSelectedMethod.equals(Constants.FROM_EXISTING_FILTER_CLASS)){
-				fullyQualifiedFilterClassName = importFilterClassWizardPage.getClassName();
-				filterProperties = importFilterClassWizardPage.getFilterMap();
-			}
-			
-			HandlerInfo handlerInfo = new HandlerInfo();
-			handlerInfo.setHandlerClass(fullyQualifiedHandlerClassName);
-			handlerInfo.setFilterClass(fullyQualifiedFilterClassName);
-			handlerInfo.setSelectedMethods(selectedHandlerMethods);
-			
-			Map<String, PropertyData> propertyMap = handlerProperties;
-			for (String propertyName : propertyMap.keySet()) {
-				PropertyData propertyData = propertyMap.get(propertyName);
-				handlerInfo.addHandlerProperty(propertyName, propertyData.type, propertyData.data);
-			}
-			propertyMap = filterProperties;
-			for (String propertyName : propertyMap.keySet()) {
-				PropertyData propertyData = propertyMap.get(propertyName);
-				handlerInfo.addFilterProperty(propertyName, propertyData.type, propertyData.data);
-			}
-			
-			if(handlerPackageName != null){
-				handlerSourcePackage = root.createPackageFragment(handlerPackageName, false, null);
-				handlerSourcePackage.createCompilationUnit(handlerClass +".java",JavaCodeFormatter.format(getHandlerClassSource(handlerPackageName,handlerClass),javaProject), false, null);
-
-			}
-			if(filterPackageName != null){
-				filterSourcePackage = root.createPackageFragment(filterPackageName, false, null);
-				filterSourcePackage.createCompilationUnit(filterClass +".java", JavaCodeFormatter.format(getFilterClassSource(filterPackageName, filterClass),javaProject), false, null);
-			}
-
-
-			project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
-			
-			File pomfile = project.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("bundle");
-			if (!pomfile.exists()) {
-				createPOM(pomfile);
-			}
-			ProjectUtils.addNatureToProject(project,
-			                                false,
-			                                Constants.REGISTRY_HANDLER_PROJECT_NATURE);
-			
-			
-			IType javaITypeForClass = null;
-			propertyMap = handlerInfo.getHandlerProperties();
-			String projectName = regModel.getProjectName();
-			if (projectName != null && !projectName.equalsIgnoreCase("")) {
-				javaITypeForClass = JavaUtils.getJavaITypeForClass(
-						JavaCore.create(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)),
-						handlerInfo.getHandlerClass());
-				if (javaITypeForClass != null) {
-					for (String propertyName : propertyMap.keySet()) {
-						PropertyData propertyData = propertyMap.get(propertyName);
-						WSO2JavaMethod method = new WSO2JavaMethod();
-						method.setModifier("public");
-						method.setReturnType(null);
-						method.setElementName(JavaUtils.getSetMethod(propertyName));
-						propertyName = propertyName.matches("^\\d+") ? ("var" + propertyName) : propertyName;
-						method.addParameter(propertyName + "Value", propertyData.type == DataType.STRING ? "String"
-								: "org.apache.axiom.om.OMElement");
-						method.addMethodCode("//TODO add property set code");
-						JavaUtils.addMethod(javaITypeForClass, method);
+				project = createNewProject();
+				sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
+				javaProject = JavaCore.create(project);
+				root = javaProject.getPackageFragmentRoot(sourceFolder);
+				JavaUtils.addJavaSupportAndSourceFolder(project, sourceFolder);
+//				IFolder resourcesDir = ProjectUtils.getWorkspaceFolder(project, "src", "main", "resources");
+//				if(!resourcesDir.exists()){
+//					resourcesDir.create(false, true, null);
+//				}
+				javaProject = JavaCore.create(project);
+				boolean isImportJar = regModel.getHandlerClassSeletionMethod().equals(Constants.IMPORT_HANDLER_CLASS_FROM_FS_TEXT);
+				
+				if(isImportJar){
+					IFile distFile = project.getFile(regModel.getExternalJar().getName());
+					FileUtils.copy(regModel.getExternalJar(), distFile.getLocation().toFile());
+					IClasspathEntry prjEntry = JavaCore.newLibraryEntry(distFile.getLocation(), null, null);
+					IClasspathEntry[] classPath = javaProject.getRawClasspath();
+					int classPathCount = classPath.length;
+					IClasspathEntry[] newClassPath =  new IClasspathEntry[classPathCount+1];
+					System.arraycopy(classPath, 0, newClassPath, 0, classPathCount);
+					newClassPath[classPathCount] = prjEntry;
+					javaProject.setRawClasspath(newClassPath, null);
+					File pomfile = project.getFile("pom.xml").getLocation().toFile();
+					getModel().getMavenInfo().setPackageName("bundle");
+					if (!pomfile.exists()) {
+						createPOM(pomfile);
 					}
+					ProjectUtils.addNatureToProject(project, false, Constants.REGISTRY_HANDLER_PROJECT_NATURE);
+					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+					updatePom(project);
+					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				} else{
+					addDependancies(project);
+					generateHandler();
 				}
-			}
+			
+				
+        } catch (Exception e) {
+        	MessageDialog.openError(getShell(), "Registry Handler Artifact",
+        	    					"Unable to create registry handler project: " + ((e.getMessage()!=null)?e.getMessage():""));
+        }
 
-			javaITypeForClass = null;
-			propertyMap = handlerInfo.getFilterProperties();
-//			projectName = regModel.getProjectName();
-			if(!handlerInfo.getFilterClass().equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher") 
-					&& !handlerInfo.getFilterClass().equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher")){
-//			if (projectName != null && !projectName.equalsIgnoreCase("")) {
-				javaITypeForClass = JavaUtils.getJavaITypeForClass(
-						JavaCore.create(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)),
-						handlerInfo.getFilterClass());
-				if (javaITypeForClass != null) {
-					for (String propertyName : propertyMap.keySet()) {
-						PropertyData propertyData = propertyMap.get(propertyName);
-						WSO2JavaMethod method = new WSO2JavaMethod();
-						method.setModifier("public");
-						method.setReturnType(null);
-						method.setElementName(JavaUtils.getSetMethod(propertyName));
-						method.addParameter(propertyName + "Value", propertyData.type == DataType.STRING ? "String"
-								: "org.apache.axiom.om.OMElement");
-						method.addMethodCode("//TODO add property set code");
-						JavaUtils.addMethod(javaITypeForClass, method);
-					}
-				}
-			}
-
-			javaITypeForClass = null;
-			projectName = regModel.getProjectName();
-			if (projectName != null && !projectName.equalsIgnoreCase("")) {
-				javaITypeForClass = JavaUtils.getJavaITypeForClass(
-						JavaCore.create(ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)),
-						handlerInfo.getHandlerClass());
-				if (javaITypeForClass != null) {
-
-					if (!handlerInfo.getSelectedMethods().isEmpty()) {
-						javaITypeForClass.getCompilationUnit().createImport(
-								"org.wso2.carbon.registry.core.exceptions.RegistryException", null,
-								new NullProgressMonitor());
-						javaITypeForClass.getCompilationUnit().createImport(
-								"org.wso2.carbon.registry.core.jdbc.handlers.RequestContext", null,
-								new NullProgressMonitor());
-					}
-					for (String selectedMethod : handlerInfo.getSelectedMethods()) {
-						overrideMethods(selectedMethod, javaITypeForClass);
-					}
-				}
-			}
-			
-			createRegInfo(project, handlerInfo);
-			IFolder handlerActivatorPackage = createSourceLocationForActivator(project);
-			RegistryHandlerUtils.getActivatorJavaClass(handlerActivatorPackage.getLocation().toFile(), handlerInfo);
-			updatePom(project, handlerInfo);
-			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
-			try {
-				IFile openFile  = project.getFile("registry-handler-info.xml");
-				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),openFile);
-			} catch (Exception e) { /* ignore */}
-			
-			
-		} catch (Exception e) {
-			MessageDialog.openError(getShell(), "Registry Handler Artifact",
-					"Unable to successfully add property set methods to the classes: " + e.getMessage());
-		}
-		
-		
 		return true;
+	}
+	
+	private void generateHandler() throws Exception {
+		handlerSelectedMethod = regModel.getHandlerClassSeletionMethod();
+		if (handlerSelectedMethod.equals(Constants.NEW_HANDLER_CLASS_TEXT)) {
+			handlerClass = newHandlerClassWizardPage.getClassName();
+			handlerPackageName = newHandlerClassWizardPage.getPackageName();
+			fullyQualifiedHandlerClassName = handlerPackageName + "." + handlerClass;
+		} else if (handlerSelectedMethod.equals(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT)) {
+			fullyQualifiedHandlerClassName = importHandlerClassWizardPage.getHandlerClassName();
+			importHandlerFromWs = true;
+			importHandlerProject =
+			                       getKeyByValue(regModel.getImportHandlerList(),
+			                                     fullyQualifiedHandlerClassName);
+		}
+
+		selectedHandlerMethods = handlerMethodsInfoPage.getSelectedMethods();
+		handlerProperties = handlerMethodsInfoPage.getHandlerPropertyMap();
+
+		filterClassSelectedMethod = filterCreationOptionsWizardPage.getFilterClassCreationMethod();
+
+		if (filterClassSelectedMethod.equals(Constants.NEW_FILTER_CLASS)) {
+			filterClass = newFilterClassWizardPage.getClassName();
+			filterPackageName = newFilterClassWizardPage.getPackageName();
+			fullyQualifiedFilterClassName = filterPackageName + "." + filterClass;
+			filterProperties = newFilterClassWizardPage.getFilterMap();
+		} else if (filterClassSelectedMethod.equals(Constants.FROM_EXISTING_FILTER_CLASS)) {
+			fullyQualifiedFilterClassName = importFilterClassWizardPage.getClassName();
+			filterProperties = importFilterClassWizardPage.getFilterMap();
+		}
+
+		HandlerInfo handlerInfo = new HandlerInfo();
+		handlerInfo.setHandlerClass(fullyQualifiedHandlerClassName);
+		handlerInfo.setFilterClass(fullyQualifiedFilterClassName);
+		handlerInfo.setSelectedMethods(selectedHandlerMethods);
+
+		Map<String, PropertyData> propertyMap = handlerProperties;
+		for (String propertyName : propertyMap.keySet()) {
+			PropertyData propertyData = propertyMap.get(propertyName);
+			handlerInfo.addHandlerProperty(propertyName, propertyData.type, propertyData.data);
+		}
+		propertyMap = filterProperties;
+		for (String propertyName : propertyMap.keySet()) {
+			PropertyData propertyData = propertyMap.get(propertyName);
+			handlerInfo.addFilterProperty(propertyName, propertyData.type, propertyData.data);
+		}
+
+		if (handlerPackageName != null) {
+			handlerSourcePackage = root.createPackageFragment(handlerPackageName, false, null);
+			handlerSourcePackage.createCompilationUnit(handlerClass + ".java",
+			                                           JavaCodeFormatter.format(getHandlerClassSource(handlerPackageName,
+			                                                                                          handlerClass),
+			                                                                    javaProject),
+			                                           false, null);
+
+		}
+		if (filterPackageName != null) {
+			filterSourcePackage = root.createPackageFragment(filterPackageName, false, null);
+			filterSourcePackage.createCompilationUnit(filterClass + ".java",
+			                                          JavaCodeFormatter.format(getFilterClassSource(filterPackageName,
+			                                                                                        filterClass),
+			                                                                   javaProject), false,
+			                                          null);
+		}
+
+		IType javaITypeForClass = null;
+		propertyMap = handlerInfo.getHandlerProperties();
+		String projectName = regModel.getProjectName();
+		if (projectName != null && !projectName.equalsIgnoreCase("")) {
+			javaITypeForClass =
+			                    JavaUtils.getJavaITypeForClass(JavaCore.create(ResourcesPlugin.getWorkspace()
+			                                                                                  .getRoot()
+			                                                                                  .getProject(projectName)),
+			                                                   handlerInfo.getHandlerClass());
+			if (javaITypeForClass != null) {
+				for (String propertyName : propertyMap.keySet()) {
+					PropertyData propertyData = propertyMap.get(propertyName);
+					WSO2JavaMethod method = new WSO2JavaMethod();
+					method.setModifier("public");
+					method.setReturnType(null);
+					method.setElementName(JavaUtils.getSetMethod(propertyName));
+					propertyName =
+					               propertyName.matches("^\\d+") ? ("var" + propertyName)
+					                                            : propertyName;
+					method.addParameter(propertyName + "Value",
+					                    propertyData.type == DataType.STRING
+					                                                        ? "String"
+					                                                        : "org.apache.axiom.om.OMElement");
+					method.addMethodCode("//TODO add property set code");
+					JavaUtils.addMethod(javaITypeForClass, method);
+				}
+			}
+		}
+
+		javaITypeForClass = null;
+		propertyMap = handlerInfo.getFilterProperties();
+		// projectName = regModel.getProjectName();
+		if (!handlerInfo.getFilterClass()
+		                .equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher") &&
+		    !handlerInfo.getFilterClass()
+		                .equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher")) {
+			// if (projectName != null && !projectName.equalsIgnoreCase("")) {
+			javaITypeForClass =
+			                    JavaUtils.getJavaITypeForClass(JavaCore.create(ResourcesPlugin.getWorkspace()
+			                                                                                  .getRoot()
+			                                                                                  .getProject(projectName)),
+			                                                   handlerInfo.getFilterClass());
+			if (javaITypeForClass != null) {
+				for (String propertyName : propertyMap.keySet()) {
+					PropertyData propertyData = propertyMap.get(propertyName);
+					WSO2JavaMethod method = new WSO2JavaMethod();
+					method.setModifier("public");
+					method.setReturnType(null);
+					method.setElementName(JavaUtils.getSetMethod(propertyName));
+					method.addParameter(propertyName + "Value",
+					                    propertyData.type == DataType.STRING
+					                                                        ? "String"
+					                                                        : "org.apache.axiom.om.OMElement");
+					method.addMethodCode("//TODO add property set code");
+					JavaUtils.addMethod(javaITypeForClass, method);
+				}
+			}
+		}
+
+		javaITypeForClass = null;
+		projectName = regModel.getProjectName();
+		if (projectName != null && !projectName.equalsIgnoreCase("")) {
+			javaITypeForClass =
+			                    JavaUtils.getJavaITypeForClass(JavaCore.create(ResourcesPlugin.getWorkspace()
+			                                                                                  .getRoot()
+			                                                                                  .getProject(projectName)),
+			                                                   handlerInfo.getHandlerClass());
+			if (javaITypeForClass != null) {
+
+				if (!handlerInfo.getSelectedMethods().isEmpty()) {
+					javaITypeForClass.getCompilationUnit()
+					                 .createImport("org.wso2.carbon.registry.core.exceptions.RegistryException",
+					                               null, new NullProgressMonitor());
+					javaITypeForClass.getCompilationUnit()
+					                 .createImport("org.wso2.carbon.registry.core.jdbc.handlers.RequestContext",
+					                               null, new NullProgressMonitor());
+				}
+				for (String selectedMethod : handlerInfo.getSelectedMethods()) {
+					overrideMethods(selectedMethod, javaITypeForClass);
+				}
+			}
+		}
+
+		createRegInfo(project, handlerInfo);
+		IFolder handlerActivatorPackage = createSourceLocationForActivator(project);
+		RegistryHandlerUtils.getActivatorJavaClass(handlerActivatorPackage.getLocation().toFile(),
+		                                           handlerInfo);
+
+		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+		File pomfile = project.getFile("pom.xml").getLocation().toFile();
+		getModel().getMavenInfo().setPackageName("bundle");
+		if (!pomfile.exists()) {
+			createPOM(pomfile);
+		}
+		ProjectUtils.addNatureToProject(project, false, Constants.REGISTRY_HANDLER_PROJECT_NATURE);
+
+		updatePom(project, handlerInfo);
+		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+		try {
+			IFile openFile = project.getFile("registry-handler-info.xml");
+			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
+			               openFile);
+		} catch (Exception e) { /* ignore */
+		}
+
 	}
 	
 	public IFolder createSourceLocationForActivator(IProject project) throws JavaModelException, CoreException{
@@ -417,6 +477,7 @@ public class RegistryHandlerCreationWizard extends
 		filterCreationOptionsWizardPage = new FilterCreationOptionsWizardPage("Filter Class Creation Methods");
 		newFilterClassWizardPage = new NewFilterClassWizardPage("New Filter Class", filterCreationOptionsWizardPage);
 		importFilterClassWizardPage = new ImportFilterClassWizardPage("Import Filter Class");
+		importHandlerJarWizardPage = new ImportHandlerJarWizardPage("Import Handler from File System", regModel);
 		
 		super.addPages();
 		addPage(newHandlerClassWizardPage);
@@ -425,6 +486,7 @@ public class RegistryHandlerCreationWizard extends
 		addPage(filterCreationOptionsWizardPage);
 		addPage(importFilterClassWizardPage);
 		addPage(newFilterClassWizardPage);
+		addPage(importHandlerJarWizardPage);
 		
 		pages = getPages();
 		
@@ -437,7 +499,10 @@ public class RegistryHandlerCreationWizard extends
 		if (page instanceof ProjectOptionsDataPage) {
 			if(regModel.getHandlerClassSeletionMethod().equals(Constants.NEW_HANDLER_CLASS_TEXT)){
 				nextPage = newHandlerClassWizardPage;
-			}else{
+			}else if(regModel.getHandlerClassSeletionMethod().equals(Constants.IMPORT_HANDLER_CLASS_FROM_FS_TEXT)){
+				nextPage = importHandlerJarWizardPage;
+			}
+			else{
 				nextPage = importHandlerClassWizardPage;
 			}
 		}else if(page instanceof NewHandlerClassWizardPage || page instanceof ImportHandlerClassWizardPage){
@@ -451,7 +516,7 @@ public class RegistryHandlerCreationWizard extends
 				nextPage = newFilterClassWizardPage;
 			}
 			
-		}else if(page instanceof ImportFilterClassWizardPage || page instanceof NewFilterClassWizardPage){
+		}else if(page instanceof ImportFilterClassWizardPage || page instanceof NewFilterClassWizardPage|| page instanceof ImportHandlerJarWizardPage){
 			nextPage = pages[1];
 		}else if(page instanceof MavenDetailsPage ){
 				nextPage=null;
@@ -465,6 +530,8 @@ public class RegistryHandlerCreationWizard extends
 		if (page instanceof MavenDetailsPage) {
 			if(filterCreationOptionsWizardPage.getFilterClassCreationMethod().equals(Constants.FROM_EXISTING_FILTER_CLASS)){
 				previousPage = importFilterClassWizardPage;
+			}else if(filterCreationOptionsWizardPage.getFilterClassCreationMethod().equals(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT)){
+				previousPage = importHandlerJarWizardPage;
 			}else{
 				previousPage = newFilterClassWizardPage;
 			}
@@ -757,6 +824,11 @@ public class RegistryHandlerCreationWizard extends
 				return false;
 			else
 				return true;
+		} else if (currentPage instanceof ImportHandlerJarWizardPage){
+			if (regModel.getExternalJar() == null || !regModel.getExternalJar().exists())
+				return false;
+			else
+				return true;
 		} else if (currentPage instanceof HandlerMethodsInfoPage) {
 			return true;
 		} else if (currentPage instanceof FilterCreationOptionsWizardPage) {
@@ -766,12 +838,88 @@ public class RegistryHandlerCreationWizard extends
 			return false;
 		} else if (currentPage instanceof NewFilterClassWizardPage) {
 			return !("".equalsIgnoreCase(newFilterClassWizardPage.getPackageName()) || "".equalsIgnoreCase(newFilterClassWizardPage.getClassName()));
-		} else if(currentPage instanceof ImportFilterClassWizardPage) {
+		} else if(currentPage instanceof ImportFilterClassWizardPage || currentPage instanceof ImportHandlerJarWizardPage) {
 			return true;
 		} else if(currentPage instanceof MavenDetailsPage) {
 			return true;
 		}
 		return super.canFinish();
+	}
+	
+	public void updatePom(IProject project) throws Exception {
+		File mavenProjectPomLocation = project.getFile("pom.xml")
+				.getLocation().toFile();
+		MavenProject mavenProject = MavenUtils
+				.getMavenProject(mavenProjectPomLocation);
+		String exportedPackageList = new String();
+		String activatorClass=new String(); 
+		
+		Properties properties = mavenProject.getModel().getProperties();
+		properties.put("CApp.type", "lib/registry/handlers");
+		mavenProject.getModel().setProperties(properties);
+		
+		Plugin plugin = MavenUtils
+				.createPluginEntry(mavenProject, "org.apache.felix",
+						"maven-bundle-plugin", "2.3.4", true);
+		
+		
+		// getting export packages
+		IPackageFragmentRoot rootPkg = JavaCore.createJarPackageFragmentRootFrom(project.getFile(regModel.getExternalJar().getName()));
+		
+		for (IJavaElement item : rootPkg.getChildren()) {
+			if (item instanceof IPackageFragment) {
+				IPackageFragment pkg = (IPackageFragment) item;
+				if (pkg.hasChildren()) {
+					exportedPackageList += (pkg.getElementName() + ",");
+					for (IClassFile clazz : pkg.getClassFiles()) {
+						IType type = clazz.getType();
+						if (type.getSuperInterfaceNames().length > 0 &&
+						    Arrays.asList(type.getSuperInterfaceNames()).contains(ACTIVATOR_FQN)) {
+							activatorClass = type.getFullyQualifiedName();
+						}
+					}
+				}
+			}
+		}
+		exportedPackageList = exportedPackageList.replaceAll(",$", "");
+		
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(plugin);
+		Xpp3Dom instructionNode = MavenUtils.createXpp3Node("instructions");
+		Xpp3Dom bundleSymbolicNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-SymbolicName");
+		Xpp3Dom bundleNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Name");
+		Xpp3Dom bundleActivatorNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Activator");
+		Xpp3Dom exportPackageNode = MavenUtils.createXpp3Node(instructionNode, "Export-Package");
+		Xpp3Dom dynamicImportNode = MavenUtils.createXpp3Node(instructionNode, "DynamicImport-Package");
+		bundleSymbolicNameNode.setValue(project.getName());
+		bundleNameNode.setValue(project.getName());
+		bundleActivatorNode.setValue(activatorClass);
+	    exportPackageNode.setValue(exportedPackageList);
+		dynamicImportNode.setValue("*");
+		
+		configurationNode.addChild(instructionNode);
+
+		Repository repo = new Repository();
+		repo.setUrl("http://dist.wso2.org/maven2");
+		repo.setId("wso2-maven2-repository-1");
+
+		mavenProject.getModel().addRepository(repo);
+		mavenProject.getModel().addPluginRepository(repo);
+
+		List<Dependency> dependencyList = new ArrayList<Dependency>();
+
+			Dependency dependency = new Dependency();
+			dependency.setArtifactId(regModel.getExternalJar().getName());
+			dependency.setGroupId("dummy.groupid");
+			dependency.setVersion("1.0.0");
+			dependency.setScope("system");
+			dependency.setSystemPath("${basedir}/" + regModel.getExternalJar().getName());
+			dependencyList.add(dependency);
+			dependencyList.add(dependency);
+		
+		MavenUtils.addMavenDependency(mavenProject, dependencyList);
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+
 	}
 	
 	public void updatePom(IProject project, HandlerInfo handlerInfo) throws Exception {

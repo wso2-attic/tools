@@ -17,6 +17,7 @@
 package org.wso2.carbonstudio.eclipse.artifact.registry.handler.model;
 
 
+import java.io.File;
 import java.util.HashMap;
 
 import org.eclipse.core.resources.IProject;
@@ -28,6 +29,7 @@ public class RegistryHandlerModel extends ProjectDataModel {
 
 	private String handlerClassSeletionMethod = Constants.NEW_HANDLER_CLASS_TEXT;
 	private HashMap<IProject,String> importHandlerList = new HashMap<IProject, String>();
+	private File externalJar; 
 	
 
 	public Object getModelPropertyValue(String key) {
@@ -37,8 +39,11 @@ public class RegistryHandlerModel extends ProjectDataModel {
 				modelPropertyValue = handlerClassSeletionMethod
 						.equalsIgnoreCase(Constants.NEW_HANDLER_CLASS_TEXT);
 			} else if (Constants.OPT_IMPORT_HANDLER_CLASS_FROM_WS.equals(key)) {
-				modelPropertyValue = !handlerClassSeletionMethod
-						.equalsIgnoreCase(Constants.NEW_HANDLER_CLASS_TEXT);
+				modelPropertyValue = handlerClassSeletionMethod
+						.equalsIgnoreCase(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT);
+			} else if(Constants.OPT_IMPORT_HANDLER_CLASS_FROM_FS.equals(key)){
+				modelPropertyValue =handlerClassSeletionMethod
+				.equalsIgnoreCase(Constants.IMPORT_HANDLER_CLASS_FROM_FS_TEXT);
 			}
 		}
 		return modelPropertyValue;
@@ -51,6 +56,8 @@ public class RegistryHandlerModel extends ProjectDataModel {
 			setHandlerClassSeletionMethod(Constants.NEW_HANDLER_CLASS_TEXT);
 		} else if (Constants.OPT_IMPORT_HANDLER_CLASS_FROM_WS.equals(key)) {
 			setHandlerClassSeletionMethod(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT);
+		} else if (Constants.OPT_IMPORT_HANDLER_CLASS_FROM_FS.equals(key)) {
+			setHandlerClassSeletionMethod(Constants.IMPORT_HANDLER_CLASS_FROM_FS_TEXT);
 		}
 		return ret;
 	}
@@ -66,5 +73,13 @@ public class RegistryHandlerModel extends ProjectDataModel {
 	public HashMap<IProject,String> getImportHandlerList() {
 		return importHandlerList;
 	}
+
+	public void setExternalJar(File externalJar) {
+	    this.externalJar = externalJar;
+    }
+
+	public File getExternalJar() {
+	    return externalJar;
+    }
 
 }

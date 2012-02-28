@@ -45,15 +45,11 @@ import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 
 public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 
-	public List<IResource> exportArtifact(IProject project) {
+	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
 		List<String> exportedPackageList = new ArrayList<String>();
 		String activatorClass=null; 
-		if (!project.isOpen()) {
-			return exportResources;
-		}
 
-		try {
 			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 			NullProgressMonitor nullProgressMonitor = new NullProgressMonitor();
 
@@ -148,10 +144,6 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 
 			// cleaning temp project
 			tempProject.delete(true, nullProgressMonitor);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		return exportResources;
 
