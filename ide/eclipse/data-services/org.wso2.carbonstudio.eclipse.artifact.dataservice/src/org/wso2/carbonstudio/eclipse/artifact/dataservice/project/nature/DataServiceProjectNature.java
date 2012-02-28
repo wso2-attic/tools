@@ -51,7 +51,7 @@ public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 		Plugin pluginEntry = MavenUtils.createPluginEntry(mavenProject, 
 									 "org.wso2.maven", 
 									 "maven-dataservice-plugin", 
-									 "1.0.2", 
+									 "1.0.3", 
 									 true);
 		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(pluginEntry);
 		Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode, "artifact");

@@ -1,29 +1,18 @@
 package org.wso2.carbonstudio.eclipse.artifact.gadget.project.nature;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
-import org.apache.maven.model.ConfigurationContainer;
-import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
-import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.runtime.CoreException;
 import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
-import org.wso2.carbonstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
-import org.wso2.carbonstudio.eclipse.utils.jdt.JavaLibraryBean;
-import org.wso2.carbonstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class GadgetProjectNature extends AbstractWSO2ProjectNature {
-	private static final String REPO_URL = "http://dist.wso2.org/maven2";
-	private static final String REPO_ID = "wso2-maven2-repository-1";
-	
 	public void configure() throws CoreException {
 		try {
 			updatePom();
@@ -47,8 +36,16 @@ public class GadgetProjectNature extends AbstractWSO2ProjectNature {
 	    plugin.setConfiguration(configNode);
 	    
 		Repository repo = new Repository();
-		repo.setUrl(REPO_URL);
-		repo.setId(REPO_ID);
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
 		mavenProject.getModel().addRepository(repo);
 		mavenProject.getModel().addPluginRepository(repo);
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);

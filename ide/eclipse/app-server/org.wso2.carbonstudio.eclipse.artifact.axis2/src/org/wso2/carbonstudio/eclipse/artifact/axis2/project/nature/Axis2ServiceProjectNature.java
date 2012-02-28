@@ -26,6 +26,7 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.CoreException;
 import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
@@ -49,7 +50,7 @@ public class Axis2ServiceProjectNature extends AbstractWSO2ProjectNature {
 	public void updatePom() throws Exception {
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-axis2-plugin", "1.0.2", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-axis2-plugin", "1.0.3", true);
 		PluginExecution pluginExecution;
 		
 		pluginExecution = new PluginExecution();
@@ -59,8 +60,15 @@ public class Axis2ServiceProjectNature extends AbstractWSO2ProjectNature {
 		plugin.addExecution(pluginExecution);
 		
 		Repository repo = new Repository();
-		repo.setUrl("http://dist.wso2.org/maven2");
-		repo.setId("wso2-maven2-repository-1");
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
 		
 		mavenProject.getModel().addRepository(repo);
 		mavenProject.getModel().addPluginRepository(repo);

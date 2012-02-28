@@ -27,6 +27,7 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.runtime.CoreException;
@@ -53,10 +54,10 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		
 		if (!mavenProject.getBuild().getPlugins().contains(MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
-	                                                     "maven-jar-plugin", "2.3.2", true))) {
+	                                                     "maven-jar-plugin", "2.4", true))) {
 	        Plugin plugin =
 	                        MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven",
-	                                                     "maven-jar-plugin", "2.3.2", true);
+	                                                     "maven-jar-plugin", "2.4", true);
 	        PluginExecution pluginExecution;
 	        pluginExecution = new PluginExecution();
 	        pluginExecution.addGoal("jar");
@@ -85,8 +86,15 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 		mavenProject.getModel().setProperties(properties);
 		
 		Repository repo = new Repository();
-		repo.setUrl("http://dist.wso2.org/maven2");
-		repo.setId("wso2-maven2-repository-1");
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
 		
 		if (!mavenProject.getRepositories().contains(repo)) {
 	        mavenProject.getModel().addRepository(repo);

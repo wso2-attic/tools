@@ -26,6 +26,7 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.runtime.CoreException;
@@ -38,9 +39,6 @@ import org.wso2.carbonstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class CarbonUIbundleProjectNature extends AbstractWSO2ProjectNature {
 
-	private static final String REPO_URL = "http://dist.wso2.org/maven2";
-	private static final String REPO_ID = "wso2-maven2-repository-1";
-	
 	@Override
 	public void configure() {
 		try {
@@ -83,9 +81,17 @@ public class CarbonUIbundleProjectNature extends AbstractWSO2ProjectNature {
 		 
 		 plugin.setConfiguration(configNode);
 		
-		Repository repo = new Repository();
-		repo.setUrl(REPO_URL);
-		repo.setId(REPO_ID);
+			Repository repo = new Repository();
+			repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+			repo.setId("wso2-nexus");
+			
+			RepositoryPolicy releasePolicy=new RepositoryPolicy();
+			releasePolicy.setEnabled(true);
+			releasePolicy.setUpdatePolicy("daily");
+			releasePolicy.setChecksumPolicy("ignore");
+			
+			repo.setReleases(releasePolicy);
+			
 		mavenProject.getModel().addRepository(repo);
 		mavenProject.getModel().addPluginRepository(repo);
 		List<Dependency> dependencyList = new ArrayList<Dependency>();

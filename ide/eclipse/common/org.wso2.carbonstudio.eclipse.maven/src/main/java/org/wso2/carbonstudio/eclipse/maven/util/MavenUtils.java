@@ -6,6 +6,7 @@ import org.apache.maven.model.Model;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.apache.maven.project.MavenProject;
@@ -241,36 +242,33 @@ public class MavenUtils {
 	private static void updateMavenRepo(MavenProject mavenProject){
 		List<Repository> existingRepositories = mavenProject.getModel().getRepositories();
 		Repository repo = new Repository();
-		repo.setUrl("http://dist.wso2.org/maven2");
-		repo.setId("wso2-maven2-repository-1");
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
 		
-		Repository repo1 = new Repository();
-		repo1.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
-		repo1.setId("wso2-nexus-maven2-repository-1");
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
 		
 		if(!existingRepositories.isEmpty()){
 			for (Repository repository : existingRepositories) {
 				if(!repository.getUrl().equalsIgnoreCase(repo.getUrl())){
 					mavenProject.getModel().addRepository(repo);
 					mavenProject.getModel().addPluginRepository(repo);
-				}else if(!repository.getUrl().equalsIgnoreCase(repo1.getUrl())){
-					mavenProject.getModel().addRepository(repo1);
-					mavenProject.getModel().addPluginRepository(repo1);
 				}
 			}
 		}else{
 			mavenProject.getModel().addRepository(repo);
 			mavenProject.getModel().addPluginRepository(repo);
-			
-			mavenProject.getModel().addRepository(repo1);
-			mavenProject.getModel().addPluginRepository(repo1);
 		}
 		
 		
 	}
 
 	private static void updateSourceFolder(IProject project, MavenProject mavenProject, File mavenProjectSaveLocation) throws JavaModelException{
-		Plugin sourcePluginEntry = createPluginEntry(mavenProject, "org.codehaus.mojo", "build-helper-maven-plugin", null, false);
+		Plugin sourcePluginEntry = createPluginEntry(mavenProject, "org.codehaus.mojo", "build-helper-maven-plugin", "1.7", false);
 		PluginExecution pluginExecution=new PluginExecution();
 		IPackageFragmentRoot[] sourceFoldersForProject =
 		                                                 JavaUtils.getSourceFoldersForProject(project);
@@ -434,7 +432,7 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-war-plugin", "2.1.1", false);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-war-plugin", "2.2", false);
 		pluginExecution=new PluginExecution();
 		pluginExecution.addGoal("war");
 		pluginExecution.setPhase("package");
@@ -453,7 +451,7 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "1.0.2", true);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "1.0.3", true);
 //		pluginExecution=new PluginExecution();
 //		pluginExecution.addGoal("bpel");
 //		pluginExecution.setPhase("package");
@@ -465,7 +463,7 @@ public class MavenUtils {
 	
 	public static void addMavenCompilerPlugin(MavenProject mavenProject){
 		Plugin plugin;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-compiler-plugin", null , false);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-compiler-plugin", "2.3.2" , false);
 		Xpp3Dom configurationNode = createMainConfigurationNode();
 		Xpp3Dom sourceNode = createXpp3Node(configurationNode, "source");
 		sourceNode.setValue("1.5");
