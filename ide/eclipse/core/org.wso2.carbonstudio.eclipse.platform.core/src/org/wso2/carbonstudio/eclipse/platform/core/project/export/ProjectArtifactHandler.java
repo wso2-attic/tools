@@ -17,7 +17,6 @@
 package org.wso2.carbonstudio.eclipse.platform.core.project.export;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -80,9 +79,11 @@ public abstract class ProjectArtifactHandler {
 	
 	protected void clearTarget(IProject project) {
 		try {
+			project.build(IncrementalProjectBuilder.CLEAN_BUILD,
+							getProgressMonitor());
 			File target = project.getFolder("target").getLocation().toFile();
 			FileUtils.cleanDirectory(target);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO: log error
 		}
 	}
@@ -113,6 +114,8 @@ public abstract class ProjectArtifactHandler {
 	 * @throws Exception
 	 */
 	protected IPath buildJavaProject(IProject project) throws Exception {
+		project.build(IncrementalProjectBuilder.CLEAN_BUILD,
+						getProgressMonitor());
 		project.build(IncrementalProjectBuilder.FULL_BUILD,
 				getProgressMonitor());
 		IJavaProject javaProject = JavaCore.create(project);;
