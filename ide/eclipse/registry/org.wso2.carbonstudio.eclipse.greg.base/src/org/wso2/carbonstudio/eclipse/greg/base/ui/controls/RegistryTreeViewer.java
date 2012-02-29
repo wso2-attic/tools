@@ -388,7 +388,9 @@ public class RegistryTreeViewer extends TreeViewer implements Observer {
 	 * update observers
 	 */
 	public void update(Observable arg0, Object arg1) {
-		refresh(getRegistryUrlNode().isRefreshExisting());
+		if(!isBusy()){
+			refresh(getRegistryUrlNode().isRefreshExisting());
+		}
 
 	}
 

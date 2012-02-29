@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
+import org.wso2.carbonstudio.eclipse.greg.base.heartbeat.RegistryHeartBeatTester;
 import org.wso2.carbonstudio.eclipse.greg.base.logger.ExceptionHandler;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryContentContainer;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryNode;
@@ -57,6 +58,7 @@ public class RegistryTreeBrowserDialog extends Dialog {
 	private RegistryNode selectedRegistryNode;
 	private RegistryResourceNode selectedRegistryResourceNode;
 	private RegistryResourceNode selectedRegistryResourceNodeaResource;
+	private RegistryHeartBeatTester registryHeartBeatTester;
 
 	private int requiredSelection;
 	private String defaultSelectPath;
@@ -92,6 +94,11 @@ public class RegistryTreeBrowserDialog extends Dialog {
 		super(parentShell);
 		setRequiredSelection(requiredSelection);
 		setDefaultPathId(defaultPathId);
+	}
+	
+	private void initHeartBeatTester(){
+		registryHeartBeatTester = new RegistryHeartBeatTester(treeViewer.getRegistryUrlNode());
+		new Thread(registryHeartBeatTester).start();
 	}
 
 	public int getDialogSelection() {
@@ -266,6 +273,7 @@ public class RegistryTreeBrowserDialog extends Dialog {
 		});
 		
 		updateSelection();
+		initHeartBeatTester();
 		return super.createDialogArea(parent);
 	}
 

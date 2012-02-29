@@ -1,12 +1,29 @@
-package org.wso2.carbonstudio.eclipse.greg.manager.remote.views;
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.wso2.carbonstudio.eclipse.greg.base.heartbeat;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.swt.widgets.Display;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryURLNode;
-import org.wso2.carbonstudio.eclipse.greg.manager.remote.utils.Utils;
+import org.wso2.carbonstudio.eclipse.greg.base.util.Utils;
 
 public class RegistryHeartBeatTester implements Runnable {
 	private RegistryURLNode urlNodeList;
@@ -25,8 +42,12 @@ public class RegistryHeartBeatTester implements Runnable {
 			for (RegistryNode registryNode : urlInfoList) {
 				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(registryNode);
 			}
-			if (registryEnabledStateChanged){
-				urlNodeList.refreshViewer(true);
+			if (registryEnabledStateChanged) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						urlNodeList.refreshViewer(true);
+					}
+				});
 			}
 			try {
 				Thread.sleep(HEARTBEAT_RATE);

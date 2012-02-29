@@ -153,6 +153,7 @@ import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.platform.ui.utils.MessageDialogUtils;
 import org.wso2.carbonstudio.eclipse.usermgt.remote.UserManager;
+import org.wso2.carbonstudio.eclipse.greg.base.heartbeat.RegistryHeartBeatTester;
 
 public class RegistryBrowserView extends ViewPart implements Observer {
 

@@ -82,6 +82,8 @@ public class RegistryResourceDecorator extends LabelProvider implements ILightwe
 	 */
 	private ImageDescriptor getImageDescriptor(IResource resource) {
 		ImageDescriptor overlay = null;
+		if(resource==null)
+			return ImageUtils.getImageDescriptor(ImageUtils.STATE_NORMAL);
 		int resourceState = RegistryCheckInClientUtils.getResourceState(resource.getLocation().toOSString());
 		switch (resourceState) {
 		case RegistryCheckInClientUtils.RESOURCE_STATE_NORMAL:
