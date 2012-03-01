@@ -45,12 +45,7 @@ public class ESBMetaDataFileChange extends TextFileChange {
 
 	private void addTextEdits() {
 		if (metaDataFile.getName().equalsIgnoreCase("artifact.xml")) {
-			try {
-	            setEdit(new MultiTextEdit(0, FileUtils.getContentAsString(metaDataFile.getLocation().toFile()).length()));
-            } catch (IOException e1) {
-	            // TODO Auto-generated catch block
-	            e1.printStackTrace();
-            }
+			setEdit(new MultiTextEdit());//0, FileUtils.getContentAsString(metaDataFile.getLocation().toFile()).length()));
 //			addEdit(new ReplaceEdit(0, 4, "vvvv"));
 //			addEdit(new ReplaceEdit(8, 4, "vvvv"));
 			try {

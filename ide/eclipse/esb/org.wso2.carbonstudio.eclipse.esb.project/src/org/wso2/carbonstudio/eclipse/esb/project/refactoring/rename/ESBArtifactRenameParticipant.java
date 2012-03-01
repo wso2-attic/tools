@@ -23,18 +23,12 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
-import org.eclipse.ltk.core.refactoring.PerformChangeOperation;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
-import org.eclipse.ltk.core.refactoring.TextChange;
-import org.eclipse.ltk.core.refactoring.TextEditBasedChange;
-import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
-import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,16 +96,13 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 //		change.add(new ESBMetaDataFileChange("Meta data file", esbProject.getFile("pom.xml")));
 		
 //		change.add(new RenameResourceChange(originalFile.getLocation(), changedFileName));
-		@SuppressWarnings("unused")
-        Object[] affectedObjects = change.getAffectedObjects();
-		
 		return change;
 	}
 
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return "ESBArtifactRename";
 	}
 
 	@Override
