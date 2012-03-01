@@ -61,5 +61,26 @@
             name="Carbon Application Endpoints">
       </endpoint>
    </extension>
+ <extension
+       point="org.eclipse.ltk.core.refactoring.renameParticipants">
+       <renameParticipant
+			class="org.wso2.carbonstudio.eclipse.artifact.endpoint.refactor.EndpointRenameRefactorParticipant"
+			id="EndpointRenameRefactorParticipant"
+			name="EndpointRenameRefactor">
+				<enablement>
+					<and>
+							<instanceof
+								value="org.eclipse.core.resources.IFile">
+							</instanceof>
+						<adapt type="org.eclipse.core.resources.IResource">
+             				<test
+                   				property="org.eclipse.core.resources.projectNature"
+                   				value="org.wso2.carbonstudio.eclipse.esb.project.nature">
+             				</test>
+         				</adapt>
+					</and>
+				</enablement>
+		</renameParticipant>
+ </extension>
    
 </plugin>
