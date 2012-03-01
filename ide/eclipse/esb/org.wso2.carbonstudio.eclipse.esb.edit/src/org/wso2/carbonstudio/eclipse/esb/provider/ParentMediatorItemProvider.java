@@ -141,7 +141,7 @@ public class ParentMediatorItemProvider extends MediatorItemProvider implements
 		case ESB400:
 			
 			newChildDescriptors.add(createChildParameter(
-			        EsbPackage.Literals.MEDIATOR_SEQUENCE__MEDIATORS,
+			        EsbPackage.Literals.PARENT_MEDIATOR__CHILDREN,
 			        MediatorsFactory.eINSTANCE.createPayloadFactoryMediator()));
 			
 			newChildDescriptors.add(createChildParameter(

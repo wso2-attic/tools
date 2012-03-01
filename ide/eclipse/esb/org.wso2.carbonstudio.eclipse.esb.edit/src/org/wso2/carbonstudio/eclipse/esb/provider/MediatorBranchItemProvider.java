@@ -145,7 +145,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 		case ESB400:
 			
 			newChildDescriptors.add(createChildParameter(
-			       EsbPackage.Literals.MEDIATOR_SEQUENCE__MEDIATORS,
+			       EsbPackage.Literals.MEDIATOR_BRANCH__CHILDREN,
 			       MediatorsFactory.eINSTANCE.createPayloadFactoryMediator()));
 			
 			newChildDescriptors.add(createChildParameter(

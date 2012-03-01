@@ -66,6 +66,9 @@ public class AbstractDefaultEndPointItemProvider
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {    	
         super.getPropertyDescriptors(object);
+        if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
         
         AbstractDefaultEndPoint abstractDefaultEndPoint = (AbstractDefaultEndPoint)object;
         addMessageFormatPropertyDescriptor(object);
