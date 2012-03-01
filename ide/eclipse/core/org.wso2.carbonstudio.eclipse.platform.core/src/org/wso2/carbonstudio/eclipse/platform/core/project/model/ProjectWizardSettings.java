@@ -203,6 +203,7 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 						case FILE_DIR:
 						case INTEGER:
 						case OPTION:
+							break;
 						case REGISTRY:
 							updateSelectedRegistryOptionType(dataElement,projectOptionData);
 							break;
@@ -273,10 +274,14 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 					projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_REGISTRY_PATH);
 				}else if(value.equals("resource")){
 					projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_REGISTRY_RESOURCE);
-				}else{
-					projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_NONE);
+				}else if(value.equals("resource+collection")){
+					projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_REGISTRY_RESOURCE | RegistryOptionsConstants.SELECTED_REGISTRY_PATH);
+				}else if(value.equals("registy")){
+					projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_REGISTRY);
 				}
 			}
+		} else {
+			projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_NONE);
 		}
 	}
 	

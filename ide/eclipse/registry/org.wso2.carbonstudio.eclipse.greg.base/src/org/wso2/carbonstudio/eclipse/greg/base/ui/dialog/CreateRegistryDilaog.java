@@ -112,7 +112,7 @@ public class CreateRegistryDilaog  extends Dialog{
 		Label pathLabel = new Label(group, SWT.NONE);
 		pathLabel.setText("Path ");
 		
-		urlText.setText("https://localhost:9443/registry");
+		urlText.setText("https://localhost:9443");
 		
 		pathText = new Combo(group, SWT.NONE);
 		pathText.addModifyListener(new ModifyListener() {
