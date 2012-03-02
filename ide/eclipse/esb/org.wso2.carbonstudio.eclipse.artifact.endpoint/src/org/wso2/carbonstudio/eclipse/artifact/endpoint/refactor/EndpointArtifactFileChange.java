@@ -187,8 +187,17 @@ public class EndpointArtifactFileChange extends TextFileChange{
 //			    <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 //		        <file>src/main/synapse-config/proxy-services/proxy1.xml</file>
 //		        </artifact>
-			String[] stringArray = line.split(" ");
-			if(line.contains(case1String) && (stringArray[getarrayIndexWithString(nameElement, stringArray)].equals(nameElement+case1String) || stringArray[getarrayIndexWithString(nameElement, stringArray)].equalsIgnoreCase(nameElement+case1String+">"))){
+			String[] stringArray = line.trim().split(" ");
+			if (line.contains(case1String) &&
+//					TODO: Need to add validations for the -1 index
+			    (stringArray[getarrayIndexWithString(nameElement, stringArray)].equals(nameElement +
+			                                                                           case1String) ||
+			     stringArray[getarrayIndexWithString(nameElement, stringArray)].equalsIgnoreCase(nameElement +
+			                                                                                     case1String +
+			                                                                                     ">") || stringArray[getarrayIndexWithString(nameElement,
+			                                                                                                                                 stringArray)].equalsIgnoreCase(nameElement +
+			                                                                                                                                                                case1String +
+			                                                                                                                                                                "/>"))) {
 				//CASE 1 => <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 				//Swapping 1 element for "\""
 				int case1LineIndex = line.indexOf(case1String)+1;
