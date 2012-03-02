@@ -95,11 +95,11 @@ public class SubscriptionItemProvider
 	 * This returns Subscription.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Subscription"));
+		return overlayImage(object, getResourceLocator().getImage("wso2/subscription"));
 	}
 
 	/**

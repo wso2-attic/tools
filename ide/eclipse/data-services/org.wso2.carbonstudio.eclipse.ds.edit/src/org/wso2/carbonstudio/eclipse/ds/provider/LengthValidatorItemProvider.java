@@ -89,7 +89,7 @@ public class LengthValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -111,7 +111,7 @@ public class LengthValidatorItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -135,11 +135,8 @@ public class LengthValidatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BigInteger labelValue = ((LengthValidator)object).getMaximum();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_LengthValidator_type") :
-			getString("_UI_LengthValidator_type") + " " + label;
+		LengthValidator lengthValidator = (LengthValidator)object;
+		return getString("_UI_LengthValidator_type") + " " + lengthValidator.getMaximum();
 	}
 
 	/**

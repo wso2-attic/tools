@@ -45,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/enableDTP"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceGroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceNamespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DataSourceConfiguration">
@@ -143,6 +144,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/outputEventTrigger"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/returnGeneratedKeys"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/useConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Query/keyColumns"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//QueryParameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//QueryParameter/validateLongRange"/>
@@ -169,6 +171,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Resource/callQuery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/returnRequestStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ResultMapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/element"/>

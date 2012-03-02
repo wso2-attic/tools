@@ -366,13 +366,22 @@ public interface DsPackage extends EPackage {
 	int DATA_SERVICE__SERVICE_GROUP = 11;
 
 	/**
+	 * The feature id for the '<em><b>Service Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERVICE__SERVICE_NAMESPACE = 12;
+
+	/**
 	 * The feature id for the '<em><b>Service Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__SERVICE_STATUS = 12;
+	int DATA_SERVICE__SERVICE_STATUS = 13;
 
 	/**
 	 * The number of structural features of the '<em>Data Service</em>' class.
@@ -381,7 +390,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE_FEATURE_COUNT = 13;
+	int DATA_SERVICE_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.
@@ -1266,13 +1275,22 @@ public interface DsPackage extends EPackage {
 	int QUERY__USE_CONFIG = 11;
 
 	/**
+	 * The feature id for the '<em><b>Key Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__KEY_COLUMNS = 12;
+
+	/**
 	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 12;
+	int QUERY_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryParameterImpl <em>Query Parameter</em>}' class.
@@ -1504,13 +1522,22 @@ public interface DsPackage extends EPackage {
 	int RESOURCE__PATH = 2;
 
 	/**
+	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__RETURN_REQUEST_STATUS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 3;
+	int RESOURCE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
@@ -2130,6 +2157,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataService_ServiceGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Service Namespace</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace()
+	 * @see #getDataService()
+	 * @generated
+	 */
+	EAttribute getDataService_ServiceNamespace();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceStatus <em>Service Status</em>}'.
@@ -2994,6 +3032,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getQuery_UseConfig();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Columns</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_KeyColumns();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.QueryParameter <em>Query Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3230,6 +3279,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.ds.Resource#isReturnRequestStatus <em>Return Request Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Request Status</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.ds.Resource#isReturnRequestStatus()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_ReturnRequestStatus();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.ds.ResultMapping <em>Result Mapping</em>}'.
@@ -3766,6 +3826,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SERVICE__SERVICE_GROUP = eINSTANCE.getDataService_ServiceGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SERVICE__SERVICE_NAMESPACE = eINSTANCE.getDataService_ServiceNamespace();
 
 		/**
 		 * The meta object literal for the '<em><b>Service Status</b></em>' attribute feature.
@@ -4444,6 +4512,14 @@ public interface DsPackage extends EPackage {
 		EAttribute QUERY__USE_CONFIG = eINSTANCE.getQuery_UseConfig();
 
 		/**
+		 * The meta object literal for the '<em><b>Key Columns</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__KEY_COLUMNS = eINSTANCE.getQuery_KeyColumns();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryParameterImpl <em>Query Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4626,6 +4702,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__PATH = eINSTANCE.getResource_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Request Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__RETURN_REQUEST_STATUS = eINSTANCE.getResource_ReturnRequestStatus();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.

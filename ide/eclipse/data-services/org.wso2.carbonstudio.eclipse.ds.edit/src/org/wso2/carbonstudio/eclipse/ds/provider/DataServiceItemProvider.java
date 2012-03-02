@@ -60,19 +60,20 @@ public class DataServiceItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addServiceGroupPropertyDescriptor(object);
+			addServiceNamespacePropertyDescriptor(object);
 			addBaseURIPropertyDescriptor(object);
 			addEnableBatchRequestsPropertyDescriptor(object);
 			addEnableBoxcarringPropertyDescriptor(object);
 			addEnableDTPPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addServiceGroupPropertyDescriptor(object);
 			addServiceStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -211,6 +212,28 @@ public class DataServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Service Namespace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServiceNamespacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataService_serviceNamespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataService_serviceNamespace_feature", "_UI_DataService_type"),
+				 DsPackage.Literals.DATA_SERVICE__SERVICE_NAMESPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Service Status feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,6 +333,7 @@ public class DataServiceItemProvider
 			case DsPackage.DATA_SERVICE__ENABLE_DTP:
 			case DsPackage.DATA_SERVICE__NAME:
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
+			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

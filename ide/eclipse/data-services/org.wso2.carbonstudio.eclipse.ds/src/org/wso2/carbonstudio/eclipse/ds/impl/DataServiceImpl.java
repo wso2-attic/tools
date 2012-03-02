@@ -53,6 +53,7 @@ import org.wso2.carbonstudio.eclipse.ds.ServiceStatus;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#isEnableDTP <em>Enable DTP</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceGroup <em>Service Group</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceNamespace <em>Service Namespace</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.DataServiceImpl#getServiceStatus <em>Service Status</em>}</li>
  * </ul>
  * </p>
@@ -239,6 +240,26 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @ordered
 	 */
 	protected String serviceGroup = SERVICE_GROUP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getServiceNamespace() <em>Service Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SERVICE_NAMESPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getServiceNamespace() <em>Service Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String serviceNamespace = SERVICE_NAMESPACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getServiceStatus() <em>Service Status</em>}' attribute.
@@ -491,6 +512,27 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getServiceNamespace() {
+		return serviceNamespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setServiceNamespace(String newServiceNamespace) {
+		String oldServiceNamespace = serviceNamespace;
+		serviceNamespace = newServiceNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__SERVICE_NAMESPACE, oldServiceNamespace, serviceNamespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ServiceStatus getServiceStatus() {
 		return serviceStatus;
 	}
@@ -588,6 +630,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return getName();
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
 				return getServiceGroup();
+			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
+				return getServiceNamespace();
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return getServiceStatus();
 		}
@@ -645,6 +689,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
 				setServiceGroup((String)newValue);
 				return;
+			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
+				setServiceNamespace((String)newValue);
+				return;
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				setServiceStatus((ServiceStatus)newValue);
 				return;
@@ -696,6 +743,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
 				setServiceGroup(SERVICE_GROUP_EDEFAULT);
 				return;
+			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
+				setServiceNamespace(SERVICE_NAMESPACE_EDEFAULT);
+				return;
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				unsetServiceStatus();
 				return;
@@ -735,6 +785,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.DATA_SERVICE__SERVICE_GROUP:
 				return SERVICE_GROUP_EDEFAULT == null ? serviceGroup != null : !SERVICE_GROUP_EDEFAULT.equals(serviceGroup);
+			case DsPackage.DATA_SERVICE__SERVICE_NAMESPACE:
+				return SERVICE_NAMESPACE_EDEFAULT == null ? serviceNamespace != null : !SERVICE_NAMESPACE_EDEFAULT.equals(serviceNamespace);
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return isSetServiceStatus();
 		}
@@ -763,6 +815,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 		result.append(name);
 		result.append(", serviceGroup: ");
 		result.append(serviceGroup);
+		result.append(", serviceNamespace: ");
+		result.append(serviceNamespace);
 		result.append(", serviceStatus: ");
 		if (serviceStatusESet) result.append(serviceStatus); else result.append("<unset>");
 		result.append(')');

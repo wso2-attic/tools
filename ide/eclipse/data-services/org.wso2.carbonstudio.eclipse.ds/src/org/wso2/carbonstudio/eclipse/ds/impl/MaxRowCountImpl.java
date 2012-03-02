@@ -38,7 +38,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final long VALUE_EDEFAULT = 0L;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -48,7 +48,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected long value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public long getValue() {
 		return value;
 	}
 
@@ -83,8 +83,8 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public void setValue(long newValue) {
+		long oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.MAX_ROW_COUNT__VALUE, oldValue, value));
@@ -113,7 +113,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
-				setValue((String)newValue);
+				setValue((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,7 +143,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

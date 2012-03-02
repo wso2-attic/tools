@@ -29,6 +29,7 @@ import org.wso2.carbonstudio.eclipse.ds.Resource;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResourceImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResourceImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResourceImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.ResourceImpl#isReturnRequestStatus <em>Return Request Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +85,26 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnRequestStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_REQUEST_STATUS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnRequestStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnRequestStatus = RETURN_REQUEST_STATUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +215,27 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReturnRequestStatus() {
+		return returnRequestStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturnRequestStatus(boolean newReturnRequestStatus) {
+		boolean oldReturnRequestStatus = returnRequestStatus;
+		returnRequestStatus = newReturnRequestStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__RETURN_REQUEST_STATUS, oldReturnRequestStatus, returnRequestStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -217,6 +259,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 				return getMethod();
 			case DsPackage.RESOURCE__PATH:
 				return getPath();
+			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
+				return isReturnRequestStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,6 +281,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 				return;
 			case DsPackage.RESOURCE__PATH:
 				setPath((String)newValue);
+				return;
+			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
+				setReturnRequestStatus((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -259,6 +306,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 			case DsPackage.RESOURCE__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
+			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
+				setReturnRequestStatus(RETURN_REQUEST_STATUS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,6 +327,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
 			case DsPackage.RESOURCE__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
+				return returnRequestStatus != RETURN_REQUEST_STATUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -295,6 +347,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		result.append(method);
 		result.append(", path: ");
 		result.append(path);
+		result.append(", returnRequestStatus: ");
+		result.append(returnRequestStatus);
 		result.append(')');
 		return result.toString();
 	}

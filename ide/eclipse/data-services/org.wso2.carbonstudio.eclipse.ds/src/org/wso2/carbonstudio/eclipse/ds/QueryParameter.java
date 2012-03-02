@@ -216,13 +216,13 @@ public interface QueryParameter extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ordinal</em>' attribute.
-	 * @see #setOrdinal(String)
+	 * @see #setOrdinal(int)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQueryParameter_Ordinal()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Int"
 	 *        extendedMetaData="kind='attribute' name='ordinal' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	String getOrdinal();
+	int getOrdinal();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.QueryParameter#getOrdinal <em>Ordinal</em>}' attribute.
@@ -232,7 +232,7 @@ public interface QueryParameter extends EObject {
 	 * @see #getOrdinal()
 	 * @generated
 	 */
-	void setOrdinal(String value);
+	void setOrdinal(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Param Type</b></em>' attribute.

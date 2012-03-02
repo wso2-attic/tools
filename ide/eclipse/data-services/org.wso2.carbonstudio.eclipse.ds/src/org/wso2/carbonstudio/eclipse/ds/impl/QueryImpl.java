@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -52,6 +53,7 @@ import org.wso2.carbonstudio.eclipse.ds.Sql;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getUseConfig <em>Use Config</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.impl.QueryImpl#getKeyColumns <em>Key Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -227,6 +229,26 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @ordered
 	 */
 	protected String useConfig = USE_CONFIG_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKeyColumns() <em>Key Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_COLUMNS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected String keyColumns = KEY_COLUMNS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -441,6 +463,27 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getKeyColumns() {
+		return keyColumns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKeyColumns(String newKeyColumns) {
+		String oldKeyColumns = keyColumns;
+		keyColumns = newKeyColumns;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY__KEY_COLUMNS, oldKeyColumns, keyColumns));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -494,6 +537,8 @@ public class QueryImpl extends EObjectImpl implements Query {
 				return isReturnGeneratedKeys();
 			case DsPackage.QUERY__USE_CONFIG:
 				return getUseConfig();
+			case DsPackage.QUERY__KEY_COLUMNS:
+				return getKeyColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -550,6 +595,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__USE_CONFIG:
 				setUseConfig((String)newValue);
 				return;
+			case DsPackage.QUERY__KEY_COLUMNS:
+				setKeyColumns((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -598,6 +646,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 			case DsPackage.QUERY__USE_CONFIG:
 				setUseConfig(USE_CONFIG_EDEFAULT);
 				return;
+			case DsPackage.QUERY__KEY_COLUMNS:
+				setKeyColumns(KEY_COLUMNS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -634,6 +685,8 @@ public class QueryImpl extends EObjectImpl implements Query {
 				return returnGeneratedKeys != RETURN_GENERATED_KEYS_EDEFAULT;
 			case DsPackage.QUERY__USE_CONFIG:
 				return USE_CONFIG_EDEFAULT == null ? useConfig != null : !USE_CONFIG_EDEFAULT.equals(useConfig);
+			case DsPackage.QUERY__KEY_COLUMNS:
+				return KEY_COLUMNS_EDEFAULT == null ? keyColumns != null : !KEY_COLUMNS_EDEFAULT.equals(keyColumns);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -658,6 +711,8 @@ public class QueryImpl extends EObjectImpl implements Query {
 		result.append(returnGeneratedKeys);
 		result.append(", useConfig: ");
 		result.append(useConfig);
+		result.append(", keyColumns: ");
+		result.append(keyColumns);
 		result.append(')');
 		return result.toString();
 	}

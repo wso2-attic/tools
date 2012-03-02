@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#isEnableDTP <em>Enable DTP</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceGroup <em>Service Group</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceStatus <em>Service Status</em>}</li>
  * </ul>
  * </p>
@@ -302,6 +303,33 @@ public interface DataService extends EObject {
 	 * @generated
 	 */
 	void setServiceGroup(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Service Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service Namespace</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service Namespace</em>' attribute.
+	 * @see #setServiceNamespace(String)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getDataService_ServiceNamespace()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name=' serviceNamespace' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	String getServiceNamespace();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service Namespace</em>' attribute.
+	 * @see #getServiceNamespace()
+	 * @generated
+	 */
+	void setServiceNamespace(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Status</b></em>' attribute.

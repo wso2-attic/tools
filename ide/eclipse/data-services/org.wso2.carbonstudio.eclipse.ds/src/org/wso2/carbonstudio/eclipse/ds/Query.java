@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getOutputEventTrigger <em>Output Event Trigger</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#isReturnGeneratedKeys <em>Return Generated Keys</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getUseConfig <em>Use Config</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -291,5 +292,32 @@ public interface Query extends EObject {
 	 * @generated
 	 */
 	void setUseConfig(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Key Columns</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Key Columns</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key Columns</em>' attribute.
+	 * @see #setKeyColumns(String)
+	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getQuery_KeyColumns()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='keyColumns' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	String getKeyColumns();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.Query#getKeyColumns <em>Key Columns</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key Columns</em>' attribute.
+	 * @see #getKeyColumns()
+	 * @generated
+	 */
+	void setKeyColumns(String value);
 
 } // Query

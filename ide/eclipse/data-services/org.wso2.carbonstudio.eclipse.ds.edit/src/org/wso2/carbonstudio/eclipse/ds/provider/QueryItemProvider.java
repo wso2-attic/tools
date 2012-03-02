@@ -62,7 +62,7 @@ public class QueryItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -70,10 +70,12 @@ public class QueryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
+			addUseConfigPropertyDescriptor(object);
+			addKeyColumnsPropertyDescriptor(object);
 			addInputEventTriggerPropertyDescriptor(object);
 			addOutputEventTriggerPropertyDescriptor(object);
 			addReturnGeneratedKeysPropertyDescriptor(object);
-			addUseConfigPropertyDescriptor(object);
+			
 		}
 		return itemPropertyDescriptors;
 	}
@@ -189,6 +191,28 @@ public class QueryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Key Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_keyColumns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_keyColumns_feature", "_UI_Query_type"),
+				 DsPackage.Literals.QUERY__KEY_COLUMNS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -266,6 +290,7 @@ public class QueryItemProvider
 			case DsPackage.QUERY__OUTPUT_EVENT_TRIGGER:
 			case DsPackage.QUERY__RETURN_GENERATED_KEYS:
 			case DsPackage.QUERY__USE_CONFIG:
+			case DsPackage.QUERY__KEY_COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DsPackage.QUERY__SQL:

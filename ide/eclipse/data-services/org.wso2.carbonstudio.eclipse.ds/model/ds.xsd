@@ -15,7 +15,7 @@
 	<xs:element name="data">
 		<xs:complexType ecore:name="DataService">
 			<xs:choice maxOccurs="unbounded" ecore:featureMap="">
-				<xs:element ref="description" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="description" maxOccurs="1" minOccurs="0"/>
 				<xs:element name="config" maxOccurs="unbounded" minOccurs="1">
 					<xs:complexType ecore:name="DataSourceConfiguration">
 						<xs:sequence>
@@ -27,7 +27,7 @@
 				<xs:element name="query" maxOccurs="unbounded" minOccurs="0">
 					<xs:complexType ecore:name="Query">
 						<xs:choice maxOccurs="unbounded" ecore:featureMap="">
-							<xs:element ref="sql" maxOccurs="unbounded" minOccurs="0" />
+							<xs:element name="sql" maxOccurs="unbounded" minOccurs="0" />
 							<xs:element name="sparql" maxOccurs="1" minOccurs="0"/>
 							<xs:element name="properties" maxOccurs="1" minOccurs="0">
 								<xs:complexType ecore:name="QueryPropertyList">
@@ -169,7 +169,7 @@
 								<xs:complexType ecore:name="EventSubscriptionList">
 									<xs:sequence>
 										<!--<xs:element name="subscription" maxOccurs="unbounded" minOccurs="1"/>  old -->
-										<xs:element ref="subscription" maxOccurs="unbounded" minOccurs="1" />
+										<xs:element name="subscription" maxOccurs="unbounded" minOccurs="1" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -251,42 +251,5 @@
 		
         </xs:complexType>
      </xs:element>
-
- 	<xs:element name="description">
-	<xs:complexType ecore:name="Description">
-             
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					
-				</xs:extension>
-			</xs:simpleContent>
-		
-        </xs:complexType>
-     </xs:element>
-	<xs:element name="subscription">
-	<xs:complexType ecore:name="Subscription">
-             
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					
-				</xs:extension>
-			</xs:simpleContent>
-		
-        </xs:complexType>
-     </xs:element>
-
-
-	<xs:element name="sql">
-		<xs:complexType ecore:name="Sql">
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute name="dialect" type="xs:string" use="optional" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-		
-	</xs:element>
-
-
 </xs:schema>
 

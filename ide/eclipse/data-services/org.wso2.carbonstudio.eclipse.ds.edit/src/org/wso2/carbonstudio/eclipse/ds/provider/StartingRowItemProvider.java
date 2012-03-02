@@ -86,7 +86,7 @@ public class StartingRowItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -110,10 +110,8 @@ public class StartingRowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StartingRow)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StartingRow_type") :
-			getString("_UI_StartingRow_type") + " " + label;
+		StartingRow startingRow = (StartingRow)object;
+		return getString("_UI_StartingRow_type") + " " + startingRow.getValue();
 	}
 
 	/**

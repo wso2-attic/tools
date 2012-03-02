@@ -576,7 +576,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				
 				sqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SQL_ACTION);
 				
-				//sparqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SPARQL_ACTION);
+				sparqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SPARQL_ACTION);
 				
 				queryPropertyGroupAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
 				
@@ -800,7 +800,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		if(generateQueryMenu){
 			if (query != null && StringUtils.isNotBlank(query.getId())) {
 			menuManager.insertBefore("edit", sqlAction);
-			//menuManager.insertBefore("edit", sparqlAction);
+			menuManager.insertBefore("edit", sparqlAction);
 			menuManager.insertBefore("edit", queryPropertyGroupAction);
 			menuManager.insertBefore("edit", resultAction);
 			menuManager.insertBefore("edit", excelAction);

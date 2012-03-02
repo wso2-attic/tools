@@ -651,8 +651,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_ServiceStatus() {
+	public EAttribute getDataService_ServiceNamespace() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataService_ServiceStatus() {
+		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1371,6 +1380,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getQuery_KeyColumns() {
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQueryParameter() {
 		return queryParameterEClass;
 	}
@@ -1562,6 +1580,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 */
 	public EAttribute getResource_Path() {
 		return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResource_ReturnRequestStatus() {
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1859,6 +1886,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(dataServiceEClass, DATA_SERVICE__ENABLE_DTP);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__NAME);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_GROUP);
+		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_NAMESPACE);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_STATUS);
 
 		dataSourceConfigurationEClass = createEClass(DATA_SOURCE_CONFIGURATION);
@@ -1957,6 +1985,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(queryEClass, QUERY__OUTPUT_EVENT_TRIGGER);
 		createEAttribute(queryEClass, QUERY__RETURN_GENERATED_KEYS);
 		createEAttribute(queryEClass, QUERY__USE_CONFIG);
+		createEAttribute(queryEClass, QUERY__KEY_COLUMNS);
 
 		queryParameterEClass = createEClass(QUERY_PARAMETER);
 		createEReference(queryParameterEClass, QUERY_PARAMETER__VALIDATE_LONG_RANGE);
@@ -1983,6 +2012,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEReference(resourceEClass, RESOURCE__CALL_QUERY);
 		createEAttribute(resourceEClass, RESOURCE__METHOD);
 		createEAttribute(resourceEClass, RESOURCE__PATH);
+		createEAttribute(resourceEClass, RESOURCE__RETURN_REQUEST_STATUS);
 
 		resultMappingEClass = createEClass(RESULT_MAPPING);
 		createEReference(resultMappingEClass, RESULT_MAPPING__ELEMENT);
@@ -2089,6 +2119,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getDataService_EnableDTP(), theXMLTypePackage.getBoolean(), "enableDTP", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceGroup(), theXMLTypePackage.getString(), "serviceGroup", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataService_ServiceNamespace(), theXMLTypePackage.getString(), "serviceNamespace", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceStatus(), this.getServiceStatus(), "serviceStatus", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceConfigurationEClass, DataSourceConfiguration.class, "DataSourceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2150,15 +2181,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getHasHeader_Value(), theXMLTypePackage.getBoolean(), "value", null, 0, 1, HasHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lengthValidatorEClass, LengthValidator.class, "LengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLengthValidator_Maximum(), theXMLTypePackage.getUnsignedLong(), "maximum", null, 0, 1, LengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLengthValidator_Minimum(), theXMLTypePackage.getUnsignedLong(), "minimum", null, 0, 1, LengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLengthValidator_Maximum(), theXMLTypePackage.getLong(), "maximum", null, 0, 1, LengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLengthValidator_Minimum(), theXMLTypePackage.getLong(), "minimum", null, 0, 1, LengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(longRangeValidatorEClass, LongRangeValidator.class, "LongRangeValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLongRangeValidator_Maximum(), theXMLTypePackage.getLong(), "maximum", null, 0, 1, LongRangeValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLongRangeValidator_Minimum(), theXMLTypePackage.getLong(), "minimum", null, 0, 1, LongRangeValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(maxRowCountEClass, MaxRowCount.class, "MaxRowCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMaxRowCount_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, MaxRowCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMaxRowCount_Value(), theXMLTypePackage.getLong(), "value", null, 0, 1, MaxRowCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperation_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2187,6 +2218,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getQuery_OutputEventTrigger(), theXMLTypePackage.getString(), "outputEventTrigger", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_ReturnGeneratedKeys(), theXMLTypePackage.getBoolean(), "returnGeneratedKeys", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_UseConfig(), theXMLTypePackage.getString(), "useConfig", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuery_KeyColumns(), theXMLTypePackage.getString(), "keyColumns", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryParameterEClass, QueryParameter.class, "QueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQueryParameter_ValidateLongRange(), this.getLongRangeValidator(), null, "validateLongRange", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2196,7 +2228,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEReference(getQueryParameter_ValidateCustom(), this.getCustomValidator(), null, "validateCustom", null, 0, -1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_DefaultValue(), theXMLTypePackage.getString(), "defaultValue", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQueryParameter_Ordinal(), theXMLTypePackage.getString(), "ordinal", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQueryParameter_Ordinal(), theXMLTypePackage.getInt(), "ordinal", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_ParamType(), theXMLTypePackage.getString(), "paramType", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_SqlType(), theXMLTypePackage.getString(), "sqlType", null, 1, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_StructType(), theXMLTypePackage.getString(), "structType", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2213,6 +2245,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEReference(getResource_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Method(), theXMLTypePackage.getString(), "method", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Path(), theXMLTypePackage.getString(), "path", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResource_ReturnRequestStatus(), theXMLTypePackage.getBoolean(), "returnRequestStatus", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultMappingEClass, ResultMapping.class, "ResultMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResultMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2232,7 +2265,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getSql_Dialect(), theXMLTypePackage.getString(), "dialect", null, 0, 1, Sql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(startingRowEClass, StartingRow.class, "StartingRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStartingRow_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, StartingRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStartingRow_Value(), theXMLTypePackage.getLong(), "value", null, 0, 1, StartingRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subscriptionEClass, Subscription.class, "Subscription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSubscription_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Subscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2491,6 +2524,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "serviceGroup",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getDataService_ServiceNamespace(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", " serviceNamespace",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
@@ -3109,6 +3150,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
+		  (getQuery_KeyColumns(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "keyColumns",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
 		  (queryParameterEClass, 
 		   source, 
 		   new String[] {
@@ -3277,6 +3326,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "path",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getResource_ReturnRequestStatus(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "returnRequestStatus",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

@@ -106,6 +106,8 @@ public interface DSActionConstants {
 	public String MAXPOOLSIZE_PROPERTY = "org.wso2.ws.dataservice.maxpoolsize";
 
 	public String VALIDATIONQUERY_PROPERTY = "org.wso2.ws.dataservice.validation_query";
+	
+	public String ENABLE_AUTO_COMMIT = "org.wso2.ws.dataservice.autocommit";
 
 	// RDBMS Display Values
 
@@ -122,6 +124,8 @@ public interface DSActionConstants {
 	public String MAXPOOLSIZE_DISPLAY = "Max Pool Size";
 
 	public String VALIDATIONQUERY_DISPLAY = "Validation Query";
+	
+	public String ENABLE_AUTO_COMMIT_DISPLAY = "Enable Auto Commit";
 
 	// CSV Properties
 

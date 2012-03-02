@@ -233,11 +233,11 @@ public class QueryAction extends StaticSelectionCommandAction {
 							excelQuery.setHasheader(hasHeader);
 							
 							MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
-							mrc.setValue("-1");
+							mrc.setValue(-1);
 							excelQuery.setMaxrowcount(mrc);
 							
 							StartingRow str = DsFactory.eINSTANCE.createStartingRow();
-							str.setValue("1");
+							str.setValue(1);
 							excelQuery.setStartingrow(str);
 
 							CommandParameter param2 = new CommandParameter(query,
@@ -246,8 +246,8 @@ public class QueryAction extends StaticSelectionCommandAction {
 									collection);
 
 							compoundCmd.append(cmd2);
-						/*	ExcelQuery excelQuery = DsFactory.eINSTANCE.createExcelQuery();
-							excelQuery.setHasheader()
+							/*ExcelQuery excelQuery = DsFactory.eINSTANCE.createExcelQuery();
+							excelQuery.setHasheader(false);
 							excelQuery.setMaxrowcount(new BigInteger("-1"));
 							excelQuery.setStartingrow(new BigInteger("1"));
 
@@ -271,11 +271,11 @@ public class QueryAction extends StaticSelectionCommandAction {
 							gspreadQuery.setWorksheetnumber(wshnum);
 							
 							StartingRow str = DsFactory.eINSTANCE.createStartingRow();
-							str.setValue("1");
+							str.setValue(1);
 							gspreadQuery.setStartingrow(str);
 							
 							MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
-							mrc.setValue("-1");
+							mrc.setValue(1);
 							gspreadQuery.setMaxrowcount(mrc);
 
 							CommandParameter param2 = new CommandParameter(query,

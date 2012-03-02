@@ -63,10 +63,11 @@ public class ParameterMappingItemProvider
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
-			addColumnPropertyDescriptor(object);
+			
 			addNamePropertyDescriptor(object);
 			addQueryParamPropertyDescriptor(object);
+			addColumnPropertyDescriptor(object);
+			
 		}
 		return itemPropertyDescriptors;
 	}

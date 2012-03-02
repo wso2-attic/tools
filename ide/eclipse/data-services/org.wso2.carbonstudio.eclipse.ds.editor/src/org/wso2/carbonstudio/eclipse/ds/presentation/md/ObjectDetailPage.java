@@ -11,6 +11,8 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -75,8 +77,9 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		GridLayout glayout = new GridLayout();
 		glayout.marginWidth = glayout.marginHeight = 0;
 		glayout.numColumns = 2;
+		glayout.horizontalSpacing = 100;
 		detailsclient.setLayout(glayout);
-
+		
 		detailsPageSwitch(input);
 		// add the client to the section
 		detailsection.setClient(detailsclient);
@@ -159,8 +162,8 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		}
 
 	}
-
 	
+		
 	public void selectionChanged(SelectionChangedEvent arg0) {
 
 	}

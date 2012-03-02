@@ -153,7 +153,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ORDINAL_EDEFAULT = null;
+	protected static final int ORDINAL_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getOrdinal() <em>Ordinal</em>}' attribute.
@@ -163,7 +163,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected String ordinal = ORDINAL_EDEFAULT;
+	protected int ordinal = ORDINAL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParamType() <em>Param Type</em>}' attribute.
@@ -464,7 +464,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getOrdinal() {
+	public int getOrdinal() {
 		return ordinal;
 	}
 
@@ -473,8 +473,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrdinal(String newOrdinal) {
-		String oldOrdinal = ordinal;
+	public void setOrdinal(int newOrdinal) {
+		int oldOrdinal = ordinal;
 		ordinal = newOrdinal;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__ORDINAL, oldOrdinal, ordinal));
@@ -655,7 +655,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 				setName((String)newValue);
 				return;
 			case DsPackage.QUERY_PARAMETER__ORDINAL:
-				setOrdinal((String)newValue);
+				setOrdinal((Integer)newValue);
 				return;
 			case DsPackage.QUERY_PARAMETER__PARAM_TYPE:
 				setParamType((String)newValue);
@@ -744,7 +744,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 			case DsPackage.QUERY_PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.QUERY_PARAMETER__ORDINAL:
-				return ORDINAL_EDEFAULT == null ? ordinal != null : !ORDINAL_EDEFAULT.equals(ordinal);
+				return ordinal != ORDINAL_EDEFAULT;
 			case DsPackage.QUERY_PARAMETER__PARAM_TYPE:
 				return PARAM_TYPE_EDEFAULT == null ? paramType != null : !PARAM_TYPE_EDEFAULT.equals(paramType);
 			case DsPackage.QUERY_PARAMETER__SQL_TYPE:

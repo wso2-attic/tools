@@ -34,13 +34,13 @@ public interface MaxRowCount extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
+	 * @see #setValue(long)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getMaxRowCount_Value()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Long"
 	 *        extendedMetaData="name=':0' kind='simple'"
 	 * @generated
 	 */
-	String getValue();
+	long getValue();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.MaxRowCount#getValue <em>Value</em>}' attribute.
@@ -50,6 +50,6 @@ public interface MaxRowCount extends EObject {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(String value);
+	void setValue(long value);
 
 } // MaxRowCount

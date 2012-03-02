@@ -41,7 +41,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger MAXIMUM_EDEFAULT = null;
+	protected static final long MAXIMUM_EDEFAULT = 0L;
 
 	/**
 	 * The cached value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -51,7 +51,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger maximum = MAXIMUM_EDEFAULT;
+	protected long maximum = MAXIMUM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -61,7 +61,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger MINIMUM_EDEFAULT = null;
+	protected static final long MINIMUM_EDEFAULT = 0L;
 
 	/**
 	 * The cached value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -71,7 +71,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger minimum = MINIMUM_EDEFAULT;
+	protected long minimum = MINIMUM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,7 +97,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getMaximum() {
+	public long getMaximum() {
 		return maximum;
 	}
 
@@ -106,8 +106,8 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaximum(BigInteger newMaximum) {
-		BigInteger oldMaximum = maximum;
+	public void setMaximum(long newMaximum) {
+		long oldMaximum = maximum;
 		maximum = newMaximum;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LENGTH_VALIDATOR__MAXIMUM, oldMaximum, maximum));
@@ -118,7 +118,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getMinimum() {
+	public long getMinimum() {
 		return minimum;
 	}
 
@@ -127,8 +127,8 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinimum(BigInteger newMinimum) {
-		BigInteger oldMinimum = minimum;
+	public void setMinimum(long newMinimum) {
+		long oldMinimum = minimum;
 		minimum = newMinimum;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.LENGTH_VALIDATOR__MINIMUM, oldMinimum, minimum));
@@ -159,10 +159,10 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
-				setMaximum((BigInteger)newValue);
+				setMaximum((Long)newValue);
 				return;
 			case DsPackage.LENGTH_VALIDATOR__MINIMUM:
-				setMinimum((BigInteger)newValue);
+				setMinimum((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,9 +195,9 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
-				return MAXIMUM_EDEFAULT == null ? maximum != null : !MAXIMUM_EDEFAULT.equals(maximum);
+				return maximum != MAXIMUM_EDEFAULT;
 			case DsPackage.LENGTH_VALIDATOR__MINIMUM:
-				return MINIMUM_EDEFAULT == null ? minimum != null : !MINIMUM_EDEFAULT.equals(minimum);
+				return minimum != MINIMUM_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

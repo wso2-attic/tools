@@ -109,6 +109,7 @@ public class DataSourcePage extends FormPage {
 				});
 
 		dataSourceViewer.setContentProvider(new DatSourceTableContentProvider());
+		if(selectedConfig != null)
 		dataSourceViewer.setInput(getDataSourceModel());
 
 		datasourceTable.setSelection(0);

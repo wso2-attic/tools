@@ -132,6 +132,8 @@ import org.wso2.carbonstudio.eclipse.ds.command.DesignViewActionHandler;
 import org.wso2.carbonstudio.eclipse.ds.impl.DocumentRootImpl;
 import org.wso2.carbonstudio.eclipse.ds.presentation.custom.CustomAdapterFactoryContentProvider;
 import org.wso2.carbonstudio.eclipse.ds.presentation.data.DataSourcePage;
+import org.wso2.carbonstudio.eclipse.ds.presentation.md.DetailSection;
+import org.wso2.carbonstudio.eclipse.ds.presentation.md.DetailSectionUiUtil;
 import org.wso2.carbonstudio.eclipse.ds.presentation.md.MasterDetailsPage;
 import org.wso2.carbonstudio.eclipse.ds.presentation.source.DsObjectSourceEditor;
 import org.wso2.carbonstudio.eclipse.ds.provider.DsItemProviderAdapterFactory;
@@ -1161,6 +1163,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		case DATA_SOURCE_PAGE_INDEX:{
 			
 			designViewActivated = false;
+			if(dataService != null && dataService.getConfig() != null && !dataService.getConfig().isEmpty())
 			dataSourcePage.updateDataSourceViewer();
 		}
 		}
@@ -1464,7 +1467,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	/**
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	public void doSave(IProgressMonitor progressMonitor) {
@@ -1893,7 +1896,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			@Override
 			public void handleEvent(Event event) {
 				
-				if (dsEditor.getActivePage() == DESIGN_VIEW_INDEX) {
+				if (dsEditor.getActivePage() == DESIGN_VIEW_INDEX && !DetailSectionUiUtil.isFocusedOnDetailSection) {
 					if (event.keyCode == SWT.DEL) {
 
 						designViewActionHandler.delete(dsEditor);

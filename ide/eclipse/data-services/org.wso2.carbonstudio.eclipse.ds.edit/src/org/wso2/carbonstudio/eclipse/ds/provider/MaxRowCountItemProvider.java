@@ -86,7 +86,7 @@ public class MaxRowCountItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -110,10 +110,8 @@ public class MaxRowCountItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MaxRowCount)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MaxRowCount_type") :
-			getString("_UI_MaxRowCount_type") + " " + label;
+		MaxRowCount maxRowCount = (MaxRowCount)object;
+		return getString("_UI_MaxRowCount_type") + " " + maxRowCount.getValue();
 	}
 
 	/**

@@ -37,13 +37,13 @@ public interface LengthValidator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maximum</em>' attribute.
-	 * @see #setMaximum(BigInteger)
+	 * @see #setMaximum(long)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getLengthValidator_Maximum()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.UnsignedLong"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Long"
 	 *        extendedMetaData="kind='attribute' name='maximum' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	BigInteger getMaximum();
+	long getMaximum();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.LengthValidator#getMaximum <em>Maximum</em>}' attribute.
@@ -53,7 +53,7 @@ public interface LengthValidator extends EObject {
 	 * @see #getMaximum()
 	 * @generated
 	 */
-	void setMaximum(BigInteger value);
+	void setMaximum(long value);
 
 	/**
 	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
@@ -64,13 +64,13 @@ public interface LengthValidator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Minimum</em>' attribute.
-	 * @see #setMinimum(BigInteger)
+	 * @see #setMinimum(long)
 	 * @see org.wso2.carbonstudio.eclipse.ds.DsPackage#getLengthValidator_Minimum()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.UnsignedLong"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Long"
 	 *        extendedMetaData="kind='attribute' name='minimum' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	BigInteger getMinimum();
+	long getMinimum();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.ds.LengthValidator#getMinimum <em>Minimum</em>}' attribute.
@@ -80,6 +80,6 @@ public interface LengthValidator extends EObject {
 	 * @see #getMinimum()
 	 * @generated
 	 */
-	void setMinimum(BigInteger value);
+	void setMinimum(long value);
 
 } // LengthValidator

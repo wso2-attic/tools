@@ -123,6 +123,7 @@ public class SqlItemProvider
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("wso2/sql"));
+
 	}
 
 	/**

@@ -55,6 +55,7 @@ import org.wso2.carbonstudio.eclipse.ds.QueryProperty;
 import org.wso2.carbonstudio.eclipse.ds.QueryPropertyList;
 import org.wso2.carbonstudio.eclipse.ds.Resource;
 import org.wso2.carbonstudio.eclipse.ds.ResultMapping;
+import org.wso2.carbonstudio.eclipse.ds.Sparql;
 import org.wso2.carbonstudio.eclipse.ds.Sql;
 import org.wso2.carbonstudio.eclipse.ds.StartingRow;
 import org.wso2.carbonstudio.eclipse.ds.Subscription;
@@ -291,7 +292,10 @@ public class DSAction extends StaticSelectionCommandAction {
 					return getChildCommand(param, collection, owner);
 				}
 				
-				// TODO sparql action here
+				if(childObj instanceof Sparql && commandName.equals(DSActionConstants.ADD_SPARQL_ACTION)){
+					
+					return getChildCommand(param, collection, owner);
+				}
 				
 				//query property list
 				
@@ -326,12 +330,12 @@ public class DSAction extends StaticSelectionCommandAction {
 					
 					
 					MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
-					mrc.setValue("-1");
+					mrc.setValue(-1);
 					CommandParameter param3 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT, mrc);
 					
 					
 					StartingRow str = DsFactory.eINSTANCE.createStartingRow();
-					str.setValue("1");
+					str.setValue(1);
 					CommandParameter param4 = new CommandParameter(owner2,DsPackage.Literals.EXCEL_QUERY__STARTINGROW, str);
 					
 
@@ -363,12 +367,12 @@ public class DSAction extends StaticSelectionCommandAction {
 					
 					
 					MaxRowCount mrc = DsFactory.eINSTANCE.createMaxRowCount();
-					mrc.setValue("-1");
+					mrc.setValue(-1);
 					CommandParameter param3 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__MAXROWCOUNT, mrc);
 					
 					
 					StartingRow str = DsFactory.eINSTANCE.createStartingRow();
-					str.setValue("1");
+					str.setValue(1);
 					CommandParameter param4 = new CommandParameter(owner2,DsPackage.Literals.GSPREAD_QUERY__STARTINGROW, str);
 				
 					compoundCmd.append(getChildCommand(param1, collection, owner2));
