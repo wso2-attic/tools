@@ -14,7 +14,7 @@
 			<data modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.bpel.validators.BPELProjectFieldController">Project Name*</data>
 			<data modelProperty="process.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.bpel.validators.BPELProjectFieldController">Process Name*</data>
 			<data modelProperty="process.ns" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.bpel.validators.BPELProjectFieldController">Process Namespace*</data>
-			
+			<data modelProperty="process.template" type="list" fieldController="org.wso2.carbonstudio.eclipse.artifact.bpel.validators.BPELProjectFieldController" controlData="select=single;modify=non-editable;class=org.wso2.carbonstudio.eclipse.artifact.bpel.validators.BPELTemplateList">Template</data>
 			
 			<projectNatures>
 				<nature>org.eclipse.jdt.core.javanature</nature>
