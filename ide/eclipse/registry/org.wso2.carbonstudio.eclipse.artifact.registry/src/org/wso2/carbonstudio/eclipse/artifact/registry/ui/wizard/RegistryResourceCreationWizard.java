@@ -51,6 +51,7 @@ import org.wso2.carbonstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryCollection;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryItem;
+import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryDump;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
@@ -136,8 +137,10 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				resourceFile = resLocation.getFile(new Path(importFile.getName()));
 				destFile = resourceFile.getLocation().toFile();
 				FileUtils.copy(importFile, destFile);
-				RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), destFile.getParentFile());
-				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
+				//RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), destFile.getParentFile());
+				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath(),RegistryArtifactConstants.REGISTRY_DUMP);
+			} else if (getModel().getSelectedOption().equals(RegistryArtifactConstants.OPTION_CHECKOUT_PATH)){
+				
 			}
 			
 			//STOPPed serializing the reg-info.xml file to avoid generating the file but keep the process since we need to entries in the reg-info.xml file
@@ -162,18 +165,21 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			for (RegistryResourceInfo registryResourceInfo : registryResources) {
 				RegistryElement item = null;
 				// item.setFile("resources"+File.separator+registryResourceInfo.getResourceBaseRelativePath());
-				if (registryResourceInfo.getType() == 0) {
+				if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_RESOURCE) {
 					item = new RegistryItem();
 					((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
-				} else if (registryResourceInfo.getType() == 1) {
+				} else if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
 					item = new RegistryCollection();
 					((RegistryCollection) item).setDirectory(registryResourceInfo.getResourceBaseRelativePath());
-				}
+				} else if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_DUMP) {
+					item = new RegistryDump();
+					((RegistryDump) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
+				} 
 				item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",""));
 				artifact.addRegistryElement(item);
             }
 			
-			generalProjectArtifact.addESBArtifact(artifact);
+			generalProjectArtifact.addArtifact(artifact);
 			
 			generalProjectArtifact.toFile();
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());

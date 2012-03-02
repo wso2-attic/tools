@@ -36,11 +36,15 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.wso2.carbonstudio.eclipse.artifact.registry.Activator;
+import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
+import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 
 public class RegistryArtifactHandler extends ProjectArtifactHandler {
+	private static ICarbonStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	public static final String ARTIFACT_XML = "artifact.xml";
 	public static final String GENERAL_PROJECT_NATURE = "org.wso2.carbonstudio.eclipse.general.project.nature";
 	List<IResource> exportResources = new ArrayList<IResource>();
@@ -97,7 +101,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 										Object obj = items.next();
 										if (obj instanceof OMElement) {
 											OMElement item = (OMElement) obj;
-											if ("item".equals(item.getLocalName())) {
+											if ("item".equals(item.getLocalName()) || "dump".equals(item.getLocalName())) {
 												OMElement fileEl = item.getFirstChildWithName(new QName("file"));
 												String fileName = fileEl.getText();
 												IFile regItem = project.getFile(fileName);
@@ -107,6 +111,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 																	.toFile(), regItem.getName()));
 												}
 												fileEl.setText(regItem.getName());
+												resourcesEl.addChild(item);
 											} else if ("collection".equals(item.getLocalName())) {
 												OMElement collectionEl = item.getFirstChildWithName(
 																			new QName("directory"));
@@ -118,8 +123,11 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 															.getLocation().toFile(),regCollection.getName()));
 												}
 												collectionEl.setText(regCollection.getName());
+												resourcesEl.addChild(item);
+											} else{
+												log.warn("unknown resource type '" +  item.getLocalName() + "'; skipping");
 											}
-											resourcesEl.addChild(item);
+											
 										}
 									}
 									IFile registryInfo = resourceArtifact

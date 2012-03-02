@@ -29,6 +29,7 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.wso2.carbonstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryCollection;
+import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryDump;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryItem;
 
@@ -88,6 +89,15 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 	            artifact.addRegistryElement(item);
             }
 	        
+	        List<OMElement> dumpElements = getChildElements(omElement, "dump");
+	        
+	        for (OMElement dumpElement : dumpElements) {
+	            RegistryDump item=new RegistryDump();
+	            item.setFile(getChildElements(dumpElement, "file").get(0).getText());
+	            item.setPath(getChildElements(dumpElement, "path").get(0).getText());
+	            artifact.addRegistryElement(item);
+            }
+	        
 	        registryArtifacts.add(artifact);
         }
 	}
@@ -110,15 +120,15 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 		return null;
 	}
 	
-	public void addESBArtifact(RegistryArtifact artifact){
+	public void addArtifact(RegistryArtifact artifact){
 		registryArtifacts.add(artifact);
 	}
 	
-	public boolean removeESBArtifact(RegistryArtifact artifact){
+	public boolean removeArtifact(RegistryArtifact artifact){
 		return registryArtifacts.remove(artifact);
 	}
 	
-	public List<RegistryArtifact> getAllESBArtifacts(){
+	public List<RegistryArtifact> getAllArtifacts(){
 		return Collections.unmodifiableList(registryArtifacts);
 	}
 	
@@ -160,6 +170,13 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
  	                element.addChild(element2);
  	                element.addChild(element3);
  	                artifactElement.addChild(element);
+                } else if (item instanceof RegistryDump) {
+	                OMElement element = getElement("dump", "");
+	                OMElement fileElement = getElement("file", ((RegistryDump)item).getFile());
+	                OMElement pathElement = getElement("path", item.getPath());
+	                element.addChild(fileElement);
+	                element.addChild(pathElement);
+	                artifactElement.addChild(element);
                 }
 			}
 			

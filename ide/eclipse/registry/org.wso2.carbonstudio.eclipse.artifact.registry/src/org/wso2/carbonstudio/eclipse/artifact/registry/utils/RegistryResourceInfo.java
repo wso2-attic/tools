@@ -34,6 +34,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	private String relativePath;
 	private static String RESOURCE_TAG_NAME = "item";
 	private static String COLLECTION_TAG_NAME = "collection";
+	private static String DUMP_TAG_NAME = "dump";
 	private static ICarbonStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public String getRelativePath() {
@@ -89,7 +90,14 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			if (childElements.size() > 0) {
 				setRelativePath(childElements.get(0).getText());
 			}
-		}
+		} else if (documentElement.getLocalName().equals(DUMP_TAG_NAME)) {
+			setType(RegistryArtifactConstants.REGISTRY_DUMP);
+			List<OMElement> childElements = getChildElements(documentElement,
+					"file");
+			if (childElements.size() > 0) {
+				setRelativePath(childElements.get(0).getText());
+			}
+		} 
 		List<OMElement> childElements = getChildElements(documentElement,
 				"path");
 		if (childElements.size() > 0) {
@@ -122,7 +130,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			// content = "\t<item>\n\t\t" + "<path>" + getPath()
 			// + "</path>\n\t\t" + "<file>" + getResourceBaseRelativePath()
 			// + "</file>\n\t" + "</item>";
-		} else {
+		} else if (getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
 			documentElement = getElement("collection", "");
 			OMElement fileElement = getElement("directory",
 					getResourceBaseRelativePath());
@@ -133,6 +141,14 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			// + "</directory>\n\t"
 			// + "</collection>\n";
 
+		} else {
+			documentElement = getElement("dump", "");
+			OMElement fileElement = getElement("file",
+					getResourceBaseRelativePath());
+			documentElement.addChild(fileElement);
+			// content = "\t<item>\n\t\t" + "<path>" + getPath()
+			// + "</path>\n\t\t" + "<file>" + getResourceBaseRelativePath()
+			// + "</file>\n\t" + "</item>";
 		}
 		OMElement fileElement = getElement("path", getPath());
 		documentElement.addChild(fileElement);

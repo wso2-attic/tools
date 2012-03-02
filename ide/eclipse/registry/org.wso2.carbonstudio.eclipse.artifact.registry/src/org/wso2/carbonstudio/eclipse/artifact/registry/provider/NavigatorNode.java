@@ -26,6 +26,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryCollection;
+import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryDump;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.SWTResourceManager;
@@ -82,6 +83,14 @@ public class NavigatorNode {
 	    		 String name ="";
 		    	  if(item instanceof RegistryItem){
 		    		  name = ((RegistryItem)item).getFile();
+		    		  NavigatorNode navigatorNode = new NavigatorNode();
+		        	  navigatorNode.setContent(new ArrayList<RegistryElement>());
+		        	  navigatorNode.setPath(suffix+name);
+		        	  navigatorNode.setProject(getProject());
+		        	  navigatorNode.setData(item);
+		        	  node.put(suffix+name, navigatorNode);
+		    	  } else if(item instanceof RegistryDump){
+		    		  name = ((RegistryDump)item).getFile();
 		    		  NavigatorNode navigatorNode = new NavigatorNode();
 		        	  navigatorNode.setContent(new ArrayList<RegistryElement>());
 		        	  navigatorNode.setPath(suffix+name);

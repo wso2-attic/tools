@@ -33,6 +33,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryCollection;
+import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryDump;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.SWTResourceManager;
@@ -161,6 +162,8 @@ public class RegistryResourcePage extends FormPage {
 	    	  String name ="";
 	    	  if(registryElement instanceof RegistryItem){
 	    		  name = ((RegistryItem)registryElement).getFile();
+	    	  }else if(registryElement instanceof RegistryDump){
+	    		  name = ((RegistryDump)registryElement).getFile();
 	    	  }else{
 	    		  name = ((RegistryCollection)registryElement).getDirectory();
 	    	  }
@@ -232,7 +235,7 @@ public class RegistryResourcePage extends FormPage {
 			    File artifactXml =  fileInput.getFile().getLocation().toFile();
                 generalProjectArtifact=new GeneralProjectArtifact();
 			    generalProjectArtifact.fromFile(artifactXml);
-			    java.util.List<RegistryArtifact> regArtifact = generalProjectArtifact.getAllESBArtifacts();
+			    java.util.List<RegistryArtifact> regArtifact = generalProjectArtifact.getAllArtifacts();
 			    for (RegistryArtifact artifact : regArtifact) {
 			    	 artifactlist.add(artifact.getName());
 			    	 artifactlist.setData(artifact.getName(), artifact);

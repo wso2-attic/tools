@@ -18,6 +18,10 @@ package org.wso2.carbonstudio.eclipse.artifact.registry.utils;
 
 import java.io.File;
 import javax.xml.stream.FactoryConfigurationError;
+import static org.wso2.carbonstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_COLLECTION;
+import static org.wso2.carbonstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_RESOURCE;
+import static org.wso2.carbonstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_DUMP;
+import static org.wso2.carbonstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_UNDEFINED;
 
 public class RegistryResourceUtils {
 
@@ -26,18 +30,27 @@ public class RegistryResourceUtils {
 	
 	public static void addRegistryResourceInfo(File inputFile,
 			RegistryResourceInfoDoc regResInfoDoc, File base, String path) {
-		String relativePath = inputFile.getAbsolutePath().substring(
-				base.getParent().length() + 1);
+		addRegistryResourceInfo(inputFile,regResInfoDoc,base,path,REGISTRY_UNDEFINED);
+	}
+	
+	public static void addRegistryResourceInfo(File inputFile,
+	                                           RegistryResourceInfoDoc regResInfoDoc, File base,
+	                                           String path, int type) {
+		String relativePath = inputFile.getAbsolutePath().substring(base.getParent().length() + 1);
 
-		if (inputFile.isFile()) {
-			regResInfoDoc.addRegistryResourceInfoDoc(path, inputFile, 0, base,
-					"");
-		} else {
-			path = path.endsWith("/") ? path : path + "/";
-			path += inputFile.getName();
-			regResInfoDoc.addRegistryResourceInfoDoc(path, inputFile, 1, base,
-					relativePath);
+		if(type== REGISTRY_DUMP){
+			regResInfoDoc.addRegistryResourceInfoDoc(path, inputFile, REGISTRY_DUMP, base, "");
+		} else{
+			if (inputFile.isFile()) {
+				regResInfoDoc.addRegistryResourceInfoDoc(path, inputFile, REGISTRY_RESOURCE, base, "");
+			} else {
+				path = path.endsWith("/") ? path : path + "/";
+				path += inputFile.getName();
+				regResInfoDoc.addRegistryResourceInfoDoc(path, inputFile, REGISTRY_COLLECTION, base, relativePath);
+			}
 		}
+		
+		
 	}
 	
 	public static void createMetaDataForFolder(String checkoutPath, File fromPath){

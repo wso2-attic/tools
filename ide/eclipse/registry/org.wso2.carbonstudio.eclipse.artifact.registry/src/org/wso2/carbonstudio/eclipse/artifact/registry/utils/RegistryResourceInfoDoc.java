@@ -36,7 +36,7 @@ public class RegistryResourceInfoDoc extends AbstractXMLDoc {
 	public void addRegistryResourceInfoDoc(String path, File inputFile,
 			int type, File base, String relativePath) {
 		if (type == RegistryArtifactConstants.REGISTRY_COLLECTION
-				&& RegistryArtifactConstants.getStatisPath().contains(path)) {
+				&& RegistryArtifactConstants.getStaticPath().contains(path)) {
 			File[] listFiles = inputFile.listFiles();
 			for (File file : listFiles) {
 				String newPath = path;

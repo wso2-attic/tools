@@ -42,6 +42,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	private String registryPath="/_system/custom";
 	private String resourceName;
 	private boolean copyContent;
+	private String checkoutPath;
 	
 	public RegistryArtifactModel() {
 	
@@ -64,7 +65,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		return registryPath;
 	}
 	
-	public void SetCopyContent(boolean copyContent){
+	public void setCopyContent(boolean copyContent){
 		this.copyContent=copyContent;
 	}
 	
@@ -89,7 +90,9 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		} else if (key.equals(RegistryArtifactConstants.DATA_SAVE_FILE)) {
 			setResourceSaveLocation((IContainer) data);
 		} else if (key.equals(RegistryArtifactConstants.DATA_COPY_CONTENT)) {
-			SetCopyContent((Boolean) data);
+			setCopyContent((Boolean) data);
+		} else if (key.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
+			setCheckoutPath(data.toString());
 		} else if(key.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)){
 			if (data != null) {
 				File importFile = new File(data.toString());
@@ -114,6 +117,8 @@ public class RegistryArtifactModel extends ProjectDataModel {
 				modelPropertyValue = getResourceSaveLocation();
 			} else if (key.equals(RegistryArtifactConstants.DATA_COPY_CONTENT)) {
 				modelPropertyValue = getCopyContent();
+			} else if (key.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
+				modelPropertyValue = getCheckoutPath();
 			}
 		}
 		return modelPropertyValue;
@@ -187,5 +192,13 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		}
 		return newResourceSaveLocation;
 	}
+
+	public void setCheckoutPath(String checkoutPath) {
+	    this.checkoutPath = checkoutPath;
+    }
+
+	public String getCheckoutPath() {
+	    return checkoutPath;
+    }
 	
 }

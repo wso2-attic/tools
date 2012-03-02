@@ -26,10 +26,13 @@ public class RegistryArtifactConstants extends NLS {
 	
 	public static final int REGISTRY_RESOURCE = 0; 
 	public static final int REGISTRY_COLLECTION = 1; 
+	public static final int REGISTRY_DUMP = 2; 
+	public static final int REGISTRY_UNDEFINED=-1;
 	
 	public static  String OPTION_NEW_RESOURCE;
 	public static  String OPTION_IMPORT_RESOURCE;
 	public static  String OPTION_IMPORT_DUMP;
+	public static  String OPTION_CHECKOUT_PATH;
 	public static  String DATA_RESOURCE_NAME;
 	public static  String DATA_RESOURCE_TYPE;
 	public static  String DATA_REG_LOCATION;
@@ -37,6 +40,7 @@ public class RegistryArtifactConstants extends NLS {
 	public static  String DATA_SAVE_FILE;
 	public static  String DATA_IMPORT_FILE;
 	public static  String DATA_COPY_CONTENT;
+	public static String DATA_CHECKOUT_PATH;
 	public static String JAVA_PROJECT_NATURE;
 	public static String GENERAL_PROJECT_NATURE;
 	
@@ -69,7 +73,7 @@ public class RegistryArtifactConstants extends NLS {
 	}
 	
 	private static List<String> staticPathList;
-	public static List<String> getStatisPath(){
+	public static List<String> getStaticPath(){
 		if (staticPathList==null){
 			staticPathList = Arrays.asList(STATIC_PATHS.split(","));
 		}
