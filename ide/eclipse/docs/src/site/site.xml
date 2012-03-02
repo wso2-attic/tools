@@ -26,6 +26,7 @@
 	    <item name="Gadget Server Tools" href="gadget_category.html"/>
 	    <item name="Carbon Tools" href="carbon_category.html"/>
 	    <item name="Packaging" href="packaging.html"/>
+	    <item name="Life Cycle Management of a Carbon Application Archive (CAR)" href="lifecyclemanagement.html"/>
 	    <item name="Advance Server Extensions" href="server_extensions_category.html"/>
 	    <item name="Apache Maven Support" href="cs_maven_support.html"/>
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>

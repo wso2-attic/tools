@@ -80,6 +80,11 @@ permissions and ~ limitations under the License.
 					<a href="esb_category.html#ESBConfigProject">ESB Config Project</a>
 					</li>
 				</ul>
+				<ul>
+					<li>
+					<a href="esb_category.html#SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</a>
+					</li>
+				</ul>
             	<ul>
 					<li>
 					<a href="esb_category.html#SequenceArtifact">Sequence</a>
@@ -231,6 +236,12 @@ permissions and ~ limitations under the License.
 					<a href="packaging.html#artifactPackaging">Artifact Level Packaging</a>
 					</li>
 				</ul>
+			</li>
+			
+			<li><a href="lifecyclemanagement.html">Life Cycle Management of a Carbon Application Archive (CAR)</a>
+			<ul>
+				<li>This explain how to manage different life cycles of your application.</li>
+			</ul>
 			</li>
 			
 			 <li><a href="cs_maven_support.html">Apache Maven Support</a>

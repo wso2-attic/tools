@@ -22,6 +22,9 @@ permissions and ~ limitations under the License.
 					<a href="#ESBConfigProject">ESB Config Project</a>
 				</li>
 				<li>
+					<a href="#SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</a>
+				</li>
+				<li>
 					<a href="#SequenceArtifact">Sequence</a>
 				</li>
 				<li>
@@ -95,7 +98,86 @@ permissions and ~ limitations under the License.
 		All your endpoints will be saved in to the <strong>endpoints</strong> folder, sequences will be saved 
 		in <strong>sequences</strong> folder, local entries in to <strong>local-entries</strong> folder 
 		and proxy services in to <strong>proxy-services</strong> folder.  
-		</p>		
+		</p>	
+		
+		<h2 id="SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</h2>
+		
+		<p>
+		Latest version of WSO2 ESB is 4.0.0. Still we have lot of people, who heavily use 
+		<strong>WSO2 ESB 3.0.1</strong> as well. <strong>WSO2 ESB 4.0.0</strong> introduces lot 
+		of new mediators such as 
+		</p>
+		
+		<ul>
+			<li>Store Mediator</li>
+			<li>URL Re-Write Mediator</li>
+			<li>Call Template Mediator</li>
+			<li>Conditional Router Mediator etc</li>
+		</ul>
+		
+		<p>
+		At the same time, lot of other mediators have been modified in order to support more user 
+		friendly functionalities. 
+		</p>
+		
+		<ul>
+			<li>Send</li>
+			<li>XSLT</li>
+			<li>Xquery</li>
+			<li>Validate</li>
+			<li>Clone</li>
+			<li>Aggregate</li>
+			<li>Iterate</li>
+			<li>Enrich etc</li>
+		</ul>
+		
+		<p>
+		WSO2 Carbon Studio supports both ESB versions in the ESB editor. This support is enabled 
+		via a flag that you set in <strong>Eclipse Preference</strong> page. 
+		</p>
+		
+		<p>
+		To select the needed <strong>WSO2 ESB</strong> version, go to <strong>Window -> Preferences</strong>
+		 page. Select <strong>ESB</strong> category from <strong>Carbon Studio</strong> section. Then 
+		 you can select needed version as you wish. By default <strong>WSO2 ESB 3.0.1</strong> 
+		 version will be set. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/esb-version-support1.png"></img>
+			<br></br>
+		</p>
+		
+		<br></br>
+		<p>
+		If you select ESB version as <strong>4.0.0</strong> and create a sequence, you will see 
+		all the new and modified mediators will appear. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/esb-version-support3.png"></img>
+			<br></br>
+		</p>
+		
+		<br></br>
+		<p>
+		If you set back the version to <strong>3.0.1</strong>, you will see those mediators will 
+		disappear. 	
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/esb-version-support2.png"></img>
+			<br></br>
+		</p>
+		
+		<br></br>
+		<p>
+		If you want to apply the version change to already created ESB configuration, you have to 
+		reload the editor in order to preference modification to be effected in the editor.
+		</p>
+		
 				
 		<h2 id="SequenceArtifact">Sequence</h2>		
 		<p>

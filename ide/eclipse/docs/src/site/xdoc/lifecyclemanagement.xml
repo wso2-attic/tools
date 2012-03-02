@@ -1,0 +1,96 @@
+<!--
+~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+the Apache License, Version 2.0 (the "License"); ~ you may not use
+this file except in compliance with the License. ~ You may obtain a
+copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+~ ~ Unless required by applicable law or agreed to in writing,
+software ~ distributed under the License is distributed on an "AS IS"
+BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. ~ See the License for the specific language governing
+permissions and ~ limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h2>Life Cycle Management of a Carbon Application Archive (CAR)</h2>
+		<p>
+		Any Software Application has a life cycle. In simple terms, any software application will go 
+		through following stages. 
+		</p>
+		<ul>
+			<li>Development Life Cycle</li>
+			<li>Quality Assurance Life Cycle</li>
+			<li>Staging / Production Life Cycle</li>
+		</ul>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/lifecycle1.png"></img>
+			<br></br>
+		</p>
+		
+		<h3>Development Life Cycle</h3>
+		<p>
+		In the development phase, lot of programmers / developers will work collaboratively. 
+		Due to that almost all the software projects are multi-user applications. We should manage 
+		this type of environment with extra care since we do not want to lose the effort of any 
+		of our developer. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/lifecycle2.png"></img>
+			<br></br>
+		</p>
+				
+		<p>
+		To manage such environment, we use lot of tools that are provided in order make this 
+		task easy. We use tools like <strong>source control</strong> in order to manage 
+		collaborative development. As we discribed in the <a href="getting_started_category.html">
+		Getting Started with Carbon Studio</a> document, you can use <strong>WSO2 Carbon 
+		Studio</strong> to develop your SOA application and commit the changes to the 
+		<strong>source control</strong>. Developers can commit the generated CAR files 
+		in to source control, so the other developers can also use that CAR file for 
+		developer testing. Since Carbon Applications are fully supported with Maven, 
+		developers will need only to commit the source projects. Developers will create 
+		<strong>Carbon Application Archives</strong> using build commands, and this CAR file 
+		can be used by all the devolopers since everyone shares the same dev environment. 
+		Developers will test the application with test data in their local setups. After the dev 
+		testing, CAR file will be handed over to the QA.
+		</p>
+		
+		<h3>Quality Assurance (QA) Life Cycle</h3>
+		<p>
+		Handing over the CAR file to the QA enviromnet can be done manually or using 
+		life cycle management feature of <a href="http://wso2.com/products/governance-registry">
+		WSO2 Governance Registry</a>. If you use <strong>G-Reg</strong> life cycle management 
+		feature, you do not have to do anything manually. Developers and QA engineers will get 
+		notifications regarding the promotions and demotions done to the artifact through 
+		notifications feature of <strong>G-Reg</strong>. QA engineers will deploy the CAR file 
+		upon a test environment which will use real data and real traffic. If QA passed, CAR file 
+		can be promoted to <strong>Staging / Production</strong> environment. If problems are 
+		occured during the QA phase, QA engineers can demote the artifact. In each and every 
+		scenario, relevant parties will be notified.     
+		</p>
+		
+		<h3>Staging / Production Life Cycle</h3>
+		<p>
+		Once the QA passed, we can use the same CAR file that is being used by the QA environment 
+		directly to the Staging environment. Before the introduction of the CAR concept, you 
+		have to do it manually. In that case <strong>Registry Configuration</strong> will be checked out from 
+		the <strong>QA Environment</strong> and check-in to <strong>Staging / 
+		Production Environment</strong>. <strong>Axis2 Repository</strong> will be copied from 
+		<strong>QA Environment</strong> to <strong>Staging / Production Environment</strong>.
+		</p>
+		
+		<p>
+		You can manage life cycle of your application as described above, only if your CAR application 
+		contains data that are not depend on the environment. Suppose you have some endpoints that 
+		differ according to the environmet, above method will have to modified accordingly. Best 
+		way to handle such scenarios is to keep those endpoints and other information that are 
+		changing in a G-Reg instance that are available in each and every environment. When moving 
+		from one environment to the other, we will have to checkout those resources 
+		from the G-Reg instance and then checkin the the next G-Reg instance.    
+		</p>
+	</body>
+</html>
