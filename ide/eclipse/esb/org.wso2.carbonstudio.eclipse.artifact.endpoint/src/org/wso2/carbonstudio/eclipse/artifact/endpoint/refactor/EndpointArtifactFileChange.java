@@ -117,7 +117,6 @@ public class EndpointArtifactFileChange extends TextFileChange{
 		    try {
 	            provider.connect(endpointFile);
             } catch (CoreException e) {
-	            // TODO Auto-generated catch block
 	            e.printStackTrace();
             }
             document = provider.getDocument(endpointFile);
@@ -126,34 +125,28 @@ public class EndpointArtifactFileChange extends TextFileChange{
             try {
 	            acquireDocument(new NullProgressMonitor());
             } catch (CoreException e1) {
-	            // TODO Auto-generated catch block
 	            e1.printStackTrace();
             }
             
             
 		    
-            document.replace(endpointReplaceOffset, endpointReplaceLength, newName);
+            try {
+	            document.replace(endpointReplaceOffset, endpointReplaceLength, newName);
+            } catch (Exception e1) {
+	            e1.printStackTrace();
+            }
             
 //            UndoEdit performEdits = performEdits(document);
 		
             try {
-            	boolean documentModified = isDocumentModified();
-            	boolean needsSaving = needsSaving();
-            	
-            	Object modifiedElement = getModifiedElement();
-            	boolean enabled = isEnabled();
-            	
-            	
             	commit(document, new NullProgressMonitor());
             } catch (CoreException e) {
-            	// TODO Auto-generated catch block
             	e.printStackTrace();
             }
             
             try {
             	releaseDocument(document, new NullProgressMonitor());
             } catch (CoreException e) {
-            	// TODO Auto-generated catch block
             	e.printStackTrace();
             }
 	    UndoEdit performEdits = super.performEdits(document);
@@ -188,24 +181,54 @@ public class EndpointArtifactFileChange extends TextFileChange{
 //		        <file>src/main/synapse-config/proxy-services/proxy1.xml</file>
 //		        </artifact>
 			String[] stringArray = line.trim().split(" ");
-			if (line.contains(case1String) &&
-//					TODO: Need to add validations for the -1 index
-			    (stringArray[getarrayIndexWithString(nameElement, stringArray)].equals(nameElement +
-			                                                                           case1String) ||
-			     stringArray[getarrayIndexWithString(nameElement, stringArray)].equalsIgnoreCase(nameElement +
-			                                                                                     case1String +
-			                                                                                     ">") || stringArray[getarrayIndexWithString(nameElement,
-			                                                                                                                                 stringArray)].equalsIgnoreCase(nameElement +
-			                                                                                                                                                                case1String +
-			                                                                                                                                                                "/>"))) {
-				//CASE 1 => <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
-				//Swapping 1 element for "\""
-				int case1LineIndex = line.indexOf(case1String)+1;
-				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.length(), newName));
-				
-				endpointReplaceOffset=fullIndex+case1LineIndex;
-				endpointReplaceLength=originalName.length();
-			} 
+			if (line.contains(case1String)) {
+				// TODO: Need to add validations for the -1 index
+				int getArrayIndexWithString = getArrayIndexWithString(nameElement, stringArray);
+				if (getArrayIndexWithString != -1) {
+					if (stringArray[getArrayIndexWithString].equalsIgnoreCase(nameElement +
+					                                                          case1String) ||
+					    stringArray[getArrayIndexWithString].equalsIgnoreCase(nameElement +
+					                                                          case1String + ">") ||
+					    stringArray[getArrayIndexWithString].equalsIgnoreCase(nameElement +
+					                                                          case1String + "/>")) {
+						// CASE 1 => <artifact name="proxy1" version="1.0.0"
+						// type="synapse/proxy-service"
+						// serverRole="EnterpriseServiceBus">
+						// Swapping 1 element for "\""
+						int case1LineIndex = line.indexOf(case1String) + 1;
+						addEdit(new ReplaceEdit(fullIndex + case1LineIndex, originalName.length(),
+						                        newName));
+
+						endpointReplaceOffset = fullIndex + case1LineIndex;
+						endpointReplaceLength = originalName.length();
+
+					}
+
+				}else{
+					String keyElement="key=";
+					int localEntryArrayIndex=getArrayIndexWithString(keyElement, stringArray);
+					if(localEntryArrayIndex!= -1){
+						if (stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						                                                          case1String) ||
+						    stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						                                                          case1String + ">") ||
+						    stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						                                                          case1String + "/>")) {
+							// CASE 1 => <artifact name="proxy1" version="1.0.0"
+							// type="synapse/proxy-service"
+							// serverRole="EnterpriseServiceBus">
+							// Swapping 1 element for "\""
+							int case1LineIndex = line.indexOf(case1String) + 1;
+							addEdit(new ReplaceEdit(fullIndex + case1LineIndex, originalName.length(),
+							                        newName));
+
+							endpointReplaceOffset = fullIndex + case1LineIndex;
+							endpointReplaceLength = originalName.length();
+
+						}
+					}
+				}
+			}
 			fullIndex+=charsOnTheLine(line);
 			line = reader.readLine();
 		}
@@ -217,7 +240,7 @@ public class EndpointArtifactFileChange extends TextFileChange{
 		return line.length()+1;
 	}
 	
-	private int getarrayIndexWithString(String stringToSearch, String[] array){
+	private int getArrayIndexWithString(String stringToSearch, String[] array){
 		int index=0;
 		for (String string : array) {
 	        if(string.contains(stringToSearch)){
