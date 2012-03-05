@@ -773,7 +773,7 @@ public class WSO2UIToolkit {
 		return btnDirBrowse;
 	}
 
-	private static void propagateControlStatus(Control watchControl, Control... controls) {
+	public static void propagateControlStatus(Control watchControl, Control... controls) {
 		propagateEnability(watchControl, controls);
 		propagateVisibility(watchControl, controls);
 	}

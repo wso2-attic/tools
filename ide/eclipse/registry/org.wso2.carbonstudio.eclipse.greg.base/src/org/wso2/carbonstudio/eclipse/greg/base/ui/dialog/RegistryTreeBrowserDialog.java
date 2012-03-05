@@ -490,4 +490,8 @@ public class RegistryTreeBrowserDialog extends Dialog {
 	public int getDefaultPathId() {
 		return defaultPathId;
 	}
+	
+	public RegistryTreeViewer getViewer(){
+		return treeViewer;
+	}
 }

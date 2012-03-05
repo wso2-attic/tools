@@ -354,7 +354,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 													readonly,
 													getControl().getParent().getShell(), 
 													optionData.getCaption(), 
-													"Browse", 
+													"Browse...", 
 													optionData.getRegistyResourceSelectionType());
 	
 		FieldExecutor fieldExecutor =
@@ -405,7 +405,11 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		}
 	});
 	fieldControllers.put(optionData.getModelProperty(), fieldExecutor);
-		
+	try {
+		updateField(optionData.getModelProperty());
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 
 	}
 	
