@@ -29,8 +29,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.wso2.carbonstudio.eclipse.esb.ModelObject;
 import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
-import org.wso2.carbonstudio.eclipse.esb.SynapseConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderAction;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderMediator;
@@ -255,11 +255,11 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 			String newHeaderName = String.format("%s:%s", headerNamespace
 					.getKey(), getHeaderName().getPropertyValue());
 			self.setAttribute("name", newHeaderName);
-			int size = ((SynapseConfiguration) EcoreUtil.getRootContainer(this))
+			int size = ((ModelObject)EcoreUtil.getRootContainer(this))
 					.getAdditionalNamespaces().size();
 			boolean contains = false;
 			for (int i = 0; i < size; ++i) {
-				if (((SynapseConfiguration) EcoreUtil.getRootContainer(this))
+				if (((ModelObject) EcoreUtil.getRootContainer(this))
 						.getAdditionalNamespaces().get(i).getPrefix()
 						.equals(headerNamespace.getKey())) {
 					contains = true;
