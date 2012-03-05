@@ -2,6 +2,7 @@ package org.wso2.carbonstudio.eclipse.esb.presentation.ui;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -9,24 +10,29 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
+import org.wso2.carbonstudio.eclipse.esb.SynapseConfiguration;
 
 public class NamespacedPropertyDecoratorHeaderMediator extends
 		NamespacedPropertyEditor {
 
 	CellEditor decoratedEditor;
+	NamespacedProperty oldNamespaceProperty;
+	String definedURI;
+	String prefix;
 
 	public NamespacedPropertyDecoratorHeaderMediator(CellEditor cellEditor,
 			Composite parent, NamespacedProperty namespacedProperty,
 			Object propertyContainer, IItemPropertyDescriptor propertyDescriptor) {
 		super(parent, namespacedProperty, propertyContainer, propertyDescriptor);
 		this.decoratedEditor = cellEditor;
+		this.oldNamespaceProperty=namespacedProperty;		
 	}
 
 	protected Object openDialogBox(Control cellEditorWindow) {
 		NamespacedPropertyEditorDialog dialog = new NamespacedPropertyEditorDialog(
 				cellEditorWindow.getShell(), getStyle(), namespacedProperty) {
 			protected void initActions() {
-				okButton.setEnabled(false);
+				//okButton.setEnabled(false);
                 if(nsListBox.getItemCount() > 0){
                 	addButton.setEnabled(false);
 					nsPrefixTextField.setEnabled(false);
@@ -47,31 +53,7 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 
 				addButton.addListener(SWT.Selection, new Listener() {
 					public void handleEvent(Event event) {
-						String prefix = nsPrefixTextField.getText();
-						String uri = nsUriTextField.getText();
-						if (isValidNamespace(prefix, uri)) {
-							addNamespace(prefix, uri);
-							nsPrefixTextField.setText("");
-							nsUriTextField.setText("");
-							nsPrefixTextField.setFocus();
-						} else {
-							// TODO: Report invalid namespace here.
-						}
-						if (nsListBox.getItemCount() == 0){
-							 
-							okButton.setEnabled(false);
-							
-						} else {
-							if(!propertyTextField.getText().equals("")){
-								okButton.setEnabled(true);
-							}
-							
-							addButton.setEnabled(false);
-							nsPrefixTextField.setEnabled(false);
-							nsUriTextField.setEnabled(false);
-						}
-						
-						
+						addToListBox();						
 					}
 				});
 
@@ -82,12 +64,12 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 						}
 						if (nsListBox.getItemCount() == 0
 								| propertyTextField.getText().equals("")) {
-							okButton.setEnabled(false);
+							//okButton.setEnabled(false);
 							addButton.setEnabled(true);
 							nsPrefixTextField.setEnabled(true);
 							nsUriTextField.setEnabled(true);
 						} else {
-							okButton.setEnabled(true);
+							//okButton.setEnabled(true);
 						}
 					}
 				});
@@ -109,12 +91,12 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 						}
 						if (nsListBox.getItemCount() == 0
 								| propertyTextField.getText().equals("")) {
-							okButton.setEnabled(false);
+							//okButton.setEnabled(false);
 							addButton.setEnabled(true);
 							nsPrefixTextField.setEnabled(true);
 							nsUriTextField.setEnabled(true);
 						} else {
-							okButton.setEnabled(true);
+							//okButton.setEnabled(true);
 						}
 					}
 				});
@@ -122,6 +104,7 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 				okButton.addListener(SWT.Selection, new Listener() {
 					public void handleEvent(Event event) {
 						try {
+							addToListBox();
 							saveConfiguration();
 							setSaved(true);
 						} catch (Exception ex) {
@@ -141,8 +124,7 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 				propertyTextField.addListener(SWT.CHANGED, new Listener() {
 
 					public void handleEvent(Event event) {
-						if (nsListBox.getItemCount() == 0
-								| propertyTextField.getText().equals("")) {
+						if (propertyTextField.getText().equals("")) {
 							okButton.setEnabled(false);
 						} else {
 							okButton.setEnabled(true);
@@ -151,6 +133,63 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 				});
 
 			}
+			
+			
+			private static final String namespaceDisplayFormat = "xmlns:%s=\"%s\"";
+			private void addToListBox(){
+				if(!nsPrefixTextField.getText().equals("")){
+				 prefix = nsPrefixTextField.getText();
+				String uri = nsUriTextField.getText();			
+				
+				if (!prefix.equals("") & uri.equals("")) {
+					if(checkExistingNamespaces(prefix)){
+						addNamespace(prefix, definedURI);
+						
+						
+						//String namespaceDisplayValue = String.format(namespaceDisplayFormat,
+								//prefix, definedURI);
+						//nsListBox.add(namespaceDisplayValue);
+						//namespacedProperty.setPropertyName(prefix+":"+propertyTextField);
+						nsPrefixTextField.setText("");
+						nsUriTextField.setText("");
+						nsPrefixTextField.setFocus();
+					}
+					
+				} else if(!prefix.equals("") & !uri.equals("")){
+					addNamespace(prefix, uri);
+					nsPrefixTextField.setText("");
+					nsUriTextField.setText("");
+					nsPrefixTextField.setFocus();
+				} else{
+					//Validation
+				}
+				if (nsListBox.getItemCount() == 0){
+					 
+					//okButton.setEnabled(false);
+					
+				} else {
+					if(!propertyTextField.getText().equals("")){
+						okButton.setEnabled(true);
+					}
+					
+					addButton.setEnabled(false);
+					nsPrefixTextField.setEnabled(false);
+					nsUriTextField.setEnabled(false);
+				}
+			}
+			}
+			private boolean checkExistingNamespaces(String prefix){				
+				
+				int size=((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().size();
+				for(int i=0;i<size;++i){
+					if(((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().get(i).getPrefix().equals(prefix)){
+						definedURI=((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().get(i).getUri();
+						return true;
+					}
+				}				
+				return false;
+			}
+			
 		};
 		dialog.open();
 		if (dialog.isSaved()) {
