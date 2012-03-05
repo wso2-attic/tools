@@ -25,6 +25,12 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -39,6 +45,7 @@ import org.wso2.carbonstudio.eclipse.artifact.localentry.utils.LocalEntryArtifac
 import org.wso2.carbonstudio.eclipse.artifact.localentry.utils.LocalEntryTemplateUtils;
 import org.wso2.carbonstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.carbonstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
 import org.wso2.carbonstudio.eclipse.utils.project.ProjectUtils;
@@ -50,6 +57,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	private LocalEntryModel leModel;
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
+	private IProject esbProject;
 	
 	public LocalEntryProjectCreationWizard() {
 		this.localEntryModel = new LocalEntryModel();
@@ -70,7 +78,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	public boolean performFinish() {
 		try {
 			leModel = (LocalEntryModel)getModel();
-			IProject esbProject =  leModel.getLocalEntrySaveLocation().getProject();
+			esbProject =  leModel.getLocalEntrySaveLocation().getProject();
 			IContainer location = esbProject.getFolder("src" + File.separator + "main" +
 			                                           File.separator +
 			                                           "synapse-config" +
@@ -101,10 +109,11 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			if(!pomfile.exists()){
 				createPOM(pomfile);
 			}
-			ProjectUtils.addNatureToProject(esbProject,
-											false,
-			                                LocalEntryArtifactConstants.ESB_PROJECT_NATURE,
-			                                "org.wso2.carbonstudio.eclipse.localentry.project.nature" );
+//			ProjectUtils.addNatureToProject(esbProject,
+//											false,
+//			                                LocalEntryArtifactConstants.ESB_PROJECT_NATURE,
+//			                                "org.wso2.carbonstudio.eclipse.localentry.project.nature" );
+			updatePom();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			esbProjectArtifact.toFile();
@@ -119,6 +128,53 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			e.printStackTrace();
 		}
 		return true;
+	}
+	
+	public void updatePom() throws Exception{
+		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		
+		for(Plugin plg:plugins){
+			if(plg.getId().equals("wso2-esb-localentry-plugin")){
+				return ;
+			}
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-localentry-plugin", "1.0.5", true);
+		
+		PluginExecution pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId("localentry");
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		plugin.addExecution(pluginExecution);
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+
 	}
 	
 	protected boolean isRequiredWorkingSet() {

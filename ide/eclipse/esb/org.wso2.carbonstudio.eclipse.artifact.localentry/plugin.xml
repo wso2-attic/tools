@@ -12,14 +12,14 @@
 			<description>Local Entry</description>
 		</wizard>
    </extension>
-   	<extension point="org.eclipse.core.resources.natures"
+   	<!--extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.carbonstudio.eclipse.localentry.project.nature" name="Local Entry Project Nature">
 		<runtime>
 			<run
 				class="org.wso2.carbonstudio.eclipse.artifact.localentry.project.nature.LocalEntryProjectNature">
 			</run>
 		</runtime>
-	</extension>
+	</extension-->
 	<!--extension point="org.eclipse.ui.ide.projectNatureImages">
 		<image id="org.wso2.carbonstudio.eclipse.localentry.project.natureImage"
 			natureId="org.wso2.carbonstudio.eclipse.localentry.project.nature" icon="icons/local-entries-16x16.png">

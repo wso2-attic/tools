@@ -40,14 +40,14 @@
 				  </triggerPoints>
 		</navigatorContent>
 	</extension>
-	<extension point="org.eclipse.core.resources.natures"
+	<!--extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.carbonstudio.eclipse.endpoint.project.nature" name="Endpoint Project Nature">
 		<runtime>
 			<run
 				class="org.wso2.carbonstudio.eclipse.artifact.endpoint.project.nature.EndpointProjectNature">
 			</run>
 		</runtime>
-	</extension>
+	</extension-->
 	<!--extension point="org.eclipse.ui.ide.projectNatureImages">
 		<image id="org.wso2.carbonstudio.eclipse.ep.project.natureImage"
 			natureId="org.wso2.carbonstudio.eclipse.endpoint.project.nature" icon="icons/endpoint-normal.png">

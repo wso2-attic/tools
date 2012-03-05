@@ -27,10 +27,6 @@
 
 
 			<!--  group id="group2"></group-->
-						
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 		<settings optionId="import.sequence" 
 				  title="Import Sequence" 
@@ -46,10 +42,6 @@
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
 			
 			<!-- group id="group2"></group -->
-			
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 	</projectOptionSettings>
 </wizard>

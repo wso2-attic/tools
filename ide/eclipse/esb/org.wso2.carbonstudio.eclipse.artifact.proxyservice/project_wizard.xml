@@ -20,9 +20,6 @@
 			<data group="group1" modelProperty="proxy.AdvancedConfig" type="composite"  fieldController="org.wso2.carbonstudio.eclipse.artifact.proxyservice.validators.ProxyServiceProjectFieldController" controlData="class=org.wso2.carbonstudio.eclipse.artifact.proxyservice.helper.AdvancedConfigProvider">Configuration</data>
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
 
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 		<settings optionId="import.proxyservice"
 				  title="Proxy Service"
@@ -33,9 +30,6 @@
 			<data modelProperty="create.esb.prj" type="link" fieldController="org.wso2.carbonstudio.eclipse.artifact.proxyservice.validators.ProxyServiceProjectFieldController" controlData="align=right">&lt;a&gt;Create new ESB Project...&lt;/a&gt;</data>
 			<data modelProperty="available.ps" type="list" fieldController="org.wso2.carbonstudio.eclipse.artifact.proxyservice.validators.ProxyServiceProjectFieldController"  controlData="select=multiple;modify=non-editable;class=org.wso2.carbonstudio.eclipse.artifact.proxyservice.validators.ProxyServiceList">Available Proxy Services</data>
 			
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 	</projectOptionSettings>
 </wizard>

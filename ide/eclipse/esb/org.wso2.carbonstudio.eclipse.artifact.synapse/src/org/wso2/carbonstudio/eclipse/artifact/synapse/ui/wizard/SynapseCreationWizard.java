@@ -11,7 +11,11 @@ import javax.xml.stream.FactoryConfigurationError;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -88,10 +92,11 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration");
 				}
 			}
-			ProjectUtils.addNatureToProject(esbProject,
-			                                false,
-			                                "org.wso2.carbonstudio.eclipse.artifact.synapse.project.nature",
-			                                "org.wso2.carbonstudio.eclipse.esb.project.nature");
+			updatePom();
+//			ProjectUtils.addNatureToProject(esbProject,
+//			                                false,
+//			                                "org.wso2.carbonstudio.eclipse.artifact.synapse.project.nature",
+//			                                "org.wso2.carbonstudio.eclipse.esb.project.nature");
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			if(fileLst.size()>0){
@@ -105,6 +110,55 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		}
 		return true;
 	}
+	
+	public void updatePom() throws Exception {
+
+		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		
+		for(Plugin plg:plugins){
+			if(plg.getId().equals("wso2-esb-synapse-plugin")){
+				return ;
+			}
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", "1.0.3", true);
+		
+		PluginExecution pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId("synapse");
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		plugin.addExecution(pluginExecution);
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+		
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+	}
+
+	
 
 	// synapse/configuration
 	public void createNewSynapseConfig(String template) throws Exception {

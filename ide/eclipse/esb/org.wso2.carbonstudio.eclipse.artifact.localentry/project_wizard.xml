@@ -28,9 +28,6 @@
 			
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
 
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 		<settings optionId="import.localentry"
 				  title="Local Entry"
@@ -42,10 +39,6 @@
 			<data modelProperty="create.esb.prj" type="link" fieldController="org.wso2.carbonstudio.eclipse.artifact.localentry.validators.LocalEntryProjectFieldController" controlData="align=right">&lt;a&gt;Create new ESB Project...&lt;/a&gt;</data>
 			<data modelProperty="available.les" type="list" fieldController="org.wso2.carbonstudio.eclipse.artifact.localentry.validators.LocalEntryProjectFieldController"  controlData="select=multiple;modify=non-editable;class=org.wso2.carbonstudio.eclipse.artifact.localentry.validators.LocalEntriesList">Available Local Entries</data>
 			
-			
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 	</projectOptionSettings>
 </wizard>

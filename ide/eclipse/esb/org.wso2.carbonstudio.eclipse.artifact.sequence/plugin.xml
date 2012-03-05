@@ -123,14 +123,14 @@
      </command>
   </menuContribution>
 </extension>
-	<extension point="org.eclipse.core.resources.natures"
+	<!--extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.carbonstudio.eclipse.sequence.project.nature" name="Sequence Project Nature">
 		<runtime>
 			<run
 				class="org.wso2.carbonstudio.eclipse.artifact.sequence.project.nature.SequenceProjectNature">
 			</run>
 		</runtime>
-	</extension>
+	</extension-->
  <extension
          point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
       <sequence

@@ -12,14 +12,14 @@
 			<description>Proxy Service</description>
 		</wizard>
    </extension>
-   	<extension point="org.eclipse.core.resources.natures"
+   	<!--extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.carbonstudio.eclipse.proxy.project.nature" name="ProxyService Project Nature">
 		<runtime>
 			<run
 				class="org.wso2.carbonstudio.eclipse.artifact.proxyservice.project.nature.ProxyServiceProjectNature">
 			</run>
 		</runtime>
-	</extension>
+	</extension-->
 	<!--extension point="org.eclipse.ui.ide.projectNatureImages">
 		<image id="org.wso2.carbonstudio.eclipse.proxy.project.natureImage"
 			natureId="org.wso2.carbonstudio.eclipse.proxy.project.nature" icon="icons/proxy.png">

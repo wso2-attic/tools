@@ -11,7 +11,7 @@
 			<description>Synapse Configuration</description>
 		</wizard>
 	</extension>
-	<extension point="org.eclipse.core.resources.natures"
+	<!--extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.carbonstudio.eclipse.artifact.synapse.project.nature" name="Synapse Project Nature">
 		<runtime>
 			<run
@@ -23,7 +23,7 @@
 		<image id="org.wso2.carbonstudio.eclipse.synapse.project.natureImage"
 			natureId="org.wso2.carbonstudio.eclipse.artifact.synapse.project.nature" icon="icons/synapse-12x12png.png">
 		</image>
-	</extension>
+	</extension-->
 	  <extension point="org.eclipse.ui.navigator.navigatorContent">	
 	   <navigatorContent activeByDefault="true"
 			priority="high"

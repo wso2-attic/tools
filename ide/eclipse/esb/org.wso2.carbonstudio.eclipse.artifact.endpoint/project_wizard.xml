@@ -39,10 +39,6 @@
 			
 			
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
-
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 		<settings optionId="import.endpoint" 
 				  title="Import Endpoint" 
@@ -57,9 +53,6 @@
 			<data modelProperty="reg.path" type="list" fieldController="org.wso2.carbonstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group2" controlData="select=single;modify=editable;class=org.wso2.carbonstudio.eclipse.artifact.endpoint.validators.RegOptionsList">     Registry path</data>
 			
 			<group id="group2" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
-			<projectNatures>
-				<nature>org.eclipse.jdt.core.javanature</nature>
-			</projectNatures>
 		</settings>
 	</projectOptionSettings>
 </wizard>
