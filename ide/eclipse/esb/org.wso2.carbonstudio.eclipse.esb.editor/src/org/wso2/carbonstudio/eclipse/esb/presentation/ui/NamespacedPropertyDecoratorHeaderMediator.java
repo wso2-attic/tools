@@ -1,16 +1,16 @@
 package org.wso2.carbonstudio.eclipse.esb.presentation.ui;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.wso2.carbonstudio.eclipse.esb.ModelObject;
 import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
-import org.wso2.carbonstudio.eclipse.esb.SynapseConfiguration;
 
 public class NamespacedPropertyDecoratorHeaderMediator extends
 		NamespacedPropertyEditor {
@@ -179,11 +179,11 @@ public class NamespacedPropertyDecoratorHeaderMediator extends
 			}
 			}
 			private boolean checkExistingNamespaces(String prefix){				
-				
-				int size=((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().size();
+				ModelObject root = (ModelObject) EcoreUtil.getRootContainer(oldNamespaceProperty);
+				int size=root.getAdditionalNamespaces().size();
 				for(int i=0;i<size;++i){
-					if(((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().get(i).getPrefix().equals(prefix)){
-						definedURI=((SynapseConfiguration)EcoreUtil.getRootContainer(oldNamespaceProperty)).getAdditionalNamespaces().get(i).getUri();
+					if(root.getAdditionalNamespaces().get(i).getPrefix().equals(prefix)){
+						definedURI=root.getAdditionalNamespaces().get(i).getUri();
 						return true;
 					}
 				}				
