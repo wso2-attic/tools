@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.carbonstudio.eclipse.artifact.bpel.model.BpelModel;
+import org.wso2.carbonstudio.eclipse.artifact.bpel.utils.BPELArtifactConstants;
 import org.wso2.carbonstudio.eclipse.artifact.bpel.utils.BPELTemplateUtils;
 import org.wso2.carbonstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
@@ -25,6 +26,8 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 	private IProject project;
 	private String processName;
 	private String namespace;
+//	private WSDLInfoWizardPage wsdlInfoPage;
+//	private MavenDetailsPage mavenDetailsPage;
 
 	public BPELProjectCreationWizard() {
 		this.bpelModel = new BpelModel();
@@ -72,7 +75,27 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		return true;
 	}
 
-
+//	public void addPages() {
+//		wsdlInfoPage = new WSDLInfoWizardPage("Create a WSDL File");
+//		mavenDetailsPage = new MavenDetailsPage(getModel());
+//		super.addPages();
+//		addPage(wsdlInfoPage);
+//		addPage(mavenDetailsPage);
+//	}
+//	
+//	public IWizardPage getNextPage(IWizardPage page) {
+//		IWizardPage nextPage = super.getNextPage(page);
+//		if(page instanceof ProjectOptionsDataPage ){
+//			if(getModel().getSelectedOption().equals("new.bpelproject")){
+//				nextPage = wsdlInfoPage;
+//			}
+//		}else if(page instanceof WSDLInfoWizardPage){
+//			nextPage = mavenDetailsPage;
+//		}
+//		return nextPage;
+//	}
+	
+	
 	private void addCommonConfigs() throws Exception, CoreException {
 		File pomfile = project.getFile("pom.xml").getLocation().toFile();
 		getModel().getMavenInfo().setPackageName("bpel/workflow");
@@ -111,8 +134,8 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		processName = ((BpelModel)getModel()).getProcessName();
 		namespace = ((BpelModel)getModel()).getProcessNS();
 		
-		File processFile = project.getFile("HelloWorldProcess.bpel").getLocation().toFile();
-		File wsdlfile = project.getFile("HelloWorldProcessArtifacts.wsdl").getLocation().toFile();
+		File processFile = project.getFile("HelloWorldBPELProcess.bpel").getLocation().toFile();
+		File wsdlfile = project.getFile("HelloWorldBPELProcessArtifacts.wsdl").getLocation().toFile();
 		File deployfile = project.getFile("deploy.xml").getLocation().toFile();
 		File settingsFile = project.getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
 		
@@ -125,10 +148,10 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		String deployFileAsString = FileUtils.getContentAsString(deployfile);
 		String settingFileAsString = FileUtils.getContentAsString(settingsFile);
 		
-		String replacedProcessContent = replaceFileContent(processFileAsString, "HelloWorldProcess", processName);
-		String replacedWSDLContent = replaceFileContent(wsdlFileAsString, "HelloWorldProcess", processName);
-		String replacedDeployContent = replaceFileContent(deployFileAsString, "HelloWorldProcess", processName);
-		String replacedSettingContent = replaceFileContent(settingFileAsString, "HelloWorldProcess", project.getName());
+		String replacedProcessContent = replaceFileContent(processFileAsString, "HelloWorldBPELProcess", processName);
+		String replacedWSDLContent = replaceFileContent(wsdlFileAsString, "HelloWorldBPELProcess", processName);
+		String replacedDeployContent = replaceFileContent(deployFileAsString, "HelloWorldBPELProcess", processName);
+		String replacedSettingContent = replaceFileContent(settingFileAsString, "HelloWorldBPELProcess", project.getName());
 		
 		replacedProcessContent = replaceFileContent(replacedProcessContent, "http://eclipse.org/bpel/sample", namespace);
 		replacedWSDLContent = replaceFileContent(replacedWSDLContent, "http://eclipse.org/bpel/sample", namespace);
@@ -174,7 +197,17 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 	}
 	
 	private void addBPELTemplate(IProject newProject) throws IOException{
-		File bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/bpel-template.zip");
+		File bpelTemplateFile = null;
+		if(BPELArtifactConstants.ASYNCHRONOUS_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
+			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/asynchronous-bpel-template.zip");
+		}else if(BPELArtifactConstants.SYNCHRONOUS_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
+			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/synchronous-bpel-template.zip");
+		}else if(BPELArtifactConstants.EMPTY_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
+			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/empty-bpel-template.zip");
+		}else{
+//			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/bpel-template.zip");
+		}
+		
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 		archiveManipulator.extract(bpelTemplateFile, newProject.getLocation().toFile());
 	} 

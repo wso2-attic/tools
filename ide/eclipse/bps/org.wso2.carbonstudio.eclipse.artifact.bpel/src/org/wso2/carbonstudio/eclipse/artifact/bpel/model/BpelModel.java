@@ -8,6 +8,7 @@ public class BpelModel extends ProjectDataModel {
 
 	private String processName;
 	private String processNS = "http://wso2.org/bps/sample";
+	private String selectedTemplate;
 	
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
@@ -32,6 +33,8 @@ public class BpelModel extends ProjectDataModel {
 			setProcessName(data.toString());
 		}else if(key.equals("process.ns")){
 			setProcessNS(data.toString());
+		}else if(key.equals("process.template")){
+			setSelectedTemplate(data.toString());
 		}
 		return returnValue;
 	}
@@ -60,6 +63,13 @@ public class BpelModel extends ProjectDataModel {
 		super.setProjectName(projectName);
 	}
 	
+	public void setSelectedTemplate(String selectedTemplate) {
+		this.selectedTemplate = selectedTemplate;
+	}
+
+	public String getSelectedTemplate() {
+		return selectedTemplate;
+	}
 	
 
 }

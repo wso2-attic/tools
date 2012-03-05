@@ -8,7 +8,7 @@ import org.wso2.carbonstudio.eclipse.platform.core.model.AbstractListDataProvide
 import org.wso2.carbonstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class BPELTemplateList extends AbstractListDataProvider{
-
+	
 	public List<ListData> getListData(String modelProperty, ProjectDataModel model) {
 		List<ListData> bpelTemplates = new ArrayList<ListData>();
 		bpelTemplates.add(createListData(BPELArtifactConstants.ASYNCHRONOUS_BPEL_PROCESS, 
@@ -19,5 +19,6 @@ public class BPELTemplateList extends AbstractListDataProvider{
 											BPELArtifactConstants.EMPTY_BPEL_PROCESS));
 		return bpelTemplates;
 	}
+
 
 }
