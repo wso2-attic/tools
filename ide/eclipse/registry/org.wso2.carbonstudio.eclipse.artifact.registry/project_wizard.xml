@@ -58,7 +58,9 @@
 				  title="Check-out from Registry"
 				  description="Browse the location of a registry "
 				  error="Browse and select a registry ">
-			<data modelProperty="registry.browser" type="registry" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController"  controlData="select=single;modify=editable;registry.selection.type=resource+collection">Path</data>
+			<data modelProperty="registry.browser" type="registry" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController"  controlData="select=single;modify=readonly;registry.selection.type=resource+collection">Path</data>
+			<data modelProperty="reg.location" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Registry path to deploy</data>
+			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController" controlData="filterClass=org.wso2.carbonstudio.eclipse.artifact.registry.validators.ProjectFilter">Save resource in</data>
 			<data modelProperty="create.prj" type="link" fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController" controlData="align=right">&lt;a&gt;Create new Project...&lt;/a&gt;</data>
 			<projectNatures>
 				<nature>org.eclipse.jdt.core.javanature</nature>

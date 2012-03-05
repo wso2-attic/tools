@@ -52,6 +52,10 @@ import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryColle
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.carbonstudio.eclipse.general.project.artifact.bean.RegistryDump;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryNode;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceType;
+import org.wso2.carbonstudio.eclipse.greg.manager.local.utils.RegistryCheckInClientUtils;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.maven.util.MavenUtils;
@@ -140,6 +144,20 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				//RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), destFile.getParentFile());
 				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath(),RegistryArtifactConstants.REGISTRY_DUMP);
 			} else if (getModel().getSelectedOption().equals(RegistryArtifactConstants.OPTION_CHECKOUT_PATH)){
+				RegistryResourceNode checkoutPath = regModel.getCheckoutPath();
+				RegistryNode connectionInfo = checkoutPath.getConnectionInfo();
+				String registryResourcePath = checkoutPath.getRegistryResourcePath();
+				String resourceName = !checkoutPath.getCaption().equals("/")?checkoutPath.getCaption():"root";
+				resourceFile = resLocation.getFile(new Path(resourceName));
+				destFile = resourceFile.getLocation().toFile();
+				regModel.setResourceName(resourceName);
+				if(checkoutPath.getResourceType()==RegistryResourceType.COLLECTION){
+					RegistryCheckInClientUtils.checkout(connectionInfo.getUsername(), connectionInfo.getPassword(), destFile.toString(), connectionInfo.getUrl().toString().concat("/"), registryResourcePath);
+					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
+				} else{
+					RegistryCheckInClientUtils.download(connectionInfo.getUsername(), connectionInfo.getPassword(), destFile.toString(), connectionInfo.getUrl().toString().concat("/"), registryResourcePath);
+					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
+				}
 				
 			}
 			

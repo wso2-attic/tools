@@ -32,6 +32,7 @@ import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 import org.wso2.carbonstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.carbonstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
 
 public class RegistryArtifactModel extends ProjectDataModel {
 	
@@ -42,7 +43,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	private String registryPath="/_system/custom";
 	private String resourceName;
 	private boolean copyContent;
-	private String checkoutPath;
+	private RegistryResourceNode checkoutPath;
 	
 	public RegistryArtifactModel() {
 	
@@ -92,7 +93,11 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		} else if (key.equals(RegistryArtifactConstants.DATA_COPY_CONTENT)) {
 			setCopyContent((Boolean) data);
 		} else if (key.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
-			setCheckoutPath(data.toString());
+			if(data!=null){
+				if(data instanceof RegistryResourceNode){
+					setCheckoutPath((RegistryResourceNode)data);
+				}
+			}
 		} else if(key.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)){
 			if (data != null) {
 				File importFile = new File(data.toString());
@@ -193,11 +198,11 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		return newResourceSaveLocation;
 	}
 
-	public void setCheckoutPath(String checkoutPath) {
+	public void setCheckoutPath(RegistryResourceNode checkoutPath) {
 	    this.checkoutPath = checkoutPath;
     }
 
-	public String getCheckoutPath() {
+	public RegistryResourceNode getCheckoutPath() {
 	    return checkoutPath;
     }
 	

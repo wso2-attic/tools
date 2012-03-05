@@ -37,6 +37,7 @@ import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceType;
 import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryURLNode;
 import org.wso2.carbonstudio.eclipse.greg.base.persistent.RegistryURLInfo;
+import org.wso2.carbonstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 
@@ -354,6 +355,7 @@ public class RegistryTreeViewer extends TreeViewer implements Observer {
 		registryURLInfo.setUrl(registryUrl);
 		registryURLInfo.setUsername(username);
 		registryURLInfo.setPath(path);
+		RegistryUrlStore.getInstance().addRegistryUrl(registryUrl, username, path);
 		return getRegistryUrlNode().addRegistry(registryURLInfo, password);
 	}
 

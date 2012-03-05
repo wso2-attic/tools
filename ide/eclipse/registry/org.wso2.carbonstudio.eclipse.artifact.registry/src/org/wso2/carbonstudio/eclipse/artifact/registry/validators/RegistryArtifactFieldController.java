@@ -21,13 +21,13 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 import org.wso2.carbonstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants;
+import org.wso2.carbonstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.carbonstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.carbonstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.carbonstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class RegistryArtifactFieldController extends AbstractFieldController {
 
-	
 	
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
@@ -59,6 +59,16 @@ public class RegistryArtifactFieldController extends AbstractFieldController {
 			IResource resource = (IResource)value;
 			if(!resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
+		} else if (modelProperty.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
+			if (value == null) {
+				throw new FieldValidationException("Registry path cannot be empty");
+			} else{
+				if(value instanceof RegistryResourceNode){
+					RegistryResourceNode node =(RegistryResourceNode)value;
+				} else{
+					throw new FieldValidationException("Registry path cannot be empty");
+				}
+			}
 		}
 	}
 	
@@ -81,6 +91,16 @@ public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 			
 	}
 	return enableField;
+}
+
+
+@Override
+public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
+    boolean isReadOnly = super.isReadOnlyField(modelProperty, model);
+    if (modelProperty.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
+    	isReadOnly=true;
+    }
+    return isReadOnly;
 }
 	
 	

@@ -159,7 +159,7 @@ public class ResourceActionProvider extends CommonActionProvider implements IAct
 		        			if (!(null== filePath || filePath.trim().isEmpty())) {
 	                            IFile file = project.getFile(filePath);
 	                            if (file.exists()) {
-	                            	if (!file.getFileExtension().equals("dump")){
+	                            	if (file.getFileExtension()!=null && !file.getFileExtension().equals("dump")){
 	                            		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
                                                 .getActivePage(), file);
 	                            	}
