@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
@@ -23,8 +25,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
+import org.wso2.carbonstudio.eclipse.esb.SynapseConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderAction;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderMediator;
@@ -159,7 +165,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		String headerNamePrefix = null;
 		if (self.hasAttribute("name")) {
 			getHeaderName().load(self);
-			
+
 			// Extract header name and the corresponding namespace.
 			String headerNameWithPrefix = getHeaderName().getPropertyValue();
 			String headerName = null;
@@ -168,33 +174,52 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 			if (colon > 0) {
 				headerNamePrefix = headerNameWithPrefix.substring(0, colon);
 				headerName = headerNameWithPrefix.substring(colon + 1);
-				headerNameNamespaceURI = getHeaderName().getNamespaces().get(headerNamePrefix);
+				headerNameNamespaceURI = getHeaderName().getNamespaces().get(
+						headerNamePrefix);
+				if (headerNameNamespaceURI == null) {
+					Map<String, String> nsMap = new HashMap<String, String>();
+					NamedNodeMap nsList = self.getOwnerDocument()
+							.getChildNodes().item(0).getAttributes();
+					if (nsList.getLength() > 0) {
+						for (int i = 0; i < nsList.getLength(); i++) {
+							Node item = nsList.item(i);
+							if (null != item.getPrefix()
+									&& "xmlns".equals(item.getPrefix())) {
+								nsMap.put(item.getLocalName(),
+										item.getNodeValue());
+							}
+						}
+					}
+					headerNameNamespaceURI = (String) nsMap
+							.get(headerNamePrefix);
+				}
 			}
-			
+
 			// Clear all other namespaces.
 			getHeaderName().getNamespaces().clear();
-			
+
 			// Set the extracted header name.
 			if (!StringUtils.isBlank(headerName)) {
-				getHeaderName().setPropertyValue(headerName);				
-			}												
-			
+				getHeaderName().setPropertyValue(headerName);
+			}
+
 			// Add the namespace corresponding to header name.
 			if (!StringUtils.isBlank(headerNamePrefix)
 					&& (!StringUtils.isBlank(headerNameNamespaceURI))) {
-				getHeaderName().getNamespaces().put(headerNamePrefix, headerNameNamespaceURI);
+				getHeaderName().getNamespaces().put(headerNamePrefix,
+						headerNameNamespaceURI);
 			}
 		} else {
 			throw new Exception("Expected header name.");
 		}
-		
+
 		// Header action.
 		HeaderAction action = HeaderAction.get(self.getAttribute("action"));
 		if (null != action) {
 			setHeaderAction(action);
-		} 
+		}
 		// removed exception throwing due to optionality of action
-		
+
 		// Header value.
 		if (getHeaderAction().equals(HeaderAction.SET)) {
 			if (self.hasAttribute("value")) {
@@ -203,49 +228,65 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 			} else if (self.hasAttribute("expression")) {
 				setValueType(HeaderValueType.EXPRESSION);
 				getValueExpression().load(self);
-				
+
 				// Remove the namespace corresponding to header name.
 				if (!StringUtils.isBlank(headerNamePrefix)) {
-					getValueExpression().getNamespaces().remove(headerNamePrefix);
+					getValueExpression().getNamespaces().remove(
+							headerNamePrefix);
 				}
 			} else {
-				throw new Exception("Expected either a header value or an expression.");
+				throw new Exception(
+						"Expected either a header value or an expression.");
 			}
-		}			
+		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	
+
 	protected Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "header");
-		
-		// Header name.		
+
+		// Header name.
 		if (!getHeaderName().getNamespaces().isEmpty()) {
-			Entry<String, String> headerNamespace = 
-				getHeaderName().getNamespaces().entrySet().iterator().next();
-			String newHeaderName = String.format("%s:%s", 
-					headerNamespace.getKey(), getHeaderName().getPropertyValue());
+			Entry<String, String> headerNamespace = getHeaderName()
+					.getNamespaces().entrySet().iterator().next();
+			String newHeaderName = String.format("%s:%s", headerNamespace
+					.getKey(), getHeaderName().getPropertyValue());
 			self.setAttribute("name", newHeaderName);
-			self.setAttribute(String.format("xmlns:%s", headerNamespace.getKey()),
-					headerNamespace.getValue());
+			int size = ((SynapseConfiguration) EcoreUtil.getRootContainer(this))
+					.getAdditionalNamespaces().size();
+			boolean contains = false;
+			for (int i = 0; i < size; ++i) {
+				if (((SynapseConfiguration) EcoreUtil.getRootContainer(this))
+						.getAdditionalNamespaces().get(i).getPrefix()
+						.equals(headerNamespace.getKey())) {
+					contains = true;
+				}
+			}
+			if (!contains) {
+				self.setAttribute(
+						String.format("xmlns:%s", headerNamespace.getKey()),
+						headerNamespace.getValue());
+			}
+
 		} else {
 			self.setAttribute("name", getHeaderName().getPropertyValue());
 		}
-		
+
 		// Header action.
 		self.setAttribute("action", getHeaderAction().getLiteral());
-		
+
 		// Header value.
-		if (getHeaderAction().equals(HeaderAction.SET)) {	
+		if (getHeaderAction().equals(HeaderAction.SET)) {
 			if (getValueType().equals(HeaderValueType.LITERAL)) {
 				self.setAttribute("value", getValueLiteral());
 			} else {
 				getValueExpression().save(self);
 			}
 		}
-		
+
 		return self;
 	}
 
