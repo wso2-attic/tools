@@ -68,6 +68,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.ReplaceCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -155,6 +156,8 @@ import org.wso2.carbonstudio.eclipse.esb.provider.EsbItemProviderAdapterFactory;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.eclipse.jface.viewers.TreeSelection;
+
 
 /**
  * This is an example of a Sequence model editor. <!-- begin-user-doc --> <!--
@@ -1139,7 +1142,15 @@ public class EsbEditor extends MultiPageEditorPart implements
 									}
 
 								}
-							} catch (Exception ex) {/* ignore */}
+							} catch (Exception ex) {/* ignore */
+							}
+						} else if (e.keyCode == SWT.DEL) {
+							try {
+								if (getSelection() instanceof TreeSelection) {
+									deleteNode((TreeSelection) getSelection());
+								}
+							} catch (Exception ex) {/* ignore */
+							}
 						}
 					}
 				});
@@ -1206,6 +1217,27 @@ public class EsbEditor extends MultiPageEditorPart implements
 				updateProblemIndication();
 			}
 		});
+	}
+	
+	private boolean deleteNode(TreeSelection item){
+		TreeItem[] items = treeViewer.getTree().getItems();
+		if(items.length==1){
+			if(item.getFirstElement() instanceof EObject){
+				EObject node = (EObject) item.getFirstElement();
+				if (!items[0].getData().equals(node)) {
+					EStructuralFeature feature = node.eContainingFeature();
+					EObject owner = (EObject) editingDomain.getParent(node);
+					if (null != feature && null != owner) {
+						RemoveCommand removeCommand = new RemoveCommand(editingDomain, owner,feature, node);
+						if (removeCommand.canExecute()) {
+							editingDomain.getCommandStack().execute(removeCommand);
+						}
+					}
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
