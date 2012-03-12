@@ -75,7 +75,7 @@ public class ProxyServiceItemProvider
 			addTransportsPropertyDescriptor(object);
 			addReliableMessagingEnabledPropertyDescriptor(object);
 			addSecurityEnabledPropertyDescriptor(object);
-			addWsdlTypePropertyDescriptor(object);			
+			//addWsdlTypePropertyDescriptor(object);			
 			
 			// WSDL Type.
 			addWsdlTypePropertyDescriptor(object);
@@ -92,8 +92,7 @@ public class ProxyServiceItemProvider
 				}
 				
 				case REGISTRY_KEY: {
-					
-					//addWsdlKeyPropertyDescriptor(object);
+					addWsdlKeyPropertyDescriptor(object);
 					break;
 				}
 			}	
@@ -303,7 +302,7 @@ public class ProxyServiceItemProvider
 	 * This adds a property descriptor for the Wsdl XML feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addWsdlXMLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -314,10 +313,10 @@ public class ProxyServiceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_wsdlXML_feature", "_UI_ProxyService_type"),
 				 EsbPackage.Literals.PROXY_SERVICE__WSDL_XML,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "WSDL",
 				 null));
 	}
 
@@ -325,7 +324,7 @@ public class ProxyServiceItemProvider
 	 * This adds a property descriptor for the Wsdl URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addWsdlURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -339,9 +338,25 @@ public class ProxyServiceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "WSDL",
 				 null));
 	}	
+	
+	protected void addWsdlKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ProxyService_wsdlKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_wsdlKey_feature", "_UI_ProxyService_type"),
+                 EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 "WSDL",
+                 null));
+    }
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -361,6 +376,8 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SEQUENCE_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -437,6 +454,8 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
+			case EsbPackage.PROXY_SERVICE__SEQUENCE_CONTAINER:
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -468,7 +487,7 @@ public class ProxyServiceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
-				 ""));
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -479,6 +498,16 @@ public class ProxyServiceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES,
 				 EsbFactory.eINSTANCE.createProxyServicePolicy()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__SEQUENCE_CONTAINER,
+				 EsbFactory.eINSTANCE.createProxyServiceSequenceContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_CONTAINER,
+				 EsbFactory.eINSTANCE.createProxyServiceEndpointContainer()));
 	}
 
 }

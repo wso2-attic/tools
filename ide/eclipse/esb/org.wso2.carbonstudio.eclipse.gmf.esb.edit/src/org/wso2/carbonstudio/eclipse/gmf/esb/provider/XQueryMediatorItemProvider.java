@@ -12,9 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,10 +22,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.carbonstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator;
 
 /**
@@ -58,19 +54,32 @@ public class XQueryMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	XQueryMediator xqueryMediator=(XQueryMediator)object;
+		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
 
-			addTargetXPathPropertyDescriptor(object);
-			addScriptKeyTypePropertyDescriptor(object);
-			addStaticScriptKeyPropertyDescriptor(object);
-			addDynamicScriptKeyPropertyDescriptor(object);
-		}
+				//addQueryKeyPropertyDescriptor(object);
+				//addTargetXPathPropertyDescriptor(object);				
+
+				addScriptKeyTypePropertyDescriptor(object);
+				switch(xqueryMediator.getScriptKeyType()){
+				case STATIC:
+					addStaticScriptKeyPropertyDescriptor(object);
+					break;
+				case DYNAMIC:
+					addDynamicScriptKeyPropertyDescriptor(object);
+					break;
+				}
+				addTargetXPathPropertyDescriptor(object);
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -161,6 +170,23 @@ public class XQueryMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	protected void addQueryKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_XQueryMediator_queryKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_XQueryMediator_queryKey_feature", "_UI_XQueryMediator_type"),
+                 EsbPackage.Literals.XQUERY_MEDIATOR__QUERY_KEY,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
+
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -176,6 +202,7 @@ public class XQueryMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.XQUERY_MEDIATOR__VARIABLES);
+			childrenFeatures.add(EsbPackage.Literals.XQUERY_MEDIATOR__QUERY_KEY);
 			childrenFeatures.add(EsbPackage.Literals.XQUERY_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.XQUERY_MEDIATOR__OUTPUT_CONNECTOR);
 		}
@@ -238,6 +265,7 @@ public class XQueryMediatorItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.XQUERY_MEDIATOR__OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -262,6 +290,11 @@ public class XQueryMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.XQUERY_MEDIATOR__VARIABLES,
 				 EsbFactory.eINSTANCE.createXQueryVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.XQUERY_MEDIATOR__QUERY_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

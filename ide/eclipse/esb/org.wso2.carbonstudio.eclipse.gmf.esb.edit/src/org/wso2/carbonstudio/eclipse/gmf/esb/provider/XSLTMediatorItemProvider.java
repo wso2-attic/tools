@@ -22,8 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator;
@@ -59,21 +59,55 @@ public class XSLTMediatorItemProvider
 	 * @generated NOT
 	 */
 	
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-			
-			addXsltKeyPropertyDescriptor(object);
+		XSLTMediator xsltMediator = (XSLTMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
+
+			addXsltSchemaKeyTypePropertyDescriptor(object);
+			switch (xsltMediator.getXsltSchemaKeyType()) {
+			case STATIC:
+				addXsltStaticSchemaKeyPropertyDescriptor(object);
+				break;
+			case DYNAMIC:
+				addXsltDynamicSchemaKeyPropertyDescriptor(object);
+				break;
+			}
+
 			addSourceXPathPropertyDescriptor(object);
 			addPropertiesPropertyDescriptor(object);
 			addResourcesPropertyDescriptor(object);
 			addFeaturesPropertyDescriptor(object);
-
-		}
+		
 		return itemPropertyDescriptors;
 	}
 	
 	
+	/**
+	 * This adds a property descriptor for the Xslt Schema Key Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXsltSchemaKeyTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSLTMediator_xsltSchemaKeyType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSLTMediator_xsltSchemaKeyType_feature", "_UI_XSLTMediator_type"),
+				 EsbPackage.Literals.XSLT_MEDIATOR__XSLT_SCHEMA_KEY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
 	/**
 	 * This adds a property descriptor for the Xslt Key feature.
 	 * <!-- begin-user-doc -->
@@ -114,7 +148,7 @@ public class XSLTMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 "Basic",
 				 null));
 	}
 	
@@ -183,6 +217,39 @@ public class XSLTMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	protected void addXsltStaticSchemaKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_XSLTMediator_xsltStaticSchemaKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_XSLTMediator_xsltStaticSchemaKey_feature", "_UI_XSLTMediator_type"),
+                 EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY,
+                 true,
+                 false,
+                 true,
+                 null,
+                 "Basic",
+                 null));
+    }
+	
+	protected void addXsltDynamicSchemaKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_XSLTMediator_xsltDynamicSchemaKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_XSLTMediator_xsltDynamicSchemaKey_feature", "_UI_XSLTMediator_type"),
+                 EsbPackage.Literals.XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY,
+                 true,
+                 false,
+                 true,
+                 null,
+                 "Basic",
+                 null));
+    }
+
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -199,6 +266,8 @@ public class XSLTMediatorItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY);
+			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY);
 			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_KEY);
 			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__SOURCE_XPATH);
 			childrenFeatures.add(EsbPackage.Literals.XSLT_MEDIATOR__PROPERTIES);
@@ -260,8 +329,13 @@ public class XSLTMediatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XSLTMediator.class)) {
+			case EsbPackage.XSLT_MEDIATOR__XSLT_SCHEMA_KEY_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EsbPackage.XSLT_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.XSLT_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY:
+			case EsbPackage.XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY:
 			case EsbPackage.XSLT_MEDIATOR__XSLT_KEY:
 			case EsbPackage.XSLT_MEDIATOR__SOURCE_XPATH:
 			case EsbPackage.XSLT_MEDIATOR__PROPERTIES:
@@ -297,6 +371,16 @@ public class XSLTMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.XSLT_MEDIATOR__XSLT_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
@@ -319,6 +403,31 @@ public class XSLTMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.XSLT_MEDIATOR__RESOURCES,
 				 EsbFactory.eINSTANCE.createXSLTResource()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY ||
+			childFeature == EsbPackage.Literals.XSLT_MEDIATOR__XSLT_KEY ||
+			childFeature == EsbPackage.Literals.XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY ||
+			childFeature == EsbPackage.Literals.XSLT_MEDIATOR__SOURCE_XPATH;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

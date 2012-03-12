@@ -264,6 +264,98 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceInSequenceItemProvider proxyServiceInSequenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceInSequenceAdapter() {
+		if (proxyServiceInSequenceItemProvider == null) {
+			proxyServiceInSequenceItemProvider = new ProxyServiceInSequenceItemProvider(this);
+		}
+
+		return proxyServiceInSequenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceOutSequenceItemProvider proxyServiceOutSequenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceOutSequenceAdapter() {
+		if (proxyServiceOutSequenceItemProvider == null) {
+			proxyServiceOutSequenceItemProvider = new ProxyServiceOutSequenceItemProvider(this);
+		}
+
+		return proxyServiceOutSequenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceSequenceContainerItemProvider proxyServiceSequenceContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceSequenceContainerAdapter() {
+		if (proxyServiceSequenceContainerItemProvider == null) {
+			proxyServiceSequenceContainerItemProvider = new ProxyServiceSequenceContainerItemProvider(this);
+		}
+
+		return proxyServiceSequenceContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceEndpointContainerItemProvider proxyServiceEndpointContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceEndpointContainerAdapter() {
+		if (proxyServiceEndpointContainerItemProvider == null) {
+			proxyServiceEndpointContainerItemProvider = new ProxyServiceEndpointContainerItemProvider(this);
+		}
+
+		return proxyServiceEndpointContainerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.carbonstudio.eclipse.gmf.esb.MessageMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4555,6 +4647,10 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyInputConnectorItemProvider != null) proxyInputConnectorItemProvider.dispose();
 		if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
 		if (proxyServicePolicyItemProvider != null) proxyServicePolicyItemProvider.dispose();
+		if (proxyServiceInSequenceItemProvider != null) proxyServiceInSequenceItemProvider.dispose();
+		if (proxyServiceOutSequenceItemProvider != null) proxyServiceOutSequenceItemProvider.dispose();
+		if (proxyServiceSequenceContainerItemProvider != null) proxyServiceSequenceContainerItemProvider.dispose();
+		if (proxyServiceEndpointContainerItemProvider != null) proxyServiceEndpointContainerItemProvider.dispose();
 		if (messageMediatorItemProvider != null) messageMediatorItemProvider.dispose();
 		if (messageInputConnectorItemProvider != null) messageInputConnectorItemProvider.dispose();
 		if (messageOutputConnectorItemProvider != null) messageOutputConnectorItemProvider.dispose();

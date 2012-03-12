@@ -59,12 +59,51 @@ public class PropertyMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		
+		PropertyMediator property = (PropertyMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
+		
+		addPropertyNamePropertyDescriptor(object);
+		addPropertyActionPropertyDescriptor(object);				
+						
+		if (property.getPropertyAction().equals(PropertyAction.SET)) {
+			addPropertyDataTypePropertyDescriptor(object);
+			addValueTypePropertyDescriptor(object);
+			if (property.getValueType().equals(PropertyValueType.LITERAL)) {
+				switch (property.getPropertyDataType()) {
+					case OM: {
+						addValueOMPropertyDescriptor(object);
+						break;
+					}
+
+					case STRING: {
+						addValueLiteralPropertyDescriptor(object);
+						addValueStringPatternPropertyDescriptor(object);
+						addValueStringCapturingGroupPropertyDescriptor(object);
+						break;
+					}
+
+					default: {
+						addValueLiteralPropertyDescriptor(object);
+					}
+				}
+			} else {
+				addValueExpressionPropertyDescriptor(object);
+			}
+		}								
+		
+		addPropertyScopePropertyDescriptor(object);	
+		
+		
+		/*if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addPropertyNamePropertyDescriptor(object);
@@ -79,7 +118,7 @@ public class PropertyMediatorItemProvider
 			addValueOMPropertyDescriptor(object);
 			addValueStringPatternPropertyDescriptor(object);
 			addValueStringCapturingGroupPropertyDescriptor(object);
-		}
+		}*/
 		return itemPropertyDescriptors;
 	}
 
@@ -346,6 +385,22 @@ public class PropertyMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	protected void addValueExpressionPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_PropertyMediator_valueExpression_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueExpression_feature", "_UI_PropertyMediator_type"),
+                 EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_EXPRESSION,
+                 true,
+                 false,
+                 false,
+                 null,
+                 null,
+                 null));
+    }
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an

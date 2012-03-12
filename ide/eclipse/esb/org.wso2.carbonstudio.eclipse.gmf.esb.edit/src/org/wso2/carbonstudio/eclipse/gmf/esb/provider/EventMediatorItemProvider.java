@@ -24,7 +24,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EventMediator;
@@ -58,17 +57,30 @@ public class EventMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		EventMediator eventMediator = (EventMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
 
 			addTopicTypePropertyDescriptor(object);
-			addStaticTopicPropertyDescriptor(object);
-		}
+			switch (eventMediator.getTopicType()) {
+
+			case STATIC:
+				addStaticTopicPropertyDescriptor(object);
+				break;
+			case DYNAMIC:
+				addDynamicTopicPropertyDescriptor(object);
+				break;
+
+			}
+			addEventExpressionPropertyDescriptor(object);			
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -115,6 +127,38 @@ public class EventMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	protected void addDynamicTopicPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_EventMediator_dynamicTopic_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_dynamicTopic_feature", "_UI_EventMediator_type"),
+                 EsbPackage.Literals.EVENT_MEDIATOR__DYNAMIC_TOPIC,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
+	
+	protected void addEventExpressionPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_EventMediator_eventExpression_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_eventExpression_feature", "_UI_EventMediator_type"),
+                 EsbPackage.Literals.EVENT_MEDIATOR__EVENT_EXPRESSION,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an

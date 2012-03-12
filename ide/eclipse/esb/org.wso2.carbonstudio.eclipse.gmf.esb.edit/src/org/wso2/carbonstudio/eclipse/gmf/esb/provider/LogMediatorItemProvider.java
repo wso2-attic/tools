@@ -54,14 +54,16 @@ public class LogMediatorItemProvider extends MediatorItemProvider implements
 	 */
 	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
 
 			addLogCategoryPropertyDescriptor(object);
 			addLogLevelPropertyDescriptor(object);
 			addLogSeparatorPropertyDescriptor(object);
 			addLogPropertyDescriptor(object);
-		}
+		
 		return itemPropertyDescriptors;
 	}
 

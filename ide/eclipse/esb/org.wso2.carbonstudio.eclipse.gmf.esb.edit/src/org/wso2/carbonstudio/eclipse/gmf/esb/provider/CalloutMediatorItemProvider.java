@@ -75,6 +75,7 @@ public class CalloutMediatorItemProvider
 			addPathToAxis2RepositoryPropertyDescriptor(object);
 			addPayloadTypePropertyDescriptor(object);
 			addResultTypePropertyDescriptor(object);
+			addPassHeadersPropertyDescriptor(object);
 			
 			addPayloadTypePropertyDescriptor(object);
 			if (calloutMediator.getPayloadType().equals(CalloutPayloadType.MESSAGE_ELEMENT)) {
@@ -99,7 +100,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Service URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addServiceURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -113,7 +114,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -121,7 +122,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Soap Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSoapActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -135,7 +136,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -143,7 +144,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Path To Axis2xml feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPathToAxis2xmlPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -157,7 +158,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -165,7 +166,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Path To Axis2 Repository feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPathToAxis2RepositoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -179,7 +180,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 	
@@ -196,7 +197,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 "Payload",
 				 null));
 	}
 	
@@ -212,7 +213,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 "Payload",
 				 null));
 	}
 	
@@ -228,7 +229,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 "Result",
 				 null));
 	}
 	
@@ -238,7 +239,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Payload Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPayloadTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -252,7 +253,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Payload",
 				 null));
 	}
 
@@ -260,7 +261,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Result Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addResultTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -274,7 +275,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Result",
 				 null));
 	}
 
@@ -296,6 +297,28 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pass Headers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPassHeadersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_passHeaders_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_passHeaders_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__PASS_HEADERS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -381,6 +404,7 @@ public class CalloutMediatorItemProvider
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:

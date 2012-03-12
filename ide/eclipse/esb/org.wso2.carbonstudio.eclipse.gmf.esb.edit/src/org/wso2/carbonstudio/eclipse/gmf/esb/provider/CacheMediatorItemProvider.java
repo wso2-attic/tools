@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.wso2.carbonstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
@@ -57,17 +58,22 @@ public class CacheMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		CacheMediator cacheMediator = (CacheMediator) object;		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
 
-			addCacheIdPropertyDescriptor(object);
-			addCacheScopePropertyDescriptor(object);
-			addCacheActionPropertyDescriptor(object);
+		addCacheIdPropertyDescriptor(object);
+		addCacheScopePropertyDescriptor(object);
+		addCacheActionPropertyDescriptor(object);
+		
+		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addHashGeneratorPropertyDescriptor(object);
 			addCacheTimeoutPropertyDescriptor(object);
 			addMaxMessageSizePropertyDescriptor(object);

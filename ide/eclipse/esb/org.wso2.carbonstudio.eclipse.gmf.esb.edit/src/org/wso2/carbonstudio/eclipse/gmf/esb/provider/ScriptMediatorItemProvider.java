@@ -24,7 +24,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ScriptMediator;
@@ -58,17 +57,24 @@ public class ScriptMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addScriptTypePropertyDescriptor(object);
-			addScriptLanguagePropertyDescriptor(object);
+		ScriptMediator script = (ScriptMediator) object;
+		if (itemPropertyDescriptors != null) {
+        	itemPropertyDescriptors.clear();            
+        } 
+		super.getPropertyDescriptors(object);
+		
+		addScriptLanguagePropertyDescriptor(object);				
+		
+		addScriptTypePropertyDescriptor(object);		
+		if (script.getScriptType().equals(ScriptType.REGISTRY_REFERENCE)){			
+			addScriptKeyPropertyDescriptor(object);
 			addMediateFunctionPropertyDescriptor(object);
+		} else {
 			addScriptBodyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -161,6 +167,22 @@ public class ScriptMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	protected void addScriptKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_ScriptMediator_scriptKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptKey_feature", "_UI_ScriptMediator_type"),
+                 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEY,
+                 true,
+                 false,
+                 false,
+                 null,
+                 null,
+                 null));
+    }
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an

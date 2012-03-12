@@ -12,20 +12,20 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksOutConfiguration;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediator} object.
@@ -55,16 +55,164 @@ public class SmooksMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+			super.getPropertyDescriptors(object);
+			addConfigurationKeyPropertyDescriptor(object);
+		
+			addConfigurationKeyPropertyDescriptor(object);
+			addTypeInPropertyDescriptor(object);
+	        addExpressionInPropertyDescriptor(object);
+	        
+	    	SmooksOutConfiguration outConfiguration=((SmooksMediator)object).getOutput();	
+
+			addTypeOutPropertyDescriptor(object);
+			addOutputMethodPropertyDescriptor(object);
+			switch(outConfiguration.getOutputMethod()){
+				case EXPRESSION:
+					addExpressionOutPropertyDescriptor(object);
+					addActionPropertyDescriptor(object);
+					break;
+				case PROPERTY:
+					addPropertyPropertyDescriptor(object);	
+			}
+
 		return itemPropertyDescriptors;
+	}
+	
+	protected void addConfigurationKeyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_SmooksMediator_configurationKey_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksMediator_configurationKey_feature", "_UI_SmooksMediator_type"),
+                 EsbPackage.Literals.SMOOKS_MEDIATOR__CONFIGURATION_KEY,
+                 true,
+                 false,
+                 false,
+                 null,
+                 "Key",
+                 null));
+    }
+	
+	protected void addTypeInPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksInConfiguration_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksInConfiguration_type_feature", "_UI_SmooksInConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_IN_CONFIGURATION__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Input",
+				 null));
+	}
+
+	
+	protected void addExpressionInPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksInConfiguration_expression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksInConfiguration_expression_feature", "_UI_SmooksInConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_IN_CONFIGURATION__EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 "Input",
+				 null));
+	}
+	
+	protected void addOutputMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_outputMethod_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_outputMethod_feature", "_UI_SmooksOutConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_action_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_action_feature", "_UI_SmooksOutConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_OUT_CONFIGURATION__ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_property_feature", "_UI_SmooksOutConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_OUT_CONFIGURATION__PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addExpressionOutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_expression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_expression_feature", "_UI_SmooksOutConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_OUT_CONFIGURATION__EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+	
+	protected void addTypeOutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_type_feature", "_UI_SmooksOutConfiguration_type"),
+				 EsbPackage.Literals.SMOOKS_OUT_CONFIGURATION__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**

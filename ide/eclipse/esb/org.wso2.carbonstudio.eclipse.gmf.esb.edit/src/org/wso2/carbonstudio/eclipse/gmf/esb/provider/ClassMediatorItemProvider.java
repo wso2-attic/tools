@@ -61,12 +61,14 @@ public class ClassMediatorItemProvider
 	 */
 	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addClassNamePropertyDescriptor(object);
-			addClassPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addClassNamePropertyDescriptor(object);
+		addClassPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 	

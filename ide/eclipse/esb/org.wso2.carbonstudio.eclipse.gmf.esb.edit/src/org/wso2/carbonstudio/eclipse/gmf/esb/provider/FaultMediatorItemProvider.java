@@ -23,10 +23,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.carbonstudio.eclipse.gmf.esb.FaultDetailType;
 import org.wso2.carbonstudio.eclipse.gmf.esb.FaultMediator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.FaultReasonType;
+import org.wso2.carbonstudio.eclipse.gmf.esb.FaultSoapVersion;
+import org.wso2.carbonstudio.eclipse.gmf.esb.FaultStringType;
 
 /**
  * This is the item provider adapter for a
@@ -52,28 +55,49 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		FaultMediator faultMediator = (FaultMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
 
-			addSoapVersionPropertyDescriptor(object);
-			addMarkAsResponsePropertyDescriptor(object);
+		addSoapVersionPropertyDescriptor(object);
+		if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_11)) {
 			addFaultCodeSoap11PropertyDescriptor(object);
 			addFaultStringTypePropertyDescriptor(object);
-			addFaultStringValuePropertyDescriptor(object);
+
+			if (faultMediator.getFaultStringType().equals(FaultStringType.VALUE)) {
+				addFaultStringValuePropertyDescriptor(object);
+			} else {
+				addFaultStringExpressionPropertyDescriptor(object);
+			}
+
 			addFaultActorPropertyDescriptor(object);
+		} else {
 			addFaultCodeSoap12PropertyDescriptor(object);
+
 			addFaultReasonTypePropertyDescriptor(object);
-			addFaultReasonValuePropertyDescriptor(object);
+			if (faultMediator.getFaultReasonType().equals(FaultReasonType.VALUE)) {
+				addFaultReasonValuePropertyDescriptor(object);
+			} else {
+				addFaultReasonExpressionPropertyDescriptor(object);
+			}
+
 			addRoleNamePropertyDescriptor(object);
 			addNodeNamePropertyDescriptor(object);
-			addFaultDetailTypePropertyDescriptor(object);
-			addFaultDetailValuePropertyDescriptor(object);
 		}
+
+		addFaultDetailTypePropertyDescriptor(object);
+		if (faultMediator.getFaultDetailType().equals(FaultDetailType.EXPRESSION)) {
+			addFaultDetailExpressionPropertyDescriptor(object);
+		} else {
+			addFaultDetailValuePropertyDescriptor(object);
+		}	
 		return itemPropertyDescriptors;
 	}
 
@@ -88,7 +112,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				"Fault String (Literal)", null));
+				null, null));
 	}
 
 	protected void addFaultReasonExpressionPropertyDescriptor(Object object) {
@@ -102,7 +126,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				"Fault String (Expression)", null));
+				null, null));
 	}
 
 	protected void addFaultDetailExpressionPropertyDescriptor(Object object) {
@@ -116,7 +140,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				"Fault String (Expression)", null));
+				null, null));
 	}
 
 	/**
