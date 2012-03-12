@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.List;
 
 import org.apache.maven.model.Plugin;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
@@ -18,7 +20,6 @@ import org.wso2.carbonstudio.eclipse.utils.ide.FileExtensionResourcevisitor;
 
 public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 	
-//	private IProject selectedProject;
 	
 	
 	public void configure() throws CoreException, JavaModelException {
@@ -31,19 +32,9 @@ public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 	
 	
 	public void deconfigure() throws CoreException {
-		// TODO Auto-generated method stub
 		
 	}
 
-//	
-//	public IProject getProject() {
-//		return selectedProject;
-//	}
-//
-//	
-//	public void setProject(IProject project) {
-//		this.selectedProject = project;
-//	}
 	
 	public void updatePom() throws Exception{
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
@@ -59,8 +50,19 @@ public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 			String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getDBSFile().getLocation().toFile());
 			artifactNode.setValue(fileName);
 		}
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
 		
-//		MavenUtils.updateMavenProjectWithBpelBuilderPlugin(getProject(), mavenProject, mavenProjectPomLocation);
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
+		mavenProject.getModel().addRepository(repo);
+		mavenProject.getModel().addPluginRepository(repo);
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 	
