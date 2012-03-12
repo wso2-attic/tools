@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -32,6 +34,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.RuleActionType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleFragmentType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleOptionType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.URLRewriteRuleAction;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -549,6 +552,12 @@ public class URLRewriteRuleActionImpl extends ModelObjectImpl implements
         result.append(actionRegex);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 	

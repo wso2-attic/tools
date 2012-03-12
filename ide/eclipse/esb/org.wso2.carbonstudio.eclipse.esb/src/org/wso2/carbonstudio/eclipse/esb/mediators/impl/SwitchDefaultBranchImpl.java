@@ -15,12 +15,15 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.Mediator;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorBranchImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SwitchDefaultBranch;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,6 +70,12 @@ public class SwitchDefaultBranchImpl extends MediatorBranchImpl implements Switc
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SWITCH_DEFAULT_BRANCH;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //DefaultBranchImpl

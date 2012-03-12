@@ -15,12 +15,15 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.Mediator;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorBranchImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ValidateOnFailBranch;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +72,12 @@ public class ValidateOnFailBranchImpl extends MediatorBranchImpl implements Vali
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.VALIDATE_ON_FAIL_BRANCH;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //OnFailBranchImpl

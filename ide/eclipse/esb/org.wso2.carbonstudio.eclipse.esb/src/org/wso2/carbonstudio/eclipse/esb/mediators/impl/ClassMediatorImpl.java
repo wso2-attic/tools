@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,6 +30,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ClassMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ClassProperty;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -243,6 +246,12 @@ public class ClassMediatorImpl extends MediatorImpl implements ClassMediator {
         result.append(className);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 

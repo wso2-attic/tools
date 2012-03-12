@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +25,7 @@ import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.ProxyServiceParameter;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -263,6 +265,12 @@ public class ProxyServiceParameterImpl extends ModelObjectImpl implements ProxyS
         result.append(value);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //ProxyServiceParameterImpl

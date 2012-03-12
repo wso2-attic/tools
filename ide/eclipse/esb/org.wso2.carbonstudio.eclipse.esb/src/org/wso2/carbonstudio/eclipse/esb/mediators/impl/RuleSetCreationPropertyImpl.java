@@ -15,10 +15,13 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.wso2.carbonstudio.eclipse.esb.impl.AbstractNameValuePropertyImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSetCreationProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +50,12 @@ public class RuleSetCreationPropertyImpl extends AbstractNameValuePropertyImpl i
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_SET_CREATION_PROPERTY;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RuleSetCreationPropertyImpl

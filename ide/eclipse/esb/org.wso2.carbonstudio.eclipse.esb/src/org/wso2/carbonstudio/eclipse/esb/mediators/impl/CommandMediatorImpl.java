@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CommandMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CommandProperty;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -262,6 +264,12 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
         result.append(className);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //CommandMediatorImpl

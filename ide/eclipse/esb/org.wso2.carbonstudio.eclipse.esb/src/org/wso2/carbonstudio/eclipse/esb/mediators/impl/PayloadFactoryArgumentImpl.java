@@ -34,6 +34,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.ModelObjectImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PayloadFactoryArgument;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PayloadFactoryArgumentType;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -352,6 +353,12 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 		}
 		
 		return self;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //PayloadFactoryArgumentImpl

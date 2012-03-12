@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +33,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.FaultReasonType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.FaultSoapVersion;
 import org.wso2.carbonstudio.eclipse.esb.mediators.FaultStringType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -1173,6 +1176,13 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
         result.append(faultDetailValue);
         result.append(')');
         return result.toString();
+    }
+
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //FaultMediatorImpl

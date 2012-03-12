@@ -38,6 +38,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.XSLTFeature;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XSLTMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XSLTProperty;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XSLTResource;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
@@ -721,6 +722,12 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
         result.append(xsltSchemaKeyType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // XSLTMediatorImpl

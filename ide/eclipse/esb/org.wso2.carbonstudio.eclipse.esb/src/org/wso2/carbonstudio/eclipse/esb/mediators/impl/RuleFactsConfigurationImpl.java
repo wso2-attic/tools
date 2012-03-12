@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,6 +29,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.ModelObjectImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleFact;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleFactsConfiguration;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -178,6 +180,12 @@ public class RuleFactsConfigurationImpl extends ModelObjectImpl implements RuleF
                 return facts != null && !facts.isEmpty();
         }
         return super.eIsSet(featureID);
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RuleFactsConfigurationImpl

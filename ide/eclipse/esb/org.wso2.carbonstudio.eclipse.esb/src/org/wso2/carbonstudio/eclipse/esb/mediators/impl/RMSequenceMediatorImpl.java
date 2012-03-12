@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -26,6 +28,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RMSequenceMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RMSequenceType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RMSpecVersion;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -401,6 +404,12 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
         result.append(sequenceType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RMSequenceMediatorImpl

@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -22,6 +24,7 @@ import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.AddressEndPoint;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -216,6 +219,12 @@ public class AddressEndPointImpl extends AbstractDefaultEndPointImpl implements 
         result.append(uri);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //AddressEndPointImpl

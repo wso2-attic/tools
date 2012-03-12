@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -29,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.RuleMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleResultsConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSessionConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSetConfiguration;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -513,6 +516,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
                 return childMediatorsConfiguration != null;
         }
         return super.eIsSet(featureID);
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RuleMediatorImpl

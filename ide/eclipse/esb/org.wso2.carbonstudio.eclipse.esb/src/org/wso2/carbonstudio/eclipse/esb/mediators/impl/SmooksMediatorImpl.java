@@ -30,6 +30,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SmooksInConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SmooksMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SmooksOutConfiguration;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
@@ -361,6 +362,12 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
                 return output != null;
         }
         return super.eIsSet(featureID);
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //SmooksMediatorImpl

@@ -17,6 +17,7 @@ package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,6 +41,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PayloadFactoryArgument;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PayloadFactoryMediator;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -283,6 +285,12 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			variable.save(args);
 		}
 		return self;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //PayloadFactoryMediatorImpl

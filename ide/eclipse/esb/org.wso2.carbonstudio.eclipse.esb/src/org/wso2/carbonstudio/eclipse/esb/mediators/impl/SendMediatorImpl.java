@@ -33,6 +33,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ReceivingSequenceType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SendMediator;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -546,6 +547,12 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
         result.append(receivingSequenceType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // SendMediatorImpl

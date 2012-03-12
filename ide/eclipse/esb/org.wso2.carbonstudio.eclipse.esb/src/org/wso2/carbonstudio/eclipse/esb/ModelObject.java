@@ -16,10 +16,12 @@
 package org.wso2.carbonstudio.eclipse.esb;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.w3c.dom.Element;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -307,6 +309,9 @@ public interface ModelObject extends EObject {
 	 *         editor, false otherwise.
 	 */
 	boolean hasSourceRepresentation();
+	
+	
+	Map<String, ObjectValidator> validate();
 
 	/**
 	 * Allows access to the list of errors encountered while loading this model

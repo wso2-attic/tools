@@ -35,6 +35,7 @@ import org.wso2.carbonstudio.eclipse.esb.Mediator;
 import org.wso2.carbonstudio.eclipse.esb.MediatorSequence;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.carbonstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -451,6 +452,12 @@ public class MediatorSequenceImpl extends ConfigurationElementImpl implements
         result.append(description);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // SequenceMediatorImpl

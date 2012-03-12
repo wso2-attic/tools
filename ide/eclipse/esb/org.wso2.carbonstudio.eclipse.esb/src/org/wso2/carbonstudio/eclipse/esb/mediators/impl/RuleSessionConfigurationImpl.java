@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.ModelObjectImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSessionConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSessionProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -255,6 +257,12 @@ public class RuleSessionConfigurationImpl extends ModelObjectImpl implements Rul
         result.append(statefulSession);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RuleSessionConfigurationImpl

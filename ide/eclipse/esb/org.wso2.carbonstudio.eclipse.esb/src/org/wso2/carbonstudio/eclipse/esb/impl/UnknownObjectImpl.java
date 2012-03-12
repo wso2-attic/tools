@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -23,6 +25,7 @@ import org.wso2.carbonstudio.eclipse.esb.EndPoint;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.Mediator;
 import org.wso2.carbonstudio.eclipse.esb.UnknownObject;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -300,6 +303,12 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
         result.append(endpointName);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //UnknownObjectImpl

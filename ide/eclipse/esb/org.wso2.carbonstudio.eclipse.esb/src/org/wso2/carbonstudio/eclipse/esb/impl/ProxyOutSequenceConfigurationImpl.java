@@ -24,6 +24,7 @@ import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.ProxyOutSequenceConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.carbonstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -84,6 +85,12 @@ public class ProxyOutSequenceConfigurationImpl extends AbstractProxySequenceConf
 	@Override
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_OUT_SEQUENCE_CONFIGURATION;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //ProxyOutSequenceImpl

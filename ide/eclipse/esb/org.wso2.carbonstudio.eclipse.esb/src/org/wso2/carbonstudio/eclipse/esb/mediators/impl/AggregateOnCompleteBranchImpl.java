@@ -32,6 +32,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorBranchImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.AggregateOnCompleteBranch;
 import org.wso2.carbonstudio.eclipse.esb.mediators.AggregateSequenceType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -376,6 +377,12 @@ public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements
         result.append(sequenceType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //OnCompleteBranchImpl

@@ -31,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorBranchImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ThrottleOnAcceptBranch;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ThrottleSequenceType;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -306,6 +307,12 @@ public class ThrottleOnAcceptBranchImpl extends MediatorBranchImpl implements Th
         result.append(sequenceType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //ThrottleOnAcceptBranchImpl

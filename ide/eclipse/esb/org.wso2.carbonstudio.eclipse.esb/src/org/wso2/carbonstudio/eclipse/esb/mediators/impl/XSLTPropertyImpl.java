@@ -15,11 +15,14 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.wso2.carbonstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.carbonstudio.eclipse.esb.impl.AbstractNameValueExpressionPropertyImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XSLTProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +57,12 @@ public class XSLTPropertyImpl extends AbstractNameValueExpressionPropertyImpl im
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.XSLT_PROPERTY;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //XSLTPropertyImpl

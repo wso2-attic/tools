@@ -15,11 +15,14 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.mediators.DBLookupMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SqlStatement;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,6 +90,12 @@ public class DBLookupMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.DB_LOOKUP_MEDIATOR;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //DBLookupMediatorImpl

@@ -17,6 +17,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -27,6 +29,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.ModelObjectImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SmooksIODataType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SmooksInConfiguration;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -264,5 +267,11 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 		}
 		return self;
 	}
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
+    }
 
 } //SmooksInConfigurationImpl

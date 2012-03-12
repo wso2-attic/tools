@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -27,6 +29,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SqlParameterDataType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SqlParameterDefinition;
 import org.wso2.carbonstudio.eclipse.esb.mediators.SqlParameterValueType;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -409,6 +412,12 @@ public class SqlParameterDefinitionImpl extends ModelObjectImpl implements SqlPa
         result.append(valueLiteral);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //SqlParameterDefinitionImpl

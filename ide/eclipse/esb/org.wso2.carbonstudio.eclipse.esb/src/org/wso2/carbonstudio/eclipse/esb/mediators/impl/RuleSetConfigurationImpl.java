@@ -17,6 +17,7 @@ package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -34,6 +35,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSetConfiguration;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSetCreationProperty;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleSourceType;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -411,6 +413,12 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
         result.append(sourceCode);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //RuleSetConfigurationImpl

@@ -33,6 +33,7 @@ import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -184,7 +185,8 @@ public class EsbActionBarContributor
         /**
          * batch validation need to be implemented
          */
-//        validateAction = new ESBValidateAction();
+        validateAction = new ESBValidateAction();
+     //   validateAction = new ValidateAction();
         controlAction = new ControlAction();
     }
 

@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -28,6 +30,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.CallTemplateParameter;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ReceivingSequenceType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.RuleOptionType;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -398,6 +401,12 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
         result.append(parameterValue);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 	

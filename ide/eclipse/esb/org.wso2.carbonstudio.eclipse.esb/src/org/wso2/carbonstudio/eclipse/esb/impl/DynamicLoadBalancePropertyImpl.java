@@ -15,9 +15,12 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.wso2.carbonstudio.eclipse.esb.DynamicLoadBalanceProperty;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +49,12 @@ public class DynamicLoadBalancePropertyImpl extends AbstractNameValuePropertyImp
 	@Override
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.DYNAMIC_LOAD_BALANCE_PROPERTY;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //DynamicLoadBalancePropertyImpl

@@ -4,6 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esb"
     nsURI="http:///org/wso2/carbonstudio/eclipse/esb" nsPrefix="esb">
   <eClassifiers xsi:type="ecore:EClass" name="ModelObject" abstract="true">
+    <eOperations name="validate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectState" eType="#//ModelObjectState"
         defaultValueLiteral="NORMAL"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

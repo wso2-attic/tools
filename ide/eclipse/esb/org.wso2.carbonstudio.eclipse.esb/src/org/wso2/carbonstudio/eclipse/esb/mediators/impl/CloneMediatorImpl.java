@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,6 +32,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CloneMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CloneTarget;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -384,6 +386,12 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
         result.append(continueParent);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // CloneMediatorImpl

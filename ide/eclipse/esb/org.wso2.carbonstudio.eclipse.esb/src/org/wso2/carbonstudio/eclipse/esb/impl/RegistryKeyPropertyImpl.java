@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -331,5 +332,11 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
     		result.append(getKeyValue());
     		return result.toString();
     	
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 } //RegistryPropertyImpl

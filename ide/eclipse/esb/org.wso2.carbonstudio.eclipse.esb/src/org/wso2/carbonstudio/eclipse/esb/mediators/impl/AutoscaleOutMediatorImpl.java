@@ -15,11 +15,14 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.AutoscaleOutMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 
 /**
@@ -64,6 +67,12 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.AUTOSCALE_OUT_MEDIATOR;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //AutoscaleOutMediatorImpl

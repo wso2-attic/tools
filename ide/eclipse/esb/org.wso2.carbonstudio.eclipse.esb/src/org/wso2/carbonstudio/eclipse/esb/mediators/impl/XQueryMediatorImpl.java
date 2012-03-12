@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
@@ -34,6 +35,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.KeyType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XQueryMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XQueryVariable;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -592,6 +594,12 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
         result.append(scriptKeyType);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // XQueryMediatorImpl

@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XQueryVariable;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XQueryVariableType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.XQueryVariableValueType;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -561,6 +564,12 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
         result.append(valueLiteral);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //XQueryVariableImpl

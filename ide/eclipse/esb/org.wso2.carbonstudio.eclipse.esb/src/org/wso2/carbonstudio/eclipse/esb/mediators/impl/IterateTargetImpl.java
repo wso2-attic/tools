@@ -28,6 +28,7 @@ import org.wso2.carbonstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.carbonstudio.eclipse.esb.impl.AbstractCommonTargetImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.IterateTarget;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -287,6 +288,12 @@ public class IterateTargetImpl extends AbstractCommonTargetImpl implements Itera
         result.append(toAddress);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //IterateTargetImpl

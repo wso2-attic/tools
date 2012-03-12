@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.PropertyMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PropertyScope;
 import org.wso2.carbonstudio.eclipse.esb.mediators.PropertyValueType;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -795,6 +797,12 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
         result.append(valueStringCapturingGroup);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //PropertyMediatorImpl

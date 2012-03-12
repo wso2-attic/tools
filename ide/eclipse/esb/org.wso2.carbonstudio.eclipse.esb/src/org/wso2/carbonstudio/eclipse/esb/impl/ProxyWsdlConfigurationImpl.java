@@ -34,6 +34,7 @@ import org.wso2.carbonstudio.eclipse.esb.ProxyWsdlResource;
 import org.wso2.carbonstudio.eclipse.esb.ProxyWsdlType;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
@@ -489,6 +490,12 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
         result.append(wsdlURL);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //ProxyWsdlImpl

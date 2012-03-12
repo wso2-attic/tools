@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.ProxyWsdlResource;
 import org.wso2.carbonstudio.eclipse.esb.RegistryKeyProperty;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
@@ -62,6 +63,12 @@ public class ProxyWsdlResourceImpl extends AbstractLocationKeyResourceImpl imple
 	@Override
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_WSDL_RESOURCE;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //ProxyWsdlResourceImpl

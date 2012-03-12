@@ -15,10 +15,13 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.wso2.carbonstudio.eclipse.esb.impl.AbstractBooleanFeatureImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ValidateFeature;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +50,12 @@ public class ValidateFeatureImpl extends AbstractBooleanFeatureImpl implements V
 	@Override
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.VALIDATE_FEATURE;
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // FeatureImpl

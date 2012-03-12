@@ -15,6 +15,8 @@
  */
 package org.wso2.carbonstudio.eclipse.esb.mediators.impl;
 
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,6 +31,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.CalloutMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CalloutPayloadType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.CalloutResultType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -871,6 +874,12 @@ public class CalloutMediatorImpl extends MediatorImpl implements
         result.append(passHeaders);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // CalloutMediatorImpl

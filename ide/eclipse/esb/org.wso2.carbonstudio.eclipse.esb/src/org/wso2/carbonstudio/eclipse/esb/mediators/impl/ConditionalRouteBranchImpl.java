@@ -32,6 +32,7 @@ import org.wso2.carbonstudio.eclipse.esb.impl.MediatorBranchImpl;
 import org.wso2.carbonstudio.eclipse.esb.mediators.ConditionalRouteBranch;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
@@ -396,6 +397,12 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
         result.append(breakAfterRoute);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } // ConditionalRouteBranchImpl

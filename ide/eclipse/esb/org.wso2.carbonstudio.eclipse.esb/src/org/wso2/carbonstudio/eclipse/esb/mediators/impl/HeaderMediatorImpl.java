@@ -36,6 +36,7 @@ import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderAction;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderMediator;
 import org.wso2.carbonstudio.eclipse.esb.mediators.HeaderValueType;
 import org.wso2.carbonstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -582,5 +583,31 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		result.append(')');
 		return result.toString();
 	}
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> headerMediatorValidateMap = new HashMap<String, ObjectValidator>();
+	    if(getHeaderName().getPropertyValue().equals("") || getHeaderName().getPropertyValue().equals(null)){
+	    	validateMap.put("Header Name", "Header Name is empty");
+	    	
+	    }
+	    if(getHeaderAction().equals(HeaderAction.SET)){
+	    	if(getValueType().equals(HeaderValueType.LITERAL)){
+	    		if(getValueLiteral().equals("") || getValueLiteral().equals(null)){
+	    			validateMap.put("Value Literal", "Value Literal is empty");
+	    		}
+	    	}else{
+	    		if(getValueExpression().equals("") || getValueExpression().equals(null)){
+	    			validateMap.put("Value Expression", "Value Expression is empty");
+	    		}
+	    	}
+	    }
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    headerMediatorValidateMap.put("Header", objectValidator);
+	    return headerMediatorValidateMap;
+    }
 
 } //HeaderMediatorImpl

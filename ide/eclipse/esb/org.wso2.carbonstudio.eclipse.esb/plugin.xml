@@ -614,7 +614,7 @@
 						</event>											
 					</target>																														
 				</constraint>
-				<constraint lang="Java"
+				<!--constraint lang="Java"
 					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory string properties"
 					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryStringPropertyConstraint"
@@ -1191,7 +1191,7 @@
 							<feature name="securityPolicy" />
 						</event>											
 					</target>																														
-				</constraint>
+				</constraint-->
 			</constraints>
 		</constraintProvider>
 	</extension>

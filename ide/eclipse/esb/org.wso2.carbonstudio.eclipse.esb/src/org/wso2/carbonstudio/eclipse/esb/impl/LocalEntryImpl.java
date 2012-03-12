@@ -16,6 +16,7 @@
 package org.wso2.carbonstudio.eclipse.esb.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +26,7 @@ import org.wso2.carbonstudio.eclipse.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.esb.LocalEntry;
 import org.wso2.carbonstudio.eclipse.esb.LocalEntryValueType;
 import org.wso2.carbonstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.carbonstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -450,6 +452,12 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
         result.append(valueURL);
         result.append(')');
         return result.toString();
+    }
+
+	@Override
+    public Map<String, ObjectValidator> validate() {
+	    // TODO Auto-generated method stub
+	    return null;
     }
 
 } //LocalEntryImpl
