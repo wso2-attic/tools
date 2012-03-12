@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.service-3.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.command.ui-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.identity.entitlement.mediator-3.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.event.core-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.event.ws-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.event-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.smooks-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rulecep.adapters-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rulecep.adapters.service-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rule.server-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rule.core-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rulecep.commons-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.identity.oauth.mediator-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rule.mediator-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bsf-all-3.0.0.wso2v1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spring.framework-2.5.1.wso2v1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.throttle-3.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.caching-3.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-commons-2.1.0.wso2v5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-core-2.1.0.wso2v5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions-2.1.0.wso2v5.jar"/>

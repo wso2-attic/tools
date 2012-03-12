@@ -26,6 +26,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.DBReportMediator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.EntitlementMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EventMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.carbonstudio.eclipse.gmf.esb.FaultMediator;
@@ -39,6 +40,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SpringMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ThrottleMediator;
@@ -66,6 +68,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.DBReportMediat
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.DropMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.DefaultEndPointTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.EnrichMediatorTransformer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.EntitlementMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.EventMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.FailoverEndPointTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.FaultMediatorTransformer;
@@ -83,6 +86,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.RuleMediatorTr
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.ScriptMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.SendMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.SequenceMediatorTransformer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.SmooksMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.SpringMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.SwitchMediatorTransformer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.internal.persistence.ThrottleMediatorTransformer;
@@ -145,6 +149,8 @@ public class EsbTransformerRegistry {
 		addTransformer(SendMediator.class, new SendMediatorTransformer());
 		addTransformer(SpringMediator.class, new SpringMediatorTransformer());
 		addTransformer(ScriptMediator.class, new ScriptMediatorTransformer());
+		addTransformer(SmooksMediator.class, new SmooksMediatorTransformer());
+		addTransformer(EntitlementMediator.class, new EntitlementMediatorTransformer());
 		
 	}
 	

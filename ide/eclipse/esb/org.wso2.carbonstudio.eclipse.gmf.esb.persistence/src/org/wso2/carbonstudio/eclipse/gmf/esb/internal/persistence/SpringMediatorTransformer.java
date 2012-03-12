@@ -43,6 +43,7 @@ public class SpringMediatorTransformer extends AbstractEsbNodeTransformer  {
 		SpringMediator visualSpring = (SpringMediator) subject;
 		
 		org.apache.synapse.mediators.spring.SpringMediator springMediator=new org.apache.synapse.mediators.spring.SpringMediator();
+		springMediator.setBeanName(visualSpring.getBeanName());
 		return springMediator;
 	}
 }

@@ -19,7 +19,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.axiom.om.OMNode;
 import org.apache.synapse.SynapseArtifact;
+import org.apache.synapse.config.SynapseConfigUtils;
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -78,13 +80,14 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			proxyService.setTransports(transports);
 			switch (visualService.getWsdlType()) {
 			case INLINE:
-				proxyService.setInLineWSDL(visualService.getWsdlXML());
+				OMNode node = SynapseConfigUtils.stringToOM(visualService.getWsdlXML());
+				proxyService.setInLineWSDL(node);
 				break;
 			case SOURCE_URL:
 				proxyService.setWsdlURI(new URI(visualService.getWsdlURL()));
 				break;
 			case REGISTRY_KEY:
-				proxyService.setWSDLKey(visualService.getWsdlURL());
+				proxyService.setWSDLKey(visualService.getWsdlKey().getKeyValue());
 				break;
 			case NONE:
 				break;
