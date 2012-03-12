@@ -330,11 +330,11 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
 	protected PropertyMediatorImpl() {
 		super();
 		// Value expression.
-//		NamespacedProperty valueExpression = getEsbFactory().createNamespacedProperty();
-//		valueExpression.setPrettyName("Property Expression");
-//		valueExpression.setPropertyName("expression");
-//		valueExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);		
-//		setValueExpression(valueExpression);
+		NamespacedProperty valueExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPrettyName("Property Expression");
+		valueExpression.setPropertyName("expression");
+		valueExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);		
+		setValueExpression(valueExpression);
 	}
 
 	/**

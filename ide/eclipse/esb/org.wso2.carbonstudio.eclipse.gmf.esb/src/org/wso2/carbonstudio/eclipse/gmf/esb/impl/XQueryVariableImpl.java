@@ -144,10 +144,22 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected XQueryVariableImpl() {
 		super();
+		// Value expression.
+		NamespacedProperty valueExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPrettyName("Value Expression");
+		valueExpression.setPropertyName("expression");
+		valueExpression.setPropertyValue("/default/expression");
+		setValueExpression(valueExpression);
+		
+		// Value key.
+		RegistryKeyProperty valueKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		valueKey.setPrettyName("Value Key");
+		valueKey.setKeyName("key");
+		setValueKey(valueKey);
 	}
 
 	/**

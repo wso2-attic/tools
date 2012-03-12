@@ -90,10 +90,17 @@ public class SpringMediatorImpl extends MediatorImpl implements SpringMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SpringMediatorImpl() {
-		super();
+		super();		
+		
+		// Spring configuration pointer.
+		RegistryKeyProperty configurationKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		configurationKey.setPrettyName("Spring Configuration");
+		configurationKey.setKeyName("key");
+		configurationKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setConfigurationKey(configurationKey);
 	}
 
 	/**

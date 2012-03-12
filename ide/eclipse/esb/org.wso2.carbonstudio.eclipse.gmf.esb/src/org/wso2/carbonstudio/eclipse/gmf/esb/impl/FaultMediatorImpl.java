@@ -370,10 +370,30 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected FaultMediatorImpl() {
 		super();
+		// Fault reason expression.
+		NamespacedProperty faultReasonExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		faultReasonExpression.setPrettyName("Fault Reason");
+		faultReasonExpression.setPropertyName("expression");
+		faultReasonExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
+		setFaultReasonExpression(faultReasonExpression);
+		
+		// Fault string expression.
+		NamespacedProperty faultStringExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		faultStringExpression.setPrettyName("Fault String");
+		faultStringExpression.setPropertyName("expression");
+		faultStringExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
+		setFaultStringExpression(faultStringExpression);
+		
+		// Fault detail expression.
+		NamespacedProperty faultDetailExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		faultDetailExpression.setPrettyName("Fault Detail");
+		faultDetailExpression.setPropertyName("expression");
+		faultDetailExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
+		setFaultDetailExpression(faultDetailExpression);
 	}
 
 	/**

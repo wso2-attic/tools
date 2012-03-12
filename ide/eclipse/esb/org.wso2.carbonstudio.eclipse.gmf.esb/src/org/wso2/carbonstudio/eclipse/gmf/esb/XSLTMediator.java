@@ -18,6 +18,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltSchemaKeyType <em>Xslt Schema Key Type</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltStaticSchemaKey <em>Xslt Static Schema Key</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltDynamicSchemaKey <em>Xslt Dynamic Schema Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltKey <em>Xslt Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getSourceXPath <em>Source XPath</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getProperties <em>Properties</em>}</li>
@@ -82,6 +85,87 @@ public interface XSLTMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputConnector(XSLTMediatorOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Xslt Schema Key Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.carbonstudio.eclipse.gmf.esb.KeyType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xslt Schema Key Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xslt Schema Key Type</em>' attribute.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.KeyType
+	 * @see #setXsltSchemaKeyType(KeyType)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXSLTMediator_XsltSchemaKeyType()
+	 * @model
+	 * @generated
+	 */
+	KeyType getXsltSchemaKeyType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltSchemaKeyType <em>Xslt Schema Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xslt Schema Key Type</em>' attribute.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.KeyType
+	 * @see #getXsltSchemaKeyType()
+	 * @generated
+	 */
+	void setXsltSchemaKeyType(KeyType value);
+
+	/**
+	 * Returns the value of the '<em><b>Xslt Static Schema Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xslt Static Schema Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xslt Static Schema Key</em>' containment reference.
+	 * @see #setXsltStaticSchemaKey(RegistryKeyProperty)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXSLTMediator_XsltStaticSchemaKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getXsltStaticSchemaKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltStaticSchemaKey <em>Xslt Static Schema Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xslt Static Schema Key</em>' containment reference.
+	 * @see #getXsltStaticSchemaKey()
+	 * @generated
+	 */
+	void setXsltStaticSchemaKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Xslt Dynamic Schema Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xslt Dynamic Schema Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xslt Dynamic Schema Key</em>' containment reference.
+	 * @see #setXsltDynamicSchemaKey(NamespacedProperty)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXSLTMediator_XsltDynamicSchemaKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getXsltDynamicSchemaKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltDynamicSchemaKey <em>Xslt Dynamic Schema Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xslt Dynamic Schema Key</em>' containment reference.
+	 * @see #getXsltDynamicSchemaKey()
+	 * @generated
+	 */
+	void setXsltDynamicSchemaKey(NamespacedProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Xslt Key</b></em>' containment reference.

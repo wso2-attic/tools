@@ -123,10 +123,23 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EventMediatorImpl() {
 		super();
+		// Dynamic topic
+		dynamicTopic = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		dynamicTopic.setPropertyName("topic");
+		dynamicTopic.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
+		dynamicTopic.setPrettyName("Dynamic Topic");
+		setDynamicTopic(dynamicTopic);
+
+		// Event Expression
+		eventExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		eventExpression.setPropertyName("expression");
+		eventExpression.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
+		eventExpression.setPrettyName("Event Expression");
+		setEventExpression(eventExpression);
 	}
 
 	/**

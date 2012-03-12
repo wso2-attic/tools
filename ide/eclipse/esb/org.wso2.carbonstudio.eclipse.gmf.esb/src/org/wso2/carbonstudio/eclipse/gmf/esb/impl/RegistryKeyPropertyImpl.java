@@ -6,6 +6,7 @@
  */
 package org.wso2.carbonstudio.eclipse.gmf.esb.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.w3c.dom.Element;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
@@ -107,10 +109,20 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RegistryKeyPropertyImpl() {
 		super();
+		filters=new HashMap<String, String>();
+	}
+
+    public void doLoad(Element self) throws Exception {
+		setKeyValue(self.getAttribute(getKeyName()));
+    }
+
+    public Element doSave(Element parent) throws Exception {
+		parent.setAttribute(getKeyName(), getKeyValue());
+		return parent;    
 	}
 
 	/**

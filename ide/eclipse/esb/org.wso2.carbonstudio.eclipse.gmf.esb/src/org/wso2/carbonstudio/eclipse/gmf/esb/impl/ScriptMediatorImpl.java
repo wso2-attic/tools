@@ -155,10 +155,17 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ScriptMediatorImpl() {
 		super();
+		
+		// Script key.
+		RegistryKeyProperty key = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		key.setPrettyName("Script Key");
+		key.setKeyName("key");
+		key.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setScriptKey(key);
 	}
 
 	/**

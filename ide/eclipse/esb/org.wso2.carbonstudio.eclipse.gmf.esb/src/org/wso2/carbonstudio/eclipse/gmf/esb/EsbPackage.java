@@ -478,7 +478,7 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__WSDL_URL = ESB_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Wsdl Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Wsdl Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -505,13 +505,31 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__SERVICE_POLICIES = ESB_ELEMENT_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Sequence Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__SEQUENCE_CONTAINER = ESB_ELEMENT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__ENDPOINT_CONTAINER = ESB_ELEMENT_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Proxy Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 16;
+	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -635,6 +653,127 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE_POLICY_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceInSequenceImpl <em>Proxy Service In Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceInSequenceImpl
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceInSequence()
+	 * @generated
+	 */
+	int PROXY_SERVICE_IN_SEQUENCE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_IN_SEQUENCE__CHILDREN = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Proxy Service In Sequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_IN_SEQUENCE_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceOutSequenceImpl <em>Proxy Service Out Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceOutSequenceImpl
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceOutSequence()
+	 * @generated
+	 */
+	int PROXY_SERVICE_OUT_SEQUENCE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_OUT_SEQUENCE__CHILDREN = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Proxy Service Out Sequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_OUT_SEQUENCE_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceSequenceContainerImpl <em>Proxy Service Sequence Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceSequenceContainerImpl
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceSequenceContainer()
+	 * @generated
+	 */
+	int PROXY_SERVICE_SEQUENCE_CONTAINER = 17;
+
+	/**
+	 * The feature id for the '<em><b>In Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Out Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Proxy Service Sequence Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_SEQUENCE_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceEndpointContainerImpl <em>Proxy Service Endpoint Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceEndpointContainerImpl
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceEndpointContainer()
+	 * @generated
+	 */
+	int PROXY_SERVICE_ENDPOINT_CONTAINER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_ENDPOINT_CONTAINER__CHILDREN = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Proxy Service Endpoint Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_ENDPOINT_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl <em>Abstract End Point</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,7 +781,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractEndPoint()
 	 * @generated
 	 */
-	int ABSTRACT_END_POINT = 15;
+	int ABSTRACT_END_POINT = 19;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -823,7 +962,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageMediator()
 	 * @generated
 	 */
-	int MESSAGE_MEDIATOR = 16;
+	int MESSAGE_MEDIATOR = 20;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -860,7 +999,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageInputConnector()
 	 * @generated
 	 */
-	int MESSAGE_INPUT_CONNECTOR = 17;
+	int MESSAGE_INPUT_CONNECTOR = 21;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -888,7 +1027,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageOutputConnector()
 	 * @generated
 	 */
-	int MESSAGE_OUTPUT_CONNECTOR = 18;
+	int MESSAGE_OUTPUT_CONNECTOR = 22;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -916,7 +1055,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDefaultEndPoint()
 	 * @generated
 	 */
-	int DEFAULT_END_POINT = 19;
+	int DEFAULT_END_POINT = 23;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -1115,7 +1254,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDefaultEndPointInputConnector()
 	 * @generated
 	 */
-	int DEFAULT_END_POINT_INPUT_CONNECTOR = 20;
+	int DEFAULT_END_POINT_INPUT_CONNECTOR = 24;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1143,7 +1282,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDefaultEndPointOutputConnector()
 	 * @generated
 	 */
-	int DEFAULT_END_POINT_OUTPUT_CONNECTOR = 21;
+	int DEFAULT_END_POINT_OUTPUT_CONNECTOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1171,7 +1310,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAddressEndPoint()
 	 * @generated
 	 */
-	int ADDRESS_END_POINT = 22;
+	int ADDRESS_END_POINT = 26;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -1379,7 +1518,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAddressEndPointInputConnector()
 	 * @generated
 	 */
-	int ADDRESS_END_POINT_INPUT_CONNECTOR = 23;
+	int ADDRESS_END_POINT_INPUT_CONNECTOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1407,7 +1546,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAddressEndPointOutputConnector()
 	 * @generated
 	 */
-	int ADDRESS_END_POINT_OUTPUT_CONNECTOR = 24;
+	int ADDRESS_END_POINT_OUTPUT_CONNECTOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1435,7 +1574,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDropMediator()
 	 * @generated
 	 */
-	int DROP_MEDIATOR = 25;
+	int DROP_MEDIATOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -1472,7 +1611,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDropMediatorInputConnector()
 	 * @generated
 	 */
-	int DROP_MEDIATOR_INPUT_CONNECTOR = 26;
+	int DROP_MEDIATOR_INPUT_CONNECTOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1500,7 +1639,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterMediator()
 	 * @generated
 	 */
-	int FILTER_MEDIATOR = 27;
+	int FILTER_MEDIATOR = 31;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -1591,7 +1730,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterMediatorInputConnector()
 	 * @generated
 	 */
-	int FILTER_MEDIATOR_INPUT_CONNECTOR = 28;
+	int FILTER_MEDIATOR_INPUT_CONNECTOR = 32;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1619,7 +1758,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterMediatorPassOutputConnector()
 	 * @generated
 	 */
-	int FILTER_MEDIATOR_PASS_OUTPUT_CONNECTOR = 29;
+	int FILTER_MEDIATOR_PASS_OUTPUT_CONNECTOR = 33;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1647,7 +1786,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterMediatorFailOutputConnector()
 	 * @generated
 	 */
-	int FILTER_MEDIATOR_FAIL_OUTPUT_CONNECTOR = 30;
+	int FILTER_MEDIATOR_FAIL_OUTPUT_CONNECTOR = 34;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1675,7 +1814,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMergeNode()
 	 * @generated
 	 */
-	int MERGE_NODE = 31;
+	int MERGE_NODE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -1730,7 +1869,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMergeNodeFirstInputConnector()
 	 * @generated
 	 */
-	int MERGE_NODE_FIRST_INPUT_CONNECTOR = 32;
+	int MERGE_NODE_FIRST_INPUT_CONNECTOR = 36;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1758,7 +1897,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMergeNodeSecondInputConnector()
 	 * @generated
 	 */
-	int MERGE_NODE_SECOND_INPUT_CONNECTOR = 33;
+	int MERGE_NODE_SECOND_INPUT_CONNECTOR = 37;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1786,7 +1925,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMergeNodeOutputConnector()
 	 * @generated
 	 */
-	int MERGE_NODE_OUTPUT_CONNECTOR = 34;
+	int MERGE_NODE_OUTPUT_CONNECTOR = 38;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1814,7 +1953,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogMediator()
 	 * @generated
 	 */
-	int LOG_MEDIATOR = 35;
+	int LOG_MEDIATOR = 39;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -1896,7 +2035,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogMediatorInputConnector()
 	 * @generated
 	 */
-	int LOG_MEDIATOR_INPUT_CONNECTOR = 36;
+	int LOG_MEDIATOR_INPUT_CONNECTOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -1924,7 +2063,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogMediatorOutputConnector()
 	 * @generated
 	 */
-	int LOG_MEDIATOR_OUTPUT_CONNECTOR = 37;
+	int LOG_MEDIATOR_OUTPUT_CONNECTOR = 41;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -1952,7 +2091,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogProperty()
 	 * @generated
 	 */
-	int LOG_PROPERTY = 38;
+	int LOG_PROPERTY = 42;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.RegistryKeyPropertyImpl <em>Registry Key Property</em>}' class.
@@ -1962,7 +2101,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRegistryKeyProperty()
 	 * @generated
 	 */
-	int REGISTRY_KEY_PROPERTY = 39;
+	int REGISTRY_KEY_PROPERTY = 43;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.PropertyMediatorImpl <em>Property Mediator</em>}' class.
@@ -1972,7 +2111,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyMediator()
 	 * @generated
 	 */
-	int PROPERTY_MEDIATOR = 40;
+	int PROPERTY_MEDIATOR = 44;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.PropertyMediatorInputConnectorImpl <em>Property Mediator Input Connector</em>}' class.
@@ -1982,7 +2121,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyMediatorInputConnector()
 	 * @generated
 	 */
-	int PROPERTY_MEDIATOR_INPUT_CONNECTOR = 41;
+	int PROPERTY_MEDIATOR_INPUT_CONNECTOR = 45;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.PropertyMediatorOutputConnectorImpl <em>Property Mediator Output Connector</em>}' class.
@@ -1992,7 +2131,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyMediatorOutputConnector()
 	 * @generated
 	 */
-	int PROPERTY_MEDIATOR_OUTPUT_CONNECTOR = 42;
+	int PROPERTY_MEDIATOR_OUTPUT_CONNECTOR = 46;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl <em>Namespaced Property</em>}' class.
@@ -2002,7 +2141,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getNamespacedProperty()
 	 * @generated
 	 */
-	int NAMESPACED_PROPERTY = 43;
+	int NAMESPACED_PROPERTY = 47;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl <em>Enrich Mediator</em>}' class.
@@ -2012,7 +2151,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichMediator()
 	 * @generated
 	 */
-	int ENRICH_MEDIATOR = 44;
+	int ENRICH_MEDIATOR = 48;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.EnrichMediatorInputConnectorImpl <em>Enrich Mediator Input Connector</em>}' class.
@@ -2022,7 +2161,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichMediatorInputConnector()
 	 * @generated
 	 */
-	int ENRICH_MEDIATOR_INPUT_CONNECTOR = 45;
+	int ENRICH_MEDIATOR_INPUT_CONNECTOR = 49;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.EnrichMediatorOutputConnectorImpl <em>Enrich Mediator Output Connector</em>}' class.
@@ -2032,7 +2171,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichMediatorOutputConnector()
 	 * @generated
 	 */
-	int ENRICH_MEDIATOR_OUTPUT_CONNECTOR = 46;
+	int ENRICH_MEDIATOR_OUTPUT_CONNECTOR = 50;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.AbstractNameValueExpressionPropertyImpl <em>Abstract Name Value Expression Property</em>}' class.
@@ -2042,7 +2181,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractNameValueExpressionProperty()
 	 * @generated
 	 */
-	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY = 47;
+	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY = 51;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -2574,7 +2713,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractBooleanFeature()
 	 * @generated
 	 */
-	int ABSTRACT_BOOLEAN_FEATURE = 48;
+	int ABSTRACT_BOOLEAN_FEATURE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
@@ -2611,7 +2750,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractLocationKeyResource()
 	 * @generated
 	 */
-	int ABSTRACT_LOCATION_KEY_RESOURCE = 49;
+	int ABSTRACT_LOCATION_KEY_RESOURCE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2648,7 +2787,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTMediator()
 	 * @generated
 	 */
-	int XSLT_MEDIATOR = 50;
+	int XSLT_MEDIATOR = 54;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -2678,13 +2817,40 @@ public interface EsbPackage extends EPackage {
 	int XSLT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Xslt Schema Key Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_MEDIATOR__XSLT_SCHEMA_KEY_TYPE = MEDIATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Xslt Static Schema Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY = MEDIATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Xslt Dynamic Schema Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Xslt Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR__XSLT_KEY = MEDIATOR_FEATURE_COUNT + 2;
+	int XSLT_MEDIATOR__XSLT_KEY = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Source XPath</b></em>' containment reference.
@@ -2693,7 +2859,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR__SOURCE_XPATH = MEDIATOR_FEATURE_COUNT + 3;
+	int XSLT_MEDIATOR__SOURCE_XPATH = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -2702,7 +2868,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR__PROPERTIES = MEDIATOR_FEATURE_COUNT + 4;
+	int XSLT_MEDIATOR__PROPERTIES = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -2711,7 +2877,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR__FEATURES = MEDIATOR_FEATURE_COUNT + 5;
+	int XSLT_MEDIATOR__FEATURES = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -2720,7 +2886,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR__RESOURCES = MEDIATOR_FEATURE_COUNT + 6;
+	int XSLT_MEDIATOR__RESOURCES = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>XSLT Mediator</em>' class.
@@ -2729,7 +2895,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XSLT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int XSLT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XSLTPropertyImpl <em>XSLT Property</em>}' class.
@@ -2739,7 +2905,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTProperty()
 	 * @generated
 	 */
-	int XSLT_PROPERTY = 51;
+	int XSLT_PROPERTY = 55;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -2794,7 +2960,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTFeature()
 	 * @generated
 	 */
-	int XSLT_FEATURE = 52;
+	int XSLT_FEATURE = 56;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
@@ -2831,7 +2997,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTResource()
 	 * @generated
 	 */
-	int XSLT_RESOURCE = 53;
+	int XSLT_RESOURCE = 57;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2868,7 +3034,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTMediatorInputConnector()
 	 * @generated
 	 */
-	int XSLT_MEDIATOR_INPUT_CONNECTOR = 54;
+	int XSLT_MEDIATOR_INPUT_CONNECTOR = 58;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -2896,7 +3062,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXSLTMediatorOutputConnector()
 	 * @generated
 	 */
-	int XSLT_MEDIATOR_OUTPUT_CONNECTOR = 55;
+	int XSLT_MEDIATOR_OUTPUT_CONNECTOR = 59;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -2924,7 +3090,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSwitchMediator()
 	 * @generated
 	 */
-	int SWITCH_MEDIATOR = 56;
+	int SWITCH_MEDIATOR = 60;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3015,7 +3181,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSwitchCaseBranchOutputConnector()
 	 * @generated
 	 */
-	int SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR = 57;
+	int SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR = 61;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3052,7 +3218,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSwitchDefaultBranchOutputConnector()
 	 * @generated
 	 */
-	int SWITCH_DEFAULT_BRANCH_OUTPUT_CONNECTOR = 58;
+	int SWITCH_DEFAULT_BRANCH_OUTPUT_CONNECTOR = 62;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3080,7 +3246,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSwitchMediatorInputConnector()
 	 * @generated
 	 */
-	int SWITCH_MEDIATOR_INPUT_CONNECTOR = 59;
+	int SWITCH_MEDIATOR_INPUT_CONNECTOR = 63;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3108,7 +3274,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequenceDiagram()
 	 * @generated
 	 */
-	int SEQUENCE_DIAGRAM = 60;
+	int SEQUENCE_DIAGRAM = 64;
 
 	/**
 	 * The feature id for the '<em><b>Sequence</b></em>' containment reference.
@@ -3136,7 +3302,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEsbSequence()
 	 * @generated
 	 */
-	int ESB_SEQUENCE = 61;
+	int ESB_SEQUENCE = 65;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3191,7 +3357,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEsbSequenceInput()
 	 * @generated
 	 */
-	int ESB_SEQUENCE_INPUT = 62;
+	int ESB_SEQUENCE_INPUT = 66;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' containment reference.
@@ -3219,7 +3385,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEsbSequenceOutput()
 	 * @generated
 	 */
-	int ESB_SEQUENCE_OUTPUT = 63;
+	int ESB_SEQUENCE_OUTPUT = 67;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' containment reference.
@@ -3247,7 +3413,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEsbSequenceInputConnector()
 	 * @generated
 	 */
-	int ESB_SEQUENCE_INPUT_CONNECTOR = 64;
+	int ESB_SEQUENCE_INPUT_CONNECTOR = 68;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3275,7 +3441,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEsbSequenceOutputConnector()
 	 * @generated
 	 */
-	int ESB_SEQUENCE_OUTPUT_CONNECTOR = 65;
+	int ESB_SEQUENCE_OUTPUT_CONNECTOR = 69;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3303,7 +3469,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequence()
 	 * @generated
 	 */
-	int SEQUENCE = 66;
+	int SEQUENCE = 70;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3376,7 +3542,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequenceInputConnector()
 	 * @generated
 	 */
-	int SEQUENCE_INPUT_CONNECTOR = 67;
+	int SEQUENCE_INPUT_CONNECTOR = 71;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3404,7 +3570,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequenceOutputConnector()
 	 * @generated
 	 */
-	int SEQUENCE_OUTPUT_CONNECTOR = 68;
+	int SEQUENCE_OUTPUT_CONNECTOR = 72;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3432,7 +3598,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventMediator()
 	 * @generated
 	 */
-	int EVENT_MEDIATOR = 69;
+	int EVENT_MEDIATOR = 73;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3514,7 +3680,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventMediatorInputConnector()
 	 * @generated
 	 */
-	int EVENT_MEDIATOR_INPUT_CONNECTOR = 70;
+	int EVENT_MEDIATOR_INPUT_CONNECTOR = 74;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3542,7 +3708,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventMediatorOutputConnector()
 	 * @generated
 	 */
-	int EVENT_MEDIATOR_OUTPUT_CONNECTOR = 71;
+	int EVENT_MEDIATOR_OUTPUT_CONNECTOR = 75;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3570,7 +3736,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractNameValueProperty()
 	 * @generated
 	 */
-	int ABSTRACT_NAME_VALUE_PROPERTY = 72;
+	int ABSTRACT_NAME_VALUE_PROPERTY = 76;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -3607,7 +3773,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEntitlementMediator()
 	 * @generated
 	 */
-	int ENTITLEMENT_MEDIATOR = 73;
+	int ENTITLEMENT_MEDIATOR = 77;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3680,7 +3846,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEntitlementMediatorInputConnector()
 	 * @generated
 	 */
-	int ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR = 74;
+	int ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR = 78;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3708,7 +3874,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEntitlementMediatorOutputConnector()
 	 * @generated
 	 */
-	int ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR = 75;
+	int ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR = 79;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3736,7 +3902,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnqueueMediator()
 	 * @generated
 	 */
-	int ENQUEUE_MEDIATOR = 76;
+	int ENQUEUE_MEDIATOR = 80;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3791,7 +3957,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getClassMediator()
 	 * @generated
 	 */
-	int CLASS_MEDIATOR = 77;
+	int CLASS_MEDIATOR = 81;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -3855,7 +4021,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getClassMediatorInputConnector()
 	 * @generated
 	 */
-	int CLASS_MEDIATOR_INPUT_CONNECTOR = 78;
+	int CLASS_MEDIATOR_INPUT_CONNECTOR = 82;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -3883,7 +4049,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getClassMediatorOutputConnector()
 	 * @generated
 	 */
-	int CLASS_MEDIATOR_OUTPUT_CONNECTOR = 79;
+	int CLASS_MEDIATOR_OUTPUT_CONNECTOR = 83;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -3911,7 +4077,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getClassProperty()
 	 * @generated
 	 */
-	int CLASS_PROPERTY = 80;
+	int CLASS_PROPERTY = 84;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -3948,7 +4114,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSpringMediator()
 	 * @generated
 	 */
-	int SPRING_MEDIATOR = 81;
+	int SPRING_MEDIATOR = 85;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4012,7 +4178,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSpringMediatorInputConnector()
 	 * @generated
 	 */
-	int SPRING_MEDIATOR_INPUT_CONNECTOR = 82;
+	int SPRING_MEDIATOR_INPUT_CONNECTOR = 86;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -4040,7 +4206,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSpringMediatorOutputConnector()
 	 * @generated
 	 */
-	int SPRING_MEDIATOR_OUTPUT_CONNECTOR = 83;
+	int SPRING_MEDIATOR_OUTPUT_CONNECTOR = 87;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -4068,7 +4234,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateMediator()
 	 * @generated
 	 */
-	int VALIDATE_MEDIATOR = 84;
+	int VALIDATE_MEDIATOR = 88;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4132,7 +4298,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateOnFailBranch()
 	 * @generated
 	 */
-	int VALIDATE_ON_FAIL_BRANCH = 85;
+	int VALIDATE_ON_FAIL_BRANCH = 89;
 
 	/**
 	 * The number of structural features of the '<em>Validate On Fail Branch</em>' class.
@@ -4151,7 +4317,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateFeature()
 	 * @generated
 	 */
-	int VALIDATE_FEATURE = 86;
+	int VALIDATE_FEATURE = 90;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
@@ -4188,7 +4354,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateSchema()
 	 * @generated
 	 */
-	int VALIDATE_SCHEMA = 87;
+	int VALIDATE_SCHEMA = 91;
 
 	/**
 	 * The feature id for the '<em><b>Validate Static Schema Key</b></em>' reference.
@@ -4234,7 +4400,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptMediator()
 	 * @generated
 	 */
-	int SCRIPT_MEDIATOR = 88;
+	int SCRIPT_MEDIATOR = 92;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4325,7 +4491,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptMediatorInputConnector()
 	 * @generated
 	 */
-	int SCRIPT_MEDIATOR_INPUT_CONNECTOR = 89;
+	int SCRIPT_MEDIATOR_INPUT_CONNECTOR = 93;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -4353,7 +4519,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptMediatorOutputConnector()
 	 * @generated
 	 */
-	int SCRIPT_MEDIATOR_OUTPUT_CONNECTOR = 90;
+	int SCRIPT_MEDIATOR_OUTPUT_CONNECTOR = 94;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -4381,7 +4547,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultMediator()
 	 * @generated
 	 */
-	int FAULT_MEDIATOR = 91;
+	int FAULT_MEDIATOR = 95;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4571,7 +4737,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultMediatorInputConnector()
 	 * @generated
 	 */
-	int FAULT_MEDIATOR_INPUT_CONNECTOR = 92;
+	int FAULT_MEDIATOR_INPUT_CONNECTOR = 96;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -4599,7 +4765,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultMediatorOutputConnector()
 	 * @generated
 	 */
-	int FAULT_MEDIATOR_OUTPUT_CONNECTOR = 93;
+	int FAULT_MEDIATOR_OUTPUT_CONNECTOR = 97;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -4627,7 +4793,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateMediator()
 	 * @generated
 	 */
-	int AGGREGATE_MEDIATOR = 94;
+	int AGGREGATE_MEDIATOR = 98;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4745,7 +4911,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateMediatorInputConnector()
 	 * @generated
 	 */
-	int AGGREGATE_MEDIATOR_INPUT_CONNECTOR = 95;
+	int AGGREGATE_MEDIATOR_INPUT_CONNECTOR = 99;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -4773,7 +4939,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateMediatorOutputConnector()
 	 * @generated
 	 */
-	int AGGREGATE_MEDIATOR_OUTPUT_CONNECTOR = 96;
+	int AGGREGATE_MEDIATOR_OUTPUT_CONNECTOR = 100;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -4801,7 +4967,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateMediatorOnCompleteOutputConnector()
 	 * @generated
 	 */
-	int AGGREGATE_MEDIATOR_ON_COMPLETE_OUTPUT_CONNECTOR = 97;
+	int AGGREGATE_MEDIATOR_ON_COMPLETE_OUTPUT_CONNECTOR = 101;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -4829,7 +4995,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateOnCompleteBranch()
 	 * @generated
 	 */
-	int AGGREGATE_ON_COMPLETE_BRANCH = 98;
+	int AGGREGATE_ON_COMPLETE_BRANCH = 102;
 
 	/**
 	 * The feature id for the '<em><b>Aggregation Expression</b></em>' containment reference.
@@ -4875,7 +5041,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediator()
 	 * @generated
 	 */
-	int ROUTER_MEDIATOR = 99;
+	int ROUTER_MEDIATOR = 103;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -4921,7 +5087,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterRoute()
 	 * @generated
 	 */
-	int ROUTER_ROUTE = 100;
+	int ROUTER_ROUTE = 104;
 
 	/**
 	 * The feature id for the '<em><b>Break After Route</b></em>' attribute.
@@ -4976,7 +5142,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouteTarget()
 	 * @generated
 	 */
-	int ROUTE_TARGET = 101;
+	int ROUTE_TARGET = 105;
 
 	/**
 	 * The number of structural features of the '<em>Route Target</em>' class.
@@ -4995,7 +5161,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediator()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR = 102;
+	int CLONE_MEDIATOR = 106;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -5077,7 +5243,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorInputConnector()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR_INPUT_CONNECTOR = 103;
+	int CLONE_MEDIATOR_INPUT_CONNECTOR = 107;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -5105,7 +5271,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorOutputConnector()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR_OUTPUT_CONNECTOR = 104;
+	int CLONE_MEDIATOR_OUTPUT_CONNECTOR = 108;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -5133,7 +5299,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorTargetOutputConnector()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 105;
+	int CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 109;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -5179,7 +5345,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediator()
 	 * @generated
 	 */
-	int ITERATE_MEDIATOR = 106;
+	int ITERATE_MEDIATOR = 110;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -5288,7 +5454,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorInputConnector()
 	 * @generated
 	 */
-	int ITERATE_MEDIATOR_INPUT_CONNECTOR = 107;
+	int ITERATE_MEDIATOR_INPUT_CONNECTOR = 111;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -5316,7 +5482,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorOutputConnector()
 	 * @generated
 	 */
-	int ITERATE_MEDIATOR_OUTPUT_CONNECTOR = 108;
+	int ITERATE_MEDIATOR_OUTPUT_CONNECTOR = 112;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -5344,7 +5510,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractCommonTarget()
 	 * @generated
 	 */
-	int ABSTRACT_COMMON_TARGET = 110;
+	int ABSTRACT_COMMON_TARGET = 114;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -5417,7 +5583,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateTarget()
 	 * @generated
 	 */
-	int ITERATE_TARGET = 109;
+	int ITERATE_TARGET = 113;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -5508,7 +5674,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMediatorSequence()
 	 * @generated
 	 */
-	int MEDIATOR_SEQUENCE = 111;
+	int MEDIATOR_SEQUENCE = 115;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -5572,7 +5738,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediator()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR = 112;
+	int CACHE_MEDIATOR = 116;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -5699,7 +5865,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorInputConnector()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR_INPUT_CONNECTOR = 113;
+	int CACHE_MEDIATOR_INPUT_CONNECTOR = 117;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -5727,7 +5893,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorOutputConnector()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR_OUTPUT_CONNECTOR = 114;
+	int CACHE_MEDIATOR_OUTPUT_CONNECTOR = 118;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -5755,7 +5921,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheOnHitBranch()
 	 * @generated
 	 */
-	int CACHE_ON_HIT_BRANCH = 115;
+	int CACHE_ON_HIT_BRANCH = 119;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -5792,7 +5958,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediator()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR = 116;
+	int XQUERY_MEDIATOR = 120;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -5813,7 +5979,7 @@ public interface EsbPackage extends EPackage {
 	int XQUERY_MEDIATOR__VARIABLES = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Target XPath</b></em>' reference.
+	 * The feature id for the '<em><b>Target XPath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5831,7 +5997,7 @@ public interface EsbPackage extends EPackage {
 	int XQUERY_MEDIATOR__SCRIPT_KEY_TYPE = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Static Script Key</b></em>' reference.
+	 * The feature id for the '<em><b>Static Script Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5840,7 +6006,7 @@ public interface EsbPackage extends EPackage {
 	int XQUERY_MEDIATOR__STATIC_SCRIPT_KEY = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Dynamic Script Key</b></em>' reference.
+	 * The feature id for the '<em><b>Dynamic Script Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5849,13 +6015,22 @@ public interface EsbPackage extends EPackage {
 	int XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Query Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XQUERY_MEDIATOR__QUERY_KEY = MEDIATOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XQUERY_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 5;
+	int XQUERY_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -5864,7 +6039,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XQUERY_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 6;
+	int XQUERY_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>XQuery Mediator</em>' class.
@@ -5873,7 +6048,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XQUERY_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int XQUERY_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorInputConnectorImpl <em>XQuery Mediator Input Connector</em>}' class.
@@ -5883,7 +6058,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediatorInputConnector()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR_INPUT_CONNECTOR = 117;
+	int XQUERY_MEDIATOR_INPUT_CONNECTOR = 121;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -5911,7 +6086,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediatorOutputConnector()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR_OUTPUT_CONNECTOR = 118;
+	int XQUERY_MEDIATOR_OUTPUT_CONNECTOR = 122;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -5939,7 +6114,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariable()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE = 119;
+	int XQUERY_VARIABLE = 123;
 
 	/**
 	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
@@ -6012,7 +6187,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediator()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR = 120;
+	int CALLOUT_MEDIATOR = 124;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6114,13 +6289,22 @@ public interface EsbPackage extends EPackage {
 	int CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Pass Headers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT_MEDIATOR__PASS_HEADERS = MEDIATOR_FEATURE_COUNT + 10;
+
+	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
+	int CALLOUT_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -6129,7 +6313,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
+	int CALLOUT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Callout Mediator</em>' class.
@@ -6138,7 +6322,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 12;
+	int CALLOUT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorInputConnectorImpl <em>Callout Mediator Input Connector</em>}' class.
@@ -6148,7 +6332,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediatorInputConnector()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR_INPUT_CONNECTOR = 121;
+	int CALLOUT_MEDIATOR_INPUT_CONNECTOR = 125;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6176,7 +6360,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediatorOutputConnector()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR_OUTPUT_CONNECTOR = 122;
+	int CALLOUT_MEDIATOR_OUTPUT_CONNECTOR = 126;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6204,7 +6388,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediator()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR = 123;
+	int RM_SEQUENCE_MEDIATOR = 127;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6286,7 +6470,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediatorInputConnector()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR_INPUT_CONNECTOR = 124;
+	int RM_SEQUENCE_MEDIATOR_INPUT_CONNECTOR = 128;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6314,7 +6498,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediatorOutputConnector()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR_OUTPUT_CONNECTOR = 125;
+	int RM_SEQUENCE_MEDIATOR_OUTPUT_CONNECTOR = 129;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6342,7 +6526,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediator()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR = 126;
+	int TRANSACTION_MEDIATOR = 130;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6397,7 +6581,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediatorInputConnector()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR_INPUT_CONNECTOR = 127;
+	int TRANSACTION_MEDIATOR_INPUT_CONNECTOR = 131;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6425,7 +6609,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediatorOutputConnector()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR_OUTPUT_CONNECTOR = 128;
+	int TRANSACTION_MEDIATOR_OUTPUT_CONNECTOR = 132;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6453,7 +6637,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediator()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR = 129;
+	int OAUTH_MEDIATOR = 133;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6508,7 +6692,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediatorInputConnector()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR_INPUT_CONNECTOR = 130;
+	int OAUTH_MEDIATOR_INPUT_CONNECTOR = 134;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6536,7 +6720,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediatorOutputConnector()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR_OUTPUT_CONNECTOR = 131;
+	int OAUTH_MEDIATOR_OUTPUT_CONNECTOR = 135;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6564,7 +6748,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAutoscaleInMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_IN_MEDIATOR = 132;
+	int AUTOSCALE_IN_MEDIATOR = 136;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6592,7 +6776,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAutoscaleOutMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_OUT_MEDIATOR = 133;
+	int AUTOSCALE_OUT_MEDIATOR = 137;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6620,7 +6804,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediator()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR = 134;
+	int HEADER_MEDIATOR = 138;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6711,7 +6895,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediatorInputConnector()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR_INPUT_CONNECTOR = 135;
+	int HEADER_MEDIATOR_INPUT_CONNECTOR = 139;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6739,7 +6923,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediatorOutputConnector()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR_OUTPUT_CONNECTOR = 136;
+	int HEADER_MEDIATOR_OUTPUT_CONNECTOR = 140;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6767,7 +6951,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediator()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR = 137;
+	int THROTTLE_MEDIATOR = 141;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6849,7 +7033,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorInputConnector()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR_INPUT_CONNECTOR = 138;
+	int THROTTLE_MEDIATOR_INPUT_CONNECTOR = 142;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6877,7 +7061,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorOutputConnector()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR_OUTPUT_CONNECTOR = 139;
+	int THROTTLE_MEDIATOR_OUTPUT_CONNECTOR = 143;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6905,7 +7089,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyConfiguration()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_CONFIGURATION = 140;
+	int THROTTLE_POLICY_CONFIGURATION = 144;
 
 	/**
 	 * The feature id for the '<em><b>Policy Type</b></em>' attribute.
@@ -6960,7 +7144,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyEntry()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_ENTRY = 141;
+	int THROTTLE_POLICY_ENTRY = 145;
 
 	/**
 	 * The feature id for the '<em><b>Throttle Type</b></em>' attribute.
@@ -7033,7 +7217,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnAcceptBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_ACCEPT_BRANCH = 142;
+	int THROTTLE_ON_ACCEPT_BRANCH = 146;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -7070,7 +7254,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnRejectBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_REJECT_BRANCH = 143;
+	int THROTTLE_ON_REJECT_BRANCH = 147;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -7107,7 +7291,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediator()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR = 144;
+	int COMMAND_MEDIATOR = 148;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7171,7 +7355,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediatorInputConnector()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR_INPUT_CONNECTOR = 145;
+	int COMMAND_MEDIATOR_INPUT_CONNECTOR = 149;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7199,7 +7383,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediatorOutputConnector()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR_OUTPUT_CONNECTOR = 146;
+	int COMMAND_MEDIATOR_OUTPUT_CONNECTOR = 150;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7227,7 +7411,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandProperty()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY = 147;
+	int COMMAND_PROPERTY = 151;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -7309,7 +7493,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractSqlExecutorMediator()
 	 * @generated
 	 */
-	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 148;
+	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 152;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7526,7 +7710,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlStatement()
 	 * @generated
 	 */
-	int SQL_STATEMENT = 149;
+	int SQL_STATEMENT = 153;
 
 	/**
 	 * The feature id for the '<em><b>Query String</b></em>' attribute.
@@ -7581,7 +7765,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterDefinition()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DEFINITION = 150;
+	int SQL_PARAMETER_DEFINITION = 154;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -7636,7 +7820,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlResultMapping()
 	 * @generated
 	 */
-	int SQL_RESULT_MAPPING = 151;
+	int SQL_RESULT_MAPPING = 155;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -7673,7 +7857,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediator()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR = 152;
+	int DB_LOOKUP_MEDIATOR = 156;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7908,7 +8092,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediatorInputConnector()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR_INPUT_CONNECTOR = 153;
+	int DB_LOOKUP_MEDIATOR_INPUT_CONNECTOR = 157;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7936,7 +8120,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediatorOutputConnector()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR_OUTPUT_CONNECTOR = 154;
+	int DB_LOOKUP_MEDIATOR_OUTPUT_CONNECTOR = 158;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7964,7 +8148,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediator()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR = 155;
+	int DB_REPORT_MEDIATOR = 159;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8208,7 +8392,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediatorInputConnector()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR_INPUT_CONNECTOR = 156;
+	int DB_REPORT_MEDIATOR_INPUT_CONNECTOR = 160;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -8236,7 +8420,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediatorOutputConnector()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR = 157;
+	int DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR = 161;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -8264,7 +8448,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediator()
 	 * @generated
 	 */
-	int RULE_MEDIATOR = 158;
+	int RULE_MEDIATOR = 162;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8355,7 +8539,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediatorInputConnector()
 	 * @generated
 	 */
-	int RULE_MEDIATOR_INPUT_CONNECTOR = 159;
+	int RULE_MEDIATOR_INPUT_CONNECTOR = 163;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -8383,7 +8567,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediatorOutputConnector()
 	 * @generated
 	 */
-	int RULE_MEDIATOR_OUTPUT_CONNECTOR = 160;
+	int RULE_MEDIATOR_OUTPUT_CONNECTOR = 164;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -8411,7 +8595,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSetConfiguration()
 	 * @generated
 	 */
-	int RULE_SET_CONFIGURATION = 161;
+	int RULE_SET_CONFIGURATION = 165;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' attribute.
@@ -8466,7 +8650,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSetCreationProperty()
 	 * @generated
 	 */
-	int RULE_SET_CREATION_PROPERTY = 162;
+	int RULE_SET_CREATION_PROPERTY = 166;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -8503,7 +8687,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSessionConfiguration()
 	 * @generated
 	 */
-	int RULE_SESSION_CONFIGURATION = 163;
+	int RULE_SESSION_CONFIGURATION = 167;
 
 	/**
 	 * The feature id for the '<em><b>Stateful Session</b></em>' attribute.
@@ -8540,7 +8724,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSessionProperty()
 	 * @generated
 	 */
-	int RULE_SESSION_PROPERTY = 164;
+	int RULE_SESSION_PROPERTY = 168;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -8577,7 +8761,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactsConfiguration()
 	 * @generated
 	 */
-	int RULE_FACTS_CONFIGURATION = 165;
+	int RULE_FACTS_CONFIGURATION = 169;
 
 	/**
 	 * The feature id for the '<em><b>Facts</b></em>' containment reference list.
@@ -8605,7 +8789,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFact()
 	 * @generated
 	 */
-	int RULE_FACT = 166;
+	int RULE_FACT = 170;
 
 	/**
 	 * The feature id for the '<em><b>Fact Type</b></em>' attribute.
@@ -8687,7 +8871,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultsConfiguration()
 	 * @generated
 	 */
-	int RULE_RESULTS_CONFIGURATION = 167;
+	int RULE_RESULTS_CONFIGURATION = 171;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -8715,7 +8899,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResult()
 	 * @generated
 	 */
-	int RULE_RESULT = 168;
+	int RULE_RESULT = 172;
 
 	/**
 	 * The feature id for the '<em><b>Result Type</b></em>' attribute.
@@ -8797,7 +8981,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleChildMediatorsConfiguration()
 	 * @generated
 	 */
-	int RULE_CHILD_MEDIATORS_CONFIGURATION = 169;
+	int RULE_CHILD_MEDIATORS_CONFIGURATION = 173;
 
 	/**
 	 * The number of structural features of the '<em>Rule Child Mediators Configuration</em>' class.
@@ -8816,7 +9000,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediator()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR = 170;
+	int SMOOKS_MEDIATOR = 174;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8889,7 +9073,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediatorInputConnector()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR_INPUT_CONNECTOR = 171;
+	int SMOOKS_MEDIATOR_INPUT_CONNECTOR = 175;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -8917,7 +9101,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediatorOutputConnector()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR_OUTPUT_CONNECTOR = 172;
+	int SMOOKS_MEDIATOR_OUTPUT_CONNECTOR = 176;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -8945,7 +9129,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksInConfiguration()
 	 * @generated
 	 */
-	int SMOOKS_IN_CONFIGURATION = 173;
+	int SMOOKS_IN_CONFIGURATION = 177;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -8957,7 +9141,7 @@ public interface EsbPackage extends EPackage {
 	int SMOOKS_IN_CONFIGURATION__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -8982,7 +9166,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksOutConfiguration()
 	 * @generated
 	 */
-	int SMOOKS_OUT_CONFIGURATION = 174;
+	int SMOOKS_OUT_CONFIGURATION = 178;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -8994,7 +9178,7 @@ public interface EsbPackage extends EPackage {
 	int SMOOKS_OUT_CONFIGURATION__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -9046,7 +9230,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getStoreMediator()
 	 * @generated
 	 */
-	int STORE_MEDIATOR = 175;
+	int STORE_MEDIATOR = 179;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9092,7 +9276,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getConditionalRouteBranch()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTE_BRANCH = 176;
+	int CONDITIONAL_ROUTE_BRANCH = 180;
 
 	/**
 	 * The feature id for the '<em><b>Break Route</b></em>' attribute.
@@ -9120,7 +9304,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getConditionalRouterMediator()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTER_MEDIATOR = 177;
+	int CONDITIONAL_ROUTER_MEDIATOR = 181;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9166,7 +9350,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediator()
 	 * @generated
 	 */
-	int SEND_MEDIATOR = 178;
+	int SEND_MEDIATOR = 182;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9248,7 +9432,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediatorInputConnector()
 	 * @generated
 	 */
-	int SEND_MEDIATOR_INPUT_CONNECTOR = 179;
+	int SEND_MEDIATOR_INPUT_CONNECTOR = 183;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9276,7 +9460,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediatorOutputConnector()
 	 * @generated
 	 */
-	int SEND_MEDIATOR_OUTPUT_CONNECTOR = 180;
+	int SEND_MEDIATOR_OUTPUT_CONNECTOR = 184;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9304,7 +9488,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getParentEndPoint()
 	 * @generated
 	 */
-	int PARENT_END_POINT = 185;
+	int PARENT_END_POINT = 189;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -9350,7 +9534,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPoint()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT = 181;
+	int FAILOVER_END_POINT = 185;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -9423,7 +9607,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointInputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_INPUT_CONNECTOR = 182;
+	int FAILOVER_END_POINT_INPUT_CONNECTOR = 186;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9451,7 +9635,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointOutputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_OUTPUT_CONNECTOR = 183;
+	int FAILOVER_END_POINT_OUTPUT_CONNECTOR = 187;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9479,7 +9663,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointWestOutputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_WEST_OUTPUT_CONNECTOR = 184;
+	int FAILOVER_END_POINT_WEST_OUTPUT_CONNECTOR = 188;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9507,7 +9691,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPoint()
 	 * @generated
 	 */
-	int WSDL_END_POINT = 186;
+	int WSDL_END_POINT = 190;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -9751,7 +9935,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLDefinition()
 	 * @generated
 	 */
-	int WSDL_DEFINITION = 187;
+	int WSDL_DEFINITION = 191;
 
 	/**
 	 * The number of structural features of the '<em>WSDL Definition</em>' class.
@@ -9770,7 +9954,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLDescription()
 	 * @generated
 	 */
-	int WSDL_DESCRIPTION = 188;
+	int WSDL_DESCRIPTION = 192;
 
 	/**
 	 * The number of structural features of the '<em>WSDL Description</em>' class.
@@ -9789,7 +9973,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPointInputConnector()
 	 * @generated
 	 */
-	int WSDL_END_POINT_INPUT_CONNECTOR = 189;
+	int WSDL_END_POINT_INPUT_CONNECTOR = 193;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9817,7 +10001,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPointOutputConnector()
 	 * @generated
 	 */
-	int WSDL_END_POINT_OUTPUT_CONNECTOR = 190;
+	int WSDL_END_POINT_OUTPUT_CONNECTOR = 194;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9845,7 +10029,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPoint()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT = 191;
+	int LOAD_BALANCE_END_POINT = 195;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -9945,7 +10129,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointInputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_INPUT_CONNECTOR = 192;
+	int LOAD_BALANCE_END_POINT_INPUT_CONNECTOR = 196;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9973,7 +10157,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointOutputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_OUTPUT_CONNECTOR = 193;
+	int LOAD_BALANCE_END_POINT_OUTPUT_CONNECTOR = 197;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10001,7 +10185,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointWestOutputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR = 194;
+	int LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR = 198;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10029,7 +10213,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntry()
 	 * @generated
 	 */
-	int LOCAL_ENTRY = 195;
+	int LOCAL_ENTRY = 199;
 
 	/**
 	 * The feature id for the '<em><b>Entry Name</b></em>' attribute.
@@ -10093,7 +10277,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSession()
 	 * @generated
 	 */
-	int SESSION = 196;
+	int SESSION = 200;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -10121,7 +10305,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyWsdlType()
 	 * @generated
 	 */
-	int PROXY_WSDL_TYPE = 197;
+	int PROXY_WSDL_TYPE = 201;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FilterConditionType <em>Filter Condition Type</em>}' enum.
@@ -10131,7 +10315,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterConditionType()
 	 * @generated
 	 */
-	int FILTER_CONDITION_TYPE = 198;
+	int FILTER_CONDITION_TYPE = 202;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.LogCategory <em>Log Category</em>}' enum.
@@ -10141,7 +10325,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogCategory()
 	 * @generated
 	 */
-	int LOG_CATEGORY = 199;
+	int LOG_CATEGORY = 203;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.LogLevel <em>Log Level</em>}' enum.
@@ -10151,7 +10335,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogLevel()
 	 * @generated
 	 */
-	int LOG_LEVEL = 200;
+	int LOG_LEVEL = 204;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -10161,7 +10345,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-	int END_POINT_ADDRESSING_VERSION = 201;
+	int END_POINT_ADDRESSING_VERSION = 205;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -10171,7 +10355,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-	int END_POINT_TIME_OUT_ACTION = 202;
+	int END_POINT_TIME_OUT_ACTION = 206;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -10181,7 +10365,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-	int END_POINT_MESSAGE_FORMAT = 203;
+	int END_POINT_MESSAGE_FORMAT = 207;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -10191,7 +10375,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-	int END_POINT_ATTACHMENT_OPTIMIZATION = 204;
+	int END_POINT_ATTACHMENT_OPTIMIZATION = 208;
 
 
 	/**
@@ -10202,7 +10386,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyDataType()
 	 * @generated
 	 */
-	int PROPERTY_DATA_TYPE = 205;
+	int PROPERTY_DATA_TYPE = 209;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.PropertyAction <em>Property Action</em>}' enum.
@@ -10212,7 +10396,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyAction()
 	 * @generated
 	 */
-	int PROPERTY_ACTION = 206;
+	int PROPERTY_ACTION = 210;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.PropertyScope <em>Property Scope</em>}' enum.
@@ -10222,7 +10406,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyScope()
 	 * @generated
 	 */
-	int PROPERTY_SCOPE = 207;
+	int PROPERTY_SCOPE = 211;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -10232,7 +10416,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 208;
+	int PROPERTY_VALUE_TYPE = 212;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EnrichSourceType <em>Enrich Source Type</em>}' enum.
@@ -10242,7 +10426,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichSourceType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_TYPE = 209;
+	int ENRICH_SOURCE_TYPE = 213;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EnrichTargetAction <em>Enrich Target Action</em>}' enum.
@@ -10252,7 +10436,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetAction()
 	 * @generated
 	 */
-	int ENRICH_TARGET_ACTION = 210;
+	int ENRICH_TARGET_ACTION = 214;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EnrichTargetType <em>Enrich Target Type</em>}' enum.
@@ -10262,7 +10446,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetType()
 	 * @generated
 	 */
-	int ENRICH_TARGET_TYPE = 211;
+	int ENRICH_TARGET_TYPE = 215;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.EventTopicType <em>Event Topic Type</em>}' enum.
@@ -10272,7 +10456,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventTopicType()
 	 * @generated
 	 */
-	int EVENT_TOPIC_TYPE = 212;
+	int EVENT_TOPIC_TYPE = 216;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}' enum.
@@ -10282,7 +10466,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptType()
 	 * @generated
 	 */
-	int SCRIPT_TYPE = 213;
+	int SCRIPT_TYPE = 217;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ScriptLanguage <em>Script Language</em>}' enum.
@@ -10292,7 +10476,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptLanguage()
 	 * @generated
 	 */
-	int SCRIPT_LANGUAGE = 214;
+	int SCRIPT_LANGUAGE = 218;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultSoapVersion <em>Fault Soap Version</em>}' enum.
@@ -10302,7 +10486,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultSoapVersion()
 	 * @generated
 	 */
-	int FAULT_SOAP_VERSION = 215;
+	int FAULT_SOAP_VERSION = 219;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultCodeSoap11 <em>Fault Code Soap11</em>}' enum.
@@ -10312,7 +10496,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap11()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP11 = 216;
+	int FAULT_CODE_SOAP11 = 220;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultCodeSoap12 <em>Fault Code Soap12</em>}' enum.
@@ -10322,7 +10506,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap12()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP12 = 217;
+	int FAULT_CODE_SOAP12 = 221;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultStringType <em>Fault String Type</em>}' enum.
@@ -10332,7 +10516,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultStringType()
 	 * @generated
 	 */
-	int FAULT_STRING_TYPE = 218;
+	int FAULT_STRING_TYPE = 222;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultReasonType <em>Fault Reason Type</em>}' enum.
@@ -10342,7 +10526,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultReasonType()
 	 * @generated
 	 */
-	int FAULT_REASON_TYPE = 219;
+	int FAULT_REASON_TYPE = 223;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.FaultDetailType <em>Fault Detail Type</em>}' enum.
@@ -10352,7 +10536,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultDetailType()
 	 * @generated
 	 */
-	int FAULT_DETAIL_TYPE = 220;
+	int FAULT_DETAIL_TYPE = 224;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.AggregateSequenceType <em>Aggregate Sequence Type</em>}' enum.
@@ -10362,7 +10546,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateSequenceType()
 	 * @generated
 	 */
-	int AGGREGATE_SEQUENCE_TYPE = 221;
+	int AGGREGATE_SEQUENCE_TYPE = 225;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
@@ -10372,7 +10556,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 222;
+	int TARGET_SEQUENCE_TYPE = 226;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -10382,7 +10566,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 223;
+	int TARGET_ENDPOINT_TYPE = 227;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CacheSequenceType <em>Cache Sequence Type</em>}' enum.
@@ -10392,7 +10576,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheSequenceType()
 	 * @generated
 	 */
-	int CACHE_SEQUENCE_TYPE = 224;
+	int CACHE_SEQUENCE_TYPE = 228;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
@@ -10402,7 +10586,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheImplementationType()
 	 * @generated
 	 */
-	int CACHE_IMPLEMENTATION_TYPE = 225;
+	int CACHE_IMPLEMENTATION_TYPE = 229;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}' enum.
@@ -10412,7 +10596,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheAction()
 	 * @generated
 	 */
-	int CACHE_ACTION = 226;
+	int CACHE_ACTION = 230;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CacheScope <em>Cache Scope</em>}' enum.
@@ -10422,7 +10606,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheScope()
 	 * @generated
 	 */
-	int CACHE_SCOPE = 227;
+	int CACHE_SCOPE = 231;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryVariableType <em>XQuery Variable Type</em>}' enum.
@@ -10432,7 +10616,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_TYPE = 228;
+	int XQUERY_VARIABLE_TYPE = 232;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryVariableValueType <em>XQuery Variable Value Type</em>}' enum.
@@ -10442,7 +10626,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableValueType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_VALUE_TYPE = 229;
+	int XQUERY_VARIABLE_VALUE_TYPE = 233;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CalloutPayloadType <em>Callout Payload Type</em>}' enum.
@@ -10452,7 +10636,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutPayloadType()
 	 * @generated
 	 */
-	int CALLOUT_PAYLOAD_TYPE = 230;
+	int CALLOUT_PAYLOAD_TYPE = 234;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CalloutResultType <em>Callout Result Type</em>}' enum.
@@ -10462,7 +10646,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutResultType()
 	 * @generated
 	 */
-	int CALLOUT_RESULT_TYPE = 231;
+	int CALLOUT_RESULT_TYPE = 235;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RMSpecVersion <em>RM Spec Version</em>}' enum.
@@ -10472,7 +10656,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSpecVersion()
 	 * @generated
 	 */
-	int RM_SPEC_VERSION = 232;
+	int RM_SPEC_VERSION = 236;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RMSequenceType <em>RM Sequence Type</em>}' enum.
@@ -10482,7 +10666,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceType()
 	 * @generated
 	 */
-	int RM_SEQUENCE_TYPE = 233;
+	int RM_SEQUENCE_TYPE = 237;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.TransactionAction <em>Transaction Action</em>}' enum.
@@ -10492,7 +10676,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionAction()
 	 * @generated
 	 */
-	int TRANSACTION_ACTION = 234;
+	int TRANSACTION_ACTION = 238;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.HeaderAction <em>Header Action</em>}' enum.
@@ -10502,7 +10686,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderAction()
 	 * @generated
 	 */
-	int HEADER_ACTION = 235;
+	int HEADER_ACTION = 239;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.HeaderValueType <em>Header Value Type</em>}' enum.
@@ -10512,7 +10696,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderValueType()
 	 * @generated
 	 */
-	int HEADER_VALUE_TYPE = 236;
+	int HEADER_VALUE_TYPE = 240;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ThrottlePolicyType <em>Throttle Policy Type</em>}' enum.
@@ -10522,7 +10706,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyType()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_TYPE = 237;
+	int THROTTLE_POLICY_TYPE = 241;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ThrottleConditionType <em>Throttle Condition Type</em>}' enum.
@@ -10532,7 +10716,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleConditionType()
 	 * @generated
 	 */
-	int THROTTLE_CONDITION_TYPE = 238;
+	int THROTTLE_CONDITION_TYPE = 242;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ThrottleAccessType <em>Throttle Access Type</em>}' enum.
@@ -10542,7 +10726,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleAccessType()
 	 * @generated
 	 */
-	int THROTTLE_ACCESS_TYPE = 239;
+	int THROTTLE_ACCESS_TYPE = 243;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ThrottleSequenceType <em>Throttle Sequence Type</em>}' enum.
@@ -10552,7 +10736,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleSequenceType()
 	 * @generated
 	 */
-	int THROTTLE_SEQUENCE_TYPE = 240;
+	int THROTTLE_SEQUENCE_TYPE = 244;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CommandPropertyValueType <em>Command Property Value Type</em>}' enum.
@@ -10562,7 +10746,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyValueType()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_VALUE_TYPE = 241;
+	int COMMAND_PROPERTY_VALUE_TYPE = 245;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CommandPropertyMessageAction <em>Command Property Message Action</em>}' enum.
@@ -10572,7 +10756,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyMessageAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_MESSAGE_ACTION = 242;
+	int COMMAND_PROPERTY_MESSAGE_ACTION = 246;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CommandPropertyContextAction <em>Command Property Context Action</em>}' enum.
@@ -10582,7 +10766,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyContextAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_CONTEXT_ACTION = 243;
+	int COMMAND_PROPERTY_CONTEXT_ACTION = 247;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlExecutorConnectionType <em>Sql Executor Connection Type</em>}' enum.
@@ -10592,7 +10776,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorConnectionType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_CONNECTION_TYPE = 244;
+	int SQL_EXECUTOR_CONNECTION_TYPE = 248;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlExecutorDatasourceType <em>Sql Executor Datasource Type</em>}' enum.
@@ -10602,7 +10786,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorDatasourceType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_DATASOURCE_TYPE = 245;
+	int SQL_EXECUTOR_DATASOURCE_TYPE = 249;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlExecutorBooleanValue <em>Sql Executor Boolean Value</em>}' enum.
@@ -10612,7 +10796,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorBooleanValue()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_BOOLEAN_VALUE = 246;
+	int SQL_EXECUTOR_BOOLEAN_VALUE = 250;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlExecutorIsolationLevel <em>Sql Executor Isolation Level</em>}' enum.
@@ -10622,7 +10806,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorIsolationLevel()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_ISOLATION_LEVEL = 247;
+	int SQL_EXECUTOR_ISOLATION_LEVEL = 251;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlParameterValueType <em>Sql Parameter Value Type</em>}' enum.
@@ -10632,7 +10816,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterValueType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_VALUE_TYPE = 248;
+	int SQL_PARAMETER_VALUE_TYPE = 252;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SqlParameterDataType <em>Sql Parameter Data Type</em>}' enum.
@@ -10642,7 +10826,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterDataType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DATA_TYPE = 249;
+	int SQL_PARAMETER_DATA_TYPE = 253;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}' enum.
@@ -10652,7 +10836,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSourceType()
 	 * @generated
 	 */
-	int RULE_SOURCE_TYPE = 250;
+	int RULE_SOURCE_TYPE = 254;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RuleFactType <em>Rule Fact Type</em>}' enum.
@@ -10662,7 +10846,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactType()
 	 * @generated
 	 */
-	int RULE_FACT_TYPE = 251;
+	int RULE_FACT_TYPE = 255;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RuleFactValueType <em>Rule Fact Value Type</em>}' enum.
@@ -10672,7 +10856,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactValueType()
 	 * @generated
 	 */
-	int RULE_FACT_VALUE_TYPE = 252;
+	int RULE_FACT_VALUE_TYPE = 256;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RuleResultType <em>Rule Result Type</em>}' enum.
@@ -10682,7 +10866,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultType()
 	 * @generated
 	 */
-	int RULE_RESULT_TYPE = 253;
+	int RULE_RESULT_TYPE = 257;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.RuleResultValueType <em>Rule Result Value Type</em>}' enum.
@@ -10692,7 +10876,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultValueType()
 	 * @generated
 	 */
-	int RULE_RESULT_VALUE_TYPE = 254;
+	int RULE_RESULT_VALUE_TYPE = 258;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksIODataType <em>Smooks IO Data Type</em>}' enum.
@@ -10702,7 +10886,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksIODataType()
 	 * @generated
 	 */
-	int SMOOKS_IO_DATA_TYPE = 255;
+	int SMOOKS_IO_DATA_TYPE = 259;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ExpressionAction <em>Expression Action</em>}' enum.
@@ -10712,7 +10896,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getExpressionAction()
 	 * @generated
 	 */
-	int EXPRESSION_ACTION = 256;
+	int EXPRESSION_ACTION = 260;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.OutputMethod <em>Output Method</em>}' enum.
@@ -10722,7 +10906,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOutputMethod()
 	 * @generated
 	 */
-	int OUTPUT_METHOD = 257;
+	int OUTPUT_METHOD = 261;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ReceivingSequenceType <em>Receiving Sequence Type</em>}' enum.
@@ -10732,7 +10916,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getReceivingSequenceType()
 	 * @generated
 	 */
-	int RECEIVING_SEQUENCE_TYPE = 258;
+	int RECEIVING_SEQUENCE_TYPE = 262;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.KeyType <em>Key Type</em>}' enum.
@@ -10742,7 +10926,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 259;
+	int KEY_TYPE = 263;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.Type <em>Type</em>}' enum.
@@ -10752,7 +10936,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 260;
+	int TYPE = 264;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -10762,7 +10946,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 261;
+	int LOCAL_ENTRY_VALUE_TYPE = 265;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -10772,7 +10956,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 262;
+	int MAP = 266;
 
 
 	/**
@@ -11150,15 +11334,15 @@ public interface EsbPackage extends EPackage {
 	EAttribute getProxyService_WsdlURL();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Wsdl Key</em>'.
+	 * @return the meta object for the containment reference '<em>Wsdl Key</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey()
 	 * @see #getProxyService()
 	 * @generated
 	 */
-	EAttribute getProxyService_WsdlKey();
+	EReference getProxyService_WsdlKey();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getServiceParameters <em>Service Parameters</em>}'.
@@ -11181,6 +11365,28 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProxyService_ServicePolicies();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer <em>Sequence Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sequence Container</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EReference getProxyService_SequenceContainer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer <em>Endpoint Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Endpoint Container</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EReference getProxyService_EndpointContainer();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyOutputConnector <em>Proxy Output Connector</em>}'.
@@ -11254,6 +11460,101 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProxyServicePolicy_PolicyKey();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence <em>Proxy Service In Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proxy Service In Sequence</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence
+	 * @generated
+	 */
+	EClass getProxyServiceInSequence();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence#getChildren()
+	 * @see #getProxyServiceInSequence()
+	 * @generated
+	 */
+	EReference getProxyServiceInSequence_Children();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence <em>Proxy Service Out Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proxy Service Out Sequence</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence
+	 * @generated
+	 */
+	EClass getProxyServiceOutSequence();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence#getChildren()
+	 * @see #getProxyServiceOutSequence()
+	 * @generated
+	 */
+	EReference getProxyServiceOutSequence_Children();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer <em>Proxy Service Sequence Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proxy Service Sequence Container</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer
+	 * @generated
+	 */
+	EClass getProxyServiceSequenceContainer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer#getInSequence <em>In Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>In Sequence</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer#getInSequence()
+	 * @see #getProxyServiceSequenceContainer()
+	 * @generated
+	 */
+	EReference getProxyServiceSequenceContainer_InSequence();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer#getOutSequence <em>Out Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Out Sequence</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer#getOutSequence()
+	 * @see #getProxyServiceSequenceContainer()
+	 * @generated
+	 */
+	EReference getProxyServiceSequenceContainer_OutSequence();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer <em>Proxy Service Endpoint Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proxy Service Endpoint Container</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer
+	 * @generated
+	 */
+	EClass getProxyServiceEndpointContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer#getChildren()
+	 * @see #getProxyServiceEndpointContainer()
+	 * @generated
+	 */
+	EReference getProxyServiceEndpointContainer_Children();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.AbstractEndPoint <em>Abstract End Point</em>}'.
@@ -12538,6 +12839,39 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getXSLTMediator_OutputConnector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltSchemaKeyType <em>Xslt Schema Key Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xslt Schema Key Type</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltSchemaKeyType()
+	 * @see #getXSLTMediator()
+	 * @generated
+	 */
+	EAttribute getXSLTMediator_XsltSchemaKeyType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltStaticSchemaKey <em>Xslt Static Schema Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Xslt Static Schema Key</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltStaticSchemaKey()
+	 * @see #getXSLTMediator()
+	 * @generated
+	 */
+	EReference getXSLTMediator_XsltStaticSchemaKey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltDynamicSchemaKey <em>Xslt Dynamic Schema Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Xslt Dynamic Schema Key</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltDynamicSchemaKey()
+	 * @see #getXSLTMediator()
+	 * @generated
+	 */
+	EReference getXSLTMediator_XsltDynamicSchemaKey();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator#getXsltKey <em>Xslt Key</em>}'.
@@ -14784,10 +15118,10 @@ public interface EsbPackage extends EPackage {
 	EReference getXQueryMediator_Variables();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getTargetXPath <em>Target XPath</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getTargetXPath <em>Target XPath</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target XPath</em>'.
+	 * @return the meta object for the containment reference '<em>Target XPath</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getTargetXPath()
 	 * @see #getXQueryMediator()
 	 * @generated
@@ -14806,10 +15140,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getXQueryMediator_ScriptKeyType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey <em>Static Script Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey <em>Static Script Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Static Script Key</em>'.
+	 * @return the meta object for the containment reference '<em>Static Script Key</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey()
 	 * @see #getXQueryMediator()
 	 * @generated
@@ -14817,15 +15151,26 @@ public interface EsbPackage extends EPackage {
 	EReference getXQueryMediator_StaticScriptKey();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey <em>Dynamic Script Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey <em>Dynamic Script Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Dynamic Script Key</em>'.
+	 * @return the meta object for the containment reference '<em>Dynamic Script Key</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey()
 	 * @see #getXQueryMediator()
 	 * @generated
 	 */
 	EReference getXQueryMediator_DynamicScriptKey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getQueryKey <em>Query Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Query Key</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getQueryKey()
+	 * @see #getXQueryMediator()
+	 * @generated
+	 */
+	EReference getXQueryMediator_QueryKey();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getInputConnector <em>Input Connector</em>}'.
@@ -15064,6 +15409,17 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCalloutMediator_ResultContextProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CalloutMediator#isPassHeaders <em>Pass Headers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pass Headers</em>'.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.CalloutMediator#isPassHeaders()
+	 * @see #getCalloutMediator()
+	 * @generated
+	 */
+	EAttribute getCalloutMediator_PassHeaders();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.CalloutMediator#getInputConnector <em>Input Connector</em>}'.
@@ -16949,10 +17305,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getSmooksInConfiguration_Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksInConfiguration#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksInConfiguration#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.SmooksInConfiguration#getExpression()
 	 * @see #getSmooksInConfiguration()
 	 * @generated
@@ -16981,10 +17337,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getSmooksOutConfiguration_Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksOutConfiguration#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.gmf.esb.SmooksOutConfiguration#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.SmooksOutConfiguration#getExpression()
 	 * @see #getSmooksOutConfiguration()
 	 * @generated
@@ -18604,12 +18960,12 @@ public interface EsbPackage extends EPackage {
 		EAttribute PROXY_SERVICE__WSDL_URL = eINSTANCE.getProxyService_WsdlURL();
 
 		/**
-		 * The meta object literal for the '<em><b>Wsdl Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Wsdl Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROXY_SERVICE__WSDL_KEY = eINSTANCE.getProxyService_WsdlKey();
+		EReference PROXY_SERVICE__WSDL_KEY = eINSTANCE.getProxyService_WsdlKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Service Parameters</b></em>' containment reference list feature.
@@ -18626,6 +18982,22 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROXY_SERVICE__SERVICE_POLICIES = eINSTANCE.getProxyService_ServicePolicies();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Container</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE__SEQUENCE_CONTAINER = eINSTANCE.getProxyService_SequenceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Container</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE__ENDPOINT_CONTAINER = eINSTANCE.getProxyService_EndpointContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -18690,6 +19062,86 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROXY_SERVICE_POLICY__POLICY_KEY = eINSTANCE.getProxyServicePolicy_PolicyKey();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceInSequenceImpl <em>Proxy Service In Sequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceInSequenceImpl
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceInSequence()
+		 * @generated
+		 */
+		EClass PROXY_SERVICE_IN_SEQUENCE = eINSTANCE.getProxyServiceInSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE_IN_SEQUENCE__CHILDREN = eINSTANCE.getProxyServiceInSequence_Children();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceOutSequenceImpl <em>Proxy Service Out Sequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceOutSequenceImpl
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceOutSequence()
+		 * @generated
+		 */
+		EClass PROXY_SERVICE_OUT_SEQUENCE = eINSTANCE.getProxyServiceOutSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE_OUT_SEQUENCE__CHILDREN = eINSTANCE.getProxyServiceOutSequence_Children();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceSequenceContainerImpl <em>Proxy Service Sequence Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceSequenceContainerImpl
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceSequenceContainer()
+		 * @generated
+		 */
+		EClass PROXY_SERVICE_SEQUENCE_CONTAINER = eINSTANCE.getProxyServiceSequenceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>In Sequence</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE = eINSTANCE.getProxyServiceSequenceContainer_InSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Sequence</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE = eINSTANCE.getProxyServiceSequenceContainer_OutSequence();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceEndpointContainerImpl <em>Proxy Service Endpoint Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.ProxyServiceEndpointContainerImpl
+		 * @see org.wso2.carbonstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyServiceEndpointContainer()
+		 * @generated
+		 */
+		EClass PROXY_SERVICE_ENDPOINT_CONTAINER = eINSTANCE.getProxyServiceEndpointContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE_ENDPOINT_CONTAINER__CHILDREN = eINSTANCE.getProxyServiceEndpointContainer_Children();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl <em>Abstract End Point</em>}' class.
@@ -19722,6 +20174,30 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XSLT_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getXSLTMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Xslt Schema Key Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XSLT_MEDIATOR__XSLT_SCHEMA_KEY_TYPE = eINSTANCE.getXSLTMediator_XsltSchemaKeyType();
+
+		/**
+		 * The meta object literal for the '<em><b>Xslt Static Schema Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY = eINSTANCE.getXSLTMediator_XsltStaticSchemaKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Xslt Dynamic Schema Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY = eINSTANCE.getXSLTMediator_XsltDynamicSchemaKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Xslt Key</b></em>' containment reference feature.
@@ -21536,7 +22012,7 @@ public interface EsbPackage extends EPackage {
 		EReference XQUERY_MEDIATOR__VARIABLES = eINSTANCE.getXQueryMediator_Variables();
 
 		/**
-		 * The meta object literal for the '<em><b>Target XPath</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target XPath</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -21552,7 +22028,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute XQUERY_MEDIATOR__SCRIPT_KEY_TYPE = eINSTANCE.getXQueryMediator_ScriptKeyType();
 
 		/**
-		 * The meta object literal for the '<em><b>Static Script Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Static Script Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -21560,12 +22036,20 @@ public interface EsbPackage extends EPackage {
 		EReference XQUERY_MEDIATOR__STATIC_SCRIPT_KEY = eINSTANCE.getXQueryMediator_StaticScriptKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Dynamic Script Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Dynamic Script Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY = eINSTANCE.getXQueryMediator_DynamicScriptKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Query Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XQUERY_MEDIATOR__QUERY_KEY = eINSTANCE.getXQueryMediator_QueryKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Connector</b></em>' containment reference feature.
@@ -21750,6 +22234,14 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY = eINSTANCE.getCalloutMediator_ResultContextProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Pass Headers</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALLOUT_MEDIATOR__PASS_HEADERS = eINSTANCE.getCalloutMediator_PassHeaders();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Connector</b></em>' containment reference feature.
@@ -23266,7 +23758,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute SMOOKS_IN_CONFIGURATION__TYPE = eINSTANCE.getSmooksInConfiguration_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -23292,7 +23784,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute SMOOKS_OUT_CONFIGURATION__TYPE = eINSTANCE.getSmooksOutConfiguration_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

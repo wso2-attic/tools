@@ -8,6 +8,7 @@ package org.wso2.carbonstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -60,7 +61,7 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	protected SmooksIODataType type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference.
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExpression()
@@ -132,10 +133,19 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SmooksOutConfigurationImpl() {
 		super();
+		// Property expression.
+		NamespacedProperty expression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		expression.setPrettyName("Expression");
+		expression.setPropertyName("expression");
+		expression.setPropertyValue("/default/expression");
+		setExpression(expression);
+		
+		//Property value
+		setProperty(PROPERTY_EDEFAULT);
 	}
 
 	/**
@@ -176,14 +186,6 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	 * @generated
 	 */
 	public NamespacedProperty getExpression() {
-		if (expression != null && expression.eIsProxy()) {
-			InternalEObject oldExpression = (InternalEObject)expression;
-			expression = (NamespacedProperty)eResolveProxy(oldExpression);
-			if (expression != oldExpression) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
-			}
-		}
 		return expression;
 	}
 
@@ -192,8 +194,14 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetExpression() {
-		return expression;
+	public NotificationChain basicSetExpression(NamespacedProperty newExpression, NotificationChain msgs) {
+		NamespacedProperty oldExpression = expression;
+		expression = newExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, newExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -202,10 +210,17 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	 * @generated
 	 */
 	public void setExpression(NamespacedProperty newExpression) {
-		NamespacedProperty oldExpression = expression;
-		expression = newExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
+		if (newExpression != expression) {
+			NotificationChain msgs = null;
+			if (expression != null)
+				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, null, msgs);
+			if (newExpression != null)
+				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, null, msgs);
+			msgs = basicSetExpression(newExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, newExpression, newExpression));
 	}
 
 	/**
@@ -276,6 +291,20 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+				return basicSetExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -283,8 +312,7 @@ public class SmooksOutConfigurationImpl extends EObjectImpl implements SmooksOut
 			case EsbPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
 				return getType();
 			case EsbPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-				if (resolve) return getExpression();
-				return basicGetExpression();
+				return getExpression();
 			case EsbPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
 				return getProperty();
 			case EsbPackage.SMOOKS_OUT_CONFIGURATION__ACTION:

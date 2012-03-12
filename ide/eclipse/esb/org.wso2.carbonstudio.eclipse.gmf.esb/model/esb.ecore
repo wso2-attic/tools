@@ -69,12 +69,16 @@
         defaultValueLiteral="&lt;definitions/>"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="http://default/wsdl/url"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wsdlKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceParameters" upperBound="-1"
         eType="#//ProxyServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servicePolicies" upperBound="-1"
         eType="#//ProxyServicePolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceContainer" eType="#//ProxyServiceSequenceContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointContainer" eType="#//ProxyServiceEndpointContainer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProxyWsdlType">
     <eLiterals name="NONE"/>
@@ -93,6 +97,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServicePolicy">
     <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceInSequence" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceOutSequence" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequence" eType="#//ProxyServiceInSequence"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outSequence" eType="#//ProxyServiceOutSequence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceEndpointContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractEndPoint" abstract="true" eSuperTypes="#//EndPoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reliableMessagingEnabled"
@@ -396,6 +418,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//XSLTMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//XSLTMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xsltSchemaKeyType" eType="#//KeyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xsltStaticSchemaKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xsltDynamicSchemaKey" eType="#//NamespacedProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="xsltKey" eType="#//RegistryKeyProperty"
         containment="true"/>
@@ -826,10 +853,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="XQueryMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//XQueryVariable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetXPath" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetXPath" eType="#//NamespacedProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptKeyType" eType="#//KeyType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="staticScriptKey" eType="#//RegistryKeyProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicScriptKey" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="staticScriptKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicScriptKey" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="queryKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//XQueryMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//XQueryMediatorOutputConnector"
@@ -890,6 +922,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultContextProperty"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="context_property_name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passHeaders" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CalloutMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CalloutMediatorOutputConnector"
@@ -1353,11 +1386,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="SmooksMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SmooksInConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SmooksIODataType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SmooksOutConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SmooksIODataType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="#//ExpressionAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMethod" eType="#//OutputMethod"

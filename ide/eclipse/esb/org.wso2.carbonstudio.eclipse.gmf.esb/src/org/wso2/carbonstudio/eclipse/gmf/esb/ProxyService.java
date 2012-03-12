@@ -33,6 +33,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getServiceParameters <em>Service Parameters</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getServicePolicies <em>Service Policies</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer <em>Sequence Container</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer <em>Endpoint Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -390,31 +392,30 @@ public interface ProxyService extends EsbElement {
 	void setWsdlURL(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Wsdl Key</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Returns the value of the '<em><b>Wsdl Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Wsdl Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wsdl Key</em>' attribute.
-	 * @see #setWsdlKey(String)
+	 * @return the value of the '<em>Wsdl Key</em>' containment reference.
+	 * @see #setWsdlKey(RegistryKeyProperty)
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlKey()
-	 * @model default=""
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getWsdlKey();
+	RegistryKeyProperty getWsdlKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wsdl Key</em>' attribute.
+	 * @param value the new value of the '<em>Wsdl Key</em>' containment reference.
 	 * @see #getWsdlKey()
 	 * @generated
 	 */
-	void setWsdlKey(String value);
+	void setWsdlKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Parameters</b></em>' containment reference list.
@@ -447,5 +448,57 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	EList<ProxyServicePolicy> getServicePolicies();
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Container</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Container</em>' containment reference.
+	 * @see #setSequenceContainer(ProxyServiceSequenceContainer)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getProxyService_SequenceContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ProxyServiceSequenceContainer getSequenceContainer();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer <em>Sequence Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Container</em>' containment reference.
+	 * @see #getSequenceContainer()
+	 * @generated
+	 */
+	void setSequenceContainer(ProxyServiceSequenceContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Endpoint Container</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Endpoint Container</em>' containment reference.
+	 * @see #setEndpointContainer(ProxyServiceEndpointContainer)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getProxyService_EndpointContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ProxyServiceEndpointContainer getEndpointContainer();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer <em>Endpoint Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Endpoint Container</em>' containment reference.
+	 * @see #getEndpointContainer()
+	 * @generated
+	 */
+	void setEndpointContainer(ProxyServiceEndpointContainer value);
 
 } // ProxyService

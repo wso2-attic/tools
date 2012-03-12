@@ -876,6 +876,66 @@
           accessor="getFigureRuleMediatorPropertyValue"
           figure="//@figures.0/@descriptors.46/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ProxyServiceInSequenceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceInSequenceFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProxyServiceOutSequenceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceOutSequenceFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProxyServiceSequenceContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceSequenceContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProxyServiceEndpointContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceEndpointContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -893,8 +953,7 @@
       affixedParentSide="WEST"/>
   <nodes
       name="ProxyService"
-      figure="ProxyServiceFigure"
-      affixedParentSide="WEST"/>
+      figure="ProxyServiceFigure"/>
   <nodes
       name="ProxyOutputConnector"
       figure="EastPointerFigure"
@@ -976,8 +1035,7 @@
       affixedParentSide="WEST"/>
   <nodes
       name="AddressEndPoint"
-      figure="AddressEndPointFigure"
-      affixedParentSide="EAST"/>
+      figure="AddressEndPointFigure"/>
   <nodes
       name="AddressEndPointInputConnector"
       figure="EastPointerFigure"
@@ -1218,8 +1276,7 @@
       affixedParentSide="EAST"/>
   <nodes
       name="WSDLEndPoint"
-      figure="WSDLEndPointFigure"
-      affixedParentSide="EAST"/>
+      figure="WSDLEndPointFigure"/>
   <nodes
       name="WSDLEndPointInputConnector"
       figure="EastPointerFigure"
@@ -1376,6 +1433,18 @@
       name="AggregateMediatorOnCompleteOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="ProxyServiceInSequence"
+      figure="ProxyServiceInSequenceFigure"/>
+  <nodes
+      name="ProxyServiceOutSequence"
+      figure="ProxyServiceOutSequenceFigure"/>
+  <nodes
+      name="ProxyServiceSequenceContainer"
+      figure="ProxyServiceSequenceContainerFigure"/>
+  <nodes
+      name="ProxyServiceEndpointContainer"
+      figure="ProxyServiceEndpointContainerFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -1387,6 +1456,10 @@
       name="ContentsCompartment"
       figure="CompartmentFigure"/>
   <compartments
+      name="EndpointCompartment"
+      figure="CompartmentFigure"
+      collapsible="true"/>
+  <compartments
       name="SeqContentsCompartment"
       figure="CompartmentFigure"/>
   <compartments
@@ -1396,6 +1469,14 @@
   <compartments
       name="FailoverEndpointCompartment"
       figure="FailoverEndPointFigure"
+      collapsible="true"/>
+  <compartments
+      name="ProxyServiceInSequenceCompartment"
+      figure="CompartmentFigure"
+      collapsible="true"/>
+  <compartments
+      name="ProxyServiceOutSequenceCompartment"
+      figure="CompartmentFigure"
       collapsible="true"/>
   <labels
       name="FailoverEndPointName"

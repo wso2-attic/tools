@@ -16,4 +16,5 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl,
  org.wso2.carbonstudio.eclipse.esb.core.utils,
+ org.wso2.carbonstudio.eclipse.platform.core.mediatype,
  org.wso2.carbonstudio.eclipse.platform.core.utils

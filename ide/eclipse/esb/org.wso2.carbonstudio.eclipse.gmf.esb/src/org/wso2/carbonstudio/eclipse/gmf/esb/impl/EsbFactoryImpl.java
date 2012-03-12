@@ -69,6 +69,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_INPUT_CONNECTOR: return createProxyInputConnector();
 			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
 			case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
+			case EsbPackage.PROXY_SERVICE_IN_SEQUENCE: return createProxyServiceInSequence();
+			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE: return createProxyServiceOutSequence();
+			case EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER: return createProxyServiceSequenceContainer();
+			case EsbPackage.PROXY_SERVICE_ENDPOINT_CONTAINER: return createProxyServiceEndpointContainer();
 			case EsbPackage.MESSAGE_MEDIATOR: return createMessageMediator();
 			case EsbPackage.MESSAGE_INPUT_CONNECTOR: return createMessageInputConnector();
 			case EsbPackage.MESSAGE_OUTPUT_CONNECTOR: return createMessageOutputConnector();
@@ -583,7 +587,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		proxyservicecount++;
 		ProxyServiceImpl proxyService = new ProxyServiceImpl();
 		proxyService.setOutputConnector(createProxyOutputConnector());
-		proxyService.setInputConnector(createProxyInputConnector());	
+		proxyService.setInputConnector(createProxyInputConnector());
+		proxyService.setSequenceContainer(createProxyServiceSequenceContainer());
+		proxyService.setEndpointContainer(createProxyServiceEndpointContainer());
 		proxyService.setName("proxy" +proxyservicecount);
 		return proxyService;
 	}
@@ -626,6 +632,48 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ProxyServicePolicy createProxyServicePolicy() {
 		ProxyServicePolicyImpl proxyServicePolicy = new ProxyServicePolicyImpl();
 		return proxyServicePolicy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyServiceInSequence createProxyServiceInSequence() {
+		ProxyServiceInSequenceImpl proxyServiceInSequence = new ProxyServiceInSequenceImpl();
+		return proxyServiceInSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyServiceOutSequence createProxyServiceOutSequence() {
+		ProxyServiceOutSequenceImpl proxyServiceOutSequence = new ProxyServiceOutSequenceImpl();
+		return proxyServiceOutSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ProxyServiceSequenceContainer createProxyServiceSequenceContainer() {
+		ProxyServiceSequenceContainerImpl proxyServiceSequenceContainer = new ProxyServiceSequenceContainerImpl();
+		proxyServiceSequenceContainer.setInSequence(createProxyServiceInSequence());
+		proxyServiceSequenceContainer.setOutSequence(createProxyServiceOutSequence());
+		return proxyServiceSequenceContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyServiceEndpointContainer createProxyServiceEndpointContainer() {
+		ProxyServiceEndpointContainerImpl proxyServiceEndpointContainer = new ProxyServiceEndpointContainerImpl();
+		return proxyServiceEndpointContainer;
 	}
 
 	/**

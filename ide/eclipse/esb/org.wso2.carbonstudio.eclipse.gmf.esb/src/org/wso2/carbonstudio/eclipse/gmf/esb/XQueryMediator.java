@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getScriptKeyType <em>Script Key Type</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey <em>Static Script Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey <em>Dynamic Script Key</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getQueryKey <em>Query Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -48,26 +49,26 @@ public interface XQueryMediator extends Mediator {
 	EList<XQueryVariable> getVariables();
 
 	/**
-	 * Returns the value of the '<em><b>Target XPath</b></em>' reference.
+	 * Returns the value of the '<em><b>Target XPath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target XPath</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target XPath</em>' reference.
+	 * @return the value of the '<em>Target XPath</em>' containment reference.
 	 * @see #setTargetXPath(NamespacedProperty)
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXQueryMediator_TargetXPath()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getTargetXPath();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getTargetXPath <em>Target XPath</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getTargetXPath <em>Target XPath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target XPath</em>' reference.
+	 * @param value the new value of the '<em>Target XPath</em>' containment reference.
 	 * @see #getTargetXPath()
 	 * @generated
 	 */
@@ -103,56 +104,82 @@ public interface XQueryMediator extends Mediator {
 	void setScriptKeyType(KeyType value);
 
 	/**
-	 * Returns the value of the '<em><b>Static Script Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Static Script Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Static Script Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Static Script Key</em>' reference.
+	 * @return the value of the '<em>Static Script Key</em>' containment reference.
 	 * @see #setStaticScriptKey(RegistryKeyProperty)
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXQueryMediator_StaticScriptKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getStaticScriptKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey <em>Static Script Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getStaticScriptKey <em>Static Script Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Static Script Key</em>' reference.
+	 * @param value the new value of the '<em>Static Script Key</em>' containment reference.
 	 * @see #getStaticScriptKey()
 	 * @generated
 	 */
 	void setStaticScriptKey(RegistryKeyProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Dynamic Script Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Dynamic Script Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dynamic Script Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dynamic Script Key</em>' reference.
+	 * @return the value of the '<em>Dynamic Script Key</em>' containment reference.
 	 * @see #setDynamicScriptKey(NamespacedProperty)
 	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXQueryMediator_DynamicScriptKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getDynamicScriptKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey <em>Dynamic Script Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getDynamicScriptKey <em>Dynamic Script Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dynamic Script Key</em>' reference.
+	 * @param value the new value of the '<em>Dynamic Script Key</em>' containment reference.
 	 * @see #getDynamicScriptKey()
 	 * @generated
 	 */
 	void setDynamicScriptKey(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Query Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Query Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Query Key</em>' containment reference.
+	 * @see #setQueryKey(RegistryKeyProperty)
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage#getXQueryMediator_QueryKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getQueryKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.gmf.esb.XQueryMediator#getQueryKey <em>Query Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query Key</em>' containment reference.
+	 * @see #getQueryKey()
+	 * @generated
+	 */
+	void setQueryKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.

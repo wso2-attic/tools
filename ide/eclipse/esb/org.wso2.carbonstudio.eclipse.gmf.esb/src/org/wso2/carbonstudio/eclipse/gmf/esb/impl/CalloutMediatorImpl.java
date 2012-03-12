@@ -40,6 +40,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultType <em>Result Type</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultMessageXpath <em>Result Message Xpath</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultContextProperty <em>Result Context Property</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#isPassHeaders <em>Pass Headers</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -217,6 +218,26 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @ordered
 	 */
 	protected String resultContextProperty = RESULT_CONTEXT_PROPERTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPassHeaders()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PASS_HEADERS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPassHeaders()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean passHeaders = PASS_HEADERS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
@@ -563,6 +584,27 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isPassHeaders() {
+		return passHeaders;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPassHeaders(boolean newPassHeaders) {
+		boolean oldPassHeaders = passHeaders;
+		passHeaders = newPassHeaders;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS, oldPassHeaders, passHeaders));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CalloutMediatorInputConnector getInputConnector() {
 		return inputConnector;
 	}
@@ -696,6 +738,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return getResultMessageXpath();
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 				return getResultContextProperty();
+			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				return isPassHeaders();
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
@@ -742,6 +786,9 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 				setResultContextProperty((String)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				setPassHeaders((Boolean)newValue);
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((CalloutMediatorInputConnector)newValue);
@@ -792,6 +839,9 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 				setResultContextProperty(RESULT_CONTEXT_PROPERTY_EDEFAULT);
 				return;
+			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				setPassHeaders(PASS_HEADERS_EDEFAULT);
+				return;
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((CalloutMediatorInputConnector)null);
 				return;
@@ -831,6 +881,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return resultMessageXpath != null;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 				return RESULT_CONTEXT_PROPERTY_EDEFAULT == null ? resultContextProperty != null : !RESULT_CONTEXT_PROPERTY_EDEFAULT.equals(resultContextProperty);
+			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				return passHeaders != PASS_HEADERS_EDEFAULT;
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
@@ -864,6 +916,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		result.append(resultType);
 		result.append(", resultContextProperty: ");
 		result.append(resultContextProperty);
+		result.append(", passHeaders: ");
+		result.append(passHeaders);
 		result.append(')');
 		return result.toString();
 	}

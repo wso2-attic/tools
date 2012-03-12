@@ -6,6 +6,9 @@
  */
 package org.wso2.carbonstudio.eclipse.gmf.esb.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +24,9 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediatorInputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediatorOutputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksOutConfiguration;
+import org.wso2.carbonstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
+import org.wso2.carbonstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.carbonstudio.eclipse.platform.core.utils.CarbonStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,10 +99,24 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SmooksMediatorImpl() {
 		super();
+		
+		// Configuration key.
+		RegistryKeyProperty configurationKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		CarbonStudioProviderUtils.addFilter((Map<String, List<String>>)configurationKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, PlatformMediaTypeConstants.MEDIA_TYPE_SMOOKS);
+		configurationKey.setPrettyName("Configuration Key");
+		configurationKey.setKeyName("config-key");
+		configurationKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setConfigurationKey(configurationKey);
+		
+		//Smooks input configurations
+		setInput(EsbFactoryImpl.eINSTANCE.createSmooksInConfiguration());
+
+		//Smooks output configurations
+		setOutput(EsbFactoryImpl.eINSTANCE.createSmooksOutConfiguration());
 	}
 
 	/**

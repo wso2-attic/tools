@@ -42,6 +42,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.XQueryVariable;
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getScriptKeyType <em>Script Key Type</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getStaticScriptKey <em>Static Script Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getDynamicScriptKey <em>Dynamic Script Key</em>}</li>
+ *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getQueryKey <em>Query Key</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.carbonstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -61,7 +62,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	protected EList<XQueryVariable> variables;
 
 	/**
-	 * The cached value of the '{@link #getTargetXPath() <em>Target XPath</em>}' reference.
+	 * The cached value of the '{@link #getTargetXPath() <em>Target XPath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetXPath()
@@ -91,7 +92,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	protected KeyType scriptKeyType = SCRIPT_KEY_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStaticScriptKey() <em>Static Script Key</em>}' reference.
+	 * The cached value of the '{@link #getStaticScriptKey() <em>Static Script Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStaticScriptKey()
@@ -101,7 +102,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	protected RegistryKeyProperty staticScriptKey;
 
 	/**
-	 * The cached value of the '{@link #getDynamicScriptKey() <em>Dynamic Script Key</em>}' reference.
+	 * The cached value of the '{@link #getDynamicScriptKey() <em>Dynamic Script Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDynamicScriptKey()
@@ -109,6 +110,16 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @ordered
 	 */
 	protected NamespacedProperty dynamicScriptKey;
+
+	/**
+	 * The cached value of the '{@link #getQueryKey() <em>Query Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQueryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty queryKey;
 
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
@@ -133,10 +144,37 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected XQueryMediatorImpl() {
 		super();
+		// Query key.
+		RegistryKeyProperty queryKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		queryKey.setPrettyName("XQuery Key");
+		queryKey.setKeyName("key");
+		queryKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setQueryKey(queryKey);
+
+		// Static script key.
+		staticScriptKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		staticScriptKey.setPrettyName("Static Script Key");
+		staticScriptKey.setKeyName("key");
+		staticScriptKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setStaticScriptKey(staticScriptKey);
+
+		// Dynamic script key
+		dynamicScriptKey = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		dynamicScriptKey.setPrettyName("Dynamic Script Key");
+		dynamicScriptKey.setPropertyName("key");
+		dynamicScriptKey.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
+		setDynamicScriptKey(dynamicScriptKey);
+
+		// Target XPath.
+		NamespacedProperty targetXPath = EsbFactoryImpl.eINSTANCE
+				.createNamespacedProperty();
+		targetXPath.setPrettyName("Target XPath");
+		targetXPath.setPropertyName("target");
+		setTargetXPath(targetXPath);
 	}
 
 	/**
@@ -168,14 +206,6 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public NamespacedProperty getTargetXPath() {
-		if (targetXPath != null && targetXPath.eIsProxy()) {
-			InternalEObject oldTargetXPath = (InternalEObject)targetXPath;
-			targetXPath = (NamespacedProperty)eResolveProxy(oldTargetXPath);
-			if (targetXPath != oldTargetXPath) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, oldTargetXPath, targetXPath));
-			}
-		}
 		return targetXPath;
 	}
 
@@ -184,8 +214,14 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetTargetXPath() {
-		return targetXPath;
+	public NotificationChain basicSetTargetXPath(NamespacedProperty newTargetXPath, NotificationChain msgs) {
+		NamespacedProperty oldTargetXPath = targetXPath;
+		targetXPath = newTargetXPath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, oldTargetXPath, newTargetXPath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -194,10 +230,17 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public void setTargetXPath(NamespacedProperty newTargetXPath) {
-		NamespacedProperty oldTargetXPath = targetXPath;
-		targetXPath = newTargetXPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, oldTargetXPath, targetXPath));
+		if (newTargetXPath != targetXPath) {
+			NotificationChain msgs = null;
+			if (targetXPath != null)
+				msgs = ((InternalEObject)targetXPath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, null, msgs);
+			if (newTargetXPath != null)
+				msgs = ((InternalEObject)newTargetXPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, null, msgs);
+			msgs = basicSetTargetXPath(newTargetXPath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH, newTargetXPath, newTargetXPath));
 	}
 
 	/**
@@ -227,14 +270,6 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public RegistryKeyProperty getStaticScriptKey() {
-		if (staticScriptKey != null && staticScriptKey.eIsProxy()) {
-			InternalEObject oldStaticScriptKey = (InternalEObject)staticScriptKey;
-			staticScriptKey = (RegistryKeyProperty)eResolveProxy(oldStaticScriptKey);
-			if (staticScriptKey != oldStaticScriptKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, oldStaticScriptKey, staticScriptKey));
-			}
-		}
 		return staticScriptKey;
 	}
 
@@ -243,8 +278,14 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetStaticScriptKey() {
-		return staticScriptKey;
+	public NotificationChain basicSetStaticScriptKey(RegistryKeyProperty newStaticScriptKey, NotificationChain msgs) {
+		RegistryKeyProperty oldStaticScriptKey = staticScriptKey;
+		staticScriptKey = newStaticScriptKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, oldStaticScriptKey, newStaticScriptKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -253,10 +294,17 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public void setStaticScriptKey(RegistryKeyProperty newStaticScriptKey) {
-		RegistryKeyProperty oldStaticScriptKey = staticScriptKey;
-		staticScriptKey = newStaticScriptKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, oldStaticScriptKey, staticScriptKey));
+		if (newStaticScriptKey != staticScriptKey) {
+			NotificationChain msgs = null;
+			if (staticScriptKey != null)
+				msgs = ((InternalEObject)staticScriptKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, null, msgs);
+			if (newStaticScriptKey != null)
+				msgs = ((InternalEObject)newStaticScriptKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, null, msgs);
+			msgs = basicSetStaticScriptKey(newStaticScriptKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, newStaticScriptKey, newStaticScriptKey));
 	}
 
 	/**
@@ -265,14 +313,6 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public NamespacedProperty getDynamicScriptKey() {
-		if (dynamicScriptKey != null && dynamicScriptKey.eIsProxy()) {
-			InternalEObject oldDynamicScriptKey = (InternalEObject)dynamicScriptKey;
-			dynamicScriptKey = (NamespacedProperty)eResolveProxy(oldDynamicScriptKey);
-			if (dynamicScriptKey != oldDynamicScriptKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, oldDynamicScriptKey, dynamicScriptKey));
-			}
-		}
 		return dynamicScriptKey;
 	}
 
@@ -281,8 +321,14 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetDynamicScriptKey() {
-		return dynamicScriptKey;
+	public NotificationChain basicSetDynamicScriptKey(NamespacedProperty newDynamicScriptKey, NotificationChain msgs) {
+		NamespacedProperty oldDynamicScriptKey = dynamicScriptKey;
+		dynamicScriptKey = newDynamicScriptKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, oldDynamicScriptKey, newDynamicScriptKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -291,10 +337,60 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	public void setDynamicScriptKey(NamespacedProperty newDynamicScriptKey) {
-		NamespacedProperty oldDynamicScriptKey = dynamicScriptKey;
-		dynamicScriptKey = newDynamicScriptKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, oldDynamicScriptKey, dynamicScriptKey));
+		if (newDynamicScriptKey != dynamicScriptKey) {
+			NotificationChain msgs = null;
+			if (dynamicScriptKey != null)
+				msgs = ((InternalEObject)dynamicScriptKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, null, msgs);
+			if (newDynamicScriptKey != null)
+				msgs = ((InternalEObject)newDynamicScriptKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, null, msgs);
+			msgs = basicSetDynamicScriptKey(newDynamicScriptKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, newDynamicScriptKey, newDynamicScriptKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getQueryKey() {
+		return queryKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQueryKey(RegistryKeyProperty newQueryKey, NotificationChain msgs) {
+		RegistryKeyProperty oldQueryKey = queryKey;
+		queryKey = newQueryKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__QUERY_KEY, oldQueryKey, newQueryKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQueryKey(RegistryKeyProperty newQueryKey) {
+		if (newQueryKey != queryKey) {
+			NotificationChain msgs = null;
+			if (queryKey != null)
+				msgs = ((InternalEObject)queryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__QUERY_KEY, null, msgs);
+			if (newQueryKey != null)
+				msgs = ((InternalEObject)newQueryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XQUERY_MEDIATOR__QUERY_KEY, null, msgs);
+			msgs = basicSetQueryKey(newQueryKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XQUERY_MEDIATOR__QUERY_KEY, newQueryKey, newQueryKey));
 	}
 
 	/**
@@ -394,6 +490,14 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 		switch (featureID) {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH:
+				return basicSetTargetXPath(null, msgs);
+			case EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY:
+				return basicSetStaticScriptKey(null, msgs);
+			case EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY:
+				return basicSetDynamicScriptKey(null, msgs);
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
+				return basicSetQueryKey(null, msgs);
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.XQUERY_MEDIATOR__OUTPUT_CONNECTOR:
@@ -414,16 +518,15 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
 				return getVariables();
 			case EsbPackage.XQUERY_MEDIATOR__TARGET_XPATH:
-				if (resolve) return getTargetXPath();
-				return basicGetTargetXPath();
+				return getTargetXPath();
 			case EsbPackage.XQUERY_MEDIATOR__SCRIPT_KEY_TYPE:
 				return getScriptKeyType();
 			case EsbPackage.XQUERY_MEDIATOR__STATIC_SCRIPT_KEY:
-				if (resolve) return getStaticScriptKey();
-				return basicGetStaticScriptKey();
+				return getStaticScriptKey();
 			case EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY:
-				if (resolve) return getDynamicScriptKey();
-				return basicGetDynamicScriptKey();
+				return getDynamicScriptKey();
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
+				return getQueryKey();
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.XQUERY_MEDIATOR__OUTPUT_CONNECTOR:
@@ -457,6 +560,9 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 				return;
 			case EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY:
 				setDynamicScriptKey((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
+				setQueryKey((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((XQueryMediatorInputConnector)newValue);
@@ -492,6 +598,9 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 			case EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY:
 				setDynamicScriptKey((NamespacedProperty)null);
 				return;
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
+				setQueryKey((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((XQueryMediatorInputConnector)null);
 				return;
@@ -521,6 +630,8 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 				return staticScriptKey != null;
 			case EsbPackage.XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY:
 				return dynamicScriptKey != null;
+			case EsbPackage.XQUERY_MEDIATOR__QUERY_KEY:
+				return queryKey != null;
 			case EsbPackage.XQUERY_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.XQUERY_MEDIATOR__OUTPUT_CONNECTOR:

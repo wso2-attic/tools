@@ -181,8 +181,12 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyInputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyOutputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServicePolicy;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyWsdlType;
 import org.wso2.carbonstudio.eclipse.gmf.esb.RMSequenceMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.RMSequenceMediatorInputConnector;
@@ -403,6 +407,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass proxyServicePolicyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proxyServiceInSequenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proxyServiceOutSequenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proxyServiceSequenceContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass proxyServiceEndpointContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2521,8 +2553,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProxyService_WsdlKey() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(13);
+	public EReference getProxyService_WsdlKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2541,6 +2573,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getProxyService_ServicePolicies() {
 		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_SequenceContainer() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_EndpointContainer() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2604,6 +2654,87 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getProxyServicePolicy_PolicyKey() {
 		return (EReference)proxyServicePolicyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProxyServiceInSequence() {
+		return proxyServiceInSequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyServiceInSequence_Children() {
+		return (EReference)proxyServiceInSequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProxyServiceOutSequence() {
+		return proxyServiceOutSequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyServiceOutSequence_Children() {
+		return (EReference)proxyServiceOutSequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProxyServiceSequenceContainer() {
+		return proxyServiceSequenceContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyServiceSequenceContainer_InSequence() {
+		return (EReference)proxyServiceSequenceContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyServiceSequenceContainer_OutSequence() {
+		return (EReference)proxyServiceSequenceContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProxyServiceEndpointContainer() {
+		return proxyServiceEndpointContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyServiceEndpointContainer_Children() {
+		return (EReference)proxyServiceEndpointContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3691,8 +3822,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXSLTMediator_XsltKey() {
-		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(2);
+	public EAttribute getXSLTMediator_XsltSchemaKeyType() {
+		return (EAttribute)xsltMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3700,7 +3831,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXSLTMediator_SourceXPath() {
+	public EReference getXSLTMediator_XsltStaticSchemaKey() {
 		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3709,7 +3840,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXSLTMediator_Properties() {
+	public EReference getXSLTMediator_XsltDynamicSchemaKey() {
 		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3718,7 +3849,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXSLTMediator_Features() {
+	public EReference getXSLTMediator_XsltKey() {
 		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3727,8 +3858,35 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXSLTMediator_Resources() {
+	public EReference getXSLTMediator_SourceXPath() {
 		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXSLTMediator_Properties() {
+		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXSLTMediator_Features() {
+		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXSLTMediator_Resources() {
+		return (EReference)xsltMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -5617,7 +5775,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXQueryMediator_InputConnector() {
+	public EReference getXQueryMediator_QueryKey() {
 		return (EReference)xQueryMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -5626,8 +5784,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getXQueryMediator_OutputConnector() {
+	public EReference getXQueryMediator_InputConnector() {
 		return (EReference)xQueryMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXQueryMediator_OutputConnector() {
+		return (EReference)xQueryMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -5815,8 +5982,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCalloutMediator_PassHeaders() {
+		return (EAttribute)calloutMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCalloutMediator_InputConnector() {
-		return (EReference)calloutMediatorEClass.getEStructuralFeatures().get(10);
+		return (EReference)calloutMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -5825,7 +6001,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getCalloutMediator_OutputConnector() {
-		return (EReference)calloutMediatorEClass.getEStructuralFeatures().get(11);
+		return (EReference)calloutMediatorEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -8628,9 +8804,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__WSDL_TYPE);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__WSDL_XML);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__WSDL_URL);
-		createEAttribute(proxyServiceEClass, PROXY_SERVICE__WSDL_KEY);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__WSDL_KEY);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__SERVICE_PARAMETERS);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__SERVICE_POLICIES);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__SEQUENCE_CONTAINER);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__ENDPOINT_CONTAINER);
 
 		proxyOutputConnectorEClass = createEClass(PROXY_OUTPUT_CONNECTOR);
 
@@ -8642,6 +8820,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		proxyServicePolicyEClass = createEClass(PROXY_SERVICE_POLICY);
 		createEReference(proxyServicePolicyEClass, PROXY_SERVICE_POLICY__POLICY_KEY);
+
+		proxyServiceInSequenceEClass = createEClass(PROXY_SERVICE_IN_SEQUENCE);
+		createEReference(proxyServiceInSequenceEClass, PROXY_SERVICE_IN_SEQUENCE__CHILDREN);
+
+		proxyServiceOutSequenceEClass = createEClass(PROXY_SERVICE_OUT_SEQUENCE);
+		createEReference(proxyServiceOutSequenceEClass, PROXY_SERVICE_OUT_SEQUENCE__CHILDREN);
+
+		proxyServiceSequenceContainerEClass = createEClass(PROXY_SERVICE_SEQUENCE_CONTAINER);
+		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE);
+		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE);
+
+		proxyServiceEndpointContainerEClass = createEClass(PROXY_SERVICE_ENDPOINT_CONTAINER);
+		createEReference(proxyServiceEndpointContainerEClass, PROXY_SERVICE_ENDPOINT_CONTAINER__CHILDREN);
 
 		abstractEndPointEClass = createEClass(ABSTRACT_END_POINT);
 		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED);
@@ -8798,6 +8989,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		xsltMediatorEClass = createEClass(XSLT_MEDIATOR);
 		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(xsltMediatorEClass, XSLT_MEDIATOR__XSLT_SCHEMA_KEY_TYPE);
+		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY);
+		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__XSLT_DYNAMIC_SCHEMA_KEY);
 		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__XSLT_KEY);
 		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__SOURCE_XPATH);
 		createEReference(xsltMediatorEClass, XSLT_MEDIATOR__PROPERTIES);
@@ -9078,6 +9272,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(xQueryMediatorEClass, XQUERY_MEDIATOR__SCRIPT_KEY_TYPE);
 		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__STATIC_SCRIPT_KEY);
 		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY);
+		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__QUERY_KEY);
 		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__OUTPUT_CONNECTOR);
 
@@ -9104,6 +9299,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_TYPE);
 		createEReference(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH);
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY);
+		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__PASS_HEADERS);
 		createEReference(calloutMediatorEClass, CALLOUT_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(calloutMediatorEClass, CALLOUT_MEDIATOR__OUTPUT_CONNECTOR);
 
@@ -9530,6 +9726,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyServiceEClass.getESuperTypes().add(this.getEsbElement());
 		proxyOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		proxyInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		proxyServiceInSequenceEClass.getESuperTypes().add(this.getEsbNode());
+		proxyServiceOutSequenceEClass.getESuperTypes().add(this.getEsbNode());
+		proxyServiceSequenceContainerEClass.getESuperTypes().add(this.getEsbNode());
+		proxyServiceEndpointContainerEClass.getESuperTypes().add(this.getEsbNode());
 		abstractEndPointEClass.getESuperTypes().add(this.getEndPoint());
 		messageMediatorEClass.getESuperTypes().add(this.getEsbElement());
 		messageInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -9734,9 +9934,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getProxyService_WsdlType(), this.getProxyWsdlType(), "wsdlType", "NONE", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_WsdlXML(), ecorePackage.getEString(), "wsdlXML", "<definitions/>", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_WsdlURL(), ecorePackage.getEString(), "wsdlURL", "http://default/wsdl/url", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxyService_WsdlKey(), ecorePackage.getEString(), "wsdlKey", "", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_WsdlKey(), this.getRegistryKeyProperty(), null, "wsdlKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_ServiceParameters(), this.getProxyServiceParameter(), null, "serviceParameters", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_ServicePolicies(), this.getProxyServicePolicy(), null, "servicePolicies", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_SequenceContainer(), this.getProxyServiceSequenceContainer(), null, "sequenceContainer", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_EndpointContainer(), this.getProxyServiceEndpointContainer(), null, "endpointContainer", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyOutputConnectorEClass, ProxyOutputConnector.class, "ProxyOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -9748,6 +9950,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(proxyServicePolicyEClass, ProxyServicePolicy.class, "ProxyServicePolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServicePolicy_PolicyKey(), this.getRegistryKeyProperty(), null, "policyKey", null, 0, 1, ProxyServicePolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(proxyServiceInSequenceEClass, ProxyServiceInSequence.class, "ProxyServiceInSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProxyServiceInSequence_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceInSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(proxyServiceOutSequenceEClass, ProxyServiceOutSequence.class, "ProxyServiceOutSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProxyServiceOutSequence_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceOutSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(proxyServiceSequenceContainerEClass, ProxyServiceSequenceContainer.class, "ProxyServiceSequenceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProxyServiceSequenceContainer_InSequence(), this.getProxyServiceInSequence(), null, "inSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceSequenceContainer_OutSequence(), this.getProxyServiceOutSequence(), null, "outSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(proxyServiceEndpointContainerEClass, ProxyServiceEndpointContainer.class, "ProxyServiceEndpointContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProxyServiceEndpointContainer_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractEndPointEClass, AbstractEndPoint.class, "AbstractEndPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractEndPoint_ReliableMessagingEnabled(), ecorePackage.getEBoolean(), "reliableMessagingEnabled", "false", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9914,6 +10129,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(xsltMediatorEClass, XSLTMediator.class, "XSLTMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXSLTMediator_InputConnector(), this.getXSLTMediatorInputConnector(), null, "inputConnector", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXSLTMediator_OutputConnector(), this.getXSLTMediatorOutputConnector(), null, "outputConnector", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXSLTMediator_XsltSchemaKeyType(), this.getKeyType(), "xsltSchemaKeyType", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXSLTMediator_XsltStaticSchemaKey(), this.getRegistryKeyProperty(), null, "xsltStaticSchemaKey", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXSLTMediator_XsltDynamicSchemaKey(), this.getNamespacedProperty(), null, "xsltDynamicSchemaKey", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXSLTMediator_XsltKey(), this.getRegistryKeyProperty(), null, "xsltKey", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXSLTMediator_SourceXPath(), this.getNamespacedProperty(), null, "sourceXPath", null, 0, 1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXSLTMediator_Properties(), this.getXSLTProperty(), null, "properties", null, 0, -1, XSLTMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10190,10 +10408,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(xQueryMediatorEClass, XQueryMediator.class, "XQueryMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXQueryMediator_Variables(), this.getXQueryVariable(), null, "variables", null, 0, -1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXQueryMediator_TargetXPath(), this.getNamespacedProperty(), null, "targetXPath", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXQueryMediator_TargetXPath(), this.getNamespacedProperty(), null, "targetXPath", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXQueryMediator_ScriptKeyType(), this.getKeyType(), "scriptKeyType", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXQueryMediator_StaticScriptKey(), this.getRegistryKeyProperty(), null, "staticScriptKey", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXQueryMediator_DynamicScriptKey(), this.getNamespacedProperty(), null, "dynamicScriptKey", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXQueryMediator_StaticScriptKey(), this.getRegistryKeyProperty(), null, "staticScriptKey", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXQueryMediator_DynamicScriptKey(), this.getNamespacedProperty(), null, "dynamicScriptKey", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXQueryMediator_QueryKey(), this.getRegistryKeyProperty(), null, "queryKey", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXQueryMediator_InputConnector(), this.getXQueryMediatorInputConnector(), null, "inputConnector", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXQueryMediator_OutputConnector(), this.getXQueryMediatorOutputConnector(), null, "outputConnector", null, 0, 1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -10220,6 +10439,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getCalloutMediator_ResultType(), this.getCalloutResultType(), "resultType", "MESSAGE_ELEMENT", 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCalloutMediator_ResultMessageXpath(), this.getNamespacedProperty(), null, "resultMessageXpath", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalloutMediator_ResultContextProperty(), ecorePackage.getEString(), "resultContextProperty", "context_property_name", 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalloutMediator_PassHeaders(), ecorePackage.getEBoolean(), "passHeaders", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCalloutMediator_InputConnector(), this.getCalloutMediatorInputConnector(), null, "inputConnector", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCalloutMediator_OutputConnector(), this.getCalloutMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -10449,11 +10669,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(smooksInConfigurationEClass, SmooksInConfiguration.class, "SmooksInConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSmooksInConfiguration_Type(), this.getSmooksIODataType(), "type", null, 0, 1, SmooksInConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksInConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksInConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSmooksInConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksInConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(smooksOutConfigurationEClass, SmooksOutConfiguration.class, "SmooksOutConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSmooksOutConfiguration_Type(), this.getSmooksIODataType(), "type", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksOutConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSmooksOutConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksOutConfiguration_Property(), ecorePackage.getEString(), "property", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksOutConfiguration_Action(), this.getExpressionAction(), "action", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksOutConfiguration_OutputMethod(), this.getOutputMethod(), "outputMethod", "", 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

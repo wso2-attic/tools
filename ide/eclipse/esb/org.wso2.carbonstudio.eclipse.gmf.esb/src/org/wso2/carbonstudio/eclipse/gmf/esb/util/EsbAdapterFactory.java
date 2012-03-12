@@ -133,6 +133,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createProxyServicePolicyAdapter();
 			}
 			@Override
+			public Adapter caseProxyServiceInSequence(ProxyServiceInSequence object) {
+				return createProxyServiceInSequenceAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceOutSequence(ProxyServiceOutSequence object) {
+				return createProxyServiceOutSequenceAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceSequenceContainer(ProxyServiceSequenceContainer object) {
+				return createProxyServiceSequenceContainerAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceEndpointContainer(ProxyServiceEndpointContainer object) {
+				return createProxyServiceEndpointContainerAdapter();
+			}
+			@Override
 			public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
 				return createAbstractEndPointAdapter();
 			}
@@ -1088,6 +1104,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProxyServicePolicyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence <em>Proxy Service In Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence
+	 * @generated
+	 */
+	public Adapter createProxyServiceInSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence <em>Proxy Service Out Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceOutSequence
+	 * @generated
+	 */
+	public Adapter createProxyServiceOutSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer <em>Proxy Service Sequence Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer
+	 * @generated
+	 */
+	public Adapter createProxyServiceSequenceContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer <em>Proxy Service Endpoint Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer
+	 * @generated
+	 */
+	public Adapter createProxyServiceEndpointContainerAdapter() {
 		return null;
 	}
 
