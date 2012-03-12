@@ -233,14 +233,14 @@ public class ResultMappingItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ResultMapping)object).getElementName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResultMapping_type") :
-			getString("_UI_ResultMapping_type") + " " + label;
+		String type = " (" + getString("_UI_ResultMapping_type") + ")";
+		return label != null ? label.toString() + type : type;
+		
 	}
 
 	/**

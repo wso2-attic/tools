@@ -305,14 +305,14 @@ public class DataServiceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DataService)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DataService_type") :
-			getString("_UI_DataService_type") + " " + label;
+		String label = ((DataService) object).getName();
+		String type = " (" + getString("_UI_DataService_type") + ")";
+		return label != null ? label.toString() + type : type;
+
 	}
 
 	/**

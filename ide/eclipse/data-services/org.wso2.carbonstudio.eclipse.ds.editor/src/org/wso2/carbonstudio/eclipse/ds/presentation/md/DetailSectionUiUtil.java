@@ -189,6 +189,10 @@ public class DetailSectionUiUtil {
 			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'x'){
 			    	  
 			    	  ((StyledText)event.widget).cut();
+			    	  
+			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'z'){
+			    	  
+			    	 // ((StyledText)event.widget).
 			      }
 			   }
 			};

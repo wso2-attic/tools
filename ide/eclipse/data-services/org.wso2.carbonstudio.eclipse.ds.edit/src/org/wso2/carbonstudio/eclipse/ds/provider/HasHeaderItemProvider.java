@@ -106,12 +106,15 @@ public class HasHeaderItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		HasHeader hasHeader = (HasHeader)object;
-		return getString("_UI_HasHeader_type") + " " + hasHeader.isValue();
+		String type = " (" + getString("_UI_HasHeader_type") + ")";
+		String lable = "";
+		return lable != null ? hasHeader.isValue() + type : type;
+		
 	}
 
 	/**

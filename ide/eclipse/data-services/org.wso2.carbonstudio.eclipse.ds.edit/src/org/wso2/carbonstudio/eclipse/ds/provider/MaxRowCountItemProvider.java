@@ -106,12 +106,15 @@ public class MaxRowCountItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		MaxRowCount maxRowCount = (MaxRowCount)object;
-		return getString("_UI_MaxRowCount_type") + " " + maxRowCount.getValue();
+		String type = " (" + getString("_UI_MaxRowCount_type") + ")";
+		String label ="";
+		return label != null ?  maxRowCount.getValue()+ type : type;
+		
 	}
 
 	/**

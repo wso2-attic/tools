@@ -89,19 +89,7 @@ public class ConfigurationPropertyItemProvider
 						"_UI_ConfigurationProperty_type"),
 				DsPackage.Literals.CONFIGURATION_PROPERTY__VALUE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-		/*itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigurationProperty_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationProperty_value_feature", "_UI_ConfigurationProperty_type"),
-				 DsPackage.Literals.CONFIGURATION_PROPERTY__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));*/
+		
 	}
 
 	/**
@@ -121,19 +109,7 @@ public class ConfigurationPropertyItemProvider
 						"_UI_ConfigurationProperty_type"),
 				DsPackage.Literals.CONFIGURATION_PROPERTY__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-		/*itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigurationProperty_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationProperty_name_feature", "_UI_ConfigurationProperty_type"),
-				 DsPackage.Literals.CONFIGURATION_PROPERTY__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));*/
+		
 	}
 
 	/**
@@ -160,10 +136,7 @@ public class ConfigurationPropertyItemProvider
 
 		String type = " (" + getString("_UI_ConfigurationProperty_type") + ")";
 		return label != null ? label.toString() + type : type;
-		/*String label = ((ConfigurationProperty)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ConfigurationProperty_type") :
-			getString("_UI_ConfigurationProperty_type") + " " + label;*/
+		
 	}
 
 	/**

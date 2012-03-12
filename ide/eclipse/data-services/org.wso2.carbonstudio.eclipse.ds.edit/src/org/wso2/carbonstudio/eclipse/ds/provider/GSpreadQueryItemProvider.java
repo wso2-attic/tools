@@ -122,11 +122,11 @@ public class GSpreadQueryItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GSpreadQuery_type");
+		return "("+ getString("_UI_GSpreadQuery_type") +")";
 	}
 
 	/**

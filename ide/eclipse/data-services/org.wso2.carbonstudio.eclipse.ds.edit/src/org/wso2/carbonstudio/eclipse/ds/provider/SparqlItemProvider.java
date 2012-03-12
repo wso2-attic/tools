@@ -106,14 +106,14 @@ public class SparqlItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Sparql)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Sparql_type") :
-			getString("_UI_Sparql_type") + " " + label;
+		String type = " (" + getString("_UI_Sparql_type") + ")";
+		return type;
+		
 	}
 
 	/**

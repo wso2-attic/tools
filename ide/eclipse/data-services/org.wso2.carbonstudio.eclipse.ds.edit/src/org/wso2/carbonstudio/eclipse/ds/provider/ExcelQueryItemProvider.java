@@ -180,12 +180,12 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExcelQuery_type");
+		return "("+getString("_UI_ExcelQuery_type")+")";
 	}
 
 	/**

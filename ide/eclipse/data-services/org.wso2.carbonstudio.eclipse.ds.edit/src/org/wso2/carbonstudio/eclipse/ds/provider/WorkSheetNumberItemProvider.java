@@ -106,14 +106,15 @@ public class WorkSheetNumberItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((WorkSheetNumber)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_WorkSheetNumber_type") :
-			getString("_UI_WorkSheetNumber_type") + " " + label;
+		WorkSheetNumber wrksheetnum = (WorkSheetNumber)object;
+		String type = " (" + getString("_UI_WorkSheetNumber_type") + ")";
+		String label ="";
+		return label != null ?  wrksheetnum.getValue()+ type : type;
+		
 	}
 
 	/**

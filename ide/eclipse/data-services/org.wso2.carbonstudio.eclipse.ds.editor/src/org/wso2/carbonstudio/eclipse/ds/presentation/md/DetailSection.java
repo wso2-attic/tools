@@ -300,6 +300,9 @@ public class DetailSection {
 				displayValues [i] = q[i].getId();
 			}
 			
+			labelMaker("");
+			labelMaker("");
+			
 			labelMaker(DetailSectionCustomUiConstants.CALL_QUERY_LINK);
 			sectionUtil.getCustomComboField(detailsclient, toolkit, callQuery, callQuery.getHref(),
 					DsPackage.eINSTANCE.getCallQuery_Href(), displayValues);
@@ -460,6 +463,37 @@ public class DetailSection {
 			labelMaker(DSActionConstants.ENABLE_AUTO_COMMIT_DISPLAY);
 		}
 		
+		if(configProperty.getName().equals(DSActionConstants.CSV_DATASOURCE_PROPERTY)){
+			
+			labelMaker(DSActionConstants.CSV_DATASOURCE_DISPLAY);
+		}
+		
+		if(configProperty.getName().equals(DSActionConstants.COLUMN_SEPERATOR_PROPERTY)){
+			
+			labelMaker(DSActionConstants.COLUMN_SEPERATOR_DISPLAY);
+		}
+		if(configProperty.getName().equals(DSActionConstants.STARTING_ROW_PROPERTY)){
+			
+			labelMaker(DSActionConstants.STARTING_ROW_DISPLAY);
+		}
+		
+		if(configProperty.getName().equals(DSActionConstants.MAX_ROW_COUNT_PROPERTY)){
+			
+			labelMaker(DSActionConstants.MAX_ROW_COUNT_DISPLAY);
+		}
+		
+		if(configProperty.getName().equals(DSActionConstants.HAS_HEADER_PROPERTY)){
+			
+			labelMaker(DSActionConstants.HAS_HEADER_DISPLAY);
+		}
+		//TODO add the other properties supported in the DS 
+		
+	/*	if(configProperty.getName().equals(anObject)){
+			
+			labelMaker(DSActionConstants);
+		}*/
+		
+		
 		if(configProperty.getName().equals(DSActionConstants.ENABLE_AUTO_COMMIT)){
 			
 			sectionUtil.getBooleanComboWithStringPersistance(detailsclient, toolkit, configProperty,configProperty.getValue(),
@@ -468,7 +502,7 @@ public class DetailSection {
 		 sectionUtil.getAttributeField(detailsclient, toolkit,input,configProperty.getValue(),
 		    		DsPackage.eINSTANCE.getConfigurationProperty_Value(),DetailSectionCustomUiConstants.STRING);
 		}
-		//TODO add the other properties supported in the DS 
+		
 	}
 	
 	private void queryObjectConfigurator(Query query){
