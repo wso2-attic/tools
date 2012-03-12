@@ -33,7 +33,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		store.setDefault(PreferenceConstants.PREF_NAMESPACE, SynapseConstants.NS_1_4);
-		store.setDefault(PreferenceConstants.PREF_ESBVERSION, EsbVersions.ESB_301);
+		store.setDefault(PreferenceConstants.PREF_ESBVERSION, EsbVersions.ESB_400);
 	}
 
 }
