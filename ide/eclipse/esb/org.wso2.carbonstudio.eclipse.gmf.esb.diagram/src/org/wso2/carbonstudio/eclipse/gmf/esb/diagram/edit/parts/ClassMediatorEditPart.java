@@ -42,7 +42,7 @@ public class ClassMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3057;
+	public static final int VISUAL_ID = 3217;
 
 	/**
 	 * @generated
@@ -132,9 +132,13 @@ public class ClassMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof ClassMediatorClassNameEditPart) {
+			((ClassMediatorClassNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClassMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof ClassMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((ClassMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -143,9 +147,8 @@ public class ClassMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof ClassMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof ClassMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((ClassMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +156,6 @@ public class ClassMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof ClassMediatorClassNameEditPart) {
-			((ClassMediatorClassNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureClassMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -365,14 +361,5 @@ public class ClassMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

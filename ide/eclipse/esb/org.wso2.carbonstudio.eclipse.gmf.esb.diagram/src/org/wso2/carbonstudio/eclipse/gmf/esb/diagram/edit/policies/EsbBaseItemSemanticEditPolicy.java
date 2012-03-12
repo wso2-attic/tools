@@ -38,7 +38,6 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.helpers.EsbBaseEditHelper;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.expressions.EsbAbstractExpression;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.expressions.EsbOCLFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -387,7 +386,6 @@ public class EsbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 		}
-
 	}
 
 }

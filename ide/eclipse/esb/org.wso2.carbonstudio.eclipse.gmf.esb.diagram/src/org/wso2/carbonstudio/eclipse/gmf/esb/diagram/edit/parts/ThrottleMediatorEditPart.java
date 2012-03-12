@@ -29,7 +29,6 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.ThrottleMediatorCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.ThrottleMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -42,7 +41,7 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3120;
+	public static final int VISUAL_ID = 3205;
 
 	/**
 	 * @generated
@@ -62,7 +61,7 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -75,9 +74,6 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new ThrottleMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -156,7 +152,6 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		return false;
@@ -334,6 +329,7 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 
 			fFigureThrottleMediatorPropertyValue = new WrappingLabel();
 			fFigureThrottleMediatorPropertyValue.setText("<...>");
+
 			fFigureThrottleMediatorPropertyValue.setAlignment(SWT.CENTER);
 
 			this.getPropertyValueRectangle1().add(
@@ -362,14 +358,5 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

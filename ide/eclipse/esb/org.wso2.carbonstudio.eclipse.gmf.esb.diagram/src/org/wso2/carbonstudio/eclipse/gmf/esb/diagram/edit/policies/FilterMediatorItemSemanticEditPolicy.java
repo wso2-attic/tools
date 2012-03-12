@@ -33,7 +33,7 @@ public class FilterMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public FilterMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.FilterMediator_3009);
+		super(EsbElementTypes.FilterMediator_3209);
 	}
 
 	/**

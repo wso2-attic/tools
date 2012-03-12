@@ -52,7 +52,7 @@ public class FilterMediatorConditionTypeEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5008;
+	public static final int VISUAL_ID = 5046;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class FilterMediatorConditionTypeEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.FilterMediator_3009,
+							EsbElementTypes.FilterMediator_3209,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionTypeEditPart.VISUAL_ID));

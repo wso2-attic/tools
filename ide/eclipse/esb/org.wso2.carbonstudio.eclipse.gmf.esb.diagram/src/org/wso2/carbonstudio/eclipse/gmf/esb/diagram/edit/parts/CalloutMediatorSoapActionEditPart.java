@@ -52,7 +52,7 @@ public class CalloutMediatorSoapActionEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5027;
+	public static final int VISUAL_ID = 5064;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class CalloutMediatorSoapActionEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.CalloutMediator_3114,
+							EsbElementTypes.CalloutMediator_3231,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapActionEditPart.VISUAL_ID));

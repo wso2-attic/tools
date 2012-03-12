@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
@@ -43,47 +43,47 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.providers.EsbParserProvider;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 5005;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private DirectEditManager manager;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private IParser parser;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private List<?> parserElements;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private String defaultText;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public AddressEndPointEndPointNameEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
@@ -94,9 +94,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 				new EsbDiagramEditPart.NodeLabelDragPolicy());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected String getLabelTextHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getText();
@@ -105,9 +105,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLabelTextHelper(IFigure figure, String text) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setText(text);
@@ -116,9 +116,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Image getLabelIconHelper(IFigure figure) {
 		if (figure instanceof WrappingLabel) {
 			return ((WrappingLabel) figure).getIcon();
@@ -127,9 +127,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
 		if (figure instanceof WrappingLabel) {
 			((WrappingLabel) figure).setIcon(icon);
@@ -138,9 +138,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
@@ -149,38 +149,38 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		refreshVisuals();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	@SuppressWarnings("rawtypes")
 	protected List getModelChildren() {
 		return Collections.EMPTY_LIST;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
 		return null;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected EObject getParserElement() {
 		return resolveSemanticElement();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Image getLabelIcon() {
 		return null;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected String getLabelText() {
 		String text = null;
 		EObject parserElement = getParserElement();
@@ -195,9 +195,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		return text;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public void setLabelText(String text) {
 		setLabelTextHelper(getFigure(), text);
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -210,9 +210,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public String getEditText() {
 		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
@@ -222,16 +222,16 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 				getParserOptions().intValue());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected boolean isEditable() {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ICellEditorValidator getEditTextValidator() {
 		return new ICellEditorValidator() {
 
@@ -265,9 +265,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		};
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IContentAssistProcessor getCompletionProcessor() {
 		if (getParserElement() == null || getParser() == null) {
 			return null;
@@ -276,16 +276,16 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 				new EObjectAdapter(getParserElement()));
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ParserOptions getParserOptions() {
 		return ParserOptions.NONE;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IParser getParser() {
 		if (parser == null) {
 			parser = EsbParserProvider
@@ -298,9 +298,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		return parser;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected DirectEditManager getManager() {
 		if (manager == null) {
 			setManager(new TextDirectEditManager(this,
@@ -310,23 +310,23 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		return manager;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setManager(DirectEditManager manager) {
 		this.manager = manager;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void performDirectEdit() {
 		getManager().show();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void performDirectEdit(Point eventLocation) {
 		if (getManager().getClass() == TextDirectEditManager.class) {
 			((TextDirectEditManager) getManager()).show(eventLocation
@@ -334,9 +334,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
 			((TextDirectEditManager) getManager()).show(initialCharacter);
@@ -345,9 +345,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void performDirectEditRequest(Request request) {
 		final Request theRequest = request;
 		try {
@@ -377,9 +377,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		refreshLabel();
@@ -389,9 +389,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		refreshStrikeThrough();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshLabel() {
 		setLabelTextHelper(getFigure(), getLabelText());
 		setLabelIconHelper(getFigure(), getLabelIcon());
@@ -405,9 +405,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshUnderline() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
@@ -416,9 +416,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshStrikeThrough() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
@@ -428,9 +428,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshFont() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
@@ -443,16 +443,16 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setFontColor(Color color) {
 		getFigure().setForegroundColor(color);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void addSemanticListeners() {
 		if (getParser() instanceof ISemanticParser) {
 			EObject element = resolveSemanticElement();
@@ -467,9 +467,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void removeSemanticListeners() {
 		if (parserElements != null) {
 			for (int i = 0; i < parserElements.size(); i++) {
@@ -480,9 +480,9 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected AccessibleEditPart getAccessibleEditPart() {
 		if (accessibleEP == null) {
 			accessibleEP = new AccessibleGraphicalEditPart() {
@@ -495,32 +495,32 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		return accessibleEP;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private View getFontStyleOwnerView() {
 		return getPrimaryView();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void addNotationalListeners() {
 		super.addNotationalListeners();
 		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void removeNotationalListeners() {
 		super.removeNotationalListeners();
 		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -561,12 +561,13 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		super.handleNotificationEvent(event);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure createFigure() {
 		// Parent should assign one using setLabel() method
 		return null;
 	}
 
 }
+*/

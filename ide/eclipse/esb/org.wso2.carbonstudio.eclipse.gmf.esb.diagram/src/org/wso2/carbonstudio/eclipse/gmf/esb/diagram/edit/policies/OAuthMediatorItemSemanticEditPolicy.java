@@ -31,7 +31,7 @@ public class OAuthMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public OAuthMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.OAuthMediator_3129);
+		super(EsbElementTypes.OAuthMediator_3235);
 	}
 
 	/**

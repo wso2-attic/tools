@@ -27,6 +27,7 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.XSLTMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.XSLTMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -59,7 +60,7 @@ public class XSLTMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -72,6 +73,9 @@ public class XSLTMediator2EditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new XSLTMediator2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -122,6 +126,14 @@ public class XSLTMediator2EditPart extends AbstractMediator {
 		return (XSLTMediatorFigure) primaryShape;
 	}
 
+	/**
+	 * @generated
+	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof XSLTMediatorInputConnector2EditPart) {
@@ -155,14 +167,6 @@ public class XSLTMediator2EditPart extends AbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
 	}
 
 	/**

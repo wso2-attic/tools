@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorInputConnectorCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorOnCompleteOutputConnectorCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorOutputConnectorCreateCommand;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateOnCompleteBranchCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateCompartmentEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorInputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
@@ -53,7 +52,7 @@ public class AggregateMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AggregateMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.AggregateMediator_3111);
+		super(EsbElementTypes.AggregateMediator_3236);
 	}
 
 	/**

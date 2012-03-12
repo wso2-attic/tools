@@ -31,7 +31,7 @@ public class DBLookupMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DBLookupMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.DBLookupMediator_3075);
+		super(EsbElementTypes.DBLookupMediator_3223);
 	}
 
 	/**

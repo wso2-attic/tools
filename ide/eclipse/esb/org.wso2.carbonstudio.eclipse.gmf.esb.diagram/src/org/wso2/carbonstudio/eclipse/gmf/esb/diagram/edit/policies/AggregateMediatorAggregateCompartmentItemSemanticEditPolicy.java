@@ -32,7 +32,7 @@ public class AggregateMediatorAggregateCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AggregateMediatorAggregateCompartmentItemSemanticEditPolicy() {
-		super(EsbElementTypes.AggregateMediator_3111);
+		super(EsbElementTypes.AggregateMediator_3236);
 	}
 
 	/**

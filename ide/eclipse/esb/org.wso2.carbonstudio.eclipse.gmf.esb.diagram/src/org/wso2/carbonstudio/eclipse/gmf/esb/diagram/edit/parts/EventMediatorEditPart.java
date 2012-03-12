@@ -42,7 +42,7 @@ public class EventMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3051;
+	public static final int VISUAL_ID = 3215;
 
 	/**
 	 * @generated
@@ -132,9 +132,13 @@ public class EventMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof EventMediatorTopicTypeEditPart) {
+			((EventMediatorTopicTypeEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureEventMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof EventMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((EventMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -143,9 +147,8 @@ public class EventMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof EventMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof EventMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((EventMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +156,6 @@ public class EventMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof EventMediatorTopicTypeEditPart) {
-			((EventMediatorTopicTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureEventMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -228,8 +224,8 @@ public class EventMediatorEditPart extends AbstractMediator {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model so
-	 * you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -243,11 +239,9 @@ public class EventMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane. Respects
-	 * layout one may have set for generated figure.
-	 * 
-	 * @param nodeShape
-	 *            instance of generated figure class
+	 * Default implementation treats passed figure as content pane.
+	 * Respects layout one may have set for generated figure.
+	 * @param nodeShape instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -368,16 +362,5 @@ public class EventMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }

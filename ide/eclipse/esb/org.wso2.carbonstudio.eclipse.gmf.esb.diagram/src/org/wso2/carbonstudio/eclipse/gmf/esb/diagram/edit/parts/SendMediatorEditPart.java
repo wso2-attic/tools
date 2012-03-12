@@ -40,7 +40,7 @@ public class SendMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3084;
+	public static final int VISUAL_ID = 3226;
 
 	/**
 	 * @generated
@@ -301,15 +301,6 @@ public class SendMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Send";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
 
 	}
 

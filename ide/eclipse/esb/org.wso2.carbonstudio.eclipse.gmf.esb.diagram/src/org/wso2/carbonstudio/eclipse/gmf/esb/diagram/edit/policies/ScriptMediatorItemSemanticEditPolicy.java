@@ -31,7 +31,7 @@ public class ScriptMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ScriptMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.ScriptMediator_3063);
+		super(EsbElementTypes.ScriptMediator_3219);
 	}
 
 	/**

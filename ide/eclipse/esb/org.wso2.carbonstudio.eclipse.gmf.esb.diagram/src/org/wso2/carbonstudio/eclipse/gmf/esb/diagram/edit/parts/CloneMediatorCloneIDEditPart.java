@@ -52,7 +52,7 @@ public class CloneMediatorCloneIDEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5023;
+	public static final int VISUAL_ID = 5061;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class CloneMediatorCloneIDEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.CloneMediator_3102,
+							EsbElementTypes.CloneMediator_3228,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneIDEditPart.VISUAL_ID));

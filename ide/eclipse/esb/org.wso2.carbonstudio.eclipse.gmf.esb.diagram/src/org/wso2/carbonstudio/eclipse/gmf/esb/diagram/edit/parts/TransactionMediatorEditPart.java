@@ -40,7 +40,7 @@ public class TransactionMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3117;
+	public static final int VISUAL_ID = 3232;
 
 	/**
 	 * @generated
@@ -127,6 +127,14 @@ public class TransactionMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
+	 * @generated
+	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
+	/**
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
@@ -168,14 +176,6 @@ public class TransactionMediatorEditPart extends AbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
 	}
 
 	/**
@@ -310,14 +310,5 @@ public class TransactionMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

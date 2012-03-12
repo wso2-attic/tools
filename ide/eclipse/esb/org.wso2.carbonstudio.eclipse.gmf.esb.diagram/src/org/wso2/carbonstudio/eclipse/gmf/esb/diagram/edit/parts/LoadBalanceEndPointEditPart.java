@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,36 +38,36 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.LoadBalanceEn
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.LoadBalanceEndPointItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 3094;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure contentPane;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure primaryShape;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public LoadBalanceEndPointEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -86,9 +86,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -119,23 +119,23 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return lep;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure createNodeShape() {
 		return primaryShape = new LoadBalanceEndPointFigure();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public LoadBalanceEndPointFigure getPrimaryShape() {
 		return (LoadBalanceEndPointFigure) primaryShape;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected boolean addFixedChild(EditPart childEditPart) {
 		int outputCount = arrangeOutputConnectors();
 
@@ -155,14 +155,14 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-			/*				
+							
 				BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 						PositionConstants.WEST);
 				getBorderedFigure()
 						.getBorderItemContainer()
 						.add(((LoadBalanceEndPointInputConnectorEditPart) childEditPart)
 								.getFigure(), locator);
-				return true;*/
+				return true;
 		}
 
 		if (childEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
@@ -191,20 +191,20 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 											.getId(), outputCount));
 			return true;
 
-			/*	BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+				BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 						PositionConstants.EAST);
 				getBorderedFigure()
 						.getBorderItemContainer()
 						.add(((LoadBalanceEndPointOutputConnectorEditPart) childEditPart)
 								.getFigure(), locator);
-				return true;*/
+				return true;
 		}
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof LoadBalanceEndPointEndPointNameEditPart) {
 			return true;
@@ -232,9 +232,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -242,9 +242,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		super.addChildVisual(childEditPart, -1);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -252,9 +252,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		super.removeChildVisual(childEditPart);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
@@ -262,22 +262,22 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
-	/**
+	*//**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -287,12 +287,12 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return figure;
 	}
 
-	/**
+	*//**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
 	 * @generated
-	 */
+	 *//*
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -302,9 +302,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -312,45 +312,45 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return super.getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID));
@@ -386,28 +386,28 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 		return outputCount;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public class LoadBalanceEndPointFigure extends EsbGraphicalShape {
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		private WrappingLabel fFigureLoadBalanceEndPointNamePropertyLabel;
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public LoadBalanceEndPointFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		/**
+		*//**
 		 * @generated NOT
-		 */
+		 *//*
 		private void createContents() {
 
 			fFigureLoadBalanceEndPointNamePropertyLabel = new WrappingLabel();
@@ -420,9 +420,9 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 
 		}
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public WrappingLabel getFigureLoadBalanceEndPointNamePropertyLabel() {
 			return fFigureLoadBalanceEndPointNamePropertyLabel;
 		}
@@ -445,11 +445,12 @@ public class LoadBalanceEndPointEditPart extends AbstractBorderedShapeEditPart {
 
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	static final Color THIS_BACK = new Color(null, 40, 151, 248);
 
 	static final Color THIS_LABEL_BACK = new Color(null, 255, 225, 194);
 
 }
+*/

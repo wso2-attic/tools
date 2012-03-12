@@ -42,7 +42,7 @@ public class HeaderMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3099;
+	public static final int VISUAL_ID = 3227;
 
 	/**
 	 * @generated
@@ -156,7 +156,6 @@ public class HeaderMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		return false;
@@ -362,15 +361,5 @@ public class HeaderMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-	}
 
 }

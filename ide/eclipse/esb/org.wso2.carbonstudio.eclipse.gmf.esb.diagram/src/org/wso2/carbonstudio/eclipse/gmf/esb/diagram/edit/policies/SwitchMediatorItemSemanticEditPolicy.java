@@ -33,7 +33,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SwitchMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.SwitchMediator_3041);
+		super(EsbElementTypes.SwitchMediator_3213);
 	}
 
 	/**

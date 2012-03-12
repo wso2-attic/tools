@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -32,36 +32,36 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DropMediatorC
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DropMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+*//**
  * @generated NOT
- */
+ *//*
 public class DropMediatorEditPart extends AbstractMediator {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 3007;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure contentPane;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure primaryShape;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public DropMediatorEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -81,9 +81,9 @@ public class DropMediatorEditPart extends AbstractMediator {
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -112,36 +112,36 @@ public class DropMediatorEditPart extends AbstractMediator {
 		return lep;
 	}
 
-	/**
+	*//**
 	 * @generated 
-	 */
+	 *//*
 	protected IFigure createNodeShape() {
 		return primaryShape = new DropMediatorFigure();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public DropMediatorFigure getPrimaryShape() {
 		return (DropMediatorFigure) primaryShape;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
-	/**
+	*//**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -151,12 +151,12 @@ public class DropMediatorEditPart extends AbstractMediator {
 		return figure;
 	}
 
-	/**
+	*//**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
 	 * @generated
-	 */
+	 *//*
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -166,9 +166,9 @@ public class DropMediatorEditPart extends AbstractMediator {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -176,9 +176,9 @@ public class DropMediatorEditPart extends AbstractMediator {
 		return super.getContentPane();
 	}
 
-	/**
+	*//**
 	 * {@inheritDoc}
-	 */
+	 *//*
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
 		IFigure borderItemFigure = borderItemEditPart.getFigure();
@@ -191,64 +191,64 @@ public class DropMediatorEditPart extends AbstractMediator {
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public class DropMediatorFigure extends EsbGraphicalShape {
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		private WrappingLabel fDropMediatorLabelFigure;
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public DropMediatorFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		/**
+		*//**
 		 * @generated NOT
-		 */
+		 *//*
 		private void createContents() {
 
 			fDropMediatorLabelFigure = new WrappingLabel();
@@ -260,10 +260,10 @@ public class DropMediatorEditPart extends AbstractMediator {
 
 		}
 
-		/*	*//**
+			*//**
 				 * @generated NOT
-				 */
-		/*
+				 *//*
+		
 		protected void fillShape(Graphics graphics) {
 		// Backup the graphics colors
 		Color bgColor = graphics.getBackgroundColor();
@@ -275,11 +275,11 @@ public class DropMediatorEditPart extends AbstractMediator {
 		graphics.fillGradient(getBounds(), true);
 		graphics.setBackgroundColor(bgColor);
 		graphics.setForegroundColor(fgColor);
-		}*/
+		}
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public WrappingLabel getDropMediatorLabelFigure() {
 			return fDropMediatorLabelFigure;
 		}
@@ -294,9 +294,9 @@ public class DropMediatorEditPart extends AbstractMediator {
 
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 
 	public boolean getIsForward() {
@@ -310,3 +310,4 @@ public class DropMediatorEditPart extends AbstractMediator {
 	}
 
 }
+*/

@@ -52,7 +52,7 @@ public class AggregateMediatorAggregateIDEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5026;
+	public static final int VISUAL_ID = 5066;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class AggregateMediatorAggregateIDEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.AggregateMediator_3111,
+							EsbElementTypes.AggregateMediator_3236,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateIDEditPart.VISUAL_ID));

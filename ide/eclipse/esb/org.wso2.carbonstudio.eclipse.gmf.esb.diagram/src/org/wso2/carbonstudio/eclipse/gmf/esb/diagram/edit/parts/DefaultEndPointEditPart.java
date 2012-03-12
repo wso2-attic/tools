@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -33,36 +33,36 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DefaultEndPoi
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DefaultEndPointItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 3020;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure contentPane;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure primaryShape;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public DefaultEndPointEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -83,9 +83,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -115,24 +115,24 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return lep;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure createNodeShape() {
 		return primaryShape = new DefaultEndPointFigure();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public DefaultEndPointFigure getPrimaryShape() {
 		return (DefaultEndPointFigure) primaryShape;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
 	 * @customizations: fixed border locators for connectors
-	 */
+	 *//*
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof DefaultEndPointInputConnectorEditPart) {
@@ -167,9 +167,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DefaultEndPointEndPointNameEditPart) {
 			return true;
@@ -189,9 +189,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -199,9 +199,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		super.addChildVisual(childEditPart, -1);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -209,9 +209,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		super.removeChildVisual(childEditPart);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
@@ -219,9 +219,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 
@@ -230,14 +230,14 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return result;
 	}
 
-	/**
+	*//**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -247,12 +247,12 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return figure;
 	}
 
-	/**
+	*//**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
 	 * @generated
-	 */
+	 *//*
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -262,9 +262,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -272,73 +272,73 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 		return super.getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(DefaultEndPointEndPointNameEditPart.VISUAL_ID));
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public class DefaultEndPointFigure extends EsbGraphicalShape {
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		private WrappingLabel fFigureDefaultEndPointNamePropertyLabel;
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public DefaultEndPointFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		/**
+		*//**
 		 * @generated NOT
 		 * @customizations add the property label to parent figure
-		 */
+		 *//*
 		private void createContents() {
 
 			fFigureDefaultEndPointNamePropertyLabel = new WrappingLabel();
@@ -351,9 +351,9 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 
 		}
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public WrappingLabel getFigureDefaultEndPointNamePropertyLabel() {
 			return fFigureDefaultEndPointNamePropertyLabel;
 		}
@@ -376,10 +376,11 @@ public class DefaultEndPointEditPart extends BorderedBorderItemEditPart {
 
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	static final Color THIS_BACK = new Color(null, 248, 151, 40);
 	static final Color THIS_LABEL_BACK = new Color(null, 255, 225, 194);
 
 }
+*/

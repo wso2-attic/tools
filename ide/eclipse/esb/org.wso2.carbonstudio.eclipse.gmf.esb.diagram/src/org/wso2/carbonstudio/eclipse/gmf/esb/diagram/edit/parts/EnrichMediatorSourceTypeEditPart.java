@@ -52,7 +52,7 @@ public class EnrichMediatorSourceTypeEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5104;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class EnrichMediatorSourceTypeEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.EnrichMediator_3035,
+							EsbElementTypes.EnrichMediator_3387,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceTypeEditPart.VISUAL_ID));

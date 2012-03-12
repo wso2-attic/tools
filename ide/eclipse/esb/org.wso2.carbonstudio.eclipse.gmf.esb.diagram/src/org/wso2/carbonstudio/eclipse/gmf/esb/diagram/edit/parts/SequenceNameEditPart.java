@@ -52,7 +52,7 @@ public class SequenceNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5041;
+	public static final int VISUAL_ID = 5049;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class SequenceNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.Sequence_3048,
+							EsbElementTypes.Sequence_3214,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceNameEditPart.VISUAL_ID));

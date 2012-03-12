@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.AggregateMediatorAggregateCompartmentCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.AggregateMediatorAggregateCompartmentItemSemanticEditPolicy;
@@ -23,7 +22,7 @@ public class AggregateMediatorAggregateCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 7007;
 
 	/**
 	 * @generated
@@ -54,6 +53,8 @@ public class AggregateMediatorAggregateCompartmentEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new AggregateMediatorAggregateCompartmentItemSemanticEditPolicy());

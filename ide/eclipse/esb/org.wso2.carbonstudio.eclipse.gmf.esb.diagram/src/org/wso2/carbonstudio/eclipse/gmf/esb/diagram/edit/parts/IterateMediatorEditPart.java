@@ -42,7 +42,7 @@ public class IterateMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3108;
+	public static final int VISUAL_ID = 3230;
 
 	/**
 	 * @generated
@@ -156,7 +156,6 @@ public class IterateMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		return false;
@@ -355,15 +354,6 @@ public class IterateMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Iterate";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
 
 	}
 

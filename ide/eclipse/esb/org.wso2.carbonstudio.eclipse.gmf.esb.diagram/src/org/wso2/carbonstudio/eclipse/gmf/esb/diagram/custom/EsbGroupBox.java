@@ -26,6 +26,7 @@ public class EsbGroupBox extends RoundedRectangle{
 		this.setCornerDimensions(new Dimension(1, 1));
 		this.setFill(false);
 		this.setOutline(false);
+		
 		//this.setBackgroundColor(get);
 		createContents();
 	}

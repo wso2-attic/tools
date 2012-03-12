@@ -55,6 +55,22 @@ public class MergeNodeCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getMergeNode_FirstInputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getMergeNode_SecondInputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getMergeNode_OutputConnector());
+		}
+		return myFeaturesToSynchronize;
+	}
+
+	/**
+	 * @generated
+	 */
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
@@ -171,21 +187,4 @@ public class MergeNodeCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		makeViewsImmutable(createdViews);
 	}
-
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getMergeNode_FirstInputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getMergeNode_SecondInputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getMergeNode_OutputConnector());
-		}
-		return myFeaturesToSynchronize;
-	}
-
 }

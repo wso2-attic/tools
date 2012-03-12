@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 import org.wso2.carbonstudio.eclipse.gmf.esb.ThrottleMediator;
 
 /**
@@ -56,7 +57,7 @@ public class ThrottleMediatorCreateCommand extends EditElementCommand {
 		ThrottleMediator newElement = EsbFactory.eINSTANCE
 				.createThrottleMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

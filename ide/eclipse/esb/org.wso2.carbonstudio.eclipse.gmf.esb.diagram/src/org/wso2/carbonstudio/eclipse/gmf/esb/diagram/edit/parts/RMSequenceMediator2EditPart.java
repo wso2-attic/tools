@@ -27,6 +27,7 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.RMSequenceMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.RMSequenceMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -59,7 +60,7 @@ public class RMSequenceMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -72,6 +73,9 @@ public class RMSequenceMediator2EditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new RMSequenceMediator2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -85,8 +89,8 @@ public class RMSequenceMediator2EditPart extends AbstractMediator {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case RMSequenceMediatorInputConnectorEditPart.VISUAL_ID:
-				case RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID:
+				case RMSequenceMediatorInputConnector2EditPart.VISUAL_ID:
+				case RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child
@@ -120,6 +124,14 @@ public class RMSequenceMediator2EditPart extends AbstractMediator {
 	 */
 	public RMSequenceMediatorFigure getPrimaryShape() {
 		return (RMSequenceMediatorFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
 	}
 
 	protected boolean addFixedChild(EditPart childEditPart) {
@@ -161,14 +173,6 @@ public class RMSequenceMediator2EditPart extends AbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
 	}
 
 	/**

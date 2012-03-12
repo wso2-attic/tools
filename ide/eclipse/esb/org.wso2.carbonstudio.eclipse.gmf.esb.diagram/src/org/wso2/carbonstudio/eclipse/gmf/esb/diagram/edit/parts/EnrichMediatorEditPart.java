@@ -42,7 +42,7 @@ public class EnrichMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3035;
+	public static final int VISUAL_ID = 3387;
 
 	/**
 	 * @generated
@@ -130,12 +130,15 @@ public class EnrichMediatorEditPart extends AbstractMediator {
 
 	/**
 	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof EnrichMediatorSourceTypeEditPart) {
+			((EnrichMediatorSourceTypeEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureEnrichMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof EnrichMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((EnrichMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -144,9 +147,8 @@ public class EnrichMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof EnrichMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof EnrichMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((EnrichMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -154,13 +156,6 @@ public class EnrichMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof EnrichMediatorSourceTypeEditPart) {
-			((EnrichMediatorSourceTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureEnrichMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -358,20 +353,12 @@ public class EnrichMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Enrich";
 		}
+
 	}
 
 	/**
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

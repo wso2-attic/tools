@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 import org.wso2.carbonstudio.eclipse.gmf.esb.XSLTMediator;
 
 /**
@@ -55,7 +56,7 @@ public class XSLTMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		XSLTMediator newElement = EsbFactory.eINSTANCE.createXSLTMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

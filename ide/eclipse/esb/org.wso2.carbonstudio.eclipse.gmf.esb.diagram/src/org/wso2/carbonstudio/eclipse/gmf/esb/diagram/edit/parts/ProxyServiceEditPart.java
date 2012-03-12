@@ -1,9 +1,18 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.beans.PropertyChangeListener;
+
+import org.eclipse.draw2d.FigureListener;
+import org.eclipse.draw2d.FlowLayout;
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -11,7 +20,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
@@ -26,8 +35,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.layout.GridLayout;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceItemSemanticEditPolicy;
@@ -36,7 +47,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 /**
  * @generated
  */
-public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
+public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -139,24 +150,29 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 							.getFigureProxyNamePropertyLabel());
 			return true;
 		}
-		if (childEditPart instanceof ProxyInputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((ProxyInputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-
-		} else if (childEditPart instanceof ProxyOutputConnectorEditPart) {
-
+		if (childEditPart instanceof ProxyOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((ProxyOutputConnectorEditPart) childEditPart)
 					.getFigure();
+
 			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.25);
+					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
+							.getChildren().get(0)).getChildren().get(0))
+							.getChildren().get(0), borderItemFigure,
+					PositionConstants.EAST, 0.25);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+
+			return true;
+		}
+		if (childEditPart instanceof ProxyInputConnectorEditPart) {
+			IFigure borderItemFigure = ((ProxyInputConnectorEditPart) childEditPart)
+					.getFigure();
+
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
+							.getChildren().get(0)).getChildren().get(0))
+							.getChildren().get(0), borderItemFigure,
+					PositionConstants.EAST, 0.75);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 
@@ -164,6 +180,142 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 		}
 		return false;
 	}
+
+	/*
+	 *//**
+		 * @generated NOT
+		 */
+	/*
+	protected boolean addFixedChild(EditPart childEditPart, int index) {
+	if (childEditPart instanceof ProxyServiceNameEditPart) {
+		((ProxyServiceNameEditPart) childEditPart)
+				.setLabel(getPrimaryShape()
+						.getFigureProxyNamePropertyLabel());
+		return true;
+	}
+	if (childEditPart instanceof ProxyInputConnectorEditPart) {
+
+		IFigure borderItemFigure = ((ProxyInputConnectorEditPart) childEditPart)
+				.getFigure();
+		BorderItemLocator locator = new FixedBorderItemLocator(
+				getMainFigure(), borderItemFigure, PositionConstants.EAST,
+				0.75);
+		getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+				locator);
+		return true;
+
+	} else if (childEditPart instanceof ProxyOutputConnectorEditPart) {
+
+		IFigure borderItemFigure = ((ProxyOutputConnectorEditPart) childEditPart)
+				.getFigure();
+		BorderItemLocator locator = new FixedBorderItemLocator(
+				getMainFigure(), borderItemFigure, PositionConstants.EAST,
+				0.25);
+		getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+				locator);
+
+		return true;
+	}
+	 else if (childEditPart instanceof ProxyServiceInSequenceEditPart) {
+
+		IFigure childFigure = ((GraphicalEditPart) childEditPart)
+				.getFigure();
+		if (childEditPart instanceof IBorderItemEditPart) {
+			IFigure borderItemContainer = getContentPaneFor((IGraphicalEditPart) childEditPart);
+			addBorderItem(borderItemContainer,
+					(IBorderItemEditPart) childEditPart);
+		} else {
+			IFigure parent = getContentPaneFor((IGraphicalEditPart) childEditPart);
+
+			// If there are a mixture of border items and other contained
+			// figures, the index may be incorrect and could result in out of
+			// bounds exceptions.
+			index = Math.min(parent.getChildren().size(), index);
+
+			//  System.out.println("in path  parent  "+parent.getClass()+"   child  "+childFigure.getClass());
+
+			//    IFigure fig=(IFigure) parent.getChildren().get(0);
+
+			//  fig.add((IFigure) childFigure.getChildren().get(0));
+
+			System.out.println("in path  parent  "
+					+ parent.getChildren().get(1).getClass()
+					+ "   child  "
+					+ childFigure.getClass()
+					+ "   child figure     "
+					+ ((DefaultSizeNodeFigure) childFigure).getChildren()
+							.get(0).getClass());
+
+			IFigure rightBox = (IFigure) parent.getChildren().get(1);
+
+			IFigure child = (IFigure) ((DefaultSizeNodeFigure) childFigure)
+					.getChildren().get(0);
+
+			RoundedRectangle testParent = new RoundedRectangle();
+
+			RoundedRectangle testChild = new RoundedRectangle();
+
+			// testParent.add(testChild);
+
+			// parent.add(testChild, index);
+
+			parent.add(childFigure, index);
+		}
+
+		return true;
+	}
+
+	else if (childEditPart instanceof ProxyServiceOutSequenceEditPart) {
+
+		IFigure childFigure = ((GraphicalEditPart) childEditPart)
+				.getFigure();
+		if (childEditPart instanceof IBorderItemEditPart) {
+			IFigure borderItemContainer = getContentPaneFor((IGraphicalEditPart) childEditPart);
+			addBorderItem(borderItemContainer,
+					(IBorderItemEditPart) childEditPart);
+		} else {
+			IFigure parent = getContentPaneFor((IGraphicalEditPart) childEditPart);
+
+			// If there are a mixture of border items and other contained
+			// figures, the index may be incorrect and could result in out of
+			// bounds exceptions.
+			index = Math.min(parent.getChildren().size(), index);
+
+			//   System.out.println("out path  parent  "+parent.getClass()+"   child  "+childFigure.getClass());
+
+			//  IFigure fig=(IFigure) parent.getChildren().get(0);
+
+			//   fig.add(childFigure);
+
+			System.out.println("out path  parent  "
+					+ parent.getChildren().get(1).getClass()
+					+ "   child  "
+					+ childFigure.getClass()
+					+ "   child figure     "
+					+ ((DefaultSizeNodeFigure) childFigure).getChildren()
+							.get(0).getClass());
+
+			IFigure rightBox = (IFigure) parent.getChildren().get(1);
+
+			IFigure child = (IFigure) ((DefaultSizeNodeFigure) childFigure)
+					.getChildren().get(0);
+
+			RoundedRectangle testParent = new RoundedRectangle();
+
+			RoundedRectangle testChild = new RoundedRectangle();
+
+			//  testParent.add(testChild);
+
+			//parent.add(child, index);
+
+			parent.add(childFigure, index);
+		}
+
+		return true;
+	}
+
+	return false;
+	}*/
 
 	/**
 	 * @generated
@@ -186,7 +338,7 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated 
 	 */
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
@@ -220,9 +372,6 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-
-		//FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
 		return result;
 	}
 
@@ -313,9 +462,9 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class ProxyServiceFigure extends EsbGraphicalShape {
+	public class ProxyServiceFigure extends ProxyServiceGroupBox {
 
 		/**
 		 * @generated
@@ -323,12 +472,58 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 		private WrappingLabel fFigureProxyNamePropertyLabel;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public ProxyServiceFigure() {
 
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(false);
+
+			/*			FlowLayout layoutThis=new FlowLayout();
+			 layoutThis.setStretchMinorAxis(true);*/
+
+			this.setLayoutManager(layoutThis);
+
+			//this.setBackgroundColor(new Color(null, 255, 255, 255));
+
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(200)));
 			this.setBackgroundColor(THIS_BACK);
+			//this.setLineStyle(Graphics.LINE_DASH);
+			this.setOutline(true);
+			//this.setOutlineXOR(true);
 			createContents();
+		}
+
+		public void addPropertyChangeListener(PropertyChangeListener listener) {
+			// TODO Auto-generated method stub
+			//System.out.println(listener.getClass());
+			super.addPropertyChangeListener(listener);
+		}
+
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof DefaultSizeNodeFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else if (figure instanceof RoundedRectangle) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			}
+
+			else {
+				super.add(figure, constraint, index);
+			}
 		}
 
 		/**
@@ -340,9 +535,9 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 			fFigureProxyNamePropertyLabel = new WrappingLabel();
 			fFigureProxyNamePropertyLabel.setText("<...>");
 			fFigureProxyNamePropertyLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1()
-					.add(fFigureProxyNamePropertyLabel);
+			/*
+			 this.getPropertyValueRectangle1()
+			 .add(fFigureProxyNamePropertyLabel);*/
 		}
 
 		/**
@@ -370,8 +565,9 @@ public class ProxyServiceEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 150, 130, 180);
-	static final Color THIS_LABEL_BACK = new Color(null, 160, 140, 190);
+	//static final Color THIS_BACK = new Color(null, 150, 130, 180);
+	static final Color THIS_BACK = new Color(null, 60, 120, 60);
+	static final Color THIS_LABEL_BACK = new Color(null, 0, 0, 0);
 }

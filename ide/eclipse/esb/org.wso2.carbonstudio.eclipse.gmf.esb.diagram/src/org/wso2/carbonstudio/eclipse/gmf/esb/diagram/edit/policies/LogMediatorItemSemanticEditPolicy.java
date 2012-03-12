@@ -31,7 +31,7 @@ public class LogMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public LogMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.LogMediator_3017);
+		super(EsbElementTypes.LogMediator_3210);
 	}
 
 	/**

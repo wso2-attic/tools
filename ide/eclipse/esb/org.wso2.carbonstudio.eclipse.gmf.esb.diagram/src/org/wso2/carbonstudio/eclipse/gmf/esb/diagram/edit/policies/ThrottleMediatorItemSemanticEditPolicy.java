@@ -31,7 +31,7 @@ public class ThrottleMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ThrottleMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.ThrottleMediator_3120);
+		super(EsbElementTypes.ThrottleMediator_3205);
 	}
 
 	/**

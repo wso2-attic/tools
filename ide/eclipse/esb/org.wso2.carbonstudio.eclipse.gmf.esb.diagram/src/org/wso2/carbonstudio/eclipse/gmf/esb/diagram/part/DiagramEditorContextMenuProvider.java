@@ -58,6 +58,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureE
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureLogMediatorAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureProxyServiceAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureSwitchMediatorAction;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureXQueryMediatorAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.direction.DirectionAggregateMediatorAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.direction.DirectionCacheMediatorAction;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.direction.DirectionCalloutMediatorAction;
@@ -142,6 +143,7 @@ public class DiagramEditorContextMenuProvider extends
 				new ConfigureSwitchMediatorAction(part));
 		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(
 				part));
+		contextActions.put(XQueryMediator.class, new ConfigureXQueryMediatorAction(part));
 
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
 		addBranchContextActions.put(SwitchMediator.class,
@@ -280,7 +282,7 @@ public class DiagramEditorContextMenuProvider extends
 											addBranchContextAction);
 								}
 							}
-							appendToGroupDirection(menu);
+							//appendToGroupDirection(menu);
 						}
 					});
 		} catch (Exception e) {

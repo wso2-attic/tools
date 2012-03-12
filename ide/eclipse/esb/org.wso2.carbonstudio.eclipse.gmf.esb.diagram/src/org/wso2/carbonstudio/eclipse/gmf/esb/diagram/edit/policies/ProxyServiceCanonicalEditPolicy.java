@@ -25,6 +25,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEndpointContainerEditPart;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceContainerEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -49,6 +51,24 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 			((EditPart) c.get(i)).activate();
 		}
 		super.refreshOnActivate();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getProxyService_OutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getProxyService_InputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getProxyService_SequenceContainer());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getProxyService_EndpointContainer());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -80,8 +100,14 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == ProxyOutputConnectorEditPart.VISUAL_ID
-				|| visualID == ProxyInputConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case ProxyOutputConnectorEditPart.VISUAL_ID:
+		case ProxyInputConnectorEditPart.VISUAL_ID:
+		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
+		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -170,19 +196,4 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		makeViewsImmutable(createdViews);
 	}
-
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getProxyService_OutputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getProxyService_InputConnector());
-		}
-		return myFeaturesToSynchronize;
-	}
-
 }

@@ -3,7 +3,6 @@ package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -16,7 +15,6 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -27,7 +25,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.MergeNodeCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.MergeNodeItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -60,7 +57,7 @@ public class MergeNodeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -74,7 +71,7 @@ public class MergeNodeEditPart extends AbstractBorderedShapeEditPart {
 				new MergeNodeCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -111,12 +108,10 @@ public class MergeNodeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		SimpleMediatorFigure figure = new SimpleMediatorFigure();
-		figure.getSimpleMediatorNameLabelFigure().setText("[Merge]");
-		return primaryShape = figure;
+		return primaryShape = new SimpleMediatorFigure();
 	}
 
 	/**
@@ -174,29 +169,6 @@ public class MergeNodeEditPart extends AbstractBorderedShapeEditPart {
 			return contentPane;
 		}
 		return super.getContentPane();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	protected void addBorderItem(IFigure borderItemContainer,
-			IBorderItemEditPart borderItemEditPart) {
-		IFigure borderItemFigure = borderItemEditPart.getFigure();
-		if (borderItemEditPart instanceof MergeNodeFirstInputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure,
-					new FixedBorderItemLocator(getMainFigure(),
-							borderItemFigure, PositionConstants.WEST, 0.25));
-		} else if (borderItemEditPart instanceof MergeNodeSecondInputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure,
-					new FixedBorderItemLocator(getMainFigure(),
-							borderItemFigure, PositionConstants.WEST, 0.75));
-		} else if (borderItemEditPart instanceof MergeNodeOutputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure,
-					new FixedBorderItemLocator(getMainFigure(),
-							borderItemFigure, PositionConstants.EAST, 0.5));
-		} else {
-			super.addBorderItem(borderItemContainer, borderItemEditPart);
-		}
 	}
 
 	/**

@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 
 /**
  * @generated
@@ -55,7 +56,7 @@ public class CacheMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		CacheMediator newElement = EsbFactory.eINSTANCE.createCacheMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

@@ -24,19 +24,16 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FilterMediatorGraphicalShape;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.FilterMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.FilterMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated NOT
+ * @generated
  */
-public class FilterMediator2EditPart extends AbstractMediator {
+public class FilterMediator2EditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -126,7 +123,7 @@ public class FilterMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FilterMediatorConditionType2EditPart) {
@@ -136,33 +133,30 @@ public class FilterMediator2EditPart extends AbstractMediator {
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorInputConnector2EditPart) {
-			IFigure borderItemFigure = ((FilterMediatorInputConnector2EditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.WEST);
+			getBorderedFigure()
+					.getBorderItemContainer()
+					.add(((FilterMediatorInputConnector2EditPart) childEditPart)
+							.getFigure(), locator);
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorPassOutputConnector2EditPart) {
-			IFigure borderItemFigure = ((FilterMediatorPassOutputConnector2EditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.25);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.EAST);
+			getBorderedFigure()
+					.getBorderItemContainer()
+					.add(((FilterMediatorPassOutputConnector2EditPart) childEditPart)
+							.getFigure(), locator);
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorFailOutputConnector2EditPart) {
-			IFigure borderItemFigure = ((FilterMediatorFailOutputConnector2EditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.EAST);
+			getBorderedFigure()
+					.getBorderItemContainer()
+					.add(((FilterMediatorFailOutputConnector2EditPart) childEditPart)
+							.getFigure(), locator);
 			return true;
 		}
 		return false;
@@ -342,15 +336,14 @@ public class FilterMediator2EditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureFilterMediatorPropertyValue = new WrappingLabel();
-			fFigureFilterMediatorPropertyValue.setAlignment(SWT.CENTER);
+			fFigureFilterMediatorPropertyValue.setText("<...>");
 
-			this.getPropertyValueRectangle1().add(
-					fFigureFilterMediatorPropertyValue);
+			this.add(fFigureFilterMediatorPropertyValue);
 
 		}
 

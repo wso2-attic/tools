@@ -42,7 +42,7 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3075;
+	public static final int VISUAL_ID = 3223;
 
 	/**
 	 * @generated
@@ -132,7 +132,12 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof DBLookupMediatorConnectionURLEditPart) {
+			((DBLookupMediatorConnectionURLEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureDBLookupMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((DBLookupMediatorInputConnectorEditPart) childEditPart)
@@ -143,9 +148,8 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBLookupMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +157,6 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof DBLookupMediatorConnectionURLEditPart) {
-			((DBLookupMediatorConnectionURLEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDBLookupMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -357,15 +354,6 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "DBLookup";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
 
 	}
 

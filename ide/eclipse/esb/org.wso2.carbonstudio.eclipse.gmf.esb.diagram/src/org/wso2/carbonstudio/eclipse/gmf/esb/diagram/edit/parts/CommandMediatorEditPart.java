@@ -42,7 +42,7 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3072;
+	public static final int VISUAL_ID = 3222;
 
 	/**
 	 * @generated
@@ -132,9 +132,13 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof CommandMediatorClassNameEditPart) {
+			((CommandMediatorClassNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCommandMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof CommandMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((CommandMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -143,9 +147,8 @@ public class CommandMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof CommandMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((CommandMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +156,6 @@ public class CommandMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof CommandMediatorClassNameEditPart) {
-			((CommandMediatorClassNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCommandMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -358,15 +354,6 @@ public class CommandMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Command";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
 
 	}
 

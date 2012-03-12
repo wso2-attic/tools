@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.CommandMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 
 /**
  * @generated
@@ -56,7 +57,7 @@ public class CommandMediatorCreateCommand extends EditElementCommand {
 		CommandMediator newElement = EsbFactory.eINSTANCE
 				.createCommandMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

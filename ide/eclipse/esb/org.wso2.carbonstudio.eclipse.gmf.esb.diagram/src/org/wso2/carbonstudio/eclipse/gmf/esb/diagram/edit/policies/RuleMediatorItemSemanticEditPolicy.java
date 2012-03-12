@@ -31,7 +31,7 @@ public class RuleMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RuleMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.RuleMediator_3126);
+		super(EsbElementTypes.RuleMediator_3234);
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -15,14 +16,17 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SmooksMediatorCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SmooksMediatorItemSemanticEditPolicy;
@@ -36,7 +40,7 @@ public class SmooksMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3081;
+	public static final int VISUAL_ID = 3225;
 
 	/**
 	 * @generated
@@ -128,6 +132,47 @@ public class SmooksMediatorEditPart extends AbstractMediator {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
+	}
+
+	protected boolean addFixedChild(EditPart childEditPart) {
+
+		if (childEditPart instanceof SmooksMediatorInputConnectorEditPart) {
+
+			IFigure borderItemFigure = ((SmooksMediatorInputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+			return true;
+
+		} else if (childEditPart instanceof SmooksMediatorOutputConnectorEditPart) {
+
+			IFigure borderItemFigure = ((SmooksMediatorOutputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+
+			return true;
+		}
+		/*if (childEditPart instanceof ScriptMediatorScriptLanguageEditPart) {
+			((ScriptMediatorScriptLanguageEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureScriptMediatorPropertyValue());
+			return true;
+		}*/
+		return false;
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -228,14 +273,16 @@ public class SmooksMediatorEditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 
 			fFigureSmooksMediatorPropertyValue = new WrappingLabel();
 			fFigureSmooksMediatorPropertyValue.setText("<...>");
+			fFigureSmooksMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.add(fFigureSmooksMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(
+					fFigureSmooksMediatorPropertyValue);
 
 		}
 
@@ -253,17 +300,6 @@ public class SmooksMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Smooks";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
 
 	}
 

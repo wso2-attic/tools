@@ -29,7 +29,6 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.SequenceOpenEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.LogMediatorCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.LogMediatorItemSemanticEditPolicy;
@@ -43,7 +42,7 @@ public class LogMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3017;
+	public static final int VISUAL_ID = 3210;
 
 	/**
 	 * @generated
@@ -76,7 +75,6 @@ public class LogMediatorEditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new LogMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new ShowPropertyViewEditPolicy());
@@ -132,12 +130,15 @@ public class LogMediatorEditPart extends AbstractMediator {
 
 	/**
 	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof LogMediatorLogCategoryEditPart) {
+			((LogMediatorLogCategoryEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureLogCatogeryLogPropertyLabel());
+			return true;
+		}
 		if (childEditPart instanceof LogMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((LogMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -146,9 +147,8 @@ public class LogMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof LogMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof LogMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((LogMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -156,13 +156,6 @@ public class LogMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof LogMediatorLogCategoryEditPart) {
-			((LogMediatorLogCategoryEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureLogCatogeryLogPropertyLabel());
 			return true;
 		}
 		return false;
@@ -335,7 +328,6 @@ public class LogMediatorEditPart extends AbstractMediator {
 
 		/**
 		 * @generated NOT
-		 * @customizations add the property label to parent figure
 		 */
 		private void createContents() {
 
@@ -362,22 +354,12 @@ public class LogMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Log";
 		}
+
 	}
 
 	/**
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }

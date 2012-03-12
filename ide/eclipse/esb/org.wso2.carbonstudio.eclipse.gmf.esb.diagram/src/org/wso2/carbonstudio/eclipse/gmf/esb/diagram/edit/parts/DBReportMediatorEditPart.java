@@ -42,7 +42,7 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3078;
+	public static final int VISUAL_ID = 3224;
 
 	/**
 	 * @generated
@@ -132,9 +132,13 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof DBReportMediatorConnectionURLEditPart) {
+			((DBReportMediatorConnectionURLEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureDBReportMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof DBReportMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((DBReportMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -143,9 +147,8 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBReportMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +156,6 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof DBReportMediatorConnectionURLEditPart) {
-			((DBReportMediatorConnectionURLEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDBReportMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -358,15 +354,6 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "DBReport";
 		}
-
-	}
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
 
 	}
 

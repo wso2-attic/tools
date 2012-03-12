@@ -42,7 +42,7 @@ public class CacheMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3105;
+	public static final int VISUAL_ID = 3229;
 
 	/**
 	 * @generated
@@ -156,7 +156,6 @@ public class CacheMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		return false;
@@ -362,14 +361,5 @@ public class CacheMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

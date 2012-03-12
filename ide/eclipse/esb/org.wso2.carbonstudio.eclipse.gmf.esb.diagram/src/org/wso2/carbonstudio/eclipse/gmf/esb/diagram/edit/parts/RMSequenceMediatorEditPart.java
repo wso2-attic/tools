@@ -40,7 +40,7 @@ public class RMSequenceMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3123;
+	public static final int VISUAL_ID = 3233;
 
 	/**
 	 * @generated
@@ -127,9 +127,13 @@ public class RMSequenceMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
+	 * @generated
 	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof RMSequenceMediatorInputConnectorEditPart) {
@@ -169,14 +173,6 @@ public class RMSequenceMediatorEditPart extends AbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
 	}
 
 	/**
@@ -311,14 +307,5 @@ public class RMSequenceMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

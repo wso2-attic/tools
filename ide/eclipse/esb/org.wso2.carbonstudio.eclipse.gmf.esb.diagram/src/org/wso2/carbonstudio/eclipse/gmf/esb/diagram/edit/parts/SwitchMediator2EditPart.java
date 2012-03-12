@@ -21,16 +21,15 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.SwitchMediatorGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated NOT
+ * @generated
  */
-public class SwitchMediator2EditPart extends AbstractMediator {
+public class SwitchMediator2EditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -225,14 +224,14 @@ public class SwitchMediator2EditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureSwitchMediatorPropertyValue = new WrappingLabel();
 			fFigureSwitchMediatorPropertyValue.setText("<...>");
 
-			//this.add(fFigureSwitchMediatorPropertyValue);
+			this.add(fFigureSwitchMediatorPropertyValue);
 
 		}
 

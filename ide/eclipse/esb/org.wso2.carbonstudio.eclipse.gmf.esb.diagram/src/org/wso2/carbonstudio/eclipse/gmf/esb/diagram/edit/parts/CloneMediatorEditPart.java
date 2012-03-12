@@ -46,7 +46,7 @@ public class CloneMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3102;
+	public static final int VISUAL_ID = 3228;
 
 	/**
 	 * @generated
@@ -102,6 +102,7 @@ public class CloneMediatorEditPart extends AbstractMediator {
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
 				case CloneMediatorInputConnectorEditPart.VISUAL_ID:
 				case CloneMediatorOutputConnectorEditPart.VISUAL_ID:
+				case CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child
@@ -141,10 +142,8 @@ public class CloneMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
 		float outputCount = 0;
 		float outputPosition = 0;
-
 		if (childEditPart instanceof CloneMediatorCloneIDEditPart) {
 			((CloneMediatorCloneIDEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -161,9 +160,17 @@ public class CloneMediatorEditPart extends AbstractMediator {
 					locator);
 			return true;
 		}
-
+		if (childEditPart instanceof CloneMediatorOutputConnectorEditPart) {
+			IFigure borderItemFigure = ((CloneMediatorOutputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+			return true;
+		}
 		if (childEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((CloneMediatorTargetOutputConnectorEditPart) childEditPart)
 					.getFigure();
 
@@ -226,18 +233,6 @@ public class CloneMediatorEditPart extends AbstractMediator {
 			}
 			return true;
 		}
-
-		if (childEditPart instanceof CloneMediatorOutputConnectorEditPart) {
-			IFigure borderItemFigure = ((CloneMediatorOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-		}
-
 		return false;
 	}
 
@@ -257,6 +252,13 @@ public class CloneMediatorEditPart extends AbstractMediator {
 		if (childEditPart instanceof CloneMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((CloneMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
+			getBorderedFigure()
+					.getBorderItemContainer()
+					.remove(((CloneMediatorTargetOutputConnectorEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -441,14 +443,5 @@ public class CloneMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		isForward = isForward_;
-
-	}
 
 }

@@ -52,7 +52,7 @@ public class EventMediatorTopicTypeEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5050;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class EventMediatorTopicTypeEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.EventMediator_3051,
+							EsbElementTypes.EventMediator_3215,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicTypeEditPart.VISUAL_ID));

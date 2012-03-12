@@ -31,7 +31,7 @@ public class IterateMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public IterateMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.IterateMediator_3108);
+		super(EsbElementTypes.IterateMediator_3230);
 	}
 
 	/**

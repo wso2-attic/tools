@@ -3,17 +3,21 @@ package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.internal.expressions.InstanceofExpression;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.carbonstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {		
 
@@ -45,12 +49,290 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	
 	public void activate(){
 		super.activate();
-		if(!getIsForward())
+		if(!reversed)
 		Reverse(this);
+		
 	}
 	
-	protected void Reverse(EditPart editorPart) {
-		if(!reversed){
+	
+	public void Reverse(EditPart editorPart) {
+		if(!reversed  & (editorPart.getParent() instanceof ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart)){
+			
+			
+			
+		AbstractMediator selectedEP = (AbstractMediator) editorPart;
+		List<IFigure> inputConnectors = new ArrayList<IFigure>();
+		List<BorderItemLocator> inputLocators = new ArrayList<BorderItemLocator>();
+		List<IFigure> outputConnectors = new ArrayList<IFigure>();
+		List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
+		IFigure inputConnector;
+		IFigure outputConnector;
+		float inputCount = 0,outputCount=0;
+		float inputPosition=0,outputPosition=0;
+		
+		
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+				++inputCount;
+			}
+			}
+		
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+				++outputCount;
+			}
+			}
+		
+		
+		
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+
+				inputConnector = ((AbstractInputConnector) selectedEP
+						.getChildren().get(i)).getFigure();
+				inputConnectors.add(inputConnector);
+				NodeFigure figureInput = ((AbstractInputConnector) selectedEP
+						.getChildren().get(i)).getNodeFigureInput();				
+				inputPosition=inputPosition+(1/(inputCount+1));	
+				
+					figureInput.removeAll();
+					figureInput.add(((AbstractInputConnector) selectedEP
+							.getChildren().get(i)).getPrimaryShapeReverse());
+
+					
+					BorderItemLocator inputLocator = new FixedBorderItemLocator(
+							selectedEP.getMainFigure(), inputConnector,
+							PositionConstants.EAST,inputPosition);
+
+					inputLocators.add(inputLocator);
+				
+							
+			}
+
+			if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+
+				outputConnector = ((AbstractOutputConnector) selectedEP
+						.getChildren().get(i)).getFigure();
+				outputConnectors.add(outputConnector);
+				NodeFigure figureOutput = ((AbstractOutputConnector) selectedEP
+						.getChildren().get(i)).getNodeFigureOutput();
+				
+				outputPosition=outputPosition+(1/(outputCount+1));
+				
+
+					figureOutput.removeAll();
+					figureOutput.add(((AbstractOutputConnector) selectedEP
+							.getChildren().get(i)).getPrimaryShapeReverse());
+
+					BorderItemLocator outputLocator = new FixedBorderItemLocator(
+							selectedEP.getMainFigure(), outputConnector,
+							PositionConstants.WEST, outputPosition);
+
+					outputLocators.add(outputLocator);
+
+					
+			}
+
+		}
+		
+		
+		for (int j = 0; j < inputConnectors.size(); ++j) {
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.remove(inputConnectors.get(j));
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+			.add(inputConnectors.get(j), inputLocators.get(j));
+			
+			
+		}
+		for (int j = 0; j < outputConnectors.size(); ++j) {
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.remove(outputConnectors.get(j));
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+			.add(outputConnectors.get(j), outputLocators.get(j));
+			
+	
+		}
+		
+		reversed=true;
+		}
+		
+	}
+/*	
+	public void Reverse(EditPart editorPart) {
+		if(!reversed){		
+
+			AbstractMediator selectedEP = (AbstractMediator) editorPart;
+			List<IFigure> inputConnectors = new ArrayList<IFigure>();
+			List<BorderItemLocator> inputLocators = new ArrayList<BorderItemLocator>();
+			List<IFigure> outputConnectors = new ArrayList<IFigure>();
+			List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
+			IFigure inputConnector;
+			IFigure outputConnector;
+			float inputCount = 0,outputCount=0;
+			float inputPosition=0,outputPosition=0;
+			
+			
+			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+					++inputCount;
+				}
+				}
+			
+			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+					++outputCount;
+				}
+				}
+
+			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+
+					inputConnector = ((AbstractInputConnector) selectedEP
+							.getChildren().get(i)).getFigure();
+					inputConnectors.add(inputConnector);
+					NodeFigure figureInput = ((AbstractInputConnector) selectedEP
+							.getChildren().get(i)).getNodeFigureInput();				
+					inputPosition=inputPosition+(1/(inputCount+1));				
+					if (selectedEP.getIsForward()) {
+						figureInput.removeAll();
+						figureInput.add(((AbstractInputConnector) selectedEP
+								.getChildren().get(i)).getPrimaryShapeReverse());
+
+						
+						BorderItemLocator inputLocator = new FixedBorderItemLocator(
+								selectedEP.getMainFigure(), inputConnector,
+								PositionConstants.EAST,inputPosition);
+
+						inputLocators.add(inputLocator);
+					}
+					
+					if(!selectedEP.getIsForward()){
+						figureInput.removeAll();
+						figureInput.add(((AbstractInputConnector) selectedEP
+								.getChildren().get(i)).getPrimaryShapeForward());
+						BorderItemLocator inputLocator = new FixedBorderItemLocator(
+								selectedEP.getMainFigure(), inputConnector,
+								PositionConstants.WEST, inputPosition);
+						inputLocators.add(inputLocator);
+						
+					}
+					
+				}
+
+				if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+
+					outputConnector = ((AbstractOutputConnector) selectedEP
+							.getChildren().get(i)).getFigure();
+					outputConnectors.add(outputConnector);
+					NodeFigure figureOutput = ((AbstractOutputConnector) selectedEP
+							.getChildren().get(i)).getNodeFigureOutput();
+					
+					outputPosition=outputPosition+(1/(outputCount+1));
+					
+
+					if (selectedEP.getIsForward()) {
+						figureOutput.removeAll();
+						figureOutput.add(((AbstractOutputConnector) selectedEP
+								.getChildren().get(i)).getPrimaryShapeReverse());
+
+						BorderItemLocator outputLocator = new FixedBorderItemLocator(
+								selectedEP.getMainFigure(), outputConnector,
+								PositionConstants.WEST, outputPosition);
+
+						outputLocators.add(outputLocator);
+
+					}
+					if(!selectedEP.getIsForward()){
+						figureOutput.removeAll();
+						figureOutput.add(((AbstractOutputConnector) selectedEP
+								.getChildren().get(i)).getPrimaryShapeForward());
+						BorderItemLocator outputLocator = new FixedBorderItemLocator(
+								selectedEP.getMainFigure(), outputConnector,
+								PositionConstants.EAST, outputPosition);
+
+						outputLocators.add(outputLocator);
+						
+						
+						
+					}
+					
+				}
+
+			}
+
+			//if (selectedEP.getIsForward()) {
+				for (int j = 0; j < inputConnectors.size(); ++j) {
+					selectedEP.getBorderedFigure().getBorderItemContainer()
+							.remove(inputConnectors.get(j));
+					selectedEP.getBorderedFigure().getBorderItemContainer()
+					.add(inputConnectors.get(j), inputLocators.get(j));
+					
+					
+				}
+				for (int j = 0; j < outputConnectors.size(); ++j) {
+					selectedEP.getBorderedFigure().getBorderItemContainer()
+							.remove(outputConnectors.get(j));
+					selectedEP.getBorderedFigure().getBorderItemContainer()
+					.add(outputConnectors.get(j), outputLocators.get(j));
+					
+			
+				}
+			
+				
+				if(selectedEP.getIsForward()){
+					setText("Forward");
+					selectedEP.setIsForward(false);
+					SetCommand command = new SetCommand(selectedEP.getEditingDomain(), (Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement(), EsbPackage.Literals.MEDIATOR__REVERSE, true);				
+					if (command.canExecute()){
+						selectedEP.getEditingDomain().getCommandStack().execute(command);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
+					
+				}
+				else{
+					setText("Reverse");
+					selectedEP.setIsForward(true);
+					SetCommand command = new SetCommand(selectedEP.getEditingDomain(), (Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement(), EsbPackage.Literals.MEDIATOR__REVERSE, false);				
+					if (command.canExecute()){
+						selectedEP.getEditingDomain().getCommandStack().execute(command);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
+				}
+				
+			
+					Mediator selectedMediator=(Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement();
+					if(!selectedMediator.isReverse()){
+						SetCommand command = new SetCommand(selectedEP.getEditingDomain(), (Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement(), EsbPackage.Literals.MEDIATOR__REVERSE, true);				
+						if (command.canExecute()){
+							selectedEP.getEditingDomain().getCommandStack().execute(command);
+						} else {
+							System.out.println("Cannot Execute the command");
+						}
+					}
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		AbstractMediator selectedEP = (AbstractMediator) editorPart;
 		List<IFigure> inputConnectors = new ArrayList<IFigure>();
 		List<BorderItemLocator> inputLocators = new ArrayList<BorderItemLocator>();
@@ -96,7 +378,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					inputLocators.add(inputLocator);
 				}
 				
-		/*		if(selectedEP.getIsForward()){
+				if(selectedEP.getIsForward()){
 					figureInput.removeAll();
 					figureInput.add(((AbstractInputConnector) selectedEP
 							.getChildren().get(i)).getPrimaryShapeForward());
@@ -105,7 +387,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 							PositionConstants.WEST, inputPosition);
 					inputLocators.add(inputLocator);
 					
-				}*/
+				}
 				
 			}
 
@@ -132,7 +414,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					outputLocators.add(outputLocator);
 
 				}
-			/*	if(selectedEP.getIsForward()){
+				if(selectedEP.getIsForward()){
 					figureOutput.removeAll();
 					figureOutput.add(((AbstractOutputConnector) selectedEP
 							.getChildren().get(i)).getPrimaryShapeForward());
@@ -144,7 +426,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					
 					
 					
-				}*/
+				}
 				
 			}
 
@@ -213,8 +495,10 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			
 			reversed=true;
 			
+			
+			
 	}
 
-	}
+	}*/
 
 }

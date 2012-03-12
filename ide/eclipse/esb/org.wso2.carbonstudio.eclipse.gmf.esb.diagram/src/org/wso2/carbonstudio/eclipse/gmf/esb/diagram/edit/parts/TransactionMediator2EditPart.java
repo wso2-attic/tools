@@ -1,7 +1,6 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -16,17 +15,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.TransactionMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.TransactionMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -85,8 +81,8 @@ public class TransactionMediator2EditPart extends AbstractMediator {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case TransactionMediatorInputConnectorEditPart.VISUAL_ID:
-				case TransactionMediatorOutputConnectorEditPart.VISUAL_ID:
+				case TransactionMediatorInputConnector2EditPart.VISUAL_ID:
+				case TransactionMediatorOutputConnector2EditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child
@@ -120,47 +116,6 @@ public class TransactionMediator2EditPart extends AbstractMediator {
 	 */
 	public TransactionMediatorFigure getPrimaryShape() {
 		return (TransactionMediatorFigure) primaryShape;
-	}
-
-	protected boolean addFixedChild(EditPart childEditPart) {
-
-		if (childEditPart instanceof TransactionMediatorInputConnector2EditPart) {
-
-			IFigure borderItemFigure = ((TransactionMediatorInputConnector2EditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-
-		} else if (childEditPart instanceof TransactionMediatorOutputConnector2EditPart) {
-
-			IFigure borderItemFigure = ((TransactionMediatorOutputConnector2EditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof ClassMediatorClassNameEditPart) {
-			/*	((ClassMediatorClassNameEditPart) childEditPart)
-						.setLabel(getPrimaryShape()
-								.getFigureClassMediatorPropertyValue());*/
-			return true;
-		}
-		return false;
-	}
-
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -269,16 +224,14 @@ public class TransactionMediator2EditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureTransactionMediatorPropertyValue = new WrappingLabel();
 			fFigureTransactionMediatorPropertyValue.setText("<...>");
-			fFigureTransactionMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureTransactionMediatorPropertyValue);
+			this.add(fFigureTransactionMediatorPropertyValue);
 
 		}
 
@@ -287,14 +240,6 @@ public class TransactionMediator2EditPart extends AbstractMediator {
 		 */
 		public WrappingLabel getFigureTransactionMediatorPropertyValue() {
 			return fFigureTransactionMediatorPropertyValue;
-		}
-
-		public String getIconPath() {
-			return "icons/ico20/throttle-mediator.gif";
-		}
-
-		public String getNodeName() {
-			return "Transaction";
 		}
 
 	}

@@ -52,7 +52,7 @@ public class DBReportMediatorConnectionURLEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5018;
+	public static final int VISUAL_ID = 5059;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class DBReportMediatorConnectionURLEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.DBReportMediator_3078,
+							EsbElementTypes.DBReportMediator_3224,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart.VISUAL_ID));

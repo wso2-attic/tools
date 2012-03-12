@@ -1,10 +1,6 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -19,34 +15,26 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.DefaultSizeCaseBranchPointerNodeFigure;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EvenlyDividedFixedBorderItemLocator;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.SwitchMediatorGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchMediatorCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated NOT
+ * @generated
  */
-public class SwitchMediatorEditPart extends AbstractMediator {
+public class SwitchMediatorEditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3041;
+	public static final int VISUAL_ID = 3213;
 
 	/**
 	 * @generated
@@ -58,11 +46,6 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	 */
 	protected IFigure primaryShape;
 
-	private List<IFigure> outputConnectors = new ArrayList<IFigure>();
-	private List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
-	private IFigure inputConnector;
-	private IFigure outputConnector;
-
 	/**
 	 * @generated
 	 */
@@ -71,7 +54,7 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -84,11 +67,7 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SwitchMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that
-		// would let children add reasonable editpolicies
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -126,165 +105,6 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
-	 */
-
-	protected boolean addFixedChild(EditPart childEditPart) {
-
-		float outputCount = 0;
-		float outputPosition = 0;
-
-		// int caseBranchesCount = arrangeCaseBranches();
-		if (childEditPart instanceof SwitchMediatorInputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((SwitchMediatorInputConnectorEditPart) childEditPart)
-					.getFigure();
-
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-
-		} else if (childEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((SwitchCaseBranchOutputConnectorEditPart) childEditPart)
-					.getFigure();
-
-			if (!this.getIsForward()) {
-				NodeFigure figureOutput = ((AbstractOutputConnector) this
-						.getChildren().get(this.getChildren().size() - 1))
-						.getNodeFigureOutput();
-				figureOutput.removeAll();
-				figureOutput.add(((AbstractOutputConnector) this.getChildren()
-						.get(this.getChildren().size() - 1))
-						.getPrimaryShapeReverse());
-			}
-
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			for (int i = 0; i < this.getChildren().size(); ++i) {
-				if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
-					++outputCount;
-				}
-			}
-
-			for (int i = 0; i < this.getChildren().size(); ++i) {
-				if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
-
-					outputConnector = ((AbstractOutputConnector) this
-							.getChildren().get(i)).getFigure();
-					outputConnectors.add(outputConnector);
-					outputPosition = outputPosition + (1 / (outputCount + 1));
-
-					if (this.getIsForward()) {
-
-						BorderItemLocator outputLocator = new FixedBorderItemLocator(
-								this.getMainFigure(), outputConnector,
-								PositionConstants.EAST, outputPosition);
-
-						outputLocators.add(outputLocator);
-
-					}
-					if (!this.getIsForward()) {
-
-						BorderItemLocator outputLocator = new FixedBorderItemLocator(
-								this.getMainFigure(), outputConnector,
-								PositionConstants.WEST, outputPosition);
-
-						outputLocators.add(outputLocator);
-
-					}
-				}
-			}
-
-			for (int j = 0; j < outputConnectors.size(); ++j) {
-				this.getBorderedFigure().getBorderItemContainer()
-						.remove(outputConnectors.get(j));
-				this.getBorderedFigure().getBorderItemContainer()
-						.add(outputConnectors.get(j), outputLocators.get(j));
-
-			}
-
-			/*
-			 * IFigure borderItemFigure =
-			 * ((SwitchCaseBranchOutputConnectorEditPart) childEditPart)
-			 * .getFigure(); getBorderedFigure() .getBorderItemContainer()
-			 * .add(borderItemFigure, new EvenlyDividedFixedBorderItemLocator(
-			 * getMainFigure(), borderItemFigure, PositionConstants.EAST,
-			 * ((DefaultSizeCaseBranchPointerNodeFigure) borderItemFigure)
-			 * .getId(), caseBranchesCount));
-			 */
-
-			return true;
-		}
-
-		else if (childEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((SwitchDefaultBranchOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-
-			/*
-			 * IFigure borderItemFigure =
-			 * ((SwitchDefaultBranchOutputConnectorEditPart) childEditPart)
-			 * .getFigure(); getBorderedFigure() .getBorderItemContainer()
-			 * .add(borderItemFigure, new EvenlyDividedFixedBorderItemLocator(
-			 * getMainFigure(), borderItemFigure, PositionConstants.EAST,
-			 * ((DefaultSizeCaseBranchPointerNodeFigure)
-			 * borderItemFigure).getId(),1));// caseBranchesCount));
-			 */
-
-		}
-
-		return false;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			//arrangeCaseBranches();
-			getBorderedFigure().getBorderItemContainer().remove(
-					((SwitchCaseBranchOutputConnectorEditPart) childEditPart)
-							.getFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
@@ -309,8 +129,8 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model so
-	 * you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -324,11 +144,9 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane. Respects
-	 * layout one may have set for generated figure.
-	 * 
-	 * @param nodeShape
-	 *            instance of generated figure class
+	 * Default implementation treats passed figure as content pane.
+	 * Respects layout one may have set for generated figure.
+	 * @param nodeShape instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -386,37 +204,6 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 		}
 	}
 
-	/*public int arrangeCaseBranches() {
-
-		@SuppressWarnings("rawtypes")
-		List childParts = this.getChildren();
-		List<SwitchCaseBranchOutputConnectorEditPart> caseBranchparts = new ArrayList<SwitchCaseBranchOutputConnectorEditPart>();
-
-		int id = 1;
-		for (Object editpart : childParts) {
-			if (editpart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-				SwitchCaseBranchOutputConnectorEditPart caseBranch = (SwitchCaseBranchOutputConnectorEditPart) editpart;
-				caseBranchparts.add(caseBranch);
-			}
-		}
-		int caseBranchCount = caseBranchparts.size();
-
-		for (SwitchCaseBranchOutputConnectorEditPart caseBranchEditpart : caseBranchparts) {
-			// if (((DefaultSizeCaseBranchPointerNodeFigure) caseBranch
-			// .getFigure()).getId() == -1) {
-			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart
-					.getFigure()).setId(id++);
-			EvenlyDividedFixedBorderItemLocator borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
-					.getBorderItemLocator();
-			if (borderItemLocator != null) {
-				borderItemLocator.setSiblingCount(caseBranchCount);
-			}
-			// }
-		}
-
-		return caseBranchCount;
-	}*/
-
 	/**
 	 * @generated
 	 */
@@ -437,14 +224,14 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureSwitchMediatorPropertyValue = new WrappingLabel();
 			fFigureSwitchMediatorPropertyValue.setText("<...>");
 
-			// this.add(fFigureSwitchMediatorPropertyValue);
+			this.add(fFigureSwitchMediatorPropertyValue);
 
 		}
 
@@ -461,16 +248,5 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }

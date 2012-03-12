@@ -37,7 +37,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 /**
  * @generated NOT
  */
-public class ProxyOutputConnectorEditPart extends AbstractBorderItemEditPart {
+public class ProxyOutputConnectorEditPart extends AbstractOutputConnector {
 
 	/**
 	 * @generated

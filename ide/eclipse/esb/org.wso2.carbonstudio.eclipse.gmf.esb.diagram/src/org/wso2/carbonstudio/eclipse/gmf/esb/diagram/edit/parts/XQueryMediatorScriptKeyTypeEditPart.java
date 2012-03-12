@@ -52,7 +52,7 @@ public class XQueryMediatorScriptKeyTypeEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5056;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class XQueryMediatorScriptKeyTypeEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.XQueryMediator_3069,
+							EsbElementTypes.XQueryMediator_3221,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID));

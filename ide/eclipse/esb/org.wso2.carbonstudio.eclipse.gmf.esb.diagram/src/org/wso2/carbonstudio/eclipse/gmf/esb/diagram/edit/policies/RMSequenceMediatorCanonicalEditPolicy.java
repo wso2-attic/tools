@@ -23,9 +23,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorInputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorInputConnectorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorOutputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorOutputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
@@ -75,7 +73,7 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getRMSequenceMediator_3123SemanticChildren(viewObject);
+				.getRMSequenceMediator_3233SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -109,7 +107,7 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getRMSequenceMediator_3123SemanticChildren((View) getHost()
+				.getRMSequenceMediator_3233SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

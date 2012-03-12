@@ -1,7 +1,6 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -16,14 +15,12 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.MessageMediatorCanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.MessageMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -119,46 +116,6 @@ public class MessageMediatorEditPart extends BorderedBorderItemEditPart {
 	 */
 	public MessageMediatorFigure getPrimaryShape() {
 		return (MessageMediatorFigure) primaryShape;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof MessageInputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((MessageInputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-			return true;
-
-		} else if (childEditPart instanceof MessageOutputConnectorEditPart) {
-
-			IFigure borderItemFigure = ((MessageOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.25);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
-
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -261,22 +218,6 @@ public class MessageMediatorEditPart extends BorderedBorderItemEditPart {
 		public MessageMediatorFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-		}
-
-		public String getIconPath() {
-			return "icons/ico20/message-mediator.gif";
-		}
-
-		public String getNodeName() {
-			return "Message";
-		}
-
-		public Color getBackgroundColor() {
-			return THIS_BACK;
-		}
-
-		public Color getLabelBackColor() {
-			return THIS_BACK;
 		}
 
 	}

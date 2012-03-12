@@ -34,7 +34,7 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.OAuthMediator
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.OAuthMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+/** 
  * @generated NOT
  */
 public class OAuthMediatorEditPart extends AbstractMediator {
@@ -42,7 +42,7 @@ public class OAuthMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3129;
+	public static final int VISUAL_ID = 3235;
 
 	/**
 	 * @generated
@@ -75,7 +75,6 @@ public class OAuthMediatorEditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new OAuthMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new ShowPropertyViewEditPolicy());
@@ -157,7 +156,6 @@ public class OAuthMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		return false;
@@ -363,16 +361,5 @@ public class OAuthMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }

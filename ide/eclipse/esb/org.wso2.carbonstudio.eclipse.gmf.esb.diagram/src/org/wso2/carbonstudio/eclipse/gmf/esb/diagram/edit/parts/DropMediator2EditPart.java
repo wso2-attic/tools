@@ -27,6 +27,7 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DropMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.DropMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -59,7 +60,7 @@ public class DropMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -72,6 +73,9 @@ public class DropMediator2EditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new DropMediator2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -129,6 +133,18 @@ public class DropMediator2EditPart extends AbstractMediator {
 		return result;
 	}
 
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
+		IFigure borderItemFigure = borderItemEditPart.getFigure();
+		if (borderItemEditPart instanceof DropMediatorInputConnectorEditPart) {
+			borderItemContainer.add(borderItemFigure,
+					new FixedBorderItemLocator(getMainFigure(),
+							borderItemFigure, PositionConstants.WEST, 0.5));
+		} else {
+			super.addBorderItem(borderItemContainer, borderItemEditPart);
+		}
+	}
+
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -169,18 +185,6 @@ public class DropMediator2EditPart extends AbstractMediator {
 			return contentPane;
 		}
 		return super.getContentPane();
-	}
-
-	protected void addBorderItem(IFigure borderItemContainer,
-			IBorderItemEditPart borderItemEditPart) {
-		IFigure borderItemFigure = borderItemEditPart.getFigure();
-		if (borderItemEditPart instanceof DropMediatorInputConnector2EditPart) {
-			borderItemContainer.add(borderItemFigure,
-					new FixedBorderItemLocator(getMainFigure(),
-							borderItemFigure, PositionConstants.WEST, 0.5));
-		} else {
-			super.addBorderItem(borderItemContainer, borderItemEditPart);
-		}
 	}
 
 	/**
@@ -270,8 +274,8 @@ public class DropMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 230, 0, 0);
+	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 
 }

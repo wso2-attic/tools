@@ -9,6 +9,7 @@ import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.carbonstudio.eclipse.esb.core.Activator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.carbonstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
 import org.wso2.carbonstudio.eclipse.logging.core.Logger;
 
@@ -88,7 +89,48 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSendMediator_DynamicReceivingSequence().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getProxyService_WsdlKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getPropertyMediator_ValueExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getEventMediator_DynamicTopic().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getEventMediator_EventExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXSLTMediator_XsltDynamicSchemaKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXSLTMediator_SourceXPath().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXSLTMediator_XsltStaticSchemaKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
+		} else if(pkg.getXQueryMediator_TargetXPath().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXQueryMediator_DynamicScriptKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXQueryMediator_StaticScriptKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getFaultMediator_FaultReasonExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getFaultMediator_FaultDetailExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getFaultMediator_FaultStringExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getCalloutMediator_PayloadRegistryKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSpringMediator_ConfigurationKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getScriptMediator_ScriptKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSmooksMediator_ConfigurationKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSmooksInConfiguration_Expression().equals(feature)){
+			return new CustomPropertyDescriptor(((SmooksMediator)object).getInput(), itemPropertyDescriptor);
+		} else if(pkg.getSmooksOutConfiguration_Expression().equals(feature)){
+			return new CustomPropertyDescriptor(((SmooksMediator)object).getOutput(), itemPropertyDescriptor);
 		}
+			
+		
+		
 		
 		
 		// Else, default EMF behavior

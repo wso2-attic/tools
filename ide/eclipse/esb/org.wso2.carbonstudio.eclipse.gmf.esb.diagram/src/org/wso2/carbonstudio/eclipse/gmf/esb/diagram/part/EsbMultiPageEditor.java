@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-
+import org.eclipse.core.internal.resources.ModelObject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
@@ -58,8 +58,6 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.carbonstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.carbonstudio.eclipse.gmf.esb.persistence.SequenceInfo;
-import org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.part.EsbDiagramEditorUtil;
-import org.wso2.carbonstudio.eclipse.gmf.esb.util.EsbResourceFactoryImpl;
 
 
 /**

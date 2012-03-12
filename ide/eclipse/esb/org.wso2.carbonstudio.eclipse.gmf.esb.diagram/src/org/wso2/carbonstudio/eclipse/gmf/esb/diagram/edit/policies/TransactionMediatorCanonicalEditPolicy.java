@@ -23,9 +23,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorInputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorInputConnectorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorOutputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorOutputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
@@ -75,7 +73,7 @@ public class TransactionMediatorCanonicalEditPolicy extends CanonicalEditPolicy 
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getTransactionMediator_3117SemanticChildren(viewObject);
+				.getTransactionMediator_3232SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -109,7 +107,7 @@ public class TransactionMediatorCanonicalEditPolicy extends CanonicalEditPolicy 
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getTransactionMediator_3117SemanticChildren((View) getHost()
+				.getTransactionMediator_3232SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

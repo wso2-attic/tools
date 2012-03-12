@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.carbonstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 import org.wso2.carbonstudio.eclipse.gmf.esb.SendMediator;
 
 /**
@@ -55,7 +56,7 @@ public class SendMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		SendMediator newElement = EsbFactory.eINSTANCE.createSendMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

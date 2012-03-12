@@ -1,5 +1,8 @@
 package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
@@ -27,8 +30,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.CloneMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.CloneMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -53,6 +58,11 @@ public class CloneMediator2EditPart extends AbstractMediator {
 	 */
 	protected IFigure primaryShape;
 
+	private List<IFigure> outputConnectors = new ArrayList<IFigure>();
+	private List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
+	private IFigure inputConnector;
+	private IFigure outputConnector;
+
 	/**
 	 * @generated
 	 */
@@ -61,7 +71,7 @@ public class CloneMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -74,6 +84,9 @@ public class CloneMediator2EditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new CloneMediator2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -129,6 +142,8 @@ public class CloneMediator2EditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		float outputCount = 0;
+		float outputPosition = 0;
 		if (childEditPart instanceof CloneMediatorCloneID2EditPart) {
 			((CloneMediatorCloneID2EditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -145,6 +160,72 @@ public class CloneMediator2EditPart extends AbstractMediator {
 					locator);
 			return true;
 		}
+
+		if (childEditPart instanceof CloneMediatorTargetOutputConnector2EditPart) {
+
+			IFigure borderItemFigure = ((CloneMediatorTargetOutputConnector2EditPart) childEditPart)
+					.getFigure();
+
+			if (!this.getIsForward()) {
+				NodeFigure figureOutput = ((AbstractOutputConnector) this
+						.getChildren().get(this.getChildren().size() - 1))
+						.getNodeFigureOutput();
+				figureOutput.removeAll();
+				figureOutput.add(((AbstractOutputConnector) this.getChildren()
+						.get(this.getChildren().size() - 1))
+						.getPrimaryShapeReverse());
+			}
+
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+			for (int i = 0; i < this.getChildren().size(); ++i) {
+				if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
+					++outputCount;
+				}
+			}
+
+			for (int i = 0; i < this.getChildren().size(); ++i) {
+				if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
+
+					outputConnector = ((AbstractOutputConnector) this
+							.getChildren().get(i)).getFigure();
+					outputConnectors.add(outputConnector);
+					outputPosition = outputPosition + (1 / (outputCount + 1));
+
+					if (this.getIsForward()) {
+
+						BorderItemLocator outputLocator = new FixedBorderItemLocator(
+								this.getMainFigure(), outputConnector,
+								PositionConstants.EAST, outputPosition);
+
+						outputLocators.add(outputLocator);
+
+					}
+					if (!this.getIsForward()) {
+
+						BorderItemLocator outputLocator = new FixedBorderItemLocator(
+								this.getMainFigure(), outputConnector,
+								PositionConstants.WEST, outputPosition);
+
+						outputLocators.add(outputLocator);
+
+					}
+				}
+			}
+
+			for (int j = 0; j < outputConnectors.size(); ++j) {
+				this.getBorderedFigure().getBorderItemContainer()
+						.remove(outputConnectors.get(j));
+				this.getBorderedFigure().getBorderItemContainer()
+						.add(outputConnectors.get(j), outputLocators.get(j));
+
+			}
+			return true;
+		}
+
 		if (childEditPart instanceof CloneMediatorOutputConnector2EditPart) {
 			IFigure borderItemFigure = ((CloneMediatorOutputConnector2EditPart) childEditPart)
 					.getFigure();
@@ -153,15 +234,6 @@ public class CloneMediator2EditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-			return true;
-		}
-		if (childEditPart instanceof CloneMediatorTargetOutputConnector2EditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.EAST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((CloneMediatorTargetOutputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
 			return true;
 		}
 		return false;
@@ -354,7 +426,7 @@ public class CloneMediator2EditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public WrappingLabel getFigureCloneMediatorPropertyValue() {
 			return fFigureCloneMediatorPropertyValue;

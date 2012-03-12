@@ -13,6 +13,7 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.SWTGraphics;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.PointList;
@@ -103,11 +104,7 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case ProxyServiceEditPart.VISUAL_ID:
 				case MessageMediatorEditPart.VISUAL_ID:
-				case DefaultEndPointEditPart.VISUAL_ID:
-				case AddressEndPointEditPart.VISUAL_ID:
-				case WSDLEndPointEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child
@@ -216,17 +213,17 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 					new SlidingBorderItemLocator(getMainFigure(),
 							borderItemEditPart.getFigure(),
 							PositionConstants.WEST, 10, 5));
-		} else if (borderItemEditPart instanceof DefaultEndPointEditPart) {
+		} else if (borderItemEditPart instanceof DefaultEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
 					new SlidingBorderItemLocator(getMainFigure(),
 							borderItemEditPart.getFigure(),
 							PositionConstants.EAST, 10, 5));
-		} else if (borderItemEditPart instanceof AddressEndPointEditPart) {
+		} else if (borderItemEditPart instanceof AddressEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
 					new SlidingBorderItemLocator(getMainFigure(),
 							borderItemEditPart.getFigure(),
 							PositionConstants.EAST, 10, 5));
-		} else if (borderItemEditPart instanceof WSDLEndPointEditPart) {
+		} else if (borderItemEditPart instanceof WSDLEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
 					new SlidingBorderItemLocator(getMainFigure(),
 							borderItemEditPart.getFigure(),
@@ -312,6 +309,15 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		public EsbServerFigure() {
 
+			/*	ToolbarLayout layoutThis = new ToolbarLayout();
+				layoutThis.setStretchMinorAxis(true);
+				layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+				layoutThis.setSpacing(5);
+				layoutThis.setVertical(false);
+
+				this.setLayoutManager(layoutThis);*/
+
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
 			layoutThis.makeColumnsEqualWidth = true;
@@ -323,8 +329,8 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 
 			this.setOutline(true);
 			// TODO: review this:
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300),
-					getMapMode().DPtoLP(200)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(600)));
 
 			// Leave more space on left and right for border item placement.
 			MarginBorder marginBorder = new MarginBorder(-7, 20, -5, 20);

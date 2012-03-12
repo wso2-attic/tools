@@ -24,11 +24,11 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.HeaderMediator2CanonicalEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.HeaderMediator2ItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -61,7 +61,7 @@ public class HeaderMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -74,6 +74,9 @@ public class HeaderMediator2EditPart extends AbstractMediator {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new HeaderMediator2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -125,7 +128,7 @@ public class HeaderMediator2EditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof HeaderMediatorValueLiteral2EditPart) {
@@ -323,16 +326,14 @@ public class HeaderMediator2EditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureHeaderMediatorPropertyValue = new WrappingLabel();
 			fFigureHeaderMediatorPropertyValue.setText("<...>");
-			fFigureHeaderMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureHeaderMediatorPropertyValue);
+			this.add(fFigureHeaderMediatorPropertyValue);
 
 		}
 
@@ -341,14 +342,6 @@ public class HeaderMediator2EditPart extends AbstractMediator {
 		 */
 		public WrappingLabel getFigureHeaderMediatorPropertyValue() {
 			return fFigureHeaderMediatorPropertyValue;
-		}
-
-		public String getIconPath() {
-			return "icons/ico20/header-mediator.gif";
-		}
-
-		public String getNodeName() {
-			return "Header";
 		}
 
 	}

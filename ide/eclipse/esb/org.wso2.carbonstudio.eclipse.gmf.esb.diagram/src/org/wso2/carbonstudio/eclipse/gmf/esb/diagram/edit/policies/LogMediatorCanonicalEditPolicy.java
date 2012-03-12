@@ -54,12 +54,26 @@ public class LogMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getLogMediator_InputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getLogMediator_OutputConnector());
+		}
+		return myFeaturesToSynchronize;
+	}
+
+	/**
+	 * @generated
+	 */
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getLogMediator_3017SemanticChildren(viewObject);
+				.getLogMediator_3210SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -93,7 +107,7 @@ public class LogMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getLogMediator_3017SemanticChildren((View) getHost()
+				.getLogMediator_3210SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
@@ -170,19 +184,4 @@ public class LogMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		makeViewsImmutable(createdViews);
 	}
-
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getLogMediator_InputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getLogMediator_OutputConnector());
-		}
-		return myFeaturesToSynchronize;
-	}
-
 }

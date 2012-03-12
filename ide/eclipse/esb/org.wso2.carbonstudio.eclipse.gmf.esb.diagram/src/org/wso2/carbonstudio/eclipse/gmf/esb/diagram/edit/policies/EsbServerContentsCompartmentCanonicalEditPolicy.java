@@ -2,11 +2,9 @@ package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -23,40 +21,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.MergeNodeEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SmooksMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.XSLTMediatorEditPart;
+import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -115,44 +81,8 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case DropMediatorEditPart.VISUAL_ID:
-		case FilterMediatorEditPart.VISUAL_ID:
-		case MergeNodeEditPart.VISUAL_ID:
-		case LogMediatorEditPart.VISUAL_ID:
-		case PropertyMediatorEditPart.VISUAL_ID:
-		case EnrichMediatorEditPart.VISUAL_ID:
-		case XSLTMediatorEditPart.VISUAL_ID:
-		case SwitchMediatorEditPart.VISUAL_ID:
-		case SequenceEditPart.VISUAL_ID:
-		case EventMediatorEditPart.VISUAL_ID:
-		case EntitlementMediatorEditPart.VISUAL_ID:
-		case ClassMediatorEditPart.VISUAL_ID:
-		case SpringMediatorEditPart.VISUAL_ID:
-		case ScriptMediatorEditPart.VISUAL_ID:
-		case FaultMediatorEditPart.VISUAL_ID:
-		case XQueryMediatorEditPart.VISUAL_ID:
-		case CommandMediatorEditPart.VISUAL_ID:
-		case DBLookupMediatorEditPart.VISUAL_ID:
-		case DBReportMediatorEditPart.VISUAL_ID:
-		case SmooksMediatorEditPart.VISUAL_ID:
-		case SendMediatorEditPart.VISUAL_ID:
-		case FailoverEndPointEditPart.VISUAL_ID:
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-		case HeaderMediatorEditPart.VISUAL_ID:
-		case CloneMediatorEditPart.VISUAL_ID:
-		case CacheMediatorEditPart.VISUAL_ID:
-		case IterateMediatorEditPart.VISUAL_ID:
-		case CalloutMediatorEditPart.VISUAL_ID:
-		case TransactionMediatorEditPart.VISUAL_ID:
-		case ThrottleMediatorEditPart.VISUAL_ID:
-		case RMSequenceMediatorEditPart.VISUAL_ID:
-		case RuleMediatorEditPart.VISUAL_ID:
-		case OAuthMediatorEditPart.VISUAL_ID:
-		case AggregateMediatorEditPart.VISUAL_ID:
-			return true;
-		}
-		return false;
+		return visualID == ProxyServiceEditPart.VISUAL_ID
+				|| visualID == MergeNodeEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -241,5 +171,4 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 
 		makeViewsImmutable(createdViews);
 	}
-
 }

@@ -42,7 +42,7 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3069;
+	public static final int VISUAL_ID = 3221;
 
 	/**
 	 * @generated
@@ -132,9 +132,13 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-
+		if (childEditPart instanceof XQueryMediatorScriptKeyTypeEditPart) {
+			((XQueryMediatorScriptKeyTypeEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureXQueryMediatorPropertyValue());
+			return true;
+		}
 		if (childEditPart instanceof XQueryMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((XQueryMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -143,9 +147,8 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
-
-		} else if (childEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
-
+		}
+		if (childEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((XQueryMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,13 +156,6 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 					0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
-			return true;
-		}
-		if (childEditPart instanceof XQueryMediatorScriptKeyTypeEditPart) {
-			((XQueryMediatorScriptKeyTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureXQueryMediatorPropertyValue());
 			return true;
 		}
 		return false;
@@ -358,22 +354,11 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "XQuery";
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-	}
 
 }

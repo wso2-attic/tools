@@ -13,14 +13,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorInputConnector2CreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorInputConnectorCreateCommand;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorOutputConnector2CreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorOutputConnectorCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorInputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorInputConnectorEditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorOutputConnector2EditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorOutputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -35,7 +31,7 @@ public class RMSequenceMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RMSequenceMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.RMSequenceMediator_3123);
+		super(EsbElementTypes.RMSequenceMediator_3233);
 	}
 
 	/**

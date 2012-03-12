@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -35,36 +35,36 @@ import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.PropertyMedia
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.policies.PropertyMediatorItemSemanticEditPolicy;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+*//**
  * @generated NOT
- */
+ *//*
 public class PropertyMediatorEditPart extends AbstractMediator {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 3032;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure contentPane;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure primaryShape;
 
-	/**
+	*//**
 	 * @generated 
-	 */
+	 *//*
 	public PropertyMediatorEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -83,9 +83,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -115,24 +115,24 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return lep;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure createNodeShape() {
 		return primaryShape = new PropertyMediatorFigure();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public PropertyMediatorFigure getPrimaryShape() {
 		return (PropertyMediatorFigure) primaryShape;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
 	 * @customizations: fixed border locators for connectors
-	 */
+	 *//*
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
@@ -167,9 +167,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof PropertyMediatorPropertyNameEditPart) {
 			return true;
@@ -189,9 +189,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -199,9 +199,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		super.addChildVisual(childEditPart, -1);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -209,9 +209,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		super.removeChildVisual(childEditPart);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
@@ -219,22 +219,22 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
-	/**
+	*//**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -244,12 +244,12 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return figure;
 	}
 
-	/**
+	*//**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
 	 * @generated
-	 */
+	 *//*
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -259,9 +259,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -269,72 +269,72 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		return super.getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(PropertyMediatorPropertyNameEditPart.VISUAL_ID));
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public class PropertyMediatorFigure extends EsbGraphicalShape {
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		private WrappingLabel fFigurePropertyMediatorPropertyValueLabel;
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public PropertyMediatorFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		/**
+		*//**
 		 * @generated NOT
-		 */
+		 *//*
 		private void createContents() {
 
 			fFigurePropertyMediatorPropertyValueLabel = new WrappingLabel();
@@ -346,9 +346,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 					fFigurePropertyMediatorPropertyValueLabel);
 		}
 
-		/**
+		*//**
 		 * @generated
-		 */
+		 *//*
 		public WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {
 			return fFigurePropertyMediatorPropertyValueLabel;
 		}
@@ -363,9 +363,9 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 
 	public boolean getIsForward() {
@@ -377,4 +377,4 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 
 	}
 
-}
+}*/

@@ -40,7 +40,7 @@ public class RuleMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3126;
+	public static final int VISUAL_ID = 3234;
 
 	/**
 	 * @generated
@@ -127,9 +127,13 @@ public class RuleMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
+	 * @generated
 	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof RuleMediatorInputConnectorEditPart) {
@@ -169,14 +173,6 @@ public class RuleMediatorEditPart extends AbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
 	}
 
 	/**
@@ -311,16 +307,5 @@ public class RuleMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }

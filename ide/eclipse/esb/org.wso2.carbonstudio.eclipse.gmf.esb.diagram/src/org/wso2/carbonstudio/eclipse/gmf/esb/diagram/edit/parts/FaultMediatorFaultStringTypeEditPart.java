@@ -52,7 +52,7 @@ public class FaultMediatorFaultStringTypeEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5014;
+	public static final int VISUAL_ID = 5055;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class FaultMediatorFaultStringTypeEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.FaultMediator_3066,
+							EsbElementTypes.FaultMediator_3220,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringTypeEditPart.VISUAL_ID));

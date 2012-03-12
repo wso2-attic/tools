@@ -14,14 +14,10 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorInputConnector2CreateCommand;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorInputConnectorCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorOutputConnector2CreateCommand;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorOutputConnectorCreateCommand;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorInputConnector2EditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorInputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorOutputConnector2EditPart;
-import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorOutputConnectorEditPart;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 

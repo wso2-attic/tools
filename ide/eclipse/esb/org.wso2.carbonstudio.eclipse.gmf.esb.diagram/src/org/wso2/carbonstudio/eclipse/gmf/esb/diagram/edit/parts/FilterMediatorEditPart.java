@@ -24,9 +24,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FilterMediatorGraphicalShape;
 import org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -43,7 +41,7 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3009;
+	public static final int VISUAL_ID = 3209;
 
 	/**
 	 * @generated
@@ -132,7 +130,6 @@ public class FilterMediatorEditPart extends AbstractMediator {
 
 	/**
 	 * @generated NOT
-	 * @customizations: fixed border locators for connectors
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FilterMediatorConditionTypeEditPart) {
@@ -141,9 +138,7 @@ public class FilterMediatorEditPart extends AbstractMediator {
 							.getFigureFilterMediatorPropertyValue());
 			return true;
 		}
-
 		if (childEditPart instanceof FilterMediatorInputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((FilterMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -153,9 +148,7 @@ public class FilterMediatorEditPart extends AbstractMediator {
 					locator);
 			return true;
 		}
-
 		if (childEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((FilterMediatorPassOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -163,11 +156,9 @@ public class FilterMediatorEditPart extends AbstractMediator {
 					0.25);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
-
 			IFigure borderItemFigure = ((FilterMediatorFailOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -175,10 +166,8 @@ public class FilterMediatorEditPart extends AbstractMediator {
 					0.75);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
-
 			return true;
 		}
-
 		return false;
 	}
 
@@ -251,8 +240,8 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model so
-	 * you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -266,11 +255,9 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane. Respects
-	 * layout one may have set for generated figure.
-	 * 
-	 * @param nodeShape
-	 *            instance of generated figure class
+	 * Default implementation treats passed figure as content pane.
+	 * Respects layout one may have set for generated figure.
+	 * @param nodeShape instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -356,15 +343,15 @@ public class FilterMediatorEditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
 			fFigureFilterMediatorPropertyValue = new WrappingLabel();
-			fFigureFilterMediatorPropertyValue.setAlignment(SWT.CENTER);
+			fFigureFilterMediatorPropertyValue.setText("<...>");
 
-			this.getPropertyValueRectangle1().add(
-					fFigureFilterMediatorPropertyValue);
+			this.add(fFigureFilterMediatorPropertyValue);
+
 		}
 
 		/**
@@ -380,16 +367,5 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
-
-	public boolean getIsForward() {
-		// TODO Auto-generated method stub
-		return isForward;
-	}
-
-	public void setIsForward(boolean isForward_) {
-		// TODO Auto-generated method stub
-		isForward = isForward_;
-
-	}
 
 }
