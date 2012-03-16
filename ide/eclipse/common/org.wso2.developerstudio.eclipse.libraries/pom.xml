@@ -28,9 +28,9 @@
     	<artifactId>wso2-eclipse-common</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
   <packaging>eclipse-plugin</packaging>
-    <name>Carbon Studio Libraries</name>
+    <name>Developer Studio Libraries</name>
     <!--  dependencies>
 		<dependency>
     			<groupId>commons-io.wso2</groupId>

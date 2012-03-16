@@ -20,7 +20,7 @@ Index: META-INF/MANIFEST.MF
 @@ -2,7 +2,7 @@
  Bundle-ManifestVersion: 2
  Bundle-Name: Libraries
- Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.libraries;singleton:=true
+ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.libraries;singleton:=true
 -Bundle-Version: 2.0.0-SNAPSHOT
 +Bundle-Version: 1.0.10
  Bundle-ActivationPolicy: lazy

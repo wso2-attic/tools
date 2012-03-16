@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GeneralProject
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.general.project;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.general.project;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.general.project.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.general.project.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
@@ -15,17 +15,17 @@ Import-Package: org.apache.axiom.om,
  org.eclipse.jdt.core,
  org.eclipse.ui.dialogs,
  org.eclipse.ui.wizards.newresource,
- org.wso2.carbonstudio.eclipse.maven.util,
- org.wso2.carbonstudio.eclipse.platform.core.exception,
- org.wso2.carbonstudio.eclipse.platform.core.manifest,
- org.wso2.carbonstudio.eclipse.platform.core.model,
- org.wso2.carbonstudio.eclipse.platform.core.nature,
- org.wso2.carbonstudio.eclipse.platform.core.project.model,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project
-Export-Package: org.wso2.carbonstudio.eclipse.general.project.artifact,
- org.wso2.carbonstudio.eclipse.general.project.artifact.bean,
- org.wso2.carbonstudio.eclipse.general.project.ui.wizard,
- org.wso2.carbonstudio.eclipse.general.project.utils
+ org.wso2.developerstudio.eclipse.maven.util,
+ org.wso2.developerstudio.eclipse.platform.core.exception,
+ org.wso2.developerstudio.eclipse.platform.core.manifest,
+ org.wso2.developerstudio.eclipse.platform.core.model,
+ org.wso2.developerstudio.eclipse.platform.core.nature,
+ org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard.pages,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project
+Export-Package: org.wso2.developerstudio.eclipse.general.project.artifact,
+ org.wso2.developerstudio.eclipse.general.project.artifact.bean,
+ org.wso2.developerstudio.eclipse.general.project.ui.wizard,
+ org.wso2.developerstudio.eclipse.general.project.utils

@@ -28,9 +28,9 @@
     	<artifactId>wso2-eclipse-common</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
   <packaging>eclipse-plugin</packaging>
-    <name>Carbon Studio Logging Framework</name>
+    <name>Developer Studio Logging Framework</name>
     <!--build>
 		<plugins>
 			<plugin>

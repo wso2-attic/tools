@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Carbon Studion Utilty Plugin
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.utils
+Bundle-Name: Developer Studio Utilty Plugin
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.utils
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.utils.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.utils.Activator
 Bundle-Vendor: WSO2
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface;bundle-version="3.6.0"
@@ -11,18 +11,18 @@ Bundle-ActivationPolicy: lazy
 Export-Package: org.apache.commons.io,
  org.apache.maven.model,
  org.apache.maven.project,
- org.wso2.carbonstudio.eclipse.utils.archive,
- org.wso2.carbonstudio.eclipse.utils.constants,
- org.wso2.carbonstudio.eclipse.utils.data,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.ide,
- org.wso2.carbonstudio.eclipse.utils.j2ee,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project,
- org.wso2.carbonstudio.eclipse.utils.template,
- org.wso2.carbonstudio.eclipse.utils.ui,
- org.wso2.carbonstudio.eclipse.utils.version,
- org.wso2.carbonstudio.eclipse.utils.wst
+ org.wso2.developerstudio.eclipse.utils.archive,
+ org.wso2.developerstudio.eclipse.utils.constants,
+ org.wso2.developerstudio.eclipse.utils.data,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.ide,
+ org.wso2.developerstudio.eclipse.utils.j2ee,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.template,
+ org.wso2.developerstudio.eclipse.utils.ui,
+ org.wso2.developerstudio.eclipse.utils.version,
+ org.wso2.developerstudio.eclipse.utils.wst
 Import-Package: javax.wsdl,
  javax.wsdl.extensions.schema,
  javax.wsdl.factory,
@@ -39,7 +39,7 @@ Import-Package: javax.wsdl,
  org.eclipse.ui.wizards,
  org.eclipse.ui.wizards.newresource,
  org.eclipse.wst.server.core,
- org.wso2.carbonstudio.eclipse.logging.core
+ org.wso2.developerstudio.eclipse.logging.core
 Bundle-ClassPath: lib/maven-model-3.0-SNAPSHOT.jar,
  lib/maven-project-2.0.7.jar,
  lib/plexus-utils-2.0.1.jar,

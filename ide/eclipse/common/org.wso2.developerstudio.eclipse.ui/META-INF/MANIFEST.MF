@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Carbon Studion UI
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.ui
+Bundle-Name: Developer Studio UI
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.ui
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.ui.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.ui.Activator
 Bundle-Vendor: WSO2
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Export-Package: org.wso2.carbonstudio.eclipse.ui.image,
- org.wso2.carbonstudio.eclipse.ui.utils,
- org.wso2.carbonstudio.eclipse.ui.widgets
+Export-Package: org.wso2.developerstudio.eclipse.ui.image,
+ org.wso2.developerstudio.eclipse.ui.utils,
+ org.wso2.developerstudio.eclipse.ui.widgets
 Import-Package: org.eclipse.core.resources,
  org.eclipse.emf.common.ui.celleditor,
  org.eclipse.jdt.core,

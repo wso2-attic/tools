@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.wso2.carbonstudio.eclipse.libraries" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.wso2.developerstudio.eclipse.libraries" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.wso2.carbonstudio.eclipse.libraries" id="org.wso2.carbonstudio.libraries.libraryprovider" name="Library Provider"/>
+         <meta.schema plugin="org.wso2.developerstudio.eclipse.libraries" id="org.wso2.developerstudio.libraries.libraryprovider" name="Library Provider"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
