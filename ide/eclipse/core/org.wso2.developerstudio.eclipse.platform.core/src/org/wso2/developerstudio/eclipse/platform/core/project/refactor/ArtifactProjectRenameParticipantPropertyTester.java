@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,16 +23,17 @@ import org.eclipse.core.resources.IProject;
 public class ArtifactProjectRenameParticipantPropertyTester extends PropertyTester {
 
 	@Override
-    public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
-		IProject projectToBeRenamed= (IProject) arg0;
-		if(projectToBeRenamed.isOpen()){
-			IFile pomFile=projectToBeRenamed.getFile("pom.xml");
-//			TODO: Add other validations including adding an unique WSO2 nature so that we can identify
-			if(pomFile.exists()){
+	public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
+		IProject projectToBeRenamed = (IProject) arg0;
+		if (projectToBeRenamed.isOpen()) {
+			IFile pomFile = projectToBeRenamed.getFile("pom.xml");
+			// TODO: Add other validations including adding an unique WSO2 nature so that we can
+			// identify
+			if (pomFile.exists()) {
 				return true;
 			}
 		}
-	    return false;
-    }
+		return false;
+	}
 
 }
