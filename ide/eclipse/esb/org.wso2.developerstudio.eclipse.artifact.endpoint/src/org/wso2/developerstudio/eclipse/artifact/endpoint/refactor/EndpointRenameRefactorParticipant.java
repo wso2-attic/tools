@@ -16,8 +16,11 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
+import org.apache.maven.model.Dependency;
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -27,9 +30,11 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EndpointRenameRefactorParticipant extends RenameParticipant {
@@ -77,8 +82,33 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
                                                      OperationCanceledException {
 		CompositeChange endpointChange=new CompositeChange("Endpoint Artifact Rename");
 		String originalFileNamewithExtension = originalFile.getName();
-		EndpointArtifactFileChange endpointArtifactFileChange = new EndpointArtifactFileChange("Renaming ESB Artifact "+originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()), originalFile, originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4));
+		String changedNameWithoutExtention = changedFileName.substring(0,changedFileName.length()-4);
+		String originalNameWithoutExtension = originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4);
+		EndpointArtifactFileChange endpointArtifactFileChange = new EndpointArtifactFileChange("Renaming ESB Artifact "+originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()), originalFile, originalNameWithoutExtension,changedNameWithoutExtention);
 		endpointChange.add(endpointArtifactFileChange);
+		
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		
+		IProject originalProject = originalFile.getProject();
+		
+		for (int i = 0; i < projects.length; i++) {
+	        if(projects[i].isOpen() && projects[i].hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")){
+	        	try {
+	                MavenProject mavenProject = MavenUtils.getMavenProject(projects[i].getFile("pom.xml").getLocation().toFile());
+	                List<?> dependencies = mavenProject.getDependencies();
+	                for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
+	                    Dependency dependency = (Dependency) iterator.next();
+	                    if(originalNameWithoutExtension.equalsIgnoreCase(dependency.getArtifactId())){
+	                    	endpointChange.add(new MavenConfigurationFileChange(projects[i].getName(), projects[i].getFile("pom.xml"), originalNameWithoutExtension, projects[i], changedNameWithoutExtention));
+	                    }
+                    }
+                } catch (Exception e) {
+	                // TODO Auto-generated catch block
+	                e.printStackTrace();
+                }
+	        }
+        }
+		
 		return endpointChange;
     }
 	

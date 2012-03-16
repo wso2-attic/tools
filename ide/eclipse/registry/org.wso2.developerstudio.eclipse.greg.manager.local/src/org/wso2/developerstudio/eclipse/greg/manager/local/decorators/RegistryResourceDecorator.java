@@ -57,20 +57,24 @@ public class RegistryResourceDecorator extends LabelProvider implements ILightwe
 			if (imageDescriptor != null) {
 				decoration.addOverlay(imageDescriptor);
 			}
-			if (RegistryCheckInClientUtils.isRegistryResource(resource.getLocation().toOSString())) {
-				try {
-					RemoteRegistryInfo r = RegistryCheckInClientUtils.getResourceRemoteRegistryUrlInfo(
-																resource.getLocation().toOSString());
-					Date date = new Date(r.getResourceLastUpdateTime());
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M/d/yyyy, h:mm a ");
-					String suffix = " [" + 
-									simpleDateFormat.format(date) +
-									" " +
-									r.getResourceLastUpdateUser() + 
-									"] ";// +r.getUrl().toString()+r.getCheckedOutPath()+r.getPath();
-					decoration.addSuffix(suffix);
-				} catch (Exception e) {
-					decoration.addSuffix(" Error");
+			if (resource.getLocation() != null) {
+				if (RegistryCheckInClientUtils.isRegistryResource(resource.getLocation()
+				                                                          .toOSString())) {
+					try {
+						RemoteRegistryInfo r =
+						                       RegistryCheckInClientUtils.getResourceRemoteRegistryUrlInfo(resource.getLocation()
+						                                                                                           .toOSString());
+						Date date = new Date(r.getResourceLastUpdateTime());
+						SimpleDateFormat simpleDateFormat =
+						                                    new SimpleDateFormat(
+						                                                         "M/d/yyyy, h:mm a ");
+						String suffix =
+						                " [" + simpleDateFormat.format(date) + " " +
+						                    r.getResourceLastUpdateUser() + "] ";
+						decoration.addSuffix(suffix);
+					} catch (Exception e) {
+						decoration.addSuffix(" Error");
+					}
 				}
 			}
 		}
