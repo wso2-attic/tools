@@ -26,6 +26,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IDecoration;
@@ -82,25 +83,32 @@ public class RegistryResourceDecorator extends LabelProvider implements ILightwe
 	 */
 	private ImageDescriptor getImageDescriptor(IResource resource) {
 		ImageDescriptor overlay = null;
-		if(resource==null)
+		if (resource == null){
 			return ImageUtils.getImageDescriptor(ImageUtils.STATE_NORMAL);
-		int resourceState = RegistryCheckInClientUtils.getResourceState(resource.getLocation().toOSString());
+		}
+		
+		IPath location = resource.getLocation();
+		int resourceState = RegistryCheckInClientUtils.RESOURCE_STATE_NOT_RESOURCE;
+
+		if (location != null) {
+			resourceState = RegistryCheckInClientUtils.getResourceState(location.toOSString());
+		}
 		switch (resourceState) {
-		case RegistryCheckInClientUtils.RESOURCE_STATE_NORMAL:
-			overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_NORMAL);
-			break;
-		case RegistryCheckInClientUtils.RESOURCE_STATE_MODIFIED:
-			overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_MODIFIED);
-			break;
-		case RegistryCheckInClientUtils.RESOURCE_STATE_NEW:
-			overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_NEW);
-			break;
-		case RegistryCheckInClientUtils.RESOURCE_STATE_CONFLICT:
-			overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_CONFLICT);
-			break;
-		case RegistryCheckInClientUtils.RESOURCE_STATE_DELETED:
-			overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_DELETED);
-			break;
+			case RegistryCheckInClientUtils.RESOURCE_STATE_NORMAL:
+				overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_NORMAL);
+				break;
+			case RegistryCheckInClientUtils.RESOURCE_STATE_MODIFIED:
+				overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_MODIFIED);
+				break;
+			case RegistryCheckInClientUtils.RESOURCE_STATE_NEW:
+				overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_NEW);
+				break;
+			case RegistryCheckInClientUtils.RESOURCE_STATE_CONFLICT:
+				overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_CONFLICT);
+				break;
+			case RegistryCheckInClientUtils.RESOURCE_STATE_DELETED:
+				overlay = ImageUtils.getImageDescriptor(ImageUtils.STATE_DELETED);
+				break;
 		}
 		return overlay;
 

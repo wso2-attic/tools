@@ -38,11 +38,13 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.synapse.Activator;
 import org.wso2.developerstudio.eclipse.artifact.synapse.model.SynapseModel;
 import org.wso2.developerstudio.eclipse.artifact.synapse.template.SynapseClassTemplate;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -60,7 +62,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private IFile synapseConfig;
 	private File pomfile;
 	private IContainer saveLocation;
-	private List<File> fileLst = new ArrayList<File>();
+	private List<File> fileList = new ArrayList<File>();
 
 
 	public SynapseCreationWizard() {
@@ -102,7 +104,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					File synConfig = new File(saveLocation.getLocation().toFile(),
 							synapseModel.getImportFile().getName());
 					FileUtils.copy(synapseModel.getImportFile(), synConfig);
-					addPluginEntry("wso2-esb-synapse-plugin", "1.0.2");
+					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
 					createArtifactMetaDataEntry(synConfig.getName(), "synapse/configuration",
 					                            saveLocation.getLocation().toFile());
 				}
@@ -113,11 +115,14 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 //			                                "org.wso2.developerstudio.eclipse.artifact.synapse.project.nature",
 //			                                "org.wso2.developerstudio.eclipse.esb.project.nature");
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			String[] labels={"OK", "Cancel"};
+			MessageDialog message=new MessageDialog(getShell(), "Open imported files in the Editor", getDefaultPageImage(), "Do you like to open the imported files in Developer Studio?", 0,labels , 0);
 			
-			if(fileLst.size()>0){
-				openEditor(fileLst.get(0));
+			if(message.openQuestion(getShell(), "Open imported files in the Editor", "Do you like to open the imported files in Developer Studio?")){
+				for (File file : fileList) {
+	                openEditor(file);
+                }
 			}
-
 		} catch (Exception e) {
 			log.error(e);
 		}
@@ -137,7 +142,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 		}
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", "1.0.3", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION, true);
 		
 		PluginExecution pluginExecution = new PluginExecution();
 		pluginExecution.addGoal("pom-gen");
@@ -180,10 +185,10 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		File synapseConfigFile =new File(saveLocation.getLocation().toFile(),
 		                                  synapseModel.getName().replaceAll(".xml$", "") + ".xml");
 		FileUtils.writeContent(synapseConfigFile, template);
-		addPluginEntry("wso2-esb-synapse-plugin", "1.0.2");
+		addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
 		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
 		                            saveLocation.getLocation().toFile());
-		fileLst.add(synapseConfigFile);
+		fileList.add(synapseConfigFile);
 	}
 
 	public boolean addPluginEntry(String artifactId, String version) throws Exception {
@@ -209,7 +214,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		artifact.setVersion("1.0.0");
 		artifact.setType(type);
 		artifact.setServerRole("EnterpriseServiceBus");
-			artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(),
+		artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(),
 			                                           new File(baseDir,
 			                                                    name + ".xml")));	
 		esbProjectArtifact.addESBArtifact(artifact);
@@ -233,7 +238,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		File importFile = getModel().getImportFile();
 		File destFile = new File(importLocation.getLocation().toFile(), importFile.getName());
 		FileUtils.copy(importFile, destFile);
-		fileLst.add(destFile);
+		fileList.add(destFile);
 	}
 
 	public void createESBArtifacts(List<OMElement> selectedElementsList)
@@ -252,52 +257,39 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 						continue;
 					}
 				}
+				synapseModel.setName(qName);
+				
+				String commonESBPath = "src" + File.separator + "main" +
+                                                         File.separator +
+                                                         "synapse-config" +
+                                                         File.separator;
 				if (localName.equals("sequence")) {
-					File baseDir = esbProject.getFolder("src" + File.separator + "main" +
-                                         File.separator +
-                                         "synapse-config" +
-                                         File.separator +
-                                         "sequences").getLocation().toFile();
+					File baseDir = esbProject.getFolder(commonESBPath + "sequences").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-sequence-plugin", "1.0.4");
-					fileLst.add(destFile);
+					addPluginEntry("maven-sequence-plugin", MavenConstants.MAVEN_SEQUENCE_VERSION);
+					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/sequence", baseDir);
-				}
-				if (localName.equals("endpoint")) {
-					File baseDir = esbProject.getFolder("src" + File.separator + "main" +
-                                         File.separator +
-                                         "synapse-config" +
-                                         File.separator +
-                                         "endpoints").getLocation().toFile();
+				} else if (localName.equals("endpoint")) {
+					File baseDir = esbProject.getFolder(commonESBPath + "endpoints").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-endpoint-plugin", "1.0.4");
-					fileLst.add(destFile);
+					addPluginEntry("maven-endpoint-plugin", MavenConstants.MAVEN_ENDPOINT_VERSION);
+					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/endpoint", baseDir);
-				}
-				if (localName.equals("proxy")) {
-					File baseDir = esbProject.getFolder("src" + File.separator + "main" +
-                                         File.separator +
-                                         "synapse-config" +
-                                         File.separator +
-                                         "proxy-services").getLocation().toFile();
+				}else if (localName.equals("proxy")) {
+					File baseDir = esbProject.getFolder(commonESBPath + "proxy-services").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-proxy-plugin", "1.0.4");
-					fileLst.add(destFile);
+					addPluginEntry("maven-proxy-plugin", MavenConstants.MAVEN_PROXY_SERVICE_VERSION);
+					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir);
-				}
-				if (localName.equals("localentry")) {
-					File baseDir = esbProject.getFolder("src" + File.separator + "main" +
-                                         File.separator +
-                                         "synapse-config" +
-                                         File.separator +
-                                         "local-entries").getLocation().toFile();
+				}else if (localName.equals("localentry")) {
+					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-localentry-plugin", "1.0.4");
-					fileLst.add(destFile);
+					addPluginEntry("maven-localentry-plugin", MavenConstants.MAVEN_LOCAL_ENTRY_VERSION);
+					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/local-entry", baseDir);
 				}	
 			}
