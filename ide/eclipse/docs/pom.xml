@@ -48,7 +48,7 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>                  
-                            <finalName>wso2-carbon-studio-${project.version}.M8-docs</finalName>
+                            <finalName>wso2-developer-studio-${project.version}.M8-docs</finalName>
                             <descriptors>
                                 <descriptor>src/main/assembly/dist.xml</descriptor>
                             </descriptors>
@@ -67,7 +67,7 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <unzip src="target/wso2-carbon-studio-${project.version}.M8-docs.zip" dest="target/" overwrite="true"/>
+                                <unzip src="target/wso2-developer-studio-${project.version}.M8-docs.zip" dest="target/" overwrite="true"/>
                             </tasks>
                         </configuration>
                     </execution>

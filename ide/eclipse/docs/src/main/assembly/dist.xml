@@ -8,11 +8,11 @@
     <fileSets>
         <fileSet>
             <directory>src/main/resources</directory>
-            <outputDirectory>wso2-carbon-studio-${pom.version}-docs</outputDirectory>
+            <outputDirectory>wso2-developer-studio-${pom.version}-docs</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>target/site</directory>
-            <outputDirectory>wso2-carbon-studio-${pom.version}-docs</outputDirectory>
+            <outputDirectory>wso2-developer-studio-${pom.version}-docs</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

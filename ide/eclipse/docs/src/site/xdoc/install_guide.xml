@@ -56,10 +56,10 @@
 					<td>WSO2 Developer Studio</td>
 					<td>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">2.0.0-without dependencies</a>
+							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-developer-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">2.0.0-without dependencies</a>
 						</p>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">2.0.0-with dependencies</a>
+							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-developer-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">2.0.0-with dependencies</a>
 						</p >
 					</td>
 				</tr>
@@ -86,13 +86,13 @@
 
 		<p>
 			We assume you have already downloaded
-			<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Developer Studio binary distribution</a>
+			<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M8/wso2-developer-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Developer Studio binary distribution</a>
 			from the download page and you are using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>.
 		</p>
 		<p>
-		If you download <a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">WSO2 Developer Studio With 
+		If you download <a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-developer-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">WSO2 Developer Studio With 
 		Dependencies</a> version, you can go ahead with the <strong>Offline Installation</strong>. But if you download 
-		<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">WSO2 Developer Studio Without 
+		<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-developer-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">WSO2 Developer Studio Without 
 		Dependencies</a> version, you need to go with the <strong>Online Installation</strong>.
 		</p>
 		<p>
