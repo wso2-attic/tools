@@ -18,8 +18,8 @@
    </extension>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.wso2.org/carbonstudio/bps/humantask"
-            class="org.wso2.carbonstudio.bpel.humantask.record.RecordPackage"
+            uri="http://www.wso2.org/developerstudio/bps/humantask"
+            class="org.wso2.developerstudio.bpel.humantask.record.RecordPackage"
             genModel="model/recoder.genmodel"/>
    </extension>
 

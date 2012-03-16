@@ -2,26 +2,26 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension point="org.eclipse.ui.newWizards">
-		<wizard name="Gadget" category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.portal.services"
-			class="org.wso2.carbonstudio.eclipse.artifact.gadget.ui.wizard.GadgetCreationWizard"
+		<wizard name="Gadget" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.portal.services"
+			class="org.wso2.developerstudio.eclipse.artifact.gadget.ui.wizard.GadgetCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newgadgetartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newgadgetartifact"
 			icon="icons/Gadget-16x16.png"
 			project="true">
 			<description>Gadget</description>
 		</wizard>
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.artifact.gadget.project.nature" name="Gadget Project Nature">
+		id="org.wso2.developerstudio.eclipse.artifact.gadget.project.nature" name="Gadget Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.gadget.project.nature.GadgetProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.gadget.project.nature.GadgetProjectNature">
 			</run>
 		</runtime>
 	</extension>
 		<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.gadget.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.artifact.gadget.project.nature" icon="icons/Gadget-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.gadget.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.artifact.gadget.project.nature" icon="icons/Gadget-12x12.png">
 		</image>
 	</extension>
 	  <extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -30,9 +30,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="5org.wso2.carbonstudio.eclipse.artifact.webservice"
+					menuGroupId="5org.wso2.developerstudio.eclipse.artifact.webservice"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newgadgetartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newgadgetartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -53,17 +53,17 @@
 		</navigatorContent>
 	</extension>
    <extension
-         point="org.wso2.carbonstudio.eclipse.project.export.handler">
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
       <handler
-            class="org.wso2.carbonstudio.eclipse.artifact.gadget.project.export.GadgetArtfactExportHandler"
-            id="org.wso2.carbonstudio.eclipse.artifact.gadget.project.export.handler"
+            class="org.wso2.developerstudio.eclipse.artifact.gadget.project.export.GadgetArtfactExportHandler"
+            id="org.wso2.developerstudio.eclipse.artifact.gadget.project.export.handler"
             type="wso2/gadget">
       </handler>
    </extension>
-   <extension point="org.wso2.carbonstudio.eclipse.samples">
+   <extension point="org.wso2.developerstudio.eclipse.samples">
       <sample
-            class="org.wso2.carbonstudio.eclipse.artifact.gadget.sample.GadgetSampleContributor"
-            id="org.wso2.carbonstudio.eclipse.capp.artifact.gadget.sample"
+            class="org.wso2.developerstudio.eclipse.artifact.gadget.sample.GadgetSampleContributor"
+            id="org.wso2.developerstudio.eclipse.capp.artifact.gadget.sample"
             isCustomCreateSample="false"
             sampleProjectName="AcmeProductGadgetProject">
       </sample>

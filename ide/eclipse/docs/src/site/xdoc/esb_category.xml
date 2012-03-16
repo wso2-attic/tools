@@ -56,13 +56,13 @@ permissions and ~ limitations under the License.
 			
 		<h2 id="ESBConfigProject">ESB Config Project</h2>	
 		<p>
-		With <strong>WSO2 Carbon Studio 2.0.0</strong>, we introduce a new project type called 
+		With <strong>WSO2 Developer Studio 2.0.0</strong>, we introduce a new project type called 
 		<strong>ESB Config Project</strong> to save all the ESB related artifacts such as 
 		<strong>Proxy Services, Endpoints, Sequences, local Entries</strong> and 
 		<strong>Synapse Configurations</strong>.
 		</p>
 		<p>
-		To create a <strong>ESB Config Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+		To create a <strong>ESB Config Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>ESB Config Project</strong> from <strong>Enterprise Service Bus</strong> 
         category.
 		</p>
@@ -132,13 +132,13 @@ permissions and ~ limitations under the License.
 		</ul>
 		
 		<p>
-		WSO2 Carbon Studio supports both ESB versions in the ESB editor. This support is enabled 
+		WSO2 Developer Studio supports both ESB versions in the ESB editor. This support is enabled 
 		via a flag that you set in <strong>Eclipse Preference</strong> page. 
 		</p>
 		
 		<p>
 		To select the needed <strong>WSO2 ESB</strong> version, go to <strong>Window -> Preferences</strong>
-		 page. Select <strong>ESB</strong> category from <strong>Carbon Studio</strong> section. Then 
+		 page. Select <strong>ESB</strong> category from <strong>Developer Studio</strong> section. Then 
 		 you can select needed version as you wish. By default <strong>WSO2 ESB 3.0.1</strong> 
 		 version will be set. 
 		</p>
@@ -181,7 +181,7 @@ permissions and ~ limitations under the License.
 				
 		<h2 id="SequenceArtifact">Sequence</h2>		
 		<p>
-       	To create a <strong>Sequence</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Sequence</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Sequence</strong> from <strong>Enterprise Service Bus</strong> 
         category.
         </p>
@@ -285,7 +285,7 @@ permissions and ~ limitations under the License.
 		<h2 id="EndpointArtifact">Endpoint</h2>
         <p>
         In the similar manner you create a sequence, you can create <strong>Endpoints</strong> as well.
-       	To create an <strong>Endpoint</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create an <strong>Endpoint</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Endpoint</strong> from <strong>Enterprise Service Bus</strong> 
         category.
         </p>
@@ -400,7 +400,7 @@ permissions and ~ limitations under the License.
 		<p>
 		In the similar manner you did for sequences and endpoints, you can create 
 		<strong>Local Entries</strong> as well.
-       	To create an <strong>Local Entry</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create an <strong>Local Entry</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Local Entry</strong> from <strong>Enterprise Service Bus</strong> 
         category.
         </p>
@@ -511,7 +511,7 @@ permissions and ~ limitations under the License.
        <p>
         In the similar manner you create a sequence and other artifacts, you can create 
         <strong>Proxy Services</strong> as well.
-       	To create a <strong>Proxy Service</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Proxy Service</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Proxy Service</strong> from <strong>Enterprise Service Bus</strong> 
         category.
         </p>
@@ -625,7 +625,7 @@ permissions and ~ limitations under the License.
        <p>
         In the similar manner you create a sequence and other artifacts, you can create 
         <strong>Synapse Configurations</strong> as well.
-       	To create a <strong>Synapse Configuration</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Synapse Configuration</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Synapse Configuration</strong> from <strong>Enterprise Service Bus</strong> 
         category.
         </p>
@@ -723,7 +723,7 @@ permissions and ~ limitations under the License.
 		<h2 id="contentAssist">Provide Content Assist Support</h2>
 		<p>
 		Content assist to <strong>Synapse Configuration</strong> are now supported with 
-		<strong>WSO2 Carbon Studio</strong>. If you have a <strong>Synapse Configuration</strong> or 
+		<strong>WSO2 Developer Studio</strong>. If you have a <strong>Synapse Configuration</strong> or 
 		<strong>Proxy Service</strong> or <strong>Sequence</strong>, you have the content 
 		assist support if you go to the source view. 
  		</p>

@@ -47,7 +47,7 @@ permissions and ~ limitations under the License.
 		To manage such environment, we use lot of tools that are provided in order make this 
 		task easy. We use tools like <strong>source control</strong> in order to manage 
 		collaborative development. As we discribed in the <a href="getting_started_category.html">
-		Getting Started with Carbon Studio</a> document, you can use <strong>WSO2 Carbon 
+		Getting Started with Developer Studio</a> document, you can use <strong>WSO2 Carbon 
 		Studio</strong> to develop your SOA application and commit the changes to the 
 		<strong>source control</strong>. Developers can commit the generated CAR files 
 		in to source control, so the other developers can also use that CAR file for 

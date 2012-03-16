@@ -14,24 +14,24 @@ permissions and ~ limitations under the License.
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
-		<h1>Getting Started with Carbon Studio</h1>
+		<h1>Getting Started with Developer Studio</h1>
 		<h2>Content</h2>
 		<div class="toc">
 			<ul>
 				<li>
-					<a href="#GettingStarted">Getting Started with Carbon Studio</a>
+					<a href="#GettingStarted">Getting Started with Developer Studio</a>
 				</li>
 			</ul>
 		</div>
-		<h2 id="GettingStarted">Getting Started with Carbon Studio</h2>
+		<h2 id="GettingStarted">Getting Started with Developer Studio</h2>
 		<!-- p>To create all the carbon artifacts, first you have to create a WSO2 Carbon Application. Before 
 		creating a <strong>Carbon Project</strong>, make sure that you are in the <strong>Java EE</strong> 
 		perspective if it is not set by default.To create a Carbon Application, 
 		go to <strong>Fie -> New -> Project</strong> and select <strong>Carbon Application Project</strong>.
         </p-->
         <p>
-		If you went through the <a href="overview.html">WSO2 Carbon Studio Overview</a> page, you 
-		may already know what you can do with <strong>WSO2 Carbon Studio</strong>. 
+		If you went through the <a href="overview.html">WSO2 Developer Studio Overview</a> page, you 
+		may already know what you can do with <strong>WSO2 Developer Studio</strong>. 
         </p>
         <p>
         With the new version, main benifit is, you can create create projects in any custom location as 
@@ -64,7 +64,7 @@ permissions and ~ limitations under the License.
 		how we can do that. 
 		</p>
 		<p>
-		Below diagram shows you, how <strong>WSO2 Carbon Studio</strong> looks like after installing to a 
+		Below diagram shows you, how <strong>WSO2 Developer Studio</strong> looks like after installing to a 
 		<strong>fresh Eclipse instance</strong>.
 		</p>
 		<p>

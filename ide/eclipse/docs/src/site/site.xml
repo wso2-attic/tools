@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="WSO2 Carbon Studio">
+<project name="WSO2 Developer Studio">
     <body>
 
-        <menu name="Carbon Studio">
+        <menu name="Developer Studio">
         	<item name="Project Home" href="http://wso2.org/library/carbon-studio"/>  
             <item name="Release Notes" href="release_notes.html"/>        
         </menu>
@@ -13,10 +13,10 @@
         
        <menu name="Documentation">
         <item name="Index" href="index.html"/>
-        <item name="Overview to WSO2 Carbon Studio" href="overview.html"/>
-        <item name="WSO2 Carbon Studio Features" href="cstudio-features.html"/>
+        <item name="Overview to WSO2 Developer Studio" href="overview.html"/>
+        <item name="WSO2 Developer Studio Features" href="cstudio-features.html"/>
         <item name="Installation Guide" href="install_guide.html"/>
-	    <item name="Getting Started with Carbon Studio" href="getting_started_category.html"/>
+	    <item name="Getting Started with Developer Studio" href="getting_started_category.html"/>
 	    <item name="Application Server Tools" href="axis2_jaxws_category.html"/>
 	    <item name="Enterprise Service Bus Tools" href="esb_category.html"/>
 	    <item name="Governance Registry Tools" href="registry_category.html"/>

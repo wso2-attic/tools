@@ -1,34 +1,34 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gadget
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.artifact.gadget;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.gadget;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.artifact.gadget.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.gadget.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.maven,
- org.wso2.carbonstudio.eclipse.capp.maven,
- org.wso2.carbonstudio.eclipse.utils,
- org.wso2.carbonstudio.eclipse.libraries
+ org.wso2.developerstudio.eclipse.maven,
+ org.wso2.developerstudio.eclipse.capp.maven,
+ org.wso2.developerstudio.eclipse.utils,
+ org.wso2.developerstudio.eclipse.libraries
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axiom.om,
  org.apache.axiom.om.impl.builder,
  org.eclipse.core.resources,
  org.eclipse.jdt.core,
  org.eclipse.ui.ide,
- org.wso2.carbonstudio.eclipse.capp.maven.utils,
- org.wso2.carbonstudio.eclipse.maven.util,
- org.wso2.carbonstudio.eclipse.platform.core.exception,
- org.wso2.carbonstudio.eclipse.platform.core.manifest,
- org.wso2.carbonstudio.eclipse.platform.core.model,
- org.wso2.carbonstudio.eclipse.platform.core.nature,
- org.wso2.carbonstudio.eclipse.platform.core.project.export,
- org.wso2.carbonstudio.eclipse.platform.core.project.model,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages,
- org.wso2.carbonstudio.eclipse.samples.contributor,
- org.wso2.carbonstudio.eclipse.utils.archive,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project,
- org.wso2.carbonstudio.eclipse.utils.template,
- org.wso2.carbonstudio.eclipse.utils.wst
+ org.wso2.developerstudio.eclipse.capp.maven.utils,
+ org.wso2.developerstudio.eclipse.maven.util,
+ org.wso2.developerstudio.eclipse.platform.core.exception,
+ org.wso2.developerstudio.eclipse.platform.core.manifest,
+ org.wso2.developerstudio.eclipse.platform.core.model,
+ org.wso2.developerstudio.eclipse.platform.core.nature,
+ org.wso2.developerstudio.eclipse.platform.core.project.export,
+ org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard.pages,
+ org.wso2.developerstudio.eclipse.samples.contributor,
+ org.wso2.developerstudio.eclipse.utils.archive,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.template,
+ org.wso2.developerstudio.eclipse.utils.wst

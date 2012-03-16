@@ -9,18 +9,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
-		<groupId>org.wso2.carbonstudio</groupId>
+		<groupId>org.wso2.developerstudio</groupId>
 		<artifactId>ds-tool-parent</artifactId>
 		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>org.wso2.carbonstudio.eclipse.ds.edit</artifactId>
+	<artifactId>org.wso2.developerstudio.eclipse.ds.edit</artifactId>
   <packaging>eclipse-plugin</packaging>
-	<name>Carbon Studio DS Tree Viewer Controller</name>
+	<name>Developer Studio DS Tree Viewer Controller</name>
 	<!--dependencies>
 		<dependency>
-			<groupId>org.wso2.carbonstudio</groupId>
-			<artifactId>org.wso2.carbonstudio.eclipse.ds</artifactId>
+			<groupId>org.wso2.developerstudio</groupId>
+			<artifactId>org.wso2.developerstudio.eclipse.ds</artifactId>
 			<version>${ds.tools.version}</version>
 		</dependency>
 		<dependency>
@@ -55,15 +55,15 @@
 		</dependency>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
         </dependency>    
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
         </dependency>       
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.utils</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.utils</artifactId>
         </dependency>        
 	</dependencies>
 	<build>

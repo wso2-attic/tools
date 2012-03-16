@@ -4,27 +4,27 @@
    <extension
          point="org.eclipse.ui.newWizards">
          <wizard name="Java Library Project" 
-         	category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions/org.wso2.carbonstudio.eclipse.extensions.project.types"
-			class="org.wso2.carbonstudio.eclipse.artifact.library.ui.wizard.LibraryArtifactCreationWizard"
+         	category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions/org.wso2.developerstudio.eclipse.extensions.project.types"
+			class="org.wso2.developerstudio.eclipse.artifact.library.ui.wizard.LibraryArtifactCreationWizard"
 			wizardManifest="project_wizard.xml"
 			project="true"
-			id="org.wso2.carbonstudio.eclipse.artifact.newlibraryartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newlibraryartifact"
 			icon="icons/jar-16x16.png">
 			<description>Java Library Project</description>
 		</wizard>
    </extension>
    
    <extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.library.project.nature" name="Java Library Project Nature">
+		id="org.wso2.developerstudio.eclipse.library.project.nature" name="Java Library Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.library.project.nature.LibraryArtifactProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.library.project.nature.LibraryArtifactProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.library.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.library.project.nature" icon="icons/jar-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.library.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.library.project.nature" icon="icons/jar-12x12.png">
 		</image>
 	</extension>
 	
@@ -34,9 +34,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="5org.wso2.carbonstudio.eclipse.artifact.newlibraryartifact"
+					menuGroupId="5org.wso2.developerstudio.eclipse.artifact.newlibraryartifact"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newlibraryartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newlibraryartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -57,10 +57,10 @@
 		</navigatorContent>
 	  </extension>
     <extension
-          point="org.wso2.carbonstudio.eclipse.project.export.handler">
+          point="org.wso2.developerstudio.eclipse.project.export.handler">
        <handler
-             class="org.wso2.carbonstudio.eclipse.artifact.library.project.export.LibraryArtifactHandler"
-             id="org.wso2.carbonstudio.eclipse.artifact.library.project.export.handler"
+             class="org.wso2.developerstudio.eclipse.artifact.library.project.export.LibraryArtifactHandler"
+             id="org.wso2.developerstudio.eclipse.artifact.library.project.export.handler"
              type="lib/library/bundle">
        </handler>
     </extension>

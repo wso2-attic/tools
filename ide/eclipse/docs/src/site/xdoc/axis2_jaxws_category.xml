@@ -45,7 +45,7 @@ permissions and ~ limitations under the License.
 		</div>
 		<h2 id="Axis2Artifact">Apache Axis2 Project</h2>
 		<p>
-       	To create a <strong>Apache Axis2 Service Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Apache Axis2 Service Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Axis2 Service Project</strong> from <strong>Service hosting</strong> category. 
         </p>
      	<p>
@@ -219,7 +219,7 @@ permissions and ~ limitations under the License.
 		
 		<h3 id="Axis2Utils4">Generate Axis2 Web Service Skeleton</h3>
 		<p>
-       	To create a <strong>Generate Axis2 Web Service Skeleton Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Generate Axis2 Web Service Skeleton Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Generate Axis2 Web Service Skeleton Project</strong> from <strong>Service hosting</strong> category. 
         </p>
 		

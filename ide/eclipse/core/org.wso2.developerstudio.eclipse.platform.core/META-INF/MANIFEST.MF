@@ -1,28 +1,28 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Platform Core
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.platform.core;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.platform.core;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.platform.core.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.platform.core.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.utils,
- org.wso2.carbonstudio.eclipse.libraries
+ org.wso2.developerstudio.eclipse.utils,
+ org.wso2.developerstudio.eclipse.libraries
 Bundle-ActivationPolicy: lazy
-Export-Package: org.wso2.carbonstudio.eclipse.platform.core,
- org.wso2.carbonstudio.eclipse.platform.core.exception,
- org.wso2.carbonstudio.eclipse.platform.core.interfaces,
- org.wso2.carbonstudio.eclipse.platform.core.manifest,
- org.wso2.carbonstudio.eclipse.platform.core.mediatype,
- org.wso2.carbonstudio.eclipse.platform.core.model,
- org.wso2.carbonstudio.eclipse.platform.core.nature,
- org.wso2.carbonstudio.eclipse.platform.core.project.export,
- org.wso2.carbonstudio.eclipse.platform.core.project.export.util,
- org.wso2.carbonstudio.eclipse.platform.core.project.model,
- org.wso2.carbonstudio.eclipse.platform.core.templates,
- org.wso2.carbonstudio.eclipse.platform.core.types,
- org.wso2.carbonstudio.eclipse.platform.core.utils,
- org.wso2.carbonstudio.eclipse.platform.core.bundle
+Export-Package: org.wso2.developerstudio.eclipse.platform.core,
+ org.wso2.developerstudio.eclipse.platform.core.bundle,
+ org.wso2.developerstudio.eclipse.platform.core.exception,
+ org.wso2.developerstudio.eclipse.platform.core.interfaces,
+ org.wso2.developerstudio.eclipse.platform.core.manifest,
+ org.wso2.developerstudio.eclipse.platform.core.mediatype,
+ org.wso2.developerstudio.eclipse.platform.core.model,
+ org.wso2.developerstudio.eclipse.platform.core.nature,
+ org.wso2.developerstudio.eclipse.platform.core.project.export,
+ org.wso2.developerstudio.eclipse.platform.core.project.export.util,
+ org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.core.templates,
+ org.wso2.developerstudio.eclipse.platform.core.types,
+ org.wso2.developerstudio.eclipse.platform.core.utils
 Import-Package: javax.wsdl,
  javax.wsdl.extensions.schema,
  org.apache.axiom.om,
@@ -37,12 +37,12 @@ Import-Package: javax.wsdl,
  org.eclipse.ui.forms.events,
  org.eclipse.ui.forms.widgets,
  org.eclipse.ui.intro.config,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.platform.core.utils,
- org.wso2.carbonstudio.eclipse.samples.contributor,
- org.wso2.carbonstudio.eclipse.samples.utils,
- org.wso2.carbonstudio.eclipse.samples.wizards,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.platform.core.utils,
+ org.wso2.developerstudio.eclipse.samples.contributor,
+ org.wso2.developerstudio.eclipse.samples.utils,
+ org.wso2.developerstudio.eclipse.samples.wizards,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project
 Bundle-Vendor: WSO2

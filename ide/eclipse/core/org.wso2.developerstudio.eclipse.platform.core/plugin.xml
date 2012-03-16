@@ -4,294 +4,294 @@
 	<extension-point id="artifacttemplates" name="Template artifacts"
 		schema="schema/artifacttemplates.exsd" />
 	<extension-point
-		id="org.wso2.carbonstudio.eclipse.platform.core.mediatype" name="Media Type"
-		schema="schema/org.wso2.carbonstudio.eclipse.platform.core.mediatype.exsd" />
+		id="org.wso2.developerstudio.eclipse.platform.core.mediatype" name="Media Type"
+		schema="schema/org.wso2.developerstudio.eclipse.platform.core.mediatype.exsd" />
  	<extension-point 
- 		id="org.wso2.carbonstudio.eclipse.project.export.handler" name="Export Handler" 
- 		schema="schema/org.wso2.carbonstudio.eclipse.project.export.exsd"/>
+ 		id="org.wso2.developerstudio.eclipse.project.export.handler" name="Export Handler" 
+ 		schema="schema/org.wso2.developerstudio.eclipse.project.export.exsd"/>
 	<extension point="org.eclipse.ui.intro.configExtension">
 		<configExtension content="intro/welcome.xml"
 			configId="org.eclipse.ui.intro.universalConfig">
 		</configExtension>
 	</extension>
-	<extension point="org.wso2.carbonstudio.eclipse.platform.core.mediatype">
+	<extension point="org.wso2.developerstudio.eclipse.platform.core.mediatype">
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.WSDLMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.WSDLMediaTypeResolver"
 			extensions="wsdl"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.wsdl"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.wsdl"
 			mediaType="application/wsdl+xml" name="WSDL Media type" priority="5" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.JARMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.JARMediaTypeResolver"
 			extensions="jar"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.jar"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.jar"
 			mediaType="application/javaarchive" name="JAR Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.CLASSMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.CLASSMediaTypeResolver"
 			extensions="class"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.class"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.class"
 			mediaType="application/javavm" name="CLASS Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.PDFMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.PDFMediaTypeResolver"
 			extensions="pdf"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.pdf"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.pdf"
 			mediaType="application/pdf" name="PDF Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.KEYMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.KEYMediaTypeResolver"
 			extensions="key"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.key"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.key"
 			mediaType="application/pgpkeys" name="KEY Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.RARMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.RARMediaTypeResolver"
 			extensions="rar"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.rar"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.rar"
 			mediaType="application/rar" name="RAR Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ZIPMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ZIPMediaTypeResolver"
 			extensions="zip"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.zip"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.zip"
 			mediaType="application/zip" name="ZIP Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.GIFMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.GIFMediaTypeResolver"
 			extensions="gif"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.gif"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.gif"
 			mediaType="image/gif" name="GIF Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.JPEGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.JPEGMediaTypeResolver"
 			extensions="jpeg"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.jpeg"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.jpeg"
 			mediaType="image/jpeg" name="JPEG Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.BMPMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.BMPMediaTypeResolver"
 			extensions="bmp"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.bmp"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.bmp"
 			mediaType="image/xmsbmp" name="BMP Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XMLMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XMLMediaTypeResolver"
 			extensions="xml"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xml"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xml"
 			mediaType="application/xml" name="XML Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.TXTMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.TXTMediaTypeResolver"
 			extensions="txt"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.txt"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.txt"
 			mediaType="plain/text" name="TXT Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.BINMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.BINMediaTypeResolver"
 			extensions="bin"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.bin"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.bin"
 			mediaType="application/octetstream" name="BIN Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XSDMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XSDMediaTypeResolver"
 			extensions="xsd"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xsd"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xsd"
 			mediaType="application/x-xsd+xml" name="XSD Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.HTMLMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.HTMLMediaTypeResolver"
 			extensions="html"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.html"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.html"
 			mediaType="text/html" name="HTML Media type" priority="5" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.DOCMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.DOCMediaTypeResolver"
 			extensions="doc"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.doc"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.doc"
 			mediaType="application/msword" name="DOC Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.MDBMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MDBMediaTypeResolver"
 			extensions="mdb"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.mdb"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.mdb"
 			mediaType="application/msaccess" name="MDB Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XLSMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XLSMediaTypeResolver"
 			extensions="xls"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xls"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xls"
 			mediaType="application/vnd.ms-excel" name="XLS Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.PPTMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.PPTMediaTypeResolver"
 			extensions="ppt"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.ppt"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.ppt"
 			mediaType="application/vnd.ms-powerpoint" name="PPT Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODCMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODCMediaTypeResolver"
 			extensions="odc"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odc"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odc"
 			mediaType="application/vnd.oasis.opendocument.chart" name="ODC Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODBMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODBMediaTypeResolver"
 			extensions="odb"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odb"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odb"
 			mediaType="application/vnd.oasis.opendocument.database" name="ODB Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODFMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODFMediaTypeResolver"
 			extensions="odf"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odf"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odf"
 			mediaType="application/vnd.oasis.opendocument.formula" name="ODF Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODGMediaTypeResolver"
 			extensions="odg"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odg"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odg"
 			mediaType="application/vnd.oasis.opendocument.graphics" name="ODG Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.OTGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.OTGMediaTypeResolver"
 			extensions="otg"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.otg"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.otg"
 			mediaType="application/vnd.oasis.opendocument.graphics-template"
 			name="OTG Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODIMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODIMediaTypeResolver"
 			extensions="odi"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odi"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odi"
 			mediaType="application/vnd.oasis.opendocument.image" name="ODI Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODPMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODPMediaTypeResolver"
 			extensions="odp"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odp"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odp"
 			mediaType="application/vnd.oasis.opendocument.presentation" name="ODP Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.OTPMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.OTPMediaTypeResolver"
 			extensions="otp"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.otp"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.otp"
 			mediaType="application/vnd.oasis.opendocument.presentation-template"
 			name="OTP Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODSMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODSMediaTypeResolver"
 			extensions="ods"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.ods"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.ods"
 			mediaType="application/vnd.oasis.opendocument.spreadsheet" name="ODS Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODTMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODTMediaTypeResolver"
 			extensions="odt"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odt"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odt"
 			mediaType="application/vnd.oasis.opendocument.text" name="ODT Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.ODMMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.ODMMediaTypeResolver"
 			extensions="odm"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.odm"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.odm"
 			mediaType="application/vnd.oasis.opendocument.text-master" name="ODM Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.OTTMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.OTTMediaTypeResolver"
 			extensions="ott"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.ott"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.ott"
 			mediaType="application/vnd.oasis.opendocument.text-template" name="OTT Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.OTHMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.OTHMediaTypeResolver"
 			extensions="oth"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.oth"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.oth"
 			mediaType="application/vnd.oasis.opendocument.text-web" name="OTH Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.JSMediaTypeResolver"
-			extensions="js" id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.js"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.JSMediaTypeResolver"
+			extensions="js" id="org.wso2.developerstudio.eclipse.platform.core.mediatype.js"
 			mediaType="application/x-javascript" name="JS Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.JAVAMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.JAVAMediaTypeResolver"
 			extensions="java"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.java"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.java"
 			mediaType="text/x-java" name="JAVA Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.PNGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.PNGMediaTypeResolver"
 			extensions="png"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.png"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.png"
 			mediaType="image/png" name="PNG Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XHTMLMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XHTMLMediaTypeResolver"
 			extensions="xhtml"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xhtml"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xhtml"
 			mediaType="application/xhtml+xml" name="XHTML Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.VSDMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.VSDMediaTypeResolver"
 			extensions="vsd"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.vsd"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.vsd"
 			mediaType="application/vnd.visio" name="VSD Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.TORRENTMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.TORRENTMediaTypeResolver"
 			extensions="torrent"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.torrent"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.torrent"
 			mediaType="application/x-bittorrent" name="TORRENT Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.PHPMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.PHPMediaTypeResolver"
 			extensions="php"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.php"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.php"
 			mediaType="application/x-httpd-php" name="PHP Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.PHPSMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.PHPSMediaTypeResolver"
 			extensions="phps"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.phps"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.phps"
 			mediaType="application/x-httpd-php-source" name="PHPS Media type"
 			priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.MIDMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MIDMediaTypeResolver"
 			extensions="mid"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.mid"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.mid"
 			mediaType="audio/midi" name="MID Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.MP3MediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MP3MediaTypeResolver"
 			extensions="mp3"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.mp3"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.mp3"
 			mediaType="audio/mpeg" name="MP3 Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.SVGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.SVGMediaTypeResolver"
 			extensions="svg"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.svg"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.svg"
 			mediaType="image/svg+xml" name="SVG Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.MPEGMediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MPEGMediaTypeResolver"
 			extensions="mpeg"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.mpeg"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.mpeg"
 			mediaType="video/mpeg" name="MPEG Media type" priority="2" />
 		<resolver
-			class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.MP4MediaTypeResolver"
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MP4MediaTypeResolver"
 			extensions="mp4"
-			id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.mp4"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.mp4"
 			mediaType="video/mp4" name="MP4 Media type" priority="2" />
 		  <resolver
-		        class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XSLTMediaTypeResolver"
+		        class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XSLTMediaTypeResolver"
 		        extensions="xslt"
-		        id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xslt"
+		        id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xslt"
 		        mediaType="application/xslt+xml"
 		        name="XSLT Media type"
 		        priority="10">
 		  </resolver>
 		  <resolver
-		        class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.XSLMediaTypeResolver"
+		        class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.XSLMediaTypeResolver"
 		        extensions="xsl"
-		        id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.xsl"
+		        id="org.wso2.developerstudio.eclipse.platform.core.mediatype.xsl"
 		        mediaType="application/xsl+xml"
 		        name="XSL Media type"
 		        priority="10">
 		  </resolver>
 		  <resolver
-		        class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.WSPolicyMediaTypeResolver"
+		        class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.WSPolicyMediaTypeResolver"
 		        extensions="wspolicy"
-		        id="org.wso2.carbonstudio.eclipse.platform.core.mediatype.wspolicy"
+		        id="org.wso2.developerstudio.eclipse.platform.core.mediatype.wspolicy"
 		        mediaType="application/wspolicy+xml"
 		        name="Web Service Policy Media type"
 		        priority="10">
 		  </resolver>
     <resolver
-          class="org.wso2.carbonstudio.eclipse.platform.core.internal.impl.mediatypes.BulkMediaTypeFileNameResolver"
-          id="org.wso2.carbonstudio.eclipse.platform.core.bulkFileNameExtensionResolver"
-          mediaType="org.wso2.carbonstudio.eclipse.platform.core.bulkFileNameExtensionResolver"
+          class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.BulkMediaTypeFileNameResolver"
+          id="org.wso2.developerstudio.eclipse.platform.core.bulkFileNameExtensionResolver"
+          mediaType="org.wso2.developerstudio.eclipse.platform.core.bulkFileNameExtensionResolver"
           name="Bulk Media Type resolver">
     </resolver>
 	</extension>
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.wso2.carbonstudio.eclipse.platform.core.intro.ui.Dashboard"
-            id="org.wso2.carbonstudio.eclipse.dashboard"
-            name="Carbon Studio Dashboard">
+            class="org.wso2.developerstudio.eclipse.platform.core.intro.ui.Dashboard"
+            id="org.wso2.developerstudio.eclipse.dashboard"
+            name="Developer Studio Dashboard">
       </editor>
 
    </extension>

@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Carbonserver30
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.carbonserver30;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.carbonserver30;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.carbonserver30.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.carbonserver30.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.libraries;bundle-version="1.0.2"
+ org.wso2.developerstudio.eclipse.libraries;bundle-version="1.0.2"
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.apache.axiom.om,
@@ -43,16 +43,16 @@ Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.eclipse.wst.server.core.util,
  org.eclipse.wst.server.ui,
  org.eclipse.wst.server.ui.editor,
- org.wso2.carbonstudio.eclipse.carbonfeatures,
- org.wso2.carbonstudio.eclipse.carbonserver.base.console,
- org.wso2.carbonstudio.eclipse.carbonserver.base.exception,
- org.wso2.carbonstudio.eclipse.carbonserver.base.impl,
- org.wso2.carbonstudio.eclipse.carbonserver.base.interfaces,
- org.wso2.carbonstudio.eclipse.carbonserver.base.manager,
- org.wso2.carbonstudio.eclipse.carbonserver.base.service.util,
- org.wso2.carbonstudio.eclipse.carbonserver.base.util,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.server.base.core,
- org.wso2.carbonstudio.eclipse.server.base.interfaces,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.wst
+ org.wso2.developerstudio.eclipse.carbonfeatures,
+ org.wso2.developerstudio.eclipse.carbonserver.base.console,
+ org.wso2.developerstudio.eclipse.carbonserver.base.exception,
+ org.wso2.developerstudio.eclipse.carbonserver.base.impl,
+ org.wso2.developerstudio.eclipse.carbonserver.base.interfaces,
+ org.wso2.developerstudio.eclipse.carbonserver.base.manager,
+ org.wso2.developerstudio.eclipse.carbonserver.base.service.util,
+ org.wso2.developerstudio.eclipse.carbonserver.base.util,
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.server.base.core,
+ org.wso2.developerstudio.eclipse.server.base.interfaces,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.wst

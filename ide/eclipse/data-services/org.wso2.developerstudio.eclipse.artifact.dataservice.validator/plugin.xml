@@ -3,25 +3,25 @@
 <plugin>
  <extension point="org.eclipse.ui.newWizards">
 		<wizard name="Data Services Validator Project" 
-			category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions/org.wso2.carbonstudio.eclipse.extensions.project.types"
-			class="org.wso2.carbonstudio.eclipse.artifact.ds.validator.ui.wizard.DataServiceValidatorCreationWizard"
+			category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions/org.wso2.developerstudio.eclipse.extensions.project.types"
+			class="org.wso2.developerstudio.eclipse.artifact.ds.validator.ui.wizard.DataServiceValidatorCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newvalidiatorartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newvalidiatorartifact"
 			project="true" icon="icons/ds-validate-16x16.png">
 			<description>Data Services Validator Project</description>
 		</wizard>
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.artifact.ds.validator.project.nature" name="validator Project Nature">
+		id="org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature" name="validator Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.ds.validator.project.nature.DataServiceValidatorProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature.DataServiceValidatorProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.ds.validator.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.artifact.ds.validator.project.nature" icon="icons/ds-validate-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.ds.validator.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature" icon="icons/ds-validate-12x12.png">
 		</image>
 	</extension>
 	  <extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -30,9 +30,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="3org.wso2.carbonstudio.eclipse.artifact.newdsartifact"
+					menuGroupId="3org.wso2.developerstudio.eclipse.artifact.newdsartifact"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newvalidiatorartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newvalidiatorartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -53,17 +53,17 @@
 		</navigatorContent>
 	</extension>
 	 <extension
-         point="org.wso2.carbonstudio.eclipse.project.export.handler">
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
       <handler
-            class="org.wso2.carbonstudio.eclipse.artifact.ds.validator.project.export.DsValidatorExportHandler"
-            id="org.wso2.carbonstudio.eclipse.artifact.ds.validator.project.export.handler"
+            class="org.wso2.developerstudio.eclipse.artifact.ds.validator.project.export.DsValidatorExportHandler"
+            id="org.wso2.developerstudio.eclipse.artifact.ds.validator.project.export.handler"
             type="lib/dataservice/validator">
       </handler>
    </extension>
-   <extension point="org.wso2.carbonstudio.eclipse.samples">
+   <extension point="org.wso2.developerstudio.eclipse.samples">
       <sample
-            class="org.wso2.carbonstudio.eclipse.artifact.ds.validator.sample.DSValidatorSampleContributor"
-            id="org.wso2.carbonstudio.eclipse.capp.artifact.dataservice.sample"
+            class="org.wso2.developerstudio.eclipse.artifact.ds.validator.sample.DSValidatorSampleContributor"
+            id="org.wso2.developerstudio.eclipse.capp.artifact.dataservice.sample"
             isCustomCreateSample="false"
             sampleProjectName="CustomDataserviceValidatorSample">
       </sample>

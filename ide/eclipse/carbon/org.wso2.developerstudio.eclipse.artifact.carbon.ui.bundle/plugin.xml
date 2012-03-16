@@ -3,25 +3,25 @@
 <plugin>
  <extension point="org.eclipse.ui.newWizards">
 		<wizard name="Carbon UI Bundle Project" 
-		category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.carbon.ui"
-			class="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.ui.wizard.CarbonUIbundleWizard"
+		category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.carbon.ui"
+			class="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.ui.wizard.CarbonUIbundleWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.carbonUIartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.carbonUIartifact"
 			project="true" icon="icons/carbon-ui-bundle-16x16.png">
 			<description>Carbon UI Bundle Project</description>
 		</wizard>
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.project.nature" name="CarbonUI Project Nature">
+		id="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.nature" name="CarbonUI Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.project.nature.CarbonUIbundleProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.nature.CarbonUIbundleProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.bpel.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.project.nature" icon="icons/carbon-ui-bundle-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.bpel.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.nature" icon="icons/carbon-ui-bundle-12x12.png">
 		</image>
 	</extension>
 	  <extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -30,9 +30,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="6org.wso2.carbonstudio.eclipse.artifact.carbonUI"
+					menuGroupId="6org.wso2.developerstudio.eclipse.artifact.carbonUI"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.carbonUIartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.carbonUIartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -53,10 +53,10 @@
 		</navigatorContent>
 	</extension>
    <extension
-         point="org.wso2.carbonstudio.eclipse.project.export.handler">
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
       <handler
-            class="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.project.export.CarbonUIExportHandler"
-            id="org.wso2.carbonstudio.eclipse.artifact.carbon.ui.bundle.project.export.handler"
+            class="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.export.CarbonUIExportHandler"
+            id="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.export.handler"
             type="lib/carbon/ui">
       </handler>
    </extension>

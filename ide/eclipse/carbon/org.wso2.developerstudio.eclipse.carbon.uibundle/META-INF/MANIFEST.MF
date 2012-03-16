@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Carbon UI Bundle Project Plugin
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.carbon.uibundle;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.carbon.uibundle;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.carbon.uibundle.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.carbon.uibundle.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.pde.ui,
@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: WSO2
 Import-Package: org.eclipse.wst.server.core,
- org.wso2.carbonstudio.eclipse.carbonserver.base.interfaces,
- org.wso2.carbonstudio.eclipse.logging.core
-Export-Package: org.wso2.carbonstudio.eclipse.carbon.uibundle.ui,
- org.wso2.carbonstudio.eclipse.carbon.uibundle.utils
+ org.wso2.developerstudio.eclipse.carbonserver.base.interfaces,
+ org.wso2.developerstudio.eclipse.logging.core
+Export-Package: org.wso2.developerstudio.eclipse.carbon.uibundle.ui,
+ org.wso2.developerstudio.eclipse.carbon.uibundle.utils

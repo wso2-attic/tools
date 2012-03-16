@@ -28,7 +28,7 @@ permissions and ~ limitations under the License.
 		</div>
 		<h2 id="DSArtifact">Data Service Project</h2>
         <p>
-       	To create a <strong>Data Service Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Data Service Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Data Service Project</strong> from <strong>Data Services Server</strong> category. 
         </p>
 		<p>

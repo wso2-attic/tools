@@ -14,9 +14,9 @@ permissions and ~ limitations under the License.
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
-		<h1>WSO2 Carbon Studio Maven Support</h1>
+		<h1>WSO2 Developer Studio Maven Support</h1>
 		<p>
-		For each and every project created by <strong>WSO2 Carbon Studio</strong>, you can 
+		For each and every project created by <strong>WSO2 Developer Studio</strong>, you can 
 		find a <strong>pom</strong> file has been created in order to build it using 
 		<strong>Maven</strong>. 
 		</p>

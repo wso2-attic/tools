@@ -17,7 +17,7 @@
 
 		<h1>Installation Guide</h1>
 		<p>
-			This document explains how WSO2 Carbon Studio should be installed in to Eclipse. 
+			This document explains how WSO2 Developer Studio should be installed in to Eclipse. 
         </p>
 		<h2>Content</h2>
 		<div class="toc">
@@ -38,7 +38,7 @@
 		</div>
 
 		<h2 id="Introduction">Introduction</h2>
-		<p>WSO2 Carbon Studio is a fully tooling environment which facilitate you to develop, test, debug and deploy WSO2 Carbon Artifacts.</p>
+		<p>WSO2 Developer Studio is a fully tooling environment which facilitate you to develop, test, debug and deploy WSO2 Carbon Artifacts.</p>
 
 		<h2 id="System">Prerequisites</h2>
 		<table border="2">
@@ -53,13 +53,13 @@
 					<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>)</td>
 				</tr>
 				<tr>
-					<td>WSO2 Carbon Studio</td>
+					<td>WSO2 Developer Studio</td>
 					<td>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">2.0.0-without dependencies</a>
+							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">2.0.0-without dependencies</a>
 						</p>
 						<p>
-							<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">2.0.0-with dependencies</a>
+							<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">2.0.0-with dependencies</a>
 						</p >
 					</td>
 				</tr>
@@ -86,17 +86,17 @@
 
 		<p>
 			We assume you have already downloaded
-			<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Carbon Studio binary distribution</a>
+			<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M8/wso2-carbon-studio_2.0.0.M8-SNAPSHOT.zip">WSO2 Developer Studio binary distribution</a>
 			from the download page and you are using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>.
 		</p>
 		<p>
-		If you download <a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">WSO2 Carbon Studio With 
+		If you download <a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_with_dependencies-SNAPSHOT.zip">WSO2 Developer Studio With 
 		Dependencies</a> version, you can go ahead with the <strong>Offline Installation</strong>. But if you download 
-		<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">WSO2 Carbon Studio Without 
+		<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/wso2-carbon-studio_2.0.0.M9_without_dependencies-SNAPSHOT.zip">WSO2 Developer Studio Without 
 		Dependencies</a> version, you need to go with the <strong>Online Installation</strong>.
 		</p>
 		<p>
-		Latest Carbon Studio release includes several third party Eclipse plugins.
+		Latest Developer Studio release includes several third party Eclipse plugins.
 		</p>
 		<ul>
 			<li>
@@ -133,7 +133,7 @@
 		</p>
 		
 		<p>
-			If you have already downloaded the WSO2 Carbon Studio binary distribution select the downloaded
+			If you have already downloaded the WSO2 Developer Studio binary distribution select the downloaded
 			ZIP archive from the file system by clicking on the
 			<strong>Archive</strong> button.
 		</p>
@@ -144,7 +144,7 @@
 		</p>
 		<p>
 			If you wish to install tools online type the update site url
-			<strong>http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M8/p2-repo</strong>
+			<strong>http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M8/p2-repo</strong>
 			
 		</p>
 		<p>
@@ -172,13 +172,13 @@
 				<strong>Note:</strong>
 				Sometimes you may have to leave the check box
 				ticked/checked in case the Eclipse distribution you are using is
-				missing some of the WTP features required for the Carbon Studio Features
+				missing some of the WTP features required for the Developer Studio Features
 			</i>
-			If you download <strong>WSO2 Carbon Studio Without Dependencies</strong> version, you need to leave the <strong>checkbox ticked</strong>. If 
-			you download the <strong>WSO2 Carbon Studio With Dependencies</strong> version, you can go ahead and <strong>un-tick "Contact all update 
+			If you download <strong>WSO2 Developer Studio Without Dependencies</strong> version, you need to leave the <strong>checkbox ticked</strong>. If 
+			you download the <strong>WSO2 Developer Studio With Dependencies</strong> version, you can go ahead and <strong>un-tick "Contact all update 
 			sites during install to find required software"</strong> option. 
 			Select
-			<strong>WSO2 Carbon Studio Feature</strong>
+			<strong>WSO2 Developer Studio Feature</strong>
 			from the list or select all the features
 			Then click on the button
 			<strong>Next</strong>
@@ -226,7 +226,7 @@
 		
 		<p>
 			Once Eclipse is reloaded, you will see that the <strong>Welcome</strong> page 
-			has been updated with <strong>WSO2 Carbon Studio</strong> related links. 
+			has been updated with <strong>WSO2 Developer Studio</strong> related links. 
 		</p>
 		<p>
 			<br></br>
@@ -235,7 +235,7 @@
 		</p>
 		<p>
 		If you click on <strong>Open Dashboard</strong> link, you will see all the project types and 
-		samples that are available with <strong>WSO2 Carbon Studio</strong>.
+		samples that are available with <strong>WSO2 Developer Studio</strong>.
 		</p>
 		<p>
 			<br></br>
@@ -243,7 +243,7 @@
 			<br></br>
 		</p>
 		<p>
-		Same options are available if you click on the <strong>Carbon Studio</strong> top 
+		Same options are available if you click on the <strong>Developer Studio</strong> top 
 		menu item.
 		</p>
 		<p>
@@ -256,7 +256,7 @@
 		If you go to
 			<strong>Fie -> New -> Other </strong>, you will see a category called
 			<strong>WSO2</strong> where it lists all the features that are available with 
-			<strong>WSO2 Carbon Studio</strong>.
+			<strong>WSO2 Developer Studio</strong>.
 		</p>
 		
 		<p>
@@ -266,7 +266,7 @@
 		</p>
 		
 		<p>
-			Now you have successfully installed WSO2 Carbon Studio.
+			Now you have successfully installed WSO2 Developer Studio.
 		</p>
 		
 		<h2 id="install1">Online installation</h2>
@@ -274,8 +274,8 @@
 		<p>
 			For online installation of all the WSO2 Eclipse Tools use the update
 			site url:
-			<a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/p2-repo">
-				<strong>http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/p2-repo</strong>
+			<a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/p2-repo">
+				<strong>http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/p2-repo</strong>
 			</a>
 		</p>
 		<p>
@@ -301,7 +301,7 @@
 		</p>
 		
 		<p>
-		It will list all the features available with WSO2 Carbon Studio. 
+		It will list all the features available with WSO2 Developer Studio. 
 		</p>
 		
 		<p>

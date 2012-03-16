@@ -16,9 +16,9 @@ permissions and ~ limitations under the License.
 
 		<h1>Index</h1>
 		<p>
-		WSO2 Carbon Studio is a one stop solution for all most all the development tools you will ever need 
+		WSO2 Developer Studio is a one stop solution for all most all the development tools you will ever need 
 		for our carbon products. Easier, faster and more efficient development cycle for you is now possible. 
-		The prime aim of Carbon Studio is to help you with the every phase of development on your SOA. i.e.
+		The prime aim of Developer Studio is to help you with the every phase of development on your SOA. i.e.
 		</p>
 		<ul>
 			<li>Develop</li>
@@ -31,28 +31,28 @@ permissions and ~ limitations under the License.
 		You can find information regarding following topics in our documentation. 
 		</p>
 		<ol>
-			<li><a href="overview.html">Overview to WSO2 Carbon Studio</a>
+			<li><a href="overview.html">Overview to WSO2 Developer Studio</a>
 				<ul>
 					<li>
-					This gives you a quick glance to WSO2 Carbon Studio.
+					This gives you a quick glance to WSO2 Developer Studio.
 					</li>
 				</ul>
 			</li>
-			<li><a href="cstudio-features.html">WSO2 Carbon Studio Features</a>
+			<li><a href="cstudio-features.html">WSO2 Developer Studio Features</a>
 				<ul>
 					<li>
-					This gives you a quick insight to what WSO2 Carbon Studio can do in WSO2 product wise.
+					This gives you a quick insight to what WSO2 Developer Studio can do in WSO2 product wise.
 					</li>
 				</ul>
 			</li>
 			<li><a href="install_guide.html">Installation Guide</a>
 				<ul>
 					<li>
-					This includes how to install WSO2 Carbon Studio in Eclipse.
+					This includes how to install WSO2 Developer Studio in Eclipse.
 					</li>
 				</ul>
 			</li>
-			<li><a href="getting_started_category.html">Getting Started with Carbon Studio</a>
+			<li><a href="getting_started_category.html">Getting Started with Developer Studio</a>
 				<ul>
 					<li>
 					This explains how to create a C-App project after successfully installing Carbon 
@@ -173,7 +173,7 @@ permissions and ~ limitations under the License.
             <li><a href="bpel_category.html">Business Process Server Tools</a>
             	<ul>
 					<li>
-					This explains how to create a BPEL data flows using Carbon Studio.
+					This explains how to create a BPEL data flows using Developer Studio.
 					</li>
 				</ul>
 			</li>
@@ -181,7 +181,7 @@ permissions and ~ limitations under the License.
             <li><a href="gadget_category.html">Gadget Server Tools</a>
             	<ul>
 					<li>
-					This explains how to create a gadget artifact using Carbon Studio.
+					This explains how to create a gadget artifact using Developer Studio.
 					</li>
 				</ul>
 			</li>

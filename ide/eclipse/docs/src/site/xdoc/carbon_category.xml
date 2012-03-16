@@ -33,7 +33,7 @@ permissions and ~ limitations under the License.
         in to bundle classpath during the runtime. 
         </p>
         <p>
-        To create a <strong>Java Library Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+        To create a <strong>Java Library Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Java Library Project</strong> from <strong>Carbon</strong> category. 
         </p>
 		<p>
@@ -113,7 +113,7 @@ permissions and ~ limitations under the License.
 		
 		<h2 id="CarbonUIArtifact">Carbon UI Bundle Project</h2>
         <p>
-        To create a <strong>Carbon UI Bundle Project</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+        To create a <strong>Carbon UI Bundle Project</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Carbon UI Bundle Project</strong> from <strong>Carbon</strong> category. 
         </p>
 		<p>
@@ -167,7 +167,7 @@ permissions and ~ limitations under the License.
 		
 		<p>
 		With <strong>Import Carbon UI Bundle From Workspace</strong> option, you can refer already defined  
-		<strong>Carbon UI Bundle Components</strong> in the workspace. With <strong>WSO2 Carbon Studio</strong> 
+		<strong>Carbon UI Bundle Components</strong> in the workspace. With <strong>WSO2 Developer Studio</strong> 
 		you can create <strong>Carbon UI Bundle Component</strong> as well. This will be a stand-alone 
 		<strong>Eclipse Plugin Project</strong> with customizations relavent to make it a <strong>Carbon 
 		UI Bundle</strong>. This option is available under <strong>File -> New -> Other -> Carbon -> 

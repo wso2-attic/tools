@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.wso2.carbonstudio.eclipse.bpel.connector" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.wso2.developerstudio.eclipse.bpel.connector" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.wso2.carbonstudio.eclipse.bpel.connector" id="org.wso2.carbonstudio.eclipse.bpel.connector" name="BPEL artifact registering Extension Point"/>
+         <meta.schema plugin="org.wso2.developerstudio.eclipse.bpel.connector" id="org.wso2.developerstudio.eclipse.bpel.connector" name="BPEL artifact registering Extension Point"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -68,7 +68,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.carbonstudio.eclipse.bpel.core.handler.IBPELHandlerRequester"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.developerstudio.eclipse.bpel.core.handler.IBPELHandlerRequester"/>
                </appinfo>
             </annotation>
          </attribute>

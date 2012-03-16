@@ -15,8 +15,8 @@ permissions and ~ limitations under the License.
 	<body>
 		<h1>ESB Proxy Service Sample</h1>
 		<br></br>
-		<p>Carbon Studio can be used effecetively to work with WSO2 Enterprice Service Bus (ESB) for visual editing of Sequence definitions, Endpoint definitions, Proxy service definitions as well as whole Synapse configurations. 
-		In this guide we will show you, how you can use <strong>Carbon Studio IDE</strong> to do the <a href="http://wso2.org/project/esb/java/3.0.1/docs/quickstart_guide.html#Proxy">ESB Proxy Service</a> example.</p>
+		<p>Developer Studio can be used effecetively to work with WSO2 Enterprice Service Bus (ESB) for visual editing of Sequence definitions, Endpoint definitions, Proxy service definitions as well as whole Synapse configurations. 
+		In this guide we will show you, how you can use <strong>Developer Studio IDE</strong> to do the <a href="http://wso2.org/project/esb/java/3.0.1/docs/quickstart_guide.html#Proxy">ESB Proxy Service</a> example.</p>
 		<h2>Content</h2>
 		<div class="toc">
 			<ul>
@@ -24,16 +24,16 @@ permissions and ~ limitations under the License.
 					<a href="#CreatingaCarbonApplicationProject">Creating a Carbon Application Project.</a>
 				</li>
 				<li>
-					<a href="#CreatingaProxyServiceUsingCarbonStudioIDE">Creating a <strong>Proxy Service</strong> using <strong>Carbon Studio IDE</strong>.</a>
+					<a href="#CreatingaProxyServiceUsingDeveloperStudioIDE">Creating a <strong>Proxy Service</strong> using <strong>Developer Studio IDE</strong>.</a>
 				</li>
 				<li>
-					<a href="#AddingaWSO2CarbonBasedServertotheCarbonStudioIDE">Adding a <strong>WSO2 Carbon Based Server</strong> to the <strong>Carbon Studio IDE</strong>.</a>
+					<a href="#AddingaWSO2CarbonBasedServertotheDeveloperStudioIDE">Adding a <strong>WSO2 Carbon Based Server</strong> to the <strong>Developer Studio IDE</strong>.</a>
 				</li>
 				<li>
-					<a href="#StartingtheWSO2CarbonBasedServerfromtheCarbonStudioIDE">Starting the <strong>WSO2 Carbon Based ESB</strong> from the <strong>Carbon Studio IDE</strong>.</a>
+					<a href="#StartingtheWSO2CarbonBasedServerfromtheDeveloperStudioIDE">Starting the <strong>WSO2 Carbon Based ESB</strong> from the <strong>Developer Studio IDE</strong>.</a>
 				</li>
 				<li>
-					<a href="#DeployingthecretedProxyServiceintheserverinstanceusingCarbonStudioIDE">Deploying the creted <strong>Proxy Service</strong> in the server instance using <strong>Carbon Studio IDE.</strong></a>
+					<a href="#DeployingthecretedProxyServiceintheserverinstanceusingDeveloperStudioIDE">Deploying the creted <strong>Proxy Service</strong> in the server instance using <strong>Developer Studio IDE.</strong></a>
 				</li>
 			</ul>
 		</div>
@@ -76,7 +76,7 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		<p>
-			If you have successfully completed the project creation process, your Carbon Studio will look like similar to this.
+			If you have successfully completed the project creation process, your Developer Studio will look like similar to this.
 		</p>
 		<p>
 			<br></br>
@@ -87,14 +87,14 @@ permissions and ~ limitations under the License.
 		</p>
 
 			
-			<h2 id="CreatingaProxyServiceUsingCarbonStudioIDE">Creating a Proxy Service using Carbon Studio IDE</h2>
+			<h2 id="CreatingaProxyServiceUsingDeveloperStudioIDE">Creating a Proxy Service using Developer Studio IDE</h2>
 			<br></br>
-			<p>Here, we are going go create a Proxy Service using Carbon Studio. Proxy Service is one of the <strong>Artifacts</strong> that can be deployed on ESB.
+			<p>Here, we are going go create a Proxy Service using Developer Studio. Proxy Service is one of the <strong>Artifacts</strong> that can be deployed on ESB.
 			You can add <strong>Artifacts</strong> to your CApp project by selecting <strong>New => Proxy Service </strong> from the Right click menu.  </p>
 			<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy0.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy0.png"></img>
 			<br></br>
 			<br></br>
 		</p>
@@ -102,7 +102,7 @@ permissions and ~ limitations under the License.
 			<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy1.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy1.png"></img>
 			<br></br>
 			<br></br>
 		</p>
@@ -113,7 +113,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy2.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy2.png"></img>
 			<br></br>
 			<br></br>
 		</p>	
@@ -121,7 +121,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy3.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy3.png"></img>
 			<br></br>
 			<br></br>
 		</p>		 
@@ -129,7 +129,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy4.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy4.png"></img>
 			<br></br>
 			<br></br>
 		</p>		
@@ -140,7 +140,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy5.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy5.png"></img>
 			<br></br>
 			<br></br>
 		</p>	
@@ -152,7 +152,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy6.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy6.png"></img>
 			<br></br>
 			<br></br>
 		</p>
@@ -162,7 +162,7 @@ permissions and ~ limitations under the License.
 			<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy7.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy7.png"></img>
 			<br></br>
 			<br></br>
 		</p>
@@ -172,7 +172,7 @@ permissions and ~ limitations under the License.
 			<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy8.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy8.png"></img>
 			<br></br>
 			<br></br>
 		</p>
@@ -182,7 +182,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy9.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy9.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
@@ -192,7 +192,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy10.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy10.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
@@ -201,7 +201,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy11.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy11.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
@@ -210,21 +210,21 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Creating a Proxy Service using Carbon Studio IDE" src="images/samples/esb/creatingproxy12.png"></img>
+			<img alt="Creating a Proxy Service using Developer Studio IDE" src="images/samples/esb/creatingproxy12.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
 		<p> Now you have completed configuring the <strong>Proxy Service</strong> for the ESB. In the nexet section  let's see how we can create a connection to a WSO2 Carbon Based ESB placed in your <strong>Local File System</strong>. 
 		</p>
-		<h2 id="AddingaWSO2CarbonBasedServertotheCarbonStudioIDE">Adding a WSO2 Carbon Based Server to the Carbon Studio IDE.</h2>
+		<h2 id="AddingaWSO2CarbonBasedServertotheDeveloperStudioIDE">Adding a WSO2 Carbon Based Server to the Developer Studio IDE.</h2>
 		<br></br>
-		<p> When you install the <strong>Carbon Studio</strong>, a new view called <strong>Servers</strong> appear in the IDE. All the existing server applications such as Apache Tomcat, WSO2 WSAS, WSO2 ESB, etc can be integrated to the IDE from there so that these server instances can be managed from the IDE itself. In this example we will show integrating <strong>WSO2 ESB</strong> to the IDE.  
+		<p> When you install the <strong>Developer Studio</strong>, a new view called <strong>Servers</strong> appear in the IDE. All the existing server applications such as Apache Tomcat, WSO2 WSAS, WSO2 ESB, etc can be integrated to the IDE from there so that these server instances can be managed from the IDE itself. In this example we will show integrating <strong>WSO2 ESB</strong> to the IDE.  
 		First open the <strong>Servers View</strong> and right click on it and select <strong>New => Server</strong> from it.
 		</p>
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver1.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver1.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
@@ -234,7 +234,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver3.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver3.png"></img>
 			<br></br>
 			<br></br> 
 		</p>
@@ -243,7 +243,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver4.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver4.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -252,7 +252,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver5.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver5.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -261,7 +261,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver6.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver6.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -270,20 +270,20 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Adding a WSO2 Carbon Based Server to the Carbon Studio IDE" src="images/samples/esb/creatingserver7.png"></img>
+			<img alt="Adding a WSO2 Carbon Based Server to the Developer Studio IDE" src="images/samples/esb/creatingserver7.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
 		
-		<h2 id="StartingtheWSO2CarbonBasedServerfromtheCarbonStudioIDE">Starting the WSO2 Carbon Based ESB from the Carbon Studio IDE</h2>
-		<p>Now you have integrated the ESB instance to the IDE, we look at how to start the ESB instance from the Carbon Studio IDE. There are 2 methods to do that from the Carbon Studio. If you select 
+		<h2 id="StartingtheWSO2CarbonBasedServerfromtheDeveloperStudioIDE">Starting the WSO2 Carbon Based ESB from the Developer Studio IDE</h2>
+		<p>Now you have integrated the ESB instance to the IDE, we look at how to start the ESB instance from the Developer Studio IDE. There are 2 methods to do that from the Developer Studio. If you select 
 		the ESB instance in the <strong>Servers View</strong>, you will notice that there is a <strong>Start</strong> icon in the <strong>top right corner</strong>. Else you can right click on the ESB instance 
 		and select <strong>Start</strong> from there. 
 		</p>
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Starting the WSO2 Carbon Based ESB from the Carbon Studio IDE" src="images/samples/esb/startingserver1.png"></img>
+			<img alt="Starting the WSO2 Carbon Based ESB from the Developer Studio IDE" src="images/samples/esb/startingserver1.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -292,7 +292,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Starting the WSO2 Carbon Based ESB from the Carbon Studio IDE" src="images/samples/esb/startingserver2.png"></img>
+			<img alt="Starting the WSO2 Carbon Based ESB from the Developer Studio IDE" src="images/samples/esb/startingserver2.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -301,27 +301,27 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Starting the WSO2 Carbon Based ESB from the Carbon Studio IDE" src="images/samples/esb/serverstarted1.png"></img>
+			<img alt="Starting the WSO2 Carbon Based ESB from the Developer Studio IDE" src="images/samples/esb/serverstarted1.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
-		<p>When you log in to the system, ESB dash board will appear as shown below. This means you have successfully managed to start the <strong>ESB</strong> from the <strong>Carbon Studio</strong> IDE. 
+		<p>When you log in to the system, ESB dash board will appear as shown below. This means you have successfully managed to start the <strong>ESB</strong> from the <strong>Developer Studio</strong> IDE. 
 		</p>
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Starting the WSO2 Carbon Based ESB from the Carbon Studio IDE" src="images/samples/esb/serverstarted2.png"></img>
+			<img alt="Starting the WSO2 Carbon Based ESB from the Developer Studio IDE" src="images/samples/esb/serverstarted2.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
 		
-		<h2 id="DeployingthecretedProxyServiceintheserverinstanceusingCarbonStudioIDE">Deploying the creted Proxy Service in the server instance using Carbon Studio IDE</h2>
-		<p>Now we look at how can we deploy the created <strong>Proxy Service</strong> using the <strong>Carbon Studio</strong> IDE. First check what are the existing Services in the ESB from the Web console by selecting <strong>List</strong> under <strong>Services</strong> section in the left panel.
+		<h2 id="DeployingthecretedProxyServiceintheserverinstanceusingDeveloperStudioIDE">Deploying the creted Proxy Service in the server instance using Developer Studio IDE</h2>
+		<p>Now we look at how can we deploy the created <strong>Proxy Service</strong> using the <strong>Developer Studio</strong> IDE. First check what are the existing Services in the ESB from the Web console by selecting <strong>List</strong> under <strong>Services</strong> section in the left panel.
 		</p>
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Deploying the creted Proxy Service in the server instance using Carbon Studio IDE" src="images/samples/esb/deployingservice1.png"></img>
+			<img alt="Deploying the creted Proxy Service in the server instance using Developer Studio IDE" src="images/samples/esb/deployingservice1.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -331,7 +331,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Deploying the creted Proxy Service in the server instance using Carbon Studio IDE" src="images/samples/esb/deployingservice2.png"></img>
+			<img alt="Deploying the creted Proxy Service in the server instance using Developer Studio IDE" src="images/samples/esb/deployingservice2.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -340,17 +340,17 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Deploying the creted Proxy Service in the server instance using Carbon Studio IDE" src="images/samples/esb/deployingservice3.png"></img>
+			<img alt="Deploying the creted Proxy Service in the server instance using Developer Studio IDE" src="images/samples/esb/deployingservice3.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
-		<p>Now you have asked Carbon Studio IDE to deply your <strong>Proxy Service</strong> in the WSO2 ESB and it will do it for you. There will be log messages appear in the Carbon Studio Console about the progress of that deployment.
+		<p>Now you have asked Developer Studio IDE to deply your <strong>Proxy Service</strong> in the WSO2 ESB and it will do it for you. There will be log messages appear in the Developer Studio Console about the progress of that deployment.
 		 By reading those messages you will be able to identify whether your <strong>Proxy Service </strong> is successfully deployed or not.
 		</p>
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Deploying the creted Proxy Service in the server instance using Carbon Studio IDE" src="images/samples/esb/deployingservice4.png"></img>
+			<img alt="Deploying the creted Proxy Service in the server instance using Developer Studio IDE" src="images/samples/esb/deployingservice4.png"></img>
 			<br></br>
 			<br></br>  
 		</p>
@@ -360,7 +360,7 @@ permissions and ~ limitations under the License.
 		<p>
 			<br></br>
 			<br></br>
-			<img alt="Deploying the creted Proxy Service in the server instance using Carbon Studio IDE" src="images/samples/esb/deployingservice5.png"></img>
+			<img alt="Deploying the creted Proxy Service in the server instance using Developer Studio IDE" src="images/samples/esb/deployingservice5.png"></img>
 			<br></br>
 			<br></br>  
 		</p>

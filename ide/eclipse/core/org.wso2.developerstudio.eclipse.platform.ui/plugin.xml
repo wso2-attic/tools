@@ -2,39 +2,39 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.ui.startup">
-		<startup class="org.wso2.carbonstudio.eclipse.platform.ui.startup.PlatformStartup"/>
+		<startup class="org.wso2.developerstudio.eclipse.platform.ui.startup.PlatformStartup"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
-		<page id="org.wso2.carbonstudio.eclipse.ui.carbonstudio.preferences" name="Carbon Studio" class="org.wso2.carbonstudio.eclipse.platform.ui.preferences.CarbonStudioPreferencePage">
+		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences" name="Developer Studio" class="org.wso2.developerstudio.eclipse.platform.ui.preferences.DeveloperStudioPreferencePage">
 		</page>
 	</extension>
 	<extension
 	       point="org.eclipse.core.runtime.preferences">
 	    <initializer
-	          class="org.wso2.carbonstudio.eclipse.platform.ui.preferences.PreferenceInitializer">
+	          class="org.wso2.developerstudio.eclipse.platform.ui.preferences.PreferenceInitializer">
 	    </initializer>
 	 </extension>
 	<extension point="org.eclipse.ui.menus">
       <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-         <menu label="Carbon Studio"
+         <menu label="Developer Studio"
                mnemonic="C"
-               id="org.wso2.carbonstudio.eclipse.platform.ui.main">
+               id="org.wso2.developerstudio.eclipse.platform.ui.main">
             <command
-                  commandId="org.wso2.carbonstudio.eclipse.platform.ui.commands.sampleCommand"
+                  commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand"
                   icon="icons/carbon-studio-small-logo.gif"
-                  id="org.wso2.carbonstudio.eclipse.platform.ui.toolbars.sampleCommand"
+                  id="org.wso2.developerstudio.eclipse.platform.ui.toolbars.sampleCommand"
                   label="About"
-                  tooltip="About Carbon Studio">
+                  tooltip="About Developer Studio">
             </command>
             <command
-                  commandId="org.wso2.carbonstudio.eclipse.platform.ui.commands.opendashboard"
+                  commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard"
                   icon="icons/carbon-normal.png"
-                  id="org.wso2.carbonstudio.eclipse.platform.ui.toolbars.opendashboard"
+                  id="org.wso2.developerstudio.eclipse.platform.ui.toolbars.opendashboard"
                   label="Open Dashboard"
-                  tooltip="Open Carbon Studio Dashboard">
+                  tooltip="Open Developer Studio Dashboard">
             </command>
-           <!--dynamic class="org.wso2.carbonstudio.eclipse.samples.menu.contributors.CarbonStudioSampleMenuContributor"
-				id="org.wso2.carbonstudio.eclipse.capp.samples.menu.items" /-->
+           <!--dynamic class="org.wso2.developerstudio.eclipse.samples.menu.contributors.DeveloperStudioSampleMenuContributor"
+				id="org.wso2.developerstudio.eclipse.capp.samples.menu.items" /-->
          </menu>
       </menuContribution>
 	</extension> 
@@ -42,17 +42,17 @@
 	<extension
        point="org.eclipse.ui.commands">
     <category
-          id="org.wso2.carbonstudio.eclipse.platform.ui.commands.category"
+          id="org.wso2.developerstudio.eclipse.platform.ui.commands.category"
           name="Sample Category">
     </category>
     <command
-          categoryId="org.wso2.carbonstudio.eclipse.platform.ui.commands.category"
-          id="org.wso2.carbonstudio.eclipse.platform.ui.commands.sampleCommand"
+          categoryId="org.wso2.developerstudio.eclipse.platform.ui.commands.category"
+          id="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand"
           name="Sample Command">
     </command>
         <command
-          categoryId="org.wso2.carbonstudio.eclipse.platform.ui.commands.category"
-          id="org.wso2.carbonstudio.eclipse.platform.ui.commands.opendashboard"
+          categoryId="org.wso2.developerstudio.eclipse.platform.ui.commands.category"
+          id="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard"
           name="Open Dashboard">
     </command>
  </extension>
@@ -60,22 +60,22 @@
 	<extension point="org.eclipse.ui.navigator.viewer">
 		<viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
 			<includes>
-				<contentExtension pattern="org.wso2.carbonstudio.eclipse.platform.ui.nestedproject.content" />
-				<contentExtension pattern="org.wso2.carbonstudio.eclipse.platform.ui.nestedproject.filter" />					
+				<contentExtension pattern="org.wso2.developerstudio.eclipse.platform.ui.nestedproject.content" />
+				<contentExtension pattern="org.wso2.developerstudio.eclipse.platform.ui.nestedproject.filter" />					
 			</includes>
 		</viewerContentBinding>
 		<!--viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
 			<includes>
 				<actionExtension
-					pattern="org.wso2.carbonstudio.eclipse.capp.project.node.serverrole.navigator.content.actionProvider" />
+					pattern="org.wso2.developerstudio.eclipse.capp.project.node.serverrole.navigator.content.actionProvider" />
 			</includes>
 		</viewerActionBinding-->
 	</extension>
 	<extension point="org.eclipse.ui.navigator.navigatorContent">
 		<navigatorContent activeByDefault="true"
-			id="org.wso2.carbonstudio.eclipse.platform.ui.nestedproject.content"
-			contentProvider="org.wso2.carbonstudio.eclipse.platform.ui.provider.ProjectContentProvider"
-			labelProvider="org.wso2.carbonstudio.eclipse.platform.ui.provider.ProjectLabelProvider"
+			id="org.wso2.developerstudio.eclipse.platform.ui.nestedproject.content"
+			contentProvider="org.wso2.developerstudio.eclipse.platform.ui.provider.ProjectContentProvider"
+			labelProvider="org.wso2.developerstudio.eclipse.platform.ui.provider.ProjectLabelProvider"
 			name="Sub Artifact Projects" priority="high">
 			<triggerPoints>
 				<or>
@@ -87,27 +87,27 @@
 				<instanceof value="org.eclipse.core.resources.IFolder"/>
 			</possibleChildren>
 		</navigatorContent>
-		<commonFilter id="org.wso2.carbonstudio.eclipse.platform.ui.nestedproject.filter"
+		<commonFilter id="org.wso2.developerstudio.eclipse.platform.ui.nestedproject.filter"
 			name="Hide nested projects"
 			description="Hides projects which are already nested under another project"
-			class="org.wso2.carbonstudio.eclipse.platform.ui.provider.FilterNestedProjects"
+			class="org.wso2.developerstudio.eclipse.platform.ui.provider.FilterNestedProjects"
 			activeByDefault="true"
 			visibleInUI="true" />
 	</extension>
 	
 	<!--extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.generic.project.nature" name="Generic Project Nature">
+		id="org.wso2.developerstudio.eclipse.generic.project.nature" name="Generic Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.platform.ui.project.nature.GenericProjectNature">
+				class="org.wso2.developerstudio.eclipse.platform.ui.project.nature.GenericProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension
          point="org.eclipse.ui.newWizards">
-         <wizard name="Generic Project" category="org.wso2.carbonstudio.eclipse.project/org.wso2.carbonstudio.eclipse.artifacts"
-			class="org.wso2.carbonstudio.eclipse.platform.ui.wizard.GenericProjectWizard"
-			id="org.wso2.carbonstudio.eclipse.artifact.newgeneric.project"
+         <wizard name="Generic Project" category="org.wso2.developerstudio.eclipse.project/org.wso2.developerstudio.eclipse.artifacts"
+			class="org.wso2.developerstudio.eclipse.platform.ui.wizard.GenericProjectWizard"
+			id="org.wso2.developerstudio.eclipse.artifact.newgeneric.project"
 			wizardManifest="project_wizard.xml"
 			project="true"
 			icon="icons/endpoint-normal.png">
@@ -115,85 +115,85 @@
 		</wizard>
    </extension-->
    <!--extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Artifact Project Types" id="org.wso2.carbonstudio.eclipse.artifacts" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Artifact Project Types" id="org.wso2.developerstudio.eclipse.artifacts" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Distribution" id="org.wso2.carbonstudio.eclipse.capp.distribution" 
-		parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Distribution" id="org.wso2.developerstudio.eclipse.capp.distribution" 
+		parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
 		
    </extension-->	
    
     <extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Service Hosting" id="org.wso2.carbonstudio.eclipse.service.hosting" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Service Hosting" id="org.wso2.developerstudio.eclipse.service.hosting" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Web Applications" id="org.wso2.carbonstudio.eclipse.web.apps" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Web Applications" id="org.wso2.developerstudio.eclipse.web.apps" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Message Mediation" id="org.wso2.carbonstudio.eclipse.message.mediation" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Message Mediation" id="org.wso2.developerstudio.eclipse.message.mediation" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Repository" id="org.wso2.carbonstudio.eclipse.repository" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Repository" id="org.wso2.developerstudio.eclipse.repository" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Business Processes" id="org.wso2.carbonstudio.eclipse.business.processes" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Business Processes" id="org.wso2.developerstudio.eclipse.business.processes" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Portal Services" id="org.wso2.carbonstudio.eclipse.portal.services" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Portal Services" id="org.wso2.developerstudio.eclipse.portal.services" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Carbon UI" id="org.wso2.carbonstudio.eclipse.carbon.ui" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Carbon UI" id="org.wso2.developerstudio.eclipse.carbon.ui" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Extensions" id="org.wso2.carbonstudio.eclipse.extensions" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Extensions" id="org.wso2.developerstudio.eclipse.extensions" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Distribution" id="org.wso2.carbonstudio.eclipse.capp.distribution" 
-		parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Distribution" id="org.wso2.developerstudio.eclipse.capp.distribution" 
+		parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Application Server" id="org.wso2.carbonstudio.eclipse.service.hosting" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Application Server" id="org.wso2.developerstudio.eclipse.service.hosting" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Project Types" id="org.wso2.carbonstudio.eclipse.service.hosting.project.types" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting">
+		<category name="Project Types" id="org.wso2.developerstudio.eclipse.service.hosting.project.types" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting">
 		</category>
-		<category name="Service Hosting Features" id="org.wso2.carbonstudio.eclipse.service.hosting.features" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting">
+		<category name="Service Hosting Features" id="org.wso2.developerstudio.eclipse.service.hosting.features" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting">
 		</category>
-		<category name="Project Types" id="org.wso2.carbonstudio.eclipse.extensions.project.types" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions">
+		<category name="Project Types" id="org.wso2.developerstudio.eclipse.extensions.project.types" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions">
 		</category>
-		<category name="Service Extensions Features" id="org.wso2.carbonstudio.eclipse.extensions.features" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions">
+		<category name="Service Extensions Features" id="org.wso2.developerstudio.eclipse.extensions.features" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions">
 		</category>
-		<category name="Project Types" id="org.wso2.carbonstudio.eclipse.message.mediation.project.types" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.message.mediation">
+		<category name="Project Types" id="org.wso2.developerstudio.eclipse.message.mediation.project.types" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation">
 		</category>
-		<category name="Message Mediation Features" id="org.wso2.carbonstudio.eclipse.message.mediation.features" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.message.mediation">
+		<category name="Message Mediation Features" id="org.wso2.developerstudio.eclipse.message.mediation.features" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation">
 		</category>
 		
    </extension>	
     <extension
        point="org.eclipse.ui.handlers">
     <handler
-          class="org.wso2.carbonstudio.eclipse.platform.ui.handlers.CarbonStudioAboutPageHandler"
-          commandId="org.wso2.carbonstudio.eclipse.platform.ui.commands.sampleCommand">
+          class="org.wso2.developerstudio.eclipse.platform.ui.handlers.DeveloperStudioAboutPageHandler"
+          commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand">
     </handler>
     <handler
-          class="org.wso2.carbonstudio.eclipse.platform.ui.handlers.OpenDashboardHandler"
-          commandId="org.wso2.carbonstudio.eclipse.platform.ui.commands.opendashboard">
+          class="org.wso2.developerstudio.eclipse.platform.ui.handlers.OpenDashboardHandler"
+          commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard">
     </handler>
  </extension>
  <extension
        point="org.eclipse.ui.bindings">
     <key
-          commandId="org.wso2.carbonstudio.eclipse.platform.ui.commands.sampleCommand"
+          commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand"
           contextId="org.eclipse.ui.contexts.window"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="M1+6">

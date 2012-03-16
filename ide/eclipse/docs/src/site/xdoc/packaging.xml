@@ -83,7 +83,7 @@ permissions and ~ limitations under the License.
 		
 		<h2 id="artifactPackaging">Artifact Level Packaging</h2>
 		<p>
-		With <strong>Carbon Studio 2.0.0</strong>, you can create deployable archive each and every artifact 
+		With <strong>Developer Studio 2.0.0</strong>, you can create deployable archive each and every artifact 
 		level. Suppose I created an <strong>Apache Axis2 Service</strong>. Once you right click on the 
 		Axis2 Service Project, there is a option called <strong>Export Project as Deployable Archive</strong>.
 		This will create the relavant deployable archive in the location you specified. For example, 

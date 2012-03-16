@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Platform UI
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.platform.ui;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.platform.ui;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.platform.ui.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.platform.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.platform.core,
- org.wso2.carbonstudio.eclipse.utils
+ org.wso2.developerstudio.eclipse.platform.core,
+ org.wso2.developerstudio.eclipse.utils
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axis2.client,
  org.apache.axis2.transport.http,
@@ -20,19 +20,19 @@ Import-Package: org.apache.axis2.client,
  org.eclipse.ui.forms.events,
  org.eclipse.ui.forms.widgets,
  org.eclipse.ui.navigator,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.maven.types,
- org.wso2.carbonstudio.eclipse.maven.util,
- org.wso2.carbonstudio.eclipse.platform.core.types,
- org.wso2.carbonstudio.eclipse.platform.core.utils,
- org.wso2.carbonstudio.eclipse.platform.ui.utils,
- org.wso2.carbonstudio.eclipse.utils.project
-Export-Package: org.wso2.carbonstudio.eclipse.platform.ui,
- org.wso2.carbonstudio.eclipse.platform.ui.interfaces,
- org.wso2.carbonstudio.eclipse.platform.ui.manager,
- org.wso2.carbonstudio.eclipse.platform.ui.startup,
- org.wso2.carbonstudio.eclipse.platform.ui.utils,
- org.wso2.carbonstudio.eclipse.platform.ui.validator,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.maven.types,
+ org.wso2.developerstudio.eclipse.maven.util,
+ org.wso2.developerstudio.eclipse.platform.core.types,
+ org.wso2.developerstudio.eclipse.platform.core.utils,
+ org.wso2.developerstudio.eclipse.platform.ui.utils,
+ org.wso2.developerstudio.eclipse.utils.project
+Export-Package: org.wso2.developerstudio.eclipse.platform.ui,
+ org.wso2.developerstudio.eclipse.platform.ui.interfaces,
+ org.wso2.developerstudio.eclipse.platform.ui.manager,
+ org.wso2.developerstudio.eclipse.platform.ui.startup,
+ org.wso2.developerstudio.eclipse.platform.ui.utils,
+ org.wso2.developerstudio.eclipse.platform.ui.validator,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard.pages
 Bundle-Vendor: WSO2

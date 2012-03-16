@@ -25,7 +25,7 @@ permissions and ~ limitations under the License.
 		</div>
 		<h2 id="WARArtifact">Web Application</h2>
        	 <p>
-       	To create a <strong>Web Application</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Web Application</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Web Application</strong> from <strong>Application Server</strong> category. 
         </p>
 		<p>

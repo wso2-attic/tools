@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Carbon Server Base
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.carbonserver.base;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.carbonserver.base;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.carbonserver.base.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.carbonserver.base.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.core,
- org.wso2.carbonstudio.eclipse.libraries
+ org.wso2.developerstudio.eclipse.libraries
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.httpclient,
  org.apache.xmlbeans.impl.soap,
@@ -31,18 +31,18 @@ Import-Package: org.apache.commons.httpclient,
  org.eclipse.wst.server.core.util,
  org.eclipse.wst.server.ui,
  org.eclipse.wst.server.ui.internal.view.servers,
- org.wso2.carbonstudio.eclipse.carbonfeatures,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.platform.ui.utils,
- org.wso2.carbonstudio.eclipse.server.base.core,
- org.wso2.carbonstudio.eclipse.server.base.interfaces,
- org.wso2.carbonstudio.eclipse.utils.file
-Export-Package: org.wso2.carbonstudio.eclipse.carbonserver.base.console,
- org.wso2.carbonstudio.eclipse.carbonserver.base.exception,
- org.wso2.carbonstudio.eclipse.carbonserver.base.impl,
- org.wso2.carbonstudio.eclipse.carbonserver.base.interfaces,
- org.wso2.carbonstudio.eclipse.carbonserver.base.manager,
- org.wso2.carbonstudio.eclipse.carbonserver.base.monitor,
- org.wso2.carbonstudio.eclipse.carbonserver.base.service.util,
- org.wso2.carbonstudio.eclipse.carbonserver.base.util,
- org.wso2.carbonstudio.eclipse.carbonserver.base.utils
+ org.wso2.developerstudio.eclipse.carbonfeatures,
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.platform.ui.utils,
+ org.wso2.developerstudio.eclipse.server.base.core,
+ org.wso2.developerstudio.eclipse.server.base.interfaces,
+ org.wso2.developerstudio.eclipse.utils.file
+Export-Package: org.wso2.developerstudio.eclipse.carbonserver.base.console,
+ org.wso2.developerstudio.eclipse.carbonserver.base.exception,
+ org.wso2.developerstudio.eclipse.carbonserver.base.impl,
+ org.wso2.developerstudio.eclipse.carbonserver.base.interfaces,
+ org.wso2.developerstudio.eclipse.carbonserver.base.manager,
+ org.wso2.developerstudio.eclipse.carbonserver.base.monitor,
+ org.wso2.developerstudio.eclipse.carbonserver.base.service.util,
+ org.wso2.developerstudio.eclipse.carbonserver.base.util,
+ org.wso2.developerstudio.eclipse.carbonserver.base.utils

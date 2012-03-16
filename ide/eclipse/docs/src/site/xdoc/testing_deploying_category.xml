@@ -216,7 +216,7 @@ permissions and ~ limitations under the License.
 		<h2 id="debug">Debug a Carbon Application</h2>
 		<p>
 		Suppose I develop a simple <strong>Apache Axis2 Service</strong> and I want to debug my service 
-		when I invoke it. Let's see how we can achieve this using <strong>WSO2 Carbon Studio</strong>.
+		when I invoke it. Let's see how we can achieve this using <strong>WSO2 Developer Studio</strong>.
 		</p>
 		<p>
 		First, I create a simple <strong>GreetingServie</strong>.

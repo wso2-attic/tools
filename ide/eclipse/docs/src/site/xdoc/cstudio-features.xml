@@ -14,10 +14,10 @@ permissions and ~ limitations under the License.
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
-		<h1>WSO2 Carbon Studio Features</h1>
+		<h1>WSO2 Developer Studio Features</h1>
 		<p>
-		Carbon Studio contains many features. In this document we will give you a quick insight 
-		to what WSO2 Carbon Studio can do in WSO2 product wise.  
+		Developer Studio contains many features. In this document we will give you a quick insight 
+		to what WSO2 Developer Studio can do in WSO2 product wise.  
 		</p>
 		<div class="toc">
 			<ul>
@@ -43,7 +43,7 @@ permissions and ~ limitations under the License.
 					<a href="#CarbonTools">Carbon Tools</a>
 				</li>
 				<li>
-					<a href="#CSContribution">Carbon Studio Contribution Features</a>
+					<a href="#CSContribution">Developer Studio Contribution Features</a>
 				</li>
 				<li>
 					<a href="#MavenSupport">Apache Maven Support</a>
@@ -244,7 +244,7 @@ permissions and ~ limitations under the License.
 				<li>Adding WSO2 related libraries when developing applications</li>
 			</ol>
 			
-		<h2 id="CSContribution">Carbon Studio Contribution Features</h2>
+		<h2 id="CSContribution">Developer Studio Contribution Features</h2>
 	    <ol>
 	        <li>Extensions to add custom proxy service templates</li>
 	        <li>Extensions to add registry resource templates</li>

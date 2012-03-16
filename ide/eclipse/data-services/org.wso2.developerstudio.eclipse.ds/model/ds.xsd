@@ -9,8 +9,8 @@
 	License for the ~ specific language governing permissions and limitations 
 	~ under the License. -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.wso2.carbonstudio.eclipse.ds"
-	xmlns:ds="http:///org/wso2/carbonstudio/eclipse/ds">
+	xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.wso2.developerstudio.eclipse.ds"
+	xmlns:ds="http:///org/wso2/developerstudio/eclipse/ds">
 
 	<xs:element name="data">
 		<xs:complexType ecore:name="DataService">

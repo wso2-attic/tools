@@ -9,14 +9,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
-		<groupId>org.wso2.carbonstudio</groupId>
+		<groupId>org.wso2.developerstudio</groupId>
 		<artifactId>ds-tool-parent</artifactId>
 		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>org.wso2.carbonstudio.eclipse.ds.editor</artifactId>
+	<artifactId>org.wso2.developerstudio.eclipse.ds.editor</artifactId>
   	<packaging>eclipse-plugin</packaging>
-	<name>Carbon Studio DS Tree View</name>
+	<name>Developer Studio DS Tree View</name>
 	<dependencies>
 		<dependency>
     			<groupId>org.apache.poi</groupId>
@@ -89,13 +89,13 @@
   	</repositories>
 	<!--dependencies>
 		<dependency>
-			<groupId>org.wso2.carbonstudio</groupId>
-			<artifactId>org.wso2.carbonstudio.eclipse.ds</artifactId>
+			<groupId>org.wso2.developerstudio</groupId>
+			<artifactId>org.wso2.developerstudio.eclipse.ds</artifactId>
 			<version>${ds.tools.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.wso2.carbonstudio</groupId>
-			<artifactId>org.wso2.carbonstudio.eclipse.ds.edit</artifactId>
+			<groupId>org.wso2.developerstudio</groupId>
+			<artifactId>org.wso2.developerstudio.eclipse.ds.edit</artifactId>
 			<version>${ds.tools.version}</version>
 		</dependency>
 		<dependency>
@@ -139,8 +139,8 @@
 			<version>1.1.102.v200910200227</version>
 		</dependency>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.capp.core</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.capp.core</artifactId>
             <version>${capp.tools.version}</version>
         </dependency>  		
 	</dependencies>

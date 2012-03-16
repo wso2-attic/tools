@@ -24,7 +24,7 @@ permissions and ~ limitations under the License.
 					<a href="#SampleSource">Download/View Sample Source Code</a>
 				</li>
 				<li>
-					<a href="#TrySample">Try the Sample with Carbon Studio</a>
+					<a href="#TrySample">Try the Sample with Developer Studio</a>
 				</li>
 			</ul>
 		</div>
@@ -63,7 +63,7 @@ permissions and ~ limitations under the License.
         It contains resources related to several artifact types such as <strong>ESB, BPS, Data Services, Gadgets</strong> etc. 
 		</p>
 
-		<h2 id="TrySample">Try the Sample with Carbon Studio</h2>
+		<h2 id="TrySample">Try the Sample with Developer Studio</h2>
 		<div class="toc">
 			<ul>
 				<li>
@@ -94,7 +94,7 @@ permissions and ~ limitations under the License.
 					<a href="#CreateWebApps">Create User Portal and Admin Portal</a>
 				</li>
 				<!-- li>
-					<a href="#TrySample">Try the Sample with Carbon Studio</a>
+					<a href="#TrySample">Try the Sample with Developer Studio</a>
 				</li-->
 			</ul>
 		</div>
@@ -833,7 +833,7 @@ permissions and ~ limitations under the License.
 		<h3 id="ShoppingCartRegRes">Adding dependent resources to registry</h3>
 		<p>
 		For the Proxy services, we need several message transformation files which should be available. With WSO2 
-		Carbon Studio, we can add all these needed resources to registry that is embedded in <strong>ESB server</strong>. 
+		Developer Studio, we can add all these needed resources to registry that is embedded in <strong>ESB server</strong>. 
 		</p>
 		
 		<p>
@@ -1175,7 +1175,7 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		<p>
-		Let's try to create re-order process from Carbon Studio. You need to create a BPEL artifact to 
+		Let's try to create re-order process from Developer Studio. You need to create a BPEL artifact to 
 		get the job done. We will create the BPEL artifact under <strong>AcmeBackendServices</strong> 
 		CApp project since it is related to backend services.
 		</p>
@@ -1310,7 +1310,7 @@ permissions and ~ limitations under the License.
 		<p>
 		Now we will deploy BPEL process in to <strong><a href="http://wso2.com/products/business-process-server/">
 		WSO2 Business Process Server v2.0.1</a></strong>. There are several ways you can deploy created 
-		BPEL artifact by Carbon Studio.
+		BPEL artifact by Developer Studio.
 		</p>
 		<ol>
 			<li>Add WSO2 BPS server and add <strong>AcmeBackendServices</strong> to it.</li>
@@ -1475,7 +1475,7 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		<p>
-		You will see there are several ways to create an Axis2 service from Carbon Studio. For this sample, 
+		You will see there are several ways to create an Axis2 service from Developer Studio. For this sample, 
 		we will browse for the service class and create the <strong>Axis2 Service</strong>.
 		</p>
 		

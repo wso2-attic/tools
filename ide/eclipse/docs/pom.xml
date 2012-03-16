@@ -8,8 +8,8 @@
     <artifactId>Carbon-Studio</artifactId>
     <groupId>org.wso2.tools.eclipse</groupId>
     <packaging>jar</packaging>
-    <name>WSO2 Carbon Studio</name>
-    <description>WSO2 Carbon Studio is a fully functioned eclipse environment that provides you the ability to develop, test, run and deploy carbon artifacts. </description>
+    <name>WSO2 Developer Studio</name>
+    <description>WSO2 Developer Studio is a fully functioned eclipse environment that provides you the ability to develop, test, run and deploy carbon artifacts. </description>
     <distributionManagement>
         <repository>
             <id>wso2-maven2-repository</id>
@@ -88,7 +88,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.wso2.carbonstudio</groupId>
+                                    <groupId>org.wso2.developerstudio</groupId>
                                     <artifactId>Carbon-Studio</artifactId>
                                     <version>${pom.version}</version>
                                     <type>zip</type>

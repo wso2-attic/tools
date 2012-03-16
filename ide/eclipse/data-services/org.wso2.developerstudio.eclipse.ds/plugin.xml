@@ -12,27 +12,27 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="platform:/resource/org.wso2.carbonstudio.eclipse.ds/model/ds.xsd"
-            class="org.wso2.carbonstudio.eclipse.ds.DsPackage"
+            uri="platform:/resource/org.wso2.developerstudio.eclipse.ds/model/ds.xsd"
+            class="org.wso2.developerstudio.eclipse.ds.DsPackage"
             genModel="model/ds.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="dbs"
-            class="org.wso2.carbonstudio.eclipse.ds.util.DsResourceFactoryImpl"/>
+            class="org.wso2.developerstudio.eclipse.ds.util.DsResourceFactoryImpl"/>
    </extension>
    
    <extension point="org.eclipse.emf.validation.constraintProviders">
 		<category name="WSO2 DS Model Constraints"
-			id="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsCategory" mandatory="true"/>
+			id="org.wso2.developerstudio.eclipse.ds.ModelConstraintsCategory" mandatory="true"/>
 		<constraintProvider cache="true">
-			<package namespaceUri="platform:/resource/org.wso2.carbonstudio.eclipse.ds/model/ds.xsd" />
-			<constraints categories="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsCategory">
+			<package namespaceUri="platform:/resource/org.wso2.developerstudio.eclipse.ds/model/ds.xsd" />
+			<constraints categories="org.wso2.developerstudio.eclipse.ds.ModelConstraintsCategory">
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.ds.constraint.MandatoryChildDeleteBeforeDeleteConstraint"
+					class="org.wso2.developerstudio.eclipse.ds.constraint.MandatoryChildDeleteBeforeDeleteConstraint"
 					severity="ERROR" mode="Live" name="Mandatory to delete children before deleting a node"
-					id="org.wso2.carbonstudio.eclipse.ds.constraint.MandatoryChildDeleteBeforeDeleteConstraint"
+					id="org.wso2.developerstudio.eclipse.ds.constraint.MandatoryChildDeleteBeforeDeleteConstraint"
 					statusCode="1">
 					<description>
 						Mandatory to delete children before deleting a node
@@ -53,16 +53,16 @@
 	<extension point="org.eclipse.emf.validation.constraintBindings">
       <clientContext
             default="false"
-            id="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsContext">
-         <selector class="org.wso2.carbonstudio.eclipse.ds.ValidationContextSelector"/> 
+            id="org.wso2.developerstudio.eclipse.ds.ModelConstraintsContext">
+         <selector class="org.wso2.developerstudio.eclipse.ds.ValidationContextSelector"/> 
       </clientContext>
       <binding
-            context="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsContext"
-            category="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsCategory"/>
+            context="org.wso2.developerstudio.eclipse.ds.ModelConstraintsContext"
+            category="org.wso2.developerstudio.eclipse.ds.ModelConstraintsCategory"/>
    	</extension> 	
    	
    	<extension
          point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
-      <clientContext id="org.wso2.carbonstudio.eclipse.ds.ModelConstraintsContext"/>
+      <clientContext id="org.wso2.developerstudio.eclipse.ds.ModelConstraintsContext"/>
    </extension>
 </plugin>

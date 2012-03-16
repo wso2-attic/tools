@@ -16,18 +16,18 @@
 <html>
 <head>
     <meta http-equiv="content-type" content=""/>
-    <title>WSO2 Carbon Studio Release Notes</title>
+    <title>WSO2 Developer Studio Release Notes</title>
     <link href="./tools/cmd/css/wsas-dist-doc.css" rel="stylesheet"
           type="text/css" media="all"/>
 </head>
 
 <body>
-<h1>WSO2 Carbon Studio 2.0.0.M9 Release Notes</h1>
+<h1>WSO2 Developer Studio 2.0.0.M9 Release Notes</h1>
 
 <h3>27th February 2012</h3>
 
 <p>
-WSO2 Carbon Studio is a fully functioned tooling environment which facilitate you to develop, 
+WSO2 Developer Studio is a fully functioned tooling environment which facilitate you to develop, 
 test and deploy WSO2 Carbon Artifacts. The tool is created as a plug-in for the popular 
 IDE Eclipse.
 
@@ -42,7 +42,7 @@ IDE Eclipse.
    functionality as well.
 </p>
 <p>
-You can download this distribution from <a href="http://builder1.us1.wso2.org/~carbonstudio/carbon-studio/2.0.0/M9/">here</a> 
+You can download this distribution from <a href="http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/M9/">here</a> 
 and give it a try.
 </p>
 
@@ -100,7 +100,7 @@ and give it a try.
 		<li>Adding WSO2 related libraries when developing applications</li>
 	</ul>
 	</li>
-	<li>Carbon Studio contribution features
+	<li>Developer Studio contribution features
 	    <ul>
 	        <li>Extensions to add custom proxy service templates</li>
 	        <li>Extensions to add registry resource templates</li>
@@ -142,15 +142,15 @@ and give it a try.
 </ul>
 
 <p>
-You can find a more detailed version of all the features available in Carbon Studio from <a href="cstudio-features.html">
-WSO2 Carbon Studio Features</a> page. 
+You can find a more detailed version of all the features available in Developer Studio from <a href="cstudio-features.html">
+WSO2 Developer Studio Features</a> page. 
 </p>
 
 <h2>Project Resources</h2>
 <ol>
-    <li><strong>Home page :</strong> <a href="http://wso2.org/library/carbon-studio">WSO2 Carbon Studio</a></li>
+    <li><strong>Home page :</strong> <a href="http://wso2.org/library/carbon-studio">WSO2 Developer Studio</a></li>
     <li><strong>JIRA-Issue Tracker :</strong> <a href="https://wso2.org/jira/browse/tools">
-    			WSO2 Carbon Studio - JIRA Issues</a></li>
+    			WSO2 Developer Studio - JIRA Issues</a></li>
 </ol>
 <!--p>
 The full feature list is available at
@@ -222,7 +222,7 @@ Alternatively, questions can also be raised in the WSO2 Tools forum:
 <br></br>
 <br></br>
 <p>
-For more information about WSO2 Carbon Studio please see, 
+For more information about WSO2 Developer Studio please see, 
     <a href="http://wso2.org/library/carbon-studio/" target="_blank">http://wso2.org/library/carbon-studio/</a>. 
     visit the <a href="http://wso2.org">WSO2 Oxygen Tank developer portal</a>  for additional resources.
 </p>
@@ -235,7 +235,7 @@ For more information about WSO2 Carbon Studio please see,
 <br></br>
 <br></br>
 <p>
-Thank you for your interest in WSO2 Carbon Studio.</p>
+Thank you for your interest in WSO2 Developer Studio.</p>
 <br></br>
 <br></br>
 <strong>

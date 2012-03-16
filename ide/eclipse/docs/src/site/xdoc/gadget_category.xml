@@ -24,7 +24,7 @@ permissions and ~ limitations under the License.
 		</div>
 		<h2 id="GadgetArtifact">Gadget</h2>		
         <p>
-       	To create a <strong>Gadget</strong>, open <strong>WSO2 Carbon Studio Dashboard</strong> 
+       	To create a <strong>Gadget</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
         and select <strong>Gadget</strong> from <strong>Gadget Server</strong> category.
         </p>
 		<p>

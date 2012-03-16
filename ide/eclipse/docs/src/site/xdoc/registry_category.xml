@@ -194,7 +194,7 @@ permissions and ~ limitations under the License.
 		
 		<h2 id="RegistryFilter">Registry Filter</h2>
 		<p>
-        To create a <strong>Registry Filter</strong> open <strong>WSO2 Carbon Studio Dashboard</strong> and 
+        To create a <strong>Registry Filter</strong> open <strong>WSO2 Developer Studio Dashboard</strong> and 
         select <strong>Registry Filter Project</strong> from <strong>Governance Registry</strong> 
         category. 
         </p>
@@ -239,7 +239,7 @@ permissions and ~ limitations under the License.
 			
 		<h2 id="RegistryHandler">Registry Handler</h2>
 		<p>
-        To create a <strong>Registry Handler</strong> open <strong>WSO2 Carbon Studio Dashboard</strong> and 
+        To create a <strong>Registry Handler</strong> open <strong>WSO2 Developer Studio Dashboard</strong> and 
         select <strong>Registry Handler Project</strong> from <strong>Governance Registry</strong> 
         category. 
         </p>
@@ -366,7 +366,7 @@ permissions and ~ limitations under the License.
  		
 		<h2 id="RegistryAspect">Registry Aspect</h2>	
 		<p>
-        You can create a <strong>Registry Aspect</strong> class from <strong>WSO2 Carbon Studio</strong>. 
+        You can create a <strong>Registry Aspect</strong> class from <strong>WSO2 Developer Studio</strong>. 
         To create a Registry Aspect class, select any java project / or any artifact type project 
         that you have created in your workspace and press <strong>Ctrl + n</strong> to 
         open the <strong>New</strong> wizard. You can open the same wizard by <strong>File -> New -> Other</strong> 

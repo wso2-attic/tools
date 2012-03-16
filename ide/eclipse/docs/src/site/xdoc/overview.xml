@@ -15,40 +15,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
 
-		<h1>WSO2 Carbon Studio - Overview</h1>
+		<h1>WSO2 Developer Studio - Overview</h1>
 		<div class="toc">
 			<ul>
 				<li>
-					<a href="#overview">High Level Overview of WSO2 Carbon Studio</a>
+					<a href="#overview">High Level Overview of WSO2 Developer Studio</a>
 				</li>
 				<li>
-					<a href="#csVsPlatform">WSO2 Carbon Studio Vs WSO2 Carbon Platform</a>
+					<a href="#csVsPlatform">WSO2 Developer Studio Vs WSO2 Carbon Platform</a>
 				</li>
 				<li>
 					<a href="#platform">Platform Capabilities</a>
 				</li>
 				<li>
-					<a href="#platformCapabilitiesSupport">How Platform Capabilities fulfilled by WSO2 Carbon Studio</a>
+					<a href="#platformCapabilitiesSupport">How Platform Capabilities fulfilled by WSO2 Developer Studio</a>
 				</li>
 				<li>
 					<a href="#artifactProject">Artifact Project</a>
 				</li>
 				<li>
 					<a href="#phases">How different phases of Application Development being 
-					supported with WSO2 Carbon Studio</a>
+					supported with WSO2 Developer Studio</a>
 				</li>
 				<li>
 					<a href="#packaging">Packaging to a Carbon Application Project</a>
 				</li>
 			</ul>
 		</div>
-		<h2 id="overview">High Level Overview of WSO2 Carbon Studio</h2>
+		<h2 id="overview">High Level Overview of WSO2 Developer Studio</h2>
 		<p>
-			WSO2 Carbon Studio is a complete tooling platform where you can develop, deploy, test and 
+			WSO2 Developer Studio is a complete tooling platform where you can develop, deploy, test and 
 			debug your SOA applications in a very userfriendly manner. 
         </p>
         <p>
-        Following is the high level diagram of the overview of WSO2 Carbon Studio. 
+        Following is the high level diagram of the overview of WSO2 Developer Studio. 
         </p>
 		<p>
 			<br></br>
@@ -58,18 +58,18 @@
 			<br></br>
 		</p>
 		
-		<h2 id="csVsPlatform">WSO2 Carbon Studio Vs WSO2 Carbon Platform</h2>
+		<h2 id="csVsPlatform">WSO2 Developer Studio Vs WSO2 Carbon Platform</h2>
 		<p>
-		Let's see the role of WSO2 Carbon Studio with respect to Carbon platform. 
-		What WSO2 Carbon Studio does is, it provides a way to bridge SOA developers with Carbon 
-		platform. With Carbon Studio, you can easily create applications for the WSO2 Carbon platform.
+		Let's see the role of WSO2 Developer Studio with respect to Carbon platform. 
+		What WSO2 Developer Studio does is, it provides a way to bridge SOA developers with Carbon 
+		platform. With Developer Studio, you can easily create applications for the WSO2 Carbon platform.
 		Those artifacts are mostly java-based or xml configurations designed differently for 
 		 each of the products in the Carbon platform. Development of these artifacts is 
 		 surprisingly easy with the graphical editors, simplifying the experience of editing 
 		 xml-based configurations. The availability of easy development and debugging capabilities 
 		 of Java-based artifacts such as Axis2-based services, registry handlers, data validators 
 		 and synapse mediators, makes it so much better than doing everything manually. You can even 
-		 run your products/servers within Carbon Studio and test your applications. Carbon Studio is 
+		 run your products/servers within Developer Studio and test your applications. Developer Studio is 
 		 all about making your life easier with respect to creating your SOA applications for 
 		 the WSO2 Carbon platform.
 		</p>
@@ -109,9 +109,9 @@
 			<br></br>
 			<br></br>
 		</p>
-		<h2 id="platformCapabilitiesSupport">How Platform Capabilities fulfilled by WSO2 Carbon Studio</h2>
+		<h2 id="platformCapabilitiesSupport">How Platform Capabilities fulfilled by WSO2 Developer Studio</h2>
 		<p>
-		Let's see how WSO2 Carbon Studio help to fulfill above platform capabilities. Those 
+		Let's see how WSO2 Developer Studio help to fulfill above platform capabilities. Those 
 		capabilities are fulfilled with the use of rich set of tools provided by carbon studio. 
 		</p>
 		<ul>
@@ -165,7 +165,7 @@
 		</ul>
 		<h2 id="artifactProject">Artifact Project</h2>
 		<p>
-		As you already know, you can create different kind of artifacts with the use of WSO2 Carbon Studio. 
+		As you already know, you can create different kind of artifacts with the use of WSO2 Developer Studio. 
 		Each and every artifact, that you create, we create a seperate maven project in your 
 		workspace. You can create these artifact projects in any structure that you need. We have 
 		introduced new project types called <strong>ESB Project</strong> and <strong>General 
@@ -173,7 +173,7 @@
 		<strong>WSO2 ESB</strong> related artifacts such as <strong>sequences, proxy services, 
 		endpoints, local-entries, synapse configurations</strong>. <strong>General Project</strong> 
 		is responsible for hosting <strong>Registry Resources</strong>. Following table shows 
-		different types of projects that you can create from <strong>WSO2 Carbon Studio</strong>.
+		different types of projects that you can create from <strong>WSO2 Developer Studio</strong>.
 		</p>
 		
 		<table border="2">
@@ -264,9 +264,9 @@
 		<strong><a href="overview.html/#packaging">Packaging</a></strong> section. 
 		</p>
 		<h2 id="phases">How different phases of Application development being 
-					supported with WSO2 Carbon Studio</h2>
+					supported with WSO2 Developer Studio</h2>
 		<p>
-		<strong>WSO2 Carbon Studio</strong> has the support for all the four phases of <strong>Application 
+		<strong>WSO2 Developer Studio</strong> has the support for all the four phases of <strong>Application 
 		Life Cycle</strong>.
 		</p>
 		<ul>
@@ -277,17 +277,17 @@
 		</ul>
 		<p>
 		During the <strong>Development</strong> phase, you will create different kinds of artifact 
-		projects according to your requirement. Since <strong>WSO2 Carbon Studio</strong> is an 
+		projects according to your requirement. Since <strong>WSO2 Developer Studio</strong> is an 
 		<strong>Eclipse Plugin</strong>, you have all the capabilities that you have as an JAVA 
 		IDE such as <strong>content assist, rich editors and views</strong> etc. 
 		</p>
 		<p>
 		After develop the SOA application, the next step anyone would follow is, deploy the 
 		application in to the specific server and check whether expected outcome is there. As a 
-		development tool, WSO2 Carbon Studio provides support to adding multiple servers in to 
+		development tool, WSO2 Developer Studio provides support to adding multiple servers in to 
 		your eclipse environment and deploy artifacts with just one or two clicks.
 
-		WSO2 Carbon Studio supports all kind of WSO2 Servers. You can add local servers, 
+		WSO2 Developer Studio supports all kind of WSO2 Servers. You can add local servers, 
 		remote servers as well as connect to StratosLive.
 		You can add any of the above servers in an unified manner and deploying Carbon Application
 		 is also unified.  
@@ -296,7 +296,7 @@
 		It is quite common that your app may not be successful at the first time. You may see lot of 
 		issues when you deploy the app for the first time. So you will have to remove the application 
 		from the server, modify the app and redeploy to the server. This procedure sometimes become 
-		really cumbersome. But with WSO2 Carbon Studio, you can achieve this as simple as you 
+		really cumbersome. But with WSO2 Developer Studio, you can achieve this as simple as you 
 		deploy the application in the first time.
 		You have the capability to enable hot update option of a server, so you may not need to 
 		redeploy manually. Application will be automatically deployed whenever a change has been 
@@ -305,7 +305,7 @@
 		In the similar manner, you can start servers in debug mode and debug your applications. 
 		Suppose you have a ESB Mediator or registry handler or axis2 service in your 
 		application which involves java sources. If you can debug the source while you are deploying, 
-		it will be really benefitial for a developer.  This facility is available in Carbon Studio
+		it will be really benefitial for a developer.  This facility is available in Developer Studio
 		 by extending debug capability of Eclipse IDE.
 		 At the same time, we allow servers to be started with OSGi console enabled. As you may 
 		 already known, WSO2 Carbon platform is on top of OSGi framework. Knowing state of the 
@@ -314,7 +314,7 @@
 		<h2 id="packaging">Packaging to a Carbon Application Project</h2>
 		<p>
 		Before deploy the developed application, we need to package it to a simple format. 
-		Packaging type introduced by WSO2 Carbon Studio is called as Carbon Application Archive, 
+		Packaging type introduced by WSO2 Developer Studio is called as Carbon Application Archive, 
 		CAR file for short. CAR file is a combination of one or more of the artifact projects that we created 
 		during the development phase. What we do when deploying, is drop this CAR file to various 
 		product servers such as <strong>Application Server, ESB, DS Server</strong>. 
@@ -335,7 +335,7 @@
 		Each and every server that is provided by WSO2 has a server role. That information is saved in the 
 		configuration file called <strong>carbon.xml</strong>, which is in 
 		<strong>[carbon-home]/repository/conf</strong>. In the similar manner, each and every artifact 
-		that has been created by Carbon Studio also has a server role. At the time of deployment, 
+		that has been created by Developer Studio also has a server role. At the time of deployment, 
 		deployers will deploy only the artifacts that has the matching server roles with the deploying 
 		server. 
 		</p>
