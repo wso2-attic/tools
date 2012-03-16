@@ -110,15 +110,9 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				}
 			}
 			updatePom();
-//			ProjectUtils.addNatureToProject(esbProject,
-//			                                false,
-//			                                "org.wso2.developerstudio.eclipse.artifact.synapse.project.nature",
-//			                                "org.wso2.developerstudio.eclipse.esb.project.nature");
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			String[] labels={"OK", "Cancel"};
-			MessageDialog message=new MessageDialog(getShell(), "Open imported files in the Editor", getDefaultPageImage(), "Do you like to open the imported files in Developer Studio?", 0,labels , 0);
 			
-			if(message.openQuestion(getShell(), "Open imported files in the Editor", "Do you like to open the imported files in Developer Studio?")){
+			if(MessageDialog.openQuestion(getShell(), "Open imported files in the Editor", "Do you like to open the imported files in Developer Studio?")){
 				for (File file : fileList) {
 	                openEditor(file);
                 }
