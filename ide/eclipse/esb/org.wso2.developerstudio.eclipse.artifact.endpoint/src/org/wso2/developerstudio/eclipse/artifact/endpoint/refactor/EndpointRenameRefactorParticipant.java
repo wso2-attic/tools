@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
 import org.eclipse.core.resources.IFile;
@@ -22,7 +38,6 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private IProject esbProject;
 	private static List<String> skipList;
 
-	
     public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
                                                                                                 throws OperationCanceledException {
 		if (originalFile != null) {
@@ -58,38 +73,18 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
     }
 
 	
-    public Change createChange(IProgressMonitor arg0) throws CoreException,
+    public Change createPreChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
-		
-//		This has to be a composite change since we have several changes to be made with in the same change.
-		
-		// Change the meta data file
-		// change the pom file
-		// change/update all the references to this endpoint
 		CompositeChange endpointChange=new CompositeChange("Endpoint Artifact Rename");
 		String originalFileNamewithExtension = originalFile.getName();
-		EndpointArtifactFileChange endpointArtifactFileChange = new EndpointArtifactFileChange("Renaming ESB Artifact "+originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()), originalFile, originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4), -1, -1);
+		EndpointArtifactFileChange endpointArtifactFileChange = new EndpointArtifactFileChange("Renaming ESB Artifact "+originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()), originalFile, originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4));
 		endpointChange.add(endpointArtifactFileChange);
-		
-		String osString = originalFile.getLocation().toOSString();
-		IProject project = originalFile.getProject();
-		String osString2 = project.getLocation().toOSString();
-		String substring = osString.substring(0, osString.length()-(originalFile.getName()).length());
-		substring=substring.substring(osString2.length()+1);
-		IFile endpointFile=project.getFile(substring+changedFileName);
-		
-		endpointChange.add(new EndpointArtifactFileChange("Renaming ESB Artifact 1"+originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()), endpointFile, originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4),endpointArtifactFileChange.getEndpointReplaceOffset(), endpointArtifactFileChange.getEndpointReplaceLength()));
-//		change.add(new ESBMetaDataFileChange("Meta data file", esbProject.getFile("pom.xml")));
-		
-//		change.add(new RenameResourceChange(originalFile.getLocation(), changedFileName));
 		return endpointChange;
     }
-
 	
     public String getName() {
 	    return "EndpointArtifactRenameParticipant";
     }
-
 	
     protected boolean initialize(Object arg0) {
 		if (arg0 instanceof IFile) {
@@ -100,6 +95,12 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 			return true;
 		}
 		return false;
+    }
+
+	@Override
+    public Change createChange(IProgressMonitor arg0) throws CoreException,
+                                                     OperationCanceledException {
+	    return null;
     }
 
 }
