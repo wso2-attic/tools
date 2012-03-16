@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Local
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.greg.manager.local;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.greg.manager.local;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.greg.manager.local.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.greg.manager.local.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
@@ -41,17 +41,17 @@ Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.wso2.carbon.user.core.common,
  org.wso2.carbon.user.core.service,
  org.wso2.carbon.utils,
- org.wso2.carbonstudio.eclipse.greg.base.core,
- org.wso2.carbonstudio.eclipse.greg.base.interfaces,
- org.wso2.carbonstudio.eclipse.greg.base.model,
- org.wso2.carbonstudio.eclipse.greg.base.persistent,
- org.wso2.carbonstudio.eclipse.greg.base.ui.dialog,
- org.wso2.carbonstudio.eclipse.greg.base.ui.util,
- org.wso2.carbonstudio.eclipse.greg.core.exception,
- org.wso2.carbonstudio.eclipse.greg.manager.remote.views,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.platform.core
+ org.wso2.developer.studio.eclipse.greg.base.ui.util,
+ org.wso2.developernstudio.eclipse.greg.base.ui.dialog,
+ org.wso2.developerstudio.eclipse.greg.base.core,
+ org.wso2.developerstudio.eclipse.greg.base.interfaces,
+ org.wso2.developerstudio.eclipse.greg.base.model,
+ org.wso2.developerstudio.eclipse.greg.base.persistent,
+ org.wso2.developerstudio.eclipse.greg.core.exception,
+ org.wso2.developerstudio.eclipse.greg.manager.remote.views,
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.platform.core
 Bundle-ClassPath: .,
  lib/checkin-client-4.1.1.jar
-Export-Package: org.wso2.carbonstudio.eclipse.greg.manager.local.utils,
+Export-Package: org.wso2.developerstudio.eclipse.greg.manager.local.utils,
  org.wso2.registry.checkin

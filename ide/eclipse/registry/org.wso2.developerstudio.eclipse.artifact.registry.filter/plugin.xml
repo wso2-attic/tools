@@ -4,10 +4,10 @@
    <extension
          point="org.eclipse.ui.newWizards">
          <wizard name="Registry Filter Project" 
-         	category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions/org.wso2.carbonstudio.eclipse.extensions.project.types"
-			class="org.wso2.carbonstudio.eclipse.artifact.registry.filter.ui.wizard.RegistryFilterCreationWizard"
+         	category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions/org.wso2.developerstudio.eclipse.extensions.project.types"
+			class="org.wso2.developerstudio.eclipse.artifact.registry.filter.ui.wizard.RegistryFilterCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newregistryfilter"
+			id="org.wso2.developerstudio.eclipse.artifact.newregistryfilter"
 			icon="icons/new-registry-filter-16x16.png"
 			project="true">
 			<description>Registry Filter Project</description>
@@ -15,16 +15,16 @@
    </extension>
    
    <extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.registry.filter.project.nature" name="Registry Filter Project Nature">
+		id="org.wso2.developerstudio.eclipse.registry.filter.project.nature" name="Registry Filter Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.registry.filter.project.nature.RegistryFilterProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.registry.filter.project.nature.RegistryFilterProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.registry.filter.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.registry.filter.project.nature" icon="icons/new-registry-filter-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.registry.filter.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.registry.filter.project.nature" icon="icons/new-registry-filter-12x12.png">
 		</image>
 	</extension>
 	
@@ -34,9 +34,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="5org.wso2.carbonstudio.eclipse.artifact.newregistryresource"
+					menuGroupId="5org.wso2.developerstudio.eclipse.artifact.newregistryresource"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newregistryfilter">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newregistryfilter">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -57,10 +57,10 @@
 		</navigatorContent>
 	  </extension>
     <extension
-          point="org.wso2.carbonstudio.eclipse.project.export.handler">
+          point="org.wso2.developerstudio.eclipse.project.export.handler">
        <handler
-             class="org.wso2.carbonstudio.eclipse.artifact.registry.filter.project.export.RegistryFilterArtifactHandler"
-             id="org.wso2.carbonstudio.eclipse.artifact.registry.filter.project.export.handler"
+             class="org.wso2.developerstudio.eclipse.artifact.registry.filter.project.export.RegistryFilterArtifactHandler"
+             id="org.wso2.developerstudio.eclipse.artifact.registry.filter.project.export.handler"
              type="lib/registry/filter">
        </handler>
     </extension>

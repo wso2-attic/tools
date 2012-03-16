@@ -19,26 +19,26 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-    	<groupId>org.wso2.carbonstudio</groupId>
+    	<groupId>org.wso2.developerstudio</groupId>
     	<artifactId>carbon-registry-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>     
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.greg.libraries</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.greg.libraries</artifactId>
   <packaging>eclipse-plugin</packaging>
-    <name>Carbon Studio GReg Libraries</name>
+    <name>Developer Studio GReg Libraries</name>
     <!--dependencies>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
         </dependency> 
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.utils</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.utils</artifactId>
         </dependency> 	        
     </dependencies>
     <build>

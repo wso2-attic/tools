@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Registry Handler Artifact Wizard
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.artifact.registry.handler;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.registry.handler;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.artifact.registry.handler.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.registry.handler.Activator
 Bundle-Vendor: WSO2 Inc
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.maven
+ org.wso2.developerstudio.eclipse.maven
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axiom.om,
@@ -32,24 +32,24 @@ Import-Package: org.apache.axiom.om,
  org.eclipse.ui.part,
  org.eclipse.ui.texteditor,
  org.eclipse.wst.sse.ui,
- org.wso2.carbonstudio.eclipse.capp.core.artifacts.manager,
- org.wso2.carbonstudio.eclipse.capp.core.manifest,
- org.wso2.carbonstudio.eclipse.greg.core.interfaces,
- org.wso2.carbonstudio.eclipse.libraries.utils,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.maven.util,
- org.wso2.carbonstudio.eclipse.platform.core.exception,
- org.wso2.carbonstudio.eclipse.platform.core.manifest,
- org.wso2.carbonstudio.eclipse.platform.core.model,
- org.wso2.carbonstudio.eclipse.platform.core.nature,
- org.wso2.carbonstudio.eclipse.platform.core.project.export,
- org.wso2.carbonstudio.eclipse.platform.core.project.model,
- org.wso2.carbonstudio.eclipse.platform.core.utils,
- org.wso2.carbonstudio.eclipse.platform.ui.validator,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard,
- org.wso2.carbonstudio.eclipse.platform.ui.wizard.pages,
- org.wso2.carbonstudio.eclipse.utils.archive,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project,
- org.wso2.carbonstudio.eclipse.utils.template
+ org.wso2.developerstudio.eclipse.capp.core.artifacts.manager,
+ org.wso2.developerstudio.eclipse.capp.core.manifest,
+ org.wso2.developerstudio.eclipse.greg.core.interfaces,
+ org.wso2.developerstudio.eclipse.libraries.utils,
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.maven.util,
+ org.wso2.developerstudio.eclipse.platform.core.exception,
+ org.wso2.developerstudio.eclipse.platform.core.manifest,
+ org.wso2.developerstudio.eclipse.platform.core.model,
+ org.wso2.developerstudio.eclipse.platform.core.nature,
+ org.wso2.developerstudio.eclipse.platform.core.project.export,
+ org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.core.utils,
+ org.wso2.developerstudio.eclipse.platform.ui.validator,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard.pages,
+ org.wso2.developerstudio.eclipse.utils.archive,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.template

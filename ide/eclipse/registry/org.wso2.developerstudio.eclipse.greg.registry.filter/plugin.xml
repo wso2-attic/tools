@@ -4,10 +4,10 @@
    <extension
          point="org.eclipse.ui.newWizards">
        <wizard
-            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions/org.wso2.carbonstudio.eclipse.extensions.features"
-            class="org.wso2.carbonstudio.eclipse.greg.registry.filter.ui.wizard.NewRegistryFilterWizard"
+            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions/org.wso2.developerstudio.eclipse.extensions.features"
+            class="org.wso2.developerstudio.eclipse.greg.registry.filter.ui.wizard.NewRegistryFilterWizard"
             icon="icons/new-registry-filter-16x16.png"
-            id="org.wso2.carbonstudio.eclipse.greg.registry.filter.NewRegistryFilterWizard"
+            id="org.wso2.developerstudio.eclipse.greg.registry.filter.NewRegistryFilterWizard"
             name="WSO2 Registry Filter Class">
             <description>Create new registry filter class</description>
       </wizard>

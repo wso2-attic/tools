@@ -12,21 +12,21 @@
  			  		error="Please give a name to create the Registry Handler">
  		<data modelProperty="project.name"
  					type="string" 
- 					fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController">Project Name</data>
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController">Project Name</data>
 		<data modelProperty="new.handler.class" 
 			  type="option" 
 			  group="group1"
-			  fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
+			  fieldController="org.wso2.developerstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
 			  controlData="h-indent=10">New Registry Handler Class</data> 	
 		  <data modelProperty="from.workspace" 
 			  type="option" 
 			  group="group1"
-			  fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
+			  fieldController="org.wso2.developerstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
 			  controlData="h-indent=10">Import From Workspace</data>
 		<data modelProperty="from.filesystem" 
 			  type="option" 
 			  group="group1"
-			  fieldController="org.wso2.carbonstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
+			  fieldController="org.wso2.developerstudio.eclipse.artifact.registry.handler.validator.RegistryHandlerFieldsController"
 			  controlData="h-indent=10">Import From File System</data>
 			  	
  		<group id="group1" title="Registry Handler Class Creation Methods"></group>

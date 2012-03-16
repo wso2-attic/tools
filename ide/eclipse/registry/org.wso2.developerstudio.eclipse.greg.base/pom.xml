@@ -19,44 +19,44 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-    	<groupId>org.wso2.carbonstudio</groupId>
+    	<groupId>org.wso2.developerstudio</groupId>
     	<artifactId>carbon-registry-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>     
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.greg.base</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.greg.base</artifactId>
   <packaging>eclipse-plugin</packaging>
-    <name>Carbon Studio GReg Base</name>
+    <name>Developer Studio GReg Base</name>
     <!--dependencies>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+            <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
         </dependency>  	        
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.greg.libraries</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.greg.libraries</artifactId>
             <version>${greg.tools.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.usermgt.remote</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.usermgt.remote</artifactId>
             <version>${user.mgt.tools.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.greg.core</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.greg.core</artifactId>
         </dependency>        
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.platform.core</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.platform.core</artifactId>
         </dependency>  
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
-            <artifactId>org.wso2.carbonstudio.eclipse.platform.ui</artifactId>
+            <groupId>org.wso2.developerstudio</groupId>
+            <artifactId>org.wso2.developerstudio.eclipse.platform.ui</artifactId>
         </dependency>          
     </dependencies>
     <build>
