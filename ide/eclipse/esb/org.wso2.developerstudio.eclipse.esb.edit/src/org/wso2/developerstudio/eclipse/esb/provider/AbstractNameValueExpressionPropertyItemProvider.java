@@ -63,7 +63,7 @@ public class AbstractNameValueExpressionPropertyItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		AbstractNameValueExpressionProperty property = (AbstractNameValueExpressionProperty) object;
         if (itemPropertyDescriptors != null) {
@@ -174,7 +174,7 @@ public class AbstractNameValueExpressionPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String getText(Object object) {
         String label = ((AbstractNameValueExpressionProperty)object).getPropertyName();
         return label == null || label.length() == 0 ?
@@ -189,7 +189,7 @@ public class AbstractNameValueExpressionPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -211,7 +211,7 @@ public class AbstractNameValueExpressionPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

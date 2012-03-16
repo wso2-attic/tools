@@ -232,7 +232,7 @@ public enum RuleResultValueType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

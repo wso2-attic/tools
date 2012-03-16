@@ -29,7 +29,7 @@ import org.eclipse.jface.viewers.CellEditor;
 
 public class BPELDirectEditPolicy extends DirectEditPolicy {
 	
-	@Override
+	
 	protected Command getDirectEditCommand(DirectEditRequest edit) {		
 		Command cmd = null;
 		CellEditor editor = edit.getCellEditor();
@@ -50,7 +50,7 @@ public class BPELDirectEditPolicy extends DirectEditPolicy {
 		return cmd;
 	}
 
-	@Override
+	
 	protected void showCurrentEditValue(DirectEditRequest request) {
 		String value = (String) request.getCellEditor().getValue();
 		if (getHost() instanceof BPELEditPart) {

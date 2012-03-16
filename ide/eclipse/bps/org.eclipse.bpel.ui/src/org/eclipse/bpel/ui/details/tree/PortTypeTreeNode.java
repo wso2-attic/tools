@@ -48,7 +48,7 @@ public class PortTypeTreeNode extends TreeNode {
 		fDerivedFromPartnerRole = derivedFromPartnerRole;
 	}
 
-	@Override
+	
 	public Object[] getChildren() {
 		PortType pt = (PortType)modelObject;
 		if (pt.getOperations() == null)  return EMPTY_ARRAY;
@@ -59,7 +59,7 @@ public class PortTypeTreeNode extends TreeNode {
 		return v.toArray();
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		PortType pt = (PortType)modelObject;
 		if (pt.getOperations() == null)  return false;

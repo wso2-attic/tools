@@ -375,7 +375,7 @@ public enum PropertyDataType implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

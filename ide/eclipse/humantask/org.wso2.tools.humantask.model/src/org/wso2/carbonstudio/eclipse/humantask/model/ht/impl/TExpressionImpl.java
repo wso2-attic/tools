@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,10 +29,10 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getAny <em>Any</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getExpressionLanguage <em>Expression Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getAnyAttribute <em>Any Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getAny <em>Any</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
  * </p>
  *

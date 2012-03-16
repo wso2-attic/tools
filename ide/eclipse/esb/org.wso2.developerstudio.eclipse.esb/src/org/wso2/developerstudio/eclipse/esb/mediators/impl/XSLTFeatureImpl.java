@@ -47,12 +47,12 @@ public class XSLTFeatureImpl extends AbstractBooleanFeatureImpl implements XSLTF
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.XSLT_FEATURE;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

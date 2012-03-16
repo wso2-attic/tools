@@ -37,7 +37,7 @@ public class TextEditor extends AbstractDecoratedTextEditor {
 	/**
 	 * Remove unnecessary actions.
 	 */
-	@Override
+	
 	protected void createActions() {
 		super.createActions();
 		setAction(ITextEditorActionConstants.PRINT, null);
@@ -65,7 +65,7 @@ public class TextEditor extends AbstractDecoratedTextEditor {
 	}
 	
 	
-	@Override
+	
 	protected boolean isOverviewRulerVisible() {    	
 	   	return false;
 	}

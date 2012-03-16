@@ -103,7 +103,7 @@ public class DeleteChildCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		if (fChild == null || fParent == null || fContainer == null) {
 			return false;
@@ -112,7 +112,7 @@ public class DeleteChildCommand extends AutoUndoCommand {
 	}
 
 	// TODO: this is a hack.
-	@Override
+	
 	public Resource[] getResources() {
 		if (resourcesToModify == null) {
 			Process process = BPELUtils.getProcess(fParent);
@@ -158,7 +158,7 @@ public class DeleteChildCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 
 		if (!canExecute()) {

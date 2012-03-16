@@ -68,7 +68,7 @@ public class PropertyDialog extends Dialog {
 	 * Create contents of the dialog.
 	 * @param parent
 	 */
-	@Override
+	
 	protected Control createDialogArea(Composite parent) {
 		parent.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		Composite composite = (Composite) super.createDialogArea(parent);
@@ -160,7 +160,7 @@ public class PropertyDialog extends Dialog {
 	 * Create contents of the button bar.
 	 * @param parent
 	 */
-	@Override
+	
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
 				true);
@@ -169,7 +169,7 @@ public class PropertyDialog extends Dialog {
 		getButton(IDialogConstants.OK_ID).setEnabled(false); 
 	}
 	
-	@Override
+	
 	protected void okPressed() {
 		String name = txtPropertyName.getText();
 		String value = txtPropertyValue.getText();
@@ -183,7 +183,7 @@ public class PropertyDialog extends Dialog {
 	/**
 	 * Return the initial size of the dialog.
 	 */
-	@Override
+	
 	protected Point getInitialSize() {
 		return new Point(400, 250);
 	}

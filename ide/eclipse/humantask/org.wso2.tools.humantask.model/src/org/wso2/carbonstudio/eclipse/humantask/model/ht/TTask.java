@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -15,20 +15,20 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask()
  * @model extendedMetaData="name='tTask' kind='elementOnly'"
  * @generated
  */
@@ -43,7 +43,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface</em>' containment reference.
 	 * @see #setInterface(TTaskInterface)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Interface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Interface()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='interface' namespace='##targetNamespace'"
 	 * @generated
@@ -51,7 +51,7 @@ public interface TTask extends TExtensibleElements {
 	TTaskInterface getInterface();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Interface</em>' containment reference.
@@ -70,7 +70,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
 	 * @see #setPriority(TPriority)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Priority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
@@ -78,7 +78,7 @@ public interface TTask extends TExtensibleElements {
 	TPriority getPriority();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Priority</em>' containment reference.
@@ -97,7 +97,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>People Assignments</em>' containment reference.
 	 * @see #setPeopleAssignments(TPeopleAssignments)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_PeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_PeopleAssignments()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='peopleAssignments' namespace='##targetNamespace'"
 	 * @generated
@@ -105,7 +105,7 @@ public interface TTask extends TExtensibleElements {
 	TPeopleAssignments getPeopleAssignments();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>People Assignments</em>' containment reference.
@@ -124,7 +124,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Delegation</em>' containment reference.
 	 * @see #setDelegation(TDelegation)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Delegation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Delegation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='delegation' namespace='##targetNamespace'"
 	 * @generated
@@ -132,7 +132,7 @@ public interface TTask extends TExtensibleElements {
 	TDelegation getDelegation();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Delegation</em>' containment reference.
@@ -151,7 +151,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Elements</em>' containment reference.
 	 * @see #setPresentationElements(TPresentationElements)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_PresentationElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_PresentationElements()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='presentationElements' namespace='##targetNamespace'"
 	 * @generated
@@ -159,7 +159,7 @@ public interface TTask extends TExtensibleElements {
 	TPresentationElements getPresentationElements();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Presentation Elements</em>' containment reference.
@@ -178,7 +178,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
 	 * @see #setOutcome(TQuery)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Outcome()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
@@ -186,7 +186,7 @@ public interface TTask extends TExtensibleElements {
 	TQuery getOutcome();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Outcome</em>' containment reference.
@@ -205,7 +205,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Search By</em>' containment reference.
 	 * @see #setSearchBy(TExpression)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_SearchBy()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_SearchBy()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='searchBy' namespace='##targetNamespace'"
 	 * @generated
@@ -213,7 +213,7 @@ public interface TTask extends TExtensibleElements {
 	TExpression getSearchBy();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Search By</em>' containment reference.
@@ -232,7 +232,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Renderings</em>' containment reference.
 	 * @see #setRenderings(TRenderings)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Renderings()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Renderings()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='renderings' namespace='##targetNamespace'"
 	 * @generated
@@ -240,7 +240,7 @@ public interface TTask extends TExtensibleElements {
 	TRenderings getRenderings();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Renderings</em>' containment reference.
@@ -259,7 +259,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deadlines</em>' containment reference.
 	 * @see #setDeadlines(TDeadlines)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Deadlines()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Deadlines()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='deadlines' namespace='##targetNamespace'"
 	 * @generated
@@ -267,7 +267,7 @@ public interface TTask extends TExtensibleElements {
 	TDeadlines getDeadlines();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Deadlines</em>' containment reference.
@@ -286,7 +286,7 @@ public interface TTask extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Name()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTask_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
@@ -294,7 +294,7 @@ public interface TTask extends TExtensibleElements {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.

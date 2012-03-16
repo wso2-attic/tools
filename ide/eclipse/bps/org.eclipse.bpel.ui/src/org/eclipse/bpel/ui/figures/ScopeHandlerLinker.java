@@ -18,17 +18,17 @@ public class ScopeHandlerLinker extends HandlerLinkerAdapter {
 		this.scope = scopeEditPart;
 	}
 
-	@Override
+	
 	protected CompensationHandler getCompensationHandler() {
 		return scope.getCompensationHandler();
 	}
 
-	@Override
+	
 	protected EventHandler getEventHandler() {
 		return scope.getEventHandler();
 	}
 
-	@Override
+	
 	protected FaultHandler getFaultHandler() {
 		return scope.getFaultHandler();
 	}
@@ -36,7 +36,7 @@ public class ScopeHandlerLinker extends HandlerLinkerAdapter {
 	/**
 	 * Overridden to provide different connectionAnchors for an eventHandler
 	 */
-	@Override
+	
 	protected int getEHTargetAnchorLoc() {
 		if(!isHorizontalLayout()){
 			if (getFaultHandler() != null && getCompensationHandler() != null
@@ -48,59 +48,59 @@ public class ScopeHandlerLinker extends HandlerLinkerAdapter {
 			return super.getEHTargetAnchorLoc();
 	}
 
-	@Override
+	
 	protected boolean isShowCH() {
 		return scope.getShowCompensationHandler();
 	}
 
-	@Override
+	
 	protected boolean isShowEH() {
 		return scope.getShowEventHandler();
 	}
 
-	@Override
+	
 	protected boolean isShowFH() {
 		return scope.getShowFaultHandler();
 	}
 
-	@Override
+	
 	protected int getTHTargetAnchorLoc() {
 		return isHorizontalLayout() ? CenteredConnectionAnchor.LEFT
 				: CenteredConnectionAnchor.TOP;
 	}
 
-	@Override
+	
 	protected TerminationHandler getTerminationHandler() {
 		return scope.getTerminationHandler();
 	}
 
-	@Override
+	
 	protected boolean isShowTH() {
 		return scope.getShowTerminationHandler();
 	}
 
-	@Override
+	
 	protected Ray getTHRoutingEndConstraint() {
 		return isHorizontalLayout() ? ManhattanConnectionRouterEx.LEFT
 				: ManhattanConnectionRouterEx.UP;
 	}
 
-	@Override
+	
 	protected IFigure getCHFigure() {
 		return ((ScopeBorder)scope.getContentPane().getBorder()).getCompensationImageFigure();
 	}
 
-	@Override
+	
 	protected IFigure getEHFigure() {
 		return ((ScopeBorder)scope.getContentPane().getBorder()).getEventImageFigure();
 	}
 
-	@Override
+	
 	protected IFigure getFHFigure() {
 		return ((ScopeBorder)scope.getContentPane().getBorder()).getFaultImageFigure();
 	}
 
-	@Override
+	
 	protected IFigure getTHFigure() {
 		return ((ScopeBorder)scope.getContentPane().getBorder()).getTerminationImageFigure();
 	}

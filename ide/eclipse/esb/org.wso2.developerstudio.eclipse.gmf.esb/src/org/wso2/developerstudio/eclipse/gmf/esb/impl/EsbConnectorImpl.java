@@ -38,7 +38,7 @@ public abstract class EsbConnectorImpl extends EObjectImpl implements EsbConnect
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_CONNECTOR;
 	}

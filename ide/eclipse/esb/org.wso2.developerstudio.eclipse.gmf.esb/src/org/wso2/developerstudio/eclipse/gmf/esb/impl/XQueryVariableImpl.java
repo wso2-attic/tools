@@ -168,7 +168,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XQUERY_VARIABLE;
 	}
@@ -349,7 +349,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
@@ -366,7 +366,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -391,7 +391,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -422,7 +422,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -453,7 +453,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -478,7 +478,7 @@ public class XQueryVariableImpl extends EObjectImpl implements XQueryVariable {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -63,7 +63,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_RESULTS_CONFIGURATION;
 	}
@@ -86,7 +86,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -101,7 +101,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -116,7 +116,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -134,7 +134,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -150,7 +150,7 @@ public class RuleResultsConfigurationImpl extends EObjectImpl implements RuleRes
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.RULE_RESULTS_CONFIGURATION__RESULTS:

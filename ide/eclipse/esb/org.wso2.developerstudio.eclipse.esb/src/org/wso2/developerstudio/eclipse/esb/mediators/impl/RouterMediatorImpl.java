@@ -128,7 +128,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.ROUTER_MEDIATOR;
     }
@@ -171,7 +171,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
@@ -185,7 +185,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -202,7 +202,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -221,7 +221,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -239,7 +239,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -255,7 +255,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -266,7 +266,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

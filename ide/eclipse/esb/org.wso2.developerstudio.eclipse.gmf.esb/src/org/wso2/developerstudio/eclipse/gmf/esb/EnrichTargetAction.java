@@ -232,7 +232,7 @@ public enum EnrichTargetAction implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

@@ -35,7 +35,7 @@ public class RuleMediatorInputConnectorImpl extends InputConnectorImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_MEDIATOR_INPUT_CONNECTOR;
 	}

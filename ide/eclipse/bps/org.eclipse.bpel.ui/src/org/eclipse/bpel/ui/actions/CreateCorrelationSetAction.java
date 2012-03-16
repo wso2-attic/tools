@@ -15,12 +15,12 @@ public class CreateCorrelationSetAction extends AbstractDeclarationAction {
 		super(anEditPart);
 	}
 
-	@Override
+	
 	public ImageDescriptor getIcon() {
 		return BPELUIPlugin.INSTANCE.getImageDescriptor(IBPELUIConstants.ICON_CORRELATIONSET_16);
 	}
 
-	@Override
+	
 	public EObject getParent() {
 		EStructuralFeature feature = ((EObject)modelObject).eClass().getEStructuralFeature("correlationSets");
 		if (feature!=null) {
@@ -29,7 +29,7 @@ public class CreateCorrelationSetAction extends AbstractDeclarationAction {
 		return parent;
 	}
 
-	@Override
+	
 	public EObject getChild() {
 		if (child==null)
 			child = BPELFactory.eINSTANCE.createCorrelationSet();

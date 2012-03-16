@@ -20,7 +20,7 @@ public class ToggleLayoutOrientationAction extends SelectionAction {
 		setText(getText()); 
 	}
 	
-	@Override
+	
 	public void run() {
 		BPELEditor editor = (BPELEditor)getWorkbenchPart();
 		editor.setHorizontalLayout(!editor.isHorizontalLayout());
@@ -46,13 +46,13 @@ public class ToggleLayoutOrientationAction extends SelectionAction {
 		
 	}
 	
-	@Override
+	
 	protected boolean calculateEnabled() {
 		List sel = getSelectedObjects();
 		return sel.size() > 0 && sel.get(0) instanceof org.eclipse.bpel.model.Process; 
 	}
 	
-	@Override
+	
 	public String getText() {
 		BPELEditor editor = (BPELEditor)getWorkbenchPart();
 		if(editor.isHorizontalLayout())

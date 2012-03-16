@@ -121,7 +121,7 @@ public class FileUtils {
 			removeEmptyDirectories(zipFolder);
 			File zipFile = new File(targetFolder,artifactName);
 			zipFolder(zipFolder.getAbsolutePath(), zipFile.toString());
-			org.wso2.carbonstudio.eclipse.utils.file.FileUtils.deleteDir(bpelDataFolder);
+			org.wso2.developerstudio.eclipse.utils.file.FileUtils.deleteDir(bpelDataFolder);
 			return zipFile;
 		} catch (Exception e) {
 			throw e;

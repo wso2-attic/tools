@@ -14,12 +14,12 @@ import org.eclipse.swt.graphics.Image;
  */
 public class XSDSimpleTypeDefinitionAdapter extends XSDAbstractAdapter  {
 
-	@Override
+	
 	public Image getSmallImage(Object object) {		
 		return BPELUIPlugin.INSTANCE.getImage(IBPELUIConstants.ICON_XSD_SIMPLE_TYPE_DEFINITION_16);
 	}
 		
-	@Override
+	
 	public String getTypeLabel(Object object) {
 		return Messages.XSDSimpleTypeDefinitionAdapter_0; 
 	}	

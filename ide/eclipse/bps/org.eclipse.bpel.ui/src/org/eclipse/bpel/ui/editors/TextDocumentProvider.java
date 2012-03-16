@@ -22,7 +22,7 @@ import org.eclipse.ui.texteditor.AbstractDocumentProvider;
  */
 public class TextDocumentProvider extends AbstractDocumentProvider {
 
-	@Override
+	
 	protected IDocument createDocument (Object element) {
 		
 		if (element instanceof TextEditorInput) {
@@ -36,7 +36,7 @@ public class TextDocumentProvider extends AbstractDocumentProvider {
 		return null;
 	}
 
-	@Override
+	
 	protected IAnnotationModel createAnnotationModel(Object element) {
 		return null;
 	}
@@ -47,7 +47,7 @@ public class TextDocumentProvider extends AbstractDocumentProvider {
 	 * 
 	 */
 	
-	@Override
+	
 	protected void doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite) {
 		
 	}
@@ -55,7 +55,7 @@ public class TextDocumentProvider extends AbstractDocumentProvider {
 	/**
 	 * @see org.eclipse.ui.texteditor.AbstractDocumentProvider#isReadOnly(java.lang.Object)
 	 */
-	@Override
+	
 	public boolean isReadOnly(Object element) {
 		return false;
 	}
@@ -65,13 +65,13 @@ public class TextDocumentProvider extends AbstractDocumentProvider {
 	 * 
 	 * @see org.eclipse.ui.texteditor.AbstractDocumentProvider#isModifiable(java.lang.Object)
 	 */
-	@Override
+	
 	public boolean isModifiable(Object element) {
 		return true;
 	}
 
 	
-	@Override
+	
 	protected IRunnableContext getOperationRunner (IProgressMonitor monitor) {
 		// TODO: Need to implement for 6.0
 		return null;

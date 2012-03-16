@@ -22,7 +22,7 @@ import org.eclipse.wst.wsdl.Operation;
 public class WSDLFaultContentProvider extends AbstractContentProvider  {
 
 	
-	@Override
+	
 	public void collectElements (Object input, List list)  {
 		
 		if (input instanceof Operation) {

@@ -35,7 +35,7 @@ public class HeaderMediatorOutputConnectorImpl extends OutputConnectorImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.HEADER_MEDIATOR_OUTPUT_CONNECTOR;
 	}

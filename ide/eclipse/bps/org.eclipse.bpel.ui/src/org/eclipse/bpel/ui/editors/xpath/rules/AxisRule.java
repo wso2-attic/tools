@@ -50,7 +50,7 @@ public class AxisRule extends WordRule {
 	 * 
 	 * @see org.eclipse.jface.text.rules.WordRule#evaluate(org.eclipse.jface.text.rules.ICharacterScanner)
 	 */
-	@Override
+	
 	public IToken evaluate(ICharacterScanner scanner) {
 
 		IToken token = super.evaluate(scanner);

@@ -92,13 +92,13 @@ public class VariableInitializationSection extends BPELPropertySection {
 	}
 	
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[] {
 			/* model object */
 			new MultiObjectAdapter() {
 				
-				@Override
+				
 				public void notify (Notification n) {
 					if ( isFromAffected (n) ) {
 						selectCategoriesForInput( null );
@@ -160,13 +160,13 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#shouldUseExtraSpace()
 	 */
-	@Override
+	
 	public boolean shouldUseExtraSpace() { 
 		return true; 
 	}
 	
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		
 		Composite composite = createFlatFormComposite(parent);		
@@ -184,7 +184,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 
 	
 	// Total Hack until we have Copy objects in graphical editor
-	@Override
+	
 	protected void basicSetInput (EObject newInput) {
 		super.basicSetInput(newInput);
 		
@@ -222,7 +222,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#refresh()
 	 */
-	@Override
+	
 	public void refresh() {
 		super.refresh();
 	}
@@ -230,7 +230,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#aboutToBeHidden()
 	 */
-	@Override
+	
 	public void aboutToBeHidden() {
 		super.aboutToBeHidden();
 		
@@ -243,7 +243,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#aboutToBeShown()
 	 */
-	@Override
+	
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
 		if (fFromSection.fCurrent != null) {
@@ -318,7 +318,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */	
-	@Override
+	
 	public Object getUserContext() {
 		return null;
 	}
@@ -328,7 +328,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
 	@SuppressWarnings("boxing")
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		
 	}
@@ -336,7 +336,7 @@ public class VariableInitializationSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#gotoMarker(org.eclipse.core.resources.IMarker)
 	 */
-	@Override
+	
 	public void gotoMarker(IMarker marker) {						
 		refresh();
 	}

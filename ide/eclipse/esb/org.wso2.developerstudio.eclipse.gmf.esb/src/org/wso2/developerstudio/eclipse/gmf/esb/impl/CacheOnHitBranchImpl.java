@@ -79,7 +79,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CACHE_ON_HIT_BRANCH;
 	}
@@ -149,7 +149,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
@@ -167,7 +167,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
@@ -186,7 +186,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
@@ -205,7 +205,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
@@ -222,7 +222,7 @@ public class CacheOnHitBranchImpl extends EObjectImpl implements CacheOnHitBranc
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

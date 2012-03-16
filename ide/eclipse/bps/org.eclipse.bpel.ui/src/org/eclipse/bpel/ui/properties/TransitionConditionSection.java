@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class TransitionConditionSection extends ExpressionSection {
 	
-	@Override
+	
 	protected void addAllAdapters() {
 		super.addAllAdapters();
 		Link link = getModel();
@@ -38,18 +38,18 @@ public class TransitionConditionSection extends ExpressionSection {
 		}		
 	}
 	
-	@Override
+	
 	protected String getExpressionType() { 
 		return IEditorConstants.ET_TRANSITION; 
 	}
 
 	
-	@Override
+	
 	protected boolean isExpressionOptional() { 
 		return true; 
 	}	
 	
-	@Override
+	
 	protected Composite createNoEditorWidgets(Composite composite) {
 	
 		return createNoEditorWidgetsCreateComposite(composite,
@@ -61,13 +61,13 @@ public class TransitionConditionSection extends ExpressionSection {
 	}
 
 
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature (EObject object) {
 		return BPELPackage.eINSTANCE.getSource_TransitionCondition() ;		
 	}
 	
 	
-	@Override
+	
 	protected EObject getExpressionTarget() {
 		Link link = getModel();
 		List<?> sources = link.getSources();
@@ -77,7 +77,7 @@ public class TransitionConditionSection extends ExpressionSection {
 		return  null;			
 	}
 	
-	@Override
+	
 	protected boolean isValidClientUseType(String useType) {		
 		return IBPELUIConstants.USE_TYPE_TRANSITION_CONDITION.equals(useType);
 	}

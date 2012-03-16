@@ -178,7 +178,7 @@ public enum CacheImplementationType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

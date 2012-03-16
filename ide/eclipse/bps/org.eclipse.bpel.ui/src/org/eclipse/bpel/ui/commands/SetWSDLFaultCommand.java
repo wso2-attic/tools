@@ -28,11 +28,11 @@ public class SetWSDLFaultCommand extends SetCommand {
 		super((EObject)target, newFault);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getWSDLFault(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setWSDLFault(fTarget, (Fault)o);
 	}

@@ -69,12 +69,12 @@ public class ValidateOnFailBranchImpl extends MediatorBranchImpl implements Vali
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.VALIDATE_ON_FAIL_BRANCH;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

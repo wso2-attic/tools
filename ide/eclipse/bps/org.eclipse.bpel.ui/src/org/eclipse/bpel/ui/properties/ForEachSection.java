@@ -50,7 +50,7 @@ public class ForEachSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return fContext.get();
 	}
@@ -58,13 +58,13 @@ public class ForEachSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext (Object userContext) {
 		fContext.set(userContext);
 	}
 
 	
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {		
 		super.basicSetInput(newInput);
 		
@@ -86,7 +86,7 @@ public class ForEachSection extends BPELPropertySection {
 		
 		fVariableNameController.setFeature( BPELPackage.eINSTANCE.getForEach_CounterName() );
 		fVariableNameController.setViewIValue( new DelegateIValue( new TextIValue ( fCounterNameText ) ) {
-			@Override
+			
 			public Object get() {
 				String name = (String) fDelegate.get();
 				if (name.length() == 0) {
@@ -99,7 +99,7 @@ public class ForEachSection extends BPELPropertySection {
 				return variable;
 			}
 
-			@Override
+			
 			public void set( Object object ) {
 				if( object == null )
 					fDelegate.set( null );
@@ -169,7 +169,7 @@ public class ForEachSection extends BPELPropertySection {
 	}
 
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite parentComposite = createFlatFormComposite(parent);
 		createIsParallelWidgets(parentComposite);

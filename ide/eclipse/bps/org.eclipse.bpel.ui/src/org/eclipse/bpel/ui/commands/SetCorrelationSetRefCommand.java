@@ -26,11 +26,11 @@ public class SetCorrelationSetRefCommand extends SetCommand {
 		super(target, newSetRef);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ((Correlation)fTarget).getSet();
 	}
-	@Override
+	
 	public void set(Object o) {
 		((Correlation)fTarget).setSet((CorrelationSet)o);
 	}

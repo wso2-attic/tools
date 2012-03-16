@@ -44,7 +44,7 @@ public class BPELCopyAction extends EditAction {
 	}
 
 	
-	@Override
+	
 	protected void init() {
 		super.init();
 		setText(Messages.BPELCopyAction_Copy_1); 
@@ -61,7 +61,7 @@ public class BPELCopyAction extends EditAction {
 	/**
 	 * @see org.eclipse.bpel.ui.actions.EditAction#getCommand()
 	 */
-	@Override
+	
 	protected Command getCommand() {
 		
 		CompoundCommand cmd = new CompoundCommand(Messages.BPELCopyAction_Copy_3); 

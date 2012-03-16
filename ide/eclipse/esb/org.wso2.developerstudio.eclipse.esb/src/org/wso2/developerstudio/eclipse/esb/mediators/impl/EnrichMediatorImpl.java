@@ -509,7 +509,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.ENRICH_MEDIATOR;
     }
@@ -811,7 +811,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_XPATH:
@@ -827,7 +827,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
@@ -862,7 +862,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
@@ -907,7 +907,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
@@ -952,7 +952,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
@@ -986,7 +986,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -1011,7 +1011,7 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

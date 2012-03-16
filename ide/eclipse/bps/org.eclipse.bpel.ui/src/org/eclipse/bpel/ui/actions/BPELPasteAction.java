@@ -41,7 +41,7 @@ public class BPELPasteAction extends EditAction {
 		super(editorPart);
 	}
 
-	@Override
+	
 	protected void init() {
 		super.init();
 		setText(Messages.BPELPasteAction_Paste_1); 
@@ -59,7 +59,7 @@ public class BPELPasteAction extends EditAction {
 	 * @see org.eclipse.bpel.ui.actions.EditAction#getCommand()
 	 */
 	
-	@Override
+	
 	protected Command getCommand() {
 		
 		CompoundCommand cmd = new CompoundCommand(Messages.BPELPasteAction_Paste_3); 
@@ -81,7 +81,7 @@ public class BPELPasteAction extends EditAction {
 	}
 
 	
-	@Override
+	
 	protected boolean calculateEnabled() {
 		
 		boolean bEnabled = super.calculateEnabled() && fSelection.size() == 1;

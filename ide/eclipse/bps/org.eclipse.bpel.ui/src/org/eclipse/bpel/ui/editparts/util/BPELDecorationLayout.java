@@ -61,12 +61,12 @@ public abstract class BPELDecorationLayout extends DecorationLayout {
 		}
 	}
 	
-	@Override
+	
 	protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
 		return new Dimension(0, 0);
 	}
 
-	@Override
+	
 	public void setConstraint(IFigure child, Object constraint) {
 		super.setConstraint(child, constraint);
 		child.addMouseMotionListener(new MouseMotionAdapter(((Integer)constraint).intValue()));

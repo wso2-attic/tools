@@ -52,7 +52,7 @@ public class LinkEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	 * @return a layout constraint
 	 */
 	
-	@Override
+	
 	protected Object getConstraint(IMarker marker) {
 		try {
 			if (marker.isSubtypeOf(IModelMarkerConstants.DECORATION_GRAPHICAL_MARKER_ID)) {
@@ -113,7 +113,7 @@ public class LinkEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	 * Draws the markers. This method should be called from the EditPart's refreshVisuals()
 	 * method.
 	 */
-	@Override
+	
 	protected void refreshMarkers() {
 		//	Refresh any decorations on this edit part
 		 if(getConnection() != null) {

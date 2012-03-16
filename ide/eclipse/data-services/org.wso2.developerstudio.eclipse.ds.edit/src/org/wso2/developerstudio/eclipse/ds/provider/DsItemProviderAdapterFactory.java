@@ -89,7 +89,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createAttributeMappingAdapter() {
 		if (attributeMappingItemProvider == null) {
 			attributeMappingItemProvider = new AttributeMappingItemProvider(this);
@@ -112,7 +112,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createCallQueryAdapter() {
 		if (callQueryItemProvider == null) {
 			callQueryItemProvider = new CallQueryItemProvider(this);
@@ -135,7 +135,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createCallQueryListAdapter() {
 		if (callQueryListItemProvider == null) {
 			callQueryListItemProvider = new CallQueryListItemProvider(this);
@@ -158,7 +158,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createConfigurationPropertyAdapter() {
 		if (configurationPropertyItemProvider == null) {
 			configurationPropertyItemProvider = new ConfigurationPropertyItemProvider(this);
@@ -181,7 +181,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createCustomValidatorAdapter() {
 		if (customValidatorItemProvider == null) {
 			customValidatorItemProvider = new CustomValidatorItemProvider(this);
@@ -204,7 +204,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createDataServiceAdapter() {
 		if (dataServiceItemProvider == null) {
 			dataServiceItemProvider = new DataServiceItemProvider(this);
@@ -227,7 +227,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createDataSourceConfigurationAdapter() {
 		if (dataSourceConfigurationItemProvider == null) {
 			dataSourceConfigurationItemProvider = new DataSourceConfigurationItemProvider(this);
@@ -250,7 +250,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createDescriptionAdapter() {
 		if (descriptionItemProvider == null) {
 			descriptionItemProvider = new DescriptionItemProvider(this);
@@ -273,7 +273,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createDocumentRootAdapter() {
 		if (documentRootItemProvider == null) {
 			documentRootItemProvider = new DocumentRootItemProvider(this);
@@ -296,7 +296,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createDoubleRangeValidatorAdapter() {
 		if (doubleRangeValidatorItemProvider == null) {
 			doubleRangeValidatorItemProvider = new DoubleRangeValidatorItemProvider(this);
@@ -319,7 +319,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createElementMappingAdapter() {
 		if (elementMappingItemProvider == null) {
 			elementMappingItemProvider = new ElementMappingItemProvider(this);
@@ -342,7 +342,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createEventSubscriptionListAdapter() {
 		if (eventSubscriptionListItemProvider == null) {
 			eventSubscriptionListItemProvider = new EventSubscriptionListItemProvider(this);
@@ -365,7 +365,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createEventTriggerAdapter() {
 		if (eventTriggerItemProvider == null) {
 			eventTriggerItemProvider = new EventTriggerItemProvider(this);
@@ -388,7 +388,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createExcelQueryAdapter() {
 		if (excelQueryItemProvider == null) {
 			excelQueryItemProvider = new ExcelQueryItemProvider(this);
@@ -411,7 +411,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createExpressionAdapter() {
 		if (expressionItemProvider == null) {
 			expressionItemProvider = new ExpressionItemProvider(this);
@@ -434,7 +434,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createGSpreadQueryAdapter() {
 		if (gSpreadQueryItemProvider == null) {
 			gSpreadQueryItemProvider = new GSpreadQueryItemProvider(this);
@@ -457,7 +457,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createHasHeaderAdapter() {
 		if (hasHeaderItemProvider == null) {
 			hasHeaderItemProvider = new HasHeaderItemProvider(this);
@@ -480,7 +480,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createLengthValidatorAdapter() {
 		if (lengthValidatorItemProvider == null) {
 			lengthValidatorItemProvider = new LengthValidatorItemProvider(this);
@@ -503,7 +503,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createLongRangeValidatorAdapter() {
 		if (longRangeValidatorItemProvider == null) {
 			longRangeValidatorItemProvider = new LongRangeValidatorItemProvider(this);
@@ -526,7 +526,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createMaxRowCountAdapter() {
 		if (maxRowCountItemProvider == null) {
 			maxRowCountItemProvider = new MaxRowCountItemProvider(this);
@@ -549,7 +549,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createOperationAdapter() {
 		if (operationItemProvider == null) {
 			operationItemProvider = new OperationItemProvider(this);
@@ -572,7 +572,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createParameterMappingAdapter() {
 		if (parameterMappingItemProvider == null) {
 			parameterMappingItemProvider = new ParameterMappingItemProvider(this);
@@ -595,7 +595,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createPatternValidatorAdapter() {
 		if (patternValidatorItemProvider == null) {
 			patternValidatorItemProvider = new PatternValidatorItemProvider(this);
@@ -618,7 +618,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createQueryAdapter() {
 		if (queryItemProvider == null) {
 			queryItemProvider = new QueryItemProvider(this);
@@ -641,7 +641,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createQueryParameterAdapter() {
 		if (queryParameterItemProvider == null) {
 			queryParameterItemProvider = new QueryParameterItemProvider(this);
@@ -664,7 +664,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createQueryPropertyAdapter() {
 		if (queryPropertyItemProvider == null) {
 			queryPropertyItemProvider = new QueryPropertyItemProvider(this);
@@ -687,7 +687,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createQueryPropertyListAdapter() {
 		if (queryPropertyListItemProvider == null) {
 			queryPropertyListItemProvider = new QueryPropertyListItemProvider(this);
@@ -710,7 +710,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createResourceAdapter() {
 		if (resourceItemProvider == null) {
 			resourceItemProvider = new ResourceItemProvider(this);
@@ -733,7 +733,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createResultMappingAdapter() {
 		if (resultMappingItemProvider == null) {
 			resultMappingItemProvider = new ResultMappingItemProvider(this);
@@ -756,7 +756,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createSparqlAdapter() {
 		if (sparqlItemProvider == null) {
 			sparqlItemProvider = new SparqlItemProvider(this);
@@ -779,7 +779,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createSqlAdapter() {
 		if (sqlItemProvider == null) {
 			sqlItemProvider = new SqlItemProvider(this);
@@ -802,7 +802,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createStartingRowAdapter() {
 		if (startingRowItemProvider == null) {
 			startingRowItemProvider = new StartingRowItemProvider(this);
@@ -825,7 +825,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createSubscriptionAdapter() {
 		if (subscriptionItemProvider == null) {
 			subscriptionItemProvider = new SubscriptionItemProvider(this);
@@ -848,7 +848,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createTargetTopicAdapter() {
 		if (targetTopicItemProvider == null) {
 			targetTopicItemProvider = new TargetTopicItemProvider(this);
@@ -871,7 +871,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createWorkBookNameAdapter() {
 		if (workBookNameItemProvider == null) {
 			workBookNameItemProvider = new WorkBookNameItemProvider(this);
@@ -894,7 +894,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createWorkSheetNumberAdapter() {
 		if (workSheetNumberItemProvider == null) {
 			workSheetNumberItemProvider = new WorkSheetNumberItemProvider(this);
@@ -928,7 +928,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -939,7 +939,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -949,7 +949,7 @@ public class DsItemProviderAdapterFactory extends DsAdapterFactory implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);

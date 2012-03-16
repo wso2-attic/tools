@@ -48,7 +48,7 @@ public class PartnerRoleFilter extends ViewerFilter
 	}
 	
 	
-	@Override
+	
 	public boolean select (Viewer viewer, Object parentElement, Object element) {
 		
 

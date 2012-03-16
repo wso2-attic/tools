@@ -26,7 +26,7 @@ import org.eclipse.emf.common.notify.Notification;
  */
 public abstract class BatchedMultiObjectAdapter extends MultiObjectAdapter implements IBatchedAdapter {
 
-	@Override
+	
 	protected void doNotify(Notification n) {
 		if (CommandStackChangeBatcher.isBatchingChanges()) {
 			CommandStackChangeBatcher.registerBatchChange(this);
@@ -42,7 +42,7 @@ public abstract class BatchedMultiObjectAdapter extends MultiObjectAdapter imple
 	 * @param n the notification
 	 */
 	
-	@Override
+	
 	public abstract void notify(Notification n); 
 
 	/**

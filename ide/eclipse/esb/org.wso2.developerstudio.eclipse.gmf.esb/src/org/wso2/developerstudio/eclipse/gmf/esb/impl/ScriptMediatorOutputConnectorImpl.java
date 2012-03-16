@@ -36,7 +36,7 @@ public class ScriptMediatorOutputConnectorImpl extends OutputConnectorImpl imple
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SCRIPT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

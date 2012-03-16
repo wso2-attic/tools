@@ -18,7 +18,7 @@ import org.eclipse.wst.wsdl.Part;
 
 public class PartLabelProvider extends ModelLabelProvider {
 	
-	@Override
+	
 	public String getText(Object object) {
 		String result = super.getText(object);
 		if (result != null) {

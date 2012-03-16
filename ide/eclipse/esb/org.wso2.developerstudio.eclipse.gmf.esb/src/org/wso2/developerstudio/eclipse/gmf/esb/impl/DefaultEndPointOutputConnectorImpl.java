@@ -36,7 +36,7 @@ public class DefaultEndPointOutputConnectorImpl extends OutputConnectorImpl impl
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DEFAULT_END_POINT_OUTPUT_CONNECTOR;
 	}

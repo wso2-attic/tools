@@ -225,7 +225,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.EVENT_MEDIATOR;
     }
@@ -363,7 +363,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -386,7 +386,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -412,7 +412,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -438,7 +438,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -459,7 +459,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -474,7 +474,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

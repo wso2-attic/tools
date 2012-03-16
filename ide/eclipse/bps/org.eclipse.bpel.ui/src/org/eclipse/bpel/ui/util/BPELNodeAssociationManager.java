@@ -14,25 +14,25 @@ public class BPELNodeAssociationManager extends NodeAssociationManager {
 		super();
 	}        
 
-	@Override
+	
 	protected INodeAssociationProvider getAppicableProvider(Object object) {
 		//FIXME add code for returning bpelProvider here
 		return super.getAppicableProvider(object);
 	}
     
-	@Override
+	
 	public Object getModelObjectForNode(Object rootObject, Element targetNode) {
 		//FIXME try super; delete is super is OK
 		return super.getModelObjectForNode(rootObject, targetNode);
 	}
 
-	@Override
+	
 	public Node getNode(Object modelObject) {
 		//FIXME try super; delete is super is OK
 		return super.getNode(modelObject);
 	}
 	
-	@Override
+	
 	protected Element[] getParentElementChain(Element element) {
 		//FIXME try super; delete is super is OK
 		return super.getParentElementChain(element);

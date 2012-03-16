@@ -20,12 +20,12 @@ public class XSDAttributeDeclarationAdapter extends XSDAbstractAdapter
 {
 
 	/* ILabeledElement overrides */	
-	@Override
+	
 	public Image getSmallImage(Object object) {		
 		return BPELUIPlugin.INSTANCE.getImage(IBPELUIConstants.ICON_XSD_ATTRIBUTE_DECLARATION_16);
 	}
 		
-	@Override
+	
 	public String getTypeLabel(Object object) {
 		return Messages.XSDAttributeDeclarationAdapter_XSD_Attribute_1; 
 	}	

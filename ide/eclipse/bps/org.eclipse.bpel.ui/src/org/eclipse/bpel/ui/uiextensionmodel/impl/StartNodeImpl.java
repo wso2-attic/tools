@@ -47,7 +47,7 @@ public class StartNodeImpl extends EObjectImpl implements StartNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.START_NODE;
 	}

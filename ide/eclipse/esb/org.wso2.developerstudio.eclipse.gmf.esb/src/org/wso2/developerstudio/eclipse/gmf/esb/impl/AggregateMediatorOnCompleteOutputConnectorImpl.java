@@ -35,7 +35,7 @@ public class AggregateMediatorOnCompleteOutputConnectorImpl extends OutputConnec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.AGGREGATE_MEDIATOR_ON_COMPLETE_OUTPUT_CONNECTOR;
 	}

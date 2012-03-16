@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor.editors;
+package org.wso2.developerstudio.eclipse.humantask.editor.editors;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -36,7 +36,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
-import org.wso2.carbonstudio.eclipse.humantask.editor.Activator;
+import org.wso2.developerstudio.eclipse.humantask.editor.Activator;
 import org.wso2.tools.humantask.model.ht.DocumentRoot;
 import org.wso2.tools.humantask.model.ht.THumanInteractions;
 import org.wso2.tools.humantask.model.ht.util.HTAdapterFactory;

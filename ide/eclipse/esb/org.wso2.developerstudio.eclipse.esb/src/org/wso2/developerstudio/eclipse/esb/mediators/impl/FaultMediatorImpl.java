@@ -515,7 +515,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.FAULT_MEDIATOR;
     }
@@ -928,7 +928,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
@@ -947,7 +947,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -989,7 +989,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1046,7 +1046,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1103,7 +1103,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1145,7 +1145,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -1179,7 +1179,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
     }
 
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

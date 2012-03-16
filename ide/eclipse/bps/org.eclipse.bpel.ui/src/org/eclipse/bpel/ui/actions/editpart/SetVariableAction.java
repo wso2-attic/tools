@@ -93,8 +93,8 @@ public class SetVariableAction extends AbstractAction {
 		return Messages.SetRequestVarAction_Set_Request_Variable_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

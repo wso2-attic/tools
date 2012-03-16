@@ -104,7 +104,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SWITCH_CASE_BRANCH;
     }
@@ -135,7 +135,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
@@ -149,7 +149,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
@@ -164,7 +164,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
@@ -179,7 +179,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
@@ -193,7 +193,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -204,7 +204,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

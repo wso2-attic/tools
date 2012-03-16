@@ -21,27 +21,27 @@ public class ProcessHandlerLinker extends HandlerLinkerAdapter {
 		this.process = processEditPart;
 	}
 
-	@Override
+	
 	protected EventHandler getEventHandler() {
 		return process.getEventHandler();
 	}
 
-	@Override
+	
 	protected FaultHandler getFaultHandler() {
 		return process.getFaultHandler();
 	}
 
-	@Override
+	
 	protected int getEHTargetAnchorLoc() {
 		return CenteredConnectionAnchor.LEFT;
 	}
 
-	@Override
+	
 	protected boolean isShowEH() {
 		return process.isShowEH();
 	}
 
-	@Override
+	
 	protected boolean isShowFH() {
 		return process.isShowFH();
 	}
@@ -62,17 +62,17 @@ public class ProcessHandlerLinker extends HandlerLinkerAdapter {
 	/**
 	 * Overridden to always return LEFT direction
 	 */
-	@Override
+	
 	protected Ray getEHRoutingEndConstraint() {
 		return ManhattanConnectionRouterEx.LEFT;
 	}
 
-	@Override
+	
 	protected IFigure getEHFigure() {
 		return getStartNodeEditPart().getEventImageFigure();
 	}
 
-	@Override
+	
 	protected IFigure getFHFigure() {
 		return getStartNodeEditPart().getFaultImageFigure();
 	}

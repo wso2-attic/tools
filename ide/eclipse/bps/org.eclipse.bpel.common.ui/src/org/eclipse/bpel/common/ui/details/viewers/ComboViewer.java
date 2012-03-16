@@ -113,7 +113,7 @@ public class ComboViewer extends StructuredViewer {
 	 * Method declared on StructuredViewer.
 	 * Since SWT.Combo doesn't use items we always return the Combo itself.
 	 */
-	@Override
+	
 	protected Widget doFindInputItem(Object element) {
 		if (element != null && element.equals(getRoot()))
 			return getCombo();
@@ -123,7 +123,7 @@ public class ComboViewer extends StructuredViewer {
 	 * Method declared on StructuredViewer.
 	 * Since SWT.Combo doesn't use items we always return the Combo itself.
 	 */
-	@Override
+	
 	protected Widget doFindItem(Object element) {
 		if (element != null) {
 			if (comboMap.contains(element))
@@ -134,7 +134,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on StructuredViewer.
 	 */
-	@Override
+	
 	protected void doUpdateItem(Widget data, Object element, boolean fullMap) {
 		if (element != null) {
 			int ix = comboMap.indexOf(element);
@@ -147,7 +147,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on Viewer.
 	 */
-	@Override
+	
 	public Control getControl() {
 		return combo;
 	}
@@ -169,7 +169,7 @@ public class ComboViewer extends StructuredViewer {
 	 * method returns the label provider, which in the case of combo
 	 * viewers will be an instance of <code>ILabelProvider</code>.
 	 */
-	@Override
+	
 	public IBaseLabelProvider getLabelProvider() {
 		return super.getLabelProvider();
 	}
@@ -184,7 +184,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on StructuredViewer.
 	 */
-	@Override
+	
 	protected List<Object> getSelectionFromWidget() {
 		int idx = getCombo().getSelectionIndex();
 		if (idx < 0)  return new ArrayList<Object>(0);
@@ -229,7 +229,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on Viewer.
 	 */
-	@Override
+	
 	protected void inputChanged(Object input, Object oldInput) {
 		comboMap.clear();
 		Object[] children = getSortedChildren(getRoot());
@@ -248,7 +248,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on StructuredViewer.
 	 */
-	@Override
+	
 	protected void internalRefresh(Object element) {
 		if (element == null || element.equals(getRoot())) {
 			// the parent
@@ -330,7 +330,7 @@ public class ComboViewer extends StructuredViewer {
 	 * Non-Javadoc.
 	 * Method defined on StructuredViewer.
 	 */
-	@Override
+	
 	public void reveal(Object element) {
 		// Combos do not implement reveal.
 	}
@@ -339,7 +339,7 @@ public class ComboViewer extends StructuredViewer {
 	 * method ensures that the given label provider is an instance
 	 * of <code>ILabelProvider</code>.
 	 */
-	@Override
+	
 	public void setLabelProvider(IBaseLabelProvider labelProvider) {
 		Assert.isTrue(labelProvider instanceof ILabelProvider);
 		super.setLabelProvider(labelProvider);
@@ -347,7 +347,7 @@ public class ComboViewer extends StructuredViewer {
 	/* (non-Javadoc)
 	 * Method declared on StructuredViewer.
 	 */
-	@Override
+	
 	protected void setSelectionToWidget(List in, boolean reveal) {
 		org.eclipse.swt.widgets.Combo combo = getCombo();
 		if (in == null || in.size() == 0) { // clear selection

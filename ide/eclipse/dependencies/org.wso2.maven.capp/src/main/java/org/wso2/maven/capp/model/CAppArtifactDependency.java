@@ -23,7 +23,7 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.maven.capp.utils.CAppMavenUtils;
 
 public class CAppArtifactDependency{

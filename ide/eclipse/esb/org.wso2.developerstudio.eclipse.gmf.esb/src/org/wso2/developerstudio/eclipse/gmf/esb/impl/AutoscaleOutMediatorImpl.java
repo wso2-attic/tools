@@ -36,7 +36,7 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.AUTOSCALE_OUT_MEDIATOR;
 	}

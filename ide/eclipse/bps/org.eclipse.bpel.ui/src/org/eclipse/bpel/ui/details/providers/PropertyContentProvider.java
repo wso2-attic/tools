@@ -29,7 +29,7 @@ import org.eclipse.wst.wsdl.util.WSDLResourceImpl;
  */
 public class PropertyContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		
 		if (input instanceof CorrelationSet) {

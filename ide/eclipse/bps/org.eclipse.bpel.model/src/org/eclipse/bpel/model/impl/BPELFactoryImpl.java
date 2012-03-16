@@ -146,7 +146,7 @@ public class BPELFactoryImpl extends EFactoryImpl implements BPELFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 		case BPELPackage.PROCESS:
@@ -318,7 +318,7 @@ public class BPELFactoryImpl extends EFactoryImpl implements BPELFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
 		case BPELPackage.CORRELATION_PATTERN:
@@ -337,7 +337,7 @@ public class BPELFactoryImpl extends EFactoryImpl implements BPELFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
 		case BPELPackage.CORRELATION_PATTERN:

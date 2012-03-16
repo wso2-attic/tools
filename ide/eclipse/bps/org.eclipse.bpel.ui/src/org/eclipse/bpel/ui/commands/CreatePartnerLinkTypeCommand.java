@@ -26,7 +26,7 @@ public class CreatePartnerLinkTypeCommand extends CreateWSDLExtensibilityElement
 	protected PartnerLink partner;
 	
 	// TODO: label wrong?
-	@Override
+	
 	public String getDefaultLabel() { return IBPELUIConstants.CMD_ADD_PARTNERLINK; }
 
 	public CreatePartnerLinkTypeCommand(Definition defn, PartnerLinkType plt, PartnerLink partner) {
@@ -42,7 +42,7 @@ public class CreatePartnerLinkTypeCommand extends CreateWSDLExtensibilityElement
 		super(defn,plt);
 	}
 
-	@Override
+	
 	public void doExecute() {
 		// only alter if parter is set. Otherwise, plain vanila partner link type creation.
 		

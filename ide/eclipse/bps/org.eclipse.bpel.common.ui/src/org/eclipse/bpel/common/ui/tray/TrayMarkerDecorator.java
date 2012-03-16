@@ -107,7 +107,7 @@ public class TrayMarkerDecorator extends EditPartMarkerDecorator {
 	/**
 	 * @see org.eclipse.bpel.common.ui.decorator.EditPartMarkerDecorator#createFigure(org.eclipse.draw2d.IFigure)
 	 */
-	@Override
+	
 	public IFigure createFigure(IFigure figure) {
 		IFigure layers = super.createFigure(figure);
 		if (figure instanceof HandleBounds) {
@@ -118,7 +118,7 @@ public class TrayMarkerDecorator extends EditPartMarkerDecorator {
 		return layers;
 	}
 
-	@Override
+	
 	protected Object getConstraint(IMarker marker) {
 		try {
 			// problem markers are always placed in the top left

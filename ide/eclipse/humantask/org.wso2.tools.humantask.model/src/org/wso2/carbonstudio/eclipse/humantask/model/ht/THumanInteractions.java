@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getImport <em>Import</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getImport <em>Import</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions()
  * @model extendedMetaData="name='tHumanInteractions' kind='elementOnly'"
  * @generated
  */
@@ -42,7 +42,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extensions</em>' containment reference.
 	 * @see #setExtensions(TExtensions)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Extensions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Extensions()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='extensions' namespace='##targetNamespace'"
 	 * @generated
@@ -50,7 +50,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	TExtensions getExtensions();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Extensions</em>' containment reference.
@@ -61,7 +61,7 @@ public interface THumanInteractions extends TExtensibleElements {
 
 	/**
 	 * Returns the value of the '<em><b>Import</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport}.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Import</em>' containment reference list isn't clear,
@@ -69,7 +69,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Import</em>' containment reference list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Import()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Import()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='import' namespace='##targetNamespace'"
 	 * @generated
@@ -86,7 +86,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Logical People Groups</em>' containment reference.
 	 * @see #setLogicalPeopleGroups(TLogicalPeopleGroups)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_LogicalPeopleGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_LogicalPeopleGroups()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='logicalPeopleGroups' namespace='##targetNamespace'"
 	 * @generated
@@ -94,7 +94,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	TLogicalPeopleGroups getLogicalPeopleGroups();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Logical People Groups</em>' containment reference.
@@ -113,7 +113,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tasks</em>' containment reference.
 	 * @see #setTasks(TTasks)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Tasks()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Tasks()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='tasks' namespace='##targetNamespace'"
 	 * @generated
@@ -121,7 +121,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	TTasks getTasks();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Tasks</em>' containment reference.
@@ -140,7 +140,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notifications</em>' containment reference.
 	 * @see #setNotifications(TNotifications)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Notifications()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_Notifications()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='notifications' namespace='##targetNamespace'"
 	 * @generated
@@ -148,7 +148,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	TNotifications getNotifications();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Notifications</em>' containment reference.
@@ -167,7 +167,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression Language</em>' attribute.
 	 * @see #setExpressionLanguage(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_ExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_ExpressionLanguage()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
 	 *        extendedMetaData="kind='attribute' name='expressionLanguage'"
 	 * @generated
@@ -175,7 +175,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	String getExpressionLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression Language</em>' attribute.
@@ -194,7 +194,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Query Language</em>' attribute.
 	 * @see #setQueryLanguage(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_QueryLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_QueryLanguage()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
 	 *        extendedMetaData="kind='attribute' name='queryLanguage'"
 	 * @generated
@@ -202,7 +202,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	String getQueryLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Query Language</em>' attribute.
@@ -221,7 +221,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Namespace</em>' attribute.
 	 * @see #setTargetNamespace(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_TargetNamespace()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTHumanInteractions_TargetNamespace()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI" required="true"
 	 *        extendedMetaData="kind='attribute' name='targetNamespace'"
 	 * @generated
@@ -229,7 +229,7 @@ public interface THumanInteractions extends TExtensibleElements {
 	String getTargetNamespace();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target Namespace</em>' attribute.

@@ -37,7 +37,7 @@ public class OptionalIndirectContainer extends IndirectContainer {
 	
 	/* IContainer */
 	
-	@Override
+	
 	public boolean addChild(EObject object, EObject child, EObject insertBefore) {
 		if (getTarget(object) == null) {
 			createTarget(object);
@@ -48,7 +48,7 @@ public class OptionalIndirectContainer extends IndirectContainer {
 		return super.addChild(object, child, insertBefore);
 	}
 	
-	@Override
+	
 	public boolean removeChild(EObject object, EObject child) {
 		if (getTarget(object) == null) return false;
 		boolean result = super.removeChild(object, child);
@@ -56,7 +56,7 @@ public class OptionalIndirectContainer extends IndirectContainer {
 		return result;
 	}
 	
-	@Override
+	
 	public boolean replaceChild(EObject object, EObject oldChild, EObject newChild) {
 		if (getTarget(object) == null) return false;
 		return super.replaceChild(object, oldChild, newChild);

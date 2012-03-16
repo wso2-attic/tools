@@ -36,7 +36,7 @@ public class FaultMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FAULT_MEDIATOR_INPUT_CONNECTOR;
 	}

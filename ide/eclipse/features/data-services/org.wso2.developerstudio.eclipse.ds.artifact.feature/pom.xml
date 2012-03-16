@@ -21,13 +21,13 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-ds-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.ds.artifact.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.ds.artifact.feature</artifactId>
     <packaging>pom</packaging>
     <name>Data Services Artifact</name>
     <url>http://wso2.org</url>
@@ -49,8 +49,8 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.dataservice:${ds.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.dataservice.validator:${ds.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.dataservice:${ds.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.dataservice.validator:${ds.tools.version}</bundleDef>
                             </bundles>
 			                <!--importBundles>
     				            <importBundleDef>com.google:com.google.collect:0.8.0.v201008251220</importBundleDef>

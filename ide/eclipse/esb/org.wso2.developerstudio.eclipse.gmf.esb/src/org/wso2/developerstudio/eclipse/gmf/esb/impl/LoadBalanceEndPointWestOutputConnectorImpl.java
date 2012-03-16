@@ -35,7 +35,7 @@ public class LoadBalanceEndPointWestOutputConnectorImpl extends OutputConnectorI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR;
 	}

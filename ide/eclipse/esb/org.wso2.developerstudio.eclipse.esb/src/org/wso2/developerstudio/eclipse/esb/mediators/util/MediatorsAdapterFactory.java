@@ -68,7 +68,7 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
-	@Override
+	
 	public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
@@ -87,403 +87,403 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
      */
 	protected MediatorsSwitch<Adapter> modelSwitch =
 		new MediatorsSwitch<Adapter>() {
-            @Override
+            
             public Adapter caseInMediator(InMediator object) {
                 return createInMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseOutMediator(OutMediator object) {
                 return createOutMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseDropMediator(DropMediator object) {
                 return createDropMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseSendMediator(SendMediator object) {
                 return createSendMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseLogMediator(LogMediator object) {
                 return createLogMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseLogProperty(LogProperty object) {
                 return createLogPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseFilterMediator(FilterMediator object) {
                 return createFilterMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseFilterThenBranch(FilterThenBranch object) {
                 return createFilterThenBranchAdapter();
             }
-            @Override
+            
             public Adapter caseFilterElseBranch(FilterElseBranch object) {
                 return createFilterElseBranchAdapter();
             }
-            @Override
+            
             public Adapter caseSwitchMediator(SwitchMediator object) {
                 return createSwitchMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseSwitchCaseBranch(SwitchCaseBranch object) {
                 return createSwitchCaseBranchAdapter();
             }
-            @Override
+            
             public Adapter caseSwitchDefaultBranch(SwitchDefaultBranch object) {
                 return createSwitchDefaultBranchAdapter();
             }
-            @Override
+            
             public Adapter caseEntitlementMediator(EntitlementMediator object) {
                 return createEntitlementMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseEnqueueMediator(EnqueueMediator object) {
                 return createEnqueueMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseClassMediator(ClassMediator object) {
                 return createClassMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseClassProperty(ClassProperty object) {
                 return createClassPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseSpringMediator(SpringMediator object) {
                 return createSpringMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseValidateMediator(ValidateMediator object) {
                 return createValidateMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseValidateOnFailBranch(ValidateOnFailBranch object) {
                 return createValidateOnFailBranchAdapter();
             }
-            @Override
+            
             public Adapter caseValidateFeature(ValidateFeature object) {
                 return createValidateFeatureAdapter();
             }
-            @Override
+            
             public Adapter caseValidateSchema(ValidateSchema object) {
                 return createValidateSchemaAdapter();
             }
-            @Override
+            
             public Adapter caseScriptMediator(ScriptMediator object) {
                 return createScriptMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseEnrichMediator(EnrichMediator object) {
                 return createEnrichMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseFaultMediator(FaultMediator object) {
                 return createFaultMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAggregateMediator(AggregateMediator object) {
                 return createAggregateMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAggregateOnCompleteBranch(AggregateOnCompleteBranch object) {
                 return createAggregateOnCompleteBranchAdapter();
             }
-            @Override
+            
             public Adapter caseRouterMediator(RouterMediator object) {
                 return createRouterMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseRouterRoute(RouterRoute object) {
                 return createRouterRouteAdapter();
             }
-            @Override
+            
             public Adapter caseRouteTarget(RouteTarget object) {
                 return createRouteTargetAdapter();
             }
-            @Override
+            
             public Adapter caseCloneMediator(CloneMediator object) {
                 return createCloneMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseCloneTarget(CloneTarget object) {
                 return createCloneTargetAdapter();
             }
-            @Override
+            
             public Adapter caseIterateMediator(IterateMediator object) {
                 return createIterateMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseIterateTarget(IterateTarget object) {
                 return createIterateTargetAdapter();
             }
-            @Override
+            
             public Adapter caseCacheMediator(CacheMediator object) {
                 return createCacheMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseCacheOnHitBranch(CacheOnHitBranch object) {
                 return createCacheOnHitBranchAdapter();
             }
-            @Override
+            
             public Adapter caseXSLTMediator(XSLTMediator object) {
                 return createXSLTMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseXSLTProperty(XSLTProperty object) {
                 return createXSLTPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseXSLTFeature(XSLTFeature object) {
                 return createXSLTFeatureAdapter();
             }
-            @Override
+            
             public Adapter caseXSLTResource(XSLTResource object) {
                 return createXSLTResourceAdapter();
             }
-            @Override
+            
             public Adapter caseXQueryMediator(XQueryMediator object) {
                 return createXQueryMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseXQueryVariable(XQueryVariable object) {
                 return createXQueryVariableAdapter();
             }
-            @Override
+            
             public Adapter caseCalloutMediator(CalloutMediator object) {
                 return createCalloutMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseRMSequenceMediator(RMSequenceMediator object) {
                 return createRMSequenceMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseTransactionMediator(TransactionMediator object) {
                 return createTransactionMediatorAdapter();
             }
-            @Override
+            
             public Adapter casePropertyMediator(PropertyMediator object) {
                 return createPropertyMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseOAuthMediator(OAuthMediator object) {
                 return createOAuthMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAutoscaleInMediator(AutoscaleInMediator object) {
                 return createAutoscaleInMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAutoscaleOutMediator(AutoscaleOutMediator object) {
                 return createAutoscaleOutMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseHeaderMediator(HeaderMediator object) {
                 return createHeaderMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseThrottleMediator(ThrottleMediator object) {
                 return createThrottleMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseThrottlePolicyConfiguration(ThrottlePolicyConfiguration object) {
                 return createThrottlePolicyConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseThrottlePolicyEntry(ThrottlePolicyEntry object) {
                 return createThrottlePolicyEntryAdapter();
             }
-            @Override
+            
             public Adapter caseThrottleOnAcceptBranch(ThrottleOnAcceptBranch object) {
                 return createThrottleOnAcceptBranchAdapter();
             }
-            @Override
+            
             public Adapter caseThrottleOnRejectBranch(ThrottleOnRejectBranch object) {
                 return createThrottleOnRejectBranchAdapter();
             }
-            @Override
+            
             public Adapter caseCommandMediator(CommandMediator object) {
                 return createCommandMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseCommandProperty(CommandProperty object) {
                 return createCommandPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseEventMediator(EventMediator object) {
                 return createEventMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractSqlExecutorMediator(AbstractSqlExecutorMediator object) {
                 return createAbstractSqlExecutorMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseSqlStatement(SqlStatement object) {
                 return createSqlStatementAdapter();
             }
-            @Override
+            
             public Adapter caseSqlParameterDefinition(SqlParameterDefinition object) {
                 return createSqlParameterDefinitionAdapter();
             }
-            @Override
+            
             public Adapter caseSqlResultMapping(SqlResultMapping object) {
                 return createSqlResultMappingAdapter();
             }
-            @Override
+            
             public Adapter caseDBLookupMediator(DBLookupMediator object) {
                 return createDBLookupMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseDBReportMediator(DBReportMediator object) {
                 return createDBReportMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseRuleMediator(RuleMediator object) {
                 return createRuleMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseRuleSetConfiguration(RuleSetConfiguration object) {
                 return createRuleSetConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseRuleSetCreationProperty(RuleSetCreationProperty object) {
                 return createRuleSetCreationPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseRuleSessionConfiguration(RuleSessionConfiguration object) {
                 return createRuleSessionConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseRuleSessionProperty(RuleSessionProperty object) {
                 return createRuleSessionPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseRuleFactsConfiguration(RuleFactsConfiguration object) {
                 return createRuleFactsConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseRuleFact(RuleFact object) {
                 return createRuleFactAdapter();
             }
-            @Override
+            
             public Adapter caseRuleResultsConfiguration(RuleResultsConfiguration object) {
                 return createRuleResultsConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseRuleResult(RuleResult object) {
                 return createRuleResultAdapter();
             }
-            @Override
+            
             public Adapter caseRuleChildMediatorsConfiguration(RuleChildMediatorsConfiguration object) {
                 return createRuleChildMediatorsConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseSequenceMediator(SequenceMediator object) {
                 return createSequenceMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseBuilderMediator(BuilderMediator object) {
                 return createBuilderMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseMessageBuilder(MessageBuilder object) {
                 return createMessageBuilderAdapter();
             }
-            @Override
+            
             public Adapter caseSmooksMediator(SmooksMediator object) {
                 return createSmooksMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseSmooksInConfiguration(SmooksInConfiguration object) {
                 return createSmooksInConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseSmooksOutConfiguration(SmooksOutConfiguration object) {
                 return createSmooksOutConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseStoreMediator(StoreMediator object) {
                 return createStoreMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseConditionalRouteBranch(ConditionalRouteBranch object) {
                 return createConditionalRouteBranchAdapter();
             }
-            @Override
+            
             public Adapter caseConditionalRouterMediator(ConditionalRouterMediator object) {
                 return createConditionalRouterMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseURLRewriteRuleAction(URLRewriteRuleAction object) {
                 return createURLRewriteRuleActionAdapter();
             }
-            @Override
+            
             public Adapter caseURLRewriteRule(URLRewriteRule object) {
                 return createURLRewriteRuleAdapter();
             }
-            @Override
+            
             public Adapter caseURLRewriteMediator(URLRewriteMediator object) {
                 return createURLRewriteMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseCallTemplateMediator(CallTemplateMediator object) {
                 return createCallTemplateMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseCallTemplateParameter(CallTemplateParameter object) {
                 return createCallTemplateParameterAdapter();
             }
-            @Override
+            
             public Adapter casePayloadFactoryMediator(PayloadFactoryMediator object) {
                 return createPayloadFactoryMediatorAdapter();
             }
-            @Override
+            
             public Adapter casePayloadFactoryArgument(PayloadFactoryArgument object) {
                 return createPayloadFactoryArgumentAdapter();
             }
-            @Override
+            
             public Adapter caseModelObject(ModelObject object) {
                 return createModelObjectAdapter();
             }
-            @Override
+            
             public Adapter caseConfigurationElement(ConfigurationElement object) {
                 return createConfigurationElementAdapter();
             }
-            @Override
+            
             public Adapter caseMediator(Mediator object) {
                 return createMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseParentMediator(ParentMediator object) {
                 return createParentMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractNameValueExpressionProperty(AbstractNameValueExpressionProperty object) {
                 return createAbstractNameValueExpressionPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseMediatorBranch(MediatorBranch object) {
                 return createMediatorBranchAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractNameValueProperty(AbstractNameValueProperty object) {
                 return createAbstractNameValuePropertyAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractBooleanFeature(AbstractBooleanFeature object) {
                 return createAbstractBooleanFeatureAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractCommonTarget(AbstractCommonTarget object) {
                 return createAbstractCommonTargetAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractLocationKeyResource(AbstractLocationKeyResource object) {
                 return createAbstractLocationKeyResourceAdapter();
             }
-            @Override
+            
             public Adapter defaultCase(EObject object) {
                 return createEObjectAdapter();
             }
@@ -497,7 +497,7 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
      * @return the adapter for the <code>target</code>.
      * @generated
      */
-	@Override
+	
 	public Adapter createAdapter(Notifier target) {
         return modelSwitch.doSwitch((EObject)target);
     }

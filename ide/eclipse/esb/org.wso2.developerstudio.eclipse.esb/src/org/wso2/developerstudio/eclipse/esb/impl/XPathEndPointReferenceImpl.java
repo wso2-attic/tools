@@ -87,7 +87,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.XPATH_END_POINT_REFERENCE;
     }
@@ -140,7 +140,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
@@ -154,7 +154,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
@@ -168,7 +168,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
@@ -183,7 +183,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
@@ -198,7 +198,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
@@ -207,7 +207,7 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
         return super.eIsSet(featureID);
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

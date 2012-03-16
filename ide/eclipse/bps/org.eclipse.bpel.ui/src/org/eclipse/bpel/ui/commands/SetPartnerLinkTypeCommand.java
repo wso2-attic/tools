@@ -29,11 +29,11 @@ public class SetPartnerLinkTypeCommand extends SetCommand {
 		super(partnerLink, newPLT);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ((PartnerLink)fTarget).getPartnerLinkType();
 	}
-	@Override
+	
 	public void set(Object o) {
 		((PartnerLink)fTarget).setPartnerLinkType((PartnerLinkType)o);
 	}

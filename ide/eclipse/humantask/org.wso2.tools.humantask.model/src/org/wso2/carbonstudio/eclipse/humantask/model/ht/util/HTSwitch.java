@@ -4,14 +4,14 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.util;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.util;
 
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.*;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage
  * @generated
  */
 public class HTSwitch<T> {

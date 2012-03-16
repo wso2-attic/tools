@@ -232,7 +232,7 @@ public enum ReceivingSequenceType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

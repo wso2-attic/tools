@@ -96,7 +96,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SMOOKS_IN_CONFIGURATION;
     }
@@ -165,7 +165,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -182,7 +182,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -200,7 +200,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -218,7 +218,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -234,7 +234,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -245,7 +245,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
         return result.toString();
     }
 
-	@Override
+	
 	protected void doLoad(Element self) throws Exception {
 		if (self.hasAttribute("type")) {
 			String typeAttribute = self.getAttribute("type");
@@ -258,7 +258,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 		}
 	}
 
-	@Override
+	
 	protected Element doSave(Element parent) throws Exception {
 		Element self =  createChildElement(parent, "input");
 		self.setAttribute("type", getType().toString().toLowerCase());
@@ -268,7 +268,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 		return self;
 	}
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

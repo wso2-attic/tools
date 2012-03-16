@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -16,13 +16,13 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getEscalation <em>Escalation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getEscalation <em>Escalation</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline()
  * @model extendedMetaData="name='tDeadline' kind='elementOnly'"
  * @generated
  */
@@ -37,7 +37,7 @@ public interface TDeadline extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For</em>' containment reference.
 	 * @see #setFor(TDurationExpr)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_For()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_For()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='for' namespace='##targetNamespace'"
 	 * @generated
@@ -45,7 +45,7 @@ public interface TDeadline extends TExtensibleElements {
 	TDurationExpr getFor();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>For</em>' containment reference.
@@ -64,7 +64,7 @@ public interface TDeadline extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Until</em>' containment reference.
 	 * @see #setUntil(TDeadlineExpr)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_Until()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_Until()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='until' namespace='##targetNamespace'"
 	 * @generated
@@ -72,7 +72,7 @@ public interface TDeadline extends TExtensibleElements {
 	TDeadlineExpr getUntil();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Until</em>' containment reference.
@@ -83,7 +83,7 @@ public interface TDeadline extends TExtensibleElements {
 
 	/**
 	 * Returns the value of the '<em><b>Escalation</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation}.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Escalation</em>' containment reference list isn't clear,
@@ -91,7 +91,7 @@ public interface TDeadline extends TExtensibleElements {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Escalation</em>' containment reference list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_Escalation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDeadline_Escalation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='escalation' namespace='##targetNamespace'"
 	 * @generated

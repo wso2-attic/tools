@@ -28,7 +28,7 @@ public class PortTypeTreeContentProvider extends ModelTreeContentProvider {
 		super(isCondensed);
 	}
 
-	@Override
+	
 	public Object[] primGetElements (Object inputElement) {
 		
 		List list = new LinkedList();

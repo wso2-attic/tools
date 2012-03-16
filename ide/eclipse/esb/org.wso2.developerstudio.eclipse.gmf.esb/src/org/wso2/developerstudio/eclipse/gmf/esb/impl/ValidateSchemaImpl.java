@@ -91,7 +91,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.VALIDATE_SCHEMA;
 	}
@@ -199,7 +199,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -220,7 +220,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -242,7 +242,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -264,7 +264,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -283,7 +283,7 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

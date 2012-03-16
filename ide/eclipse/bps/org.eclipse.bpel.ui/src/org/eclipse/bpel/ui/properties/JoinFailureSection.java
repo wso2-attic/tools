@@ -43,13 +43,13 @@ public class JoinFailureSection extends BPELPropertySection {
 	
 	IValue fContext ;
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		
 		return new MultiObjectAdapter[] {
 		/* model object */
 		new MultiObjectAdapter() {
-			@Override
+			
 			public void notify (Notification n) {
 				
 				Object notifier = n.getNotifier();
@@ -77,7 +77,7 @@ public class JoinFailureSection extends BPELPropertySection {
 		}, };
 	}
 
-	@Override
+	
 	protected void addAllAdapters() {
 		super.addAllAdapters();
 		// Also add adapter[0] to each object in our eContainer() chain which
@@ -168,14 +168,14 @@ public class JoinFailureSection extends BPELPropertySection {
 		fRadioController.startListeningTo( yesRadio, noRadio,sameAsParentRadio );
 	}
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		fComposite = createFlatFormComposite(parent);
 		createSuppressJoinFailureWidgets(fComposite);
 		createControllers();
 	}
 	
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 		
 		if (newInput instanceof Process) {
@@ -211,7 +211,7 @@ public class JoinFailureSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return fContext.get();
 	}
@@ -219,7 +219,7 @@ public class JoinFailureSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		fContext.set(userContext);
 	}

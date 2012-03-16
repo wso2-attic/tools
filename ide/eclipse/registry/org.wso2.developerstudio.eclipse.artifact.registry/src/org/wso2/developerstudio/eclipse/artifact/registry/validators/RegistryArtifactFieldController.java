@@ -94,7 +94,7 @@ public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 }
 
 
-@Override
+
 public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
     boolean isReadOnly = super.isReadOnlyField(modelProperty, model);
     if (modelProperty.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {

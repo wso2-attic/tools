@@ -234,7 +234,7 @@ public class MediatorsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean performFinish() {
         try {
             // Remember the file.
@@ -245,7 +245,7 @@ public class MediatorsModelWizard extends Wizard implements INewWizard {
             //
             WorkspaceModifyOperation operation =
                 new WorkspaceModifyOperation() {
-                    @Override
+                    
                     protected void execute(IProgressMonitor progressMonitor) {
                         try {
                             // Create a resource set
@@ -342,7 +342,7 @@ public class MediatorsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		protected boolean validatePage() {
             if (super.validatePage()) {
                 String extension = new Path(getFileName()).getFileExtension();
@@ -502,7 +502,7 @@ public class MediatorsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public void setVisible(boolean visible) {
             super.setVisible(visible);
             if (visible) {
@@ -580,7 +580,7 @@ public class MediatorsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
      * @generated
      */
-		@Override
+		
 	public void addPages() {
         // Create a page, set the title, and the initial model file name.
         //

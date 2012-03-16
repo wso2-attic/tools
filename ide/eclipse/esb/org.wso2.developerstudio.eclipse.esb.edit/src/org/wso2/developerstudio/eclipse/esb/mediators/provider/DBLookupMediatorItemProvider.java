@@ -61,7 +61,7 @@ public class DBLookupMediatorItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
@@ -77,7 +77,7 @@ public class DBLookupMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/DBLookupMediator"));
     }
@@ -87,7 +87,7 @@ public class DBLookupMediatorItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_DBLookupMediator_type");
 	}
@@ -99,7 +99,7 @@ public class DBLookupMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
         super.notifyChanged(notification);
@@ -111,7 +111,7 @@ public class DBLookupMediatorItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		SqlStatement statement = MediatorsFactory.eINSTANCE.createSqlStatement();
 		statement.setResultsEnabled(true);

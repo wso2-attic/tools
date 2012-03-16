@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,12 +36,12 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getToParts <em>To Parts</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getNotification <em>Notification</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getLocalNotification <em>Local Notification</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getReassignment <em>Reassignment</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getToParts <em>To Parts</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getLocalNotification <em>Local Notification</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getReassignment <em>Reassignment</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *

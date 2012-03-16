@@ -81,7 +81,7 @@ public class BPELEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	}
 	
 	
-	@Override
+	
 	protected IMarker[] getMarkers () {
 		
 		IMarkerHolder holder = BPELUtil.adapt(modelObject, IMarkerHolder.class);
@@ -132,7 +132,7 @@ public class BPELEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	}
 
 	
-	@Override
+	
 	protected boolean isAcceptable (IMarker marker) {
 		boolean isVisible = marker.getAttribute(IModelMarkerConstants.DECORATION_MARKER_VISIBLE_ATTR, true);
 		if (!isVisible) {
@@ -150,7 +150,7 @@ public class BPELEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	}
 	
 	
-	@Override
+	
 	protected Object getConstraint(IMarker marker) {
 		try {
 			// problem markers are always placed in the top left
@@ -164,7 +164,7 @@ public class BPELEditPartMarkerDecorator extends EditPartMarkerDecorator {
 	}
 	
 	
-	@Override
+	
 	protected Object convertAnchorKeyToConstraint(String key) {
 		if (key.equals(IBPELUIConstants.MARKER_ANCHORPOINT_DRAWER_TOP)) {
 			return Integer.valueOf( 64 );

@@ -111,7 +111,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_SEQUENCE;
 	}
@@ -241,7 +241,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ESB_SEQUENCE__INPUT:
@@ -260,7 +260,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ESB_SEQUENCE__NAME:
@@ -281,7 +281,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -308,7 +308,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_SEQUENCE__NAME:
@@ -333,7 +333,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_SEQUENCE__NAME:
@@ -354,7 +354,7 @@ public class EsbSequenceImpl extends EsbNodeImpl implements EsbSequence {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

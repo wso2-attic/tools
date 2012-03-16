@@ -32,7 +32,7 @@ public class PropertyAliasFilter extends ViewerFilter {
 		this.property = property;
 	}
 	
-	@Override
+	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if ((property != null) && (element instanceof PropertyAlias)) {
 			if (((PropertyAlias)element).getPropertyName() == property) return true;

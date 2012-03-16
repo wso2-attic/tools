@@ -58,11 +58,11 @@ public class CompensateScopeSection extends BPELPropertySection {
 		super();
 	}
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[] {
 				new MultiObjectAdapter(){
-					@Override
+					
 					public void notify(Notification n) {
 						// TODO: isCompensateAffected() ?
 						refresh();
@@ -118,7 +118,7 @@ public class CompensateScopeSection extends BPELPropertySection {
 		activityViewer.setInput(getInput());	
 	}	
 
-	@Override
+	
 	protected void createClient(Composite parent) {	
 		Composite composite = parentComposite = createFlatFormComposite(parent);
 		createActivityWidgets(composite);
@@ -130,7 +130,7 @@ public class CompensateScopeSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#refresh()
 	 */
-	@Override
+	
 	public void refresh() {
 		
 		super.refresh();
@@ -145,7 +145,7 @@ public class CompensateScopeSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return null;
 	}
@@ -153,7 +153,7 @@ public class CompensateScopeSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */	
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		activityViewer.getCCombo().setFocus();
 	}

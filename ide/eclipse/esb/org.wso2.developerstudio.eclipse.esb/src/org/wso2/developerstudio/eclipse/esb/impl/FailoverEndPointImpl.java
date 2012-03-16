@@ -76,12 +76,12 @@ public class FailoverEndPointImpl extends ParentEndPointImpl implements Failover
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.FAILOVER_END_POINT;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

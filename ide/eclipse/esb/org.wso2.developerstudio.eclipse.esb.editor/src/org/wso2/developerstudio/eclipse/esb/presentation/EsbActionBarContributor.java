@@ -87,7 +87,7 @@ public class EsbActionBarContributor
      */
 	protected IAction showPropertiesViewAction =
 		new Action(EsbEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
-            @Override
+            
             public void run() {
                 try {
                     getPage().showView("org.eclipse.ui.views.PropertySheet");
@@ -107,12 +107,12 @@ public class EsbActionBarContributor
      */
 	protected IAction refreshViewerAction =
 		new Action(EsbEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
-            @Override
+            
             public boolean isEnabled() {
                 return activeEditorPart instanceof IViewerProvider;
             }
 
-            @Override
+            
             public void run() {
                 if (activeEditorPart instanceof IViewerProvider) {
                     Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
@@ -196,7 +196,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
         toolBarManager.add(new Separator("esb-settings"));
         toolBarManager.add(new Separator("esb-additions"));
@@ -209,7 +209,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void contributeToMenu(IMenuManager menuManager) {
         super.contributeToMenu(menuManager);
 
@@ -248,7 +248,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void setActiveEditor(IEditorPart part) {
         super.setActiveEditor(part);
         activeEditorPart = part;
@@ -525,7 +525,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void menuAboutToShow(IMenuManager menuManager) {
         super.menuAboutToShow(menuManager);
         MenuManager submenuManager = null;
@@ -547,7 +547,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void addGlobalActions(IMenuManager menuManager) {
         menuManager.insertAfter("additions-end", new Separator("ui-actions"));
         menuManager.insertAfter("ui-actions", showPropertiesViewAction);
@@ -564,7 +564,7 @@ public class EsbActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected boolean removeAllReferencesOnDelete() {
         return true;
     }

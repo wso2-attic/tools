@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -15,16 +15,16 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification()
  * @model extendedMetaData="name='tNotification' kind='elementOnly'"
  * @generated
  */
@@ -39,7 +39,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface</em>' containment reference.
 	 * @see #setInterface(TNotificationInterface)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Interface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Interface()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='interface' namespace='##targetNamespace'"
 	 * @generated
@@ -47,7 +47,7 @@ public interface TNotification extends TExtensibleElements {
 	TNotificationInterface getInterface();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Interface</em>' containment reference.
@@ -66,7 +66,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
 	 * @see #setPriority(TPriority)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Priority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
@@ -74,7 +74,7 @@ public interface TNotification extends TExtensibleElements {
 	TPriority getPriority();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Priority</em>' containment reference.
@@ -93,7 +93,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>People Assignments</em>' containment reference.
 	 * @see #setPeopleAssignments(TPeopleAssignments)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_PeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_PeopleAssignments()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='peopleAssignments' namespace='##targetNamespace'"
 	 * @generated
@@ -101,7 +101,7 @@ public interface TNotification extends TExtensibleElements {
 	TPeopleAssignments getPeopleAssignments();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>People Assignments</em>' containment reference.
@@ -120,7 +120,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Elements</em>' containment reference.
 	 * @see #setPresentationElements(TPresentationElements)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_PresentationElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_PresentationElements()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='presentationElements' namespace='##targetNamespace'"
 	 * @generated
@@ -128,7 +128,7 @@ public interface TNotification extends TExtensibleElements {
 	TPresentationElements getPresentationElements();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Presentation Elements</em>' containment reference.
@@ -147,7 +147,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Renderings</em>' containment reference.
 	 * @see #setRenderings(TRenderings)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Renderings()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Renderings()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='renderings' namespace='##targetNamespace'"
 	 * @generated
@@ -155,7 +155,7 @@ public interface TNotification extends TExtensibleElements {
 	TRenderings getRenderings();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Renderings</em>' containment reference.
@@ -174,7 +174,7 @@ public interface TNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Name()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotification_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
@@ -182,7 +182,7 @@ public interface TNotification extends TExtensibleElements {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.

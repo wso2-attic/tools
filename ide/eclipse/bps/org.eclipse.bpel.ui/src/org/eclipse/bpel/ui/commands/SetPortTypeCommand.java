@@ -29,12 +29,12 @@ public class SetPortTypeCommand extends SetCommand {
 		super(target, newPortType);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getPortType(fTarget);
 	}
 	
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setPortType(fTarget, (PortType)o);
 	}

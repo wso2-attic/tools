@@ -62,7 +62,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
@@ -77,7 +77,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/XSLTFeature"));
     }
@@ -87,7 +87,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		XSLTFeature feature = (XSLTFeature) object;
 		String name = feature.getFeatureName();
@@ -102,7 +102,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
         super.notifyChanged(notification);
@@ -115,7 +115,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -126,7 +126,7 @@ public class XSLTFeatureItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

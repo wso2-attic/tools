@@ -29,7 +29,7 @@ public class SeparatorContentProvider extends AbstractContentProvider {
 
 	
 	
-	@Override
+	
 	public void collectElements(Object input, List list) {
 		list.add( new Separator () );
 	}

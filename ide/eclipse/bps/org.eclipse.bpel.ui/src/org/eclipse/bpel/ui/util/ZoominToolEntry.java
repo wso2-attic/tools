@@ -34,7 +34,7 @@ public class ZoominToolEntry extends ToolEntry {
 		setUserModificationPermission(PERMISSION_NO_MODIFICATION);
 	}
 
-	@Override
+	
 	public Tool createTool() {
 		return new ZoominTool();
 	}

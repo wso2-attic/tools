@@ -43,7 +43,7 @@ public abstract class EndPointReferenceImpl extends ModelObjectImpl implements E
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.END_POINT_REFERENCE;
     }

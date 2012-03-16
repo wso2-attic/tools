@@ -26,12 +26,12 @@ public class SetPropertyTypeCommand extends SetCommand {
 		super(target, newType);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ((Property)fTarget).getType();
 	}
 
-	@Override
+	
 	public void set(Object o) {
 		((Property)fTarget).setType(o);
 	}

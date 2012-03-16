@@ -36,7 +36,7 @@ public class ProxyOutputConnectorImpl extends OutputConnectorImpl implements Pro
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_OUTPUT_CONNECTOR;
 	}

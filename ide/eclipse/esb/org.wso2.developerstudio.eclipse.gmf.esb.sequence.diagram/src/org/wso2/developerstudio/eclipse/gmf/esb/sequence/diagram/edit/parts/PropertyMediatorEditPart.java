@@ -347,12 +347,12 @@ public class PropertyMediatorEditPart extends AbstractBorderedShapeEditPart {
 			return fFigurePropertyMediatorPropertyValueLabel;
 		}
 
-		@Override
+		
 		public String getIconPath() {
 			return "icons/ico20/property-mediator.gif";
 		}
 
-		@Override
+		
 		public String getNodeName() {
 			return "Property";
 		}

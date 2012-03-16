@@ -68,7 +68,7 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	/**
 	 * @see org.eclipse.xsd.util.XSDAdapterFactory#createXSDComplexTypeDefinitionAdapter()
 	 */
-	@Override
+	
 	public Adapter createXSDComplexTypeDefinitionAdapter () {
 		return provider.getAdapter( XSDComplexTypeDefinitionAdapter.class );		
 	}
@@ -76,7 +76,7 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	/**
 	 * @see org.eclipse.xsd.util.XSDAdapterFactory#createXSDTypeDefinitionAdapter()
 	 */
-	@Override
+	
 	public Adapter createXSDTypeDefinitionAdapter() {
 		return provider.getAdapter( XSDTypeDefinitionAdapter.class );		
 	}
@@ -84,7 +84,7 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	/**
 	 * @see org.eclipse.xsd.util.XSDAdapterFactory#createXSDAttributeDeclarationAdapter()
 	 */
-	@Override
+	
 	public Adapter createXSDAttributeDeclarationAdapter() {
 		return provider.getAdapter( XSDAttributeDeclarationAdapter.class );		
 	}
@@ -92,7 +92,7 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	/**
 	 * @see org.eclipse.xsd.util.XSDAdapterFactory#createXSDElementDeclarationAdapter()
 	 */
-	@Override
+	
 	public Adapter createXSDElementDeclarationAdapter() {
 		return provider.getAdapter( XSDElementDeclarationAdapter.class );		
 	}
@@ -100,14 +100,14 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	/**
 	 * @see org.eclipse.xsd.util.XSDAdapterFactory#createXSDSchemaAdapter()
 	 */
-	@Override
+	
 	public Adapter createXSDSchemaAdapter() {
 		return provider.getAdapter( XSDSchemaAdapter.class );		
 	}
 	/**
 	 * @see org.eclipse.emf.common.notify.impl.AdapterFactoryImpl#adaptNew(org.eclipse.emf.common.notify.Notifier, java.lang.Object)
 	 */
-	@Override
+	
 	public Adapter adaptNew(Notifier target, Object type) {
 		Adapter adapter = createAdapter(target, type);
 		// Bugzilla 330519
@@ -122,7 +122,7 @@ public class BPELUIXSDAdapterFactory extends XSDAdapterFactory {
 	
 
 	
-	@Override
+	
 	protected Object resolve(Object object, Object type) {
 		return null;
 	}

@@ -86,7 +86,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.IAssignCategory#getName()
 	 */
-	@Override
+	
 	public String getName() {
 		return Messages.VariablePartAssignCategory_Variable_or_Part_1;
 	}
@@ -196,7 +196,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 		}
 	}
 
-	@Override
+	
 	protected void createClient2(Composite parent) {
 
 		FlatFormData data;
@@ -270,7 +270,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 	 * @see org.eclipse.bpel.ui.properties.IAssignCategory#isCategoryForModel(org.eclipse.emf.ecore.EObject)
 	 */
 
-	@Override
+	
 	public boolean isCategoryForModel(EObject aModel) {
 
 		if (aModel == null) {
@@ -286,7 +286,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 	}
 
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected void load(IVirtualCopyRuleSide side) {
 
 		fChangeHelper.startNonUserChange();
@@ -441,7 +441,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 				.equals(EMPTY_STRING) && xsdNamed.getTargetNamespace() == null));
 	}
 
-	@Override
+	
 	protected void store(IVirtualCopyRuleSide side) {
 		IStructuredSelection sel = (IStructuredSelection) fVariableViewer
 				.getSelection();
@@ -646,7 +646,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 		}
 	}
 
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 
 		super.basicSetInput(newInput);
@@ -674,7 +674,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return null;
 	}
@@ -682,7 +682,7 @@ public class VariablePartAssignCategory extends AssignCategoryBase {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		fVariableTree.setFocus();
 	}

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +33,9 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getDocumentation <em>Documentation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getAny <em>Any</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getAnyAttribute <em>Any Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getAny <em>Any</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
  * </p>
  *

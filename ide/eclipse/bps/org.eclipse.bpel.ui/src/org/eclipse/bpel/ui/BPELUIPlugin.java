@@ -178,7 +178,7 @@ public class BPELUIPlugin extends AbstractUIPlugin {
 		return colorRegistry;
 	}
 	
-	@Override
+	
 	public ImageRegistry getImageRegistry() {
 		ImageRegistry result = super.getImageRegistry();
 		initialize();
@@ -215,7 +215,7 @@ public class BPELUIPlugin extends AbstractUIPlugin {
 	/**
 	 * @see org.eclipse.core.runtime.Plugin#start(BundleContext)
 	 */
-	@Override
+	
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		INSTANCE = this;
@@ -293,7 +293,7 @@ public class BPELUIPlugin extends AbstractUIPlugin {
 		
 		Job job = new Job ("Reading XPath Function Registry ...") {
 
-			@Override
+			
 			protected IStatus run(IProgressMonitor monitor) {
 				long start = System.currentTimeMillis();
 				IStatus status;
@@ -320,7 +320,7 @@ public class BPELUIPlugin extends AbstractUIPlugin {
 	/**
 	 * @see org.eclipse.core.runtime.Plugin#stop(BundleContext)
 	 */
-	@Override
+	
 	public void stop(BundleContext context) throws Exception {
 
 		super.stop(context);

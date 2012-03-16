@@ -85,7 +85,7 @@ public class CompoundCommand extends AutoUndoCommand {
 		return commandList;
 	}
 	
-	@Override
+	
 	public Set<Object> getModelRoots() {
 		HashSet<Object> result = new HashSet<Object>();
 		for (Command command : commandList) {

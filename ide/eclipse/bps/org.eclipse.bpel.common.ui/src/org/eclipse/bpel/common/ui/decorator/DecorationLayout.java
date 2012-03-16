@@ -73,7 +73,7 @@ public class DecorationLayout extends AbstractHintLayout {
 		}
 	}
 	
-	@Override
+	
 	protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
 		return new Dimension(0, 0);
 	}
@@ -136,7 +136,7 @@ public class DecorationLayout extends AbstractHintLayout {
 		}
 	}
 	
-	@Override
+	
 	public void remove(IFigure child) {
 		if (center == child) {
 			center = null;
@@ -159,7 +159,7 @@ public class DecorationLayout extends AbstractHintLayout {
 		}
 	}
 	
-	@Override
+	
 	public void setConstraint(IFigure child, Object constraint) {
 		remove(child);
 		super.setConstraint(child, constraint);

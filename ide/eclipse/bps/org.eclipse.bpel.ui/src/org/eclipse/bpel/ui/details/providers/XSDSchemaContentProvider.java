@@ -23,7 +23,7 @@ import org.eclipse.xsd.XSDSchema;
  */
 public class XSDSchemaContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements(Object input, List list) {
 		if (collectComplex(input, list)) {
 			return ;

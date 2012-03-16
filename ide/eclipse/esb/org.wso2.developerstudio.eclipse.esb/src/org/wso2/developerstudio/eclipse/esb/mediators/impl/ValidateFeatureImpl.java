@@ -47,12 +47,12 @@ public class ValidateFeatureImpl extends AbstractBooleanFeatureImpl implements V
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.VALIDATE_FEATURE;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

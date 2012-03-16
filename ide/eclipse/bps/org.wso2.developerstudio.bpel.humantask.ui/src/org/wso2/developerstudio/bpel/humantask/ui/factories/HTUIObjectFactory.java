@@ -52,32 +52,32 @@ public class HTUIObjectFactory extends AbstractUIObjectFactory implements IExten
 		super();
 	}
 	
-	@Override
+	
 	public Image getLargeImage() {
 		return Activator.getDefault().getImageRegistry().get(HTConstants.DEFAULT_ICON_20);
 	}
 
-	@Override
+	
 	public ImageDescriptor getLargeImageDescriptor() {
 		return Activator.getDefault().getImageDescriptor(HTConstants.DEFAULT_ICON_20);
 	}
 
-	@Override
+	
 	public EClass getModelType() {
 		return this.modelType;
 	}
 
-	@Override
+	
 	public Image getSmallImage() {
 		return Activator.getDefault().getImageRegistry().get(HTConstants.DEFAULT_ICON_16);
 	}
 
-	@Override
+	
 	public ImageDescriptor getSmallImageDescriptor() {
 		return Activator.getDefault().getImageDescriptor(HTConstants.DEFAULT_ICON_16);
 	}
 
-	@Override
+	
 	public String getTypeLabel() {
 		if ("PeopleActivityRT".equals(getModelType().getName()))
 		{	
@@ -90,17 +90,17 @@ public class HTUIObjectFactory extends AbstractUIObjectFactory implements IExten
 		return getModelType().getName();
 	}
 
-	@Override
+	
 	public EClass[] getClassArray() {
 		return this.classArray;
 	}
 
-	@Override
+	
 	public void setModelType(EClass modelType) {
 		this.modelType = modelType;
 	}
 	
-	@Override
+	
 	public EObject createInstance() {
 		
 		EObject result = super.createInstance();

@@ -60,7 +60,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		ValidateSchema validateSchema = (ValidateSchema) object;
 		if (itemPropertyDescriptors != null) {
@@ -177,7 +177,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/ValidateSchema"));
     }
@@ -186,7 +186,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		ValidateSchema schema = (ValidateSchema) object;
 		KeyType keyType = schema.getValidateSchemaKeyType();
@@ -209,7 +209,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -228,7 +228,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
@@ -240,7 +240,7 @@ public class ValidateSchemaItemProvider extends ModelObjectItemProvider
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

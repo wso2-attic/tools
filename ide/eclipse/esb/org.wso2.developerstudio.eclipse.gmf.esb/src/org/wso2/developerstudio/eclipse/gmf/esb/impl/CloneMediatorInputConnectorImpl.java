@@ -35,7 +35,7 @@ public class CloneMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CLONE_MEDIATOR_INPUT_CONNECTOR;
 	}

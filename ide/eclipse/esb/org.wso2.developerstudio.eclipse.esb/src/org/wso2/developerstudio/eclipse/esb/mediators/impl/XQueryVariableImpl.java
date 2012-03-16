@@ -245,7 +245,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.XQUERY_VARIABLE;
     }
@@ -425,7 +425,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
@@ -441,7 +441,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -465,7 +465,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -495,7 +495,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -525,7 +525,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
@@ -549,7 +549,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -566,7 +566,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -20,12 +20,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-framework-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.framework.samples.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.framework.samples.feature</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Eclipse Framework Samples Feature</name>
     <url>http://wso2.org</url>
@@ -48,7 +48,7 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.samples:${core.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.samples:${core.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

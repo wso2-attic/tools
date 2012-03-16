@@ -228,7 +228,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#configureGraphicalViewer()
 	 */
-	@Override
+	
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
 		
@@ -379,7 +379,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.ui.IWorkbenchPart#dispose()
 	 */
-	@Override
+	
 	public void dispose() {
 		
 		if (editModelClient != null) {
@@ -499,7 +499,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.ui.IEditorPart#doSave(org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@Override
+	
 	public void doSave(IProgressMonitor progressMonitor) {
 		getCommandFramework().applyCurrentChange();
 
@@ -560,7 +560,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	}
 
 	// Disable our Save As functionality.
-	@Override
+	
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
@@ -568,7 +568,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.ui.IEditorPart#doSaveAs()
 	 */
-	@Override
+	
 	public void doSaveAs() {
 		getCommandFramework().applyCurrentChange();
 		performSaveAs();
@@ -609,7 +609,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#initializeGraphicalViewer()
 	 */
-	@Override
+	
 	protected void initializeGraphicalViewer() {
 		///FIXME moved to multi
 		//initializeFileChangeListener();
@@ -728,7 +728,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	}
 	
 
-	@Override
+	
 	public void commandStackChanged(EventObject event) {
 		firePropertyChange(IEditorPart.PROP_DIRTY);
 		super.commandStackChanged(event);
@@ -753,25 +753,25 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 			keyHandler = new KeyHandler();
 			keyHandler.put(KeyStroke.getPressed(SWT.DEL, 127, 0), getActionRegistry().getAction(ActionFactory.DELETE.getId()));
 			keyHandler.put(KeyStroke.getPressed(SWT.PAGE_UP, 0), new Action() {
-				@Override
+				
 				public void run() {
 					((ScrollingBPELGraphicalViewer)getGraphicalViewer()).scrollVertical(true);
 				}
 			});
 			keyHandler.put(KeyStroke.getPressed(SWT.PAGE_DOWN, 0), new Action() {
-				@Override
+				
 				public void run() {
 					((ScrollingBPELGraphicalViewer)getGraphicalViewer()).scrollVertical(false);
 				}
 			});
 			keyHandler.put(KeyStroke.getPressed(SWT.HOME, 0), new Action() {
-				@Override
+				
 				public void run() {
 					((ScrollingBPELGraphicalViewer)getGraphicalViewer()).scrollHorizontal(true);
 				}
 			});
 			keyHandler.put(KeyStroke.getPressed(SWT.END, 0), new Action() {
-				@Override
+				
 				public void run() {
 					((ScrollingBPELGraphicalViewer)getGraphicalViewer()).scrollHorizontal(false);
 				}
@@ -803,7 +803,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#createActions()
 	 */
-	@Override
+	
 	protected void createActions() {
 //		super.createActions();	
 		ActionRegistry registry = getActionRegistry();
@@ -1035,7 +1035,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * Overriding to use BPELMultipageEditorPart command stack
 	 */
-	@Override
+	
 	public CommandStack getCommandStack() {
 		IWorkbenchPartSite editorSite = getSite();
 		if (editorSite instanceof MultiPageEditorSite) {
@@ -1069,7 +1069,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	 * Override createGraphicalViewer. We have to have our own graphical viewer so that
 	 * we can put extra layers in the root edit part
 	 */
-	@Override
+	
 	protected void createGraphicalViewer(Composite parent) {
 		GraphicalViewer viewer = new ScrollingBPELGraphicalViewer();
 		viewer.createControl(parent);
@@ -1082,7 +1082,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 			parent, IHelpContextIds.EDITOR_CANVAS);	
 	}
 	
-	@Override
+	
 	protected void hookGraphicalViewer() {
 		// Do nothing. Don't call super because it will override our
 		// preference for selection provider and synchronizer.
@@ -1090,7 +1090,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * Override to make public.
 	 */
-	@Override
+	
 	public void setGraphicalViewer(GraphicalViewer viewer) {
 	    super.setGraphicalViewer(viewer);
 	}
@@ -1150,7 +1150,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 		if (weakMultiViewerSelectionProvider == null) {
 			weakMultiViewerSelectionProvider = new WeakMultiViewerSelectionProvider() {
 				protected ISelection cachedAdaptingSelection;
-				@Override
+				
 				public ISelection getSelection() {
 					// HACK to fix selection coherency problems:
 					// If the AdaptingSelectionProvider selection has changed, assume ours
@@ -1186,7 +1186,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * Override getGraphicalViewer() to make the method public
 	 */
-	@Override
+	
 	public GraphicalViewer getGraphicalViewer() {
 		return super.getGraphicalViewer();
 	}
@@ -1217,7 +1217,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 		});
 	}
 	
-	@Override
+	
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 		getTrayComposite().setState(TrayComposite.STATE_EXPANDED);
@@ -1233,7 +1233,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	/**
 	 * This is called during startup.
 	 */
-	@Override
+	
 	public void init(IEditorSite site, IEditorInput editorInput) throws PartInitException {
 		
 		IFile input = (IFile) editorInput.getAdapter(IFile.class);
@@ -1326,10 +1326,10 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 	public ICommandFramework getCommandFramework() { return commandFramework; }
 
 	// Make the method public so the properties sections can access it
-	@Override
+	
 	public ActionRegistry getActionRegistry() { return super.getActionRegistry(); }
 
-	@Override
+	
 	protected void initializeTrayViewer() {
 		GraphicalViewer viewer = getTrayViewer();
 		
@@ -1420,7 +1420,7 @@ public class BPELEditor extends GraphicalEditorWithPaletteAndTray /*, IGotoMarke
 		return (Definition)artifactsResource.getContents().get(0);
 	}
 
-	@Override
+	
 	protected String getPaletteAdditionsContributorId() {
 		return IBPELUIConstants.BPEL_EDITOR_ID;
 	}

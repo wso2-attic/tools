@@ -21,17 +21,17 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-esb-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.esb.artifact.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.esb.artifact.feature</artifactId>
     <packaging>pom</packaging>
     <name>Enterprise Service Bus Artifacts</name>
     <url>http://wso2.org</url>
-    <description>This feature contains WSO2 Carbon Studio ESB Artifact Feature</description>
+    <description>This feature contains WSO2 Developer Studio ESB Artifact Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -49,13 +49,13 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.project:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.endpoint:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.proxyservice:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.sequence:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.localentry:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.mediator:${esb.tools.version}</bundleDef>
-				<bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.synapse:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.project:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.endpoint:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.proxyservice:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.sequence:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.localentry:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.mediator:${esb.tools.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.synapse:${esb.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

@@ -75,7 +75,7 @@ public class SetSelectionCommand extends AbstractEditModelCommand {
 	/**
 	 * @see org.eclipse.gef.commands.Command#execute()
 	 */
-	@Override
+	
 	public void execute() {
 		if (fOnUndo == false) {
 			select();
@@ -87,7 +87,7 @@ public class SetSelectionCommand extends AbstractEditModelCommand {
 	/**
 	 * @see org.eclipse.gef.commands.Command#undo()
 	 */
-	@Override
+	
 	public void undo() {
 		if (fOnUndo) {
 			select();
@@ -98,7 +98,7 @@ public class SetSelectionCommand extends AbstractEditModelCommand {
 	 * @see org.eclipse.bpel.common.ui.editmodel.AbstractEditModelCommand#getResources()
 	 */
 	
-	@Override
+	
 	public Resource[] getResources() {
 		return EMPTY_RESOURCE_ARRAY;
 	}

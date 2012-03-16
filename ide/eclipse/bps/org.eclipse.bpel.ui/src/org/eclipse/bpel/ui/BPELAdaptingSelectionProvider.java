@@ -52,7 +52,7 @@ public class BPELAdaptingSelectionProvider extends AdaptingSelectionProvider {
 	/**
 	 * @see org.eclipse.bpel.common.ui.tray.MultiViewerSelectionProvider#setSelection(org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
+	
 	public void setSelection (ISelection selection) {
 		if (selection instanceof IStructuredSelection == false) {
 			return;

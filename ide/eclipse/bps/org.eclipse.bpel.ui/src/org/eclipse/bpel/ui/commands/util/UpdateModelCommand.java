@@ -33,7 +33,7 @@ public class UpdateModelCommand extends AutoUndoCommand {
 	 */
 	
 	@SuppressWarnings("nls")
-	@Override
+	
 	public String getLabel() { 
 		if (fLabel == null) {
 			return Messages.SetCommand_Change_1;

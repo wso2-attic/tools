@@ -61,7 +61,7 @@ public class IterateTargetItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -123,7 +123,7 @@ public class IterateTargetItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/IterateTarget"));
 	}
@@ -135,7 +135,7 @@ public class IterateTargetItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		TargetSequenceType labelValue = ((IterateTarget)object).getSequenceType();
 		String label = labelValue == null ? null : labelValue.toString();
@@ -152,7 +152,7 @@ public class IterateTargetItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -173,7 +173,7 @@ public class IterateTargetItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -184,7 +184,7 @@ public class IterateTargetItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;

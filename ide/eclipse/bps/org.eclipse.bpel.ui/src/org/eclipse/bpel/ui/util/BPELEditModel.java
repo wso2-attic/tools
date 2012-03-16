@@ -35,7 +35,7 @@ public class BPELEditModel extends EditModel {
 	}
 
 	static class BPELEditModelFactory extends EditModel.Factory {
-		@Override
+		
 		protected EditModel createEditModel(ResourceSet resourceSet,IResource primaryFile) { 
 			return new BPELEditModel(resourceSet, primaryFile);
 		}

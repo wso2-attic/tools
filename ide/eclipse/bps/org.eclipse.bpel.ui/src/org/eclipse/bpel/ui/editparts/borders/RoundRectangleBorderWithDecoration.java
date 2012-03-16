@@ -37,7 +37,7 @@ public class RoundRectangleBorderWithDecoration extends RoundRectangleBorder {
 		this.decorationFigure = new ImageFigure(decoration);
 		this.decorationFigure.setParent(parent);
 	}
-	@Override
+	
 	public void paint(IFigure figure, Graphics graphics, Insets insets) {
 		super.paint(figure, graphics, insets);
 		if (decoration != null) {

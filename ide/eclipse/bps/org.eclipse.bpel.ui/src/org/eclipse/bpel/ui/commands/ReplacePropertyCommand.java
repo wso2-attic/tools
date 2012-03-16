@@ -24,7 +24,7 @@ public class ReplacePropertyCommand extends ReplaceInListCommand {
 		super(target, oldProperty, newProperty, IBPELUIConstants.CMD_EDIT_PROPERTY);
 	}
 
-	@Override
+	
 	protected EList<Property> getList() {
 		return ((CorrelationSet)target).getProperties();
 	}

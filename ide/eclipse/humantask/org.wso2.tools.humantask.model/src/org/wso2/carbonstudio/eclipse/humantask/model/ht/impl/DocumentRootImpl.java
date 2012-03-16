@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,21 +23,21 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TImport;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTask;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,29 +46,29 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getBusinessAdministrators <em>Business Administrators</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getExcludedOwners <em>Excluded Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getGroup <em>Group</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getGroups <em>Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getHumanInteractions <em>Human Interactions</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getImport <em>Import</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getNotification <em>Notification</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getOrganizationalEntity <em>Organizational Entity</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPotentialOwners <em>Potential Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getRecipients <em>Recipients</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTask <em>Task</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTaskInitiator <em>Task Initiator</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTasks <em>Tasks</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTaskStakeholders <em>Task Stakeholders</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getUser <em>User</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getBusinessAdministrators <em>Business Administrators</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getExcludedOwners <em>Excluded Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getHumanInteractions <em>Human Interactions</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getImport <em>Import</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getNotifications <em>Notifications</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getOrganizationalEntity <em>Organizational Entity</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPotentialOwners <em>Potential Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getRecipients <em>Recipients</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTaskInitiator <em>Task Initiator</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getTaskStakeholders <em>Task Stakeholders</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getUser <em>User</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl#getUsers <em>Users</em>}</li>
  * </ul>
  * </p>
  *

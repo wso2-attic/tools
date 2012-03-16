@@ -128,7 +128,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.UNKNOWN_OBJECT;
     }
@@ -180,7 +180,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.UNKNOWN_OBJECT__ANONYMOUS:
@@ -196,7 +196,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.UNKNOWN_OBJECT__ANONYMOUS:
@@ -214,7 +214,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.UNKNOWN_OBJECT__ANONYMOUS:
@@ -232,7 +232,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.UNKNOWN_OBJECT__ANONYMOUS:
@@ -248,7 +248,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == EndPoint.class) {
             switch (derivedFeatureID) {
@@ -270,7 +270,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == EndPoint.class) {
             switch (baseFeatureID) {
@@ -292,7 +292,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -305,7 +305,7 @@ public class UnknownObjectImpl extends ConfigurationElementImpl implements Unkno
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

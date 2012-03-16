@@ -24,7 +24,7 @@ import java.util.List;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.commons.io.IOUtils;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.maven.capp.model.CAppArtifactDependency;
 
 /**

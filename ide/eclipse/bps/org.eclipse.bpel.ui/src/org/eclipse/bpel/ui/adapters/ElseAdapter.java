@@ -29,7 +29,7 @@ public class ElseAdapter extends ContainerAdapter implements ILabeledElement,
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getElse_Activity());
 	}

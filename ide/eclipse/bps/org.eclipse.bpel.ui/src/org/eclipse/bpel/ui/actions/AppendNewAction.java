@@ -84,7 +84,7 @@ public class AppendNewAction extends SelectionAction {
 		setImageDescriptor(factory.getSmallImageDescriptor());
 	}
 
-	@Override
+	
 	protected void init() {
 		super.init();
 		setEnabled(false);
@@ -125,7 +125,7 @@ public class AppendNewAction extends SelectionAction {
 	
 	
 	
-	@Override
+	
 	protected boolean calculateEnabled() {
 			
 		List<?> objects = getSelectedObjects();
@@ -170,7 +170,7 @@ public class AppendNewAction extends SelectionAction {
 	/**
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
-	@Override
+	
 	public void run() {		
 		execute( getCreateCommand() );
 	}

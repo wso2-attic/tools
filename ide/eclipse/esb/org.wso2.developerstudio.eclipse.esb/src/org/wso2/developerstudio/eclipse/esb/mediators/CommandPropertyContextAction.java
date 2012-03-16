@@ -240,7 +240,7 @@ public enum CommandPropertyContextAction implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

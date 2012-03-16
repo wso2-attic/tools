@@ -23,7 +23,7 @@ import org.eclipse.bpel.model.Scope;
 public class CorrelationSetContentProvider extends AbstractContentProvider  {
 
 	
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		
 		if (input instanceof Process) {

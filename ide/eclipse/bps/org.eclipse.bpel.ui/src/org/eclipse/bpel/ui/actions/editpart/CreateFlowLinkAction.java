@@ -53,8 +53,8 @@ public class CreateFlowLinkAction extends AbstractAction {
 		return Messages.CreateFlowLinkAction_Add_Link_0; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

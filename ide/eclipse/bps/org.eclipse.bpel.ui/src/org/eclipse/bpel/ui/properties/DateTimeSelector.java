@@ -388,7 +388,7 @@ public class DateTimeSelector extends Composite {
 		}		
 	}
 	
-	@Override
+	
 	public void setEnabled (boolean enabled) {
 		super.setEnabled(enabled);
 		for (int i = 0; i < combo.length; i++) {

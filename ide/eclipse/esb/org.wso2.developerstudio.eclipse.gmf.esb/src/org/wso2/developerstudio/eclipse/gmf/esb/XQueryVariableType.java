@@ -475,7 +475,7 @@ public enum XQueryVariableType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

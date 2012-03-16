@@ -393,42 +393,42 @@ public class RegistryHandlerCreationWizard extends
 		buffer.append("\n");
 		buffer.append("public class " + className +" extends Filter{\n\n" );
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handleDelete(RequestContext requestContext)\n");
 		buffer.append("\t\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");
 		buffer.append("\t\treturn false;\n");
 		buffer.append("\t}\n\n");
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handleGet(RequestContext requestContext)\n");
 		buffer.append("\t\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");
 		buffer.append("\t\treturn false;\n");
 		buffer.append("\t}\n\n");
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handleImportChild(RequestContext requestContext)\n");
 		buffer.append("\t\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");
 		buffer.append("\treturn false;\n");
 		buffer.append("\t}\n\n");
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handleImportResource(RequestContext requestContext)\n");
 		buffer.append("\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");
 		buffer.append("\treturn false;\n");
 		buffer.append("\t}\n\n");
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handlePut(RequestContext requestContext)\n");
 		buffer.append("\t\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");
 		buffer.append("\treturn false;\n");
 		buffer.append("\t}\n\n");
 
-		buffer.append("\t@Override\n");
+		buffer.append("\t\n");
 		buffer.append("\tpublic boolean handlePutChild(RequestContext requestContext)\n");
 		buffer.append("\t\t\tthrows RegistryException {\n");
 		buffer.append("\t\t// TODO Implement your logic here\n");

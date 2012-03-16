@@ -27,13 +27,13 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class WhileConditionSection extends ExpressionSection {
 
-	@Override
+	
 	protected String getExpressionType() { 
 		return IEditorConstants.ET_BOOLEAN; 
 	}
 	
 	
-	@Override
+	
 	protected Composite createNoEditorWidgets (Composite composite) {
 			    	    
 		return super.createNoEditorWidgetsCreateComposite(composite,
@@ -44,7 +44,7 @@ public class WhileConditionSection extends ExpressionSection {
 				Messages.WhileConditionSection_Create_a_New_Condition_3);
 	}
 
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature (EObject object) {
 		
 		if (object instanceof While) {
@@ -58,7 +58,7 @@ public class WhileConditionSection extends ExpressionSection {
 	}
 
 
-	@Override
+	
 	protected boolean isValidClientUseType (String useType) {
 		return IBPELUIConstants.USE_TYPE_CONDITION.equals(useType);
 	}
@@ -70,7 +70,7 @@ public class WhileConditionSection extends ExpressionSection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getMarkers(java.lang.Object)
 	 */
-	@Override
+	
 	protected IMarker[] getMarkers (Object input) {
 		
 		if ( input instanceof While ) {
@@ -91,7 +91,7 @@ public class WhileConditionSection extends ExpressionSection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#isValidMarker(org.eclipse.core.resources.IMarker)
 	 */
-	@Override
+	
 	public boolean isValidMarker (IMarker marker) {
 		String context = null;
 		try {

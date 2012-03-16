@@ -64,7 +64,7 @@ public class ReferenceContainer extends AbstractContainer {
 		((EObject)object).eSet(fFeature, child);
 	}
 	
-	@Override
+	
 	protected final boolean isValidChild (EObject object, EObject child) {
 		if (child == null) {
 			return false;
@@ -182,7 +182,7 @@ public class ReferenceContainer extends AbstractContainer {
 	/**
 	 * @see org.eclipse.bpel.ui.adapters.delegates.AbstractContainer#canAddObject(java.lang.Object, java.lang.Object, java.lang.Object)
 	 */
-	@Override
+	
 	public boolean canAddObject(EObject object, EObject child, EObject insertBefore) {
 		if (!super.canAddObject(object, child, insertBefore)) {
 			return false;

@@ -44,7 +44,7 @@ public class IndirectContainer extends AbstractContainer {
 	
 	// TODO: this is kind of a hack.  We shouldn't need to know it's an AbstractContainer :(
 	
-	@Override
+	
 	protected boolean isValidChild(EObject object, EObject child) {
 		return fInnerContainer.isValidChild(object, child);
 	}

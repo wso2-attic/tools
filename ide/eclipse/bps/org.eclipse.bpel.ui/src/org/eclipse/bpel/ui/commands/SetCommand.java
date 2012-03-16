@@ -100,7 +100,7 @@ public class SetCommand extends AutoUndoCommand {
 	 * @return  the default label
 	 */
 	
-	@Override
+	
 	public String getLabel() { 
 		if (fFeature == null) {
 			return Messages.SetCommand_Change_1;
@@ -118,7 +118,7 @@ public class SetCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		return true;
 	}
@@ -126,7 +126,7 @@ public class SetCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		fOldValue = get();
 		if (hasNoEffect()) {

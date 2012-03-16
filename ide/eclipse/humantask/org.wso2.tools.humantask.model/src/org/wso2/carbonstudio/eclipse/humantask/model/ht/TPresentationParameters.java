@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -16,19 +16,19 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter <em>Presentation Parameter</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter <em>Presentation Parameter</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters()
  * @model extendedMetaData="name='tPresentationParameters' kind='elementOnly'"
  * @generated
  */
 public interface TPresentationParameters extends TExtensibleElements {
 	/**
 	 * Returns the value of the '<em><b>Presentation Parameter</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter}.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Presentation Parameter</em>' containment reference list isn't clear,
@@ -36,7 +36,7 @@ public interface TPresentationParameters extends TExtensibleElements {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Presentation Parameter</em>' containment reference list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters_PresentationParameter()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters_PresentationParameter()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='presentationParameter' namespace='##targetNamespace'"
 	 * @generated
@@ -53,7 +53,7 @@ public interface TPresentationParameters extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression Language</em>' attribute.
 	 * @see #setExpressionLanguage(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters_ExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTPresentationParameters_ExpressionLanguage()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
 	 *        extendedMetaData="kind='attribute' name='expressionLanguage'"
 	 * @generated
@@ -61,7 +61,7 @@ public interface TPresentationParameters extends TExtensibleElements {
 	String getExpressionLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression Language</em>' attribute.

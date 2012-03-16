@@ -43,7 +43,7 @@ public class BPELCutAction extends BPELDeleteAction {
 		super(editorPart);
 	}
 
-	@Override
+	
 	protected void init() {
 		super.init();
 
@@ -57,7 +57,7 @@ public class BPELCutAction extends BPELDeleteAction {
 		setEnabled(false);
 	}
 	
-	@Override
+	
 	protected Command getCommand () {
 		
 		if (fSelection.isEmpty()) {

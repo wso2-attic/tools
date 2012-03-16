@@ -22,7 +22,7 @@ public class LanguageContentProvider extends AbstractContentProvider {
 	/**
 	 * @see org.eclipse.bpel.ui.details.providers.AbstractContentProvider#collectElements(java.lang.Object, java.util.List)
 	 */
-	@Override
+	
 	public void collectElements (Object input, List<Object> list)  {
 
 		if (input instanceof Locale == false) {

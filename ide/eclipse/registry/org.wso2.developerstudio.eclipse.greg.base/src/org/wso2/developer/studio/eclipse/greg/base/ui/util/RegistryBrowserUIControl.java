@@ -160,7 +160,7 @@ public class RegistryBrowserUIControl implements UIControl {
 				}
 			});
 			ctrl.addKeyListener(new KeyAdapter() {
-				@Override
+				
 				public void keyReleased(KeyEvent e) {
 					getControl().setData(null);
 					//FIXME

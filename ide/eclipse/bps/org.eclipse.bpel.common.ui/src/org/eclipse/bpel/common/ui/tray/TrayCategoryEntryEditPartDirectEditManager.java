@@ -22,7 +22,7 @@ public class TrayCategoryEntryEditPartDirectEditManager extends DirectEditManage
 		super(source, editorType, locator);
 	}
 
-	@Override
+	
 	protected void initCellEditor() {
 		Text text = (Text) getCellEditor().getControl();
 		TrayEditPart part = (TrayEditPart) getEditPart();

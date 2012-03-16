@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -13,7 +13,7 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <!-- end-user-doc -->
  *
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDeadlineExpr()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDeadlineExpr()
  * @model extendedMetaData="name='tDeadline-expr' kind='mixed'"
  * @generated
  */

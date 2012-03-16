@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TText;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TText;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,10 +34,10 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TText;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getPresentationParameters <em>Presentation Parameters</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getPresentationParameters <em>Presentation Parameters</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *

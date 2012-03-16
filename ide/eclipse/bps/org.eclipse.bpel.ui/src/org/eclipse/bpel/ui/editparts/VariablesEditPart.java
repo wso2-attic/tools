@@ -23,7 +23,7 @@ import org.eclipse.gef.requests.CreationFactory;
 
 public class VariablesEditPart extends BPELTrayCategoryEditPart {
 
-	@Override
+	
 	protected EList<Variable> getModelChildren() {
 		return getVariables().getChildren();
 	}
@@ -32,22 +32,22 @@ public class VariablesEditPart extends BPELTrayCategoryEditPart {
 		return (Variables)getModel();
 	}
 
-	@Override
+	
 	protected CreationFactory getCreationFactory() {
 		return UIObjectFactoryProvider.getInstance().getFactoryFor(BPELPackage.eINSTANCE.getVariable());
 	}
 	
-	@Override
+	
 	protected IFigure getAddToolTip() {
 	    return new Label(Messages.VariablesEditPart_Add_Variable_1); 
 	}
 	
-	@Override
+	
 	protected IFigure getRemoveToolTip() {
 	    return new Label(Messages.VariablesEditPart_Remove_Variable_1); 
 	}
 	
-	@Override
+	
 	public void setModel(Object model) {
 		// TODO Auto-generated method stub
 		super.setModel(model);

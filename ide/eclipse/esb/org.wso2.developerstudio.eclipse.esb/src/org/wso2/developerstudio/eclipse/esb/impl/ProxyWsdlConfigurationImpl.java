@@ -233,7 +233,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_WSDL_CONFIGURATION;
     }
@@ -361,7 +361,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
@@ -377,7 +377,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
@@ -400,7 +400,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
@@ -428,7 +428,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
@@ -455,7 +455,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
@@ -477,7 +477,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -492,7 +492,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

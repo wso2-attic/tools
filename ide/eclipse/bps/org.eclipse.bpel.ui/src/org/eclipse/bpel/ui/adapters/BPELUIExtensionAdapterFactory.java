@@ -53,7 +53,7 @@ public class BPELUIExtensionAdapterFactory extends UiextensionmodelAdapterFactor
 	/**
 	 * @see org.eclipse.bpel.ui.uiextensionmodel.util.UiextensionmodelAdapterFactory#createStartNodeAdapter()
 	 */
-	@Override
+	
 	public Adapter createStartNodeAdapter() {
 		return provider.getAdapter( StartNodeAdapter.class);
 	}
@@ -61,7 +61,7 @@ public class BPELUIExtensionAdapterFactory extends UiextensionmodelAdapterFactor
 	/**
 	 * @see org.eclipse.bpel.ui.uiextensionmodel.util.UiextensionmodelAdapterFactory#createEndNodeAdapter()
 	 */
-	@Override
+	
 	public Adapter createEndNodeAdapter() {
 		return provider.getAdapter( EndNodeAdapter.class);
 	}
@@ -70,7 +70,7 @@ public class BPELUIExtensionAdapterFactory extends UiextensionmodelAdapterFactor
 	/**
 	 * @see org.eclipse.bpel.ui.uiextensionmodel.util.UiextensionmodelAdapterFactory#createReferencePartnerLinksAdapter()
 	 */
-	@Override
+	
 	public Adapter createReferencePartnerLinksAdapter() {
 		return provider.getAdapter( ReferencePartnerLinksAdapter.class );
 	}
@@ -80,7 +80,7 @@ public class BPELUIExtensionAdapterFactory extends UiextensionmodelAdapterFactor
 	/**
 	 * @see org.eclipse.emf.common.notify.impl.AdapterFactoryImpl#adaptNew(org.eclipse.emf.common.notify.Notifier, java.lang.Object)
 	 */
-	@Override
+	
 	public Adapter adaptNew(Notifier target, Object type) {
 		Adapter adapter = createAdapter(target, type);
 		// Bugzilla 330519
@@ -93,7 +93,7 @@ public class BPELUIExtensionAdapterFactory extends UiextensionmodelAdapterFactor
 		return null;		
 	}
 	
-	@Override
+	
 	protected Object resolve (Object object, Object type) {
 		return null;
 	}

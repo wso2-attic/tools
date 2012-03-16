@@ -25,7 +25,7 @@ public class AddRoleCommand extends AddToListCommand {
 		super(target, newRole, IBPELUIConstants.CMD_ADD_ROLE);
 	}
 
-	@Override
+	
 	protected EList<Role> getList() {
 		return ((PartnerLinkType)target).getRole();
 	}

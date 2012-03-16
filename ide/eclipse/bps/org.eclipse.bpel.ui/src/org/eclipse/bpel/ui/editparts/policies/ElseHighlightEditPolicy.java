@@ -29,7 +29,7 @@ public class ElseHighlightEditPolicy extends ContainerHighlightEditPolicy {
 		super(resizable, movable);
 	}
 	
-	@Override
+	
 	protected List<Handle> createSelectionHandles() {
 		// HACK: Avoid creating selection handles for objects that have already been deleted
 		// (this can occur in some tricky notification scenarios)

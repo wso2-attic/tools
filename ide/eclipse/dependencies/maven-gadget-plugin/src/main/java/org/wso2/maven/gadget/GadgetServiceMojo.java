@@ -5,8 +5,8 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 import java.io.File;
 import java.io.IOException;

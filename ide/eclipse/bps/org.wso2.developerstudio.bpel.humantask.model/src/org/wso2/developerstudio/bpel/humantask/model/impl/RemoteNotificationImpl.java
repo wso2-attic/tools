@@ -87,7 +87,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.REMOTE_NOTIFICATION;
 	}
@@ -184,7 +184,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.REMOTE_NOTIFICATION__PARTNER_LINK:
@@ -202,7 +202,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.REMOTE_NOTIFICATION__PARTNER_LINK:
@@ -220,7 +220,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModelPackage.REMOTE_NOTIFICATION__PARTNER_LINK:
@@ -238,7 +238,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.REMOTE_NOTIFICATION__PARTNER_LINK:
@@ -251,7 +251,7 @@ public class RemoteNotificationImpl extends ExtensionElementImpl implements Remo
 
 	
 
-	@Override
+	
 	protected Element createFixedElement(Document document) {
 		 Element element = document.createElementNS(ModelPackage.eNS_URI, HTConstants.ND_REMOTE_NOTIFICATION);
 		    element.setPrefix(ModelPackage.eNS_PREFIX);

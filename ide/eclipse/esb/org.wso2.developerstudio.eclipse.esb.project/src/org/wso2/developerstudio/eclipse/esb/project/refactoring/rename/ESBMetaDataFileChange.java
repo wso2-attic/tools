@@ -108,14 +108,14 @@ public class ESBMetaDataFileChange extends TextFileChange {
 		return -1;
 	}
 
-	// @Override
+	// 
 	// protected IDocument acquireDocument(IProgressMonitor pm) throws
 	// CoreException {
 	// // TODO Auto-generated method stub
 	// return super.acquireDocument(pm);
 	// }
 
-	// @Override
+	// 
 	// protected UndoEdit performEdits(IDocument document) throws
 	// BadLocationException,
 	// MalformedTreeException {

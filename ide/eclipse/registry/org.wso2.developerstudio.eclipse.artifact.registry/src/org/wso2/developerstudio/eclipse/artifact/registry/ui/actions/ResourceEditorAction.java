@@ -15,7 +15,7 @@ import org.eclipse.ui.part.FileEditorInput;
 public class ResourceEditorAction implements IActionDelegate{
 
 	private IStructuredSelection selection;
-	@Override
+	
 	public void run(IAction action) {
 		try {
 			 if(selection != null){
@@ -31,7 +31,7 @@ public class ResourceEditorAction implements IActionDelegate{
 		}
 	}
 
-	@Override
+	
 	public void selectionChanged(IAction action, ISelection selection) {
 
 		 if(selection instanceof IStructuredSelection){

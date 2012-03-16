@@ -30,7 +30,7 @@ import org.eclipse.wst.wsdl.PortType;
  */
 public class PortTypeContentProvider extends AbstractContentProvider  {
 
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		
 		if (input instanceof Definition) {

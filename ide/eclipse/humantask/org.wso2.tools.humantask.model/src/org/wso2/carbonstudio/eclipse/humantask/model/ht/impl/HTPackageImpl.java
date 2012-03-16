@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -19,56 +19,56 @@ import org.eclipse.emf.ecore.xml.namespace.XMLNamespacePackage;
 
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTFactory;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TText;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTFactory;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TImport;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTask;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TText;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist;
 
 /**
  * <!-- begin-user-doc -->
@@ -452,7 +452,7 @@ public class HTPackageImpl extends EPackageImpl implements HTPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#eNS_URI
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

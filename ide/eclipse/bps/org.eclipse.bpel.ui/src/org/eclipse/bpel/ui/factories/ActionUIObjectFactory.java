@@ -29,17 +29,17 @@ public class ActionUIObjectFactory extends AbstractUIObjectFactory {
         this.action = action;
     }
 
-    @Override
+    
 	public EClass getModelType() {
         return action.getModelType();
     }
 
-    @Override
+    
 	public ImageDescriptor getSmallImageDescriptor() {
         return action.getSmallImageDescriptor();
     }
 
-    @Override
+    
 	public ImageDescriptor getLargeImageDescriptor() {
         return action.getLargeImageDescriptor();
     }
@@ -55,19 +55,19 @@ public class ActionUIObjectFactory extends AbstractUIObjectFactory {
         return result;
     }
 
-    @Override
+    
 	public Image getSmallImage() {
         String key = getUniqueIdString() + "#SmallImage"; //$NON-NLS-1$
         return getImage(key, getSmallImageDescriptor());
     }
 
-    @Override
+    
 	public Image getLargeImage() {
         String key = getUniqueIdString() + "#LargeImage"; //$NON-NLS-1$
         return getImage(key, getLargeImageDescriptor());
     }
 
-    @Override
+    
 	public String getTypeLabel() {
         return action.getLabel();
     }
@@ -83,7 +83,7 @@ public class ActionUIObjectFactory extends AbstractUIObjectFactory {
         return super.createInstance(); // default
     }
 
-    @Override
+    
 	public EObject createInstance() {
     	return createInstance(null);
     }

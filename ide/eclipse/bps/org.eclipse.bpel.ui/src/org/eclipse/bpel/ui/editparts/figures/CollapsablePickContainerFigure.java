@@ -14,7 +14,7 @@ public class CollapsablePickContainerFigure extends CollapsableContainerFigure {
 		super(modelObject, image, text);
 	}
 
-	@Override
+	
 	protected void initializeBorder() {
 		this.border = new PickBorder(this, this.borderImage, this.borderText);
 	}

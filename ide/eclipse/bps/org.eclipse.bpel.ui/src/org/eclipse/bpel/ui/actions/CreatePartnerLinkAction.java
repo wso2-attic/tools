@@ -14,12 +14,12 @@ public class CreatePartnerLinkAction extends AbstractDeclarationAction {
 		super(anEditPart);
 	}
 
-	@Override
+	
 	public ImageDescriptor getIcon() {
 		return BPELUIPlugin.INSTANCE.getImageDescriptor(IBPELUIConstants.ICON_ACTION_PARTNERLINK);
 	}
 
-	@Override
+	
 	public EObject getParent() {
 		EStructuralFeature feature = ((EObject)modelObject).eClass().getEStructuralFeature("partnerLinks");
 		if (feature!=null) {
@@ -28,7 +28,7 @@ public class CreatePartnerLinkAction extends AbstractDeclarationAction {
 		return parent;
 	}
 
-	@Override
+	
 	public EObject getChild() {
 		if (child==null)
 			child = BPELFactory.eINSTANCE.createPartnerLink();

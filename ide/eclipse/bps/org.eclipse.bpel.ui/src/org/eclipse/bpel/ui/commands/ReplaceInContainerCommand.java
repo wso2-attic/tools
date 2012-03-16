@@ -80,7 +80,7 @@ public class ReplaceInContainerCommand extends AutoUndoCommand {
 		}
 	}
 
-	@Override
+	
 	public void doExecute() {
 		if (!canExecute()) throw new IllegalStateException();
 		isExecuted = true;

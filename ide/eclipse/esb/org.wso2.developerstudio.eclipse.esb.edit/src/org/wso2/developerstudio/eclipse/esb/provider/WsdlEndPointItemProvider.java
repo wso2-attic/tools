@@ -64,7 +64,7 @@ public class WsdlEndPointItemProvider
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      */
-    @Override
+    
     public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         super.getPropertyDescriptors(object);
 
@@ -200,7 +200,7 @@ public class WsdlEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/WsdlEndPoint"));
     }
@@ -210,7 +210,7 @@ public class WsdlEndPointItemProvider
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      */
-    @Override
+    
     public String getText(Object object) {
     	EndPoint endpoint = (EndPoint) object;
     	String name = endpoint.isAnonymous() ? getString("_UI_Anonymous_label") : endpoint.getEndpointName();
@@ -224,7 +224,7 @@ public class WsdlEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -247,7 +247,7 @@ public class WsdlEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

@@ -52,7 +52,7 @@ public class VariableTreeContentProvider extends ModelTreeContentProvider {
 	/**
 	 * @see org.eclipse.bpel.ui.details.providers.ModelTreeContentProvider#primGetElements(java.lang.Object)
 	 */
-	@Override
+	
 	public Object[] primGetElements(Object inputElement) {
 		
 		Variable[] vars = BPELUtil.getVisibleVariables((EObject)inputElement);		

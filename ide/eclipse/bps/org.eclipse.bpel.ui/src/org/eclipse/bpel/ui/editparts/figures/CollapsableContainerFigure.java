@@ -50,7 +50,7 @@ public class CollapsableContainerFigure extends GradientFigure {
 		invalidate();
 	}
 	
-	@Override
+	
 	public void invalidate() {
 		border.invalidate();
 		super.invalidate();

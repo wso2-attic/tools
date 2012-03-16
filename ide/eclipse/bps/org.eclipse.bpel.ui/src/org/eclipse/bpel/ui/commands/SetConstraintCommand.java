@@ -41,7 +41,7 @@ public class SetConstraintCommand extends AutoUndoCommand {
 		addModelRoot(activity);
 	}
 
-	@Override
+	
 	public void doExecute() {
 		// TODO: HACK!
 		addModelRoot(ModelHelper.getExtension(activity));
@@ -51,7 +51,7 @@ public class SetConstraintCommand extends AutoUndoCommand {
 		if (newSize != null)  ModelHelper.setSize(activity, newSize);
 	}
 
-	@Override
+	
 	public String getLabel() {
 		// bug 327644
 		if (newSize == null || newSize.equals(oldSize))

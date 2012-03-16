@@ -55,8 +55,8 @@ public class CreateOnAlarmAction extends AbstractAction {
 		return Messages.CreateOnAlarmAction_Add_OnAlarm_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

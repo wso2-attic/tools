@@ -304,7 +304,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.DATA_SERVICE;
 	}
@@ -579,7 +579,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
@@ -603,7 +603,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
@@ -644,7 +644,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
@@ -704,7 +704,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
@@ -758,7 +758,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
@@ -798,7 +798,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

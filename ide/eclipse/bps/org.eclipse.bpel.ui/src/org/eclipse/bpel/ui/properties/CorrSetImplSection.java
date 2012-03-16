@@ -70,18 +70,18 @@ public class CorrSetImplSection extends BPELPropertySection  {
 	protected Button removeButton;
 	
 	public class NameColumn extends ColumnTableProvider.Column implements ILabelProvider, ICellModifier {
-		@Override
+		
 		public String getHeaderText() { return Messages.CorrSetImplDetails_Property_1; } 
-		@Override
+		
 		public String getProperty() { return "propertyName"; } //$NON-NLS-1$
-		@Override
+		
 		public int getInitialWeight() { return 100; }
 
 //		ComboViewerCellEditor cellEditor;
 		ModelLabelProvider labelProvider = new ModelLabelProvider();
 		UnusedPropertyFilter propertyFilter = new UnusedPropertyFilter();
 
-		@Override
+		
 		public CellEditor createCellEditor(Composite parent) {
 //			cellEditor = new ComboViewerCellEditor(parent);
 //			CComboViewer viewer = cellEditor.getViewer();
@@ -116,19 +116,19 @@ public class CorrSetImplSection extends BPELPropertySection  {
 		}
 	}
 
-	@Override
+	
 	public boolean shouldUseExtraSpace() { return true; }
 
 	protected boolean isPropertyListAffected(Notification n) {
 		return (n.getFeatureID(CorrelationSet.class) == BPELPackage.CORRELATION_SET__PROPERTIES);
 	}
 
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[] {
 			/* model object */
 			new MultiObjectAdapter() {
-				@Override
+				
 				public void notify(Notification n) {
 					if (isPropertyListAffected(n)) {
 						updatePropertyWidgets(null);
@@ -138,7 +138,7 @@ public class CorrSetImplSection extends BPELPropertySection  {
 			},
 			/* property(s) */
 			new MultiObjectAdapter() {
-				@Override
+				
 				public void notify(Notification n) {
 					if (n.getNotifier() instanceof Property) {
 						updatePropertyWidgets((Property)n.getNotifier());
@@ -149,7 +149,7 @@ public class CorrSetImplSection extends BPELPropertySection  {
 		};
 	}
 
-	@Override
+	
 	protected void addAllAdapters() {
 		super.addAllAdapters();
 		List<Property> corrList = ((CorrelationSet)getInput()).getProperties();
@@ -291,7 +291,7 @@ public class CorrSetImplSection extends BPELPropertySection  {
 //		propertyViewer.setCellEditors(tableProvider.createCellEditors(propertyTable));
 	}
 	
-	@Override
+	
 	protected void createClient(Composite parent)  {
 		Composite composite = createFlatFormComposite(parent);
 
@@ -322,17 +322,17 @@ public class CorrSetImplSection extends BPELPropertySection  {
 		});
 	}
 	
-	@Override
+	
 	public void refresh() {
 		super.refresh();
 		updatePropertyWidgets(null);
 	}
 
-	@Override
+	
 	public Object getUserContext() {
 		return ((StructuredSelection)propertyViewer.getSelection()).getFirstElement();
 	}
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		propertyTable.setFocus();
 		if (userContext != null) {

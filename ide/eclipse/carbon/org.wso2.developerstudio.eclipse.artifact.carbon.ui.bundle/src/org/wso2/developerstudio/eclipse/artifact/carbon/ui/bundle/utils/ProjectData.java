@@ -10,7 +10,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 
 public class ProjectData extends AbstractListDataProvider{
 	public static final String PROJECT_NATURE="org.wso2.developerstudio.eclipse.carbon.uibundle.nature";
-	@Override
+	
 	public List<ListData> getListData(String modelProperty, ProjectDataModel model) {
 		   List<ListData> list = new ArrayList<ListData>();
 		   IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();

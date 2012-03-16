@@ -151,7 +151,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.THROTTLE_MEDIATOR;
     }
@@ -311,7 +311,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
@@ -329,7 +329,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -349,7 +349,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -373,7 +373,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -397,7 +397,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -417,7 +417,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -428,7 +428,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

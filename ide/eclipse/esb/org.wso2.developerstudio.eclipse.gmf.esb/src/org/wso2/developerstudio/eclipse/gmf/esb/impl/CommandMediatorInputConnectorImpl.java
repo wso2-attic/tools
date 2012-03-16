@@ -36,7 +36,7 @@ public class CommandMediatorInputConnectorImpl extends InputConnectorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.COMMAND_MEDIATOR_INPUT_CONNECTOR;
 	}

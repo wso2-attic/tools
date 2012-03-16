@@ -33,7 +33,7 @@ public class GradientFigure extends Figure {
 		super();
 		this.modelObject = modelObject;
 	}
-	@Override
+	
 	protected void paintClientArea(Graphics graphics) {
 		Border b = getBorder();
 		if (b != null && b instanceof GradientBorder) 

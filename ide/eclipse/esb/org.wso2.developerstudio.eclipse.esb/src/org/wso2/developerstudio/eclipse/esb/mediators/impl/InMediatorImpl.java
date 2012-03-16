@@ -68,12 +68,12 @@ public class InMediatorImpl extends ParentMediatorImpl implements InMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.IN_MEDIATOR;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

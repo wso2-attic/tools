@@ -20,7 +20,7 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class MavenUtils {
 	public static final String BUNDLE_PACKAGING_TYPE = "bundle";

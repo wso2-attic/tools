@@ -31,7 +31,7 @@ public class SelectionBorderFigure extends Figure {
 		shouldPaintSelectionBorder = false;
 	}
 
-	@Override
+	
 	public void paint(Graphics graphics) {
 		super.paint(graphics);
 		paintSelectionBorder(graphics);

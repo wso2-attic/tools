@@ -47,7 +47,7 @@ public class TerminationHandlerAdapter extends ContainerAdapter implements ILabe
 
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getTerminationHandler_Activity());
 	}

@@ -627,7 +627,7 @@ public class Axis2ConfigurationPage extends WizardPage {
 		}
 	}
 
-	@Override
+	
 	public boolean canFlipToNextPage() {
 		
 		return false;

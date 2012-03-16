@@ -24,7 +24,7 @@ public class DeployResourceSetImpl extends BPELResourceSetImpl {
 		super();
 	}
 
-	@Override
+	
 	public Resource getResource(URI uri, boolean loadOnDemand) {
 		String name = uri.toString().toLowerCase();
 		// revert https://jira.jboss.org/browse/JBIDE-6825

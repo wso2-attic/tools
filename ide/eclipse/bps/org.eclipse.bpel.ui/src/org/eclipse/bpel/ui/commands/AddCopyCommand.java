@@ -24,7 +24,7 @@ public class AddCopyCommand extends AddToListCommand {
 		super(target, newCopy, IBPELUIConstants.CMD_ADD_COPY);
 	}
 
-	@Override
+	
 	protected EList<Copy> getList() {
 		return ((Assign)target).getCopy();
 	}

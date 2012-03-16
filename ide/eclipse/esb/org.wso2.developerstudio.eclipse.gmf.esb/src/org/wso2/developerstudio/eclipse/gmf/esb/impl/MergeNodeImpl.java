@@ -81,7 +81,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MERGE_NODE;
 	}
@@ -221,7 +221,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.MERGE_NODE__FIRST_INPUT_CONNECTOR:
@@ -240,7 +240,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.MERGE_NODE__FIRST_INPUT_CONNECTOR:
@@ -259,7 +259,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.MERGE_NODE__FIRST_INPUT_CONNECTOR:
@@ -281,7 +281,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.MERGE_NODE__FIRST_INPUT_CONNECTOR:
@@ -303,7 +303,7 @@ public class MergeNodeImpl extends MediatorImpl implements MergeNode {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.MERGE_NODE__FIRST_INPUT_CONNECTOR:

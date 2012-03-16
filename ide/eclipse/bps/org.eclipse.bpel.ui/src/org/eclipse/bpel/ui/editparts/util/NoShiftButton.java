@@ -23,7 +23,7 @@ public class NoShiftButton extends NoBorderButton {
 	public NoShiftButton(Image image) {
 		super(image);
 	}
-	@Override
+	
 	protected void paintClientArea(Graphics graphics) {
 		if (getChildren().isEmpty())
 			return;

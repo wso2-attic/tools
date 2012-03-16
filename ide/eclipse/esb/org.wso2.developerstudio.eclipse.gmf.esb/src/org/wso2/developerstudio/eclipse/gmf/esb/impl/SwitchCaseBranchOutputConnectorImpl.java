@@ -64,7 +64,7 @@ public class SwitchCaseBranchOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR;
 	}
@@ -96,7 +96,7 @@ public class SwitchCaseBranchOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX:
@@ -111,7 +111,7 @@ public class SwitchCaseBranchOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX:
@@ -127,7 +127,7 @@ public class SwitchCaseBranchOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX:
@@ -143,7 +143,7 @@ public class SwitchCaseBranchOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX:

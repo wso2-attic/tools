@@ -73,7 +73,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		AbstractCommonTarget target = (AbstractCommonTarget) object;
 		if (itemPropertyDescriptors != null) {
@@ -189,7 +189,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		AbstractCommonTarget target = (AbstractCommonTarget) object;
 		if (childrenFeatures != null) {
@@ -213,7 +213,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -227,7 +227,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String getText(Object object) {
         ModelObjectState labelValue = ((AbstractCommonTarget)object).getObjectState();
         String label = labelValue == null ? null : labelValue.toString();
@@ -242,7 +242,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -269,7 +269,7 @@ public class AbstractCommonTargetItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 

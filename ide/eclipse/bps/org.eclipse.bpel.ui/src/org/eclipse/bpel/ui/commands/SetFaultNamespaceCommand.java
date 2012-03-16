@@ -26,11 +26,11 @@ public class SetFaultNamespaceCommand extends SetCommand {
 		super(target, newFaultNS);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getFaultNamespace(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setFaultNamespace(fTarget, (String)o);
 	}

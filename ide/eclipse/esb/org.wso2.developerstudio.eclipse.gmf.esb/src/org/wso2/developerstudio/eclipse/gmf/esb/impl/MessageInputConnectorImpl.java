@@ -36,7 +36,7 @@ public class MessageInputConnectorImpl extends InputConnectorImpl implements Mes
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MESSAGE_INPUT_CONNECTOR;
 	}

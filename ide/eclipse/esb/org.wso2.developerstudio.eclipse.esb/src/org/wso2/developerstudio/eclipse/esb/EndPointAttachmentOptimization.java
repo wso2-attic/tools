@@ -238,7 +238,7 @@ public enum EndPointAttachmentOptimization implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         return literal;
     }

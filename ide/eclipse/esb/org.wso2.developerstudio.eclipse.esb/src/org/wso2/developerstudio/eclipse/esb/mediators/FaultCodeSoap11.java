@@ -267,7 +267,7 @@ public enum FaultCodeSoap11 implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

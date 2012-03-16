@@ -92,7 +92,7 @@ public class MediatorsActionBarContributor
      */
 	protected IAction showPropertiesViewAction =
 		new Action(EsbEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
-            @Override
+            
             public void run() {
                 try {
                     getPage().showView("org.eclipse.ui.views.PropertySheet");
@@ -112,12 +112,12 @@ public class MediatorsActionBarContributor
      */
 	protected IAction refreshViewerAction =
 		new Action(EsbEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
-            @Override
+            
             public boolean isEnabled() {
                 return activeEditorPart instanceof IViewerProvider;
             }
 
-            @Override
+            
             public void run() {
                 if (activeEditorPart instanceof IViewerProvider) {
                     Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
@@ -200,7 +200,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
         toolBarManager.add(new Separator("mediators-settings"));
         toolBarManager.add(new Separator("mediators-additions"));
@@ -213,7 +213,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void contributeToMenu(IMenuManager menuManager) {
         super.contributeToMenu(menuManager);
 
@@ -252,7 +252,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void setActiveEditor(IEditorPart part) {
         super.setActiveEditor(part);
         activeEditorPart = part;
@@ -500,7 +500,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void menuAboutToShow(IMenuManager menuManager) {
         super.menuAboutToShow(menuManager);
         MenuManager submenuManager = null;
@@ -522,7 +522,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void addGlobalActions(IMenuManager menuManager) {
         menuManager.insertAfter("additions-end", new Separator("ui-actions"));
         menuManager.insertAfter("ui-actions", showPropertiesViewAction);
@@ -539,7 +539,7 @@ public class MediatorsActionBarContributor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected boolean removeAllReferencesOnDelete() {
         return true;
     }

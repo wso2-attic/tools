@@ -34,7 +34,7 @@ public class ExpressionEditorDescriptorContentProvider extends AbstractContentPr
 	/**
 	 * @see org.eclipse.bpel.ui.details.providers.AbstractContentProvider#collectElements(java.lang.Object, java.util.List)
 	 */
-	@Override
+	
 	public void collectElements (Object input, List<Object> list) {
 						
 		for (ExpressionEditorDescriptor next : BPELUIRegistry.getInstance().getExpressionEditorDescriptors() ) {

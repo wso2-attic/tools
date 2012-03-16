@@ -91,7 +91,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_RESULTS_CONFIGURATION;
     }
@@ -113,7 +113,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -127,7 +127,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -142,7 +142,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -158,7 +158,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -173,7 +173,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_RESULTS_CONFIGURATION__RESULTS:
@@ -182,7 +182,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
         return super.eIsSet(featureID);
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

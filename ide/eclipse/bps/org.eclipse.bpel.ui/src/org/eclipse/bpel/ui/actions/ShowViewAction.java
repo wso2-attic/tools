@@ -127,7 +127,7 @@ public class ShowViewAction extends Action {
 	 * @see org.eclipse.jface.action.IAction#run()
 	 */
 	
-	@Override
+	
 	public void run() {
 		if (page == null || viewID == null) {
 			return ;
@@ -153,7 +153,7 @@ public class ShowViewAction extends Action {
 	/**
 	 * @see org.eclipse.jface.action.Action#isEnabled()
 	 */
-	@Override
+	
 	public boolean isEnabled() {
 		return super.isEnabled();
 	}

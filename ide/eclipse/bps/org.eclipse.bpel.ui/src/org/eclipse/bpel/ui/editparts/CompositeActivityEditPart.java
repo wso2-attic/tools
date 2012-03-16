@@ -23,7 +23,7 @@ import org.eclipse.gef.EditPolicy;
  */
 public abstract class CompositeActivityEditPart extends ActivityEditPart {
 
-	@Override
+	
 	protected void createEditPolicies() {
 		super.createEditPolicies();
 		

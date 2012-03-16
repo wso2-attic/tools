@@ -27,7 +27,7 @@ import java.io.IOException;
  * Serves request for product images
  */
 public class ImageServlet extends HttpServlet {
-    @Override
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         doPost(request, response);

@@ -64,7 +64,7 @@ public class AbstractLocationKeyResourceItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
@@ -125,7 +125,7 @@ public class AbstractLocationKeyResourceItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String getText(Object object) {
         ModelObjectState labelValue = ((AbstractLocationKeyResource)object).getObjectState();
         String label = labelValue == null ? null : labelValue.toString();
@@ -141,7 +141,7 @@ public class AbstractLocationKeyResourceItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -161,7 +161,7 @@ public class AbstractLocationKeyResourceItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

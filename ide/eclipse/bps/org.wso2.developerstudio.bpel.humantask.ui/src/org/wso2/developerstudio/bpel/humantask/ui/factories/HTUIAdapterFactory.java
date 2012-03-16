@@ -41,7 +41,7 @@ public class HTUIAdapterFactory extends ModelAdapterFactory{
 		
 	}
 	
-	@Override
+	
 	public Adapter createPeopleActivityRTAdapter(){
 		if (this.peopleActivityRTAdapte == null) {
 			this.peopleActivityRTAdapte = new PeopleActivityRTAdapter();
@@ -49,7 +49,7 @@ public class HTUIAdapterFactory extends ModelAdapterFactory{
 		return peopleActivityRTAdapte;
 	}
 	
-	@Override
+	
 	public Adapter createRemoteTaskAdapter(){
 		if (this.remottaskAdapte == null) {
 			this.remottaskAdapte = new RemoteTaskAdapter();
@@ -57,7 +57,7 @@ public class HTUIAdapterFactory extends ModelAdapterFactory{
 		return remottaskAdapte;
 	}
 	
-	@Override
+	
 	public Adapter createPeopleActivityRNAdapter() {
 		if (this.peopleActivityRNAdapte == null) {
 			this.peopleActivityRNAdapte = new PeopleActivityRTAdapter();
@@ -65,7 +65,7 @@ public class HTUIAdapterFactory extends ModelAdapterFactory{
 		return peopleActivityRNAdapte;
 	}
 	
-	@Override
+	
 	public Adapter createRemoteNotificationAdapter() {
 		if (this.remotNotificationAdapte == null) {
 			this.remotNotificationAdapte = new RemoteTaskAdapter();

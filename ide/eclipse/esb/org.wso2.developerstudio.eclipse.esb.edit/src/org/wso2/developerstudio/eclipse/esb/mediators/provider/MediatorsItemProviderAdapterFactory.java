@@ -109,7 +109,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createInMediatorAdapter() {
         if (inMediatorItemProvider == null) {
             inMediatorItemProvider = new InMediatorItemProvider(this);
@@ -132,7 +132,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createOutMediatorAdapter() {
         if (outMediatorItemProvider == null) {
             outMediatorItemProvider = new OutMediatorItemProvider(this);
@@ -155,7 +155,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createDropMediatorAdapter() {
         if (dropMediatorItemProvider == null) {
             dropMediatorItemProvider = new DropMediatorItemProvider(this);
@@ -178,7 +178,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSendMediatorAdapter() {
         if (sendMediatorItemProvider == null) {
             sendMediatorItemProvider = new SendMediatorItemProvider(this);
@@ -201,7 +201,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createLogMediatorAdapter() {
         if (logMediatorItemProvider == null) {
             logMediatorItemProvider = new LogMediatorItemProvider(this);
@@ -224,7 +224,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createLogPropertyAdapter() {
         if (logPropertyItemProvider == null) {
             logPropertyItemProvider = new LogPropertyItemProvider(this);
@@ -247,7 +247,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createFilterMediatorAdapter() {
         if (filterMediatorItemProvider == null) {
             filterMediatorItemProvider = new FilterMediatorItemProvider(this);
@@ -270,7 +270,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createFilterThenBranchAdapter() {
         if (filterThenBranchItemProvider == null) {
             filterThenBranchItemProvider = new FilterThenBranchItemProvider(this);
@@ -293,7 +293,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createFilterElseBranchAdapter() {
         if (filterElseBranchItemProvider == null) {
             filterElseBranchItemProvider = new FilterElseBranchItemProvider(this);
@@ -316,7 +316,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSwitchMediatorAdapter() {
         if (switchMediatorItemProvider == null) {
             switchMediatorItemProvider = new SwitchMediatorItemProvider(this);
@@ -339,7 +339,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSwitchCaseBranchAdapter() {
         if (switchCaseBranchItemProvider == null) {
             switchCaseBranchItemProvider = new SwitchCaseBranchItemProvider(this);
@@ -362,7 +362,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSwitchDefaultBranchAdapter() {
         if (switchDefaultBranchItemProvider == null) {
             switchDefaultBranchItemProvider = new SwitchDefaultBranchItemProvider(this);
@@ -385,7 +385,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createEntitlementMediatorAdapter() {
         if (entitlementMediatorItemProvider == null) {
             entitlementMediatorItemProvider = new EntitlementMediatorItemProvider(this);
@@ -408,7 +408,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createEnqueueMediatorAdapter() {
         if (enqueueMediatorItemProvider == null) {
             enqueueMediatorItemProvider = new EnqueueMediatorItemProvider(this);
@@ -431,7 +431,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createClassMediatorAdapter() {
         if (classMediatorItemProvider == null) {
             classMediatorItemProvider = new ClassMediatorItemProvider(this);
@@ -454,7 +454,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createClassPropertyAdapter() {
         if (classPropertyItemProvider == null) {
             classPropertyItemProvider = new ClassPropertyItemProvider(this);
@@ -477,7 +477,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSpringMediatorAdapter() {
         if (springMediatorItemProvider == null) {
             springMediatorItemProvider = new SpringMediatorItemProvider(this);
@@ -500,7 +500,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createValidateMediatorAdapter() {
         if (validateMediatorItemProvider == null) {
             validateMediatorItemProvider = new ValidateMediatorItemProvider(this);
@@ -523,7 +523,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createValidateOnFailBranchAdapter() {
         if (validateOnFailBranchItemProvider == null) {
             validateOnFailBranchItemProvider = new ValidateOnFailBranchItemProvider(this);
@@ -546,7 +546,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createValidateFeatureAdapter() {
         if (validateFeatureItemProvider == null) {
             validateFeatureItemProvider = new ValidateFeatureItemProvider(this);
@@ -569,7 +569,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createValidateSchemaAdapter() {
         if (validateSchemaItemProvider == null) {
             validateSchemaItemProvider = new ValidateSchemaItemProvider(this);
@@ -592,7 +592,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createScriptMediatorAdapter() {
         if (scriptMediatorItemProvider == null) {
             scriptMediatorItemProvider = new ScriptMediatorItemProvider(this);
@@ -615,7 +615,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSmooksMediatorAdapter() {
         if (smooksMediatorItemProvider == null) {
             smooksMediatorItemProvider = new SmooksMediatorItemProvider(this);
@@ -638,7 +638,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSmooksInConfigurationAdapter() {
         if (smooksInConfigurationItemProvider == null) {
             smooksInConfigurationItemProvider = new SmooksInConfigurationItemProvider(this);
@@ -661,7 +661,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSmooksOutConfigurationAdapter() {
         if (smooksOutConfigurationItemProvider == null) {
             smooksOutConfigurationItemProvider = new SmooksOutConfigurationItemProvider(this);
@@ -684,7 +684,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createStoreMediatorAdapter() {
         if (storeMediatorItemProvider == null) {
             storeMediatorItemProvider = new StoreMediatorItemProvider(this);
@@ -707,7 +707,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createConditionalRouteBranchAdapter() {
         if (conditionalRouteBranchItemProvider == null) {
             conditionalRouteBranchItemProvider = new ConditionalRouteBranchItemProvider(this);
@@ -730,7 +730,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createConditionalRouterMediatorAdapter() {
         if (conditionalRouterMediatorItemProvider == null) {
             conditionalRouterMediatorItemProvider = new ConditionalRouterMediatorItemProvider(this);
@@ -753,7 +753,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createURLRewriteRuleActionAdapter() {
         if (urlRewriteRuleActionItemProvider == null) {
             urlRewriteRuleActionItemProvider = new URLRewriteRuleActionItemProvider(this);
@@ -776,7 +776,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createURLRewriteRuleAdapter() {
         if (urlRewriteRuleItemProvider == null) {
             urlRewriteRuleItemProvider = new URLRewriteRuleItemProvider(this);
@@ -799,7 +799,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createURLRewriteMediatorAdapter() {
         if (urlRewriteMediatorItemProvider == null) {
             urlRewriteMediatorItemProvider = new URLRewriteMediatorItemProvider(this);
@@ -822,7 +822,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCallTemplateMediatorAdapter() {
         if (callTemplateMediatorItemProvider == null) {
             callTemplateMediatorItemProvider = new CallTemplateMediatorItemProvider(this);
@@ -845,7 +845,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCallTemplateParameterAdapter() {
         if (callTemplateParameterItemProvider == null) {
             callTemplateParameterItemProvider = new CallTemplateParameterItemProvider(this);
@@ -868,7 +868,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createPayloadFactoryMediatorAdapter() {
         if (payloadFactoryMediatorItemProvider == null) {
             payloadFactoryMediatorItemProvider = new PayloadFactoryMediatorItemProvider(this);
@@ -891,7 +891,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createPayloadFactoryArgumentAdapter() {
         if (payloadFactoryArgumentItemProvider == null) {
             payloadFactoryArgumentItemProvider = new PayloadFactoryArgumentItemProvider(this);
@@ -914,7 +914,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createEnrichMediatorAdapter() {
         if (enrichMediatorItemProvider == null) {
             enrichMediatorItemProvider = new EnrichMediatorItemProvider(this);
@@ -937,7 +937,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createFaultMediatorAdapter() {
         if (faultMediatorItemProvider == null) {
             faultMediatorItemProvider = new FaultMediatorItemProvider(this);
@@ -960,7 +960,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createAggregateMediatorAdapter() {
         if (aggregateMediatorItemProvider == null) {
             aggregateMediatorItemProvider = new AggregateMediatorItemProvider(this);
@@ -983,7 +983,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createAggregateOnCompleteBranchAdapter() {
         if (aggregateOnCompleteBranchItemProvider == null) {
             aggregateOnCompleteBranchItemProvider = new AggregateOnCompleteBranchItemProvider(this);
@@ -1006,7 +1006,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRouterMediatorAdapter() {
         if (routerMediatorItemProvider == null) {
             routerMediatorItemProvider = new RouterMediatorItemProvider(this);
@@ -1029,7 +1029,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRouterRouteAdapter() {
         if (routerRouteItemProvider == null) {
             routerRouteItemProvider = new RouterRouteItemProvider(this);
@@ -1052,7 +1052,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRouteTargetAdapter() {
         if (routeTargetItemProvider == null) {
             routeTargetItemProvider = new RouteTargetItemProvider(this);
@@ -1075,7 +1075,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCloneMediatorAdapter() {
         if (cloneMediatorItemProvider == null) {
             cloneMediatorItemProvider = new CloneMediatorItemProvider(this);
@@ -1098,7 +1098,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCloneTargetAdapter() {
         if (cloneTargetItemProvider == null) {
             cloneTargetItemProvider = new CloneTargetItemProvider(this);
@@ -1121,7 +1121,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createIterateMediatorAdapter() {
         if (iterateMediatorItemProvider == null) {
             iterateMediatorItemProvider = new IterateMediatorItemProvider(this);
@@ -1144,7 +1144,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createIterateTargetAdapter() {
         if (iterateTargetItemProvider == null) {
             iterateTargetItemProvider = new IterateTargetItemProvider(this);
@@ -1167,7 +1167,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCacheMediatorAdapter() {
         if (cacheMediatorItemProvider == null) {
             cacheMediatorItemProvider = new CacheMediatorItemProvider(this);
@@ -1190,7 +1190,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCacheOnHitBranchAdapter() {
         if (cacheOnHitBranchItemProvider == null) {
             cacheOnHitBranchItemProvider = new CacheOnHitBranchItemProvider(this);
@@ -1213,7 +1213,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXSLTMediatorAdapter() {
         if (xsltMediatorItemProvider == null) {
             xsltMediatorItemProvider = new XSLTMediatorItemProvider(this);
@@ -1236,7 +1236,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXSLTPropertyAdapter() {
         if (xsltPropertyItemProvider == null) {
             xsltPropertyItemProvider = new XSLTPropertyItemProvider(this);
@@ -1259,7 +1259,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXSLTFeatureAdapter() {
         if (xsltFeatureItemProvider == null) {
             xsltFeatureItemProvider = new XSLTFeatureItemProvider(this);
@@ -1282,7 +1282,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXSLTResourceAdapter() {
         if (xsltResourceItemProvider == null) {
             xsltResourceItemProvider = new XSLTResourceItemProvider(this);
@@ -1305,7 +1305,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXQueryMediatorAdapter() {
         if (xQueryMediatorItemProvider == null) {
             xQueryMediatorItemProvider = new XQueryMediatorItemProvider(this);
@@ -1328,7 +1328,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createXQueryVariableAdapter() {
         if (xQueryVariableItemProvider == null) {
             xQueryVariableItemProvider = new XQueryVariableItemProvider(this);
@@ -1351,7 +1351,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCalloutMediatorAdapter() {
         if (calloutMediatorItemProvider == null) {
             calloutMediatorItemProvider = new CalloutMediatorItemProvider(this);
@@ -1374,7 +1374,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRMSequenceMediatorAdapter() {
         if (rmSequenceMediatorItemProvider == null) {
             rmSequenceMediatorItemProvider = new RMSequenceMediatorItemProvider(this);
@@ -1397,7 +1397,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createTransactionMediatorAdapter() {
         if (transactionMediatorItemProvider == null) {
             transactionMediatorItemProvider = new TransactionMediatorItemProvider(this);
@@ -1420,7 +1420,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createPropertyMediatorAdapter() {
         if (propertyMediatorItemProvider == null) {
             propertyMediatorItemProvider = new PropertyMediatorItemProvider(this);
@@ -1443,7 +1443,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createOAuthMediatorAdapter() {
         if (oAuthMediatorItemProvider == null) {
             oAuthMediatorItemProvider = new OAuthMediatorItemProvider(this);
@@ -1466,7 +1466,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createAutoscaleInMediatorAdapter() {
         if (autoscaleInMediatorItemProvider == null) {
             autoscaleInMediatorItemProvider = new AutoscaleInMediatorItemProvider(this);
@@ -1489,7 +1489,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createAutoscaleOutMediatorAdapter() {
         if (autoscaleOutMediatorItemProvider == null) {
             autoscaleOutMediatorItemProvider = new AutoscaleOutMediatorItemProvider(this);
@@ -1512,7 +1512,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createHeaderMediatorAdapter() {
         if (headerMediatorItemProvider == null) {
             headerMediatorItemProvider = new HeaderMediatorItemProvider(this);
@@ -1535,7 +1535,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createThrottleMediatorAdapter() {
         if (throttleMediatorItemProvider == null) {
             throttleMediatorItemProvider = new ThrottleMediatorItemProvider(this);
@@ -1558,7 +1558,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createThrottlePolicyConfigurationAdapter() {
         if (throttlePolicyConfigurationItemProvider == null) {
             throttlePolicyConfigurationItemProvider = new ThrottlePolicyConfigurationItemProvider(this);
@@ -1581,7 +1581,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createThrottleOnAcceptBranchAdapter() {
         if (throttleOnAcceptBranchItemProvider == null) {
             throttleOnAcceptBranchItemProvider = new ThrottleOnAcceptBranchItemProvider(this);
@@ -1604,7 +1604,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createThrottleOnRejectBranchAdapter() {
         if (throttleOnRejectBranchItemProvider == null) {
             throttleOnRejectBranchItemProvider = new ThrottleOnRejectBranchItemProvider(this);
@@ -1627,7 +1627,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createThrottlePolicyEntryAdapter() {
         if (throttlePolicyEntryItemProvider == null) {
             throttlePolicyEntryItemProvider = new ThrottlePolicyEntryItemProvider(this);
@@ -1650,7 +1650,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCommandMediatorAdapter() {
         if (commandMediatorItemProvider == null) {
             commandMediatorItemProvider = new CommandMediatorItemProvider(this);
@@ -1673,7 +1673,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createCommandPropertyAdapter() {
         if (commandPropertyItemProvider == null) {
             commandPropertyItemProvider = new CommandPropertyItemProvider(this);
@@ -1696,7 +1696,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createEventMediatorAdapter() {
         if (eventMediatorItemProvider == null) {
             eventMediatorItemProvider = new EventMediatorItemProvider(this);
@@ -1719,7 +1719,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSqlStatementAdapter() {
         if (sqlStatementItemProvider == null) {
             sqlStatementItemProvider = new SqlStatementItemProvider(this);
@@ -1742,7 +1742,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSqlParameterDefinitionAdapter() {
         if (sqlParameterDefinitionItemProvider == null) {
             sqlParameterDefinitionItemProvider = new SqlParameterDefinitionItemProvider(this);
@@ -1765,7 +1765,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSqlResultMappingAdapter() {
         if (sqlResultMappingItemProvider == null) {
             sqlResultMappingItemProvider = new SqlResultMappingItemProvider(this);
@@ -1788,7 +1788,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createDBLookupMediatorAdapter() {
         if (dbLookupMediatorItemProvider == null) {
             dbLookupMediatorItemProvider = new DBLookupMediatorItemProvider(this);
@@ -1811,7 +1811,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createDBReportMediatorAdapter() {
         if (dbReportMediatorItemProvider == null) {
             dbReportMediatorItemProvider = new DBReportMediatorItemProvider(this);
@@ -1834,7 +1834,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleMediatorAdapter() {
         if (ruleMediatorItemProvider == null) {
             ruleMediatorItemProvider = new RuleMediatorItemProvider(this);
@@ -1857,7 +1857,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleSetConfigurationAdapter() {
         if (ruleSetConfigurationItemProvider == null) {
             ruleSetConfigurationItemProvider = new RuleSetConfigurationItemProvider(this);
@@ -1880,7 +1880,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleSetCreationPropertyAdapter() {
         if (ruleSetCreationPropertyItemProvider == null) {
             ruleSetCreationPropertyItemProvider = new RuleSetCreationPropertyItemProvider(this);
@@ -1903,7 +1903,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleSessionConfigurationAdapter() {
         if (ruleSessionConfigurationItemProvider == null) {
             ruleSessionConfigurationItemProvider = new RuleSessionConfigurationItemProvider(this);
@@ -1926,7 +1926,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleSessionPropertyAdapter() {
         if (ruleSessionPropertyItemProvider == null) {
             ruleSessionPropertyItemProvider = new RuleSessionPropertyItemProvider(this);
@@ -1949,7 +1949,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleFactsConfigurationAdapter() {
         if (ruleFactsConfigurationItemProvider == null) {
             ruleFactsConfigurationItemProvider = new RuleFactsConfigurationItemProvider(this);
@@ -1972,7 +1972,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleFactAdapter() {
         if (ruleFactItemProvider == null) {
             ruleFactItemProvider = new RuleFactItemProvider(this);
@@ -1995,7 +1995,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleResultsConfigurationAdapter() {
         if (ruleResultsConfigurationItemProvider == null) {
             ruleResultsConfigurationItemProvider = new RuleResultsConfigurationItemProvider(this);
@@ -2018,7 +2018,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleResultAdapter() {
         if (ruleResultItemProvider == null) {
             ruleResultItemProvider = new RuleResultItemProvider(this);
@@ -2041,7 +2041,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRuleChildMediatorsConfigurationAdapter() {
         if (ruleChildMediatorsConfigurationItemProvider == null) {
             ruleChildMediatorsConfigurationItemProvider = new RuleChildMediatorsConfigurationItemProvider(this);
@@ -2064,7 +2064,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSequenceMediatorAdapter() {
         if (sequenceMediatorItemProvider == null) {
             sequenceMediatorItemProvider = new SequenceMediatorItemProvider(this);
@@ -2087,7 +2087,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createBuilderMediatorAdapter() {
         if (builderMediatorItemProvider == null) {
             builderMediatorItemProvider = new BuilderMediatorItemProvider(this);
@@ -2110,7 +2110,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createMessageBuilderAdapter() {
         if (messageBuilderItemProvider == null) {
             messageBuilderItemProvider = new MessageBuilderItemProvider(this);
@@ -2144,7 +2144,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean isFactoryForType(Object type) {
         return supportedTypes.contains(type) || super.isFactoryForType(type);
     }
@@ -2155,7 +2155,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter adapt(Notifier notifier, Object type) {
         return super.adapt(notifier, this);
     }
@@ -2165,7 +2165,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);

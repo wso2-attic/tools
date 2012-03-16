@@ -36,7 +36,7 @@ public class SendMediatorInputConnectorImpl extends InputConnectorImpl implement
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SEND_MEDIATOR_INPUT_CONNECTOR;
 	}

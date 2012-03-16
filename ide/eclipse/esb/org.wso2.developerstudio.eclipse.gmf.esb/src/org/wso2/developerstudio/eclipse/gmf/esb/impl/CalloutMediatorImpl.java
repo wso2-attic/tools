@@ -298,7 +298,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CALLOUT_MEDIATOR;
 	}
@@ -692,7 +692,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
@@ -715,7 +715,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__SERVICE_URL:
@@ -754,7 +754,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__SERVICE_URL:
@@ -806,7 +806,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__SERVICE_URL:
@@ -858,7 +858,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__SERVICE_URL:
@@ -897,7 +897,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

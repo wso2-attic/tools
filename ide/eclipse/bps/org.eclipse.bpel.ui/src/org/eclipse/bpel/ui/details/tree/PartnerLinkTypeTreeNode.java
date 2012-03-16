@@ -29,7 +29,7 @@ public class PartnerLinkTypeTreeNode extends TreeNode {
 
 	/* ITreeNode */
 
-	@Override
+	
 	public Object[] getChildren() {
 		
 		PartnerLinkType plt = (PartnerLinkType) modelObject;
@@ -48,7 +48,7 @@ public class PartnerLinkTypeTreeNode extends TreeNode {
 	}
 
 	
-	@Override
+	
 	public boolean hasChildren() {
 		PartnerLinkType plt = (PartnerLinkType) modelObject;
 		if (plt == null)  {

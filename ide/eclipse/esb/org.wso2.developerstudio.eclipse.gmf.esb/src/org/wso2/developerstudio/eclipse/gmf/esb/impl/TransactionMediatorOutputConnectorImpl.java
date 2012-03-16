@@ -35,7 +35,7 @@ public class TransactionMediatorOutputConnectorImpl extends OutputConnectorImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.TRANSACTION_MEDIATOR_OUTPUT_CONNECTOR;
 	}

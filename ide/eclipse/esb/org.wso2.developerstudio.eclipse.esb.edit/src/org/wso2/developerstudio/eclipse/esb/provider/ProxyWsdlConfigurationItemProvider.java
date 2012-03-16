@@ -71,7 +71,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		ProxyWsdlConfiguration proxyWsdl = (ProxyWsdlConfiguration) object;		
 		
@@ -199,7 +199,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		ProxyWsdlConfiguration proxyWsdl = (ProxyWsdlConfiguration) object;		
 		if (childrenFeatures != null) {
@@ -219,7 +219,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -233,7 +233,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyWsdlConfiguration"));
     }
@@ -243,7 +243,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {		
 		return getString("_UI_ProxyWsdlConfiguration_type");
 	}
@@ -254,7 +254,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -281,7 +281,7 @@ public class ProxyWsdlConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 

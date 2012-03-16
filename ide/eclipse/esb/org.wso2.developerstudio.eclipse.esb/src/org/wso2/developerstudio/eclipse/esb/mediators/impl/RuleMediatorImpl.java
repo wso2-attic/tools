@@ -178,7 +178,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_MEDIATOR;
     }
@@ -403,7 +403,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
@@ -425,7 +425,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
@@ -447,7 +447,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
@@ -474,7 +474,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
@@ -501,7 +501,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
@@ -518,7 +518,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
         return super.eIsSet(featureID);
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

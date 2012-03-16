@@ -40,7 +40,7 @@ public abstract class CreateWSDLExtensibilityElementCommand extends AutoUndoComm
 		this(bpelEditor.getArtifactsDefinition(), element);
 	}
 
-	@Override
+	
 	public void doExecute() {
 		definition.getEExtensibilityElements().add(element);
 		element.setEnclosingDefinition(definition);

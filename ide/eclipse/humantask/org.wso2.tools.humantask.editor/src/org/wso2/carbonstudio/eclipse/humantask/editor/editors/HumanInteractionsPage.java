@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor.editors;
+package org.wso2.developerstudio.eclipse.humantask.editor.editors;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,7 +47,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
-import org.wso2.carbonstudio.eclipse.humantask.editor.Activator;
+import org.wso2.developerstudio.eclipse.humantask.editor.Activator;
 import org.wso2.tools.humantask.model.ht.HTFactory;
 import org.wso2.tools.humantask.model.ht.HTPackage;
 import org.wso2.tools.humantask.model.ht.THumanInteractions;

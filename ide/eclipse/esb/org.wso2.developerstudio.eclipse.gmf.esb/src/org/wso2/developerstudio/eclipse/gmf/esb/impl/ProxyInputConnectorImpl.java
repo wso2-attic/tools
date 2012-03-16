@@ -36,7 +36,7 @@ public class ProxyInputConnectorImpl extends InputConnectorImpl implements Proxy
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_INPUT_CONNECTOR;
 	}

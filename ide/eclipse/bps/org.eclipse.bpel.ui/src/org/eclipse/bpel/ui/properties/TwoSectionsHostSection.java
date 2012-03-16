@@ -58,7 +58,7 @@ public abstract class TwoSectionsHostSection extends BPELPropertySection {
 	 * actually doesn't really need an input to be set for itself. But it needs
 	 * to pass the input to its guests.
 	 */
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 
 		super.basicSetInput(newInput);
@@ -80,7 +80,7 @@ public abstract class TwoSectionsHostSection extends BPELPropertySection {
 	/**
 	 * Create the client area. This is just done once.
 	 */
-	@Override
+	
 	protected void createClient(Composite parent) {
 
 		// initialize the guest sections
@@ -119,7 +119,7 @@ public abstract class TwoSectionsHostSection extends BPELPropertySection {
 	/**
 	 * Make sure that the sections we created by hand are disposed.
 	 */
-	@Override
+	
 	public void dispose() {
 		if (leftSection != null) {
 			leftSection.dispose();
@@ -134,7 +134,7 @@ public abstract class TwoSectionsHostSection extends BPELPropertySection {
 	/** (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#shouldUseExtraSpace()
 	 */
-	@Override
+	
 	public boolean shouldUseExtraSpace() { 
 		return true;
 	}

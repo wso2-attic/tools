@@ -164,7 +164,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.URL_REWRITE_RULE;
     }
@@ -220,7 +220,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -234,7 +234,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
@@ -251,7 +251,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
@@ -269,7 +269,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
@@ -286,7 +286,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
@@ -297,7 +297,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
         return super.eIsSet(featureID);
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

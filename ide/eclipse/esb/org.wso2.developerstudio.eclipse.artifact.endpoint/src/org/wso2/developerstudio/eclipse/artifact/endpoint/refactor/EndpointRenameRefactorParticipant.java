@@ -22,7 +22,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private IProject esbProject;
 	private static List<String> skipList;
 
-	@Override
+	
     public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
                                                                                                 throws OperationCanceledException {
 		if (originalFile != null) {
@@ -57,7 +57,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		return RefactoringStatus.createFatalErrorStatus("You are trying to rename a different resource than a file");
     }
 
-	@Override
+	
     public Change createChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
 		
@@ -85,12 +85,12 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		return endpointChange;
     }
 
-	@Override
+	
     public String getName() {
 	    return "EndpointArtifactRenameParticipant";
     }
 
-	@Override
+	
     protected boolean initialize(Object arg0) {
 		if (arg0 instanceof IFile) {
 			originalFile = (IFile) arg0;

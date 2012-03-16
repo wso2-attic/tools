@@ -39,7 +39,7 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class CarbonUIbundleProjectNature extends AbstractWSO2ProjectNature {
 
-	@Override
+	
 	public void configure() {
 		try {
 			this.updatePom();

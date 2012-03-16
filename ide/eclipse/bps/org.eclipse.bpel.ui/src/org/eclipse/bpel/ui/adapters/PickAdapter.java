@@ -27,7 +27,7 @@ public class PickAdapter extends ContainerActivityAdapter {
 
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		MultiContainer omc = new MultiContainer();
 		omc.add(new ReferenceContainer(BPELPackage.eINSTANCE.getPick_Messages()));
@@ -37,7 +37,7 @@ public class PickAdapter extends ContainerActivityAdapter {
 
 	/* EditPartFactory */
 	
-	@Override
+	
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart result = new PickEditPart();
 		result.setModel(model);
@@ -46,7 +46,7 @@ public class PickAdapter extends ContainerActivityAdapter {
 
 	/* IOutlineEditPartFactory */
 	
-	@Override
+	
 	public EditPart createOutlineEditPart(EditPart context, Object model) {
 		EditPart result = new OutlineTreeEditPart();
 		result.setModel(model);
@@ -55,7 +55,7 @@ public class PickAdapter extends ContainerActivityAdapter {
 
 	/* IEditPartActionContributor */
 	
-	@Override
+	
 	public List<AbstractAction> getEditPartActions(final EditPart editPart) {
 		List<AbstractAction> actions = super.getEditPartActions(editPart);
 

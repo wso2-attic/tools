@@ -18,7 +18,7 @@ import org.eclipse.bpel.ui.util.ModelHelper;
 
 public class CorrelationContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		try {
 			Correlations c = ModelHelper.getCorrelations(input);

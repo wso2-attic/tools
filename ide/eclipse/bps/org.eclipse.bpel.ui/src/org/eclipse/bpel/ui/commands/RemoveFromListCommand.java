@@ -56,7 +56,7 @@ public abstract class RemoveFromListCommand extends AutoUndoCommand {
 	protected void deleteList() {	}
 
 
-	@Override
+	
 	public boolean canDoExecute() {
 		if (oldElement == null) return false;
 		if (getList().indexOf(oldElement) < 0) return false;
@@ -64,7 +64,7 @@ public abstract class RemoveFromListCommand extends AutoUndoCommand {
 		return true; // !getList().contains(newElement)
 	}
 
-	@Override
+	
 	public void doExecute() {
 		if (oldElement == null) throw new IllegalStateException();
 

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import javax.xml.namespace.QName;
 
@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,9 +28,9 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl#getReference <em>Reference</em>}</li>
  * </ul>
  * </p>
  *

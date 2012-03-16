@@ -26,7 +26,7 @@ public class ReceiveAdapter extends ActivityAdapter implements IAnnotatedElement
 
 	/* IEditPartActionContributor */
 	
-	@Override
+	
 	public List getEditPartActions(final EditPart editPart) {
 		List actions = super.getEditPartActions(editPart);
 

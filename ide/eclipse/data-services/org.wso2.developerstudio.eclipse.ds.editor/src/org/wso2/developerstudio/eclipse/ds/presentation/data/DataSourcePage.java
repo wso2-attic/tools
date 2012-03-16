@@ -124,7 +124,7 @@ public class DataSourcePage extends FormPage {
 		TableViewerColumn col = DsUtil.createTableViewerColumn(viewer, titles[0],bounds[0]);
 		
 		col.setLabelProvider(new ColumnLabelProvider() {
-			@Override
+			
 			public String getText(Object element) {
 				
 				DataSourceConfiguration configuration= (DataSourceConfiguration)element;
@@ -138,19 +138,19 @@ public class DataSourcePage extends FormPage {
 	
 	private class DatSourceTableContentProvider implements IStructuredContentProvider{
 
-		@Override
+		
 		public void dispose() {
 			// TODO Auto-generated method stub
 			
 		}
 
-		@Override
+		
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		@Override
+		
 		public Object[] getElements(Object inputElement) {
 			
 			DataSourceConfiguration [] configs = (DataSourceConfiguration [] )inputElement;

@@ -6,7 +6,7 @@
     	<artifactId>wso2-eclipse-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>         
-	<groupId>org.wso2.carbonstudio</groupId>
+	<groupId>org.wso2.developerstudio</groupId>
 	<artifactId>ds-tool-parent</artifactId>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -15,17 +15,17 @@
     	<dependencies>
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
                 <version>${logging.tools.version}</version>
             </dependency>  	        
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.utils</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.utils</artifactId>
 	            <version>${common.utils.version}</version>
             </dependency>   
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
 	            <version>${common.libraries.version}</version>
             </dependency>              	
     	</dependencies>
@@ -39,17 +39,17 @@
     </distributionManagement-->
 
     <modules>
-        <module>org.wso2.carbonstudio.eclipse.ds.editor.xml</module>
-        <module>org.wso2.carbonstudio.eclipse.ds.customvalidator</module>
+        <module>org.wso2.developerstudio.eclipse.ds.editor.xml</module>
+        <module>org.wso2.developerstudio.eclipse.ds.customvalidator</module>
 	<!--module>org.emftext.commons.antlr3_3_0</module>
-	<module>org.wso2.carbonstudio.eclipse.ds.resource.dbs</module>
-	<module>org.wso2.carbonstudio.eclipse.ds.resource.dbs.ui</module-->
-	<module>org.wso2.carbonstudio.eclipse.ds</module>
-	<module>org.wso2.carbonstudio.eclipse.ds.edit</module>
-	<module>org.wso2.carbonstudio.eclipse.ds.editor</module>
-	<module>org.wso2.carbonstudio.eclipse.ds.source.editor</module>
-	<module>org.wso2.carbonstudio.eclipse.artifact.dataservice</module>
-	<module>org.wso2.carbonstudio.eclipse.artifact.dataservice.validator</module>
+	<module>org.wso2.developerstudio.eclipse.ds.resource.dbs</module>
+	<module>org.wso2.developerstudio.eclipse.ds.resource.dbs.ui</module-->
+	<module>org.wso2.developerstudio.eclipse.ds</module>
+	<module>org.wso2.developerstudio.eclipse.ds.edit</module>
+	<module>org.wso2.developerstudio.eclipse.ds.editor</module>
+	<module>org.wso2.developerstudio.eclipse.ds.source.editor</module>
+	<module>org.wso2.developerstudio.eclipse.artifact.dataservice</module>
+	<module>org.wso2.developerstudio.eclipse.artifact.dataservice.validator</module>
     </modules>
     <!--repositories>
     	<repository>

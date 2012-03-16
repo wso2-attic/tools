@@ -60,7 +60,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 *
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		EventMediator eventMediator = (EventMediator) object;
 		if (itemPropertyDescriptors != null) {
@@ -208,7 +208,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/EventMediator"));
     }
@@ -217,7 +217,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_EventMediator_type");
 	}
@@ -229,7 +229,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -250,7 +250,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
@@ -262,7 +262,7 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

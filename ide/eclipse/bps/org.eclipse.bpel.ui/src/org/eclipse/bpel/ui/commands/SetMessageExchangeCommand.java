@@ -33,12 +33,12 @@ public class SetMessageExchangeCommand extends SetCommand {
 		super(target, newMessageExchange);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getMessageExchange(fTarget);
 	}
 	
-	@Override
+	
 	public void set(Object o) {
 	    MessageExchange me = (MessageExchange)o;
 		ModelHelper.setMessageExchange(fTarget, me);

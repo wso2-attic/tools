@@ -64,12 +64,12 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.AUTOSCALE_OUT_MEDIATOR;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

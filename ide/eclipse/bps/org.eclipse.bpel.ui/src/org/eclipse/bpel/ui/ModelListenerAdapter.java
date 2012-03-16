@@ -51,7 +51,7 @@ public class ModelListenerAdapter extends EContentAdapter implements CommandStac
 	/**
 	 * @see org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
 	 */
-	@Override
+	
 	public void notifyChanged (Notification n) {
 		super.notifyChanged(n);			
 		
@@ -70,7 +70,7 @@ public class ModelListenerAdapter extends EContentAdapter implements CommandStac
 	/**
 	 * @see org.eclipse.emf.ecore.util.EContentAdapter#setTarget(org.eclipse.emf.common.notify.Notifier)
 	 */
-	@Override
+	
 	public void setTarget(Notifier notifier) {
 		super.setTarget(notifier);
 		if ((notifier instanceof EObject) && (fxtensionMap != null)) {

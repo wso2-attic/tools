@@ -3029,7 +3029,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 		}
 	}
 	
-	@Override
+	
 	public void dispose() {
 		deactivateActionHandlers();
 		

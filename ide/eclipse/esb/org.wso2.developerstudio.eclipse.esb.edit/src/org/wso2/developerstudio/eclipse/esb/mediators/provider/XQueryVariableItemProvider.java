@@ -66,7 +66,7 @@ public class XQueryVariableItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		XQueryVariable variable = (XQueryVariable) object;
 		
@@ -226,7 +226,7 @@ public class XQueryVariableItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/XQueryVariable"));
     }
@@ -236,7 +236,7 @@ public class XQueryVariableItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		String variableName = ((XQueryVariable)object).getVariableName();
 		return String.format("Variable (%s)", variableName);
@@ -249,7 +249,7 @@ public class XQueryVariableItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -273,7 +273,7 @@ public class XQueryVariableItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -284,7 +284,7 @@ public class XQueryVariableItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

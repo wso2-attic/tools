@@ -15,12 +15,12 @@ import org.eclipse.swt.graphics.Image;
 public class XSDComplexTypeDefinitionAdapter extends XSDAbstractAdapter implements
 		ILabeledElement {
 	
-	@Override
+	
 	public Image getSmallImage(Object object) {		
 		return BPELUIPlugin.INSTANCE.getImage(IBPELUIConstants.ICON_XSD_COMPLEX_TYPE_DEFINITION_16);
 	}
 		
-	@Override
+	
 	public String getTypeLabel(Object object) {
 		return Messages.XSDComplexTypeDefinitionAdapter_0; 
 	}

@@ -21,7 +21,7 @@ import org.eclipse.wst.wsdl.Definition;
  */
 public class ServiceContentProvider extends AbstractContentProvider  {
 
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		if (input instanceof Definition) {
 			Definition defn = (Definition) input;

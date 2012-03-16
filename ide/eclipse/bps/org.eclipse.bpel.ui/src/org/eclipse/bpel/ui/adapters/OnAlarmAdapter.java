@@ -31,7 +31,7 @@ public class OnAlarmAdapter extends ContainerAdapter implements ILabeledElement,
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getOnAlarm_Activity());
 	}

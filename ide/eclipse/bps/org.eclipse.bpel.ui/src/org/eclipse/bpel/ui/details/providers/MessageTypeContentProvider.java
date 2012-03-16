@@ -25,7 +25,7 @@ public class MessageTypeContentProvider extends AbstractContentProvider  {
 	// provide a filter for enabling/disabling selection of Messages
 	private boolean showMessages = true;
 	
-	@Override
+	
 	public void collectElements ( Object input, List list) {
 		
 		if (showMessages) {

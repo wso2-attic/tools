@@ -24,11 +24,11 @@ public PlaceHolderCommand(String label) {
 	super(label);
 }
 
-@Override
+
 public final void execute() {}
-@Override
+
 public final void undo() {}
-@Override
+
 public final void redo() {}
 
 public Resource[] getResources() {

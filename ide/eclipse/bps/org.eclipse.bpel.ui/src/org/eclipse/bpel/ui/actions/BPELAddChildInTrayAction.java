@@ -28,7 +28,7 @@ public class BPELAddChildInTrayAction extends AddChildInTrayAction {
 		super(part, clazz, label, icon);
 	}
 	
-	@Override
+	
 	protected boolean calculateEnabled() {
 		List selected = getSelectedObjects();
 		target = null;

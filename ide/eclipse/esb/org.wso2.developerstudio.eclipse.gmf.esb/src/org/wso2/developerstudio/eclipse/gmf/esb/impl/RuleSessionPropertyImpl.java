@@ -36,7 +36,7 @@ public class RuleSessionPropertyImpl extends AbstractNameValuePropertyImpl imple
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_SESSION_PROPERTY;
 	}

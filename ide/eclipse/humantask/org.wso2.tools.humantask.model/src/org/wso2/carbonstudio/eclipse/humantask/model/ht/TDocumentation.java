@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getAny <em>Any</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getAny <em>Any</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation()
  * @model extendedMetaData="name='tDocumentation' kind='mixed'"
  * @generated
  */
@@ -39,7 +39,7 @@ public interface TDocumentation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mixed</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Mixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
 	 * @generated
@@ -56,7 +56,7 @@ public interface TDocumentation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Any()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Any()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':1' processing='lax'"
 	 * @generated
@@ -80,7 +80,7 @@ public interface TDocumentation extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Lang</em>' attribute.
 	 * @see #setLang(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Lang()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTDocumentation_Lang()
 	 * @model dataType="org.eclipse.emf.ecore.xml.namespace.LangType"
 	 *        extendedMetaData="kind='attribute' name='lang' namespace='http://www.w3.org/XML/1998/namespace'"
 	 * @generated
@@ -88,7 +88,7 @@ public interface TDocumentation extends EObject {
 	String getLang();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Lang</em>' attribute.

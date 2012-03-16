@@ -60,7 +60,7 @@ public class WSDLGenerationAction  implements IActionDelegate {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	IStructuredSelection selection;
 	
-	@Override
+	
 	public void run(IAction action) {
 		if (selection != null) {
 			 try {
@@ -72,7 +72,7 @@ public class WSDLGenerationAction  implements IActionDelegate {
 		}
 	}
 
-	@Override
+	
 	public void selectionChanged(IAction action, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			this.selection = (IStructuredSelection) selection;

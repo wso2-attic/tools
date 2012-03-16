@@ -45,7 +45,7 @@ public class LinkExtensionImpl extends EObjectImpl implements LinkExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.LINK_EXTENSION;
 	}

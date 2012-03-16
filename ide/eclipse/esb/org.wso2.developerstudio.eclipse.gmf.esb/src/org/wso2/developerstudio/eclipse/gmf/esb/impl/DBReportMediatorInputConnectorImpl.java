@@ -36,7 +36,7 @@ public class DBReportMediatorInputConnectorImpl extends InputConnectorImpl imple
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DB_REPORT_MEDIATOR_INPUT_CONNECTOR;
 	}

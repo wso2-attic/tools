@@ -185,7 +185,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.LOAD_BALANCE_END_POINT;
     }
@@ -258,7 +258,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
@@ -276,7 +276,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
@@ -297,7 +297,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
@@ -318,7 +318,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
@@ -336,7 +336,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -351,7 +351,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

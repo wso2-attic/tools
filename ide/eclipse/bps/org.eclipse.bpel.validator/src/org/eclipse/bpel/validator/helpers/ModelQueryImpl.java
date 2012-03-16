@@ -977,7 +977,7 @@ public class ModelQueryImpl  implements IModelQuery {
      * if there are no conflicts.
      * @see https://issues.jboss.org/browse/JBIDE-8088
      */
-	@Override
+	
 	public List<Import> findConflictingXSD(Process process, INode node) {
 
 		EObject o1 = adapt(node, EObject.class, ADAPT_HINT_NONE);
@@ -1035,7 +1035,7 @@ public class ModelQueryImpl  implements IModelQuery {
      * @return the Process or null
      * @see https://issues.jboss.org/browse/JBIDE-8088
      */
-	@Override
+	
 	public Process lookupProcess(INode node) {
 		EObject root = emfModelQuery.getRoot( adapt(node, EObject.class, ADAPT_HINT_NONE) );
 		if (root instanceof Process)

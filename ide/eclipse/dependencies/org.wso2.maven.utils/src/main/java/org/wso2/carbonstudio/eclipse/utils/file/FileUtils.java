@@ -30,7 +30,7 @@
  * limitations under the License.
  */
 
-package org.wso2.carbonstudio.eclipse.utils.file;
+package org.wso2.developerstudio.eclipse.utils.file;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -51,9 +51,9 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
-import org.wso2.carbonstudio.eclipse.utils.data.ITemporaryFileTag;
-import org.wso2.carbonstudio.eclipse.utils.internal.model.TempFileTag;
+import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
+import org.wso2.developerstudio.eclipse.utils.internal.model.TempFileTag;
 
 public class FileUtils{
 

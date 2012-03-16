@@ -24,7 +24,7 @@ public class AddSelectedObjectFilter extends ViewerFilter {
 
 	Object selectedObject;
 	
-	@Override
+	
 	public Object[] filter(Viewer viewer, Object parent, Object[] elements) {
 		if (selectedObject == null) return elements;
 		for (int i = 0; i<elements.length; i++) {
@@ -36,7 +36,7 @@ public class AddSelectedObjectFilter extends ViewerFilter {
 		return result;
 	}
 	
-	@Override
+	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		return true;
 	}

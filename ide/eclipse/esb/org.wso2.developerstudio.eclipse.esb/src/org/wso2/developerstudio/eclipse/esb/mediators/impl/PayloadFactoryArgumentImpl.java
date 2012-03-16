@@ -123,7 +123,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT;
     }
@@ -213,7 +213,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
@@ -232,7 +232,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
@@ -253,7 +253,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
@@ -274,7 +274,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
@@ -292,7 +292,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -305,7 +305,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
         return result.toString();
     }
 
-	@Override
+	
     protected void doLoad(Element self) throws Exception {
 		Map<String,String> nsMap = new HashMap<String, String>();
 		if (self.hasAttribute("expression")) {
@@ -339,7 +339,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 	    
     }
 
-	@Override
+	
     protected Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "arg");
 		if(getArgumentType()==PayloadFactoryArgumentType.VALUE){
@@ -355,7 +355,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 		return self;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

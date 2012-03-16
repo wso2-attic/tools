@@ -87,7 +87,7 @@ public class Builder extends IncrementalProjectBuilder {
 	/** (non-Javadoc)
 	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#setInitializationData(org.eclipse.core.runtime.IConfigurationElement, java.lang.String, java.lang.Object)
 	 */
-	@Override
+	
 	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
 		super.setInitializationData(config, propertyName, data);	
 	}
@@ -96,7 +96,7 @@ public class Builder extends IncrementalProjectBuilder {
 
 
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	protected IProject[] build (int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
@@ -172,7 +172,7 @@ public class Builder extends IncrementalProjectBuilder {
 	/**
 	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#clean(org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	@Override
+	
 	protected void clean (IProgressMonitor monitor) throws CoreException {
 		removeProblemsAndTasksFor(getProject());
 	}

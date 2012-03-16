@@ -38,7 +38,7 @@ public class ValidateOnFailBranchImpl extends EObjectImpl implements ValidateOnF
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.VALIDATE_ON_FAIL_BRANCH;
 	}

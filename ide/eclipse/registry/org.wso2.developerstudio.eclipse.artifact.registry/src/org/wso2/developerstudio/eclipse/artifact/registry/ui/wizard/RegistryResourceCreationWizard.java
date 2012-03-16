@@ -375,7 +375,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 		} catch (Exception e) { /* ignore */}
 	}
 	
-	@Override
+	
 	public IWizardPage getPreviousPage(IWizardPage page) {
 		if(page instanceof ProjectOptionsPage){
 			regModel.setImportFile(new File(""));

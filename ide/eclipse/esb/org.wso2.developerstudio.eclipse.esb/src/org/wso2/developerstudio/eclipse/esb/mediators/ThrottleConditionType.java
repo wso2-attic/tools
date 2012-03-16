@@ -213,7 +213,7 @@ public enum ThrottleConditionType implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

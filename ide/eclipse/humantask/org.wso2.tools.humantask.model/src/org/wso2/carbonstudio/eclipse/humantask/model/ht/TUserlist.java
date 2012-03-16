@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist#getUser <em>User</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist#getUser <em>User</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTUserlist()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTUserlist()
  * @model extendedMetaData="name='tUserlist' kind='elementOnly'"
  * @generated
  */
@@ -37,8 +37,8 @@ public interface TUserlist extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>User</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTUserlist_User()
-	 * @model unique="false" dataType="org.wso2.carbonstudio.eclipse.humantask.model.ht.TUser"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTUserlist_User()
+	 * @model unique="false" dataType="org.wso2.developerstudio.eclipse.humantask.model.ht.TUser"
 	 *        extendedMetaData="kind='element' name='user' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -27,7 +27,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
  */
 public class FlowResizeEditPolicy extends AbstractEditPolicy {
 
-	@Override
+	
 	public Command getCommand(Request request) {
 		if (REQ_RESIZE.equals(request.getType()))
 			return getResizeFlowCommand((ChangeBoundsRequest)request);

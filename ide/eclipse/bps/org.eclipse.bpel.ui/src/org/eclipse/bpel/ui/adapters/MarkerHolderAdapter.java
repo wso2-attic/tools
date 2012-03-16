@@ -28,7 +28,7 @@ public class MarkerHolderAdapter extends AbstractStatefulAdapter implements IMar
 	private class UniqueMarkers extends ArrayList<IMarker> {
 
 		// prevent duplicate marker IDs from being added to the list
-		@Override
+		
 		public boolean add(IMarker e) {
 			for (int i=0; i<size(); ++i) {
 				IMarker m = get(i);
@@ -43,7 +43,7 @@ public class MarkerHolderAdapter extends AbstractStatefulAdapter implements IMar
 	/**
 	 * @see org.eclipse.bpel.model.adapters.AbstractAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {		
 		super.notifyChanged(notification);
 		switch (notification.getEventType()) {

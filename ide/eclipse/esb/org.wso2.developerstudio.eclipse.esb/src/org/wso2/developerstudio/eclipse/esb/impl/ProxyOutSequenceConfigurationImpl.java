@@ -82,12 +82,12 @@ public class ProxyOutSequenceConfigurationImpl extends AbstractProxySequenceConf
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_OUT_SEQUENCE_CONFIGURATION;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

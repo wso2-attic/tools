@@ -15,27 +15,27 @@ public class InvokeHandlerLinker extends HandlerLinkerAdapter {
 		this.invoke = editPart;
 	}
 
-	@Override
+	
 	protected CompensationHandler getCompensationHandler() {
 		return invoke.getCompensationHandler();
 	}
 
-	@Override
+	
 	protected FaultHandler getFaultHandler() {
 		return invoke.getFaultHandler();
 	}
 
-	@Override
+	
 	protected boolean isShowCH() {
 		return invoke.getShowCompensationHandler();
 	}
 
-	@Override
+	
 	protected boolean isShowFH() {
 		return invoke.getShowFaultHandler();
 	}
 
-	@Override
+	
 	protected int getCHTargetAnchorLoc() {
 		if (!isHorizontalLayout()) {
 			return getFaultHandler() != null ? CenteredConnectionAnchor.LEFT
@@ -44,13 +44,13 @@ public class InvokeHandlerLinker extends HandlerLinkerAdapter {
 			return super.getCHTargetAnchorLoc();
 	}
 
-	@Override
+	
 	protected IFigure getCHFigure() {
 		return ((LeafBorder)invoke.getContentPane().getBorder()).getCompensationImageFigure();
 	}
 
 
-	@Override
+	
 	protected IFigure getFHFigure() {
 		return ((LeafBorder)invoke.getContentPane().getBorder()).getFaultImageFigure();
 	}

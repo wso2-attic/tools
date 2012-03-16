@@ -56,8 +56,8 @@ public class CreateElseAction extends AbstractAction {
 		return Messages.CreateElseAction_Add_Else_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

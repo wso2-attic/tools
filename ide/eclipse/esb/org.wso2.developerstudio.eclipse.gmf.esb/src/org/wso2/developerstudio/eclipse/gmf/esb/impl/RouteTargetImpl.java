@@ -38,7 +38,7 @@ public class RouteTargetImpl extends EObjectImpl implements RouteTarget {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ROUTE_TARGET;
 	}

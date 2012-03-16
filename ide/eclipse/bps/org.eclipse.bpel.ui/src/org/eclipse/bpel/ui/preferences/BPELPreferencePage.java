@@ -52,7 +52,7 @@ public class BPELPreferencePage extends PreferencePage implements IWorkbenchPref
 	
 	ArrayList<Button> fButtons = new ArrayList<Button>(8);
 	
-	@Override
+	
 	protected Control createContents(Composite parent) {
 		Composite result = new Composite(parent, SWT.NONE);	
 		GridLayout layout = new GridLayout();
@@ -125,7 +125,7 @@ public class BPELPreferencePage extends PreferencePage implements IWorkbenchPref
 	}
 	
 	
-	@Override
+	
 	protected void performDefaults() {
 		super.performDefaults();
 		initializeDefaults();
@@ -134,13 +134,13 @@ public class BPELPreferencePage extends PreferencePage implements IWorkbenchPref
 	/**
 	 * @see org.eclipse.jface.preference.PreferencePage#performOk()
 	 */
-	@Override
+	
 	public boolean performOk() {
 		storeValues();
 		return true;
 	}
 
-	@Override
+	
 	protected void performApply() {
 		performOk();
 	}

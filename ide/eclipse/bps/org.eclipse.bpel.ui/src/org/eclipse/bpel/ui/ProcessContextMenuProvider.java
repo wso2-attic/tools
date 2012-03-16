@@ -90,7 +90,7 @@ public class ProcessContextMenuProvider extends ContextMenuProvider {
 	 * @see org.eclipse.gef.ContextMenuProvider#buildContextMenu(org.eclipse.jface.action.IMenuManager)
 	 */
 	
-	@Override
+	
 	public void buildContextMenu(IMenuManager menu) {
 		
 		IAction action, action2;

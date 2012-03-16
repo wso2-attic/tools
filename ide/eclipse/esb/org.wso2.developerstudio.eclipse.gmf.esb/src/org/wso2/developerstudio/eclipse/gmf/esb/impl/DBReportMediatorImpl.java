@@ -90,7 +90,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DB_REPORT_MEDIATOR;
 	}
@@ -208,7 +208,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.DB_REPORT_MEDIATOR__INPUT_CONNECTOR:
@@ -225,7 +225,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -244,7 +244,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -266,7 +266,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -288,7 +288,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -307,7 +307,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

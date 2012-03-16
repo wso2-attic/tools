@@ -32,13 +32,13 @@ public class PropertyTreeNode extends TreeNode {
 
 	/* ITreeNode */
 
-	@Override
+	
 	public String getLabelSuffix() {
 		if (isCondensed && xsdType != null)  return xsdType.getLabel();
 		return null;
 	}
 
-	@Override
+	
 	public Object[] getChildren() {
 		if (isCondensed) {
 			if (xsdType != null)  return xsdType.getChildren();
@@ -54,7 +54,7 @@ public class PropertyTreeNode extends TreeNode {
 		return EMPTY_ARRAY;
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		if (isCondensed) {
 			if (xsdType != null)  return xsdType.hasChildren();

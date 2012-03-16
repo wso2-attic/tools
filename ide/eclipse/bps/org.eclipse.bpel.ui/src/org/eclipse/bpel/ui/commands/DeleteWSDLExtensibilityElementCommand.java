@@ -52,7 +52,7 @@ public abstract class DeleteWSDLExtensibilityElementCommand extends AutoUndoComm
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		if (fElement.getEnclosingDefinition() == null)  return false;
 		return super.canDoExecute();
@@ -61,7 +61,7 @@ public abstract class DeleteWSDLExtensibilityElementCommand extends AutoUndoComm
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		fDefinition = fElement.getEnclosingDefinition();
 	

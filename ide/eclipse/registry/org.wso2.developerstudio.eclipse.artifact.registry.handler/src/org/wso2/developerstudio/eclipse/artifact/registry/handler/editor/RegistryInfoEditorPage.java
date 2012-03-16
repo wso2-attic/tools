@@ -159,7 +159,7 @@ public class RegistryInfoEditorPage extends FormPage {
 	 * Create contents of the form.
 	 * @param managedForm
 	 */
-	@Override
+	
 	protected void createFormContent(IManagedForm managedForm) {
 		managedForm.getForm().setImage(SWTResourceManager.getImage(this.getClass(), "/icons/new-registry-handler-24x24.png"));
 		FormToolkit toolkit = managedForm.getToolkit();
@@ -185,7 +185,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		managedForm.getToolkit().paintBordersFor(lnkHandlerClass);
 		lnkHandlerClass.addListener(SWT.MouseDown, new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				try {
 	                openJavaEditor(typeHandler,(IJavaElement)typeHandler);
@@ -202,7 +202,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		txtHandlerClass.addModifyListener(new ModifyListener() {
 			
-			@Override
+			
 			public void modifyText(ModifyEvent arg0) {
 				//TODO:
 			}
@@ -211,7 +211,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		Button btnBrowse = managedForm.getToolkit().createButton(cpsClass, "Browse..", SWT.NONE);
 		btnBrowse.addListener(SWT.MouseDown,new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				Shell shell = new Shell();
 				ClassNameBrowseDlg dialog = new ClassNameBrowseDlg(
@@ -271,7 +271,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		btnSelectAll.addListener(SWT.MouseDown, new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				TableItem[] items = tblHndMethods.getItems();
 				for (TableItem item : items) {
@@ -294,7 +294,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		btnDeselectAll.addListener(SWT.MouseDown, new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				TableItem[] items = tblHndMethods.getItems();
 				for (TableItem item : items) {
@@ -419,7 +419,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		managedForm.getToolkit().paintBordersFor(lnkFilterClass);
 		lnkFilterClass.addListener(SWT.MouseDown,new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				try {
 	                openJavaEditor(typeFilter,(IJavaElement)typeFilter);
@@ -436,7 +436,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		Button btnFilterBrowse = managedForm.getToolkit().createButton(cpsFilter, "Browse..", SWT.NONE);
 		btnFilterBrowse.addListener(SWT.MouseDown,new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				Shell shell = new Shell();
 				ClassNameBrowseDlg dialog = new ClassNameBrowseDlg(
@@ -491,7 +491,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		btnFltProAdd.setLayoutData(gd_btnFltProAdd);
 		btnFltProAdd.addListener(SWT.MouseDown, new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				List<String> items = new ArrayList<String>(filterProperties.keySet());
 				PropertyDialog propertyDialog = new PropertyDialog(getSite().getShell(),items);
@@ -539,7 +539,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		Listener tblMethodsListener= new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 			TableItem item = (TableItem) evt.item;
 			String key = item.getText(0);
@@ -571,7 +571,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		Listener tblFilterCriteriaListener = new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				if(null!=evt.item){
 					if(evt.item instanceof TableItem){
@@ -589,7 +589,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		
 		Listener tblPropertiesListener = new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event evt) {
 				if(null!=evt.item){
 					if(evt.item instanceof TableItem){
@@ -628,7 +628,7 @@ public class RegistryInfoEditorPage extends FormPage {
 		tblHndProperties.addListener(SWT.FocusOut, tblHndPropertiesFocusOut);
 		tblFilterCriteria.addListener(SWT.FocusOut, tblFilterCriteriaFocusOut);
 		tblHndMethods.addMouseListener(new MouseAdapter() {
-			@Override
+			
 			public void mouseDoubleClick(MouseEvent e) {
 			if(tblHndMethods.getSelectionIndex()!=-1){
 				try {
@@ -640,7 +640,7 @@ public class RegistryInfoEditorPage extends FormPage {
 			}
 		});
 		tblHndProperties.addMouseListener(new MouseAdapter() {
-			@Override
+			
 			public void mouseDoubleClick(MouseEvent e) {
 			if(tblHndProperties.getSelectionIndex()!=-1){
 				try {

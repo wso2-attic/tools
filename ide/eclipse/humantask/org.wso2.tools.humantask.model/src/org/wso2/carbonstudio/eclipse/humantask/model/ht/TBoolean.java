@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>TBoolean</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTBoolean()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTBoolean()
  * @model extendedMetaData="name='tBoolean'"
  * @generated
  */

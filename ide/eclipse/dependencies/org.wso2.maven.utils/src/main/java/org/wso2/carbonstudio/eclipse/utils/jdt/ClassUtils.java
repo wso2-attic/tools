@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.carbonstudio.eclipse.utils.jdt;
+package org.wso2.developerstudio.eclipse.utils.jdt;
 
 public class ClassUtils {
 	public static String getClassName(String fullyQualifiedClassName){

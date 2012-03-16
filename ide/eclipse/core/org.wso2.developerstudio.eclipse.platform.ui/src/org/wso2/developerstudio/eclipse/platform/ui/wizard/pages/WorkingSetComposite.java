@@ -152,7 +152,7 @@ public class WorkingSetComposite extends Composite implements Observer  {
 			}
 		});
 		combo.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 
 				getProjectModel().setSelectedWorkingSets(getSelectedWorkingSet());

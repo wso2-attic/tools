@@ -36,7 +36,7 @@ public class ClassMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CLASS_MEDIATOR_INPUT_CONNECTOR;
 	}

@@ -79,7 +79,7 @@ public class ResourceInfo {
 		
 		resourceAdapter = new AdapterImpl() {
 			
-			@Override
+			
 			public void notifyChanged(Notification msg) {
 				if ((msg.getEventType() == Notification.SET)
 						&& (resource != null && msg.getNotifier() == resource)) {

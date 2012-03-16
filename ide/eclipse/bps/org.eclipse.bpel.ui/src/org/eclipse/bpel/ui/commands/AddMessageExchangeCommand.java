@@ -44,7 +44,7 @@ public class AddMessageExchangeCommand extends AddToListCommand {
 	/**
 	 * List in which to insert new element
 	 */
-	@Override
+	
 	protected EList<MessageExchange> getList() {
 		if (process != null) {
 			if (process.getMessageExchanges() != null)
@@ -61,7 +61,7 @@ public class AddMessageExchangeCommand extends AddToListCommand {
 	/**
 	 * Called before adding to the list, if getList() returns null or if it returns an empty list.
 	 */
-	@Override
+	
 	protected void createList() {
 		if (process != null) {
 			if (process.getMessageExchanges() == null)

@@ -39,7 +39,7 @@ public class ToggleShowTerminationHandler extends SelectionAction {
 		setToolTipText(Messages.ToggleShowTerminationHandler_Shows_termination_handler_activities_3);
 	}
 
-	@Override
+	
 	public void run() {
 		List selList = getSelectedObjects();
 		if (selList.size() == 1) {
@@ -52,7 +52,7 @@ public class ToggleShowTerminationHandler extends SelectionAction {
 		}
 	}
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 		List selList = getSelectedObjects();
 		if (selList.size() != 1)
@@ -68,7 +68,7 @@ public class ToggleShowTerminationHandler extends SelectionAction {
 		return false;
 	}
 
-	@Override
+	
 	public boolean isChecked() {
 		List selList = getSelectedObjects();
 		if (selList.size() == 1) {

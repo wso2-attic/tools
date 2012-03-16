@@ -85,7 +85,7 @@ public class DefaultHoverHelper implements IHoverHelper {
 	}
 	
 	private static class BoldLabel extends Label {
-		@Override
+		
 		public void addNotify() {
 			super.addNotify();
 			

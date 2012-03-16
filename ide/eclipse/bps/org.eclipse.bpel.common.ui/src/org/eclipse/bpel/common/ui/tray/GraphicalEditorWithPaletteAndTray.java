@@ -38,7 +38,7 @@ public abstract class GraphicalEditorWithPaletteAndTray extends GraphicalEditorW
 	/**
 	 * @see org.eclipse.bpel.common.ui.palette.GraphicalEditorWithPalette#dispose()
 	 */
-	@Override
+	
 	public void dispose() {
 		super.dispose();
 		trayViewer = null;
@@ -65,7 +65,7 @@ public abstract class GraphicalEditorWithPaletteAndTray extends GraphicalEditorW
 	/**
 	 * Creates the palette and graphical viewers.
 	 */
-	@Override
+	
 	public void createPartControl(Composite parent) {
 		trayComposite = new TrayComposite(parent, SWT.NONE);
 		
@@ -90,7 +90,7 @@ public abstract class GraphicalEditorWithPaletteAndTray extends GraphicalEditorW
 		// will break the tray scrolling.
 		canvas.getViewport().setLayoutManager(new ViewportLayout() {
 			
-			@Override
+			
 			public void layout(IFigure figure) {
 				Viewport viewport = (Viewport)figure;
 				IFigure contents = viewport.getContents();
@@ -113,7 +113,7 @@ public abstract class GraphicalEditorWithPaletteAndTray extends GraphicalEditorW
     /**
      * @see org.eclipse.gef.ui.parts.GraphicalEditor#setFocus()
      */
-    @Override
+    
 	public void setFocus() {
     	getGraphicalViewer().getControl().setFocus();
     }

@@ -76,7 +76,7 @@ public class DropPopup extends PopupDialog implements StatusTextListener, MenuDe
 		super(parentShell,shellStyle | SWT.TOOL, true, true, false, false, title, statusFieldText);	
 	}
 	
-	@Override
+	
 	protected Control createDialogArea (Composite parent) {
 		fText= new StyledText(parent, SWT.V_SCROLL | SWT.H_SCROLL);
 		fText.setEditable(false);
@@ -86,7 +86,7 @@ public class DropPopup extends PopupDialog implements StatusTextListener, MenuDe
 			/*
 			 * @see org.eclipse.swt.events.ControlAdapter#controlResized(org.eclipse.swt.events.ControlEvent)
 			 */
-			@Override
+			
 			public void controlResized(ControlEvent e) {
 				fText.setText(fText.getText());
 			}

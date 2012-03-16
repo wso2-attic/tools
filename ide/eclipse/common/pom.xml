@@ -31,15 +31,15 @@
    </repository>
     </repositories-->
     <modules>
-        <module>org.wso2.carbonstudio.eclipse.libraries</module>
-        <module>org.wso2.carbonstudio.eclipse.logging</module>
-        <!--module>org.wso2.carbonstudio.eclipse.p2manager</module-->
-        <!--module>org.wso2.carbonstudio.eclipse.p2manager.36</module-->
-        <module>org.wso2.carbonstudio.eclipse.ui</module>
-        <module>org.wso2.carbonstudio.eclipse.utils</module>
-	<module>org.wso2.carbonstudio.eclipse.maven</module>
-	<module>org.wso2.carbonstudio.eclipse.general.project</module>
-	<!--module>org.wso2.carbonstudio.eclipse.distribution.project</module-->
+        <module>org.wso2.developerstudio.eclipse.libraries</module>
+        <module>org.wso2.developerstudio.eclipse.logging</module>
+        <!--module>org.wso2.developerstudio.eclipse.p2manager</module-->
+        <!--module>org.wso2.developerstudio.eclipse.p2manager.36</module-->
+        <module>org.wso2.developerstudio.eclipse.ui</module>
+        <module>org.wso2.developerstudio.eclipse.utils</module>
+	<module>org.wso2.developerstudio.eclipse.maven</module>
+	<module>org.wso2.developerstudio.eclipse.general.project</module>
+	<!--module>org.wso2.developerstudio.eclipse.distribution.project</module-->
     </modules>
 
   <!--properties>

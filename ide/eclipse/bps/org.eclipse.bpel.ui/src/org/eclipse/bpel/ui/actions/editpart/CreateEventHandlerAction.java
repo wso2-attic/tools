@@ -61,8 +61,8 @@ public final class CreateEventHandlerAction extends AbstractAction {
 		return Messages.CreateEventHandlerAction_Add_Event_Handler_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

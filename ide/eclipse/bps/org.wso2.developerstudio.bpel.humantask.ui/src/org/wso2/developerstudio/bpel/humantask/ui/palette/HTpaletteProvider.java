@@ -25,7 +25,7 @@ import org.wso2.developerstudio.bpel.humantask.ui.factories.HTUIObjectFactory;
 
 public class HTpaletteProvider implements IPaletteProvider{
 
-	@Override
+	
 	public void contributeItems(PaletteRoot paletteRoot) {
 		
 		PaletteCategory category = new PaletteCategory("BPEL4People");

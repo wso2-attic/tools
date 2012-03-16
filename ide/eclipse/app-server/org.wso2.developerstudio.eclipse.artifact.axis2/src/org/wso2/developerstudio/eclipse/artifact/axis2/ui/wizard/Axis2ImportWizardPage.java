@@ -57,7 +57,7 @@ public class Axis2ImportWizardPage extends WizardPage {
 		gd_btnNewButton.widthHint = 74;
 		btnNewButton.setLayoutData(gd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog fd = new FileDialog(shell, SWT.OPEN);
 				 	fd.setText("Open");
@@ -74,7 +74,7 @@ public class Axis2ImportWizardPage extends WizardPage {
 		btnNewButton.setText("Brows");
 	}
 
-	@Override
+	
 	public IWizardPage getNextPage() {
 	    configpage.populateParamsFromWSDL();
 		return super.getNextPage();

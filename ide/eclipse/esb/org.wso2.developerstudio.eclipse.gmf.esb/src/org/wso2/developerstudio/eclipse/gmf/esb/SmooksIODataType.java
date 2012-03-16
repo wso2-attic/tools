@@ -204,7 +204,7 @@ public enum SmooksIODataType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

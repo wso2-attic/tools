@@ -59,7 +59,7 @@ public class FieldAssistAdapter extends ContentAssistCommandAdapter {
 	}
 	
 	
-	@Override
+	
 	protected void openProposalPopup () {
 		
 		Point popupSize = getPopupSize();

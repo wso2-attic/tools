@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import javax.xml.namespace.QName;
 
@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +24,10 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getPortType <em>Port Type</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getResponseOperation <em>Response Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getResponsePortType <em>Response Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getPortType <em>Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getResponseOperation <em>Response Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl#getResponsePortType <em>Response Port Type</em>}</li>
  * </ul>
  * </p>
  *

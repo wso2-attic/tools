@@ -119,7 +119,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SQL_STATEMENT;
 	}
@@ -196,7 +196,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SQL_STATEMENT__PARAMETERS:
@@ -213,7 +213,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SQL_STATEMENT__QUERY_STRING:
@@ -234,7 +234,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -262,7 +262,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SQL_STATEMENT__QUERY_STRING:
@@ -287,7 +287,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SQL_STATEMENT__QUERY_STRING:
@@ -308,7 +308,7 @@ public class SqlStatementImpl extends EObjectImpl implements SqlStatement {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

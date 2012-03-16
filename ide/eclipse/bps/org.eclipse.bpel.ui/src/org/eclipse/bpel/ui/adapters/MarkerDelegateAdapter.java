@@ -58,7 +58,7 @@ public class MarkerDelegateAdapter extends AbstractStatefulAdapter implements IM
 	}
 
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		if (isMarkerEvent(notification) && target instanceof EObject) {
 			EObject parent = ((EObject)target).eContainer();

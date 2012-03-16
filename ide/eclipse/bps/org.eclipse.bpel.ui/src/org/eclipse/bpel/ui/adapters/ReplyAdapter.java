@@ -27,7 +27,7 @@ public class ReplyAdapter extends ActivityAdapter implements IAnnotatedElement {
 
 	/* IEditPartActionContributor */
 	
-	@Override
+	
 	public List<AbstractAction> getEditPartActions(final EditPart editPart) {
 		List<AbstractAction> actions = super.getEditPartActions(editPart);
 

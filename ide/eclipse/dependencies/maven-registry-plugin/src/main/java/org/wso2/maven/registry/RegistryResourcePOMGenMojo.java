@@ -23,7 +23,7 @@ import org.apache.maven.model.Plugin;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.maven.capp.model.Artifact;
 import org.wso2.maven.capp.mojo.AbstractPOMGenMojo;
 import org.wso2.maven.capp.utils.WSO2MavenPluginConstantants;

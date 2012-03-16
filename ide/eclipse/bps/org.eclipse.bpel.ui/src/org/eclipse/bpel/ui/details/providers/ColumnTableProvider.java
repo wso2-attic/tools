@@ -106,7 +106,7 @@ public class ColumnTableProvider extends TableProvider {
 	 * Overridden to do nothing.  The column properties for a ColumnTableProvider
 	 * are determined dynamically from the current set of Columns.
 	 */
-	@Override
+	
 	public void setColumnProperties(String[] unused) {
 		// do nothing
 	}
@@ -114,7 +114,7 @@ public class ColumnTableProvider extends TableProvider {
 	/**
 	 * Returns the columnProperties of this TableProvider.
 	 */
-	@Override
+	
 	public String[] getColumnProperties() {
 		if (columnProperties == null) {
 			columnProperties = new String[columns.size()];
@@ -129,7 +129,7 @@ public class ColumnTableProvider extends TableProvider {
 	 * Returns a particular column's property.  For some subclasses, this may be more
 	 * efficient than using getColumnProperties().
 	 */
-	@Override
+	
 	public String getColumnProperty(int index) {
 		return ((Column)columns.get(index)).getProperty();
 	}

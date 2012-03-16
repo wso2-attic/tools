@@ -19,7 +19,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-    	<groupId>org.wso2.carbonstudio</groupId>
+    	<groupId>org.wso2.developerstudio</groupId>
     	<artifactId>carbon-bps-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>     
@@ -30,19 +30,19 @@
     <name>Extension Points</name>
     <!--dependencies>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
+            <groupId>org.wso2.developerstudio</groupId>
             <artifactId>org.eclipse.bpel.common.model</artifactId>
         </dependency>        
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
+            <groupId>org.wso2.developerstudio</groupId>
             <artifactId>org.eclipse.bpel.common.ui</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
+            <groupId>org.wso2.developerstudio</groupId>
             <artifactId>org.eclipse.bpel.model</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbonstudio</groupId>
+            <groupId>org.wso2.developerstudio</groupId>
             <artifactId>org.eclipse.bpel.ui</artifactId>
         </dependency>                      
     </dependencies>

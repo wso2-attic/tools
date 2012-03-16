@@ -37,7 +37,7 @@ public abstract class RunnableProposal
 	/**
 	 * @see org.eclipse.bpel.ui.proposal.providers.AbstractContentProposal#getImage(java.lang.Object)
 	 */
-	@Override
+	
 	public Image getImage(Object element) {		
 		return BPELUIPlugin.INSTANCE.getImage(IBPELUIConstants.ICON_COMMAND_16);
 	}

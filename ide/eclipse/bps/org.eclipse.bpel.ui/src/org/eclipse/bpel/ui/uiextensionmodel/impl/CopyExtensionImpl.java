@@ -90,7 +90,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.COPY_EXTENSION;
 	}
@@ -142,7 +142,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiextensionmodelPackage.COPY_EXTENSION__FROM_TYPE:
@@ -158,7 +158,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UiextensionmodelPackage.COPY_EXTENSION__FROM_TYPE:
@@ -176,7 +176,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UiextensionmodelPackage.COPY_EXTENSION__FROM_TYPE:
@@ -194,7 +194,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case UiextensionmodelPackage.COPY_EXTENSION__FROM_TYPE:
@@ -210,7 +210,7 @@ public class CopyExtensionImpl extends EObjectImpl implements CopyExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

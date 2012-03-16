@@ -205,7 +205,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SEQUENCE_MEDIATOR;
     }
@@ -341,7 +341,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
@@ -363,7 +363,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
@@ -386,7 +386,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
@@ -409,7 +409,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
@@ -428,7 +428,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -439,7 +439,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

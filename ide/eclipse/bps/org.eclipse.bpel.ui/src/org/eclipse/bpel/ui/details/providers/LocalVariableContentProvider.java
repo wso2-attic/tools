@@ -37,7 +37,7 @@ public class LocalVariableContentProvider extends AbstractContentProvider  {
 		this.needValidMessage = false;
 	}
 	
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		
 		if (input instanceof Process) {			

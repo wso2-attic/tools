@@ -387,7 +387,7 @@ public class CalendarControl extends Canvas {
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.widgets.Widget#dispose()
 	 */
-	@Override
+	
 	public void dispose() {	
 		painter.dispose();
 		mouseListener.dispose();
@@ -398,7 +398,7 @@ public class CalendarControl extends Canvas {
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.widgets.Control#computeSize(int, int, boolean)
 	 */
-	@Override
+	
 	public Point computeSize(int wHint, int hHint, boolean changed) {
 		return new Point(width, height);
 	}
@@ -406,7 +406,7 @@ public class CalendarControl extends Canvas {
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.widgets.Control#computeSize(int, int)
 	 */
-	@Override
+	
 	public Point computeSize(int wHint, int hHint) {
 		return new Point(width, height);
 	}
@@ -427,7 +427,7 @@ public class CalendarControl extends Canvas {
 	 * change its display to show that month.
 	 */
 	private class CalendarKeyAdapter extends KeyAdapter {
-		@Override
+		
 		public void keyPressed(KeyEvent e) {
 			int dayChange = 0;
 			int monthChange = 0;
@@ -527,7 +527,7 @@ public class CalendarControl extends Canvas {
 		/* (non-Javadoc)
 		 * @see org.eclipse.swt.events.MouseListener#mouseDown(org.eclipse.swt.events.MouseEvent)
 		 */
-		@Override
+		
 		public void mouseDown(MouseEvent e) {
 			boolean selectionChanged = false;
 			

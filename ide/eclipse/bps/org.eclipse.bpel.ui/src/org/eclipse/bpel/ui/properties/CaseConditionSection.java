@@ -26,13 +26,13 @@ import org.eclipse.swt.widgets.Composite;
 public class CaseConditionSection extends ExpressionSection {
 	
 
-	@Override
+	
 	protected String getExpressionType() { 
 		return IEditorConstants.ET_BOOLEAN ; 
 	}
 	
 	
-	@Override
+	
 	protected Composite createNoEditorWidgets(Composite composite) {
 		
 		return createNoEditorWidgetsCreateComposite(composite,			
@@ -41,7 +41,7 @@ public class CaseConditionSection extends ExpressionSection {
 				Messages.ElseIfConditionSection_Create_a_New_Condition_2);
 	}
 	
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature (EObject object) {
 		
 		if (object instanceof If) {

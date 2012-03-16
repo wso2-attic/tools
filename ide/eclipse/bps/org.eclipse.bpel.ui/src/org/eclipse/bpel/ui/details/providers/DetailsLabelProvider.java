@@ -50,7 +50,7 @@ public class DetailsLabelProvider extends LabelProvider {
 //		};
 	}
 
-	@Override
+	
 	public Image getImage(Object model) {
 		ILabeledElement element = BPELUtil.adapt(model, ILabeledElement.class);
 		if (currentImage != null) {
@@ -63,7 +63,7 @@ public class DetailsLabelProvider extends LabelProvider {
 	/**
 	 * Parameter model has to be an EObject.
 	 */
-	@Override
+	
 	public String getText(Object model) {
 		if (!(model instanceof EObject)) {
 			return null;

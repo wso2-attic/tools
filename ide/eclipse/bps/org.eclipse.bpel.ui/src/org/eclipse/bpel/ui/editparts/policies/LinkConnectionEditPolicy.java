@@ -22,7 +22,7 @@ import org.eclipse.gef.requests.GroupRequest;
  */
 public class LinkConnectionEditPolicy extends ConnectionEditPolicy {
 
-	@Override
+	
 	protected Command getDeleteCommand(GroupRequest request) {
 		return new DeleteLinkCommand((Link)getHost().getModel());
 	}

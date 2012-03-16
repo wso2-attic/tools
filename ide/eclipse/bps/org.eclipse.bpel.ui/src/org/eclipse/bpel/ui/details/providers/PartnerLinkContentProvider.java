@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class PartnerLinkContentProvider extends AbstractContentProvider  {
 
-	@Override
+	
 	public Object[] getElements (Object input) {
 		// the input is expected to be a Process or something inside a Process.
 		return BPELUtil.getVisiblePartnerLinks((EObject)input);

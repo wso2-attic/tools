@@ -1043,7 +1043,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * Adding pages to the DsEditor
 	 * 
 	 */
-	@Override
+	
 	protected void addPages() {
 		try {
 
@@ -1893,7 +1893,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		
 		Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
 			
-			@Override
+			
 			public void handleEvent(Event event) {
 				
 				if (dsEditor.getActivePage() == DESIGN_VIEW_INDEX && !DetailSectionUiUtil.isFocusedOnDetailSection) {

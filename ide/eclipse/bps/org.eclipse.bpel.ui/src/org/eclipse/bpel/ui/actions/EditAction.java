@@ -45,7 +45,7 @@ public abstract class EditAction extends SelectionAction {
 	/**
 	 * @see org.eclipse.gef.ui.actions.WorkbenchPartAction#calculateEnabled()
 	 */
-	@Override
+	
 	protected boolean calculateEnabled () {
 		fSelection.clear();
 		
@@ -108,7 +108,7 @@ public abstract class EditAction extends SelectionAction {
 	/**
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
-	@Override
+	
 	public void run () {
 		execute (getCommand());
 	}

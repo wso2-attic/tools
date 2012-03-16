@@ -22,7 +22,7 @@ public class FillParentLayout extends ToolbarLayout { // TODO: probably shouldn'
 		super();
 	}
 	
-	@Override
+	
 	public void layout(IFigure parent) {
 		List children = parent.getChildren();
 		Rectangle clientArea = parent.getClientArea();

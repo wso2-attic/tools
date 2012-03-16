@@ -36,7 +36,7 @@ public class NonclippingXYLayout extends XYLayout {
 		return displacement;
 	}
 
-	@Override
+	
 	public void layout(IFigure parent) {
 		GraphAnimation.recordInitialState(parent);
 		if (GraphAnimation.playbackState(parent))
@@ -88,7 +88,7 @@ public class NonclippingXYLayout extends XYLayout {
 		displacement = new Point(-minX, -minY);
 	}
 
-	@Override
+	
 	public void setConstraint(IFigure figure, Object newConstraint) {
 		Rectangle bounds = null;
 		if (newConstraint != null) {
@@ -99,7 +99,7 @@ public class NonclippingXYLayout extends XYLayout {
 //		if (bounds != null)
 //			constraints.put(figure, bounds);
 	}
-	@Override
+	
 	protected Dimension calculatePreferredSize(IFigure f, int wHint, int hHint) {
 		Dimension result = super.calculatePreferredSize(f, wHint, hHint);
 		if (size != null) {

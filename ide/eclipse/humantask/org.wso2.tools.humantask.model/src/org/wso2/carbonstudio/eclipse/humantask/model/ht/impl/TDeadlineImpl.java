@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,9 +34,9 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getFor <em>For</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getUntil <em>Until</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getEscalation <em>Escalation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getFor <em>For</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getUntil <em>Until</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl#getEscalation <em>Escalation</em>}</li>
  * </ul>
  * </p>
  *

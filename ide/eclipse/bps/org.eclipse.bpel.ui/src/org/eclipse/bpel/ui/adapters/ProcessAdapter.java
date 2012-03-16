@@ -50,7 +50,7 @@ public class ProcessAdapter extends ContainerAdapter implements INamedElement,
 	
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		MultiContainer omc = new MultiContainer();
 		omc.add(new ActivityContainer(BPELPackage.eINSTANCE.getProcess_Activity()));
@@ -159,7 +159,7 @@ public class ProcessAdapter extends ContainerAdapter implements INamedElement,
 	 * Overrides the base class actions and appends the declaration actions
 	 * @see https://issues.jboss.org/browse/JBIDE-7953
 	 */
-	@Override
+	
 	public List<? extends IEditPartAction> getEditPartActions(EditPart editPart) {
 		List<AbstractAction> actions = new ArrayList<AbstractAction>();
 		actions.add(new CreatePartnerLinkAction(editPart));

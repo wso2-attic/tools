@@ -20,7 +20,7 @@ import org.eclipse.bpel.ui.util.BPELUtil;
  */
 public class CompensableActivityContentProvider extends AbstractContentProvider {
 	
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		list.addAll( BPELUtil.getCompensableActivities(input) );
 	}

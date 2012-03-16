@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor;
+package org.wso2.developerstudio.eclipse.humantask.editor;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -11,7 +11,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.wso2.carbonstudio.eclipse.humantask.editor";
+	public static final String PLUGIN_ID = "org.wso2.developerstudio.eclipse.humantask.editor";
 
 	// The shared instance
 	private static Activator plugin;

@@ -140,7 +140,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.CALL_TEMPLATE_MEDIATOR;
     }
@@ -183,7 +183,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
@@ -197,7 +197,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
@@ -214,7 +214,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
@@ -233,7 +233,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
@@ -251,7 +251,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
@@ -267,7 +267,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -278,7 +278,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -27,7 +27,7 @@ public class PartTreeContentProvider extends ModelTreeContentProvider {
 		super(isCondensed);
 	}
 
-	@Override
+	
 	public Object[] primGetElements(Object inputElement) {
 		Vector v = new Vector();
 		if (inputElement instanceof Message) {

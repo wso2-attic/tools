@@ -93,7 +93,7 @@ public class AlignedFlowLayout extends AbstractHintLayout {
 		setHorizontal(isHorizontal);
 	}
 
-	@Override
+	
 	protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
 		int cHorizontalSpacing = horizontalSpacing;
 		if (!isHorizontal()) {
@@ -213,12 +213,12 @@ public class AlignedFlowLayout extends AbstractHintLayout {
 		return horizontal;
 	}
 
-	@Override
+	
 	protected boolean isSensitiveHorizontally(IFigure parent) {
 		return isHorizontal();
 	}
 
-	@Override
+	
 	protected boolean isSensitiveVertically(IFigure parent) {
 		return !isHorizontal();
 	}

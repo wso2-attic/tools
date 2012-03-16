@@ -134,7 +134,7 @@ FlatFormAttachment getTopAttachment () {
 	return bottomAttachment.plus (top.offset);
 }
 
-@Override
+
 public String toString () {
  	String string = getClass().getName ()+" {";
  	if (width != 0) string += "w=" + width + " " ;

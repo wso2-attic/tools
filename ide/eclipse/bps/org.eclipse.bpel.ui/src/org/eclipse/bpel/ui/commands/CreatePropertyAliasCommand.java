@@ -20,7 +20,7 @@ import org.eclipse.wst.wsdl.Definition;
  */
 public class CreatePropertyAliasCommand extends CreateWSDLExtensibilityElementCommand {
 
-	@Override
+	
 	public String getDefaultLabel() { return IBPELUIConstants.CMD_ADD_PROPERTY_ALIAS; }
 
 	public CreatePropertyAliasCommand(Definition definition, PropertyAlias propertyAlias) {

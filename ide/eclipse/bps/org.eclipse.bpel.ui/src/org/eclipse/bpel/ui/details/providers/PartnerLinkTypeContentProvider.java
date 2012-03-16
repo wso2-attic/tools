@@ -26,7 +26,7 @@ import org.eclipse.wst.wsdl.Definition;
 public class PartnerLinkTypeContentProvider extends AbstractContentProvider  {
 
 	
-	@Override
+	
 	public void collectElements ( Object input, List list) {
 		
 		if (input instanceof Definition) {

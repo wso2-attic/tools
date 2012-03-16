@@ -36,7 +36,7 @@ public class PropertyMediatorInputConnectorImpl extends InputConnectorImpl imple
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROPERTY_MEDIATOR_INPUT_CONNECTOR;
 	}

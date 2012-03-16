@@ -64,7 +64,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -128,7 +128,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
@@ -144,7 +144,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
@@ -159,7 +159,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ThrottlePolicyConfiguration"));
 	}
@@ -171,7 +171,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		ThrottlePolicyType labelValue = ((ThrottlePolicyConfiguration)object).getPolicyType();
 		String label = labelValue == null ? null : labelValue.toString();
@@ -188,7 +188,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -213,7 +213,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
@@ -235,7 +235,7 @@ public class ThrottlePolicyConfigurationItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
 		return EsbEditPlugin.INSTANCE;
 	}

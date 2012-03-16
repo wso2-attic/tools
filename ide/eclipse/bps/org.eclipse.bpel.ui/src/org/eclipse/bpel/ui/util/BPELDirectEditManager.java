@@ -34,7 +34,7 @@ public class BPELDirectEditManager extends DirectEditManager {
 		this.validator = validator;
 	}
 
-	@Override
+	
 	protected void commit() {
 		if (validator != null) {
 			Text text = (Text) getCellEditor().getControl();
@@ -54,7 +54,7 @@ public class BPELDirectEditManager extends DirectEditManager {
 		super.commit();
 	}
 
-	@Override
+	
 	protected void initCellEditor() {
 		getEditPart().getFigure().validate();
 		Object model = getEditPart().getModel();

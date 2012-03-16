@@ -29,7 +29,7 @@ public class MessageExchangeContentProvider extends AbstractContentProvider{
 	/**
 	 * @see org.eclipse.bpel.ui.details.providers.AbstractContentProvider#collectElements(java.lang.Object, java.util.List)
 	 */
-	@Override
+	
 	public void collectElements (Object input, List<Object> list)  {
 		EObject elem = (EObject) input;
 		MessageExchanges messExs;

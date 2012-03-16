@@ -155,7 +155,7 @@ public class BPELResourceSetImpl extends ResourceSetImpl implements IResourceCha
 		if (resourceFactoryRegistry == null) {
 
 			resourceFactoryRegistry = new ResourceFactoryRegistryImpl() {
-				@Override
+				
 				protected Resource.Factory delegatedGetFactory(URI uri, String contentTypeIdentifier) {
 					// patch for "wsil" and "wsdl" resources without extensions
 					final Map<String, Object> extensionToFactoryMap =
@@ -180,13 +180,13 @@ public class BPELResourceSetImpl extends ResourceSetImpl implements IResourceCha
 							contentTypeIdentifier, false));
 				}
 
-				@Override
+				
 				protected URIConverter getURIConverter() {
 					// return ResourceSetImpl.this.getURIConverter();
 					return BPELResourceSetImpl.this.getURIConverter();
 				}
 
-				@Override
+				
 				protected Map<?, ?> getContentDescriptionOptions() {
 					return getLoadOptions();
 				}

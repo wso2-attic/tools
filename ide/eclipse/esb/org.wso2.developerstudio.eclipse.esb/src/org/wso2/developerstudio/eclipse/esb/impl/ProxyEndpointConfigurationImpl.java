@@ -195,7 +195,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION;
     }
@@ -333,7 +333,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
@@ -349,7 +349,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
@@ -369,7 +369,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
@@ -393,7 +393,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
@@ -417,7 +417,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
@@ -437,7 +437,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -450,7 +450,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

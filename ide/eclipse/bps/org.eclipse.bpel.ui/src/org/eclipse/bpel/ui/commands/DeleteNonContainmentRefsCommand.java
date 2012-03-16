@@ -54,7 +54,7 @@ public class DeleteNonContainmentRefsCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		if (!canExecute()) {
 			throw new IllegalStateException();

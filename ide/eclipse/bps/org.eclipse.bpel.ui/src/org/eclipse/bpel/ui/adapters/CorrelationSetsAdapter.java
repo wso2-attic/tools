@@ -29,7 +29,7 @@ public class CorrelationSetsAdapter extends ContainerAdapter implements EditPart
 
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ReferenceContainer(BPELPackage.eINSTANCE.getCorrelationSets_Children());
 	}

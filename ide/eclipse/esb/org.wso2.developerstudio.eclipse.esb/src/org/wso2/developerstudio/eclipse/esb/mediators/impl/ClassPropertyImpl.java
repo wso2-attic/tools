@@ -47,12 +47,12 @@ public class ClassPropertyImpl extends AbstractNameValuePropertyImpl implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.CLASS_PROPERTY;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,10 +35,10 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl#getArgument <em>Argument</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl#getLiteral <em>Literal</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl#getExpressionLanguage <em>Expression Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl#getLogicalPeopleGroup <em>Logical People Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl#getLogicalPeopleGroup <em>Logical People Group</em>}</li>
  * </ul>
  * </p>
  *

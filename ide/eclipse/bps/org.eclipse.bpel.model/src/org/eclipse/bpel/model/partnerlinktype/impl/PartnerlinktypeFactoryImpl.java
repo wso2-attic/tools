@@ -65,7 +65,7 @@ public class PartnerlinktypeFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 		case PartnerlinktypePackage.PARTNER_LINK_TYPE:

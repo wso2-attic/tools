@@ -42,7 +42,7 @@ public class MessageExchangesAdapter extends ContainerAdapter implements EditPar
 	
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ReferenceContainer(BPELPackage.eINSTANCE.getMessageExchanges_Children());
 	}
@@ -84,7 +84,7 @@ public class MessageExchangesAdapter extends ContainerAdapter implements EditPar
 	
 	public EditPart createOutlineEditPart(EditPart context, final Object model) {
 		EditPart result = new OutlineTreeEditPart(){
-			@Override
+			
 			protected List getModelChildren() {
 				MessageExchanges messageExchanges = (MessageExchanges) model;
 				List list =  messageExchanges.getChildren(); 

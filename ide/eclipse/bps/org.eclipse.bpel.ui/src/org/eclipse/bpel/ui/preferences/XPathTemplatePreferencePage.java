@@ -31,7 +31,7 @@ public class XPathTemplatePreferencePage extends TemplatePreferencePage	implemen
         colorManager = null;
 	}
 
-	@Override
+	
 	protected SourceViewer createViewer(Composite parent) {
 		SourceViewer viewer = new SourceViewer(parent, null, null, false, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		Font font= JFaceResources.getFont(JFaceResources.TEXT_FONT);
@@ -49,7 +49,7 @@ public class XPathTemplatePreferencePage extends TemplatePreferencePage	implemen
     /* (non-Javadoc)
      * @see org.eclipse.jface.preference.IPreferencePage#performOk()
      */
-    @Override
+    
 	public boolean performOk() {
 	  boolean ok = super.performOk();
 	  BPELUIPlugin.INSTANCE.savePluginPreferences();
@@ -58,7 +58,7 @@ public class XPathTemplatePreferencePage extends TemplatePreferencePage	implemen
 	  return ok;
     }
 
-	@Override
+	
 	public boolean performCancel() {
 		boolean cancel = super.performCancel();
 		if (colorManager != null)

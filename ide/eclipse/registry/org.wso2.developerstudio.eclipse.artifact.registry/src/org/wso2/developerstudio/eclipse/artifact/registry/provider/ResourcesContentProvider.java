@@ -54,17 +54,17 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 		  }
 	   }
 
-	@Override
+	
     public void dispose() {
 	    
     }
 
-	@Override
+	
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		initContent();  
     }
 
-	@Override
+	
     public Object[] getChildren(Object element) {
 		if(IProject.class.isInstance(element)){
 			setProject((IProject)element);
@@ -80,17 +80,17 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 		return new String[]{};
     }
 
-	@Override
+	
     public Object[] getElements(Object element) {
 	    return getChildren(element);
     }
 
-	@Override
+	
     public Object getParent(Object element) {
 	    return "root";
     }
 
-	@Override
+	
     public boolean hasChildren(Object element) {
     if(element instanceof NavigatorNode){
 		return ((NavigatorNode)element).HasChildren();

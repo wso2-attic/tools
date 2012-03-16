@@ -71,7 +71,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.CASE_EXTENSION;
 	}
@@ -102,7 +102,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UiextensionmodelPackage.CASE_EXTENSION__DISPLAY_NAME:
@@ -116,7 +116,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UiextensionmodelPackage.CASE_EXTENSION__DISPLAY_NAME:
@@ -131,7 +131,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UiextensionmodelPackage.CASE_EXTENSION__DISPLAY_NAME:
@@ -146,7 +146,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case UiextensionmodelPackage.CASE_EXTENSION__DISPLAY_NAME:
@@ -160,7 +160,7 @@ public class CaseExtensionImpl extends EObjectImpl implements CaseExtension {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

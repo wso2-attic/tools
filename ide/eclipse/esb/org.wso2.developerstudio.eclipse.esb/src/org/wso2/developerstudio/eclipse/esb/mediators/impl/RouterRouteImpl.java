@@ -177,7 +177,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.ROUTER_ROUTE;
     }
@@ -310,7 +310,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_ROUTE__TARGET:
@@ -324,7 +324,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -345,7 +345,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -369,7 +369,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -393,7 +393,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -413,7 +413,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -426,7 +426,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

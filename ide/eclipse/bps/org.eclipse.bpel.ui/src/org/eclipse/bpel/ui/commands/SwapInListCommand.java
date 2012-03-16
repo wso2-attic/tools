@@ -46,7 +46,7 @@ public abstract class SwapInListCommand extends AutoUndoCommand {
 	protected abstract List getList();
 
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void doExecute() {
 		List list = getList();
 		if (list == null || list.isEmpty())

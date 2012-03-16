@@ -7,19 +7,19 @@
     	<artifactId>wso2-eclipse-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>
-	<groupId>org.wso2.carbonstudio</groupId>
+	<groupId>org.wso2.developerstudio</groupId>
 	<artifactId>wso2-server-tools-parent</artifactId>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <name>WSO2 Server Handler Plugins</name>
     <modules>
-        <module>org.wso2.carbonstudio.eclipse.carbonfeatures</module>
-        <module>org.wso2.carbonstudio.eclipse.server.base</module>
-        <module>org.wso2.carbonstudio.eclipse.carbonserver.base</module>
-        <module>org.wso2.carbonstudio.eclipse.carbonserver30</module>
-        <module>org.wso2.carbonstudio.eclipse.carbonserver31</module>
-    	<module>org.wso2.carbonstudio.eclipse.carbonserver32</module>
-    	<module>org.wso2.carbonstudio.eclipse.carbonserver.remote</module>
+        <module>org.wso2.developerstudio.eclipse.carbonfeatures</module>
+        <module>org.wso2.developerstudio.eclipse.server.base</module>
+        <module>org.wso2.developerstudio.eclipse.carbonserver.base</module>
+        <module>org.wso2.developerstudio.eclipse.carbonserver30</module>
+        <module>org.wso2.developerstudio.eclipse.carbonserver31</module>
+    	<module>org.wso2.developerstudio.eclipse.carbonserver32</module>
+    	<module>org.wso2.developerstudio.eclipse.carbonserver.remote</module>
     </modules>
     <!--distributionManagement>
         <repository>
@@ -40,17 +40,17 @@
     	<dependencies>
 	        <dependency>
 	            <groupId>org.wso2.eclipse</groupId>
-	            <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+	            <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
 	            <version>${common.libraries.version}</version>
 	        </dependency>      
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
 	            <version>${logging.tools.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.utils</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.utils</artifactId>
 	            <version>${common.utils.version}</version>
             </dependency>
     	</dependencies>

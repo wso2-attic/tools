@@ -51,7 +51,7 @@ public class EsbElementItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -67,7 +67,7 @@ public class EsbElementItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_EsbElement_type");
 	}
@@ -80,7 +80,7 @@ public class EsbElementItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
@@ -94,7 +94,7 @@ public class EsbElementItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}

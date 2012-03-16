@@ -27,7 +27,7 @@ public class PartnerLinkTreeNode extends TreeNode {
 
 	/* ITreeNode */
 
-	@Override
+	
 	public Object[] getChildren() {
 		
 		PartnerLink partnerLink = (PartnerLink)modelObject;
@@ -65,7 +65,7 @@ public class PartnerLinkTreeNode extends TreeNode {
 		return list.toArray();
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		PartnerLink partnerLink = (PartnerLink)modelObject;
 		

@@ -36,7 +36,7 @@ public class SendMediatorOutputConnectorImpl extends OutputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SEND_MEDIATOR_OUTPUT_CONNECTOR;
 	}

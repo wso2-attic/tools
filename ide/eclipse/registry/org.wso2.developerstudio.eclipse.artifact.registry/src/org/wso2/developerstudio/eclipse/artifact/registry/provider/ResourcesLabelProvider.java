@@ -23,28 +23,28 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 public class ResourcesLabelProvider implements ILabelProvider {
 
-	@Override
+	
 	public void addListener(ILabelProviderListener labelProviderListener) {
 		
 	}
 
-	@Override
+	
 	public void dispose() {
 		
 	}
 
-	@Override
+	
 	public boolean isLabelProperty(Object element, String property) {
 		return false;
 	}
 
-	@Override
+	
 	public void removeListener(ILabelProviderListener labelProviderListener) {
 
 
 	}
 
-	@Override
+	
 	public Image getImage(Object element) {
 		if(element instanceof NavigatorNode){
 			return ((NavigatorNode)element).getGetImage();
@@ -54,7 +54,7 @@ public class ResourcesLabelProvider implements ILabelProvider {
 		
 	}
 
-	@Override
+	
 	public String getText(Object obj) {
 		if(obj instanceof NavigatorNode){
 			return ((NavigatorNode)obj).getText();

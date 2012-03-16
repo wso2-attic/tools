@@ -38,7 +38,7 @@ public class InvokeAdapter extends ContainerActivityAdapter implements EditPartF
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		MultiContainer omc = new MultiContainer();
 		omc.add(new ReferenceContainer(BPELPackage.eINSTANCE.getInvoke_FaultHandler()));
@@ -48,7 +48,7 @@ public class InvokeAdapter extends ContainerActivityAdapter implements EditPartF
 
 	/* IOutlineEditPartFactory */
 	
-	@Override
+	
 	public EditPart createOutlineEditPart(EditPart context, Object model) {
 		EditPart result = new OutlineTreeEditPart();
 		result.setModel(model);
@@ -77,7 +77,7 @@ public class InvokeAdapter extends ContainerActivityAdapter implements EditPartF
 	
 	/* IEditPartActionContributor */
 	
-	@Override
+	
 	public List<AbstractAction> getEditPartActions(final EditPart editPart) {
 		List<AbstractAction> actions = super.getEditPartActions(editPart);
 		actions.add(new SetPartnerLinkAction(editPart));
@@ -88,7 +88,7 @@ public class InvokeAdapter extends ContainerActivityAdapter implements EditPartF
 	
 	/* EditPartFactory */
 
-	@Override
+	
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart result = new InvokeEditPart();
 		result.setModel(model);

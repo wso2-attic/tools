@@ -59,7 +59,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -120,7 +120,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("wso2/sql"));
 
@@ -132,7 +132,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		String label = ((Sql)object).getValue();
 		String type = " (" + getString("_UI_Sql_type") + ")";
@@ -148,7 +148,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -168,7 +168,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -179,7 +179,7 @@ public class SqlItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

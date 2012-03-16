@@ -29,7 +29,7 @@ public class VariablesAdapter extends ContainerAdapter implements EditPartFactor
 
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ReferenceContainer(BPELPackage.eINSTANCE.getVariables_Children());
 	}

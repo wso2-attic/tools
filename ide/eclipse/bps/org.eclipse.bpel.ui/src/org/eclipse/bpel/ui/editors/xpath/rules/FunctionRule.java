@@ -56,7 +56,7 @@ public class FunctionRule extends WordRule {
 	 */
 
 	
-	@Override
+	
 	public IToken evaluate (ICharacterScanner scanner) {
 
 		IToken token = super.evaluate(scanner);

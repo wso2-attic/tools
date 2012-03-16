@@ -25,7 +25,7 @@ public class CustomMediatorModel extends ProjectDataModel {
 	private String mediatorClassPackage;
     private IProject mediatorProject;
     
-	@Override
+	
 	public Object getModelPropertyValue(String key) {
 	  Object modelPropertyValue = super.getModelPropertyValue(key);
 	  if((modelPropertyValue == null)&&("mediatorClass.name".equals(key))){
@@ -40,7 +40,7 @@ public class CustomMediatorModel extends ProjectDataModel {
 	  return modelPropertyValue;
 	}
 	
-	@Override
+	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean isUiControlUpdated = super.setModelPropertyValue(key, data);
 		if ("mediatorClass.name".equals(key)) {

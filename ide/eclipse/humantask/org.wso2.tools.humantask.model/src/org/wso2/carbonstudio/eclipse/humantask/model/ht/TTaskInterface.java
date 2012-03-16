@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import javax.xml.namespace.QName;
 
@@ -16,14 +16,14 @@ import javax.xml.namespace.QName;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface()
  * @model extendedMetaData="name='tTaskInterface' kind='elementOnly'"
  * @generated
  */
@@ -38,7 +38,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' attribute.
 	 * @see #setOperation(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_Operation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_Operation()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='operation'"
 	 * @generated
@@ -46,7 +46,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	String getOperation();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Operation</em>' attribute.
@@ -65,7 +65,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port Type</em>' attribute.
 	 * @see #setPortType(QName)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_PortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_PortType()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.QName" required="true"
 	 *        extendedMetaData="kind='attribute' name='portType'"
 	 * @generated
@@ -73,7 +73,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	QName getPortType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Port Type</em>' attribute.
@@ -92,7 +92,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Response Operation</em>' attribute.
 	 * @see #setResponseOperation(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_ResponseOperation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_ResponseOperation()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName"
 	 *        extendedMetaData="kind='attribute' name='responseOperation'"
 	 * @generated
@@ -100,7 +100,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	String getResponseOperation();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Response Operation</em>' attribute.
@@ -119,7 +119,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Response Port Type</em>' attribute.
 	 * @see #setResponsePortType(QName)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_ResponsePortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTTaskInterface_ResponsePortType()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.QName"
 	 *        extendedMetaData="kind='attribute' name='responsePortType'"
 	 * @generated
@@ -127,7 +127,7 @@ public interface TTaskInterface extends TExtensibleElements {
 	QName getResponsePortType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Response Port Type</em>' attribute.

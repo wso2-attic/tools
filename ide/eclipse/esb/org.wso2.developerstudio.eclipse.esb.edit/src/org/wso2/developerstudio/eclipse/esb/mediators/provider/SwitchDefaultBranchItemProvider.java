@@ -63,7 +63,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
@@ -78,7 +78,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/SwitchDefaultBranch"));
     }
@@ -88,7 +88,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_SwitchDefaultBranch_type");
 	}
@@ -100,7 +100,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
         super.notifyChanged(notification);
@@ -113,7 +113,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -124,7 +124,7 @@ public class SwitchDefaultBranchItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

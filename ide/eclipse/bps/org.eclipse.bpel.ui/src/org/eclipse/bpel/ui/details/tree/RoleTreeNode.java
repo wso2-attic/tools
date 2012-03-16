@@ -33,7 +33,7 @@ public class RoleTreeNode extends TreeNode {
 	 * @see org.eclipse.bpel.ui.details.tree.TreeNode#getChildren()
 	 */
 	
-	@Override
+	
 	public Object[] getChildren() {
 		Role role = (Role) modelObject;
 		if (role == null) {
@@ -48,7 +48,7 @@ public class RoleTreeNode extends TreeNode {
 	/* (non-Javadoc)
 	 * @see org.eclipse.bpel.ui.details.tree.TreeNode#hasChildren()
 	 */
-	@Override
+	
 	public boolean hasChildren() {
 		Role role = (Role) modelObject;
 		return role != null && role.getPortType() != null ;

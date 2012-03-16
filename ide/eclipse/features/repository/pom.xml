@@ -67,66 +67,66 @@
 							<goal>p2-repo-gen</goal>
 						</goals>
 						<configuration>
-						    <name>WSO2 Carbon Studio</name>
+						    <name>WSO2 Developer Studio</name>
 						    <archive>true</archive>
 							<p2AgentLocation>${basedir}/target/p2-agent</p2AgentLocation>
 							<publishArtifacts>true</publishArtifacts>
 							<publishArtifactRepository>true</publishArtifactRepository>
 					<featureArtifacts>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonstudio.feature:${carbonstudio.tools.feature.version}</featureArtifactDef>
-						<!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.feature:${capp.tools.feature.version}</featureArtifactDef-->
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonstudio.feature:${carbonstudio.tools.feature.version}</featureArtifactDef>
+						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.feature:${capp.tools.feature.version}</featureArtifactDef-->
 	
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bps.feature:${bps.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.feature:${registry.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>                                 
-						<!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bps.feature:${bps.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.feature:${registry.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>                                 
+						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
 
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</featureArtifactDef>
-						<!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifacts.feature:${capp.tools.feature.version}</featureArtifactDef-->
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</featureArtifactDef>
+						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifacts.feature:${capp.tools.feature.version}</featureArtifactDef-->
 						
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</featureArtifactDef>
 
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.server.framework.feature:${server.framework.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.core.feature:${core.framework.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</featureArtifactDef>
-						<!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.common.feature:${common.framework.feature.version}</featureArtifactDef-->
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.server.framework.feature:${server.framework.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.core.feature:${core.framework.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</featureArtifactDef>
+						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.common.feature:${common.framework.feature.version}</featureArtifactDef-->
 						
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 						                                
 						<!--featureArtifactDef>com.googlecode.wso2:com.googlecode.osde.feature:${osde.feature.version}</featureArtifactDef-->  
 						<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef> 
 						<!--featureArtifactDef>org.smooks.edi:org.smooks.edi.editor-feature:1.5.0.201105031731</featureArtifactDef-->
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gs.jaggery.feature:${jaggery.tools.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.smooks.edi.editor-feature:${smooks.edi.editor.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gs.jaggery.feature:${jaggery.tools.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.smooks.edi.editor-feature:${smooks.edi.editor.version}</featureArtifactDef>
             			</featureArtifacts>
 				        <bundleArtifacts>
-						<bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.logging:${common.logging.version}</bundleArtifactDef>
-					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.utils:${common.utils.version}</bundleArtifactDef>
-					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.ui:${common.ui.version}</bundleArtifactDef>
-					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.maven:${common.maven.version}</bundleArtifactDef>
-					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.general.project:${common.tools.version}</bundleArtifactDef>
+						<bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.logging:${common.logging.version}</bundleArtifactDef>
+					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.utils:${common.utils.version}</bundleArtifactDef>
+					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.ui:${common.ui.version}</bundleArtifactDef>
+					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.maven:${common.maven.version}</bundleArtifactDef>
+					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.general.project:${common.tools.version}</bundleArtifactDef>
 					        <bundleArtifactDef>org.eclipse:org.eclipse.emf.validation:1.3.0.v200901271722</bundleArtifactDef>
 					        <bundleArtifactDef>org.eclipse:org.eclipse.emf.validation.ui:1.3.0.v200901271722</bundleArtifactDef>
 					        <bundleArtifactDef>org.eclipse.emf:org.eclipse.emf.query:1.2.100.v200903190031</bundleArtifactDef>
-					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.carbonstudio.eclipse.libraries:${common.libraries.version}</bundleArtifactDef>
+					        <bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.libraries:${common.libraries.version}</bundleArtifactDef>
 						<bundleArtifactDef>org.milyn:org.milyn.smooks.osgi:1.5.0.SNAPSHOT</bundleArtifactDef>
 					        
 					   			<!--GMF -->
@@ -254,60 +254,60 @@
 				        </bundleArtifacts>
 					       	<categories>
 							<category>
-						<id>org.wso2.carbonstudio.eclipse.carbonstudio.tools</id>
-						<label>WSO2 Carbon Studio</label>
-						<description>WSO2 Carbon Studio - Selecting this whole category will install all the features related to Carbon Studio</description>
+						<id>org.wso2.developerstudio.eclipse.carbonstudio.tools</id>
+						<label>WSO2 Developer Studio</label>
+						<description>WSO2 Developer Studio - Selecting this whole category will install all the features related to Developer Studio</description>
 						<features>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bps.feature:${bps.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.feature:${registry.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>     
-						        <!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bps.feature:${bps.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.feature:${registry.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>     
+						        <!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
 						        
-						        <!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.feature:${capp.tools.feature.version}</featureArtifactDef-->
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</featureArtifactDef>
-							<!--featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.common.feature:${common.framework.feature.version}</featureArtifactDef-->
+						        <!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.feature:${capp.tools.feature.version}</featureArtifactDef-->
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</featureArtifactDef>
+							<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.common.feature:${common.framework.feature.version}</featureArtifactDef-->
 						        <!--featureArtifactDef>com.googlecode.wso2:com.googlecode.osde.feature:${osde.feature.version}</featureArtifactDef-->
-						        <featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
-						        <featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
-						    	<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
-						    	<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
+						        <featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
+						        <featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
+						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
+						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 									    					
 						    	<!--featureArtifactDef>org.maven.ide:org.maven.ide.eclipse.feature:0.12.0.20101115-1102</featureArtifactDef>
 							<featureArtifactDef>org.ebayopensource.turmeric.tools.eclipse:org.ebayopensource.turmeric.eclipse.core.feature:1.0.0.201101200748</featureArtifactDef>
 							<featureArtifactDef>org.ebayopensource.turmeric.tools.eclipse:org.ebayopensource.turmeric.eclipse.utils.feature:1.0.0.201101200748</featureArtifactDef-->
 							<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef>
 							<!--featureArtifactDef>org.smooks.edi:org.smooks.edi.editor-feature:1.5.0.201105031731</featureArtifactDef-->
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gs.jaggery.feature:${jaggery.tools.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.carbonstudio:org.smooks.edi.editor-feature:${smooks.edi.editor.version}</featureArtifactDef>
-<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.core.feature:${core.framework.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.server.framework.feature:${server.framework.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gs.jaggery.feature:${jaggery.tools.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.smooks.edi.editor-feature:${smooks.edi.editor.version}</featureArtifactDef>
+<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.core.feature:${core.framework.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.server.framework.feature:${server.framework.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
 		                            			</features>
 							</category>							    
 								    <!--category>
-									<id>org.wso2.carbonstudio.eclipse.product.tools</id>
+									<id>org.wso2.developerstudio.eclipse.product.tools</id>
 									<label>WSO2 Eclipse Product Tools</label>
 									<features>
 		                            				</features>
 								    </category>							    
 								    <category>
-									<id>org.wso2.carbonstudio.eclipse.server.tools</id>
+									<id>org.wso2.developerstudio.eclipse.server.tools</id>
 									<label>WSO2 Eclipse Server Adapters</label>
 									<features>
 		                           			        </features>

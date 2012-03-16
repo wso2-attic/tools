@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor.wizards;
+package org.wso2.developerstudio.eclipse.humantask.editor.wizards;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;

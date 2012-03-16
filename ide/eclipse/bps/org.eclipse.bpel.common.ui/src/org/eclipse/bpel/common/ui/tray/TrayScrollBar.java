@@ -36,7 +36,7 @@ public class TrayScrollBar extends ScrollBar {
 		super();
 		
 		setLayoutManager(new ScrollBarLayout(transposer) {
-			@Override
+			
 			protected Rectangle layoutButtons(ScrollBar scrollBar) {
 				Rectangle bounds = transposer.t(scrollBar.getClientArea());
 				Dimension buttonSize = new Dimension(bounds.width, BUTTON_HEIGHT);
@@ -58,7 +58,7 @@ public class TrayScrollBar extends ScrollBar {
 	}
 
 	// make it non-clickable otherwise it will block tooltips and direct edit
-	@Override
+	
 	public IFigure findFigureAt(int x, int y, TreeSearch search) {
 		IFigure result = super.findFigureAt(x, y, search);
 		if (result != this)
@@ -66,7 +66,7 @@ public class TrayScrollBar extends ScrollBar {
 		return null;
 	}
 	
-	@Override
+	
 	public boolean containsPoint(int x, int y) {
 		IFigure up = getButtonUp();
 		IFigure down = getButtonDown();
@@ -74,17 +74,17 @@ public class TrayScrollBar extends ScrollBar {
 			|| (down.isVisible() && down.getBounds().contains(x, y));
 	}
 
-	@Override
+	
 	public Dimension getPreferredSize(int wHint, int hHint) {
 		return new Dimension(wHint, hHint);
 	}
 	
-	@Override
+	
 	protected Clickable createDefaultDownButton() {
 		return createButton();
 	}
 	
-	@Override
+	
 	protected Clickable createDefaultUpButton() {
 		return createButton();
 	}
@@ -93,7 +93,7 @@ public class TrayScrollBar extends ScrollBar {
 		final Color foreground = CommonUIPlugin.getDefault().getColorRegistry().get(IDetailsColors.COLOR_DARK_SHADOW);
 		final Color background = CommonUIPlugin.getDefault().getColorRegistry().get(IDetailsColors.COLOR_TRAY_BACKGROUND);
 		Button result = new ArrowButton() {
-			@Override
+			
 			protected void paintBorder(Graphics graphics) {
 				graphics.setForegroundColor(foreground);
 				Rectangle r = getBounds().getCopy();

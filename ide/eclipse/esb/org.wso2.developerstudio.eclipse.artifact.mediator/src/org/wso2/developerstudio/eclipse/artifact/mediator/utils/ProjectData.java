@@ -21,7 +21,7 @@ import org.wso2.developerstudio.eclipse.utils.constants.ProjectConstants;
 
 public class ProjectData extends AbstractListDataProvider{
 
-	@Override
+	
 	public List<ListData> getListData(String modelProperty, ProjectDataModel model) {
 		   List<ListData> list = new ArrayList<ListData>();
 		   IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();

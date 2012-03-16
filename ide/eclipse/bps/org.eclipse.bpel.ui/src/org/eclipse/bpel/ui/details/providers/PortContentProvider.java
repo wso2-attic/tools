@@ -21,7 +21,7 @@ import org.eclipse.wst.wsdl.Service;
  */
 public class PortContentProvider extends AbstractContentProvider  {
 
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		if (input instanceof Service) {
 			Service service = (Service) input;

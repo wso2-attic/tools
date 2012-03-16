@@ -43,7 +43,7 @@ public class BPELCopyCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		return fOriginalObjects != null && fOriginalObjects.size() > 0;
 	}
@@ -51,7 +51,7 @@ public class BPELCopyCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		TransferBuffer transferBuffer = fBpelEditor.getTransferBuffer();
 		undo = transferBuffer.getContents();

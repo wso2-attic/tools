@@ -104,13 +104,13 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 	private TreeViewer quickViewTreeViewer;
 	
 	private IControlContentAdapter fTextContentAdapter = new TextContentAdapter() {
-		@Override
+		
 		public void insertControlContents(Control control, String text, int cursorPosition) {
 			if (text != null) {
 				super.insertControlContents(control, text, cursorPosition);
 			}
 		}
-		@Override
+		
 		public void setControlContents(Control control, String text, int cursorPosition) {
 			if (text != null) {
 				super.setControlContents(control, text, cursorPosition);
@@ -122,7 +122,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 	private static final Operation IGNORE_OPERATION = WSDLFactory.eINSTANCE.createOperation();
 	private static final Operation IGNORE_RESPONSE_OPERATION = WSDLFactory.eINSTANCE.createOperation();
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		
 		Composite composite = parentComposite = createFlatFormComposite(parent);
@@ -138,7 +138,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		
 	}
 	
-	@Override
+	
 	protected void basicSetInput(EObject input) {
 		
 		super.basicSetInput(input);	
@@ -172,7 +172,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		
 		RunnableProposal proposal = new RunnableProposal() {
 			
-			@Override
+			
 			public String getLabel() {
 				return Messages.InvokeImplSection_0;
 			}
@@ -182,7 +182,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		};
 
 		RunnableProposal proposal3 = new RunnableProposal() {			
-			@Override
+			
 			public String getLabel() {
 				return Messages.InvokeImplSection_2;
 			}
@@ -197,7 +197,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		PartnerLinkContentProvider provider = new PartnerLinkContentProvider();
 		ModelContentProposalProvider proposalProvider;
 		proposalProvider = new ModelContentProposalProvider( new ModelContentProposalProvider.ValueProvider () {
-			@Override
+			
 			public Object value() {
 				return getInput();
 			}			
@@ -325,7 +325,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		// Provide Content Assist for the variables		
 		AbstractContentProvider provider = new AbstractContentProvider(){
 			
-			@Override
+			
 			public void collectElements(Object input, List list){
 				if(input instanceof PeopleActivityRT)
 				{	
@@ -369,7 +369,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		
 		ModelContentProposalProvider proposalProvider;
 		proposalProvider = new ModelContentProposalProvider( new ModelContentProposalProvider.ValueProvider () {
-			@Override
+			
 			public Object value() {
 				return getInput();
 			}			
@@ -472,7 +472,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		// Provide Content Assist for the variables		
 		AbstractContentProvider provider = new AbstractContentProvider(){
 			
-			@Override
+			
 			public void collectElements(Object input, List list){
 				if(input instanceof PeopleActivityRT)
 				{	
@@ -516,7 +516,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 		
 		ModelContentProposalProvider proposalProvider;
 		proposalProvider = new ModelContentProposalProvider( new ModelContentProposalProvider.ValueProvider () {
-			@Override
+			
 			public Object value() {
 				return getInput();
 			}			
@@ -708,7 +708,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 //		
 //		myRoleRadio.addSelectionListener(new SelectionAdapter() {
 //		
-//			@Override
+//			
 //			public void widgetSelected(SelectionEvent event) {
 //				Button b = (Button) event.widget;
 //				if(b.getSelection())
@@ -721,7 +721,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 //		
 //		partnerRoleRadio.addSelectionListener(new SelectionAdapter() {
 //			
-//			@Override
+//			
 //			public void widgetSelected(SelectionEvent event) {
 //				Button b = (Button) event.widget;
 //				if(b.getSelection())
@@ -732,7 +732,7 @@ public class RemoteTaskPartnerLinkPropertySection extends BPELPropertySection{
 //		});
 //		
 //		showAllRadio.addSelectionListener(new SelectionAdapter() {
-//			@Override
+//			
 //			public void widgetSelected(SelectionEvent event) {
 //				Button b = (Button) event.widget;
 //				if(b.getSelection())

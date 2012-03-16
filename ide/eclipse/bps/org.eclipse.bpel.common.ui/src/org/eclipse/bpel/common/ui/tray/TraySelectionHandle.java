@@ -44,12 +44,12 @@ public class TraySelectionHandle extends AbstractHandle {
 		// controls when the border should be painted based on the
 		// parenting of this handle figure.
 		addAncestorListener(new AncestorListener.Stub() {
-			@Override
+			
 			public void ancestorAdded(IFigure ancestor) {
 				selectionBorderFigure.setPaintSelectionBorder(true);
 				selectionBorderFigure.repaint();
 			}
-			@Override
+			
 			public void ancestorRemoved(IFigure ancestor) {
 				selectionBorderFigure.setPaintSelectionBorder(false);
 				selectionBorderFigure.repaint();
@@ -61,18 +61,18 @@ public class TraySelectionHandle extends AbstractHandle {
 	 * The painting is done by the SelectionBorderFigure
 	 * and not the selection handle.
 	 */
-	@Override
+	
 	public void paint(Graphics g) {
 		// the painting is done by the SelectionBorderFigure
 	}
 
-	@Override
+	
 	protected DragTracker createDragTracker() {
 		return null; // not needed
 	}
 
 	// make it non-clickable otherwise it will block tooltips and direct edit
-	@Override
+	
 	public IFigure findFigureAt(int x, int y, TreeSearch search) {
 		IFigure result = super.findFigureAt(x, y, search);
 		if (result != this)
@@ -81,7 +81,7 @@ public class TraySelectionHandle extends AbstractHandle {
 	}
 	
 	// get the buttons from the figure that the handle encloses, not from the handle itself
-	@Override
+	
 	public IFigure findMouseEventTargetAt(int x, int y) {
 		return selectionBorderFigure.findMouseEventTargetAt(x, y);
 	}

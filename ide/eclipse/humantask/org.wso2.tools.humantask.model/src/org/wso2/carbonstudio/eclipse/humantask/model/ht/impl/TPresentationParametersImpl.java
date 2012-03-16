@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,9 +21,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +32,8 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl#getPresentationParameter <em>Presentation Parameter</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl#getPresentationParameter <em>Presentation Parameter</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl#getExpressionLanguage <em>Expression Language</em>}</li>
  * </ul>
  * </p>
  *

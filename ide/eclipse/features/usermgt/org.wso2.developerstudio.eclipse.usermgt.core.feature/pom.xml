@@ -20,12 +20,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-usermgt-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.usermgt.core.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.usermgt.core.feature</artifactId>
     <packaging>pom</packaging>
     <name>User Management Core Tools</name>
     <url>http://wso2.org</url>
@@ -48,10 +48,10 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.usermgt.remote:${usermgt.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.remote:${usermgt.tools.version}</bundleDef>
                             </bundles>
                             <!--importBundles>
-                                <importBundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.greg.libraries:${greg.tools.version}</importBundleDef>
+                                <importBundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.greg.libraries:${greg.tools.version}</importBundleDef>
                             </importBundles-->
                         </configuration>
                     </execution>

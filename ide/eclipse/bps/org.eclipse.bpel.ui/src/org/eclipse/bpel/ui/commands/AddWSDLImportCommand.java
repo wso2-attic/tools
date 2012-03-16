@@ -60,7 +60,7 @@ public class AddWSDLImportCommand extends AutoUndoCommand {
 	}
 		
 
-	@Override
+	
 	public void doExecute() {
 		
 		if (fImport == null) {

@@ -58,7 +58,7 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
-	@Override
+	
 	public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
@@ -77,175 +77,175 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      */
 	protected EsbSwitch<Adapter> modelSwitch =
 		new EsbSwitch<Adapter>() {
-            @Override
+            
             public Adapter caseModelObject(ModelObject object) {
                 return createModelObjectAdapter();
             }
-            @Override
+            
             public Adapter caseNamespace(Namespace object) {
                 return createNamespaceAdapter();
             }
-            @Override
+            
             public Adapter caseSynapseConfiguration(SynapseConfiguration object) {
                 return createSynapseConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseConfigurationElement(ConfigurationElement object) {
                 return createConfigurationElementAdapter();
             }
-            @Override
+            
             public Adapter caseMediator(Mediator object) {
                 return createMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseEndPointReference(EndPointReference object) {
                 return createEndPointReferenceAdapter();
             }
-            @Override
+            
             public Adapter caseEndPoint(EndPoint object) {
                 return createEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseUnknownObject(UnknownObject object) {
                 return createUnknownObjectAdapter();
             }
-            @Override
+            
             public Adapter caseMediatorSequence(MediatorSequence object) {
                 return createMediatorSequenceAdapter();
             }
-            @Override
+            
             public Adapter caseMediatorBranch(MediatorBranch object) {
                 return createMediatorBranchAdapter();
             }
-            @Override
+            
             public Adapter caseParentMediator(ParentMediator object) {
                 return createParentMediatorAdapter();
             }
-            @Override
+            
             public Adapter caseNamespacedProperty(NamespacedProperty object) {
                 return createNamespacedPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseRegistryKeyProperty(RegistryKeyProperty object) {
                 return createRegistryKeyPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractNameValueProperty(AbstractNameValueProperty object) {
                 return createAbstractNameValuePropertyAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractNameValueExpressionProperty(AbstractNameValueExpressionProperty object) {
                 return createAbstractNameValueExpressionPropertyAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractBooleanFeature(AbstractBooleanFeature object) {
                 return createAbstractBooleanFeatureAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractLocationKeyResource(AbstractLocationKeyResource object) {
                 return createAbstractLocationKeyResourceAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractCommonTarget(AbstractCommonTarget object) {
                 return createAbstractCommonTargetAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
                 return createAbstractEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractDefaultEndPoint(AbstractDefaultEndPoint object) {
                 return createAbstractDefaultEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseDefaultEndPoint(DefaultEndPoint object) {
                 return createDefaultEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseAddressEndPoint(AddressEndPoint object) {
                 return createAddressEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseWsdlEndPoint(WsdlEndPoint object) {
                 return createWsdlEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseParentEndPoint(ParentEndPoint object) {
                 return createParentEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseFailoverEndPoint(FailoverEndPoint object) {
                 return createFailoverEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseLoadBalanceEndPoint(LoadBalanceEndPoint object) {
                 return createLoadBalanceEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseDynamicLoadBalanceEndPoint(DynamicLoadBalanceEndPoint object) {
                 return createDynamicLoadBalanceEndPointAdapter();
             }
-            @Override
+            
             public Adapter caseDynamicLoadBalanceProperty(DynamicLoadBalanceProperty object) {
                 return createDynamicLoadBalancePropertyAdapter();
             }
-            @Override
+            
             public Adapter caseXPathEndPointReference(XPathEndPointReference object) {
                 return createXPathEndPointReferenceAdapter();
             }
-            @Override
+            
             public Adapter caseRegistryKeyEndPointReference(RegistryKeyEndPointReference object) {
                 return createRegistryKeyEndPointReferenceAdapter();
             }
-            @Override
+            
             public Adapter caseProxyService(ProxyService object) {
                 return createProxyServiceAdapter();
             }
-            @Override
+            
             public Adapter caseProxyWsdlConfiguration(ProxyWsdlConfiguration object) {
                 return createProxyWsdlConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseProxyWsdlResource(ProxyWsdlResource object) {
                 return createProxyWsdlResourceAdapter();
             }
-            @Override
+            
             public Adapter caseProxyServiceParameter(ProxyServiceParameter object) {
                 return createProxyServiceParameterAdapter();
             }
-            @Override
+            
             public Adapter caseProxyServicePolicy(ProxyServicePolicy object) {
                 return createProxyServicePolicyAdapter();
             }
-            @Override
+            
             public Adapter caseAbstractProxySequenceConfiguration(AbstractProxySequenceConfiguration object) {
                 return createAbstractProxySequenceConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseProxyInSequenceConfiguration(ProxyInSequenceConfiguration object) {
                 return createProxyInSequenceConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseProxyEndpointConfiguration(ProxyEndpointConfiguration object) {
                 return createProxyEndpointConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseProxyOutSequenceConfiguration(ProxyOutSequenceConfiguration object) {
                 return createProxyOutSequenceConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseProxyFaultSequenceConfiguration(ProxyFaultSequenceConfiguration object) {
                 return createProxyFaultSequenceConfigurationAdapter();
             }
-            @Override
+            
             public Adapter caseLocalEntry(LocalEntry object) {
                 return createLocalEntryAdapter();
             }
-            @Override
+            
             public Adapter caseEvaluatorExpressionProperty(EvaluatorExpressionProperty object) {
                 return createEvaluatorExpressionPropertyAdapter();
             }
-            @Override
+            
             public Adapter defaultCase(EObject object) {
                 return createEObjectAdapter();
             }
@@ -259,7 +259,7 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
      * @return the adapter for the <code>target</code>.
      * @generated
      */
-	@Override
+	
 	public Adapter createAdapter(Notifier target) {
         return modelSwitch.doSwitch((EObject)target);
     }

@@ -36,7 +36,7 @@ public class BPELDragEditPartsTracker extends DragEditPartsTracker {
 		super(sourceEditPart);
 	}
 
-	@Override
+	
 	protected Command getCommand() {
 		CompoundCommand command = new CompoundCommand(Messages.BPELDragEditPartsTracker_Drag_1); 
 		command.setDebugLabel("Drag Object Tracker"); //$NON-NLS-1$

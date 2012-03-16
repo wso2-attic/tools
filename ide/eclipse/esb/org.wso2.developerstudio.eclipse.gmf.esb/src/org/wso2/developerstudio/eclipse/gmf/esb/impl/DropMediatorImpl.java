@@ -57,7 +57,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DROP_MEDIATOR;
 	}
@@ -111,7 +111,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.DROP_MEDIATOR__INPUT_CONNECTOR:
@@ -126,7 +126,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.DROP_MEDIATOR__INPUT_CONNECTOR:
@@ -141,7 +141,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.DROP_MEDIATOR__INPUT_CONNECTOR:
@@ -157,7 +157,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DROP_MEDIATOR__INPUT_CONNECTOR:
@@ -173,7 +173,7 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DROP_MEDIATOR__INPUT_CONNECTOR:

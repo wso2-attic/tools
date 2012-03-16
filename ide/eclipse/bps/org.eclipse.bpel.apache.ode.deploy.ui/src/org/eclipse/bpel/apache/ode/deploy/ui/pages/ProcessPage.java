@@ -168,7 +168,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		resourceSet = new DeployResourceSetImpl();
 	}
 
-	@Override
+	
 	protected void createFormContent(IManagedForm managedForm) {
 		toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
@@ -176,7 +176,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		toolkit.decorateFormHeading(form.getForm());
 		mainform = form.getForm(); 
 		mainform.addMessageHyperlinkListener(new HyperlinkAdapter() {
-			@Override
+			
 			public void linkActivated(HyperlinkEvent e) {
 				refreshModel();
 			}
@@ -219,7 +219,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		}
 		comboStatus.addSelectionListener(new SelectionAdapter() {
 		
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				Command setActiveCommand = SetCommand.create(domain, processType, ddPackage.eINSTANCE.getProcessType_Active(), comboStatus.getSelectionIndex() == STATUS_ACTIVATED);
 				Command setRetiredCommand = SetCommand.create(domain, processType, ddPackage.eINSTANCE.getProcessType_Retired(), comboStatus.getSelectionIndex() == STATUS_RETIRED);				
@@ -235,7 +235,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		btnRunInMemory.setSelection(processType.isInMemory());
 		btnRunInMemory.addSelectionListener(new SelectionAdapter() {
 		
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				Command setInMemoryCommand = SetCommand.create(domain, processType, ddPackage.eINSTANCE.getProcessType_InMemory(), btnRunInMemory.getSelection());
 				domain.getCommandStack().execute(setInMemoryCommand);
@@ -502,7 +502,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		ctv.setContentProvider(new ArrayContentProvider());
 		ctv.setLabelProvider(new LabelProvider() {
 		
-			@Override
+			
 			public String getText(Object element) {
 				return eventNameById.get(element);
 			}
@@ -535,7 +535,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		}
 		
 		final SelectionAdapter sa = new SelectionAdapter(){
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				if (btnAll == e.getSource()) {
 					ctv.getControl().setEnabled(false);
@@ -582,12 +582,12 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		column.getColumn().setText("Scope");
 		column.setLabelProvider(new ColumnLabelProvider() {
 		
-			@Override
+			
 			public String getText(Object element) {
 				return ((Scope)element).getName();
 			}
 
-			@Override
+			
 			public Image getImage(Object element) {
 				return BPELUIPlugin.INSTANCE.getImage(IBPELUIConstants.ICON_SCOPE_16);
 			}
@@ -875,7 +875,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 		}	
 	}
 
-	@Override
+	
 	public void dispose() {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 		super.dispose();
@@ -891,18 +891,18 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 			this.checkboxCellEditor = new CheckboxCellEditor(viewer.getTable());
 		}
 		
-		@Override
+		
 		protected boolean canEdit(Object element) {
 			String scName = ((Scope)element).getName();
 			return scName != null && !"".equals(scName); //$NON-NLS-1$
 		}
 
-		@Override
+		
 		protected CellEditor getCellEditor(Object element) {
 			return checkboxCellEditor;
 		}
 
-		@Override
+		
 		protected Object getValue(Object element) {
 			String scName = ((Scope)element).getName();
 			for (TScopeEvents se : processType.getProcessEvents().getScopeEvents()) {
@@ -914,7 +914,7 @@ public class ProcessPage extends FormPage implements IResourceChangeListener {
 			return false;
 		}
 
-		@Override
+		
 		protected void setValue(Object element, Object value) {
 			String scName = ((Scope)element).getName();
 			TScopeEvents match = null;

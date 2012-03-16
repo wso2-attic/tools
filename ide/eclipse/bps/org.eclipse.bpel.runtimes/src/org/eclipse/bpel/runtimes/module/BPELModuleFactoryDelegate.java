@@ -67,7 +67,7 @@ public class BPELModuleFactoryDelegate extends ProjectModuleFactoryDelegate impl
 		super();
 	}
 	
-	@Override
+	
 	public void initialize() {
 		super.initialize();
 		if( getId().equals(BPEL_FACTORY))
@@ -75,7 +75,7 @@ public class BPELModuleFactoryDelegate extends ProjectModuleFactoryDelegate impl
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
 	}
 	
-	@Override
+	
 	protected IModule[] createModules(IProject project) {
 		IVirtualComponent component = ComponentCore.createComponent(project);
 		if(component != null)
@@ -84,7 +84,7 @@ public class BPELModuleFactoryDelegate extends ProjectModuleFactoryDelegate impl
 	}
 
 
-	@Override
+	
 	public ModuleDelegate getModuleDelegate(IModule module) {
 		if (module == null)
 			return null;
@@ -147,7 +147,7 @@ public class BPELModuleFactoryDelegate extends ProjectModuleFactoryDelegate impl
 	 * 
 	 * @return a possibly empty array of paths
 	 */
-	@Override
+	
 	protected IPath[] getListenerPaths() {
 		return new IPath[] { new Path(".project"), // nature //$NON-NLS-1$
 				new Path(StructureEdit.MODULE_META_FILE_NAME), // component
@@ -155,7 +155,7 @@ public class BPELModuleFactoryDelegate extends ProjectModuleFactoryDelegate impl
 		};
 	}
 
-	@Override
+	
 	protected void clearCache(IProject project) {
 		super.clearCache(project);
 		List<IModule> modulesToRemove = null;

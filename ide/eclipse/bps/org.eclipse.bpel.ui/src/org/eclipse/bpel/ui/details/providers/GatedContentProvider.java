@@ -44,7 +44,7 @@ public class GatedContentProvider extends AbstractContentProvider {
 	}
 	
 	
-	@Override
+	
 	public void collectElements ( Object input, List list ) {
 		if (fEnabled) {
 			fProvider.collectElements(input, list);

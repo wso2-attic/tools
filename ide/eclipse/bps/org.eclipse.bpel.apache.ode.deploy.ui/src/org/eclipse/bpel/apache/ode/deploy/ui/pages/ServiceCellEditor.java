@@ -53,7 +53,7 @@ public class ServiceCellEditor extends ComboBoxCellEditor {
 		}
 	}
 
-	@Override
+	
 	protected Object doGetValue() {
 		
 		Integer integer = (Integer) super.doGetValue();
@@ -79,7 +79,7 @@ public class ServiceCellEditor extends ComboBoxCellEditor {
 	}
 
 	@SuppressWarnings("unchecked") //$NON-NLS-1$
-	@Override
+	
 	protected void doSetValue(Object value) {
 		
 		List<Service> serviceList = new ArrayList();

@@ -75,7 +75,7 @@ public class VariablePickerAction extends TextEditorAction {
 	 * @see Action#run()
 	 */
 	
-	@Override
+	
 	public void run() {
 		ITextEditor editor = getTextEditor();
 

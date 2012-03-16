@@ -102,7 +102,7 @@ public class CenteredConnectionAnchor extends AbstractConnectionAnchor {
 		return p;
 	}
 	
-	@Override
+	
 	public Point getReferencePoint() {
 		return getLocation(null);
 	}

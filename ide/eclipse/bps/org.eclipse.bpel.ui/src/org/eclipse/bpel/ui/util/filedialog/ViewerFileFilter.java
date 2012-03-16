@@ -56,7 +56,7 @@ public class ViewerFileFilter extends ViewerFilter {
 	 * Return the currently configured StringMatchers. If there aren't any look
 	 * them up.
 	 */
-	@Override
+	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		IResource resource = null;
 		if (element instanceof IFile) {

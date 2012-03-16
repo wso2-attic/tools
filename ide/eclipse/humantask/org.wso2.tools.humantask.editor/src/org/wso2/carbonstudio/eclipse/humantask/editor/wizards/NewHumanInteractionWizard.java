@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor.wizards;
+package org.wso2.developerstudio.eclipse.humantask.editor.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -150,7 +150,7 @@ public class NewHumanInteractionWizard extends Wizard implements INewWizard {
 
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status = new Status(IStatus.ERROR,
-				"org.wso2.carbonstudio.eclipse.humantask.m.editor", IStatus.OK, message, null);
+				"org.wso2.developerstudio.eclipse.humantask.m.editor", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 

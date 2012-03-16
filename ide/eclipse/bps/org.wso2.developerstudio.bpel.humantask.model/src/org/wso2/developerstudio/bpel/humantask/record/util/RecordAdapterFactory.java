@@ -60,7 +60,7 @@ public class RecordAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
-	@Override
+	
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -79,31 +79,31 @@ public class RecordAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected RecordSwitch<Adapter> modelSwitch =
 		new RecordSwitch<Adapter>() {
-			@Override
+			
 			public Adapter caseExtensionElement(ExtensionElement object) {
 				return createExtensionElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseWSDLElement(WSDLElement object) {
 				return createWSDLElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseIElementExtensible(ElementExtensible object) {
 				return createIElementExtensibleAdapter();
 			}
-			@Override
+			
 			public Adapter caseIAttributeExtensible(AttributeExtensible object) {
 				return createIAttributeExtensibleAdapter();
 			}
-			@Override
+			
 			public Adapter caseExtensibleElement(ExtensibleElement object) {
 				return createExtensibleElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseBPELExtensibleElement(BPELExtensibleElement object) {
 				return createBPELExtensibleElementAdapter();
 			}
-			@Override
+			
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -117,7 +117,7 @@ public class RecordAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject)target);
 	}

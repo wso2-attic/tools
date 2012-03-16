@@ -19,73 +19,73 @@ public class HandlerLinkerAdapter extends AbstractHandlerLinker {
 		super(editPart);
 	}
 
-	@Override
+	
 	protected IFigure getCHFigure() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected CompensationHandler getCompensationHandler() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected IFigure getEHFigure() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected EventHandler getEventHandler() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected IFigure getFHFigure() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected FaultHandler getFaultHandler() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected IFigure getTHFigure() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected TerminationHandler getTerminationHandler() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	protected boolean isShowCH() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	protected boolean isShowEH() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	protected boolean isShowFH() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	protected boolean isShowTH() {
 		// TODO Auto-generated method stub
 		return false;

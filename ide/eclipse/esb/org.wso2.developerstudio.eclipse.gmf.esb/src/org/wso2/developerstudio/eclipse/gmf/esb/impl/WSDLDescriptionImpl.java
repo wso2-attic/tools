@@ -37,7 +37,7 @@ public class WSDLDescriptionImpl extends EObjectImpl implements WSDLDescription 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.WSDL_DESCRIPTION;
 	}

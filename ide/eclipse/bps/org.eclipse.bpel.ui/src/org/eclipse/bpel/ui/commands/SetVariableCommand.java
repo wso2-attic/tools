@@ -44,11 +44,11 @@ public class SetVariableCommand extends SetCommand {
 		this.direction = direction;		
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getVariable(fTarget, direction);
 	}
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setVariable(fTarget, (Variable)o, direction);
 	}

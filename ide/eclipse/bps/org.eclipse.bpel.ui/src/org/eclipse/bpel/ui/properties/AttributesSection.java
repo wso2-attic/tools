@@ -52,7 +52,7 @@ public class AttributesSection extends BPELPropertySection {
 	protected IValue fContext;
 	
 	 
-	@Override
+	
 	protected void basicSetInput(EObject input) {
 		saveUserContextToInput() ;
 		super.basicSetInput(input);
@@ -70,7 +70,7 @@ public class AttributesSection extends BPELPropertySection {
 		/**
 		 * @see org.eclipse.bpel.common.ui.details.DelegateIValue#get()
 		 */
-		@Override
+		
 		public Object get() {
 			String result = (String) fDelegate.get();
 			return result != null ? BPELUIRegistry.getInstance().getExpressionEditorDescriptor( result ) : null;
@@ -79,7 +79,7 @@ public class AttributesSection extends BPELPropertySection {
 		/**
 		 * @see org.eclipse.bpel.common.ui.details.DelegateIValue#set(java.lang.Object)
 		 */
-		@Override
+		
 		public void set (Object object) {
 			ExpressionEditorDescriptor eed = (ExpressionEditorDescriptor) object;
 			fDelegate.set( eed != null ? eed.getExpressionLanguage() : null );
@@ -163,7 +163,7 @@ public class AttributesSection extends BPELPropertySection {
 		fContext = new FocusContext( fExpressionLanguageCombo, fQueryLanguageCombo );
 	}
 
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite composite = createFlatFormComposite(parent);
 		createAttributesWidgets(composite);
@@ -176,7 +176,7 @@ public class AttributesSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return fContext.get();
 	}
@@ -184,7 +184,7 @@ public class AttributesSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		fContext.set(userContext);
 	}

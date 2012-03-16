@@ -35,7 +35,7 @@ public class ThrottleMediatorOutputConnectorImpl extends OutputConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.THROTTLE_MEDIATOR_OUTPUT_CONNECTOR;
 	}

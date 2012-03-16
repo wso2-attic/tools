@@ -64,7 +64,7 @@ public class BPELDuplicateAction extends BPELCopyAction implements IEditorAction
 	}
 
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected void init() {
 		super.init();
 		setText(Messages.BPELDuplicateAction_Duplicate_1); 
@@ -82,7 +82,7 @@ public class BPELDuplicateAction extends BPELCopyAction implements IEditorAction
 	/**
 	 * @see org.eclipse.bpel.ui.actions.BPELCopyAction#getCommand()
 	 */
-	@Override
+	
 	protected Command getCommand() {
 		
 		CompoundCommand cmd = new CompoundCommand(Messages.BPELCopyAction_Copy_3); 
@@ -108,7 +108,7 @@ public class BPELDuplicateAction extends BPELCopyAction implements IEditorAction
 			 * 
 			 * @see org.eclipse.bpel.ui.commands.BPELPasteCommand#canDoExecute()
 			 */
-			@Override
+			
 			public boolean canDoExecute() {
 				return true;
 			}

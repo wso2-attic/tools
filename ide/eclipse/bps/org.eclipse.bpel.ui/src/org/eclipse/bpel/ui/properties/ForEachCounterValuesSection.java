@@ -12,12 +12,12 @@ package org.eclipse.bpel.ui.properties;
 
 public class ForEachCounterValuesSection extends TwoSectionsHostSection {
 
-	@Override
+	
 	protected BPELPropertySection initLeftSection() {
 		return new ForEachStartCounterValueSection();
 	}
 
-	@Override
+	
 	protected BPELPropertySection initRightSection() {
 		return new ForEachFinalCounterValueSection();
 	}

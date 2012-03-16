@@ -20,7 +20,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
 
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+
 
 public abstract class AbstractManifest extends Observable {
 

@@ -252,7 +252,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CACHE_MEDIATOR;
 	}
@@ -560,7 +560,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
@@ -579,7 +579,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
@@ -614,7 +614,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
@@ -660,7 +660,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
@@ -706,7 +706,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CACHE_MEDIATOR__CACHE_ID:
@@ -741,7 +741,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

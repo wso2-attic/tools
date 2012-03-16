@@ -31,11 +31,11 @@ public class SetOperationCommand extends SetCommand {
 		super(target, newOperation);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getOperation(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		Operation op = (Operation) o;
 		ModelHelper.setOperation(fTarget, op);

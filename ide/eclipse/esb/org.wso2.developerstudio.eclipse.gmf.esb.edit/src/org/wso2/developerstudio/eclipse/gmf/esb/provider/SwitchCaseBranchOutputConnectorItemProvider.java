@@ -57,7 +57,7 @@ public class SwitchCaseBranchOutputConnectorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -96,7 +96,7 @@ public class SwitchCaseBranchOutputConnectorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwitchCaseBranchOutputConnector"));
 	}
@@ -108,7 +108,7 @@ public class SwitchCaseBranchOutputConnectorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		String label = ((SwitchCaseBranchOutputConnector)object).getCaseRegex();
 		return label == null || label.length() == 0 ?
@@ -124,7 +124,7 @@ public class SwitchCaseBranchOutputConnectorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -144,7 +144,7 @@ public class SwitchCaseBranchOutputConnectorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}

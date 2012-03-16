@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import javax.xml.namespace.QName;
 
@@ -16,12 +16,12 @@ import javax.xml.namespace.QName;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface()
  * @model extendedMetaData="name='tNotificationInterface' kind='elementOnly'"
  * @generated
  */
@@ -36,7 +36,7 @@ public interface TNotificationInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' attribute.
 	 * @see #setOperation(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface_Operation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface_Operation()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='operation'"
 	 * @generated
@@ -44,7 +44,7 @@ public interface TNotificationInterface extends TExtensibleElements {
 	String getOperation();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Operation</em>' attribute.
@@ -63,7 +63,7 @@ public interface TNotificationInterface extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port Type</em>' attribute.
 	 * @see #setPortType(QName)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface_PortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTNotificationInterface_PortType()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.QName" required="true"
 	 *        extendedMetaData="kind='attribute' name='portType'"
 	 * @generated
@@ -71,7 +71,7 @@ public interface TNotificationInterface extends TExtensibleElements {
 	QName getPortType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Port Type</em>' attribute.

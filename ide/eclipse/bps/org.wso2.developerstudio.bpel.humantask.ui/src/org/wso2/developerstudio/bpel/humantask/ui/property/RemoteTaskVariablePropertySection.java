@@ -78,17 +78,17 @@ public class RemoteTaskVariablePropertySection extends BPELPropertySection{
 		return (PeopleActivityRT)getInput();
 	}
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[] {
 			/* model object */
 			new BatchedMultiObjectAdapter() {
 				
-				@Override
+				
 				public void notify (Notification n) {
 				}
 				
-				@Override
+				
 				public void finish() {
 					updateVariableWidgets();
 				}
@@ -105,11 +105,11 @@ public class RemoteTaskVariablePropertySection extends BPELPropertySection{
 			super(target, newVariable);
 		}
 
-		@Override
+		
 		public Object get() {
 			return ((PeopleActivityRT)fTarget).getInputVariable();
 		}
-		@Override
+		
 		public void set(Object o) {
 			((PeopleActivityRT)fTarget).setInputVariable((Variable)o);
 		}
@@ -123,18 +123,18 @@ public class RemoteTaskVariablePropertySection extends BPELPropertySection{
 			super(target, newVariable);
 		}
 
-		@Override
+		
 		public Object get() {
 			return ((PeopleActivityRT)fTarget).getOutputVariable();
 		}
-		@Override
+		
 		public void set(Object o) {
 			((PeopleActivityRT)fTarget).setOutputVariable((Variable)o);
 		}
 	}
 	
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		fisSkipableFeature = ModelPackage.eINSTANCE.getPeopleActivityRT_IsSkipable();
 		fdontShareCommentsFeature =ModelPackage.eINSTANCE.getPeopleActivityRT_DontShareComments();
@@ -298,7 +298,7 @@ public class RemoteTaskVariablePropertySection extends BPELPropertySection{
 		}
 	}
 	
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 		if ( newInput instanceof PeopleActivityRT) {
 			super.basicSetInput(newInput);

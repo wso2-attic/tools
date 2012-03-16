@@ -123,7 +123,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.SYNAPSE_CONFIGURATION;
     }
@@ -166,7 +166,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
@@ -180,7 +180,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
@@ -197,7 +197,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
@@ -216,7 +216,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
@@ -234,7 +234,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
@@ -250,7 +250,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -261,7 +261,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

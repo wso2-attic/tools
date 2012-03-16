@@ -35,7 +35,7 @@ public class BPELDeployableArtifactAdapterFactory extends
 	/* (non-Javadoc)
 	 * @see org.eclipse.wst.server.core.model.ModuleArtifactAdapterDelegate#getModuleArtifact(java.lang.Object)
 	 */
-	@Override
+	
 	public IModuleArtifact getModuleArtifact(Object obj) {
 		return BPELDeployableArtifactUtil.getModuleObject(obj);
 	}

@@ -76,7 +76,7 @@ public class CreatePartnerLinkWizard extends Wizard {
 		fEditor = editor;
 	}
 
-	@Override
+	
 	public void addPages() {
 		fFirstPage = new CreatePartnerLinkTypeWizardNamePage("name.page"); //$NON-NLS-1$
 		fFirstPage.setTitle(Messages.CreatePartnerLinkWizard_2);
@@ -203,7 +203,7 @@ public class CreatePartnerLinkWizard extends Wizard {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.wizard.Wizard#performFinish()
 	 */
-	@Override
+	
 	public boolean performFinish() {
 	
 		fPartnerLinkType = createPLT();
@@ -225,7 +225,7 @@ public class CreatePartnerLinkWizard extends Wizard {
 		return true;
 	}
 
-	@Override
+	
 	public boolean canFinish() {		
 		return super.canFinish();
 	}

@@ -47,7 +47,7 @@ public class CompensationHandlerAdapter extends ContainerAdapter implements ILab
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getCompensationHandler_Activity());
 	}

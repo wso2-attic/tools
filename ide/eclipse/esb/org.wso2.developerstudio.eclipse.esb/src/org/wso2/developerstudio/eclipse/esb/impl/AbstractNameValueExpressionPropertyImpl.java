@@ -164,7 +164,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY;
     }
@@ -280,7 +280,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_EXPRESSION:
@@ -294,7 +294,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_NAME:
@@ -314,7 +314,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_NAME:
@@ -338,7 +338,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_NAME:
@@ -362,7 +362,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_NAME:
@@ -382,7 +382,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 

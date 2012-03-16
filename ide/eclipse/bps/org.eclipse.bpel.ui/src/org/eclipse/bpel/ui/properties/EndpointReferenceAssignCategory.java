@@ -54,12 +54,12 @@ public class EndpointReferenceAssignCategory extends AssignCategoryBase {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.IAssignCategory#getName()
 	 */
-	@Override
+	
 	public String getName() { 
 		return Messages.EndpointReferenceAssignCategory_Endpoint_Reference; 
 	} 
 
-	@Override
+	
 	protected void createClient2(Composite parent) {
 		// TODO: Delegate to the endpoint handler to create the widgets
 	}	
@@ -67,7 +67,7 @@ public class EndpointReferenceAssignCategory extends AssignCategoryBase {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.IAssignCategory#isCategoryForModel(org.eclipse.emf.ecore.EObject)
 	 */
-	@Override
+	
 	public boolean isCategoryForModel (EObject aModel) {
 		From from = BPELUtil.adapt(aModel, From.class);
 		return from != null && from.getServiceRef() != null;
@@ -75,7 +75,7 @@ public class EndpointReferenceAssignCategory extends AssignCategoryBase {
 	
 	
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected void load (IVirtualCopyRuleSide aModel) {
 		
 		// TODO: Delegate to the endpoint handler to populate the widgets
@@ -83,7 +83,7 @@ public class EndpointReferenceAssignCategory extends AssignCategoryBase {
 	}
 
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected void store (IVirtualCopyRuleSide aModel) {
 		From from = BPELUtil.adapt(aModel.getCopyRuleSide(), From.class); 			
 		

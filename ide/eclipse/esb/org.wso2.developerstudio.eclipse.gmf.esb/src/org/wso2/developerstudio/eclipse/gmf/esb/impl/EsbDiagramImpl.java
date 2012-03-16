@@ -78,7 +78,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_DIAGRAM;
 	}
@@ -153,7 +153,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ESB_DIAGRAM__SERVER:
@@ -168,7 +168,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ESB_DIAGRAM__SERVER:
@@ -185,7 +185,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ESB_DIAGRAM__SERVER:
@@ -204,7 +204,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_DIAGRAM__SERVER:
@@ -223,7 +223,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_DIAGRAM__SERVER:
@@ -239,7 +239,7 @@ public class EsbDiagramImpl extends EObjectImpl implements EsbDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

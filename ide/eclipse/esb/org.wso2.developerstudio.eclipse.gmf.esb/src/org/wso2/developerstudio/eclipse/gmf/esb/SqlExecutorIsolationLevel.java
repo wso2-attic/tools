@@ -313,7 +313,7 @@ public enum SqlExecutorIsolationLevel implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

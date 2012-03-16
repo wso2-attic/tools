@@ -158,7 +158,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 	 * 
 	 */
 	
-	@Override
+	
 	protected Control createContents(Composite parent) {
 		
 		Control control = super.createContents(parent);
@@ -173,7 +173,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 
 
 	
-	@Override
+	
 	protected void saveSettings () {
 		super.saveSettings();		
 		IDialogSettings settings = getDialogSettings();		
@@ -188,7 +188,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 	 * @param checked
 	 */
 	
-	@Override
+	
 	protected void buttonPressed (int id, boolean checked, boolean bRefresh) {
 		
 		int bits = 0;
@@ -240,7 +240,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 		}
 	}
 		
-	@Override
+	
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, 
 				BID_ADD_IMPORT,
@@ -249,7 +249,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 		super.createButtonsForButtonBar(parent);
 	}
 	
-	@Override
+	
 	protected void createBrowseFilterGroupButtons ( Group  group ) {
         
         // https://issues.jboss.org/browse/JBIDE-8045
@@ -274,7 +274,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 	
 	
 	
-	@Override
+	
 	protected List collectItemsFromImports() {
 		
 		List list = ModelHelper.getSchemas(modelObject,true);
@@ -287,7 +287,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 	}
 
 	// https://jira.jboss.org/browse/JBIDE-7107
-	@Override
+	
 	protected void updateOkState() {
 		super.updateOkState();
 		
@@ -306,7 +306,7 @@ public class TypeSelectorDialog extends BrowseSelectorDialog {
 		getOkButton().setEnabled(enabled);
 	}
 
-	@Override
+	
 	protected void okPressed() {
 		computeResult();
 		Object obj = getFirstResult();

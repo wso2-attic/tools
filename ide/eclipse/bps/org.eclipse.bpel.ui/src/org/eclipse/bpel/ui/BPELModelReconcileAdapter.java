@@ -67,7 +67,7 @@ class BPELModelReconcileAdapter extends ModelReconcileAdapter {
 		return processElement;
 	}
 
-	@Override
+	
 	protected void handleNodeChanged(Node node) {
 		if (node instanceof Element
 				&& !BPELConstants.ND_LITERAL.equals(node.getLocalName())) {
@@ -128,7 +128,7 @@ class BPELModelReconcileAdapter extends ModelReconcileAdapter {
 //			UpdateModelCommand cmd = new UpdateModelCommand(
 //					(EObject) modelObject, "Change text") {
 //				@SuppressWarnings("restriction")
-//				@Override
+//				
 //				public void doExecute() {
 					if (modelObject instanceof BPELExtensibleElement) {
 						((BPELExtensibleElement) modelObject)
@@ -157,7 +157,7 @@ class BPELModelReconcileAdapter extends ModelReconcileAdapter {
 		}
 	}
 
-	@Override
+	
 	public void modelDirtyStateChanged(IStructuredModel model, boolean isDirty) {
 		if (!isDirty) {
 			// cs : At this time (when a save occurs) it's a good opportunity
@@ -173,7 +173,7 @@ class BPELModelReconcileAdapter extends ModelReconcileAdapter {
 		}
 	}
 
-	@Override
+	
 	public void handleNotifyChange(INodeNotifier notifier, int eventType,
 			final Object feature, final Object oldValue, final Object newValue,
 			int index) {
@@ -203,7 +203,7 @@ class BPELModelReconcileAdapter extends ModelReconcileAdapter {
 //				UpdateModelCommand cmd = new UpdateModelCommand(modelObject,
 //						"Change text") {
 //					@SuppressWarnings("restriction")
-//					@Override
+//					
 //					public void doExecute() {
 						if (newValue == null) {
 							objectMap.remove(BPELUtils.getNSPrefixMapKey(attr

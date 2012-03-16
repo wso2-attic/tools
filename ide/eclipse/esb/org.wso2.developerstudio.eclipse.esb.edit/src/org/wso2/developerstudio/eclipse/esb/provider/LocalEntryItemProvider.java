@@ -62,7 +62,7 @@ public class LocalEntryItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		LocalEntry entry = (LocalEntry) object;
 		if (itemPropertyDescriptors != null) {
@@ -209,7 +209,7 @@ public class LocalEntryItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalEntry"));
     }
@@ -219,7 +219,7 @@ public class LocalEntryItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		LocalEntry entry = (LocalEntry) object;
 		return String.format("%s [%s]", entry.getEntryName(), getString("_UI_LocalEntry_qualifier"));
@@ -232,7 +232,7 @@ public class LocalEntryItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -255,7 +255,7 @@ public class LocalEntryItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

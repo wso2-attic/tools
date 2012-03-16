@@ -23,7 +23,7 @@ public class CollapsableScopeContainerFigure extends CollapsableContainerFigure 
 	/**
 	 * Override initializeBorder
 	 */
-	@Override
+	
 	protected void initializeBorder() {
 		this.border = new ScopeBorder(this, borderText, borderImage);
 	}

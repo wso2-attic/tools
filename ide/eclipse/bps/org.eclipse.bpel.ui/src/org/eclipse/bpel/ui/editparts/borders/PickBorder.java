@@ -21,7 +21,7 @@ public class PickBorder extends ContainerBorder {
 		super(parentFigure, image, labelText);
 	}
 	
-	@Override
+	
 	public Insets getInsets(IFigure figure) {
 		Insets ins = super.getInsets(figure);
 		if(horizontal){

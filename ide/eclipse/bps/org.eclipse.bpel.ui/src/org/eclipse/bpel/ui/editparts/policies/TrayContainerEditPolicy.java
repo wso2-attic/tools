@@ -26,7 +26,7 @@ import org.eclipse.gef.requests.CreateRequest;
  */
 public class TrayContainerEditPolicy extends ContainerEditPolicy {
 
-	@Override
+	
 	protected Command getCreateCommand(CreateRequest request) {
 		CompoundCommand command = new CompoundCommand();
 		EditPart host = getHost();

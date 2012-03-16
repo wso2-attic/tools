@@ -52,7 +52,7 @@ public class ScopeImplSection extends BPELPropertySection {
 		 fIsolatedButton.setLayoutData(data);
 	}
 
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite composite = parentComposite = fWidgetFactory.createComposite(parent, SWT.NONE);
 		FlatFormLayout layout = new FlatFormLayout();
@@ -68,7 +68,7 @@ public class ScopeImplSection extends BPELPropertySection {
 	
 	
 
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 		super.basicSetInput(newInput);
 		
@@ -78,7 +78,7 @@ public class ScopeImplSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return null;
 	}
@@ -86,7 +86,7 @@ public class ScopeImplSection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext (Object userContext) {
 		fIsolatedButton.setFocus();
 	}

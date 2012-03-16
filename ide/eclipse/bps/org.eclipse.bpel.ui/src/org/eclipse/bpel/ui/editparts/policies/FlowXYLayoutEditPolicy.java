@@ -25,7 +25,7 @@ import org.eclipse.gef.requests.CreateRequest;
  */
 public class FlowXYLayoutEditPolicy extends BPELXYLayoutEditPolicy {
 
-	@Override
+	
 	protected Command getCreateCommand(CreateRequest request) {
 		CompoundCommand command = new CompoundCommand();
 		final Activity child = (Activity)request.getNewObject();

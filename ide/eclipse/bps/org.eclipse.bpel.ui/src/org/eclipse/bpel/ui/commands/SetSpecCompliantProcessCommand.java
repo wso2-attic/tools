@@ -25,11 +25,11 @@ public class SetSpecCompliantProcessCommand extends SetCommand {
 		super(target, Boolean.valueOf( specCompliant ));
 	}
 
-	@Override
+	
 	public Object get() {
 		return Boolean.valueOf(((ProcessExtension)fTarget).isSpecCompliant());
 	}
-	@Override
+	
 	public void set(Object o) {
 		((ProcessExtension)fTarget).setSpecCompliant(((Boolean)o).booleanValue());
 	}

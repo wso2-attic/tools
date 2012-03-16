@@ -33,7 +33,7 @@ public class OnEventAdapter extends ContainerAdapter implements ILabeledElement,
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getOnEvent_Activity());
 	}

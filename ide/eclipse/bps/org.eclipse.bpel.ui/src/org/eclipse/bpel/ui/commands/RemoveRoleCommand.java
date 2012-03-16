@@ -25,7 +25,7 @@ public class RemoveRoleCommand extends RemoveFromListCommand {
 		super(target, oldRole, IBPELUIConstants.CMD_DELETE_ROLE);
 	}
 
-	@Override
+	
 	protected EList<Role> getList() {
 		return ((PartnerLinkType)target).getRole();
 	}

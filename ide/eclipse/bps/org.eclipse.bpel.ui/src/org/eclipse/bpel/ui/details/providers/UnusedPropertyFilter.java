@@ -27,7 +27,7 @@ public class UnusedPropertyFilter extends ViewerFilter {
 		this.keepAllOfThese = keepAllOfThese;
 	}
 	
-	@Override
+	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if (keepAllOfThese != null && keepAllOfThese.contains(element))  return true;
 		if (rejectCandidates != null && rejectCandidates.contains(element))  return false;

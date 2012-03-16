@@ -66,7 +66,7 @@ public class ManhattanConnectionRouterEx extends AbstractRouter {
 	/**
 	 * @see ConnectionRouter#invalidate(Connection)
 	 */
-	@Override
+	
 	public void invalidate(Connection connection) {
 		removeReservedLines(connection);
 	}
@@ -262,7 +262,7 @@ public class ManhattanConnectionRouterEx extends AbstractRouter {
 	/**
 	 * @see ConnectionRouter#remove(Connection)
 	 */
-	@Override
+	
 	public void remove(Connection connection) {
 		removeReservedLines(connection);
 	}

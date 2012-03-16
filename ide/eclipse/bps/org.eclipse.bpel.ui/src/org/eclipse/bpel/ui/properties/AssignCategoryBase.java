@@ -100,7 +100,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#dispose()
 	 */
-	@Override
+	
 	public void dispose() {		
 		super.dispose();
 	}
@@ -110,7 +110,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	 * than from the category itself).  On undo, the ownerSection will delegate
 	 * to the category's methods. 
 	 */
-		@Override
+		
 	protected Command wrapInShowContextCommand (Command inner) {
 		return super.wrapInShowContextCommand(inner, fOwnerSection);
 	}
@@ -119,18 +119,18 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 		return true;
 	}
 
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {		
 		return new BatchedMultiObjectAdapter[] {			
 
 			new BatchedMultiObjectAdapter() {
 				boolean bUpdate = false;
-				@Override
+				
 				public void notify (Notification n) {
 					bUpdate = isToOrFromAffected(n) ;
 				}
 
-				@Override
+				
 				public void finish() {
 					if (bUpdate) {
 						updateCategoryWidgets();
@@ -155,7 +155,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
-	@Override
+	
 	public void createControls (Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		// hack - we have to do this in order to get the command framework before calling super.createControls
 		ICommandFramework commandFramework = ((BPELTabbedPropertySheetPage)aTabbedPropertySheetPage).getEditor().getCommandFramework();
@@ -178,7 +178,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	}
 
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected void basicSetInput (EObject newInput) {		
 		fCopyRuleSide = BPELUtil.adapt(newInput, IVirtualCopyRuleSide.class);			
 		super.basicSetInput(newInput);			
@@ -203,7 +203,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	@SuppressWarnings("nls")
 	public Command newStoreModelCommand()  {		
 		return new UpdateModelCommand(fCopyRuleSide.getCopyRuleSide(),"Modify ..!") {
-			@Override
+			
 			public void doExecute() {
 				store ( fCopyRuleSide );
 			}			
@@ -214,7 +214,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 		return true; 
 	}
 
-	@Override
+	
 	protected final void createClient(Composite parent) {
 		// ugly HACK to make subclasses work
 		FlatFormLayout layout = new FlatFormLayout();
@@ -250,7 +250,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#refresh()
 	 */
-	@Override
+	
 	public void refresh() {
 		super.refresh();
 		updateCategoryWidgets();
@@ -260,7 +260,7 @@ public abstract class AssignCategoryBase extends BPELPropertySection implements 
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#aboutToBeHidden()
 	 */
-	@Override
+	
 	public void aboutToBeHidden() {
 		if (isCreated) {
 			// hack!

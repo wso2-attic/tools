@@ -152,7 +152,7 @@ public class WSDLCustomPage extends WizardPage {
 	// https://bugs.eclipse.org/bugs/show_bug.cgi?id=330813
 	// https://jira.jboss.org/browse/JBIDE-7165
 	// show or hide additional WSDL parameters depending on whether the template is the "Empty"
-	@Override
+	
 	public void setVisible(boolean visible) {
 		// TODO Auto-generated method stub
 		super.setVisible(visible);

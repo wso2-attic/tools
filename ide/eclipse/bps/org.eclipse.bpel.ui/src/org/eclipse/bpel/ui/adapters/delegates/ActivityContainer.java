@@ -42,7 +42,7 @@ public class ActivityContainer extends ReferenceContainer {
 	/**
 	 * @see org.eclipse.bpel.ui.adapters.delegates.ReferenceContainer#addChild(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 */
-	@Override
+	
 	public boolean addChild (EObject object, EObject newChild, EObject insertBefore) {
 		
 		Object currentChild = getSingleChild (object);		
@@ -113,7 +113,7 @@ public class ActivityContainer extends ReferenceContainer {
 	 * @return if we can add this object
 	 * @see org.eclipse.bpel.ui.adapters.IContainer#canAddObject(java.lang.Object, java.lang.Object, java.lang.Object)
 	 */
-	@Override
+	
 	public boolean canAddObject (EObject object, EObject child, EObject insertBefore) {		
 		return child != null && child instanceof Activity;
 	}

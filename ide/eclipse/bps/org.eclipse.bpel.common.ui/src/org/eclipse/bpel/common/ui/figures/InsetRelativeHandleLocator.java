@@ -49,7 +49,7 @@ public class InsetRelativeHandleLocator extends RelativeHandleLocator {
 	/**
 	 * @see org.eclipse.draw2d.RelativeLocator#relocate(org.eclipse.draw2d.IFigure)
 	 */
-	@Override
+	
 	public void relocate(IFigure target) {
 
 		IFigure reference = getReferenceFigure();

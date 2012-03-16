@@ -36,7 +36,7 @@ public class SpringMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SPRING_MEDIATOR_INPUT_CONNECTOR;
 	}

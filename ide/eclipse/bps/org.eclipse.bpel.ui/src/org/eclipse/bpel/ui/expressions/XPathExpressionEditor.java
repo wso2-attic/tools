@@ -114,7 +114,7 @@ public class XPathExpressionEditor extends AbstractExpressionEditor {
 	/**
 	 * Create controls ..
 	 */
-	@Override
+	
 	public void createControls(Composite parent, BPELPropertySection aSection) {
 		super.createControls(parent, aSection);		
 		createEditor(parent);
@@ -385,7 +385,7 @@ public class XPathExpressionEditor extends AbstractExpressionEditor {
 	 * 
 	 */
 
-	@Override
+	
 	public void refresh() {
 
 		int editorType = combo.getSelectionIndex();
@@ -531,7 +531,7 @@ public class XPathExpressionEditor extends AbstractExpressionEditor {
 	 * 
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#getEditorContent()
 	 */
-	@Override
+	
 	public String getEditorContent() {
 
 		int editorType = combo.getSelectionIndex();
@@ -550,7 +550,7 @@ public class XPathExpressionEditor extends AbstractExpressionEditor {
 	/**
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#setEditorContent(java.lang.String)
 	 */
-	@Override
+	
 	public void setEditorContent (String body) {		
 		this.textEditorInput = new TextEditorInput(body, getModelObject(), getExprType() );
 		// Refresh the text editor input, if not set
@@ -641,7 +641,7 @@ public class XPathExpressionEditor extends AbstractExpressionEditor {
 	 * 
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#addExtraStoreCommands(org.eclipse.gef.commands.CompoundCommand)
 	 */	
-	@Override
+	
 	public void addExtraStoreCommands (CompoundCommand compoundCommand) {
 		
 		EObject eObj = (EObject) getModelObject();

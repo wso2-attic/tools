@@ -141,7 +141,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return MediatorsPackage.Literals.ENQUEUE_MEDIATOR;
     }
@@ -236,7 +236,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
@@ -250,7 +250,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
@@ -268,7 +268,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
@@ -289,7 +289,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
@@ -310,7 +310,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
@@ -328,7 +328,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -341,7 +341,7 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

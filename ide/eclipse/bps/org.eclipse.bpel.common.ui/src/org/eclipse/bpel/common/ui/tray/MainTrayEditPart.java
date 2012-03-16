@@ -66,7 +66,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 	}
 	
 	protected class MainTraySelectionEditPolicy extends TraySelectionEditPolicy {
-		@Override
+		
 		protected Handle createHandle(GraphicalEditPart owner) {
 			return new TraySelectionHandle(owner, mainTrayTitleFigure);
 		}
@@ -78,7 +78,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 	public class MainTrayContainerFigure extends TrayContainerFigure {
 
 		protected class MainTrayContainerFigureLayout extends AbstractLayout {
-			@Override
+			
 			protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
 				if (titleFigure == null || childrenScrollPane == null) return new Dimension(wHint, hHint);
 				Dimension titleSize = titleFigure.getPreferredSize(wHint, hHint);
@@ -102,7 +102,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 			/**
 			 * @see org.eclipse.draw2d.AbstractLayout#getMinimumSize(org.eclipse.draw2d.IFigure, int, int)
 			 */
-			@Override
+			
 			public Dimension getMinimumSize(IFigure container, int wHint, int hHint) {
 				Dimension result = getPreferredSize(container, wHint, hHint);
 				result.width = 80; // magic number
@@ -123,7 +123,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 		/**
 		 * @see org.eclipse.bpel.common.ui.tray.TrayContainerEditPart.TrayContainerFigure#setChildrenFigure(org.eclipse.draw2d.IFigure)
 		 */
-		@Override
+		
 		public void setChildrenFigure(IFigure target) {
 			if (childrenScrollPane == null) {
 				childrenScrollPane = createScrollpane();
@@ -163,7 +163,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 		super();
 	}
 
-	@Override
+	
 	protected IFigure createTitleFigure() {
 		mainTrayTitleFigure = new MainTrayTitleFigure();
 		mainTrayTitleFigure.add(new ImageFigure(getLabelProvider().getImage(getModel())));
@@ -177,19 +177,19 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 		return new TrayMarkerDecorator((EObject)getModel(), new ToolbarLayout()); 
 	}
 	
-	@Override
+	
 	protected TrayContainerFigure createMainFigure() {
 		return new MainTrayContainerFigure();
 	}
 	
-	@Override
+	
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		nameLabel.setText(getLabelProvider().getText(getModel()));
 		decorator.refresh();
 	}
 
-	@Override
+	
 	protected void createEditPolicies() {
 		// Show selection handles
 		MainTraySelectionEditPolicy selectionEditPolicy = new MainTraySelectionEditPolicy();
@@ -200,7 +200,7 @@ public class MainTrayEditPart extends TrayContainerEditPart {
 	/**
 	 * @see org.eclipse.bpel.common.ui.tray.TrayEditPart#getDirectEditLabel()
 	 */
-	@Override
+	
 	public Label getDirectEditLabel() {
 		return nameLabel;
 	}

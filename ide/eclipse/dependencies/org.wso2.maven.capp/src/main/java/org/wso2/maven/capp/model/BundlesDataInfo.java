@@ -31,7 +31,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.maven.plugin.MojoExecutionException;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.maven.core.model.AbstractXMLDoc;
 
 public class BundlesDataInfo extends AbstractXMLDoc {

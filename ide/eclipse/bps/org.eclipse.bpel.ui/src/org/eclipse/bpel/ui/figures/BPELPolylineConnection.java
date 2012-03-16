@@ -44,7 +44,7 @@ public class BPELPolylineConnection extends PolylineConnection {
 		setLineWidth(12);
 	}
 	
-	@Override
+	
 	protected void outlineShape(Graphics g) {
 		PointList list = getPoints();
 		int size = list.size();

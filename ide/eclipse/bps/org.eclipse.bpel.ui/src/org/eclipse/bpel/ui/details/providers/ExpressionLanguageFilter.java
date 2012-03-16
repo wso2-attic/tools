@@ -30,7 +30,7 @@ public class ExpressionLanguageFilter extends ViewerFilter {
 		this.exclude = exclude;
 	}
 
-	@Override
+	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if (element instanceof ExpressionEditorDescriptor) {
 			ExpressionEditorDescriptor descriptor = (ExpressionEditorDescriptor)element;

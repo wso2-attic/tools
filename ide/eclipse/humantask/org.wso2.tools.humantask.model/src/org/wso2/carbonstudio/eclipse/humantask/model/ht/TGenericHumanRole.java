@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -15,11 +15,11 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTGenericHumanRole()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTGenericHumanRole()
  * @model extendedMetaData="name='tGenericHumanRole' kind='elementOnly'"
  * @generated
  */
@@ -34,7 +34,7 @@ public interface TGenericHumanRole extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' containment reference.
 	 * @see #setFrom(TFrom)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTGenericHumanRole_From()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTGenericHumanRole_From()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='from' namespace='##targetNamespace'"
 	 * @generated
@@ -42,7 +42,7 @@ public interface TGenericHumanRole extends TExtensibleElements {
 	TFrom getFrom();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>From</em>' containment reference.

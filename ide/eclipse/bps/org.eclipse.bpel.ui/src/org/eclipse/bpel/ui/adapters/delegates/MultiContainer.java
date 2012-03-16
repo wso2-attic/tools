@@ -60,7 +60,7 @@ public class MultiContainer extends AbstractContainer {
 		return null;
 	}
 	
-	@Override
+	
 	protected final boolean isValidChild(EObject object, EObject child) {
 		return getSubContainer(object, child) != null;
 	}
@@ -165,7 +165,7 @@ public class MultiContainer extends AbstractContainer {
 	 * @see org.eclipse.bpel.ui.adapters.delegates.AbstractContainer#canAddObject(java.lang.Object, java.lang.Object, java.lang.Object)
 	 */
 	
-	@Override
+	
 	public boolean canAddObject (EObject object, EObject child, EObject insertBefore) {
 		AbstractContainer ac = getSubContainer(object, child);
 		return (ac == null)? false : ac.canAddObject(object, child, insertBefore);

@@ -64,7 +64,7 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case MediatorsPackage.IN_MEDIATOR: return createInMediator();
@@ -165,7 +165,7 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
             case MediatorsPackage.LOG_CATEGORY:
@@ -298,7 +298,7 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
             case MediatorsPackage.LOG_CATEGORY:

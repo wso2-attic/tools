@@ -286,7 +286,7 @@ public enum EndPointMessageFormat implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

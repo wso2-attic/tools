@@ -24,7 +24,7 @@ public class SwapCopyCommand extends SwapInListCommand {
 				IBPELUIConstants.CMD_SWAP_COPY);
 	}
 
-	@Override
+	
 	protected EList<Copy> getList() {
 		return ((Assign) target).getCopy();
 	}

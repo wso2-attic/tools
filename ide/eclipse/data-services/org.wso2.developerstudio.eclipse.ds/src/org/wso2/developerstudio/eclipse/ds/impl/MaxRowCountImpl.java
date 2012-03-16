@@ -64,7 +64,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.MAX_ROW_COUNT;
 	}
@@ -95,7 +95,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
@@ -109,7 +109,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
@@ -124,7 +124,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
@@ -139,7 +139,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.MAX_ROW_COUNT__VALUE:
@@ -153,7 +153,7 @@ public class MaxRowCountImpl extends EObjectImpl implements MaxRowCount {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

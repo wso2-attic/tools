@@ -30,7 +30,7 @@ public class DeletePropertyCommand extends DeleteWSDLExtensibilityElementCommand
 	/**
 	 * @see org.eclipse.bpel.ui.commands.DeleteWSDLExtensibilityElementCommand#getDefaultLabel()
 	 */
-	@Override
+	
 	public String getDefaultLabel() { 
 		return IBPELUIConstants.CMD_DELETE_PROPERTY; 
 	}
@@ -45,7 +45,7 @@ public class DeletePropertyCommand extends DeleteWSDLExtensibilityElementCommand
 	/**
 	 * @see org.eclipse.bpel.ui.commands.DeleteWSDLExtensibilityElementCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		deleteAliasesCmd = new CompoundCommand();
 		

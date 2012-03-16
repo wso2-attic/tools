@@ -61,7 +61,7 @@ public class BPELMultiPageEditorActionBarContributor extends
 	 * AbstractMultiPageEditorActionBarContributor.
 	 */
 
-	@Override
+	
 	public void setActivePage(IEditorPart part) {
 		if (activeEditorPart == part)
 			return;

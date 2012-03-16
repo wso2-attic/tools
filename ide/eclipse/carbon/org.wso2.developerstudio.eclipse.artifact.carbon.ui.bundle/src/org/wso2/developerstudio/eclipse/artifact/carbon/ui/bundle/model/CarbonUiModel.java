@@ -29,7 +29,7 @@ public class CarbonUiModel extends ProjectDataModel {
     private String  activatorClassName="Activator";
     private String deployPath ="web/customui";
     
-	@Override
+	
 	public Object getModelPropertyValue(String key) {
 	  Object modelPropertyValue = super.getModelPropertyValue(key);
 	  if((modelPropertyValue == null)&&("uibundle.id".equals(key))){
@@ -57,7 +57,7 @@ public class CarbonUiModel extends ProjectDataModel {
 	  return modelPropertyValue;
 	}
 	
-	@Override
+	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean isUiControlUpdated = super.setModelPropertyValue(key, data);
 		if ("uibundle.id".equals(key)) {

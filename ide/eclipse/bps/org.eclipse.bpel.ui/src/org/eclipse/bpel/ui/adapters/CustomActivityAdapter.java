@@ -19,7 +19,7 @@ public class CustomActivityAdapter extends ActivityAdapter {
 
 	/* INamedElement */
 
-	@Override
+	
 	public String getName(Object object) {
 		if (!(object instanceof Invoke) && object instanceof EObject) {
 			object = ((EObject)object).eContainer();
@@ -27,7 +27,7 @@ public class CustomActivityAdapter extends ActivityAdapter {
 		return super.getName(object);
 	}
 
-	@Override
+	
 	public void setName(Object object, String name) {
 		if (!(object instanceof Invoke) && object instanceof EObject) {
 			object = ((EObject)object).eContainer();
@@ -35,7 +35,7 @@ public class CustomActivityAdapter extends ActivityAdapter {
 		super.setName(object, name);
 	}
 
-	@Override
+	
 	public boolean isNameAffected(Object object, Notification n) {
 		if (!(object instanceof Invoke) && object instanceof EObject) {
 			object = ((EObject)object).eContainer();

@@ -60,7 +60,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
@@ -77,7 +77,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in
 	 * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
 		if (childrenFeatures != null) {
@@ -94,7 +94,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -106,7 +106,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_MediatorBranch_type");
 	}
@@ -118,7 +118,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -135,7 +135,7 @@ public class MediatorBranchItemProvider extends ModelObjectItemProvider
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);

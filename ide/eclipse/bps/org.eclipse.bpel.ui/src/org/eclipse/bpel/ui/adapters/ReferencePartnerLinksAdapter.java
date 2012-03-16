@@ -40,12 +40,12 @@ public class ReferencePartnerLinksAdapter extends ContainerAdapter implements Ed
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new IndirectContainer(BPELPackage.eINSTANCE.getProcess_Activity(), // bogus feature 
 			new ReferenceContainer(BPELPackage.eINSTANCE.getPartnerLinks_Children()))
 		{
-			@Override
+			
 			protected EObject getTarget(Object object) {
 				return ((ReferencePartnerLinks)object).getPartnerLinks();
 			}
@@ -91,7 +91,7 @@ public class ReferencePartnerLinksAdapter extends ContainerAdapter implements Ed
 	
 	public EditPart createOutlineEditPart(EditPart context, final Object model) {
 		EditPart result = new OutlineTreeEditPart() {
-			@Override
+			
 			protected List getModelChildren() {
 				List list = new ArrayList();
 				for (Iterator iter = ((ReferencePartnerLinks)model).getPartnerLinks().getChildren().iterator(); iter.hasNext();) {
@@ -102,7 +102,7 @@ public class ReferencePartnerLinksAdapter extends ContainerAdapter implements Ed
 				}
 				return list;
 			}
-			@Override
+			
 			protected void addAllAdapters() {
 				PartnerLinks partnerLinks = ((ReferencePartnerLinks)getModel()).getPartnerLinks();
 				adapter.addToObject(partnerLinks);

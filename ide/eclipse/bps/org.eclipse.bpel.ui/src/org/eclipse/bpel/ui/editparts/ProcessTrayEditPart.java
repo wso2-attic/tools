@@ -68,11 +68,11 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 	 * @see org.eclipse.bpel.common.ui.tray.TrayCategoryEntryEditPart#createEditPartMarkerDecorator()
 	 */
 	
-	@Override
+	
 	protected EditPartMarkerDecorator createEditPartMarkerDecorator() {
 
 		return new TrayMarkerDecorator((EObject)getModel(), new ToolbarLayout()) {
-			@Override
+			
 			protected IMarker[] getMarkers () {
 				
 				IMarkerHolder holder = BPELUtil.adapt(modelObject, IMarkerHolder.class);
@@ -87,7 +87,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 		
 	}
 	
-	@Override
+	
 	protected void createEditPolicies() {
 		super.createEditPolicies();
 		// The DIRECT_EDIT_ROLE policy determines how in-place editing takes place.
@@ -139,7 +139,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 		return fMouseMotionListener;
 	}
 	
-	@Override
+	
 	
 	protected IFigure createFigure() {
 		IFigure fig =  super.createFigure();
@@ -148,7 +148,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 	}
 	
 	
-	@Override
+	
 	protected List<?> getModelChildren() {
 		
 		//Process process = getProcess();
@@ -273,7 +273,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 	/**
 	 * @see org.eclipse.bpel.common.ui.tray.TrayEditPart#activate()
 	 */
-	@Override
+	
 	public void activate() {
 		super.activate();
 		BPELEditor editor = ModelHelper.getBPELEditor(getProcess());
@@ -284,7 +284,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 	/**
 	 * @see org.eclipse.bpel.common.ui.tray.TrayEditPart#deactivate()
 	 */
-	@Override
+	
 	public void deactivate() {
 		super.deactivate();
 		// There is a chance that by the time we deactivate, we can't find the editor anymore.
@@ -333,7 +333,7 @@ public class ProcessTrayEditPart extends MainTrayEditPart implements IHoverHelpe
 	}
 
 	
-	@Override
+	
 	protected AccessibleEditPart createAccessible() {
 		return new BPELTrayAccessibleEditPart(this);
 	}

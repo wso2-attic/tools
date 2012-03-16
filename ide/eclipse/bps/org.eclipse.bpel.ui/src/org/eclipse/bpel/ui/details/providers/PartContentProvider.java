@@ -21,7 +21,7 @@ import org.eclipse.wst.wsdl.Message;
  */
 public class PartContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		if (input instanceof Message) {
 			Message msg = (Message) input;

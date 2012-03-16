@@ -34,19 +34,19 @@ public class ComboViewerCellEditor extends ComboBoxCellEditor {
 		super(parent, new String[0]);
 	}
 
-	@Override
+	
 	protected Object doGetValue() {
 		return ((IStructuredSelection)viewer.getSelection()).getFirstElement();
 	}
 
-	@Override
+	
 	protected void doSetValue(Object value) {
 		viewer.refresh();
 		String s = ((ILabelProvider)viewer.getLabelProvider()).getText(value);
 		viewer.getCCombo().setText(s);
 	}
 
-	@Override
+	
 	protected Control createControl(Composite parent) {
 		CCombo combo = (CCombo)super.createControl(parent);
 		viewer = new CComboViewer(combo);

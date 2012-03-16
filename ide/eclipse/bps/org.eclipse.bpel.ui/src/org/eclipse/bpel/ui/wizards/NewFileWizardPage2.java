@@ -118,7 +118,7 @@ public class NewFileWizardPage2 extends WizardPage {
 		this.processName = processName;
 	}
 
-	@Override
+	
 	public boolean isPageComplete() {
 		
 		IContainer container = getResourceContainer();

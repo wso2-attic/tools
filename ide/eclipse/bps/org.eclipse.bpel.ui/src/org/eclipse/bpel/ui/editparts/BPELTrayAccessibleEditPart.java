@@ -23,7 +23,7 @@ public class BPELTrayAccessibleEditPart extends TrayAccessibleEditPart {
 		super(part);
 	}
 
-	@Override
+	
 	public void getName(AccessibleEvent e) {
 		String childType = null;
 		String displayName = null;

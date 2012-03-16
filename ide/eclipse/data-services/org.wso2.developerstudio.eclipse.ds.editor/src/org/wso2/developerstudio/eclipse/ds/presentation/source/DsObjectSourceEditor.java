@@ -63,7 +63,7 @@ public class DsObjectSourceEditor{
         this.tempfile = getTemporaryFile();
         this.listner = new IDocumentListener() {
 			
-			@Override
+			
 			public void documentChanged(DocumentEvent event) {
 				
 				if(!(dseditor.getActivePage() == DsEditor.getDesignViewIndex())){
@@ -74,7 +74,7 @@ public class DsObjectSourceEditor{
             	handleSourceEditedEvent(false);
 			}
 			
-			@Override
+			
 			public void documentAboutToBeChanged(DocumentEvent event) {
 				//do nothing
 				

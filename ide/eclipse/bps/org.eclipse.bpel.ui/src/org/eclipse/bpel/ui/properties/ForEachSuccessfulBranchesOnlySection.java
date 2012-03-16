@@ -37,7 +37,7 @@ public class ForEachSuccessfulBranchesOnlySection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#refresh()
 	 */
-	@Override
+	
 	public void refresh() {
 		super.refresh();
 				
@@ -47,7 +47,7 @@ public class ForEachSuccessfulBranchesOnlySection extends BPELPropertySection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		updateSuccessfulBranchesOnlyWidgets();
 		fSuccessfulBranchesOnlyCheckbox.setFocus();
@@ -120,7 +120,7 @@ public class ForEachSuccessfulBranchesOnlySection extends BPELPropertySection {
 	 * Subclasses may override.
 	 */
 	
-	@Override
+	
 	protected void addAllAdapters() {
 		
 		super.addAllAdapters();
@@ -139,11 +139,11 @@ public class ForEachSuccessfulBranchesOnlySection extends BPELPropertySection {
 	}
 
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[] { new MultiObjectAdapter() {
 
-			@Override
+			
 			public void notify(Notification n) {
 				if (n.getFeature() == BPELPackage.eINSTANCE.getBranches_CountCompletedBranchesOnly() ||
 					n.getFeature() == BPELPackage.eINSTANCE.getCompletionCondition_Branches() ||
@@ -157,7 +157,7 @@ public class ForEachSuccessfulBranchesOnlySection extends BPELPropertySection {
 	}
 
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite parentComposite = createFlatFormComposite(parent);
 		createSuccessfulBranchesOnlyWidgets(parentComposite);

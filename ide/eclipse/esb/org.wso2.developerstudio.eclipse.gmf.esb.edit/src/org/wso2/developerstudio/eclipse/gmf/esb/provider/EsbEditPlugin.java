@@ -52,7 +52,7 @@ public final class EsbEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}

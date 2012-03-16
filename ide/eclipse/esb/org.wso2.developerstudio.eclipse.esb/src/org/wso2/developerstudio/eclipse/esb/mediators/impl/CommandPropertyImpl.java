@@ -282,7 +282,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.COMMAND_PROPERTY;
     }
@@ -461,7 +461,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH:
@@ -475,7 +475,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -501,7 +501,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -534,7 +534,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -567,7 +567,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -593,7 +593,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -614,7 +614,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

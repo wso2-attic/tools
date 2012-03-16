@@ -259,7 +259,7 @@ public class EditPartMarkerDecorator {
 		    } else {
 				figureLayout = new AlignedFlowLayout() {
 					
-					@Override
+					
 					protected void setBoundsOfChild(IFigure parent,	IFigure child,	Rectangle bounds) {
 						parent.getClientArea(Rectangle.SINGLETON);
 						bounds.translate(Rectangle.SINGLETON.x, Rectangle.SINGLETON.y);

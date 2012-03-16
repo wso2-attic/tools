@@ -21,15 +21,15 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-gadget-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.gs.jaggery.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.gs.jaggery.feature</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Carbon Studio Jaggery Editor</name>
+    <name>Developer Studio Jaggery Editor</name>
     <url>http://wso2.org</url>
     <description>This feature contains Jaggery Editor</description>
     <build>
@@ -49,7 +49,7 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gs.jaggery.editor:${jaggery.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gs.jaggery.editor:${jaggery.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

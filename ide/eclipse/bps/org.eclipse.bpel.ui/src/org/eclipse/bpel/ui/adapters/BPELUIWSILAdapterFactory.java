@@ -58,7 +58,7 @@ public class BPELUIWSILAdapterFactory extends InspectionAdapterFactory {
 	 * 
 	 * @see org.eclipse.bpel.wsil.model.inspection.util.InspectionAdapterFactory#createInspectionAdapter()
 	 */
-	@Override
+	
 	public Adapter createInspectionAdapter() {
 		return provider.getAdapter(WSILInspectionAdapter.class);
 	}
@@ -68,7 +68,7 @@ public class BPELUIWSILAdapterFactory extends InspectionAdapterFactory {
 	 * @see org.eclipse.bpel.wsil.model.inspection.util.InspectionAdapterFactory#createLinkAdapter()
 	 */
 	
-	@Override
+	
 	public Adapter createLinkAdapter() {	
 		return provider.getAdapter(WSILLinkAdapter.class);
 	}
@@ -77,7 +77,7 @@ public class BPELUIWSILAdapterFactory extends InspectionAdapterFactory {
 	 * 
 	 * @see org.eclipse.bpel.wsil.model.inspection.util.InspectionAdapterFactory#createServiceAdapter()
 	 */
-	@Override
+	
 	public Adapter createServiceAdapter() {
 		return provider.getAdapter(WSILServiceAdapter.class);
 	}
@@ -85,7 +85,7 @@ public class BPELUIWSILAdapterFactory extends InspectionAdapterFactory {
 	/**
 	 * @see org.eclipse.emf.common.notify.impl.AdapterFactoryImpl#adaptNew(org.eclipse.emf.common.notify.Notifier, java.lang.Object)
 	 */
-	@Override
+	
 	public Adapter adaptNew(Notifier target, Object type) {
 		Adapter adapter = createAdapter(target, type);
 		// Bugzilla 330519
@@ -99,7 +99,7 @@ public class BPELUIWSILAdapterFactory extends InspectionAdapterFactory {
 	}
 	
 
-	@Override
+	
 	protected Object resolve(Object object, Object type) {
 		return null;
 	}	

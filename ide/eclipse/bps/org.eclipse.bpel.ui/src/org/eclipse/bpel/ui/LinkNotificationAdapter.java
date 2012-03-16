@@ -44,7 +44,7 @@ class LinkNotificationAdapter extends MultiObjectAdapter {
 		this.bpelEditor = editor;
 	}
 
-	@Override
+	
 	public void notify(Notification n) {
 		if (bpelEditor.getGraphicalViewer() == null) return;
 		if (n.getNotifier() instanceof Links) {

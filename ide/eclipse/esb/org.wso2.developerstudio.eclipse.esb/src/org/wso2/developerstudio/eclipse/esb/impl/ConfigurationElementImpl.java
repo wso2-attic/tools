@@ -43,7 +43,7 @@ public abstract class ConfigurationElementImpl extends ModelObjectImpl implement
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.CONFIGURATION_ELEMENT;
     }

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAny <em>Any</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute <em>Any Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAny <em>Any</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral()
  * @model extendedMetaData="name='tLiteral' kind='mixed'"
  * @generated
  */
@@ -39,7 +39,7 @@ public interface TLiteral extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mixed</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_Mixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
 	 * @generated
@@ -56,7 +56,7 @@ public interface TLiteral extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_Any()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_Any()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='elementWildcard' wildcards='##any' name=':1' processing='lax'"
 	 * @generated
@@ -73,7 +73,7 @@ public interface TLiteral extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any Attribute</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_AnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLiteral_AnyAttribute()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='attributeWildcard' wildcards='##other' name=':2' processing='lax'"
 	 * @generated

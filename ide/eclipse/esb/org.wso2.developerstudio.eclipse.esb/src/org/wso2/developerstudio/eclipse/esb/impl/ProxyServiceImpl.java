@@ -475,7 +475,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_SERVICE;
     }
@@ -892,7 +892,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.PROXY_SERVICE__WSDL_CONFIGURATION:
@@ -918,7 +918,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.PROXY_SERVICE__NAME:
@@ -961,7 +961,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.PROXY_SERVICE__NAME:
@@ -1020,7 +1020,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_SERVICE__NAME:
@@ -1077,7 +1077,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.PROXY_SERVICE__NAME:
@@ -1119,7 +1119,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -1144,7 +1144,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -38,7 +38,7 @@ public class PartTreeNode extends TreeNode {
 
 	/* ITreeNode */
 
-	@Override
+	
 	public String getLabelSuffix() {
 		if (xsdType != null) {  
 			String label = xsdType.getLabel();
@@ -50,7 +50,7 @@ public class PartTreeNode extends TreeNode {
 		return null;
 	}
 
-	@Override
+	
 	public Object[] getChildren() {
 		if (xsdType != null && displayParticles)  
 			return xsdType.getChildren();
@@ -59,7 +59,7 @@ public class PartTreeNode extends TreeNode {
 		return EMPTY_ARRAY;
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		if (xsdType != null && displayParticles)  
 			return xsdType.hasChildren();
@@ -68,7 +68,7 @@ public class PartTreeNode extends TreeNode {
 		return false;
 	}
 
-	@Override
+	
 	public String getLabel() {
 		String label = super.getLabel();
 		return label;

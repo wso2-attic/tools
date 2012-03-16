@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.util;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.util;
 
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

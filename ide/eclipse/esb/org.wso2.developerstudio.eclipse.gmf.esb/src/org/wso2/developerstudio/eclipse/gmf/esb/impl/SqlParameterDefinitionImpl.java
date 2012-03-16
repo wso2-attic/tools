@@ -123,7 +123,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SQL_PARAMETER_DEFINITION;
 	}
@@ -240,7 +240,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SQL_PARAMETER_DEFINITION__VALUE_EXPRESSION:
@@ -255,7 +255,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SQL_PARAMETER_DEFINITION__DATA_TYPE:
@@ -276,7 +276,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SQL_PARAMETER_DEFINITION__DATA_TYPE:
@@ -301,7 +301,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SQL_PARAMETER_DEFINITION__DATA_TYPE:
@@ -326,7 +326,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SQL_PARAMETER_DEFINITION__DATA_TYPE:
@@ -347,7 +347,7 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

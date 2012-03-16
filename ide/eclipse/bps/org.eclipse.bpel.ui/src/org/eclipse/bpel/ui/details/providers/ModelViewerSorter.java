@@ -27,7 +27,7 @@ public class ModelViewerSorter extends ViewerSorter {
 
 	public static ModelViewerSorter getInstance() { return instance; }  
 	
-	@Override
+	
 	public int compare(Viewer viewer, Object e1, Object e2) {
 		if (e1 == null && e2 != null) return -1;
 		if (e1 != null && e2 == null) return +1;

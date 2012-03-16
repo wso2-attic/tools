@@ -44,7 +44,7 @@ public class InsertNewAction extends SelectionAction {
 	protected BPELExtensibleElement fSelection;
 	protected EObject fContainer;
 	
-	@Override
+	
 	protected void init() {
 		super.init();
 		setEnabled(false);
@@ -114,7 +114,7 @@ public class InsertNewAction extends SelectionAction {
 	
 	
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 			
 		List<?> objects = getSelectedObjects();
@@ -162,7 +162,7 @@ public class InsertNewAction extends SelectionAction {
 	/**
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
-	@Override
+	
 	public void run() {
 		execute( getCreateCommand() );
 	}

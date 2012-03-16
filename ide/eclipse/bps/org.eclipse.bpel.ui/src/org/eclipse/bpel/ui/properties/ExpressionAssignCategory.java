@@ -67,7 +67,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
-	@Override
+	
 	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {		
 		super.createControls(parent, aTabbedPropertySheetPage);
 		fParent = parent;
@@ -97,12 +97,12 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	}
 
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		MultiObjectAdapter adapter = new BatchedMultiObjectAdapter() {
 			boolean needRefresh = false;
 			boolean toOrFromAffected = false;
-			@Override
+			
 			public void notify(Notification n) {
 				needRefresh = isBodyAffected(n);
 				
@@ -112,7 +112,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 				}
 				refreshAdapters();
 			}
-			@Override
+			
 			public void finish() {
 				if (needRefresh || toOrFromAffected) {
 					updateWidgets();
@@ -137,7 +137,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	 * to the category's methods. 
 	 */
 	
-	@Override
+	
 	protected Command wrapInShowContextCommand(Command inner) {
 		return super.wrapInShowContextCommand(inner, fOwnerSection);
 	}
@@ -162,7 +162,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	}
 
 	
-	@Override
+	
 	protected Command newStoreToModelCommand  (Object body) {
 		CompoundCommand result = new CompoundCommand();
 		// If there is no condition, create one.
@@ -181,7 +181,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	}
 
 	
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature(EObject object) {
 		if (object instanceof To) {
 			return BPELPackage.eINSTANCE.getTo_Expression();
@@ -211,7 +211,7 @@ public class ExpressionAssignCategory extends ExpressionSection implements IAssi
 	}
 	
 	
-	@Override
+	
 	protected final void createClient(Composite parent) {
 		// ugly HACK to make subclasses work
 		//FlatFormLayout layout = new FlatFormLayout();

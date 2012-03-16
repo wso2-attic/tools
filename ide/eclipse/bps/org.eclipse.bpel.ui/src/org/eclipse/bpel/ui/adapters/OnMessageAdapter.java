@@ -34,7 +34,7 @@ public class OnMessageAdapter extends ContainerAdapter implements ILabeledElemen
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getOnMessage_Activity());
 	}

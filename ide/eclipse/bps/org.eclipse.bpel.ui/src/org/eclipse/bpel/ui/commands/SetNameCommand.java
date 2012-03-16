@@ -29,18 +29,18 @@ public class SetNameCommand extends SetCommand {
 		super(target, newName);
 	}
 
-	@Override
+	
 	public boolean canDoExecute() {
 		if (BPELUtil.adapt(fTarget, INamedElement.class) == null) return false;
 		return super.canDoExecute();
 	}
 
-	@Override
+	
 	public Object get() {
 		INamedElement namedElement = BPELUtil.adapt(fTarget, INamedElement.class);
 		return namedElement.getName(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		INamedElement namedElement = BPELUtil.adapt(fTarget, INamedElement.class);
 		namedElement.setName(fTarget, (String)o);

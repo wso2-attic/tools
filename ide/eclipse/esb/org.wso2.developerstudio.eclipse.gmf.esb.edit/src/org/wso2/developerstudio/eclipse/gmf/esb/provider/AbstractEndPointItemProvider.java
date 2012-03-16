@@ -476,7 +476,7 @@ public class AbstractEndPointItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		String label = ((AbstractEndPoint)object).getEndPointName();
 		return label == null || label.length() == 0 ?
@@ -492,7 +492,7 @@ public class AbstractEndPointItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -525,7 +525,7 @@ public class AbstractEndPointItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}

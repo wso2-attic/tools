@@ -57,7 +57,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createRepeatUntilAdapter()
 	 */
-	@Override
+	
 	public Adapter createRepeatUntilAdapter() {
 		return fProvider.getAdapter(RepeatUntilAdapter.class);
 	}
@@ -65,7 +65,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createAssignAdapter()
 	 */
-	@Override
+	
 	public Adapter createAssignAdapter() {
 		return fProvider.getAdapter(AssignAdapter.class);
 	}
@@ -73,7 +73,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createAssignE4XAdapter()
 	 */
-	@Override
+	
 	public Adapter createAssignE4XAdapter() {
 		return fProvider.getAdapter(AssignE4XAdapter.class);
 	}
@@ -81,7 +81,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createExtensionAssignOperationAdapter()
 	 */
-	@Override
+	
 	public Adapter createExtensionAssignOperationAdapter() {
 		return fProvider.getAdapter(ExtensionAssignOperationAdapter.class);
 	}
@@ -89,7 +89,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createSnippetAdapter()
 	 */
-	@Override
+	
 	public Adapter createSnippetAdapter() {
 		return fProvider.getAdapter(SnippetAdapter.class);
 	}
@@ -99,7 +99,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	 * 
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCopyAdapter()
 	 */
-	@Override
+	
 	public Adapter createCopyAdapter() {
 		return fProvider.getAdapter(CopyAdapter.class);
 	}
@@ -107,7 +107,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createElseIfAdapter()
 	 */
-	@Override
+	
 	public Adapter createElseIfAdapter() {
 		return fProvider.getAdapter(ElseIfAdapter.class);
 	}
@@ -115,7 +115,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCatchAdapter()
 	 */
-	@Override
+	
 	public Adapter createCatchAdapter() {
 		return fProvider.getAdapter(CatchAdapter.class);
 	}
@@ -123,7 +123,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createFaultHandlerAdapter()
 	 */
-	@Override
+	
 	public Adapter createFaultHandlerAdapter() {
 		return fProvider.getAdapter(FaultHandlerAdapter.class);
 	}
@@ -131,7 +131,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCompensationHandlerAdapter()
 	 */
-	@Override
+	
 	public Adapter createCompensationHandlerAdapter() {
 		return fProvider.getAdapter(CompensationHandlerAdapter.class);
 	}
@@ -139,7 +139,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createTerminationHandlerAdapter()
 	 */
-	@Override
+	
 	public Adapter createTerminationHandlerAdapter() {
 		return fProvider.getAdapter(TerminationHandlerAdapter.class);
 	}
@@ -147,7 +147,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createEventHandlerAdapter()
 	 */
-	@Override
+	
 	public Adapter createEventHandlerAdapter() {
 		return fProvider.getAdapter(EventHandlerAdapter.class);
 	}
@@ -155,7 +155,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createVariableAdapter()
 	 */
-	@Override
+	
 	public Adapter createVariableAdapter() {
 		return fProvider.getAdapter(VariableAdapter.class);
 	}
@@ -163,7 +163,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createEmptyAdapter()
 	 */
-	@Override
+	
 	public Adapter createEmptyAdapter() {
 		return fProvider.getAdapter(EmptyAdapter.class);
 	}
@@ -171,7 +171,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createFlowAdapter()
 	 */
-	@Override
+	
 	public Adapter createFlowAdapter() {
 		return fProvider.getAdapter(FlowAdapter.class);
 	}
@@ -179,7 +179,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createInvokeAdapter()
 	 */
-	@Override
+	
 	public Adapter createInvokeAdapter() {
 		return fProvider.getAdapter(InvokeAdapter.class);
 	}
@@ -187,7 +187,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createLinkAdapter()
 	 */
-	@Override
+	
 	public Adapter createLinkAdapter() {
 		return fProvider.getAdapter(LinkAdapter.class);
 	}
@@ -195,7 +195,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createOnAlarmAdapter()
 	 */
-	@Override
+	
 	public Adapter createOnAlarmAdapter() {
 		return fProvider.getAdapter(OnAlarmAdapter.class);
 	}
@@ -203,7 +203,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createOnMessageAdapter()
 	 */
-	@Override
+	
 	public Adapter createOnMessageAdapter() {
 		return fProvider.getAdapter(OnMessageAdapter.class);
 	}
@@ -211,7 +211,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createOnEventAdapter()
 	 */
-	@Override
+	
 	public Adapter createOnEventAdapter() {
 		return fProvider.getAdapter(OnEventAdapter.class);
 	}
@@ -219,7 +219,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createPartnerLinkAdapter()
 	 */
-	@Override
+	
 	public Adapter createPartnerLinkAdapter() {
 		return fProvider.getAdapter(PartnerLinkAdapter.class);
 	}
@@ -227,7 +227,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createMessageExchangeAdapter()
 	 */
-	@Override
+	
 	public Adapter createMessageExchangeAdapter() {
 		return fProvider.getAdapter(MessageExchangeAdapter.class);
 	}
@@ -235,7 +235,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createPickAdapter()
 	 */
-	@Override
+	
 	public Adapter createPickAdapter() {
 		return fProvider.getAdapter(PickAdapter.class);
 	}
@@ -243,7 +243,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createProcessAdapter()
 	 */
-	@Override
+	
 	public Adapter createProcessAdapter() {
 		return fProvider.getAdapter(ProcessAdapter.class);
 	}
@@ -251,7 +251,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createIfAdapter()
 	 */
-	@Override
+	
 	public Adapter createIfAdapter() {
 		return fProvider.getAdapter(IfAdapter.class);
 	}
@@ -259,7 +259,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createReceiveAdapter()
 	 */
-	@Override
+	
 	public Adapter createReceiveAdapter() {
 		return fProvider.getAdapter(ReceiveAdapter.class);
 	}
@@ -267,7 +267,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createReplyAdapter()
 	 */
-	@Override
+	
 	public Adapter createReplyAdapter() {
 		return fProvider.getAdapter(ReplyAdapter.class);
 	}
@@ -275,7 +275,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createSequenceAdapter()
 	 */
-	@Override
+	
 	public Adapter createSequenceAdapter() {
 		return fProvider.getAdapter(SequenceAdapter.class);
 	}
@@ -283,7 +283,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createScopeAdapter()
 	 */
-	@Override
+	
 	public Adapter createScopeAdapter() {
 		return fProvider.getAdapter(ScopeAdapter.class);
 	}
@@ -291,7 +291,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createThrowAdapter()
 	 */
-	@Override
+	
 	public Adapter createThrowAdapter() {
 		return fProvider.getAdapter(ThrowAdapter.class);
 	}
@@ -299,7 +299,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createWaitAdapter()
 	 */
-	@Override
+	
 	public Adapter createWaitAdapter() {
 		return fProvider.getAdapter(WaitAdapter.class);
 	}
@@ -307,7 +307,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createWhileAdapter()
 	 */
-	@Override
+	
 	public Adapter createWhileAdapter() {
 		return fProvider.getAdapter(WhileAdapter.class);
 	}
@@ -315,7 +315,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createForEachAdapter()
 	 */
-	@Override
+	
 	public Adapter createForEachAdapter() {
 		return fProvider.getAdapter(ForEachAdapter.class);
 	}
@@ -323,7 +323,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCorrelationSetAdapter()
 	 */
-	@Override
+	
 	public Adapter createCorrelationSetAdapter() {
 		return fProvider.getAdapter(CorrelationSetAdapter.class);
 	}
@@ -331,7 +331,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCorrelationSetsAdapter()
 	 */
-	@Override
+	
 	public Adapter createMessageExchangesAdapter() {
 		return fProvider.getAdapter(MessageExchangesAdapter.class);
 	}
@@ -339,7 +339,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCorrelationSetsAdapter()
 	 */
-	@Override
+	
 	public Adapter createCorrelationSetsAdapter() {
 		return fProvider.getAdapter(CorrelationSetsAdapter.class);
 	}
@@ -347,7 +347,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createPartnerLinksAdapter()
 	 */
-	@Override
+	
 	public Adapter createPartnerLinksAdapter() {
 		return fProvider.getAdapter(PartnerLinksAdapter.class);
 	}
@@ -355,7 +355,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createVariablesAdapter()
 	 */
-	@Override
+	
 	public Adapter createVariablesAdapter() {
 		return fProvider.getAdapter(VariablesAdapter.class);
 	}
@@ -363,7 +363,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCatchAllAdapter()
 	 */
-	@Override
+	
 	public Adapter createCatchAllAdapter() {
 		return fProvider.getAdapter(CatchAllAdapter.class);
 	}
@@ -371,7 +371,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createElseAdapter()
 	 */
-	@Override
+	
 	public Adapter createElseAdapter() {
 		return fProvider.getAdapter(ElseAdapter.class);
 	}
@@ -379,7 +379,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCompensateAdapter()
 	 */
-	@Override
+	
 	public Adapter createCompensateAdapter() {
 		return fProvider.getAdapter(CompensateAdapter.class);
 	}
@@ -387,7 +387,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createCompensateScopeAdapter()
 	 */
-	@Override
+	
 	public Adapter createCompensateScopeAdapter() {
 		return fProvider.getAdapter(CompensateScopeAdapter.class);
 	}
@@ -403,7 +403,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createRethrowAdapter()
 	 */
-	@Override
+	
 	public Adapter createRethrowAdapter() {
 		return fProvider.getAdapter(RethrowAdapter.class);
 	}
@@ -411,7 +411,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createExitAdapter()
 	 */
-	@Override
+	
 	public Adapter createExitAdapter() {
 		return fProvider.getAdapter(ExitAdapter.class);
 	}
@@ -419,7 +419,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createValidateAdapter()
 	 */
-	@Override
+	
 	public Adapter createValidateAdapter() {
 		return fProvider.getAdapter(ValidateAdapter.class);
 	}
@@ -427,7 +427,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createToAdapter()
 	 */
-	@Override
+	
 	public Adapter createToAdapter() {
 		return fProvider.getAdapter(ToAdapter.class);
 	}
@@ -435,7 +435,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createFromAdapter()
 	 */
-	@Override
+	
 	public Adapter createFromAdapter() {
 		return fProvider.getAdapter(FromAdapter.class);
 	}
@@ -443,7 +443,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createExpressionAdapter()
 	 */
-	@Override
+	
 	public Adapter createExpressionAdapter() {
 		return fProvider.getAdapter(ExpressionAdapter.class);
 	}
@@ -451,12 +451,12 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	/**
 	 * @see org.eclipse.bpel.model.util.BPELAdapterFactory#createOpaqueActivityAdapter()
 	 */
-	@Override
+	
 	public Adapter createOpaqueActivityAdapter() {
 		return fProvider.getAdapter(OpaqueActivityAdapter.class);
 	}
 
-	@Override
+	
 	// https://jira.jboss.org/browse/JBIDE-6917
 	public Adapter createExtensionActivityAdapter() {
 		return fProvider.getAdapter(ExtensionActivityAdapter.class);
@@ -466,7 +466,7 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 	 * @see org.eclipse.emf.common.notify.impl.AdapterFactoryImpl#adaptNew(org.eclipse.emf.common.notify.Notifier,
 	 *      java.lang.Object)
 	 */
-	@Override
+	
 	public Adapter adaptNew(Notifier target, Object type) {
 		Adapter adapter = createAdapter(target, type);
 		// https://bugs.eclipse.org/bugs/show_bug.cgi?id=330813
@@ -487,12 +487,12 @@ public class BPELUIAdapterFactory extends BPELAdapterFactory {
 		return null;
 	}
 
-	@Override
+	
 	protected Object resolve(Object object, Object type) {
 		return null;
 	}
 
-	@Override
+	
 	protected Adapter createAdapter(Notifier target, Object type) {
 		if (BPELUtil.isCustomActivity(target)) {
 			// If we have a custom activity that did not provide a

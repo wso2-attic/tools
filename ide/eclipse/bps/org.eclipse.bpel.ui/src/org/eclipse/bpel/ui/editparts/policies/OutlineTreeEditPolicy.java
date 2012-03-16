@@ -18,7 +18,7 @@ import org.eclipse.gef.editpolicies.AbstractEditPolicy;
 
 public class OutlineTreeEditPolicy extends AbstractEditPolicy {
 	
-	@Override
+	
 	public Command getCommand(Request req) {
 		if (REQ_MOVE.equals(req.getType()))
 			return getMoveCommand(req);

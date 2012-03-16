@@ -164,7 +164,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION;
     }
@@ -296,7 +296,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
@@ -319,7 +319,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
@@ -346,7 +346,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
@@ -373,7 +373,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
@@ -395,7 +395,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -412,7 +412,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
         return result.toString();
     }
 
-	@Override
+	
 	protected void doLoad(Element self) throws Exception {
 		if (self.hasAttribute("type")) {
 			String typeAttribute = self.getAttribute("type");
@@ -434,7 +434,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 		}
 	}
 
-	@Override
+	
 	protected Element doSave(Element parent) throws Exception {
 		Element self =  createChildElement(parent, "output");
 		self.setAttribute("type", getType().toString().toLowerCase());
@@ -449,7 +449,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 		return self;
 	}
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -37,7 +37,7 @@ public class DefaultEndPointInputConnectorImpl extends InputConnectorImpl implem
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DEFAULT_END_POINT_INPUT_CONNECTOR;
 	}

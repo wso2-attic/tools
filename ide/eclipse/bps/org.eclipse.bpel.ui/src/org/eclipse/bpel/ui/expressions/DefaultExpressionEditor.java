@@ -48,7 +48,7 @@ public class DefaultExpressionEditor extends AbstractExpressionEditor {
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#getEditorContent()
 	 */
 	
-	@Override
+	
 	public String getEditorContent() {
 		if (editor != null) {
 			return editor.getContents();
@@ -62,7 +62,7 @@ public class DefaultExpressionEditor extends AbstractExpressionEditor {
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.bpel.ui.properties.BPELPropertySection)
 	 */
 	
-	@Override
+	
 	public void createControls(Composite parent, BPELPropertySection aSection) {
 		super.createControls(parent, aSection);
 		createEditor(parent);
@@ -73,7 +73,7 @@ public class DefaultExpressionEditor extends AbstractExpressionEditor {
 	 * @see org.eclipse.bpel.ui.expressions.AbstractExpressionEditor#setEditorContent(java.lang.String)
 	 */
 	
-	@Override
+	
 	public void setEditorContent (String aBody) {
 	    this.fBody = aBody;
 	    	    

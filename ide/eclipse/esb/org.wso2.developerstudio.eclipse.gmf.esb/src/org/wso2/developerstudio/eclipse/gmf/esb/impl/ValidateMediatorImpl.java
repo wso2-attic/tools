@@ -100,7 +100,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.VALIDATE_MEDIATOR;
 	}
@@ -221,7 +221,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
@@ -242,7 +242,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
@@ -263,7 +263,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -291,7 +291,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
@@ -316,7 +316,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:

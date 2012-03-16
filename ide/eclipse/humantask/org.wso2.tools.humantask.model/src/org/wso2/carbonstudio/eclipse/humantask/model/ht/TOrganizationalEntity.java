@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity()
  * @model extendedMetaData="name='tOrganizationalEntity' kind='elementOnly'"
  * @generated
  */
@@ -36,7 +36,7 @@ public interface TOrganizationalEntity extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Users</em>' containment reference.
 	 * @see #setUsers(TUserlist)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity_Users()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity_Users()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='users' namespace='##targetNamespace'"
 	 * @generated
@@ -44,7 +44,7 @@ public interface TOrganizationalEntity extends EObject {
 	TUserlist getUsers();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Users</em>' containment reference.
@@ -63,7 +63,7 @@ public interface TOrganizationalEntity extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Groups</em>' containment reference.
 	 * @see #setGroups(TGrouplist)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity_Groups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTOrganizationalEntity_Groups()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='groups' namespace='##targetNamespace'"
 	 * @generated
@@ -71,7 +71,7 @@ public interface TOrganizationalEntity extends EObject {
 	TGrouplist getGroups();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Groups</em>' containment reference.

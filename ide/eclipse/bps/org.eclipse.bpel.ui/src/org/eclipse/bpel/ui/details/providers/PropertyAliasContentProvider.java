@@ -28,7 +28,7 @@ import org.eclipse.wst.wsdl.util.WSDLResourceImpl;
  */
 public class PropertyAliasContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements(Object input, List list )  {
 		
 		if (input instanceof Definition) {

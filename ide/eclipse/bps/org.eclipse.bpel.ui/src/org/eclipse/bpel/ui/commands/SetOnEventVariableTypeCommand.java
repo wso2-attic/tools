@@ -24,7 +24,7 @@ public class SetOnEventVariableTypeCommand extends SetCommand {
 		super(onEvent,null);
 	}
 	
-	@Override
+	
 	public void doExecute() {
 		if (fTarget instanceof OnEvent) {
 			OnEvent onEvent = (OnEvent) fTarget;

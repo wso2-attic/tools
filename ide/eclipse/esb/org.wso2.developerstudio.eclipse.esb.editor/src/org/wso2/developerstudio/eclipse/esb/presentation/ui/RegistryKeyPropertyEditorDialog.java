@@ -159,7 +159,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		// Registry key text field.
 		rkTextField = new Text(grpPropertyKey, SWT.BORDER);
 		rkTextField.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				saveConfiguration();
 			}
@@ -172,7 +172,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		
 		Link link = new Link(grpPropertyKey, SWT.NONE);
 		link.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				String selectedCommand = e.text;
 				if (selectedCommand.equals("registry")){
@@ -196,7 +196,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		
 		Link link_1 = new Link(grpPropertyKey, SWT.NONE);
 		link_1.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				openNewResourceTemplateDialog();
 			}
@@ -216,7 +216,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		}
 	}
 	
-	@Override
+	
 	protected void okPressed() {
 		saveConfiguration();
 		super.okPressed();

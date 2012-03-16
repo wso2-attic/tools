@@ -303,7 +303,7 @@ public class EditController implements IOngoingChange, Listener , Adapter {
 	 */
 	public Command createApplyCommand() {
 		return new UpdateModelCommand(fInput,getLabel()) {
-			@Override
+			
 			public void doExecute() {
 				fModelValue.set ( fViewValue.get() );
 			}			

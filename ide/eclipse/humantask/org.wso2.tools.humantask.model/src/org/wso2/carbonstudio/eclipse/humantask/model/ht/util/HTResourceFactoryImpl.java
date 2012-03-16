@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.util;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.util;
 
 import org.eclipse.emf.common.util.URI;
 
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.util.HTResourceImpl
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.util.HTResourceImpl
  * @generated
  */
 public class HTResourceFactoryImpl extends ResourceFactoryImpl {

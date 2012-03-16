@@ -35,7 +35,7 @@ public class EventHandlerAdapter extends ContainerAdapter implements ILabeledEle
 
 	/* IContainer delegate */
 
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		MultiContainer omc = new MultiContainer();
 		omc.add(new ReferenceContainer(BPELPackage.eINSTANCE.getEventHandler_Events()));

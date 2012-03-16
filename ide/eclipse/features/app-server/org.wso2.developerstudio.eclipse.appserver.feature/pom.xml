@@ -21,17 +21,17 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-appserver-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.appserver.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.appserver.feature</artifactId>
     <packaging>pom</packaging>
     <name>Application Server Tools</name>
     <url>http://wso2.org</url>
-    <description>This feature contains WSO2 Carbon Studio AppServer Core Feature</description>
+    <description>This feature contains WSO2 Developer Studio AppServer Core Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -49,12 +49,12 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.wsf.ide.core:${appserver.tools.version}</bundleDef>                                
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.wsf.ide.creation.core:${appserver.tools.version}</bundleDef>                                
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.wsf.ide.creation.ui:${appserver.tools.version}</bundleDef>                                
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.wsf.ide.consumption.core:${appserver.tools.version}</bundleDef>                                
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.wsf.ide.consumption.ui:${appserver.tools.version}</bundleDef>  
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.axis2.rpcmessagereceiver:${axis2.mr.tools.version}</bundleDef>                   
+                                <bundleDef>org.wso2.developerstudio:org.wso2.wsf.ide.core:${appserver.tools.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.wsf.ide.creation.core:${appserver.tools.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.wsf.ide.creation.ui:${appserver.tools.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.wsf.ide.consumption.core:${appserver.tools.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.wsf.ide.consumption.ui:${appserver.tools.version}</bundleDef>  
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver:${axis2.mr.tools.version}</bundleDef>                   
                             </bundles>
                         </configuration>
                     </execution>

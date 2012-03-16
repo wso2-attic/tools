@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +26,8 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl#getFrom <em>From</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl#getPotentialDelegatees <em>Potential Delegatees</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl#getPotentialDelegatees <em>Potential Delegatees</em>}</li>
  * </ul>
  * </p>
  *

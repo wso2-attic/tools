@@ -60,7 +60,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -98,7 +98,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Session"));
 	}
@@ -109,7 +109,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		Type labelValue = ((Session)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
@@ -125,7 +125,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -144,7 +144,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -155,7 +155,7 @@ public class SessionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
 		return EsbEditPlugin.INSTANCE;
 	}

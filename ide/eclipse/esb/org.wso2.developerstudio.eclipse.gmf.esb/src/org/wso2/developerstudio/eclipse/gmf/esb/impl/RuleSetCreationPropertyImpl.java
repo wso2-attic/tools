@@ -36,7 +36,7 @@ public class RuleSetCreationPropertyImpl extends AbstractNameValuePropertyImpl i
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_SET_CREATION_PROPERTY;
 	}

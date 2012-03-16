@@ -135,7 +135,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ABSTRACT_COMMON_TARGET;
 	}
@@ -354,7 +354,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
@@ -372,7 +372,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
@@ -397,7 +397,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
@@ -427,7 +427,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
@@ -457,7 +457,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
@@ -481,7 +481,7 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

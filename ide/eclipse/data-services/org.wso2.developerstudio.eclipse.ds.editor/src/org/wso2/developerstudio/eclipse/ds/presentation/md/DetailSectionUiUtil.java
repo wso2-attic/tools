@@ -215,14 +215,14 @@ public class DetailSectionUiUtil {
 		
 		comp.addFocusListener(new FocusListener() {
 			
-			@Override
+			
 			public void focusLost(FocusEvent e) {
 				
 				isFocusedOnDetailSection = false;
 				
 			}
 			
-			@Override
+			
 			public void focusGained(FocusEvent e) {
 				
 				isFocusedOnDetailSection = true;
@@ -234,7 +234,7 @@ public class DetailSectionUiUtil {
 		
 		combo.addModifyListener(new ModifyListener() {
 			
-			@Override
+			
 			public void modifyText(ModifyEvent e) {
 				
 				setStringAttribute(input, metaObject,combo.getItem(combo.getSelectionIndex()));
@@ -248,7 +248,7 @@ public class DetailSectionUiUtil {
 		
 		combo.addModifyListener(new ModifyListener() {
 			
-			@Override
+			
 			public void modifyText(ModifyEvent e) {
 				
 				setStringAttribute(input, metaObject,(combo.getSelectionIndex() == 0) ? "true" : "false");
@@ -261,7 +261,7 @@ public class DetailSectionUiUtil {
     	
     	combo.addModifyListener(new ModifyListener() {
 			
-			@Override
+			
 			public void modifyText(ModifyEvent e) {
 				
 				setBooleanAttribute(input, metaObject,(combo.getSelectionIndex() == 0) ? true  : false);

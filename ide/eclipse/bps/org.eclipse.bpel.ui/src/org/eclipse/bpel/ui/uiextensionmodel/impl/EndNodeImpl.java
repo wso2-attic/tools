@@ -45,7 +45,7 @@ public class EndNodeImpl extends EObjectImpl implements EndNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.END_NODE;
 	}

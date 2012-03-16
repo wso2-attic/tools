@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.util;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -13,14 +13,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.*;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage
  * @generated
  */
 public class HTAdapterFactory extends AdapterFactoryImpl {
@@ -276,13 +276,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot <em>Document Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot <em>Document Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot
 	 * @generated
 	 */
 	public Adapter createDocumentRootAdapter() {
@@ -290,13 +290,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument <em>TArgument</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument <em>TArgument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument
 	 * @generated
 	 */
 	public Adapter createTArgumentAdapter() {
@@ -304,13 +304,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr <em>TBoolean Expr</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr <em>TBoolean Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr
 	 * @generated
 	 */
 	public Adapter createTBooleanExprAdapter() {
@@ -318,13 +318,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline <em>TDeadline</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline <em>TDeadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline
 	 * @generated
 	 */
 	public Adapter createTDeadlineAdapter() {
@@ -332,13 +332,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr <em>TDeadline Expr</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr <em>TDeadline Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr
 	 * @generated
 	 */
 	public Adapter createTDeadlineExprAdapter() {
@@ -346,13 +346,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines <em>TDeadlines</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines <em>TDeadlines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines
 	 * @generated
 	 */
 	public Adapter createTDeadlinesAdapter() {
@@ -360,13 +360,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation <em>TDelegation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation <em>TDelegation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation
 	 * @generated
 	 */
 	public Adapter createTDelegationAdapter() {
@@ -374,13 +374,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription <em>TDescription</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription <em>TDescription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription
 	 * @generated
 	 */
 	public Adapter createTDescriptionAdapter() {
@@ -388,13 +388,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation <em>TDocumentation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation <em>TDocumentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation
 	 * @generated
 	 */
 	public Adapter createTDocumentationAdapter() {
@@ -402,13 +402,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr <em>TDuration Expr</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr <em>TDuration Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr
 	 * @generated
 	 */
 	public Adapter createTDurationExprAdapter() {
@@ -416,13 +416,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation <em>TEscalation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation <em>TEscalation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation
 	 * @generated
 	 */
 	public Adapter createTEscalationAdapter() {
@@ -430,13 +430,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression <em>TExpression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression <em>TExpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression
 	 * @generated
 	 */
 	public Adapter createTExpressionAdapter() {
@@ -444,13 +444,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements <em>TExtensible Elements</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements <em>TExtensible Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements
 	 * @generated
 	 */
 	public Adapter createTExtensibleElementsAdapter() {
@@ -458,13 +458,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements <em>TExtensible Mixed Content Elements</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements <em>TExtensible Mixed Content Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements
 	 * @generated
 	 */
 	public Adapter createTExtensibleMixedContentElementsAdapter() {
@@ -472,13 +472,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension <em>TExtension</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension <em>TExtension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension
 	 * @generated
 	 */
 	public Adapter createTExtensionAdapter() {
@@ -486,13 +486,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions <em>TExtensions</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions <em>TExtensions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions
 	 * @generated
 	 */
 	public Adapter createTExtensionsAdapter() {
@@ -500,13 +500,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom <em>TFrom</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom <em>TFrom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom
 	 * @generated
 	 */
 	public Adapter createTFromAdapter() {
@@ -514,13 +514,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole <em>TGeneric Human Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole <em>TGeneric Human Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole
 	 * @generated
 	 */
 	public Adapter createTGenericHumanRoleAdapter() {
@@ -528,13 +528,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist <em>TGrouplist</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist <em>TGrouplist</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist
 	 * @generated
 	 */
 	public Adapter createTGrouplistAdapter() {
@@ -542,13 +542,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions <em>THuman Interactions</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions <em>THuman Interactions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions
 	 * @generated
 	 */
 	public Adapter createTHumanInteractionsAdapter() {
@@ -556,13 +556,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport <em>TImport</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport <em>TImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TImport
 	 * @generated
 	 */
 	public Adapter createTImportAdapter() {
@@ -570,13 +570,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral <em>TLiteral</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral <em>TLiteral</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral
 	 * @generated
 	 */
 	public Adapter createTLiteralAdapter() {
@@ -584,13 +584,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification <em>TLocal Notification</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification <em>TLocal Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification
 	 * @generated
 	 */
 	public Adapter createTLocalNotificationAdapter() {
@@ -598,13 +598,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup <em>TLogical People Group</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup <em>TLogical People Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup
 	 * @generated
 	 */
 	public Adapter createTLogicalPeopleGroupAdapter() {
@@ -612,13 +612,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups <em>TLogical People Groups</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups <em>TLogical People Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups
 	 * @generated
 	 */
 	public Adapter createTLogicalPeopleGroupsAdapter() {
@@ -626,13 +626,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification <em>TNotification</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification <em>TNotification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification
 	 * @generated
 	 */
 	public Adapter createTNotificationAdapter() {
@@ -640,13 +640,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface <em>TNotification Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface <em>TNotification Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface
 	 * @generated
 	 */
 	public Adapter createTNotificationInterfaceAdapter() {
@@ -654,13 +654,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications <em>TNotifications</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications <em>TNotifications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications
 	 * @generated
 	 */
 	public Adapter createTNotificationsAdapter() {
@@ -668,13 +668,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity <em>TOrganizational Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity <em>TOrganizational Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity
 	 * @generated
 	 */
 	public Adapter createTOrganizationalEntityAdapter() {
@@ -682,13 +682,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter <em>TParameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter <em>TParameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter
 	 * @generated
 	 */
 	public Adapter createTParameterAdapter() {
@@ -696,13 +696,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments <em>TPeople Assignments</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments <em>TPeople Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments
 	 * @generated
 	 */
 	public Adapter createTPeopleAssignmentsAdapter() {
@@ -710,13 +710,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements <em>TPresentation Elements</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements <em>TPresentation Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements
 	 * @generated
 	 */
 	public Adapter createTPresentationElementsAdapter() {
@@ -724,13 +724,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter <em>TPresentation Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter <em>TPresentation Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter
 	 * @generated
 	 */
 	public Adapter createTPresentationParameterAdapter() {
@@ -738,13 +738,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters <em>TPresentation Parameters</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters <em>TPresentation Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters
 	 * @generated
 	 */
 	public Adapter createTPresentationParametersAdapter() {
@@ -752,13 +752,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority <em>TPriority</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority <em>TPriority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority
 	 * @generated
 	 */
 	public Adapter createTPriorityAdapter() {
@@ -766,13 +766,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery <em>TQuery</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery <em>TQuery</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery
 	 * @generated
 	 */
 	public Adapter createTQueryAdapter() {
@@ -780,13 +780,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment <em>TReassignment</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment <em>TReassignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment
 	 * @generated
 	 */
 	public Adapter createTReassignmentAdapter() {
@@ -794,13 +794,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering <em>TRendering</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering <em>TRendering</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering
 	 * @generated
 	 */
 	public Adapter createTRenderingAdapter() {
@@ -808,13 +808,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings <em>TRenderings</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings <em>TRenderings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings
 	 * @generated
 	 */
 	public Adapter createTRenderingsAdapter() {
@@ -822,13 +822,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask <em>TTask</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask <em>TTask</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask
 	 * @generated
 	 */
 	public Adapter createTTaskAdapter() {
@@ -836,13 +836,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface <em>TTask Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface <em>TTask Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface
 	 * @generated
 	 */
 	public Adapter createTTaskInterfaceAdapter() {
@@ -850,13 +850,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks <em>TTasks</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks <em>TTasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks
 	 * @generated
 	 */
 	public Adapter createTTasksAdapter() {
@@ -864,13 +864,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TText <em>TText</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TText <em>TText</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TText
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TText
 	 * @generated
 	 */
 	public Adapter createTTextAdapter() {
@@ -878,13 +878,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart <em>TTo Part</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart <em>TTo Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart
 	 * @generated
 	 */
 	public Adapter createTToPartAdapter() {
@@ -892,13 +892,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts <em>TTo Parts</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts <em>TTo Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts
 	 * @generated
 	 */
 	public Adapter createTToPartsAdapter() {
@@ -906,13 +906,13 @@ public class HTAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist <em>TUserlist</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist <em>TUserlist</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist
 	 * @generated
 	 */
 	public Adapter createTUserlistAdapter() {

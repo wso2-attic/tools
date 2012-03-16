@@ -28,7 +28,7 @@ public class AddPropertyCommand extends AddToListCommand {
 		super(target, newProperty, IBPELUIConstants.CMD_ADD_PROPERTY);
 	}
 
-	@Override
+	
 	protected EList<Property> getList() {
 		return ((CorrelationSet)target).getProperties();
 	}

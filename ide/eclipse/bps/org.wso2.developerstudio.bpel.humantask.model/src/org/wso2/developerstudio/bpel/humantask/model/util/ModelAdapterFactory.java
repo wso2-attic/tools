@@ -74,7 +74,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
-	@Override
+	
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -93,55 +93,55 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ModelSwitch<Adapter> modelSwitch =
 		new ModelSwitch<Adapter>() {
-			@Override
+			
 			public Adapter casePeopleActivityRT(PeopleActivityRT object) {
 				return createPeopleActivityRTAdapter();
 			}
-			@Override
+			
 			public Adapter casePeopleActivityRN(PeopleActivityRN object) {
 				return createPeopleActivityRNAdapter();
 			}
-			@Override
+			
 			public Adapter caseRemoteTask(RemoteTask object) {
 				return createRemoteTaskAdapter();
 			}
-			@Override
+			
 			public Adapter caseRemoteNotification(RemoteNotification object) {
 				return createRemoteNotificationAdapter();
 			}
-			@Override
+			
 			public Adapter caseWSDLElement(WSDLElement object) {
 				return createWSDLElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseIElementExtensible(ElementExtensible object) {
 				return createIElementExtensibleAdapter();
 			}
-			@Override
+			
 			public Adapter caseIAttributeExtensible(AttributeExtensible object) {
 				return createIAttributeExtensibleAdapter();
 			}
-			@Override
+			
 			public Adapter caseExtensibleElement(ExtensibleElement object) {
 				return createExtensibleElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseBPELExtensibleElement(BPELExtensibleElement object) {
 				return createBPELExtensibleElementAdapter();
 			}
-			@Override
+			
 			public Adapter caseActivity(Activity object) {
 				return createActivityAdapter();
 			}
-			@Override
+			
 			public Adapter caseExtensionActivity(ExtensionActivity object) {
 				return createExtensionActivityAdapter();
 			}
-			@Override
+			
 			public Adapter caseExtensionElement(ExtensionElement object) {
 				return createExtensionElementAdapter();
 			}
-			@Override
+			
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -155,7 +155,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
-	@Override
+	
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject)target);
 	}

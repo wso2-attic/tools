@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl#getLogicalPeopleGroup <em>Logical People Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl#getLogicalPeopleGroup <em>Logical People Group</em>}</li>
  * </ul>
  * </p>
  *

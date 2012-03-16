@@ -25,7 +25,7 @@ public class RemoveCopyCommand extends RemoveFromListCommand {
 		super(target, oldCopy, IBPELUIConstants.CMD_DELETE_COPY);
 	}
 
-	@Override
+	
 	protected EList<Copy> getList() {
 		return ((Assign)target).getCopy();
 	}

@@ -21,18 +21,18 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-esb-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.esb.graphical.editor.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.esb.graphical.editor.feature</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Enterprise Service Bus Graphical Editor Tools</name>
     <url>http://wso2.org</url>
-    <description>This feature contains WSO2 Carbon Studio ESB Graphical Editor Feature</description>
+    <description>This feature contains WSO2 Developer Studio ESB Graphical Editor Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -50,11 +50,11 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gmf.esb:${esb.graphical.editor.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gmf.esb.diagram:${esb.graphical.editor.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gmf.esb.edit:${esb.graphical.editor.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gmf.esb.persistence:${esb.graphical.editor.tools.version}</bundleDef>
-				<bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram:${esb.graphical.editor.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb:${esb.graphical.editor.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.diagram:${esb.graphical.editor.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.edit:${esb.graphical.editor.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.persistence:${esb.graphical.editor.tools.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram:${esb.graphical.editor.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

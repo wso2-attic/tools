@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 
 public class VariableContentProvider extends AbstractContentProvider  {
 
-	@Override
+	
 	public void collectElements(Object input, List list)  {
 		Variable[] vars = BPELUtil.getVisibleVariables((EObject)input);
 		for (int i = 0; i< vars.length; i++) {

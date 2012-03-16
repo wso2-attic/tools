@@ -30,7 +30,7 @@ public class BPELSelectionToolEntry extends SelectionToolEntry {
 		super(label, shortDesc);
 	}
 
-	@Override
+	
 	public Tool createTool() {
 		return new BPELSelectionTool();
 	}

@@ -34,12 +34,12 @@ import org.eclipse.gef.requests.CreateRequest;
  */
 public class BPELContainerEditPolicy extends ContainerEditPolicy {
 
-	@Override
+	
 	protected Command getCreateCommand(CreateRequest request) {
 		return null;		
 	}
 	
-	@Override
+	
 	public Command getCommand(Request request) {		
 		if (ReferencedAddRequest.typeString.equals(request.getType())) {
 			// TODO: this is for AppendNewAction, etc.

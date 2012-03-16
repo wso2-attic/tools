@@ -28,17 +28,17 @@ public class RemoveCorrelationCommand extends RemoveFromListCommand {
 		super(target, oldCorrelation, IBPELUIConstants.CMD_DELETE_CORRELATION);
 	}
 
-	@Override
+	
 	protected EList<Correlation> getList() {
 		Correlations c = ModelHelper.getCorrelations(target);
 		return (c == null)? null : c.getChildren();
 	}
 
-	@Override
+	
 	protected void createList() {
 		ModelHelper.setCorrelations(target, BPELFactory.eINSTANCE.createCorrelations());
 	}
-	@Override
+	
 	protected void deleteList() {
 		ModelHelper.setCorrelations(target, null);
 	}

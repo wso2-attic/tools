@@ -21,14 +21,14 @@ public class FlowAdapter extends ContainerActivityAdapter {
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ReferenceContainer(BPELPackage.eINSTANCE.getFlow_Activities());
 	}
 
 	/* EditPartFactory */
 	
-	@Override
+	
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart result = new FlowEditPart();
 		result.setModel(model);
@@ -37,7 +37,7 @@ public class FlowAdapter extends ContainerActivityAdapter {
 
 	/* IOutlineEditPartFactory */
 	
-	@Override
+	
 	public EditPart createOutlineEditPart(EditPart context, Object model) {
 		EditPart result = new OutlineTreeEditPart();
 		result.setModel(model);

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import javax.xml.namespace.QName;
 
@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +24,8 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl#getOperation <em>Operation</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl#getPortType <em>Port Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl#getPortType <em>Port Type</em>}</li>
  * </ul>
  * </p>
  *

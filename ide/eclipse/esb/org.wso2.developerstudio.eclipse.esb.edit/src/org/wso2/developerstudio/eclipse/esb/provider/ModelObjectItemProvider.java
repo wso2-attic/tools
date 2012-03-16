@@ -70,7 +70,7 @@ public class ModelObjectItemProvider
 	 * <!-- end-user-doc -->
 	 *
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -127,7 +127,7 @@ public class ModelObjectItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_ModelObject_type");
 	}
@@ -139,7 +139,7 @@ public class ModelObjectItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -160,7 +160,7 @@ public class ModelObjectItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -179,7 +179,7 @@ public class ModelObjectItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

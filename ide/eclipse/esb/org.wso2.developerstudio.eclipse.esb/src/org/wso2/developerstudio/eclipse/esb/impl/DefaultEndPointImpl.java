@@ -89,12 +89,12 @@ public class DefaultEndPointImpl extends AbstractDefaultEndPointImpl implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.DEFAULT_END_POINT;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -26,11 +26,11 @@ public class SetIsolatedCommand extends SetCommand {
 		super(target, isolated);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ((Scope)fTarget).getIsolated();
 	}
-	@Override
+	
 	public void set(Object o) {
 		((Scope)fTarget).setIsolated((Boolean)o);
 	}

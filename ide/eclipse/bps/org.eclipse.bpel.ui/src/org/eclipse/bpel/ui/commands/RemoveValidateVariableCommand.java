@@ -26,13 +26,13 @@ public class RemoveValidateVariableCommand extends RemoveFromListCommand {
 		super(target, oldVariable, IBPELUIConstants.CMD_DELETE_VALIDATE_VARIABLE);
 	}
 
-	@Override
+	
 	protected EList<Variable> getList() {
 		EList<Variable> l = ModelHelper.getValidateVariables(target);
 		return (l == null)? null : l;
 	}
 
-	@Override
+	
 	protected void deleteList() {
 		EList<Variable> l = ModelHelper.getValidateVariables(target);
 		if (l != null)

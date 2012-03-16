@@ -77,7 +77,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.MEDIATOR_BRANCH;
     }
@@ -99,7 +99,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
@@ -113,7 +113,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
@@ -128,7 +128,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
@@ -144,7 +144,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
@@ -159,7 +159,7 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.MEDIATOR_BRANCH__CHILDREN:

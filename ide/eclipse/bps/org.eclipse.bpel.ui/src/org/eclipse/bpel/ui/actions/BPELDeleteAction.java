@@ -67,7 +67,7 @@ public class BPELDeleteAction extends EditAction {
 		setText(label);
 	}
 
-	@Override
+	
 	protected void init() {
 		super.init();
 		setText(Messages.DeleteSelectedAction_Delete_1); 
@@ -82,7 +82,7 @@ public class BPELDeleteAction extends EditAction {
 
 	
 	@SuppressWarnings("boxing")
-	@Override
+	
 	protected Command getCommand () {
 				
 		if (fSelection.isEmpty()) {
@@ -135,7 +135,7 @@ public class BPELDeleteAction extends EditAction {
 	/**
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
-	@Override
+	
 	public void run() {
 			
 		fSelection = trimSelection (fSelection);

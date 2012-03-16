@@ -1,4 +1,4 @@
-package org.wso2.carbonstudio.eclipse.humantask.editor.editors;
+package org.wso2.developerstudio.eclipse.humantask.editor.editors;
 
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;

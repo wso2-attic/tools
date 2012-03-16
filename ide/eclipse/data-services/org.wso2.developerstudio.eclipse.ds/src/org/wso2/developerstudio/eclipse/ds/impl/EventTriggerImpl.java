@@ -124,7 +124,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.EVENT_TRIGGER;
 	}
@@ -305,7 +305,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
@@ -323,7 +323,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
@@ -345,7 +345,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
@@ -372,7 +372,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
@@ -399,7 +399,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
@@ -421,7 +421,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

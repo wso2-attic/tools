@@ -52,7 +52,7 @@ public class BPELModuleArtifact implements IModuleArtifact {
 	/**
 	 * @see Object#toString()
 	 */
-	@Override
+	
 	public String toString() {
 		return "BPELModuleArtifact [module=" + module + "]";
 	}

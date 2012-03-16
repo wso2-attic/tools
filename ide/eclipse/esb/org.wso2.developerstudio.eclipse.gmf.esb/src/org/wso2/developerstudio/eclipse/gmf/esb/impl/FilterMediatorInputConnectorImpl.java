@@ -36,7 +36,7 @@ public class FilterMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FILTER_MEDIATOR_INPUT_CONNECTOR;
 	}

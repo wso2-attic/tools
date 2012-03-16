@@ -43,7 +43,7 @@ public class TrayCategoryEntryFigure extends SelectionBorderFigure {
 			int width = containerBounds.width - constraint.x;
 			text.setBounds(new Rectangle(constraint.x, containerBounds.y, width, containerBounds.height));
 		}
-		@Override
+		
 		protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
 			// use the minimum width and the preferred height plus some spacing
 			Dimension result = new Dimension();
@@ -64,7 +64,7 @@ public class TrayCategoryEntryFigure extends SelectionBorderFigure {
 		this.part = part;
 		setLayoutManager(new EntryLayout());
 		setBorder(new MarginBorder(BORDER) {
-			@Override
+			
 			public void paint(IFigure figure, Graphics graphics, Insets in) {
 				Rectangle rect = figure.getBounds().getCopy();
 				Color color = CommonUIPlugin.getDefault().getColorRegistry().get(IDetailsColors.COLOR_LIGHT_BACKGROUND);

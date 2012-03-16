@@ -30,7 +30,7 @@ public class AddVariableCommand extends AddToListCommand {
 		super(ModelHelper.getContainingScope(context), var, IBPELUIConstants.CMD_ADD_VARIABLE);	
 	}
 	
-	@Override
+	
 	protected List<Variable> getList() {
 		// https://issues.jboss.org/browse/JBIDE-8048
 		Variables variables = ModelHelper.getVariables( target );

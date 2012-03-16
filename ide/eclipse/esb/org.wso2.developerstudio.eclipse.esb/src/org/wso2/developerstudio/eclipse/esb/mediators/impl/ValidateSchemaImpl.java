@@ -199,7 +199,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.VALIDATE_SCHEMA;
     }
@@ -344,7 +344,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -367,7 +367,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -391,7 +391,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -415,7 +415,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
@@ -435,7 +435,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -446,7 +446,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

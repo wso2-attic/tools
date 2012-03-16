@@ -41,7 +41,7 @@ public class RenameAction extends SelectionAction {
 		this.editor = (BPELEditor)editor;
 	}
 
-	@Override
+	
 	protected void init() {
 		super.init();
 		setText(Messages.RenameAction_Rename_0); 
@@ -56,7 +56,7 @@ public class RenameAction extends SelectionAction {
 	 * no objects selected or the selected objects are not
 	 * {@link EditPart}s.
 	 */
-	@Override
+	
 	protected boolean calculateEnabled() {
 		if (getSelectedObjects().size() != 1) return false;
 		Object o = getSelectedObjects().get(0);
@@ -65,7 +65,7 @@ public class RenameAction extends SelectionAction {
 		return part.understandsRequest(request);
 	}
 
-	@Override
+	
 	public void run() {
 		Object o = getSelectedObjects().get(0);
 		GraphicalEditPart part = (GraphicalEditPart)editor.getGraphicalViewer().getEditPartRegistry().get(o);

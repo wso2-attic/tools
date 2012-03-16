@@ -36,7 +36,7 @@ public class XSLTPropertyImpl extends AbstractNameValueExpressionPropertyImpl im
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_PROPERTY;
 	}

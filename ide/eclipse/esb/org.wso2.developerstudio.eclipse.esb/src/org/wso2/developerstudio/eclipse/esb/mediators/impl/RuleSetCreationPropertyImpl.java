@@ -47,12 +47,12 @@ public class RuleSetCreationPropertyImpl extends AbstractNameValuePropertyImpl i
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_SET_CREATION_PROPERTY;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

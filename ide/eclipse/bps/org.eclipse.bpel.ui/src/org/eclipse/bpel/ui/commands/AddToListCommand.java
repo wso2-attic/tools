@@ -54,7 +54,7 @@ public abstract class AddToListCommand extends AutoUndoCommand {
 	protected abstract List getList();
 
 
-	@Override
+	
 	public void doExecute() {
 		if (newElement == null) throw new IllegalStateException();
 

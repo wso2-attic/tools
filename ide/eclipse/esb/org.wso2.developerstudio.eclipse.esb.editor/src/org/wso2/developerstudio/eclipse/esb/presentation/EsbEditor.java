@@ -435,7 +435,7 @@ public class EsbEditor extends MultiPageEditorPart implements
      * @generated
      */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
-            @Override
+            
             public void notifyChanged(Notification notification) {
                 if (notification.getNotifier() instanceof Resource) {
                     switch (notification.getFeatureID(Resource.class)) {
@@ -468,12 +468,12 @@ public class EsbEditor extends MultiPageEditorPart implements
                 }
             }
 
-            @Override
+            
             protected void setTarget(Resource target) {
                 basicSetTarget(target);
             }
 
-            @Override
+            
             protected void unsetTarget(Resource target) {
                 basicUnsetTarget(target);
             }
@@ -769,7 +769,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void firePropertyChange(int action) {
         super.firePropertyChange(action);
     }
@@ -836,7 +836,7 @@ public class EsbEditor extends MultiPageEditorPart implements
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object [] getElements(Object object) {
             Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
@@ -846,7 +846,7 @@ public class EsbEditor extends MultiPageEditorPart implements
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object [] getChildren(Object object) {
             Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
@@ -856,7 +856,7 @@ public class EsbEditor extends MultiPageEditorPart implements
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public boolean hasChildren(Object object) {
             Object parent = super.getParent(object);
             return parent != null;
@@ -866,7 +866,7 @@ public class EsbEditor extends MultiPageEditorPart implements
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object getParent(Object object) {
             return null;
         }
@@ -1061,7 +1061,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * This is the method used by the framework to install your own controls.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void createPages() {
 		// Creates the model from the editor input
 		createModel();
@@ -1072,12 +1072,12 @@ public class EsbEditor extends MultiPageEditorPart implements
 			{
 				ViewerPane viewerPane = new ViewerPane(getSite().getPage(),
 						EsbEditor.this) {
-					@Override
+					
 					public Viewer createViewer(Composite composite) {
 						return new TreeViewer(composite);
 					}
 
-					@Override
+					
 					public void requestActivation() {
 						super.requestActivation();
 						setCurrentViewerPane(this);
@@ -1341,7 +1341,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * This is used to track the active viewer. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 */
-	@Override
+	
 	protected void pageChange(int pageIndex) {
 		super.pageChange(pageIndex);
 
@@ -1527,7 +1527,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public Object getAdapter(Class key) {
         if (key.equals(IContentOutlinePage.class)) {
             return showOutlineView() ? getContentOutlinePage() : null;
@@ -1551,7 +1551,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 		if (contentOutlinePage == null) {
 			// The content outline is just a tree.
 			class CustomContentOutlinePage extends ContentOutlinePage {
-				@Override
+				
 				public void createControl(Composite parent) {
 					super.createControl(parent);
 					contentOutlineViewer = getTreeViewer();
@@ -1580,7 +1580,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 					}
 				}
 
-				@Override
+				
 				public void makeContributions(IMenuManager menuManager,
 						IToolBarManager toolBarManager,
 						IStatusLineManager statusLineManager) {
@@ -1589,7 +1589,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 					contentOutlineStatusLineManager = statusLineManager;
 				}
 
-				@Override
+				
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this,
@@ -1740,7 +1740,7 @@ public class EsbEditor extends MultiPageEditorPart implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean isDirty() {
         return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
     }
@@ -1749,7 +1749,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * This is for implementing {@link IEditorPart} and simply saves the model
 	 * file. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Analyse the resource set for completeness.
 		for (Resource resource : editingDomain.getResourceSet().getResources()) {
@@ -1775,7 +1775,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 		// activity that modifies the workbench.
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 			// This is the method that gets invoked when the operation runs.
-			@Override
+			
 			public void execute(IProgressMonitor monitor) {
 				// Save the resources to the file system.
 				boolean first = true;
@@ -1846,7 +1846,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 *
 	 * @generated
 	 */
-	@Override
+	
 	public boolean isSaveAsAllowed() {
         return true;
     }
@@ -1857,7 +1857,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void doSaveAs() {
         SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
         saveAsDialog.open();
@@ -1913,7 +1913,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 *
 	 * @generated
 	 */
-	@Override
+	
 	public void init(IEditorSite site, IEditorInput editorInput) {
         setSite(site);
         setInputWithNotify(editorInput);
@@ -1927,7 +1927,7 @@ public class EsbEditor extends MultiPageEditorPart implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void setFocus() {
         if (currentViewerPane != null) {
             currentViewerPane.setFocus();
@@ -2086,7 +2086,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void dispose() {
 		updateProblemIndication = false;
 

@@ -26,7 +26,7 @@ import org.eclipse.gef.Handle;
 public abstract class TrayCategoryEntryEditPart extends TrayEditPart {
 
 	protected class TrayCategoryEntrySelectionEditPolicy extends TraySelectionEditPolicy {
-		@Override
+		
 		protected Handle createHandle(GraphicalEditPart owner) {
 			return new TraySelectionHandle(owner, entryFigure);
 		}
@@ -43,7 +43,7 @@ public abstract class TrayCategoryEntryEditPart extends TrayEditPart {
 		super();
 	}
 
-	@Override
+	
 	protected IFigure createFigure() {
 		IFigure reference = ((TrayCategoryEditPart)getParent()).getLabelPositionReference();
 		entryFigure = new TrayCategoryEntryFigure(reference, this);
@@ -56,14 +56,14 @@ public abstract class TrayCategoryEntryEditPart extends TrayEditPart {
 		return new TrayMarkerDecorator((EObject)getModel(), new ToolbarLayout()); 
 	}
 	
-	@Override
+	
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		entryFigure.setText(getLabelProvider().getText(getModel()));
 		decorator.refresh();
 	}
 	
-	@Override
+	
 	protected void createEditPolicies() {
 		// Show selection handles
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new TrayCategoryEntrySelectionEditPolicy());
@@ -72,7 +72,7 @@ public abstract class TrayCategoryEntryEditPart extends TrayEditPart {
 	/**
 	 * @see org.eclipse.bpel.common.ui.tray.TrayEditPart#getDirectEditLabel()
 	 */
-	@Override
+	
 	public Label getDirectEditLabel() {
 		return entryFigure.getLabel();
 	}

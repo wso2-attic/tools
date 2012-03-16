@@ -100,7 +100,7 @@ public class TraySash extends Composite {
 				}
 			});
 		}
-		@Override
+		
 		public Point computeSize(int wHint, int hHint, boolean changed) {
 			return TEXTURE_SIZE;
 		}
@@ -128,7 +128,7 @@ public class TraySash extends Composite {
 					}
 				});
 			}
-			@Override
+			
 			protected void paintBorder(Graphics graphics) {
 				if (hasFocus()) {
 					graphics.setForegroundColor(ColorConstants.black);
@@ -148,7 +148,7 @@ public class TraySash extends Composite {
 			lws.setControl(this);
 			lws.setContents(new TrayArrowButton());
 		}
-		@Override
+		
 		public Point computeSize(int wHint, int hHint, boolean changed) {
 			Dimension size = lws.getRootFigure().getPreferredSize(wHint, hHint);
 			size.union(new Dimension(wHint, hHint));
@@ -183,12 +183,12 @@ public class TraySash extends Composite {
 
 		// add listeners
 		MouseTrackListener listener = new MouseTrackAdapter() {
-			@Override
+			
 			public void mouseEnter(MouseEvent e) {
 				if (TraySash.this.trayComposite.isInState(TrayComposite.STATE_EXPANDED))
 					setCursor(Cursors.SIZEWE);
 			}
-			@Override
+			
 			public void mouseExit(MouseEvent e) {
 				if (TraySash.this.trayComposite.isInState(TrayComposite.STATE_EXPANDED))
 					setCursor(Cursors.ARROW);

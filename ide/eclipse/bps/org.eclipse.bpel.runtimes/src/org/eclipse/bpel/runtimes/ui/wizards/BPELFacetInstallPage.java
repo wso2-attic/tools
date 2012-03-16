@@ -21,12 +21,12 @@ public class BPELFacetInstallPage extends DataModelFacetInstallPage implements
 		setDescription("BPEL Description");
 	}
 
-	@Override
+	
 	protected String[] getValidationPropertyNames() {
 		return new String[]{IBPELModuleFacetConstants.BPEL_CONTENT_FOLDER};
 	}
 
-	@Override
+	
 	protected Composite createTopLevelComposite(Composite parent) {
 		final Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new GridLayout(2, false));

@@ -65,7 +65,7 @@ public class InsertInContainerCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		IContainer container = BPELUtil.adapt(parent, IContainer.class);
 		
@@ -90,7 +90,7 @@ public class InsertInContainerCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		IContainer container = BPELUtil.adapt(parent, IContainer.class);		
 		container.addChild(parent, child, before);

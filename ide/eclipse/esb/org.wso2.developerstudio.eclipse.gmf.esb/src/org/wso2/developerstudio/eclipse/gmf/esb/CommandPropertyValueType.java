@@ -232,7 +232,7 @@ public enum CommandPropertyValueType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

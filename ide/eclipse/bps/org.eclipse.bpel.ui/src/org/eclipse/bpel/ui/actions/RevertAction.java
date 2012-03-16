@@ -24,20 +24,20 @@ public class RevertAction extends EditorPartAction {
 		super(editor);
 	}
 	
-	@Override
+	
 	protected boolean calculateEnabled() {
 		// Disable revert for now
 		//return getEditorPart().isDirty();
 		return false;
 	}
 	
-	@Override
+	
 	protected void init(){
 		setText(Messages.RevertAction_0); 
 		setId(ActionFactory.REVERT.getId());
 	}
 	
-	@Override
+	
 	public void run() {
 		((BPELMultipageEditorPart)getEditorPart()).doRevertToSaved(new NullProgressMonitor());
 		getEditorPart().setFocus();

@@ -63,7 +63,7 @@ public class AbstractDefaultEndPointItemProvider
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      */
-    @Override
+    
     public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {    	
         super.getPropertyDescriptors(object);
         if (itemPropertyDescriptors != null) {
@@ -221,7 +221,7 @@ public class AbstractDefaultEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String getText(Object object) {
         String label = ((AbstractDefaultEndPoint)object).getEndpointName();
         return label == null || label.length() == 0 ?
@@ -236,7 +236,7 @@ public class AbstractDefaultEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -260,7 +260,7 @@ public class AbstractDefaultEndPointItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

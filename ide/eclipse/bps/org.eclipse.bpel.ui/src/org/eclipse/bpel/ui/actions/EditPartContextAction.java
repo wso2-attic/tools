@@ -35,12 +35,12 @@ public class EditPartContextAction extends SelectionAction {
 		setId(action.toString());
 	}
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 		return true;
 	}
 
-	@Override
+	
 	public void run() {
 		action.onButtonPressed();
 	}

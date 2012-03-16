@@ -94,7 +94,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.PEOPLE_ACTIVITY_RN;
 	}
@@ -241,7 +241,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -256,7 +256,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case ModelPackage.PEOPLE_ACTIVITY_RN__INPUT_VARIABLE:
@@ -274,7 +274,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ModelPackage.PEOPLE_ACTIVITY_RN__INPUT_VARIABLE:
@@ -292,7 +292,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case ModelPackage.PEOPLE_ACTIVITY_RN__INPUT_VARIABLE:
@@ -310,7 +310,7 @@ public class PeopleActivityRNImpl extends ExtensionActivityImpl implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case ModelPackage.PEOPLE_ACTIVITY_RN__INPUT_VARIABLE:

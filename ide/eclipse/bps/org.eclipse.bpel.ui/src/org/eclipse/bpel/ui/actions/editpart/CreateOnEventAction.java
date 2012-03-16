@@ -55,8 +55,8 @@ public class CreateOnEventAction extends AbstractAction {
 		return Messages.CreateOnEventAction_Add_OnEvent_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

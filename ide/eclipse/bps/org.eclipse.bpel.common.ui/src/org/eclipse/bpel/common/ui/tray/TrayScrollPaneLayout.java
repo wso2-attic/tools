@@ -26,7 +26,7 @@ public class TrayScrollPaneLayout extends ScrollPaneLayout {
 		super();
 	}
 
-	@Override
+	
 	public void layout(IFigure parent) {
 		ScrollPane scrollpane = (ScrollPane)parent;
 		Rectangle clientArea = parent.getClientArea();

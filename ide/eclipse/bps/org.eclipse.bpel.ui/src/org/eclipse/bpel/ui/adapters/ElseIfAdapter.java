@@ -33,7 +33,7 @@ public class ElseIfAdapter extends ContainerAdapter implements ILabeledElement,
 
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		// TODO: IfAdapter ensures the ElseIf always has an activity inside it,
 		// by creating an ImplicitSequence if the ElseIf was empty.  We then make

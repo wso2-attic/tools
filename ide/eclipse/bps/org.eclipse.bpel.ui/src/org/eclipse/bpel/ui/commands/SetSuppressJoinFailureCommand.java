@@ -27,11 +27,11 @@ public class SetSuppressJoinFailureCommand extends SetCommand {
 		super(target, newValue);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getSuppressJoinFailure(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setSuppressJoinFailure(fTarget, (Boolean)o);
 	}

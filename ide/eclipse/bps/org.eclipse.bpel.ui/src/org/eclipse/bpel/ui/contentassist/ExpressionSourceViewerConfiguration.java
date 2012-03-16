@@ -25,7 +25,7 @@ public class ExpressionSourceViewerConfiguration extends
 		super();
 	}
 
-	@Override
+	
 	public IContentAssistant getContentAssistant(ISourceViewer viewer) {
 		if (bpelAssistant == null) {
 			bpelAssistant = new ContentAssistant();

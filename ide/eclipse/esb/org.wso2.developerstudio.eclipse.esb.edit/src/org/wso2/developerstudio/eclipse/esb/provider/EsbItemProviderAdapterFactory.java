@@ -108,7 +108,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createSynapseConfigurationAdapter() {
         if (synapseConfigurationItemProvider == null) {
             synapseConfigurationItemProvider = new SynapseConfigurationItemProvider(this);
@@ -131,7 +131,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createMediatorSequenceAdapter() {
         if (mediatorSequenceItemProvider == null) {
             mediatorSequenceItemProvider = new MediatorSequenceItemProvider(this);
@@ -154,7 +154,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createUnknownObjectAdapter() {
         if (unknownObjectItemProvider == null) {
             unknownObjectItemProvider = new UnknownObjectItemProvider(this);
@@ -177,7 +177,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createNamespacedPropertyAdapter() {
         if (namespacedPropertyItemProvider == null) {
             namespacedPropertyItemProvider = new NamespacedPropertyItemProvider(this);
@@ -200,7 +200,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRegistryKeyPropertyAdapter() {
         if (registryKeyPropertyItemProvider == null) {
             registryKeyPropertyItemProvider = new RegistryKeyPropertyItemProvider(this);
@@ -223,7 +223,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyServiceAdapter() {
         if (proxyServiceItemProvider == null) {
             proxyServiceItemProvider = new ProxyServiceItemProvider(this);
@@ -246,7 +246,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyWsdlConfigurationAdapter() {
         if (proxyWsdlConfigurationItemProvider == null) {
             proxyWsdlConfigurationItemProvider = new ProxyWsdlConfigurationItemProvider(this);
@@ -269,7 +269,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyWsdlResourceAdapter() {
         if (proxyWsdlResourceItemProvider == null) {
             proxyWsdlResourceItemProvider = new ProxyWsdlResourceItemProvider(this);
@@ -292,7 +292,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyServiceParameterAdapter() {
         if (proxyServiceParameterItemProvider == null) {
             proxyServiceParameterItemProvider = new ProxyServiceParameterItemProvider(this);
@@ -315,7 +315,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyServicePolicyAdapter() {
         if (proxyServicePolicyItemProvider == null) {
             proxyServicePolicyItemProvider = new ProxyServicePolicyItemProvider(this);
@@ -338,7 +338,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyInSequenceConfigurationAdapter() {
         if (proxyInSequenceConfigurationItemProvider == null) {
             proxyInSequenceConfigurationItemProvider = new ProxyInSequenceConfigurationItemProvider(this);
@@ -361,7 +361,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyEndpointConfigurationAdapter() {
         if (proxyEndpointConfigurationItemProvider == null) {
             proxyEndpointConfigurationItemProvider = new ProxyEndpointConfigurationItemProvider(this);
@@ -384,7 +384,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyOutSequenceConfigurationAdapter() {
         if (proxyOutSequenceConfigurationItemProvider == null) {
             proxyOutSequenceConfigurationItemProvider = new ProxyOutSequenceConfigurationItemProvider(this);
@@ -407,7 +407,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createProxyFaultSequenceConfigurationAdapter() {
         if (proxyFaultSequenceConfigurationItemProvider == null) {
             proxyFaultSequenceConfigurationItemProvider = new ProxyFaultSequenceConfigurationItemProvider(this);
@@ -430,7 +430,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createLocalEntryAdapter() {
         if (localEntryItemProvider == null) {
             localEntryItemProvider = new LocalEntryItemProvider(this);
@@ -453,7 +453,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createEvaluatorExpressionPropertyAdapter() {
         if (evaluatorExpressionPropertyItemProvider == null) {
             evaluatorExpressionPropertyItemProvider = new EvaluatorExpressionPropertyItemProvider(this);
@@ -476,7 +476,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createDefaultEndPointAdapter() {
         if (defaultEndPointItemProvider == null) {
             defaultEndPointItemProvider = new DefaultEndPointItemProvider(this);
@@ -499,7 +499,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createAddressEndPointAdapter() {
         if (addressEndPointItemProvider == null) {
             addressEndPointItemProvider = new AddressEndPointItemProvider(this);
@@ -522,7 +522,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createWsdlEndPointAdapter() {
         if (wsdlEndPointItemProvider == null) {
             wsdlEndPointItemProvider = new WsdlEndPointItemProvider(this);
@@ -545,7 +545,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createFailoverEndPointAdapter() {
         if (failoverEndPointItemProvider == null) {
             failoverEndPointItemProvider = new FailoverEndPointItemProvider(this);
@@ -568,7 +568,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createLoadBalanceEndPointAdapter() {
         if (loadBalanceEndPointItemProvider == null) {
             loadBalanceEndPointItemProvider = new LoadBalanceEndPointItemProvider(this);
@@ -591,7 +591,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createDynamicLoadBalanceEndPointAdapter() {
         if (dynamicLoadBalanceEndPointItemProvider == null) {
             dynamicLoadBalanceEndPointItemProvider = new DynamicLoadBalanceEndPointItemProvider(this);
@@ -614,7 +614,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createDynamicLoadBalancePropertyAdapter() {
         if (dynamicLoadBalancePropertyItemProvider == null) {
             dynamicLoadBalancePropertyItemProvider = new DynamicLoadBalancePropertyItemProvider(this);
@@ -637,7 +637,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Adapter createXPathEndPointReferenceAdapter() {
         if (xPathEndPointReferenceItemProvider == null) {
             xPathEndPointReferenceItemProvider = new XPathEndPointReferenceItemProvider(this);
@@ -660,7 +660,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter createRegistryKeyEndPointReferenceAdapter() {
         if (registryKeyEndPointReferenceItemProvider == null) {
             registryKeyEndPointReferenceItemProvider = new RegistryKeyEndPointReferenceItemProvider(this);
@@ -694,7 +694,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean isFactoryForType(Object type) {
         return supportedTypes.contains(type) || super.isFactoryForType(type);
     }
@@ -705,7 +705,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Adapter adapt(Notifier notifier, Object type) {
         return super.adapt(notifier, this);
     }
@@ -715,7 +715,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);

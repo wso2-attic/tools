@@ -14,7 +14,7 @@ public class BPELDeployable extends FlatComponentDeployable {
 		super(project, aComponent);
 	}
 	
-	@Override
+	
 	public boolean shouldCache() {
 		return true;
 	}

@@ -70,7 +70,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		AbstractProxySequenceConfiguration sequenceConfiguration = (AbstractProxySequenceConfiguration) object;
 		if (itemPropertyDescriptors != null) {
@@ -168,7 +168,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		AbstractProxySequenceConfiguration sequenceConfiguration = (AbstractProxySequenceConfiguration) object;
 		if (childrenFeatures != null) {
@@ -188,7 +188,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -202,7 +202,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String getText(Object object) {
         String label = ((AbstractProxySequenceConfiguration)object).getSequenceName();
         return label == null || label.length() == 0 ?
@@ -216,7 +216,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -241,7 +241,7 @@ public class AbstractProxySequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 

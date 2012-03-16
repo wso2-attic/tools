@@ -25,12 +25,12 @@
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.carbonstudio</groupId>
-    <artifactId>org.wso2.carbonstudio.eclipse.carbonstudio.feature</artifactId>
+    <groupId>org.wso2.developerstudio</groupId>
+    <artifactId>org.wso2.developerstudio.eclipse.carbonstudio.feature</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon Studio</name>
+    <name>WSO2 Developer Studio</name>
     <url>http://wso2.org</url>
-    <description>This feature contains the bundles for Eclipse Carbon Studio Feature</description>
+    <description>This feature contains the bundles for Eclipse Developer Studio Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -49,28 +49,28 @@
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <importFeatures>
 
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.bps.feature:${bps.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.registry.feature:${registry.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.esb.feature:${esb.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</importFeatureDef>                                
-                                <!--importFeatureDef>org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</importFeatureDef-->
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.ds.feature:${ds.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.appserver.feature:${appserver.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.appserver.artifact.feature:${appserver.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.bps.feature:${bps.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.bpel.artifact.feature:${bps.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.registry.feature:${registry.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</importFeatureDef>                                
+                                <!--importFeatureDef>org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</importFeatureDef-->
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</importFeatureDef>
 
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</importFeatureDef>
-                                <!--importFeatureDef>org.wso2.carbonstudio.eclipse.capp.artifacts.feature:${capp.tools.feature.version}</importFeatureDef-->
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</importFeatureDef>
+                                <!--importFeatureDef>org.wso2.developerstudio.eclipse.capp.artifacts.feature:${capp.tools.feature.version}</importFeatureDef-->
                                 
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.registry.connector.feature:${greg.connector.tools.feature.version}</importFeatureDef>
 
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.server.framework.feature:${server.framework.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</importFeatureDef>     
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.server.framework.feature:${server.framework.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</importFeatureDef>     
                                 <!--importFeatureDef>com.googlecode.osde.feature:${osde.feature.version}</importFeatureDef-->                                     
                             </importFeatures>
                         </configuration>

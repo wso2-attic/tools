@@ -112,7 +112,7 @@ public class AssignE4XImplSection extends BPELPropertySection {
 	}
 	
 	
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 		if(newInput instanceof AssignE4X){
 			super.basicSetInput(newInput);
@@ -216,14 +216,14 @@ public class AssignE4XImplSection extends BPELPropertySection {
 
 		fSnippetText.addFocusListener(new FocusListener() {
 			
-			@Override
+			
 			public void focusLost(FocusEvent e) {
 				// writing changes to the bpel file.
 				addToSnippetCommand(fSnippetText.getText(),index);
 				
 			}
 
-			@Override
+			
 			public void focusGained(FocusEvent e) {
 				// Update JavaScript Widget
 				updateJSWidgets();
@@ -231,7 +231,7 @@ public class AssignE4XImplSection extends BPELPropertySection {
 		});
 		
 		fSnippetText.addLineBackgroundListener(new LineBackgroundListener() {
-			@Override
+			
 			public void lineGetBackground(LineBackgroundEvent event) {
 				 if(fSnippetText.getLineAtOffset(event.lineOffset) % 2 == 0)
 			          event.lineBackground = new Color(Display.getDefault(),204,204,255);
@@ -354,7 +354,7 @@ public class AssignE4XImplSection extends BPELPropertySection {
 
 
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite parentComposite = createFlatFormComposite(parent);
 		Composite ref =null;

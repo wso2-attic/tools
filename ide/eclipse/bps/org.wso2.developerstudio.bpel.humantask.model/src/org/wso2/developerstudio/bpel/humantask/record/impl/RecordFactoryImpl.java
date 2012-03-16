@@ -57,7 +57,7 @@ public class RecordFactoryImpl extends EFactoryImpl implements RecordFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			default:

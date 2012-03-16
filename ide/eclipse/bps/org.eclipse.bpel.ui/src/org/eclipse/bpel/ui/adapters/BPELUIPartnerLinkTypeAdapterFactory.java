@@ -58,7 +58,7 @@ public class BPELUIPartnerLinkTypeAdapterFactory extends PartnerlinktypeAdapterF
 	/**
 	 * @see org.eclipse.bpel.model.partnerlinktype.util.PartnerlinktypeAdapterFactory#createPartnerLinkTypeAdapter()
 	 */
-	@Override
+	
 	public Adapter createPartnerLinkTypeAdapter() {
 		return provider.getAdapter ( PartnerLinkTypeAdapter.class );
 	}
@@ -66,7 +66,7 @@ public class BPELUIPartnerLinkTypeAdapterFactory extends PartnerlinktypeAdapterF
 	/**
 	 * @see org.eclipse.bpel.model.partnerlinktype.util.PartnerlinktypeAdapterFactory#createRoleAdapter()
 	 */
-	@Override
+	
 	public Adapter createRoleAdapter() {
 		return provider.getAdapter( RoleAdapter.class );
 	}
@@ -87,7 +87,7 @@ public class BPELUIPartnerLinkTypeAdapterFactory extends PartnerlinktypeAdapterF
 	/**
 	 * @see org.eclipse.emf.common.notify.impl.AdapterFactoryImpl#adaptNew(org.eclipse.emf.common.notify.Notifier, java.lang.Object)
 	 */
-	@Override
+	
 	public Adapter adaptNew(Notifier target, Object type) {
 		Adapter adapter = createAdapter(target, type);
 		// Bugzilla 330519
@@ -102,7 +102,7 @@ public class BPELUIPartnerLinkTypeAdapterFactory extends PartnerlinktypeAdapterF
 	
 	
 	
-	@Override
+	
 	protected Object resolve(Object object, Object type) {
 		return null;
 	}

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TImport;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,14 +36,14 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getExtensions <em>Extensions</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getImport <em>Import</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getTasks <em>Tasks</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getExpressionLanguage <em>Expression Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getQueryLanguage <em>Query Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getTargetNamespace <em>Target Namespace</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getImport <em>Import</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getNotifications <em>Notifications</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getQueryLanguage <em>Query Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl#getTargetNamespace <em>Target Namespace</em>}</li>
  * </ul>
  * </p>
  *

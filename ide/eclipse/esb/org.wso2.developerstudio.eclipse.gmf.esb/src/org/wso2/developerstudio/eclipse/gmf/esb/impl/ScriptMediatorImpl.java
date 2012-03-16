@@ -174,7 +174,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SCRIPT_MEDIATOR;
 	}
@@ -398,7 +398,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
@@ -417,7 +417,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_TYPE:
@@ -444,7 +444,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_TYPE:
@@ -478,7 +478,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_TYPE:
@@ -512,7 +512,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_TYPE:
@@ -539,7 +539,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

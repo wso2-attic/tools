@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -21,9 +21,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,9 +32,9 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getParameter <em>Parameter</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl#getReference <em>Reference</em>}</li>
  * </ul>
  * </p>
  *

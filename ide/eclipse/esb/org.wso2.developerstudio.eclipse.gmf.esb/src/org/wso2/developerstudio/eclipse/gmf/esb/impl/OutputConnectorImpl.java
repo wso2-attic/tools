@@ -55,7 +55,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.OUTPUT_CONNECTOR;
 	}
@@ -119,7 +119,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
@@ -136,7 +136,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
@@ -151,7 +151,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
@@ -166,7 +166,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
@@ -182,7 +182,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
@@ -198,7 +198,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:

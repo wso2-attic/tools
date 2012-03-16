@@ -28,7 +28,7 @@ public class XSDElementDeclarationTreeNode extends XSDTreeNode {
 		return (XSDElementDeclaration)BPELUtil.resolveXSDObject(modelObject);
 	}
 		
-	@Override
+	
 	public Object[] getChildren() {
 		XSDTypeDefinition xsdType = getResolvedModelObject().getType();
 		if (xsdType instanceof XSDComplexTypeDefinition) {
@@ -40,7 +40,7 @@ public class XSDElementDeclarationTreeNode extends XSDTreeNode {
 		return EMPTY_ARRAY;
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		XSDElementDeclaration element = getResolvedModelObject();
 		XSDTypeDefinition xsdType = element.getType();
@@ -55,14 +55,14 @@ public class XSDElementDeclarationTreeNode extends XSDTreeNode {
 		return false;
 	}
 
-	@Override
+	
 	public String getLabel() {
 		XSDElementDeclaration element = getResolvedModelObject();
 		String name = element.getName();
 		return (name != null) ? name : ""; //$NON-NLS-1$
 	}
 
-	@Override
+	
 	public String getLabelSuffix() {
 		XSDElementDeclaration element = getResolvedModelObject();
 		XSDTypeDefinition type = element.getType();

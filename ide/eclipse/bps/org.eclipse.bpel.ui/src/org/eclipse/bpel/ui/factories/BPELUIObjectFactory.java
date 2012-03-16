@@ -132,7 +132,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	 * 
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getModelType()
 	 */
-	@Override
+	
 	public EClass getModelType() {
 		return modelType;
 	}
@@ -151,7 +151,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getSmallImageDescriptor()
 	 */
-	@Override
+	
 	public ImageDescriptor getSmallImageDescriptor() {
 		return getSmallImageDescriptor(getModelType());
 	}
@@ -159,7 +159,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getLargeImageDescriptor()
 	 */
-	@Override
+	
 	public ImageDescriptor getLargeImageDescriptor() {
 		return getLargeImageDescriptor(getModelType());
 	}
@@ -190,7 +190,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getSmallImage()
 	 */
-	@Override
+	
 	public Image getSmallImage() {
 		return BPELUIPlugin.INSTANCE.getImage(
 				OBJ16 + baseImageName(getModelType()) + GIF);
@@ -199,7 +199,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getLargeImage()
 	 */
-	@Override
+	
 	public Image getLargeImage() {
 		return BPELUIPlugin.INSTANCE.getImage(
 				OBJ20 + baseImageName(getModelType()) + PNG);
@@ -208,7 +208,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#getTypeLabel()
 	 */
-	@Override
+	
 	public String getTypeLabel() {
 		// TODO: new story for externalizing this ? We used to use
 		// BPELCreateFactory.ClassNiceName.* keys
@@ -218,7 +218,7 @@ public class BPELUIObjectFactory extends AbstractUIObjectFactory {
 	/**
 	 * @see org.eclipse.bpel.ui.factories.AbstractUIObjectFactory#createInstance()
 	 */
-	@Override
+	
 	public EObject createInstance() {
 
 		EObject result = super.createInstance();

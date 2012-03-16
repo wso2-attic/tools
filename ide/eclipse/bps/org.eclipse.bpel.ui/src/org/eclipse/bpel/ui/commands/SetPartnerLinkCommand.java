@@ -32,11 +32,11 @@ public class SetPartnerLinkCommand extends SetCommand {
 		super(target, newPartnerLink);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getPartnerLink(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 	    PartnerLink pl = (PartnerLink)o;
 		ModelHelper.setPartnerLink(fTarget, pl);

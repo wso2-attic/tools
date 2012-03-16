@@ -85,7 +85,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR;
 	}
@@ -129,7 +129,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES:
@@ -144,7 +144,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_ROUTE:
@@ -161,7 +161,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -182,7 +182,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_ROUTE:
@@ -201,7 +201,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_ROUTE:
@@ -218,7 +218,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements Condi
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

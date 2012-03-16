@@ -49,104 +49,104 @@ public class ResourceActionProvider extends CommonActionProvider implements IAct
 	
 	private NavigatorNode navigatorNode;
 	
-	@Override
+	
 	public void init(ICommonActionExtensionSite site) {
 	super.init(site);
 	site.getStructuredViewer().addSelectionChangedListener(this);
 	}
 
-	@Override
+	
 	public void fillActionBars(IActionBars actionBars) {
 	super.fillActionBars(actionBars);
 	actionBars.setGlobalActionHandler(OPEN,this);
 	}
 
-	@Override
+	
     public void addPropertyChangeListener(IPropertyChangeListener iPropertyChangeListener) {
 	    
     }
 
-	@Override
+	
     public int getAccelerator() {
 	    return 0;
     }
 
-	@Override
+	
     public String getActionDefinitionId() {
 	    return null;
     }
 
-	@Override
+	
     public String getDescription() {
 	    return null;
     }
 
-	@Override
+	
     public ImageDescriptor getDisabledImageDescriptor() {
 	    return null;
     }
 
-	@Override
+	
     public HelpListener getHelpListener() {
 	    return null;
     }
 
-	@Override
+	
     public ImageDescriptor getHoverImageDescriptor() {
 	    return null;
     }
 
-	@Override
+	
     public String getId() {
 	    return null;
     }
 
-	@Override
+	
     public ImageDescriptor getImageDescriptor() {
 	    return null;
     }
 
-	@Override
+	
     public IMenuCreator getMenuCreator() {
 	    return null;
     }
 
-	@Override
+	
     public int getStyle() {
 	    return 0;
     }
 
-	@Override
+	
     public String getText() {
 	    return null;
     }
 
-	@Override
+	
     public String getToolTipText() {
 	    return null;
     }
 
-	@Override
+	
     public boolean isChecked() {
 	    return false;
     }
 
-	@Override
+	
     public boolean isEnabled() {
 	    return false;
     }
 
-	@Override
+	
     public boolean isHandled() {
 	    return false;
     }
 
-	@Override
+	
     public void removePropertyChangeListener(IPropertyChangeListener iPropertyChangeListener) {
 	    
     }
 
-	@Override
+	
     public void run() {
 		try {
 	        if(navigatorNode!=null){
@@ -179,78 +179,78 @@ public class ResourceActionProvider extends CommonActionProvider implements IAct
         }    
     }
 
-	@Override
+	
     public void runWithEvent(Event evt) {
 	    
     }
 
-	@Override
+	
     public void setAccelerator(int id) {
 	    
     }
 
-	@Override
+	
     public void setActionDefinitionId(String id) {
 	    
     }
 
-	@Override
+	
     public void setChecked(boolean checked) {
 	    
     }
 
-	@Override
+	
     public void setDescription(String description) {
 	    
     }
 
-	@Override
+	
     public void setDisabledImageDescriptor(ImageDescriptor imageDescriptor) {
 	    
     }
 
-	@Override
+	
     public void setEnabled(boolean enabled) {
 	    
     }
 
-	@Override
+	
     public void setHelpListener(HelpListener helpListener) {
 	    
     }
 
-	@Override
+	
     public void setHoverImageDescriptor(ImageDescriptor imageDescriptor) {
 	    
     }
 
-	@Override
+	
     public void setId(String id) {
 
 	    
     }
 
-	@Override
+	
     public void setImageDescriptor(ImageDescriptor imageDescriptor) {
 	    
     }
 
-	@Override
+	
     public void setMenuCreator(IMenuCreator menuCreator) {
 	    
     }
 
-	@Override
+	
     public void setText(String text) {
 	    
     }
 
-	@Override
+	
     public void setToolTipText(String text) {
 	    
     }
 
-	@Override
+	
 	public void selectionChanged(SelectionChangedEvent evt) {
 		ISelection selection = evt.getSelection();
 		if (selection != null && selection instanceof TreeSelection) {

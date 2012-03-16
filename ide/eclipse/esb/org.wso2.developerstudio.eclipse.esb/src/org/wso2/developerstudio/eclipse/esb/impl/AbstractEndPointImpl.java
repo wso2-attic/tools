@@ -615,7 +615,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.ABSTRACT_END_POINT;
     }
@@ -995,7 +995,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED:
@@ -1041,7 +1041,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED:
@@ -1101,7 +1101,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED:
@@ -1161,7 +1161,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED:
@@ -1205,7 +1205,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public String toString() {
         if (eIsProxy()) return super.toString();
 

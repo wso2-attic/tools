@@ -32,7 +32,7 @@ public class ContainerHighlightEditPolicy extends BPELSelectionEditPolicy {
 		super(resizable, movable);
 	}
 	
-	@Override
+	
 	public void eraseTargetFeedback(Request request) {
 		if (revertColor != null) {
 			setContainerBackground(revertColor);
@@ -41,7 +41,7 @@ public class ContainerHighlightEditPolicy extends BPELSelectionEditPolicy {
 		}
 	}
 
-	@Override
+	
 	public void activate() {
 		super.activate();
 		if (highlightColor == null) {
@@ -51,7 +51,7 @@ public class ContainerHighlightEditPolicy extends BPELSelectionEditPolicy {
 		}
 	}
 
-	@Override
+	
 	public void deactivate() {
 		super.deactivate();
 		if (highlightColor != null) {
@@ -74,7 +74,7 @@ public class ContainerHighlightEditPolicy extends BPELSelectionEditPolicy {
 		return ((GraphicalEditPart) getHost()).getContentPane();
 	}
 
-	@Override
+	
 	public EditPart getTargetEditPart(Request request) {
 		return request.getType().equals(RequestConstants.REQ_SELECTION_HOVER) ? getHost() : null;
 	}
@@ -92,7 +92,7 @@ public class ContainerHighlightEditPolicy extends BPELSelectionEditPolicy {
 		}
 	}
 
-	@Override
+	
 	public void showTargetFeedback(Request request) {
 		super.showTargetFeedback(request);
 		if (request.getType().equals(RequestConstants.REQ_MOVE)

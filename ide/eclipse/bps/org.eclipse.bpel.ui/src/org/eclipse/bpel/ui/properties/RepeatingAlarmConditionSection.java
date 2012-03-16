@@ -44,12 +44,12 @@ public class RepeatingAlarmConditionSection extends ExpressionSection {
 
 	protected Button createDefaultButton;
 
-	@Override
+	
 	protected String getExpressionType() {
 		return IEditorConstants.ET_DURATION;
 	}
 
-	@Override
+	
 	protected Composite createNoEditorWidgets(Composite composite) {
 
 		Composite section = fWidgetFactory.createComposite(composite);
@@ -108,7 +108,7 @@ public class RepeatingAlarmConditionSection extends ExpressionSection {
 		return section;
 	}
 
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {		
 		super.basicSetInput(newInput);
 				
@@ -123,7 +123,7 @@ public class RepeatingAlarmConditionSection extends ExpressionSection {
 		createDefaultButton.setEnabled(enable);		
 	}
 
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature(EObject object) {
 		if (object instanceof OnAlarm) {
 			return BPELPackage.eINSTANCE.getOnAlarm_RepeatEvery();
@@ -132,12 +132,12 @@ public class RepeatingAlarmConditionSection extends ExpressionSection {
 	}
 
 	
-	@Override	
+		
 	protected boolean isValidClientUseType(String useType) {
 		return IBPELUIConstants.USE_TYPE_DURATION_CONDITION.equals(useType);
 	}
 
-	@Override
+	
 	protected void createClient(Composite parent) {
 		super.createClient(parent);
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(fParentComposite,

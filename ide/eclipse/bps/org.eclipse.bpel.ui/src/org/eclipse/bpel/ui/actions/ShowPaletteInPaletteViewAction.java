@@ -49,7 +49,7 @@ public class ShowPaletteInPaletteViewAction extends ShowViewAction {
 	 * 
 	 * @see org.eclipse.jface.action.IAction#getDisabledImageDescriptor()
 	 */
-	@Override
+	
 	public ImageDescriptor getDisabledImageDescriptor() {
 		if (disabledImage == null) {
 			disabledImage = CommonUIPlugin.getDefault().getImageRegistry().getDescriptor(ICommonUIConstants.ICON_SHOW_PALETTE_VIEW_D);
@@ -63,7 +63,7 @@ public class ShowPaletteInPaletteViewAction extends ShowViewAction {
 	 * @see org.eclipse.jface.action.IAction#getImageDescriptor()
 	 */
 	
-	@Override
+	
 	public ImageDescriptor getImageDescriptor() {
 		if (enabledImage == null) {
 			enabledImage = CommonUIPlugin.getDefault().getImageRegistry().getDescriptor(ICommonUIConstants.ICON_SHOW_PALETTE_VIEW_E);

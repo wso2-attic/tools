@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.carbonstudio.eclipse.utils.data;
+package org.wso2.developerstudio.eclipse.utils.data;
 
 import java.io.File;
 import java.util.List;

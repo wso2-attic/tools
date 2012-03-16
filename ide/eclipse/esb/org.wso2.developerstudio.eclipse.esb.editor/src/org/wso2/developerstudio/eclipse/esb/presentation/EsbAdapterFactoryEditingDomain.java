@@ -47,12 +47,12 @@ public class EsbAdapterFactoryEditingDomain extends AdapterFactoryEditingDomain 
 		super(adapterFactory, commandStack, hashMap);
 	}
 
-	@Override
+	
 	public Collection<Object> getClipboard() {
 		return sharedClipboard;
 	}
 
-	@Override
+	
 	public void setClipboard(Collection<Object> clipboard) {
 		super.setClipboard(clipboard);
 		sharedClipboard = clipboard;

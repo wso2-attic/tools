@@ -40,12 +40,12 @@ public abstract class ReplaceInListCommand extends AutoUndoCommand {
 	 */
 	protected abstract List getList();
 
-	@Override
+	
 	public boolean canDoExecute() {
 		return true;  // !getList().contains(newElement)
 	}
 
-	@Override
+	
 	public void doExecute() {
 		index = getList().indexOf(oldElement);
 		getList().set(index, newElement);

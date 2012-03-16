@@ -35,7 +35,7 @@ public class MakePartner2WayAction extends SelectionAction {
 		setText(Messages.MakePartner2WayAction_0); 
 	}
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 		PartnerLink partner = getPartnerLink();
 		if (partner != null) {
@@ -54,7 +54,7 @@ public class MakePartner2WayAction extends SelectionAction {
 		return null;
 	}
 
-	@Override
+	
 	public void run() {
 		PartnerLink partner = getPartnerLink();
 		PartnerLinkType plt = partner.getPartnerLinkType();

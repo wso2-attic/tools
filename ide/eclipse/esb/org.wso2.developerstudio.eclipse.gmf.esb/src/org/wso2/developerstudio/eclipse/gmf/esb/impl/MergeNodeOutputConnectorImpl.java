@@ -36,7 +36,7 @@ public class MergeNodeOutputConnectorImpl extends OutputConnectorImpl implements
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MERGE_NODE_OUTPUT_CONNECTOR;
 	}

@@ -187,7 +187,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.COMMAND_PROPERTY;
 	}
@@ -367,7 +367,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH:
@@ -382,7 +382,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -409,7 +409,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -443,7 +443,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -477,7 +477,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_PROPERTY__PROPERTY_NAME:
@@ -504,7 +504,7 @@ public class CommandPropertyImpl extends EObjectImpl implements CommandProperty 
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

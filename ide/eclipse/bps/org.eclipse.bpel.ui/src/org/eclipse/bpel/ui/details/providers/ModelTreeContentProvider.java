@@ -42,18 +42,18 @@ public class ModelTreeContentProvider extends CachedTreeContentProvider {
 
 	public boolean isCondensed() { return isCondensed; }
 
-	@Override
+	
 	protected Object[] primGetChildren(Object node) {
 		if (!(node instanceof ITreeNode)) return EMPTY_ARRAY;
 		return ((ITreeNode)node).getChildren();
 	}
 
-	@Override
+	
 	protected Object[] primGetElements(Object node) {
 		return primGetChildren(node);
 	}
 
-	@Override
+	
 	protected boolean primHasChildren(Object node) {
 		if (!(node instanceof ITreeNode)) return false;
 		return ((ITreeNode)node).hasChildren();
@@ -87,12 +87,12 @@ public class ModelTreeContentProvider extends CachedTreeContentProvider {
 
 	/* IContentProvider */
 
-	@Override
+	
 	public void dispose() {
 		super.dispose();
 	}
 
-	@Override
+	
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		super.inputChanged(viewer, oldInput, newInput);
 		// TODO: hook model listener?

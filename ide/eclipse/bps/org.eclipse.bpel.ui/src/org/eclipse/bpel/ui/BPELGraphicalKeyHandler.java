@@ -171,7 +171,7 @@ public class BPELGraphicalKeyHandler extends KeyHandler {
 	 * 
 	 * @see org.eclipse.gef.KeyHandler#keyPressed(org.eclipse.swt.events.KeyEvent)
 	 */
-	@Override
+	
 	public boolean keyPressed(KeyEvent event) {
 		if (event.character == ' ') {
 			processSelect(event);

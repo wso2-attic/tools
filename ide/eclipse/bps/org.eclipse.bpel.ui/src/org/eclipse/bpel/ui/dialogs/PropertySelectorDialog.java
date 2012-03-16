@@ -38,7 +38,7 @@ import org.eclipse.xsd.XSDTypeDefinition;
 public class PropertySelectorDialog extends SelectionAndCreationDialog {
 
 	protected static class TypeLabelProvider extends LabelProvider {
-		@Override
+		
 		public String getText(Object element) {
 			if (element instanceof Property) {
 				Property property = (Property)element;
@@ -102,7 +102,7 @@ public class PropertySelectorDialog extends SelectionAndCreationDialog {
 		}
 	}
 	
-	@Override
+	
 	protected void handleNewButtonPushed() {
 		Process process = BPELUtils.getProcess(correlationSet);
 		BPELEditor bpelEditor = ModelHelper.getBPELEditor(process);
@@ -134,7 +134,7 @@ public class PropertySelectorDialog extends SelectionAndCreationDialog {
 	/**
 	 * Only used to get the Text instance.
 	 */
-	@Override
+	
 	protected Text createFilterText(Composite parent) {
 		filterText = super.createFilterText(parent);
 		return filterText;
@@ -143,7 +143,7 @@ public class PropertySelectorDialog extends SelectionAndCreationDialog {
 	/**
 	 * Only used to get the Table instance.
 	 */
-	@Override
+	
 	protected Table createLowerList(Composite parent) {
 		lowerList = super.createLowerList(parent);
 		return lowerList;

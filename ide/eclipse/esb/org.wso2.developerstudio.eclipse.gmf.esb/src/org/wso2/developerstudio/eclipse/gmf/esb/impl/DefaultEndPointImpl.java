@@ -69,7 +69,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DEFAULT_END_POINT;
 	}
@@ -166,7 +166,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.DEFAULT_END_POINT__INPUT_CONNECTOR:
@@ -183,7 +183,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.DEFAULT_END_POINT__INPUT_CONNECTOR:
@@ -200,7 +200,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.DEFAULT_END_POINT__INPUT_CONNECTOR:
@@ -219,7 +219,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DEFAULT_END_POINT__INPUT_CONNECTOR:
@@ -238,7 +238,7 @@ public class DefaultEndPointImpl extends AbstractEndPointImpl implements Default
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.DEFAULT_END_POINT__INPUT_CONNECTOR:

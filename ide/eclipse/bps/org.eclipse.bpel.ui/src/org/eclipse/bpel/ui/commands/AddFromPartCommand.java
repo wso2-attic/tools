@@ -61,7 +61,7 @@ public class AddFromPartCommand extends AutoUndoCommand {
 		ModelHelper.setFromParts(target, null);
 	}
 
-	@Override
+	
 	public void doExecute() {
 		if (this.part == null)
 			throw new IllegalStateException();

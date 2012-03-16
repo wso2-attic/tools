@@ -37,7 +37,7 @@ public class TrayKeyHandler extends KeyHandler {
 		this.viewer = viewer;
 	}
 	
-	@Override
+	
 	public boolean keyPressed(KeyEvent event) {
 		switch (event.keyCode) {
 			case SWT.ARROW_UP:

@@ -226,7 +226,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SEND_MEDIATOR;
     }
@@ -423,7 +423,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -443,7 +443,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
@@ -465,7 +465,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
@@ -491,7 +491,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
@@ -517,7 +517,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
@@ -538,7 +538,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -549,7 +549,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

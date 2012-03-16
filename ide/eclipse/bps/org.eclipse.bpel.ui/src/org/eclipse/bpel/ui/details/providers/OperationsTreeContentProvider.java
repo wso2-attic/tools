@@ -27,7 +27,7 @@ public class OperationsTreeContentProvider extends ModelTreeContentProvider {
 		super(isCondensed);
 	}
 
-	@Override
+	
 	public Object[] primGetElements (Object inputElement) {
 		
 		Operation list[] = NO_OPERATIONS;

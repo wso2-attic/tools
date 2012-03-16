@@ -64,7 +64,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.CUSTOM_VALIDATOR;
 	}
@@ -95,7 +95,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.CUSTOM_VALIDATOR__CLASS:
@@ -109,7 +109,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.CUSTOM_VALIDATOR__CLASS:
@@ -124,7 +124,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.CUSTOM_VALIDATOR__CLASS:
@@ -139,7 +139,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.CUSTOM_VALIDATOR__CLASS:
@@ -153,7 +153,7 @@ public class CustomValidatorImpl extends EObjectImpl implements CustomValidator 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

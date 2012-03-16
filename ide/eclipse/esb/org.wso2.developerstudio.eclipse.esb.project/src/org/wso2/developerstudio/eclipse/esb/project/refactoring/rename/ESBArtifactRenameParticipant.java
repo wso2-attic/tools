@@ -38,7 +38,7 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 	private IProject esbProject;
 	private static List<String> skipList;
 
-	@Override
+	
 	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
 	                                                                                            throws OperationCanceledException {
 		// Conditions to check
@@ -81,7 +81,7 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 	
 	
 
-	@Override
+	
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {
 //		This has to be a composite change since we have several changes to be made with in the same change.
@@ -99,13 +99,13 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 		return change;
 	}
 
-	@Override
+	
 	public String getName() {
 		// TODO Auto-generated method stub
 		return "ESBArtifactRename";
 	}
 
-	@Override
+	
 	protected boolean initialize(Object arg0) {
 		// Similar to check initial conditions
 

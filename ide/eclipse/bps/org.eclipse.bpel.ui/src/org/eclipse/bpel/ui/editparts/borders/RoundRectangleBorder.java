@@ -40,7 +40,7 @@ public class RoundRectangleBorder extends AbstractBorder {
 	public Insets getInsets(IFigure figure) {
 		return insets;
 	}
-	@Override
+	
 	public Dimension getPreferredSize(IFigure f) {
 		return new Dimension(50, 50);
 	}

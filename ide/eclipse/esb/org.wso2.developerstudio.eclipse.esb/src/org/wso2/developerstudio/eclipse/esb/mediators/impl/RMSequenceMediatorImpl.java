@@ -175,7 +175,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RM_SEQUENCE_MEDIATOR;
     }
@@ -303,7 +303,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
@@ -325,7 +325,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
@@ -349,7 +349,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
@@ -373,7 +373,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
@@ -393,7 +393,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -406,7 +406,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

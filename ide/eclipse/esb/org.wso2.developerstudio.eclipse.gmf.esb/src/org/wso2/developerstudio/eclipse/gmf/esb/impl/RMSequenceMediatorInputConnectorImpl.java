@@ -35,7 +35,7 @@ public class RMSequenceMediatorInputConnectorImpl extends InputConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RM_SEQUENCE_MEDIATOR_INPUT_CONNECTOR;
 	}

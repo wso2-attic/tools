@@ -20,12 +20,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-capp-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.capp.artifacts.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.capp.artifacts.feature</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Carbon Application Artifact Feature</name>
     <url>http://wso2.org</url>
@@ -47,33 +47,33 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.axis2:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.bpel:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.dataservice:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.endpoints:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.gadgets:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.jaxws:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.registry:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.sequence:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.synapse:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.war:${capp.tools.version}</bundleDef>
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.libraries:${capp.tools.version}</bundleDef> 
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.mediators:${capp.tools.version}</bundleDef>         
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.registry.filters:${capp.tools.version}</bundleDef>  
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.registry.handler:${capp.tools.version}</bundleDef>   
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.carbon.ui.bundle:${capp.tools.version}</bundleDef>   
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.dataservice.validator:${capp.tools.version}</bundleDef>      
-		                        <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.artifact.localentry:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.axis2:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.bpel:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.dataservice:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.endpoints:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.gadgets:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.jaxws:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.proxyservice:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.registry:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.sequence:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.synapse:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.war:${capp.tools.version}</bundleDef>
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.libraries:${capp.tools.version}</bundleDef> 
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.mediators:${capp.tools.version}</bundleDef>         
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.registry.filters:${capp.tools.version}</bundleDef>  
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.registry.handler:${capp.tools.version}</bundleDef>   
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.carbon.ui.bundle:${capp.tools.version}</bundleDef>   
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.dataservice.validator:${capp.tools.version}</bundleDef>      
+		                        <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifact.localentry:${capp.tools.version}</bundleDef>
                             </bundles>
                             <importFeatures>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.wsas.core.feature:${wsas.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.framework.core.feature:${core.framework.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.ds.feature:${ds.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.esb.feature:${esb.tools.feature.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</importFeatureDef>                                
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.wsas.core.feature:${wsas.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.framework.core.feature:${core.framework.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.framework.samples.feature:${core.framework.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</importFeatureDef>                                
                             </importFeatures>
                         </configuration>
                     </execution>

@@ -26,7 +26,7 @@ public class WhileAdapter extends ContainerActivityAdapter implements IAnnotated
 	 */
 	/* IContainer delegate */
 	
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		return new ActivityContainer(BPELPackage.eINSTANCE.getWhile_Activity());
 	}
@@ -34,7 +34,7 @@ public class WhileAdapter extends ContainerActivityAdapter implements IAnnotated
 	/**
 	 * @see org.eclipse.bpel.ui.adapters.ActivityAdapter#createEditPart(org.eclipse.gef.EditPart, java.lang.Object)
 	 */	
-	@Override
+	
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart result = new SequenceEditPart();
 		result.setModel(model);
@@ -44,7 +44,7 @@ public class WhileAdapter extends ContainerActivityAdapter implements IAnnotated
 	/**
 	 * @see org.eclipse.bpel.ui.adapters.ActivityAdapter#createOutlineEditPart(org.eclipse.gef.EditPart, java.lang.Object)
 	 */
-	@Override
+	
 	public EditPart createOutlineEditPart(EditPart context, Object model) {
 		EditPart result = new OutlineTreeEditPart();
 		result.setModel(model);

@@ -26,7 +26,7 @@ import org.eclipse.swt.graphics.Image;
 public class EndNodeEditPart extends BPELEditPart implements NodeEditPart {
 	Image image;
 
-	@Override
+	
 	protected IFigure createFigure() {
 		if (image == null) {
 			ILabeledElement element = BPELUtil.adapt(getEndNode(), ILabeledElement.class);
@@ -35,7 +35,7 @@ public class EndNodeEditPart extends BPELEditPart implements NodeEditPart {
 		ImageFigure imageFigure = new ImageFigure(image);
 		return imageFigure;
 	}	
-	@Override
+	
 	public boolean isSelectable() {
 		return false;
 	}

@@ -191,7 +191,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case EsbPackage.NAMESPACE: return createNamespace();
@@ -229,7 +229,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
             case EsbPackage.MODEL_OBJECT_STATE:
@@ -277,7 +277,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
             case EsbPackage.MODEL_OBJECT_STATE:

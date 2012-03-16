@@ -60,12 +60,12 @@ public class ProxyWsdlResourceImpl extends AbstractLocationKeyResourceImpl imple
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.PROXY_WSDL_RESOURCE;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

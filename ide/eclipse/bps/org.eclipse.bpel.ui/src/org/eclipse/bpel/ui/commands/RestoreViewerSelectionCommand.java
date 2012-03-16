@@ -56,7 +56,7 @@ public class RestoreViewerSelectionCommand extends AbstractEditModelCommand {
 		}
 	}
 
-	@Override
+	
 	public void execute() {
 		if (selectedModelObjects == null)  captureSelection();
 	}
@@ -71,13 +71,13 @@ public class RestoreViewerSelectionCommand extends AbstractEditModelCommand {
 		}
 	}
 
-	@Override
+	
 	public void undo() { if (restoreOnUndo)  restoreSelection(); }
-	@Override
+	
 	public void redo() { if (restoreOnRedo)  restoreSelection(); }
 
-	@Override
+	
 	public Resource[] getResources() { return EMPTY_RESOURCE_ARRAY; }
-	@Override
+	
 	public Resource[] getModifiedResources() { return EMPTY_RESOURCE_ARRAY; }
 }

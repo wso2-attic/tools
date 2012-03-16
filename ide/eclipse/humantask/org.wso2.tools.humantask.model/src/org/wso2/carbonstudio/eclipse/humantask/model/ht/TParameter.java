@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import javax.xml.namespace.QName;
 
@@ -16,12 +16,12 @@ import javax.xml.namespace.QName;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTParameter()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTParameter()
  * @model extendedMetaData="name='tParameter' kind='mixed'"
  * @generated
  */
@@ -36,7 +36,7 @@ public interface TParameter extends TExtensibleMixedContentElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTParameter_Name()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTParameter_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
@@ -44,7 +44,7 @@ public interface TParameter extends TExtensibleMixedContentElements {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -63,7 +63,7 @@ public interface TParameter extends TExtensibleMixedContentElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(QName)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTParameter_Type()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTParameter_Type()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.QName" required="true"
 	 *        extendedMetaData="kind='attribute' name='type'"
 	 * @generated
@@ -71,7 +71,7 @@ public interface TParameter extends TExtensibleMixedContentElements {
 	QName getType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.

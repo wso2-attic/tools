@@ -33,7 +33,7 @@ public class FlowXYLayout extends NonclippingXYLayout {
 		this.flowEditPart = flowEditPart;
 	}
 
-	@Override
+	
 	public Object getConstraint(IFigure figure) {
 		Object constraint = super.getConstraint(figure);
 		if (constraint != null) return constraint;

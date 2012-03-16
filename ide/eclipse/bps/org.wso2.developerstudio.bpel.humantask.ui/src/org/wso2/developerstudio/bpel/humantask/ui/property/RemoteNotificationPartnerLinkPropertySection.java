@@ -103,13 +103,13 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 	private TreeViewer quickViewTreeViewer;
 	
 	private IControlContentAdapter fTextContentAdapter = new TextContentAdapter() {
-		@Override
+		
 		public void insertControlContents(Control control, String text, int cursorPosition) {
 			if (text != null) {
 				super.insertControlContents(control, text, cursorPosition);
 			}
 		}
-		@Override
+		
 		public void setControlContents(Control control, String text, int cursorPosition) {
 			if (text != null) {
 				super.setControlContents(control, text, cursorPosition);
@@ -121,7 +121,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 	private static final Operation IGNORE_OPERATION = WSDLFactory.eINSTANCE.createOperation();
 	
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		
 		Composite composite = parentComposite = createFlatFormComposite(parent);
@@ -135,7 +135,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		
 	}
 	
-	@Override
+	
 	protected void basicSetInput(EObject input) {
 		
 		super.basicSetInput(input);	
@@ -168,7 +168,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		
 		RunnableProposal proposal = new RunnableProposal() {
 			
-			@Override
+			
 			public String getLabel() {
 				return Messages.InvokeImplSection_0;
 			}
@@ -178,7 +178,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		};
 
 		RunnableProposal proposal3 = new RunnableProposal() {			
-			@Override
+			
 			public String getLabel() {
 				return Messages.InvokeImplSection_2;
 			}
@@ -192,7 +192,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		PartnerLinkContentProvider provider = new PartnerLinkContentProvider();
 		ModelContentProposalProvider proposalProvider;
 		proposalProvider = new ModelContentProposalProvider( new ModelContentProposalProvider.ValueProvider () {
-			@Override
+			
 			public Object value() {
 				return getInput();
 			}			
@@ -321,7 +321,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		// Provide Content Assist for the variables		
 		AbstractContentProvider provider = new AbstractContentProvider(){
 			
-			@Override
+			
 			public void collectElements(Object input, List list){
 				if(input instanceof PeopleActivityRN)
 				{	
@@ -365,7 +365,7 @@ public class RemoteNotificationPartnerLinkPropertySection extends BPELPropertySe
 		
 		ModelContentProposalProvider proposalProvider;
 		proposalProvider = new ModelContentProposalProvider( new ModelContentProposalProvider.ValueProvider () {
-			@Override
+			
 			public Object value() {
 				return getInput();
 			}			

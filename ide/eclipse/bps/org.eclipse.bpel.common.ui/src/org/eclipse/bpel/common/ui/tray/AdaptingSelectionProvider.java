@@ -46,7 +46,7 @@ public class AdaptingSelectionProvider extends MultiViewerSelectionProvider {
 	}
 	
 	
-	@Override
+	
 	protected IStructuredSelection calculateSelection (IStructuredSelection selection) {
 		
 		if (selection == null || selection.isEmpty()) {
@@ -78,7 +78,7 @@ public class AdaptingSelectionProvider extends MultiViewerSelectionProvider {
 	 * 
 	 */
 	
-	@Override
+	
 	protected void internalSetSelection(IStructuredSelection selection) {
 		
 		if (selection == null || selection.isEmpty() ) {

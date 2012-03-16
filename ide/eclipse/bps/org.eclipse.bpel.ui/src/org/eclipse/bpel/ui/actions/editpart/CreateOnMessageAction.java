@@ -55,8 +55,8 @@ public class CreateOnMessageAction extends AbstractAction {
 		return Messages.CreateOnMessageAction_Add_OnMessage_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

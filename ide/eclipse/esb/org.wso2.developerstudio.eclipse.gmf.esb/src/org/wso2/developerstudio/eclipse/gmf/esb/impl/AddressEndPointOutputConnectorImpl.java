@@ -36,7 +36,7 @@ public class AddressEndPointOutputConnectorImpl extends OutputConnectorImpl impl
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ADDRESS_END_POINT_OUTPUT_CONNECTOR;
 	}

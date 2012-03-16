@@ -28,7 +28,7 @@ public class PartnerLinkTreeContentProvider extends ModelTreeContentProvider {
 		super(isCondensed);
 	}
 
-	@Override
+	
 	public Object[] primGetElements (Object inputElement) {
 		
 		PartnerLink links[] = BPELUtil.getVisiblePartnerLinks( (EObject) inputElement);

@@ -59,7 +59,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		SequenceMediator sequenceMediator = (SequenceMediator) object;
 		if (itemPropertyDescriptors != null) {
@@ -177,7 +177,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/SequenceMediator"));
     }
@@ -186,7 +186,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_SequenceMediator_type");
 	}
@@ -198,7 +198,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -217,7 +217,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
@@ -229,7 +229,7 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

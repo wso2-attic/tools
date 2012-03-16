@@ -10,7 +10,7 @@ import org.eclipse.wst.common.project.facet.core.IActionConfigFactory;
 public class BPELFacetInstallDataModelProvider extends
 		FacetInstallDataModelProvider implements IActionConfigFactory, IFacetDataModelProperties, IBPELModuleFacetConstants {
 	
-	@Override
+	
 	public Set getPropertyNames() {
 		Set names = super.getPropertyNames();
 		names.add(FACET_PROJECT_NAME);
@@ -19,7 +19,7 @@ public class BPELFacetInstallDataModelProvider extends
 		return names;
 	}
 
-	@Override
+	
 	public Object getDefaultProperty(String propertyName) {
 		if (propertyName.equals(FACET_ID)) {
 			return IBPELModuleFacetConstants.BPEL20_PROJECT_FACET;

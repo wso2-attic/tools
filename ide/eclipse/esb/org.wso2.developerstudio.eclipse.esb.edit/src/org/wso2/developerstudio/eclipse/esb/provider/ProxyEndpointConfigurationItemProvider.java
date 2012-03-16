@@ -70,7 +70,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		ProxyEndpointConfiguration endpointConfiguration = (ProxyEndpointConfiguration) object;
 		if (itemPropertyDescriptors != null) {
@@ -172,7 +172,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		ProxyEndpointConfiguration endpointConfiguration = (ProxyEndpointConfiguration) object;
 		if (childrenFeatures != null) {
@@ -192,7 +192,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -206,7 +206,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyEndpointConfiguration"));
     }
@@ -216,7 +216,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_ProxyEndpointConfiguration_type");
 	}
@@ -227,7 +227,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -253,7 +253,7 @@ public class ProxyEndpointConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * 
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 

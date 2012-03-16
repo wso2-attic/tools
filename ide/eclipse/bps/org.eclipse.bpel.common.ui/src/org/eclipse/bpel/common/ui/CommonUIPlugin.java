@@ -61,7 +61,7 @@ public class CommonUIPlugin extends AbstractUIPlugin {
 	/**
 	 * This method is called upon plug-in activation
 	 */
-	@Override
+	
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
@@ -70,7 +70,7 @@ public class CommonUIPlugin extends AbstractUIPlugin {
 	/**
 	 * This method is called when the plug-in is stopped
 	 */
-	@Override
+	
 	public void stop(BundleContext context) throws Exception {
 		super.stop(context);
 		plugin = null;
@@ -99,7 +99,7 @@ public class CommonUIPlugin extends AbstractUIPlugin {
 	/**
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#getImageRegistry()
 	 */
-	@Override
+	
 	public synchronized ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = super.getImageRegistry();

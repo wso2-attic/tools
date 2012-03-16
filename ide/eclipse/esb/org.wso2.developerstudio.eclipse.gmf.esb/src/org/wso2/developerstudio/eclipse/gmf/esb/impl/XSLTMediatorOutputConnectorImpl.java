@@ -36,7 +36,7 @@ public class XSLTMediatorOutputConnectorImpl extends OutputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

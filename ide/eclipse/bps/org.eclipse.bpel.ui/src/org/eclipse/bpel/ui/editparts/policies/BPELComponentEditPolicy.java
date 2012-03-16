@@ -26,12 +26,12 @@ import org.eclipse.gef.requests.GroupRequest;
  */
 public class BPELComponentEditPolicy extends ComponentEditPolicy {
 
-	@Override
+	
 	protected Command createDeleteCommand(GroupRequest request) {
 		return new DeleteChildCommand((EObject)getHost().getModel());
 	}
 
-	@Override
+	
 	protected Command getOrphanCommand() {
 		return new OrphanChildCommand((EObject) getHost().getModel());
 	}

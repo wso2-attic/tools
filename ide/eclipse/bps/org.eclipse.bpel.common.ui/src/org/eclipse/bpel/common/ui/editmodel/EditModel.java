@@ -354,7 +354,7 @@ public class EditModel {
 	
 	public boolean saveAll(IProgressMonitor progressMonitor) {
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-			@Override
+			
 			protected void execute(IProgressMonitor monitor)
 					throws InvocationTargetException {
 				getCommandStack().markSaveLocation();
@@ -412,7 +412,7 @@ public class EditModel {
 			final IFile savedFile, IProgressMonitor progressMonitor) {
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 			
-			@Override
+			
 			protected void execute(IProgressMonitor monitor)
 					throws InvocationTargetException  {
 				try {
@@ -486,7 +486,7 @@ public class EditModel {
 			
 			resourceSet.eAdapters().add(new AdapterImpl() {
 				
-				@Override
+				
 				public void notifyChanged(Notification msg) {
 					Resource r = (Resource) msg.getNewValue();
 					finalEditModel.getResourceInfoForLoadedResource(r);

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -15,19 +15,19 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTExtension()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTExtension()
  * @model extendedMetaData="name='tExtension' kind='elementOnly'"
  * @generated
  */
 public interface TExtension extends TExtensibleElements {
 	/**
 	 * Returns the value of the '<em><b>Must Understand</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean}.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Must Understand</em>' attribute isn't clear,
@@ -35,11 +35,11 @@ public interface TExtension extends TExtensibleElements {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Must Understand</em>' attribute.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
 	 * @see #isSetMustUnderstand()
 	 * @see #unsetMustUnderstand()
 	 * @see #setMustUnderstand(TBoolean)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTExtension_MustUnderstand()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTExtension_MustUnderstand()
 	 * @model unsettable="true" required="true"
 	 *        extendedMetaData="kind='attribute' name='mustUnderstand'"
 	 * @generated
@@ -47,11 +47,11 @@ public interface TExtension extends TExtensibleElements {
 	TBoolean getMustUnderstand();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Must Understand</em>' attribute.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
 	 * @see #isSetMustUnderstand()
 	 * @see #unsetMustUnderstand()
 	 * @see #getMustUnderstand()
@@ -60,7 +60,7 @@ public interface TExtension extends TExtensibleElements {
 	void setMustUnderstand(TBoolean value);
 
 	/**
-	 * Unsets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute.
+	 * Unsets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetMustUnderstand()
@@ -71,7 +71,7 @@ public interface TExtension extends TExtensibleElements {
 	void unsetMustUnderstand();
 
 	/**
-	 * Returns whether the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Must Understand</em>' attribute is set.
@@ -92,7 +92,7 @@ public interface TExtension extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Namespace</em>' attribute.
 	 * @see #setNamespace(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTExtension_Namespace()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTExtension_Namespace()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI" required="true"
 	 *        extendedMetaData="kind='attribute' name='namespace'"
 	 * @generated
@@ -100,7 +100,7 @@ public interface TExtension extends TExtensibleElements {
 	String getNamespace();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Namespace</em>' attribute.

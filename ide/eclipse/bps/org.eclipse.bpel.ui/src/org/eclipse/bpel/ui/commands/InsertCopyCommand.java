@@ -27,7 +27,7 @@ public class InsertCopyCommand extends InsertToListCommand {
 		super(target, newCopy, pos, IBPELUIConstants.CMD_INSERT_COPY);
 	}
 
-	@Override
+	
 	protected EList<Copy> getList() {
 		return ((Assign)target).getCopy();
 	}

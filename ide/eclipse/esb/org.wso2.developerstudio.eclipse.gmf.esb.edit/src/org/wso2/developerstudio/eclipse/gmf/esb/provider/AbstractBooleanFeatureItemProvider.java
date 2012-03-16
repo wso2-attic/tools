@@ -57,7 +57,7 @@ public class AbstractBooleanFeatureItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -119,7 +119,7 @@ public class AbstractBooleanFeatureItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		String label = ((AbstractBooleanFeature)object).getFeatureName();
 		return label == null || label.length() == 0 ?
@@ -135,7 +135,7 @@ public class AbstractBooleanFeatureItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -156,7 +156,7 @@ public class AbstractBooleanFeatureItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}

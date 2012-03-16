@@ -135,7 +135,7 @@ public class NewFileWizard extends Wizard implements INewWizard {
 	 * 
 	 * @return true if canceled
 	 */
-	@Override
+	
 	public boolean performCancel() {
 		return super.performCancel();
 	}
@@ -145,7 +145,7 @@ public class NewFileWizard extends Wizard implements INewWizard {
 	 * 
 	 */
 
-	@Override
+	
 	public void addPages() {
 
 		fMainPage = new NewFileWizardPage1(Messages.NewFileWizardPage1_Name);
@@ -169,7 +169,7 @@ public class NewFileWizard extends Wizard implements INewWizard {
 	 * @see Wizard#performFinish
 	 */
 
-	@Override
+	
 	public boolean performFinish() {
 
 		BPELCreateOperation runnable = new BPELCreateOperation();
@@ -287,7 +287,7 @@ public class NewFileWizard extends Wizard implements INewWizard {
 	 * Final condition for the wizard to finish
 	 */
 
-	@Override
+	
 	public boolean canFinish() {
 		return (fMainPage.isPageComplete() && wsdlPage.isPageComplete() && fContainerPage.isPageComplete() && mContainer != null)
 				|| super.canFinish();

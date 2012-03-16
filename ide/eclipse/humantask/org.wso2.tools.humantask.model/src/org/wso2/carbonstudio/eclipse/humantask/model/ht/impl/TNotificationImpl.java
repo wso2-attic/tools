@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,12 +29,12 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPresentationElements <em>Presentation Elements</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getRenderings <em>Renderings</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getPresentationElements <em>Presentation Elements</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getRenderings <em>Renderings</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *

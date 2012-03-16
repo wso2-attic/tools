@@ -69,7 +69,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		SendMediator sendMediator = (SendMediator) object;
 		if (itemPropertyDescriptors != null) {
@@ -168,7 +168,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in
 	 * {@link #createCommand}. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
 		SendMediator sendMediator = (SendMediator) object;
@@ -192,7 +192,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -206,7 +206,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/SendMediator"));
     }
@@ -215,7 +215,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_SendMediator_type");
 	}
@@ -227,7 +227,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -250,7 +250,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 */
-	@Override
+	
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
@@ -306,7 +306,7 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * 
 	 * @generated
 	 */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

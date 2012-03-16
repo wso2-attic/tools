@@ -31,13 +31,13 @@ public class WSDLDefinitionFromResourceContentProvider extends AbstractResourceC
 		super(set);
 	}
 
-	@Override
+	
 	public String[] getKind () {
 		return KIND;
 	}
 	
 	
-	@Override
+	
 	public Class [] getKindClass () {
 		return KIND_CLASS;
 	}	

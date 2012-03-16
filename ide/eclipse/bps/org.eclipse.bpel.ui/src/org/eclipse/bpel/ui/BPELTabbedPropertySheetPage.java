@@ -83,14 +83,14 @@ public class BPELTabbedPropertySheetPage extends TabbedPropertySheetPage {
 		actionBars.updateActionBars();
 	}
 		
-	@Override
+	
 	public void init(IPageSite pageSite) {
 		super.init(pageSite);
 		// add some actions to the properties view
 		setBPELEditorActions();
 	}
 	
-	@Override
+	
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		// TODO: (DO) If we change selection in the Designer then it causes
 		// changing selection in the SourceTab too. We are not going to create

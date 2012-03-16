@@ -60,12 +60,12 @@ public class RuleChildMediatorsConfigurationImpl extends MediatorBranchImpl impl
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_CHILD_MEDIATORS_CONFIGURATION;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -39,7 +39,7 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class DataServiceValidatorProjectNature extends AbstractWSO2ProjectNature {
 
-	@Override
+	
 	public void configure() {
 		try {
 			this.updatePom();
@@ -110,7 +110,7 @@ public class DataServiceValidatorProjectNature extends AbstractWSO2ProjectNature
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	@Override
+	
 	public void deconfigure() throws CoreException {
 		// TODO Auto-generated method stub
 

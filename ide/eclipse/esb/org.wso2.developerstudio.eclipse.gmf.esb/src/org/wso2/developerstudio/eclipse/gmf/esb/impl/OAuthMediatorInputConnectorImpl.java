@@ -35,7 +35,7 @@ public class OAuthMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.OAUTH_MEDIATOR_INPUT_CONNECTOR;
 	}

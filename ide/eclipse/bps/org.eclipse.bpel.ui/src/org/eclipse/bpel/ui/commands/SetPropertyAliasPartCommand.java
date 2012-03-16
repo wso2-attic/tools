@@ -23,12 +23,12 @@ public class SetPropertyAliasPartCommand extends SetCommand {
 		super(target, newPartName);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ((PropertyAlias)fTarget).getPart();
 	}
 
-	@Override
+	
 	public void set(Object o) {
 		((PropertyAlias)fTarget).setPart((String)o);
 	}

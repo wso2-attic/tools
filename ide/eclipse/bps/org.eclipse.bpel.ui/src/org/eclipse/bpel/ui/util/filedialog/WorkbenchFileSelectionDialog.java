@@ -108,7 +108,7 @@ public class WorkbenchFileSelectionDialog
 	/* (non-Javadoc)
 	 * Method declared in Window.
 	 */
-	@Override
+	
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
 		shell.setText(title);
@@ -116,7 +116,7 @@ public class WorkbenchFileSelectionDialog
 	/* (non-Javadoc)
 	 * Method declared on Dialog.
 	 */
-	@Override
+	
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 		createButton(
@@ -128,7 +128,7 @@ public class WorkbenchFileSelectionDialog
 	/* (non-Javadoc)
 	 * Method declared on Dialog.
 	 */
-	@Override
+	
 	protected Control createDialogArea(Composite parent) {
 
 		// create composite 
@@ -175,7 +175,7 @@ public class WorkbenchFileSelectionDialog
 	/**
 	 * Closes this dialog.
 	 */
-	@Override
+	
 	protected void okPressed() {
 		resultPath = resourceGroup.getResourceFullPath();
 		// after file selected, save the path to WorkbenchSlectionDialogStore

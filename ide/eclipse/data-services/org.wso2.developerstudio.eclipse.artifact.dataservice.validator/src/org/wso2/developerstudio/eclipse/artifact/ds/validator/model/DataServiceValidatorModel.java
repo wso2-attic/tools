@@ -25,7 +25,7 @@ public class DataServiceValidatorModel extends ProjectDataModel {
 	private String validatorClassPackage;
     private IProject validatorProject;
     
-	@Override
+	
 	public Object getModelPropertyValue(String key) {
 	  Object modelPropertyValue = super.getModelPropertyValue(key);
 	  if((modelPropertyValue == null)&&("vaildatorClass.name".equals(key))){
@@ -40,7 +40,7 @@ public class DataServiceValidatorModel extends ProjectDataModel {
 	  return modelPropertyValue;
 	}
 	
-	@Override
+	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean isUiControlUpdated = super.setModelPropertyValue(key, data);
 		if ("vaildatorClass.name".equals(key)) {

@@ -23,7 +23,7 @@ import org.eclipse.swt.widgets.Label;
  */
 public class ElseConditionSection extends BPELPropertySection {
 
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite composite = createFlatFormComposite(parent);
 		FlatFormData ffdata;
@@ -37,18 +37,18 @@ public class ElseConditionSection extends BPELPropertySection {
 		nameLabel.setLayoutData(ffdata);
 	}
 	
-	@Override
+	
 	protected MultiObjectAdapter[] createAdapters() {
 		return new MultiObjectAdapter[0];
 	}
 
-	@Override
+	
 	public Object getUserContext() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		// TODO Auto-generated method stub
 	}

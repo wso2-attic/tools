@@ -137,7 +137,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR;
     }
@@ -176,7 +176,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
         switch (featureID) {
@@ -190,7 +190,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
@@ -206,7 +206,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
@@ -224,7 +224,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
@@ -241,7 +241,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
@@ -256,7 +256,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -267,7 +267,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

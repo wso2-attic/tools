@@ -36,7 +36,7 @@ public class EsbSequenceInputConnectorImpl extends OutputConnectorImpl implement
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_SEQUENCE_INPUT_CONNECTOR;
 	}

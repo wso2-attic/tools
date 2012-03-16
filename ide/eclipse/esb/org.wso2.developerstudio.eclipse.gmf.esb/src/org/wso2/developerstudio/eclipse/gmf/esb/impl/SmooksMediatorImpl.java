@@ -125,7 +125,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SMOOKS_MEDIATOR;
 	}
@@ -351,7 +351,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
@@ -374,7 +374,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
@@ -397,7 +397,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
@@ -425,7 +425,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
@@ -453,7 +453,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:

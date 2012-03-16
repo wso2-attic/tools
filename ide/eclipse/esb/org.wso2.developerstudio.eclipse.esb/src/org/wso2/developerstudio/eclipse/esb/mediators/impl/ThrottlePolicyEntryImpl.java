@@ -289,7 +289,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.THROTTLE_POLICY_ENTRY;
     }
@@ -425,7 +425,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_POLICY_ENTRY__THROTTLE_TYPE:
@@ -449,7 +449,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_POLICY_ENTRY__THROTTLE_TYPE:
@@ -479,7 +479,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_POLICY_ENTRY__THROTTLE_TYPE:
@@ -509,7 +509,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.THROTTLE_POLICY_ENTRY__THROTTLE_TYPE:
@@ -533,7 +533,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -554,7 +554,7 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -63,7 +63,7 @@ public class MessageTypeTreeNode extends TreeNode {
 
 	/* ITreeNode */
 
-	@Override
+	
 	public Object[] getChildren() {
 		
 		Message msg = getMessage();
@@ -94,7 +94,7 @@ public class MessageTypeTreeNode extends TreeNode {
 		return list.toArray();
 	}
 
-	@Override
+	
 	public boolean hasChildren() {
 		if (isPropertyTree) {
 			// TODO: we need some sort of property map maintained by the same

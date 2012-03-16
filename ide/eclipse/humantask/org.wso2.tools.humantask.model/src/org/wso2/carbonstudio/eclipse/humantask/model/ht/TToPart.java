@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 
 /**
@@ -15,12 +15,12 @@ package org.wso2.carbonstudio.eclipse.humantask.model.ht;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTToPart()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTToPart()
  * @model extendedMetaData="name='tToPart' kind='mixed'"
  * @generated
  */
@@ -35,7 +35,7 @@ public interface TToPart extends TExtensibleMixedContentElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression Language</em>' attribute.
 	 * @see #setExpressionLanguage(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTToPart_ExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTToPart_ExpressionLanguage()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
 	 *        extendedMetaData="kind='attribute' name='expressionLanguage'"
 	 * @generated
@@ -43,7 +43,7 @@ public interface TToPart extends TExtensibleMixedContentElements {
 	String getExpressionLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression Language</em>' attribute.
@@ -62,7 +62,7 @@ public interface TToPart extends TExtensibleMixedContentElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTToPart_Name()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTToPart_Name()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.NCName" required="true"
 	 *        extendedMetaData="kind='attribute' name='name'"
 	 * @generated
@@ -70,7 +70,7 @@ public interface TToPart extends TExtensibleMixedContentElements {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.

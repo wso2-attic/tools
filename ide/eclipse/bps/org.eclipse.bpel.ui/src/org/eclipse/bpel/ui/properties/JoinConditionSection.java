@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.Composite;
 public class JoinConditionSection extends ExpressionSection {
 
 	
-	@Override
+	
 	protected void addAllAdapters() {
 		super.addAllAdapters();
 		Activity activity = getModel();
@@ -38,19 +38,19 @@ public class JoinConditionSection extends ExpressionSection {
 		}
 	}
 	
-	@Override
+	
 	protected String getExpressionType() { 
 		return IEditorConstants.ET_JOIN; 
 	}
 	
 	
-	@Override
+	
 	protected boolean isExpressionOptional() { 
 		return true; 
 	}
 	
 	
-	@Override
+	
 	protected Composite createNoEditorWidgets(Composite composite) {
 	
 		return createNoEditorWidgetsCreateComposite(composite,			
@@ -60,14 +60,14 @@ public class JoinConditionSection extends ExpressionSection {
 	}
 	
 	
-	@Override
+	
 	protected EObject getExpressionTarget() {		
 		Activity activity = getModel();
 		return activity.getTargets();		
 	}
 
 	
-	@Override
+	
 	protected EStructuralFeature getStructuralFeature (EObject object) {		
 		if (object instanceof Activity) {
 			return BPELPackage.eINSTANCE.getTargets_JoinCondition() ;
@@ -79,7 +79,7 @@ public class JoinConditionSection extends ExpressionSection {
 	 * Update the widgets based on the last input set.
 	 * 
 	 */
-	@Override
+	
 	protected void updateWidgets() {
 		
 		super.updateWidgets();
@@ -96,7 +96,7 @@ public class JoinConditionSection extends ExpressionSection {
 	}
 
 	
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {		
 		super.basicSetInput(newInput);
 		
@@ -105,7 +105,7 @@ public class JoinConditionSection extends ExpressionSection {
 	}
 
 	
-	@Override
+	
 	protected boolean isValidClientUseType(String useType) {
 		return IBPELUIConstants.USE_TYPE_JOIN_CONDITION.equals(useType);
 	}
@@ -114,7 +114,7 @@ public class JoinConditionSection extends ExpressionSection {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getMarkers(java.lang.Object)
 	 */
-	@Override
+	
 	protected IMarker[] getMarkers (Object input) {
 		
 		if ( input instanceof Activity ) {
@@ -139,7 +139,7 @@ public class JoinConditionSection extends ExpressionSection {
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#isValidMarker(org.eclipse.core.resources.IMarker)
 	 */
 	@SuppressWarnings("nls")
-	@Override
+	
 	public boolean isValidMarker (IMarker marker) {
 		String context = null;
 		try {

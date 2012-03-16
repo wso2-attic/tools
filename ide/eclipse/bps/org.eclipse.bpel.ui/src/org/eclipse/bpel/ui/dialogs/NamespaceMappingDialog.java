@@ -151,7 +151,7 @@ public class NamespaceMappingDialog extends StatusDialog {
      * @see Dialog#createDialogArea(Composite)
      */
 	
-    @Override
+    
 	public Control createDialogArea(Composite parent) {
     	    	    	
         Composite contents = (Composite) super.createDialogArea(parent);               
@@ -281,7 +281,7 @@ public class NamespaceMappingDialog extends StatusDialog {
 		updateStatus(Status.OK_STATUS);					
 	}
 	
-	@Override
+	
 	protected void updateStatus (IStatus status) {
 		super.updateStatus(status);
 	}

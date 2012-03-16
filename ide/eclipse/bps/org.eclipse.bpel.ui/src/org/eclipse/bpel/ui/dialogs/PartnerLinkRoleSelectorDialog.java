@@ -36,7 +36,7 @@ public class PartnerLinkRoleSelectorDialog extends StatusDialog {
 		fPartnerLinkType = plinkType;
 	}
 
-	@Override
+	
 	public Control createDialogArea(Composite parent) {
 		Composite composite = (Composite) super.createDialogArea(parent);
 
@@ -69,7 +69,7 @@ public class PartnerLinkRoleSelectorDialog extends StatusDialog {
 
 		button.addSelectionListener(new SelectionAdapter() {
 
-			@Override
+			
 			public void widgetSelected(SelectionEvent event) {
 				Button b = (Button) event.widget;
 				fSelectedRole = ((Integer) b.getData()).intValue();

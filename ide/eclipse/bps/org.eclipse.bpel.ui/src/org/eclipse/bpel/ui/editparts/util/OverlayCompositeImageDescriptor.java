@@ -29,7 +29,7 @@ public class OverlayCompositeImageDescriptor extends CompositeImageDescriptor {
 		this.bottomLeft = bl;
 		this.bottomRight = br;
 	}
-	@Override
+	
 	protected void drawCompositeImage(int width, int height) {
 		drawImage(background, 0, 0);
 		if (topLeft != null) {
@@ -45,7 +45,7 @@ public class OverlayCompositeImageDescriptor extends CompositeImageDescriptor {
 			drawImage(bottomRight, background.width - bottomRight.width, background.height - bottomRight.height);
 		}
 	}
-	@Override
+	
 	protected Point getSize() {
 		return new Point(background.width, background.height);
 	}

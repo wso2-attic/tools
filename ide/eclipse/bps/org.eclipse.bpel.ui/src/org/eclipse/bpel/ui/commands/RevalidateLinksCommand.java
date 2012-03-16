@@ -87,7 +87,7 @@ public class RevalidateLinksCommand extends AutoUndoCommand {
 		}
 	}
 	
-	@Override
+	
 	public void doExecute() {
 		deleteLinksCmd = new CompoundCommand();
 		

@@ -348,12 +348,12 @@ public class LogMediatorEditPart extends AbstractBorderedShapeEditPart {
 			return fFigureLogCatogeryLogPropertyLabel;
 		}
 
-		@Override
+		
 		public String getIconPath() {
 			return "icons/ico20/log-mediator.gif";
 		}
 
-		@Override
+		
 		public String getNodeName() {
 			return "Log";
 		}

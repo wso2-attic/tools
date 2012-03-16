@@ -71,7 +71,7 @@ public class ExitOnStandardFaultSection extends BPELPropertySection {
 		fRadioController.startListeningTo(yesRadio,noRadio);
 	}
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite composite = createFlatFormComposite(parent);
 		createWidgets(composite);
@@ -80,7 +80,7 @@ public class ExitOnStandardFaultSection extends BPELPropertySection {
 
 	
 
-	@Override
+	
 	protected void basicSetInput (EObject newInput) {		
 		super.basicSetInput(newInput);
 		fRadioController.setInput(newInput);		

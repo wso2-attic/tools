@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,13 +30,13 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getGenericHumanRole <em>Generic Human Role</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getPotentialOwners <em>Potential Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getExcludedOwners <em>Excluded Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getTaskInitiator <em>Task Initiator</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getTaskStakeholders <em>Task Stakeholders</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getBusinessAdministrators <em>Business Administrators</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getRecipients <em>Recipients</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getGenericHumanRole <em>Generic Human Role</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getPotentialOwners <em>Potential Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getExcludedOwners <em>Excluded Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getTaskInitiator <em>Task Initiator</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getTaskStakeholders <em>Task Stakeholders</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getBusinessAdministrators <em>Business Administrators</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl#getRecipients <em>Recipients</em>}</li>
  * </ul>
  * </p>
  *

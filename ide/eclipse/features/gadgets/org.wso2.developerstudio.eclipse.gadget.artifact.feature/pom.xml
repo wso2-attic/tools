@@ -21,16 +21,16 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-gadget-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.gadget.artifact.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.gadget.artifact.feature</artifactId>
     <packaging>pom</packaging>
-    <name>Carbon Studio Gadget Artifact</name>
+    <name>Developer Studio Gadget Artifact</name>
     <url>http://wso2.org</url>
-    <description>This feature contains Carbon Studio Gadget Artifact</description>
+    <description>This feature contains Developer Studio Gadget Artifact</description>
     <build>
         <plugins>
             <plugin>
@@ -48,7 +48,7 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.artifact.gadget:${gadget.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.gadget:${gadget.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

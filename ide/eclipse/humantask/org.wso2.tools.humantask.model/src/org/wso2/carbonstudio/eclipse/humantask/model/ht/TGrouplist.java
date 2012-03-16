@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist#getGroup <em>Group</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTGrouplist()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTGrouplist()
  * @model extendedMetaData="name='tGrouplist' kind='elementOnly'"
  * @generated
  */
@@ -37,8 +37,8 @@ public interface TGrouplist extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Group</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTGrouplist_Group()
-	 * @model unique="false" dataType="org.wso2.carbonstudio.eclipse.humantask.model.ht.TGroup"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTGrouplist_Group()
+	 * @model unique="false" dataType="org.wso2.developerstudio.eclipse.humantask.model.ht.TGroup"
 	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
 	 * @generated
 	 */

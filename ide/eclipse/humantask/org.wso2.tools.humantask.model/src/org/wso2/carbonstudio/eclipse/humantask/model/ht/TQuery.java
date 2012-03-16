@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -18,15 +18,15 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAny <em>Any</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute <em>Any Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAny <em>Any</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute <em>Any Attribute</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery()
  * @model extendedMetaData="name='tQuery' kind='mixed'"
  * @generated
  */
@@ -41,7 +41,7 @@ public interface TQuery extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mixed</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Mixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
 	 * @generated
@@ -58,7 +58,7 @@ public interface TQuery extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Any()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Any()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='elementWildcard' wildcards='##other' name=':1' processing='lax'"
 	 * @generated
@@ -75,7 +75,7 @@ public interface TQuery extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Part</em>' attribute.
 	 * @see #setPart(Object)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Part()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_Part()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType"
 	 *        extendedMetaData="kind='attribute' name='part'"
 	 * @generated
@@ -83,7 +83,7 @@ public interface TQuery extends EObject {
 	Object getPart();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Part</em>' attribute.
@@ -102,7 +102,7 @@ public interface TQuery extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Query Language</em>' attribute.
 	 * @see #setQueryLanguage(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_QueryLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_QueryLanguage()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnyURI"
 	 *        extendedMetaData="kind='attribute' name='queryLanguage'"
 	 * @generated
@@ -110,7 +110,7 @@ public interface TQuery extends EObject {
 	String getQueryLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Query Language</em>' attribute.
@@ -129,7 +129,7 @@ public interface TQuery extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any Attribute</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_AnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTQuery_AnyAttribute()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='attributeWildcard' wildcards='##other' name=':4' processing='lax'"
 	 * @generated

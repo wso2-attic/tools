@@ -52,7 +52,7 @@ public class CompositeContentProvider extends AbstractContentProvider {
 	}
 	
 	
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		
 		// Check if the input element is a complex one

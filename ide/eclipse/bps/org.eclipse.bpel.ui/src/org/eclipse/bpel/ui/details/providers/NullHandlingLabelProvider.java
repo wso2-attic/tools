@@ -55,7 +55,7 @@ public class NullHandlingLabelProvider implements ILabelProvider {
 		inner.removeListener(listener);
 	}
 
-	@Override
+	
 	public String toString() {
 		return "NullHandlingLabelProvider("+inner.toString()+")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}

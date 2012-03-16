@@ -67,12 +67,12 @@ public class SwitchDefaultBranchImpl extends MediatorBranchImpl implements Switc
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.SWITCH_DEFAULT_BRANCH;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

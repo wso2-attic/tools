@@ -189,7 +189,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.RULE_SET_CONFIGURATION;
     }
@@ -296,7 +296,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
@@ -312,7 +312,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
@@ -333,7 +333,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
      * @generated
      */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
@@ -358,7 +358,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
@@ -382,7 +382,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
@@ -402,7 +402,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -415,7 +415,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

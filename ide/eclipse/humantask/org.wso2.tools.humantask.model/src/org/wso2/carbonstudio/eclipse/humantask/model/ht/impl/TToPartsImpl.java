@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht.impl;
+package org.wso2.developerstudio.eclipse.humantask.model.ht.impl;
 
 import java.util.Collection;
 
@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart;
-import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart;
+import org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartsImpl#getToPart <em>To Part</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartsImpl#getToPart <em>To Part</em>}</li>
  * </ul>
  * </p>
  *

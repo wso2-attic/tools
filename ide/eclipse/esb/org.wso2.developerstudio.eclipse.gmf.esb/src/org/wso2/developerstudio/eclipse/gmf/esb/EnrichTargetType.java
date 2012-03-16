@@ -259,7 +259,7 @@ public enum EnrichTargetType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

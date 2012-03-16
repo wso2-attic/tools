@@ -39,7 +39,7 @@ public class ToggleShowCompensationHandler extends SelectionAction {
 		setToolTipText(Messages.ToggleShowCompensationHandler_Shows_compensation_handler_activities_3); 
 	}
 
-	@Override
+	
 	public void run() {
 		List selList = getSelectedObjects();
 		if (selList.size() == 1) {
@@ -52,7 +52,7 @@ public class ToggleShowCompensationHandler extends SelectionAction {
 		}
 	}
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 		List selList = getSelectedObjects();
 		if (selList.size() != 1)
@@ -68,7 +68,7 @@ public class ToggleShowCompensationHandler extends SelectionAction {
 		return false;
 	}
 
-	@Override
+	
 	public boolean isChecked() {
 		List selList = getSelectedObjects();
 		if (selList.size() == 1) {

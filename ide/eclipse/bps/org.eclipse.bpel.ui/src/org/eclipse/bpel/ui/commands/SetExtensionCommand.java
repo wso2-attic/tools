@@ -78,7 +78,7 @@ public abstract class SetExtensionCommand extends SetCommand {
 		return true;
 	}
 
-	@Override
+	
 	public void doExecute() {
 		targetExt = oldExt = ModelHelper.getExtensibilityElement(fTarget, extClass);
 		if (targetExt != null)  {

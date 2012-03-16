@@ -48,7 +48,7 @@ public class AddPartnerLinkCommand extends AddToListCommand {
 		this(eObj,partnerLink,null);				
 	}
 
-	@Override
+	
 	protected EList<PartnerLink> getList() {
 		if (process != null) {
 			return process.getPartnerLinks().getChildren();
@@ -59,7 +59,7 @@ public class AddPartnerLinkCommand extends AddToListCommand {
 	}
 
 	
-	@Override
+	
 	public void doExecute() {
 		if (extension != null) {
 			ModelHelper.getBPELEditor(process).getExtensionMap().put(partnerLink, extension);

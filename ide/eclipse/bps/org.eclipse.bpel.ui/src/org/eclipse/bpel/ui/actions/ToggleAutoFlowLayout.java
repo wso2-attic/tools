@@ -30,19 +30,19 @@ public class ToggleAutoFlowLayout extends SelectionAction {
 		setToolTipText(Messages.ToggleAutoFlowLayout_Align_activities_in_Flows_automatically_3); 
 	}
 
-	@Override
+	
 	public void run() {
 		BPELEditor editor = (BPELEditor)getWorkbenchPart();
 		editor.setAutoFlowLayout(!editor.getAutoFlowLayout());
 		editor.refreshGraphicalViewer();
 	}
 
-	@Override
+	
 	protected boolean calculateEnabled() {
 		return true;
 	}
 
-	@Override
+	
 	public boolean isChecked() {
 		return ((BPELEditor)getWorkbenchPart()).getAutoFlowLayout();
 	}

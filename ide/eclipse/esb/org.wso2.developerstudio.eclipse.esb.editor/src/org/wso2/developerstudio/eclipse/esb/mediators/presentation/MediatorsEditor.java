@@ -420,7 +420,7 @@ public class MediatorsEditor
      */
 	protected EContentAdapter problemIndicationAdapter = 
 		new EContentAdapter() {
-            @Override
+            
             public void notifyChanged(Notification notification) {
                 if (notification.getNotifier() instanceof Resource) {
                     switch (notification.getFeatureID(Resource.class)) {
@@ -453,12 +453,12 @@ public class MediatorsEditor
                 }
             }
 
-            @Override
+            
             protected void setTarget(Resource target) {
                 basicSetTarget(target);
             }
 
-            @Override
+            
             protected void unsetTarget(Resource target) {
                 basicUnsetTarget(target);
             }
@@ -750,7 +750,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-			@Override
+			
 	protected void firePropertyChange(int action) {
         super.firePropertyChange(action);
     }
@@ -812,7 +812,7 @@ public class MediatorsEditor
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object [] getElements(Object object) {
             Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
@@ -823,7 +823,7 @@ public class MediatorsEditor
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object [] getChildren(Object object) {
             Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
@@ -834,7 +834,7 @@ public class MediatorsEditor
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public boolean hasChildren(Object object) {
             Object parent = super.getParent(object);
             return parent != null;
@@ -845,7 +845,7 @@ public class MediatorsEditor
 		 * <!-- end-user-doc -->
          * @generated
          */
-		@Override
+		
 		public Object getParent(Object object) {
             return null;
         }
@@ -1009,7 +1009,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void createPages() {
         // Creates the model from the editor input
         //
@@ -1023,13 +1023,13 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             Tree tree = new Tree(composite, SWT.MULTI);
                             TreeViewer newTreeViewer = new TreeViewer(tree);
                             return newTreeViewer;
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1057,13 +1057,13 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             Tree tree = new Tree(composite, SWT.MULTI);
                             TreeViewer newTreeViewer = new TreeViewer(tree);
                             return newTreeViewer;
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1086,11 +1086,11 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             return new ListViewer(composite);
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1111,11 +1111,11 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             return new TreeViewer(composite);
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1138,11 +1138,11 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             return new TableViewer(composite);
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1181,11 +1181,11 @@ public class MediatorsEditor
             {
                 ViewerPane viewerPane =
                     new ViewerPane(getSite().getPage(), MediatorsEditor.this) {
-                        @Override
+                        
                         public Viewer createViewer(Composite composite) {
                             return new TreeViewer(composite);
                         }
-                        @Override
+                        
                         public void requestActivation() {
                             super.requestActivation();
                             setCurrentViewerPane(this);
@@ -1233,7 +1233,7 @@ public class MediatorsEditor
         getContainer().addControlListener
             (new ControlAdapter() {
                 boolean guard = false;
-                @Override
+                
                 public void controlResized(ControlEvent event) {
                     if (!guard) {
                         guard = true;
@@ -1293,7 +1293,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void pageChange(int pageIndex) {
         super.pageChange(pageIndex);
 
@@ -1309,7 +1309,7 @@ public class MediatorsEditor
      * @generated
      */
 	@SuppressWarnings("rawtypes")
-	@Override
+	
 	public Object getAdapter(Class key) {
         if (key.equals(IContentOutlinePage.class)) {
             return showOutlineView() ? getContentOutlinePage() : null;
@@ -1336,7 +1336,7 @@ public class MediatorsEditor
             // The content outline is just a tree.
             //
             class MyContentOutlinePage extends ContentOutlinePage {
-                @Override
+                
                 public void createControl(Composite parent) {
                     super.createControl(parent);
                     contentOutlineViewer = getTreeViewer();
@@ -1359,13 +1359,13 @@ public class MediatorsEditor
                     }
                 }
 
-                @Override
+                
                 public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
                     super.makeContributions(menuManager, toolBarManager, statusLineManager);
                     contentOutlineStatusLineManager = statusLineManager;
                 }
 
-                @Override
+                
                 public void setActionBars(IActionBars actionBars) {
                     super.setActionBars(actionBars);
                     getActionBarContributor().shareGlobalActions(this, actionBars);
@@ -1399,13 +1399,13 @@ public class MediatorsEditor
         if (propertySheetPage == null) {
             propertySheetPage =
                 new ExtendedPropertySheetPage(editingDomain) {
-                    @Override
+                    
                     public void setSelectionToViewer(List<?> selection) {
                         MediatorsEditor.this.setSelectionToViewer(selection);
                         MediatorsEditor.this.setFocus();
                     }
 
-                    @Override
+                    
                     public void setActionBars(IActionBars actionBars) {
                         super.setActionBars(actionBars);
                         getActionBarContributor().shareGlobalActions(this, actionBars);
@@ -1462,7 +1462,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean isDirty() {
         return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
     }
@@ -1473,7 +1473,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void doSave(IProgressMonitor progressMonitor) {
         // Save only resources that have actually changed.
         //
@@ -1486,7 +1486,7 @@ public class MediatorsEditor
             new WorkspaceModifyOperation() {
                 // This is the method that gets invoked when the operation runs.
                 //
-                @Override
+                
                 public void execute(IProgressMonitor monitor) {
                     // Save the resources to the file system.
                     //
@@ -1557,7 +1557,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean isSaveAsAllowed() {
         return true;
     }
@@ -1568,7 +1568,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void doSaveAs() {
         SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
         saveAsDialog.open();
@@ -1626,7 +1626,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void init(IEditorSite site, IEditorInput editorInput) {
         setSite(site);
         setInputWithNotify(editorInput);
@@ -1641,7 +1641,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void setFocus() {
         if (currentViewerPane != null) {
             currentViewerPane.setFocus();
@@ -1793,7 +1793,7 @@ public class MediatorsEditor
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void dispose() {
         updateProblemIndication = false;
 

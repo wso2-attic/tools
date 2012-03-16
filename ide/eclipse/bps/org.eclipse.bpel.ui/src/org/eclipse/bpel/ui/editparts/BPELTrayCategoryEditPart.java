@@ -27,14 +27,14 @@ public abstract class BPELTrayCategoryEditPart extends TrayCategoryEditPart{
 	// the eContainer will be null
 	private EObject eObj;
 	
-	@Override
+	
 	protected void createEditPolicies() {
 		super.createEditPolicies();
 		// handles creations
 		installEditPolicy(EditPolicy.CONTAINER_ROLE, new TrayContainerEditPolicy());
 	}
 	
-	@Override
+	
 	protected AccessibleEditPart createAccessible() {
 		return new BPELTrayAccessibleEditPart(this);
 	}

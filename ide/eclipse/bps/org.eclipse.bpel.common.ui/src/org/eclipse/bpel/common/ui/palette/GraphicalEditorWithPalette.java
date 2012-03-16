@@ -69,18 +69,18 @@ public abstract class GraphicalEditorWithPalette extends GraphicalEditorWithFlyo
 	/**
 	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#dispose()
 	 */
-	@Override
+	
 	public void dispose() {
 		super.dispose();
 		paletteRoot = null;
 	}
 
 	
-	@Override
+	
 	protected CustomPalettePage createPalettePage() {
 		return new CustomPalettePage(getPaletteViewerProvider()) {
 			
-			@Override
+			
 			public void init(IPageSite pageSite) {
 				super.init(pageSite);
 				
@@ -100,18 +100,18 @@ public abstract class GraphicalEditorWithPalette extends GraphicalEditorWithFlyo
 	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#getActionRegistry()
 	 */
 	
-	@Override
+	
 	protected ActionRegistry getActionRegistry() {		
 		return super.getActionRegistry();
 	}
 
 
 
-	@Override
+	
 	protected PaletteViewerProvider createPaletteViewerProvider() {
 		
 		return new PaletteViewerProvider(getEditDomain()) {			
-			@Override
+			
 			protected void configurePaletteViewer(PaletteViewer viewer) {
 				super.configurePaletteViewer(viewer);
 				// viewer.setCustomizer(new LogicPaletteCustomizer());
@@ -126,7 +126,7 @@ public abstract class GraphicalEditorWithPalette extends GraphicalEditorWithFlyo
 	 * is probably the top-level editor...  
 	 */
 	
-	@Override
+	
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		// Bugzilla 330526
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
@@ -136,7 +136,7 @@ public abstract class GraphicalEditorWithPalette extends GraphicalEditorWithFlyo
 		});
 	}
 	
-	@Override
+	
 	protected PaletteRoot getPaletteRoot() {
 		if (paletteRoot == null) {
 			paletteRoot = new PaletteRoot();			

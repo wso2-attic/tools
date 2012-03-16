@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.common.util.EMap;
 
@@ -20,33 +20,33 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot()
  * @model extendedMetaData="name='' kind='mixed'"
  * @generated
  */
@@ -61,7 +61,7 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mixed</em>' attribute list.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Mixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
 	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
 	 * @generated
@@ -79,7 +79,7 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_XMLNSPrefixMap()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_XMLNSPrefixMap()
 	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
 	 * @generated
@@ -97,7 +97,7 @@ public interface DocumentRoot extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_XSISchemaLocation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_XSISchemaLocation()
 	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
 	 * @generated
@@ -114,7 +114,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Business Administrators</em>' containment reference.
 	 * @see #setBusinessAdministrators(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_BusinessAdministrators()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_BusinessAdministrators()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='businessAdministrators' namespace='##targetNamespace'"
 	 * @generated
@@ -122,7 +122,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getBusinessAdministrators();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Business Administrators</em>' containment reference.
@@ -141,7 +141,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Excluded Owners</em>' containment reference.
 	 * @see #setExcludedOwners(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_ExcludedOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_ExcludedOwners()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='excludedOwners' namespace='##targetNamespace'"
 	 * @generated
@@ -149,7 +149,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getExcludedOwners();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Excluded Owners</em>' containment reference.
@@ -168,15 +168,15 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Group</em>' attribute.
 	 * @see #setGroup(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Group()
-	 * @model unique="false" dataType="org.wso2.carbonstudio.eclipse.humantask.model.ht.TGroup" upper="-2" transient="true" volatile="true" derived="true"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Group()
+	 * @model unique="false" dataType="org.wso2.developerstudio.eclipse.humantask.model.ht.TGroup" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getGroup();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Group</em>' attribute.
@@ -195,7 +195,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Groups</em>' containment reference.
 	 * @see #setGroups(TGrouplist)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Groups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Groups()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='groups' namespace='##targetNamespace'"
 	 * @generated
@@ -203,7 +203,7 @@ public interface DocumentRoot extends EObject {
 	TGrouplist getGroups();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Groups</em>' containment reference.
@@ -222,7 +222,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Human Interactions</em>' containment reference.
 	 * @see #setHumanInteractions(THumanInteractions)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_HumanInteractions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_HumanInteractions()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='humanInteractions' namespace='##targetNamespace'"
 	 * @generated
@@ -230,7 +230,7 @@ public interface DocumentRoot extends EObject {
 	THumanInteractions getHumanInteractions();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Human Interactions</em>' containment reference.
@@ -249,7 +249,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Import</em>' containment reference.
 	 * @see #setImport(TImport)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Import()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Import()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='import' namespace='##targetNamespace'"
 	 * @generated
@@ -257,7 +257,7 @@ public interface DocumentRoot extends EObject {
 	TImport getImport();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Import</em>' containment reference.
@@ -276,7 +276,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Logical People Groups</em>' containment reference.
 	 * @see #setLogicalPeopleGroups(TLogicalPeopleGroups)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_LogicalPeopleGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_LogicalPeopleGroups()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='logicalPeopleGroups' namespace='##targetNamespace'"
 	 * @generated
@@ -284,7 +284,7 @@ public interface DocumentRoot extends EObject {
 	TLogicalPeopleGroups getLogicalPeopleGroups();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Logical People Groups</em>' containment reference.
@@ -303,7 +303,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notification</em>' containment reference.
 	 * @see #setNotification(TNotification)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Notification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Notification()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='notification' namespace='##targetNamespace'"
 	 * @generated
@@ -311,7 +311,7 @@ public interface DocumentRoot extends EObject {
 	TNotification getNotification();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Notification</em>' containment reference.
@@ -330,7 +330,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Notifications</em>' containment reference.
 	 * @see #setNotifications(TNotifications)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Notifications()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Notifications()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='notifications' namespace='##targetNamespace'"
 	 * @generated
@@ -338,7 +338,7 @@ public interface DocumentRoot extends EObject {
 	TNotifications getNotifications();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Notifications</em>' containment reference.
@@ -357,7 +357,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Organizational Entity</em>' containment reference.
 	 * @see #setOrganizationalEntity(TOrganizationalEntity)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_OrganizationalEntity()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_OrganizationalEntity()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='organizationalEntity' namespace='##targetNamespace'"
 	 * @generated
@@ -365,7 +365,7 @@ public interface DocumentRoot extends EObject {
 	TOrganizationalEntity getOrganizationalEntity();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Organizational Entity</em>' containment reference.
@@ -384,7 +384,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>People Assignments</em>' containment reference.
 	 * @see #setPeopleAssignments(TPeopleAssignments)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_PeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_PeopleAssignments()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='peopleAssignments' namespace='##targetNamespace'"
 	 * @generated
@@ -392,7 +392,7 @@ public interface DocumentRoot extends EObject {
 	TPeopleAssignments getPeopleAssignments();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>People Assignments</em>' containment reference.
@@ -411,7 +411,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Potential Owners</em>' containment reference.
 	 * @see #setPotentialOwners(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_PotentialOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_PotentialOwners()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='potentialOwners' namespace='##targetNamespace'"
 	 * @generated
@@ -419,7 +419,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getPotentialOwners();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Potential Owners</em>' containment reference.
@@ -438,7 +438,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
 	 * @see #setPriority(TPriority)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Priority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Priority()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
@@ -446,7 +446,7 @@ public interface DocumentRoot extends EObject {
 	TPriority getPriority();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Priority</em>' containment reference.
@@ -465,7 +465,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Recipients</em>' containment reference.
 	 * @see #setRecipients(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Recipients()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Recipients()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='recipients' namespace='##targetNamespace'"
 	 * @generated
@@ -473,7 +473,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getRecipients();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Recipients</em>' containment reference.
@@ -492,7 +492,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task</em>' containment reference.
 	 * @see #setTask(TTask)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Task()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Task()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='task' namespace='##targetNamespace'"
 	 * @generated
@@ -500,7 +500,7 @@ public interface DocumentRoot extends EObject {
 	TTask getTask();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task</em>' containment reference.
@@ -519,7 +519,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task Initiator</em>' containment reference.
 	 * @see #setTaskInitiator(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_TaskInitiator()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_TaskInitiator()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='taskInitiator' namespace='##targetNamespace'"
 	 * @generated
@@ -527,7 +527,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getTaskInitiator();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task Initiator</em>' containment reference.
@@ -546,7 +546,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tasks</em>' containment reference.
 	 * @see #setTasks(TTasks)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Tasks()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Tasks()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='tasks' namespace='##targetNamespace'"
 	 * @generated
@@ -554,7 +554,7 @@ public interface DocumentRoot extends EObject {
 	TTasks getTasks();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Tasks</em>' containment reference.
@@ -573,7 +573,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task Stakeholders</em>' containment reference.
 	 * @see #setTaskStakeholders(TGenericHumanRole)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_TaskStakeholders()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_TaskStakeholders()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='taskStakeholders' namespace='##targetNamespace'"
 	 * @generated
@@ -581,7 +581,7 @@ public interface DocumentRoot extends EObject {
 	TGenericHumanRole getTaskStakeholders();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Task Stakeholders</em>' containment reference.
@@ -600,15 +600,15 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>User</em>' attribute.
 	 * @see #setUser(String)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_User()
-	 * @model unique="false" dataType="org.wso2.carbonstudio.eclipse.humantask.model.ht.TUser" upper="-2" transient="true" volatile="true" derived="true"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_User()
+	 * @model unique="false" dataType="org.wso2.developerstudio.eclipse.humantask.model.ht.TUser" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='user' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUser();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>User</em>' attribute.
@@ -627,7 +627,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Users</em>' containment reference.
 	 * @see #setUsers(TUserlist)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Users()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getDocumentRoot_Users()
 	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='users' namespace='##targetNamespace'"
 	 * @generated
@@ -635,7 +635,7 @@ public interface DocumentRoot extends EObject {
 	TUserlist getUsers();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Users</em>' containment reference.

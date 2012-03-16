@@ -150,14 +150,14 @@ public class TransferBuffer {
 		fClipboard = new Clipboard(display);
 		
 		fWriter = new BPELWriter() {
-			@Override
+			
 			public BPELResource getResource() {
 				return fTargetResource;
 			}			
 		};
 		
 		fReader = new org.eclipse.bpel.model.resource.BPELReader () {
-			@Override
+			
 			public Resource getResource() {
 				return fTargetResource;
 			}			

@@ -85,7 +85,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ROUTER_MEDIATOR;
 	}
@@ -129,7 +129,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
@@ -144,7 +144,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -161,7 +161,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -182,7 +182,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -201,7 +201,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
@@ -218,7 +218,7 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

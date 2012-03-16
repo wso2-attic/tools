@@ -41,7 +41,7 @@ public class BPELCreationToolEntry extends CombinedTemplateCreationEntry  {
 	/**
 	 * @see org.eclipse.gef.palette.ToolEntry#createTool()
 	 */
-	@Override
+	
 	public Tool createTool() {
 		CreationFactory aFactory = (CreationFactory)getToolProperty(CreationTool.PROPERTY_CREATION_FACTORY);
 		CreationTool tool = new BPELCreationTool(aFactory);

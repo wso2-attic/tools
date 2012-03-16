@@ -36,7 +36,7 @@ public class ValidateFeatureImpl extends AbstractBooleanFeatureImpl implements V
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.VALIDATE_FEATURE;
 	}

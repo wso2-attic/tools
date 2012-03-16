@@ -37,7 +37,7 @@ public class NameDialog extends InputDialog {
 		super(parent, title, message, initialValue, validator);
 	}
 
-	@Override
+	
 	protected Control createDialogArea(Composite parent) {
 		Control result = super.createDialogArea(parent);
 		getText().setFocus();

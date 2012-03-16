@@ -77,7 +77,7 @@ public class XSDTypeOrElementContentProvider extends AbstractContentProvider  {
 	 * @param list the list where the schemas are put.
 	 */
 	
-	@Override
+	
 	public void collectElements ( Object input, List list) {
 		
 		if (input == null) {

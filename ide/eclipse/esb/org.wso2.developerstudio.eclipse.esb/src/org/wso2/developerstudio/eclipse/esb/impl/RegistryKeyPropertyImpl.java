@@ -143,7 +143,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected EClass eStaticClass() {
         return EsbPackage.Literals.REGISTRY_KEY_PROPERTY;
     }
@@ -237,7 +237,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -257,7 +257,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -281,7 +281,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -305,7 +305,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -324,7 +324,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      */
-    @Override
+    
     public String toString() {
     	
     		if (eIsProxy()) return super.toString();
@@ -334,7 +334,7 @@ public class RegistryKeyPropertyImpl extends ModelObjectImpl implements Registry
     	
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

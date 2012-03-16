@@ -120,7 +120,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.DB_REPORT_MEDIATOR;
     }
@@ -151,7 +151,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case MediatorsPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -165,7 +165,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case MediatorsPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -180,7 +180,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case MediatorsPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -195,7 +195,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case MediatorsPackage.DB_REPORT_MEDIATOR__CONNECTION_USE_TRANSACTION:
@@ -209,7 +209,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -220,7 +220,7 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

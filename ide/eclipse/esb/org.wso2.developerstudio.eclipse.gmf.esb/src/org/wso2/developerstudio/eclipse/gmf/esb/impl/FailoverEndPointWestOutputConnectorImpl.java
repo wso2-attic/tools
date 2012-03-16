@@ -35,7 +35,7 @@ public class FailoverEndPointWestOutputConnectorImpl extends OutputConnectorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FAILOVER_END_POINT_WEST_OUTPUT_CONNECTOR;
 	}

@@ -39,12 +39,12 @@ public class XSDSchemaFromResourceContentProvider extends AbstractResourceConten
 		super(set);		
 	}
 	
-	@Override
+	
 	protected Class[] getKindClass () {
 		return KIND_CLASS;
 	}
 		
-	@Override
+	
 	protected String[] getKind () {
 		return KIND;
 	}

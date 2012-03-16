@@ -14,12 +14,12 @@ public class CreateMessageExchangeAction extends AbstractDeclarationAction {
 		super(anEditPart);
 	}
 
-	@Override
+	
 	public ImageDescriptor getIcon() {
 		return BPELUIPlugin.INSTANCE.getImageDescriptor(IBPELUIConstants.ICON_MESSAGEEXCHANGE_16);
 	}
 
-	@Override
+	
 	public EObject getParent() {
 		EStructuralFeature feature = ((EObject)modelObject).eClass().getEStructuralFeature("messageExchanges");
 		if (feature!=null) {
@@ -28,7 +28,7 @@ public class CreateMessageExchangeAction extends AbstractDeclarationAction {
 		return parent;
 	}
 
-	@Override
+	
 	public EObject getChild() {
 		if (child==null)
 			child = BPELFactory.eINSTANCE.createMessageExchange();

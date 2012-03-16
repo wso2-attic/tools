@@ -63,7 +63,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		return nextPage;
 	}
    
-	@Override
+	
 	public boolean performFinish(){
 	    try {
 	    	
@@ -158,7 +158,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		return customMediatorModel;
 	}
 
-	@Override
+	
 	public IResource getCreatedResource() {
 		return project;
 	}

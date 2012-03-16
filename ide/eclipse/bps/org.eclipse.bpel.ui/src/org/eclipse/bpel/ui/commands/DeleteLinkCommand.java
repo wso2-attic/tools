@@ -46,14 +46,14 @@ public class DeleteLinkCommand extends AutoUndoCommand {
 	// our canExecute() and canUndo() methods check if the link is actually in
 	// the model.
 
-	@Override
+	
 	public boolean canDoExecute() {
 		if (link == null || flow == null) return false;
 		// see comment above
 		return FlowLinkUtil.getFlowLinks(flow).contains(link);
 	}
 	
-	@Override
+	
 	public void doExecute() {
 		// remove any markers associated with the child.
 		// TODO: We need an undo/redo story for marker removal.

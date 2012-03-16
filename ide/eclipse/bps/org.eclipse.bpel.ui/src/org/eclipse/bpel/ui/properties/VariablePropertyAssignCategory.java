@@ -27,12 +27,12 @@ public class VariablePropertyAssignCategory extends VariablePartAssignCategory {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.VariablePartAssignCategory#getName()
 	 */
-	@Override
+	
 	public String getName() { 
 		return Messages.VariablePropertyAssignCategory_Property_of_a_Variable_1; 
 	} 
 	
-	@Override
+	
 	protected boolean isPropertyTree() { 
 		return true; 
 	}

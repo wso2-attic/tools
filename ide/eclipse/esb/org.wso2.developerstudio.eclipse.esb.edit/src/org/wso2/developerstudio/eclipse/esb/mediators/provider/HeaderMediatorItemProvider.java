@@ -68,7 +68,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		HeaderMediator headerMediator = (HeaderMediator) object;
 		if (itemPropertyDescriptors != null) {
@@ -206,7 +206,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/HeaderMediator"));
     }
@@ -216,7 +216,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_HeaderMediator_type");
 	}
@@ -228,7 +228,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -251,7 +251,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -262,7 +262,7 @@ public class HeaderMediatorItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

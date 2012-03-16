@@ -35,7 +35,7 @@ public class BPELCreationTool extends CreationTool implements IHilightControllin
 	}
 	
 
-	@Override
+	
 	protected Command getCommand() {
 		try {
 			return super.getCommand();

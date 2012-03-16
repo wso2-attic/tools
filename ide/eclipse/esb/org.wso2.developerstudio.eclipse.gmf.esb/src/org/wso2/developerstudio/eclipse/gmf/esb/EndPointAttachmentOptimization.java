@@ -232,7 +232,7 @@ public enum EndPointAttachmentOptimization implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

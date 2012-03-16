@@ -43,7 +43,7 @@ public class OrphanChildCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {
 		if (fChild == null || fParent == null || fContainer == null)  {
 			return false;
@@ -54,7 +54,7 @@ public class OrphanChildCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		if (!canExecute())  {
 			throw new IllegalStateException();

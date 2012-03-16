@@ -23,7 +23,7 @@ import org.eclipse.bpel.model.partnerlinktype.PartnerLinkType;
  */
 public class RoleContentProvider extends AbstractContentProvider {
 
-	@Override
+	
 	public void collectElements(Object input,List list)  {
 		
 		if (input instanceof PartnerLinkType) {

@@ -61,8 +61,8 @@ public class CreateFaultHandlerAction extends AbstractAction {
 		return Messages.CreateFaultHandlerAction_Add_Fault_Handler_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

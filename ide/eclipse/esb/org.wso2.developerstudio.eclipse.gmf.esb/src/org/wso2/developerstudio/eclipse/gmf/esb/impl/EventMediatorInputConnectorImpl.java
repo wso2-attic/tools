@@ -36,7 +36,7 @@ public class EventMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.EVENT_MEDIATOR_INPUT_CONNECTOR;
 	}

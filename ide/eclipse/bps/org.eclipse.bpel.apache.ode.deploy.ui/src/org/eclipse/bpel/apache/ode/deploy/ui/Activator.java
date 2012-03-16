@@ -82,7 +82,7 @@ public class Activator extends AbstractUIPlugin {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
-	@Override
+	
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
 		reg.put(IMG_ODE, getImageDescriptor("icons/obj16/ode.gif")); //$NON-NLS-1$

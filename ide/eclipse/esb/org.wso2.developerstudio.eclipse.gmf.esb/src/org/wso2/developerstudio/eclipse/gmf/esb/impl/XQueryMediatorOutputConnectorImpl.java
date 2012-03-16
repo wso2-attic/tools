@@ -36,7 +36,7 @@ public class XQueryMediatorOutputConnectorImpl extends OutputConnectorImpl imple
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XQUERY_MEDIATOR_OUTPUT_CONNECTOR;
 	}

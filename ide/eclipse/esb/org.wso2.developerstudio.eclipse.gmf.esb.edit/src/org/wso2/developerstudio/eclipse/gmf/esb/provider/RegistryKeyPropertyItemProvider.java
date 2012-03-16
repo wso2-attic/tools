@@ -60,7 +60,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -168,7 +168,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/RegistryKeyProperty"));
 	}
@@ -180,7 +180,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		String label = ((RegistryKeyProperty)object).getPrettyName();
 		return label == null || label.length() == 0 ?
@@ -196,7 +196,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -219,7 +219,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -231,7 +231,7 @@ public class RegistryKeyPropertyItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
 		return EsbEditPlugin.INSTANCE;
 	}

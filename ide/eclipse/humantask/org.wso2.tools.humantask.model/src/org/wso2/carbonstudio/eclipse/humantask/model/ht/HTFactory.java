@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage
  * @generated
  */
 public interface HTFactory extends EFactory {
@@ -23,7 +23,7 @@ public interface HTFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	HTFactory eINSTANCE = org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTFactoryImpl.init();
+	HTFactory eINSTANCE = org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Document Root</em>'.

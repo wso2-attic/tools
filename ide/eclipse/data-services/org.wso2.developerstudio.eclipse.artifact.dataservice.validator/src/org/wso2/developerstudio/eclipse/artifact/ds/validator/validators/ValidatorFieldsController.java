@@ -8,7 +8,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 
 public class ValidatorFieldsController extends AbstractFieldController {
 
-	@Override
+	
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
 		if (modelProperty.equals("project.name")) {

@@ -39,7 +39,7 @@ public class OdeBPELPublisher extends GenericBPELPublisher {
 		super();
 	}
 
-	@Override
+	
 	public IStatus[] publish(IModuleArtifact[] artifacts, IProgressMonitor monitor) {
 		// resources will always be null for some weird reason :(
 		// therefore we generate a BPELModuleArtifact
@@ -59,7 +59,7 @@ public class OdeBPELPublisher extends GenericBPELPublisher {
 
 	}
 
-	@Override
+	
 	public IStatus[] unpublish(IProgressMonitor monitor) {
 		IModule[] modules = super.getModule();
 		IModule last = modules[modules.length - 1];

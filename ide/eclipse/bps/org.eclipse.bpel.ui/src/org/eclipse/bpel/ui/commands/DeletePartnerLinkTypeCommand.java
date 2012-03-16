@@ -24,7 +24,7 @@ import org.eclipse.bpel.ui.util.ModelHelper;
 public class DeletePartnerLinkTypeCommand extends DeleteWSDLExtensibilityElementCommand {
 
 	// TODO: wrong label?
-	@Override
+	
 	public String getDefaultLabel() { return IBPELUIConstants.CMD_DELETE_ROLE; }
 
 	public DeletePartnerLinkTypeCommand(PartnerLinkType plt) {
@@ -34,7 +34,7 @@ public class DeletePartnerLinkTypeCommand extends DeleteWSDLExtensibilityElement
 	/**
 	 * Override super's method because we should not delete other partner link
 	 */
-	@Override
+	
 	public void doExecute() {
 		fDefinition = fElement.getEnclosingDefinition();
 	

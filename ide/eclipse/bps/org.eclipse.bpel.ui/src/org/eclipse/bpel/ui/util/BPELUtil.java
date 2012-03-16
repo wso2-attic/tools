@@ -1155,7 +1155,7 @@ public class BPELUtil {
 		final GraphicalEditPart thisPart = part;
 		
 		return new AccessibleEditPart() {
-				@Override
+				
 				public void getName(AccessibleEvent e) {
 					String childType = null;
 					String displayName = null;
@@ -1188,7 +1188,7 @@ public class BPELUtil {
 					return;
 				}
 
-				@Override
+				
 				public void getChildCount(AccessibleControlEvent e) {
 					List<EditPart> list = thisPart.getChildren();
 					int count = 0;
@@ -1201,7 +1201,7 @@ public class BPELUtil {
 					e.detail = count;
 				}
 
-				@Override
+				
 				public void getChildren(AccessibleControlEvent e) {
 					List<EditPart> list = thisPart.getChildren();
 					Vector<Integer> childList = new Vector<Integer>();
@@ -1214,7 +1214,7 @@ public class BPELUtil {
 					e.children = childList.toArray();
 				}
 				
-				@Override
+				
 				public void getLocation(AccessibleControlEvent e) {
 					Rectangle bounds = thisPart.getFigure().getBounds().getCopy();
 					thisPart.getFigure().translateToAbsolute(bounds);
@@ -1229,7 +1229,7 @@ public class BPELUtil {
 				/**
 				 * @see AccessibleEditPart#getState(AccessibleControlEvent)
 				 */
-				@Override
+				
 				public void getState(AccessibleControlEvent e) {
 					e.detail = ACC.STATE_SELECTABLE | ACC.STATE_FOCUSABLE;
 					if (thisPart.getSelected() != EditPart.SELECTED_NONE)
@@ -1248,13 +1248,13 @@ public class BPELUtil {
 		final TableCursor cursor = new TableCursor(table, SWT.NONE);
 		cursor.addSelectionListener(new SelectionAdapter() {
 			// when the TableEditor is over a cell, select the corresponding row in the table
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				if (cursor.getRow() != null)
 					table.setSelection(new TableItem[] {cursor.getRow()});
 			}
 			// when the user hits "ENTER" in the TableCursor, pop up an editor
-			@Override
+			
 			public void widgetDefaultSelected(SelectionEvent e) {
 				TableItem row = cursor.getRow();
 				if (row != null) {
@@ -1269,7 +1269,7 @@ public class BPELUtil {
 		// Hide the TableCursor when the user hits the "CTRL" or "SHIFT" key.
 		// This alows the user to select multiple items in the table.
 		cursor.addKeyListener(new KeyAdapter() {
-			@Override
+			
 			public void keyPressed(KeyEvent e) {
 				if ((e.keyCode == SWT.CTRL) || (e.keyCode == SWT.SHIFT)	|| 
 					(e.stateMask & SWT.CONTROL) != 0	|| (e.stateMask & SWT.SHIFT) != 0) {
@@ -1296,7 +1296,7 @@ public class BPELUtil {
 		// Show the TableCursor when the user releases the "SHIFT" or "CTRL" key.
 		// This signals the end of the multiple selection task.
 		table.addKeyListener(new KeyAdapter() {
-			@Override
+			
 			public void keyReleased(KeyEvent e) {
 				if (e.keyCode == SWT.CONTROL && (e.stateMask & SWT.SHIFT) != 0)
 					return;

@@ -39,7 +39,7 @@ public class HTSerializer implements BPELActivitySerializer {
 
 
 	
-	@Override
+	
 	public void marshall(QName elementType, Activity activity, Node parentNode,
 			Process process, BPELWriter bpelWriter) {
 		

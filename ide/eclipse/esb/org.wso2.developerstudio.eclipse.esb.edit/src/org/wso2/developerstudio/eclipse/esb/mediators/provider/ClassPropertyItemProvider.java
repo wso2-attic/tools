@@ -63,7 +63,7 @@ public class ClassPropertyItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
         if (itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
@@ -78,7 +78,7 @@ public class ClassPropertyItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/ClassProperty"));
     }
@@ -88,7 +88,7 @@ public class ClassPropertyItemProvider
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      */
-    @Override
+    
     public String getText(Object object) {
     	ClassProperty property = (ClassProperty) object;
     	String name = property.getPropertyName();
@@ -103,7 +103,7 @@ public class ClassPropertyItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
         super.notifyChanged(notification);
@@ -116,7 +116,7 @@ public class ClassPropertyItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -127,7 +127,7 @@ public class ClassPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

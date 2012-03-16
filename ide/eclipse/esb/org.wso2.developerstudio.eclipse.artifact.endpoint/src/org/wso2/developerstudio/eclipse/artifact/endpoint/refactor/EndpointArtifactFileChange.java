@@ -76,7 +76,7 @@ public class EndpointArtifactFileChange extends TextFileChange{
             }
 	}
 	
-	@Override
+	
 	protected UndoEdit performEdits(IDocument document) throws BadLocationException,
 	                                                   MalformedTreeException {
 //		

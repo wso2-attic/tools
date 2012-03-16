@@ -33,12 +33,12 @@ public class MoveTargetCommand extends AutoUndoCommand {
 		this.target = target;
 	}
 
-	@Override
+	
 	public boolean canDoExecute() {
 		return super.canDoExecute() && (fromActivity != null) && (toActivity != null) && (target != null);
 	}
 
-	@Override
+	
 	public void doExecute() {
 		super.execute();
 		Targets targets = toActivity.getTargets();

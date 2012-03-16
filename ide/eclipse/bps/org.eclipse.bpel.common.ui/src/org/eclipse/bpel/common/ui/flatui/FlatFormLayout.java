@@ -114,7 +114,7 @@ int computeHeight (FlatFormData data) {
 	return height.solveY (data.cacheHeight);
 }
 
-@Override
+
 protected Point computeSize (Composite composite, int wHint, int hHint, boolean flushCache) {
 	Point size = layout (composite, false, 0, 0, 0, 0, flushCache);
 	size.x += marginWidth * 2;
@@ -158,7 +158,7 @@ Point getSize (Control control, boolean flushCache) {
 	return pt;
 }
 
-@Override
+
 protected void layout (Composite composite, boolean flushCache) {
 	Rectangle rect = composite.getClientArea ();
 	int x = rect.x + marginWidth;
@@ -205,7 +205,7 @@ Point layout (Composite composite, boolean move, int x, int y, int width, int he
 }
 	
 
-@Override
+
 public String toString () {
  	String string = getClass().getName ()+" {";
  	if (marginWidth != 0) string += "marginWidth=" + marginWidth + " " ;

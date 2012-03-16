@@ -54,8 +54,8 @@ public class SetPartnerLinkAction extends AbstractAction {
 		return Messages.SetPartnerLinkAction_Set_Partner_1; 
 	}
 	
-	@Override
+	
 	public ImageDescriptor getDisabledIcon() { return ImageDescriptor.getMissingImageDescriptor(); }
-	@Override
+	
 	public boolean isEnabled() { return true; }	
 }

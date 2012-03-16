@@ -36,7 +36,7 @@ public class XSLTMediatorInputConnectorImpl extends InputConnectorImpl implement
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_MEDIATOR_INPUT_CONNECTOR;
 	}

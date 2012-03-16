@@ -23,12 +23,12 @@ import org.eclipse.gef.requests.CreationFactory;
 
 public class CorrelationSetsEditPart extends BPELTrayCategoryEditPart {
 
-	@Override
+	
 	protected CreationFactory getCreationFactory() {
 		return UIObjectFactoryProvider.getInstance().getFactoryFor(BPELPackage.eINSTANCE.getCorrelationSet());
 	}
 
-	@Override
+	
 	protected EList<CorrelationSet> getModelChildren() {
 		return getCorrelationSets().getChildren();
 	}
@@ -37,12 +37,12 @@ public class CorrelationSetsEditPart extends BPELTrayCategoryEditPart {
 		return (CorrelationSets)getModel();
 	}
 
-	@Override
+	
 	protected IFigure getAddToolTip() {
 	    return new Label(Messages.CorrelationSetsEditPart_Add_Correlation_Set_1); 
 	}
 	
-	@Override
+	
 	protected IFigure getRemoveToolTip() {
 	    return new Label(Messages.CorrelationSetsEditPart_Remove_Correlation_Set_1); 
 	}	

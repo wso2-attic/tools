@@ -44,7 +44,7 @@ public class PartnerLinkTypeTreeContentProvider extends ModelTreeContentProvider
 
 	
 	
-	@Override
+	
 	public Object[] primGetElements (Object inputElement) {
 		
 		ITreeNode result = getTreeNode ( inputElement );

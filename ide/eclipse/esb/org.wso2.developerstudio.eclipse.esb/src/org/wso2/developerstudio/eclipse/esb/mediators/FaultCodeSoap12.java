@@ -294,7 +294,7 @@ public enum FaultCodeSoap12 implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

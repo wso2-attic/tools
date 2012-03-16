@@ -31,13 +31,13 @@ public class TrayAccessibleEditPart extends AccessibleEditPart {
 		this.part = part; 
 	}
 
-	@Override
+	
 	public void getChildCount(AccessibleControlEvent e) {
 		getChildren(e);
 		e.detail = e.children.length;
 	}
 
-	@Override
+	
 	public void getChildren(AccessibleControlEvent e) {
 		List<EditPart> list = part.getChildren();
 		Vector<Integer> childList = new Vector<Integer>();
@@ -51,7 +51,7 @@ public class TrayAccessibleEditPart extends AccessibleEditPart {
 		e.children = childList.toArray();
 	}
 
-	@Override
+	
 	public void getName(AccessibleEvent e) {
 		Label label = part.getDirectEditLabel();
 		if (label != null) {
@@ -61,7 +61,7 @@ public class TrayAccessibleEditPart extends AccessibleEditPart {
 		}
 	}
 
-	@Override
+	
 	public void getLocation(AccessibleControlEvent e) {
 		Rectangle bounds = part.getFigure().getBounds().getCopy();
 		part.getFigure().translateToAbsolute(bounds);
@@ -73,7 +73,7 @@ public class TrayAccessibleEditPart extends AccessibleEditPart {
 		e.height = bounds.height;
 	}
 
-	@Override
+	
 	public void getState(AccessibleControlEvent e) {
 		e.detail = ACC.STATE_SELECTABLE | ACC.STATE_FOCUSABLE;
 		if (part.getSelected() != EditPart.SELECTED_NONE)

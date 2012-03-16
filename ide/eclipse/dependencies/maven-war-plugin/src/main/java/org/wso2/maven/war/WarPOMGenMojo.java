@@ -175,7 +175,7 @@ public class WarPOMGenMojo extends AbstractBundlePOMGenMojo {
 		Xpp3Dom config = (Xpp3Dom) pluginAxis2.getConfiguration();
 		Xpp3Dom artifactItems = CAppMavenUtils.createConfigurationNode(config, "artifact");
 //		String relativePath =
-//		                      org.wso2.carbonstudio.eclipse.utils.file.FileUtils.getRelativePath(new File(
+//		                      org.wso2.developerstudio.eclipse.utils.file.FileUtils.getRelativePath(new File(
 //		                                                                                                  artifact.getFile()
 //		                                                                                                          .getParentFile()
 //		                                                                                                          .getParentFile()

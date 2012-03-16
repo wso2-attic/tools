@@ -38,7 +38,7 @@ public class RuleChildMediatorsConfigurationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_CHILD_MEDIATORS_CONFIGURATION;
 	}

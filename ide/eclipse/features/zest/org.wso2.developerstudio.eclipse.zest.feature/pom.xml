@@ -21,13 +21,13 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-zest-feature</artifactId>
         <version>1.0.4</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.zest.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.zest.feature</artifactId>
     <packaging>pom</packaging>
     <name>Eclipse Zest Component</name>
     <url>http://wso2.org</url>

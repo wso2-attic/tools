@@ -43,7 +43,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 		fCreteInstanceController.startListeningTo(fCreateInstanceButton);
 	}
 
-	@Override
+	
 	protected void basicSetInput(EObject newInput) {
 
 		super.basicSetInput(newInput);
@@ -74,7 +74,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 		fCreateInstanceButton = fWidgetFactory.createButton(parent, Messages.CreateInstanceDetails_Create_a_new_Process_instance_if_one_does_not_already_exist_1, SWT.CHECK); 
 	}
 	
-	@Override
+	
 	protected void createClient(Composite parent) {
 		Composite composite = createFlatFormComposite(parent);
 		// HACK: the checkbox by itself looks cramped..give it a little extra space
@@ -91,7 +91,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#getUserContext()
 	 */
-	@Override
+	
 	public Object getUserContext() {
 		return null;
 	}
@@ -99,7 +99,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 	/**
 	 * @see org.eclipse.bpel.ui.properties.BPELPropertySection#restoreUserContext(java.lang.Object)
 	 */
-	@Override
+	
 	public void restoreUserContext(Object userContext) {
 		fCreateInstanceButton.setFocus();
 		
@@ -108,7 +108,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#shouldUseExtraSpace()
 	 */
-	@Override
+	
 	public boolean shouldUseExtraSpace () {
 		return false;
 	}
@@ -116,7 +116,7 @@ public class CreateInstanceSection extends BPELPropertySection  {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#getMinimumHeight()
 	 */
-	@Override
+	
 	public int getMinimumHeight () {
 		return 40;
 	}

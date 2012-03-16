@@ -36,7 +36,7 @@ public class SwitchMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SWITCH_MEDIATOR_INPUT_CONNECTOR;
 	}

@@ -26,7 +26,7 @@ public class SetVariableTypeCommand extends SetCommand {
 		super(target, newVariableType);
 	}
 	
-	@Override
+	
 	public Object get() {
 		Object o = ((Variable)fTarget).getMessageType();
 		if (o == null) {
@@ -38,7 +38,7 @@ public class SetVariableTypeCommand extends SetCommand {
 		return o;
 	}
 	
-	@Override
+	
 	public void set(Object o) {
 		Variable variable = (Variable)fTarget;
 		if (o instanceof Message) {

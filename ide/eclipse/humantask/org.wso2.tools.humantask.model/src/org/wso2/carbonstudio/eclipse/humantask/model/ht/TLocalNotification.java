@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import javax.xml.namespace.QName;
 
@@ -16,13 +16,13 @@ import javax.xml.namespace.QName;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}</li>
- *   <li>{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification()
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification()
  * @model extendedMetaData="name='tLocalNotification' kind='elementOnly'"
  * @generated
  */
@@ -37,7 +37,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
 	 * @see #setPriority(TPriority)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_Priority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
@@ -45,7 +45,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	TPriority getPriority();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Priority</em>' containment reference.
@@ -64,7 +64,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>People Assignments</em>' containment reference.
 	 * @see #setPeopleAssignments(TPeopleAssignments)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_PeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_PeopleAssignments()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='peopleAssignments' namespace='##targetNamespace'"
 	 * @generated
@@ -72,7 +72,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	TPeopleAssignments getPeopleAssignments();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>People Assignments</em>' containment reference.
@@ -91,7 +91,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference</em>' attribute.
 	 * @see #setReference(QName)
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_Reference()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTPackage#getTLocalNotification_Reference()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.QName" required="true"
 	 *        extendedMetaData="kind='attribute' name='reference'"
 	 * @generated
@@ -99,7 +99,7 @@ public interface TLocalNotification extends TExtensibleElements {
 	QName getReference();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Reference</em>' attribute.

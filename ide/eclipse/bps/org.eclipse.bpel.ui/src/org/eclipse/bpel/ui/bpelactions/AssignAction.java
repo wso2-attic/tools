@@ -19,22 +19,22 @@ import org.eclipse.emf.ecore.EClass;
 
 public class AssignAction extends AbstractBPELAction {
 
-    @Override
+    
 	public EClass getModelType() {
         return BPELPackage.eINSTANCE.getAssign();
     }
 
-    @Override
+    
 	public String getLabel() {
     	return BPELTerms.getString("Assign"); //$NON-NLS-1$
     }
 
-    @Override
+    
 	public String getDescription() {
         return Messages.AssignAction_Assign_HTML_Description_1; 
     }
 
-    @Override
+    
 	public AdapterFactory getAdapterFactory() {
         return BPELUIAdapterFactory.getInstance();
 	} 

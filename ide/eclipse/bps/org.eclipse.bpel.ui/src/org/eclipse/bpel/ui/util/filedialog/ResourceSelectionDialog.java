@@ -55,7 +55,7 @@ public abstract class ResourceSelectionDialog extends FileAndComboSelectionDialo
 	protected abstract Object getModelObjectFromId(Object modelRoot, Object objectId);
 
 
-	@Override
+	
 	protected void okPressed() {
 		Object comboSelection = getComboSelection();
 		super.okPressed();
@@ -72,7 +72,7 @@ public abstract class ResourceSelectionDialog extends FileAndComboSelectionDialo
 		
 	}
 
-	@Override
+	
 	protected Object readModelFromSelectedFile() {
 		IPath path = getFullPath();
 		if (path != null) {

@@ -57,7 +57,7 @@ public class AddToPartCommand extends AutoUndoCommand {
 		ModelHelper.setToParts(target, BPELFactory.eINSTANCE.createToParts());
 	}
 
-	@Override
+	
 	public void doExecute() {
 		if (this.part == null)
 			throw new IllegalStateException();

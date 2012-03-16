@@ -19,12 +19,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-capp-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.capp.framework.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.capp.framework.feature</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Carbon Application Framework Feature</name>
     <url>http://wso2.org</url>
@@ -46,13 +46,13 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.core:${capp.tools.version}</bundleDef>
-                                <!--bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.module:${capp.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.project:${capp.tools.version}</bundleDef-->
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.capp.maven:${capp.tools.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.core:${capp.tools.version}</bundleDef>
+                                <!--bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.module:${capp.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.project:${capp.tools.version}</bundleDef-->
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.maven:${capp.tools.version}</bundleDef>                                
                             </bundles>
                             <importFeatures>
-                                <importFeatureDef>org.wso2.carbonstudio.eclipse.server.framework.feature:${server.framework.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.developerstudio.eclipse.server.framework.feature:${server.framework.feature.version}</importFeatureDef>
                             </importFeatures>                            
                         </configuration>
                     </execution>

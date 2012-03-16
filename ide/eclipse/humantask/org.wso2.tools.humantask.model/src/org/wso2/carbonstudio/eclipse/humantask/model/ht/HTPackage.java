@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.wso2.carbonstudio.eclipse.humantask.model.ht;
+package org.wso2.developerstudio.eclipse.humantask.model.ht;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -105,7 +105,7 @@ import org.eclipse.emf.ecore.EReference;
  *    http://www.w3.org/2007/08/xml.xsd will not change.
  *   
  * <!-- end-model-doc -->
- * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.HTFactory
+ * @see org.wso2.developerstudio.eclipse.humantask.model.ht.HTFactory
  * @model kind="package"
  * @generated
  */
@@ -140,14 +140,14 @@ public interface HTPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	HTPackage eINSTANCE = org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl.init();
+	HTPackage eINSTANCE = org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl <em>Document Root</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl <em>Document Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getDocumentRoot()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getDocumentRoot()
 	 * @generated
 	 */
 	int DOCUMENT_ROOT = 0;
@@ -369,11 +369,11 @@ public interface HTPackage extends EPackage {
 	int DOCUMENT_ROOT_FEATURE_COUNT = 23;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl <em>TExtensible Mixed Content Elements</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl <em>TExtensible Mixed Content Elements</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleMixedContentElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleMixedContentElements()
 	 * @generated
 	 */
 	int TEXTENSIBLE_MIXED_CONTENT_ELEMENTS = 13;
@@ -424,11 +424,11 @@ public interface HTPackage extends EPackage {
 	int TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TArgumentImpl <em>TArgument</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TArgumentImpl <em>TArgument</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TArgumentImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTArgument()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TArgumentImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTArgument()
 	 * @generated
 	 */
 	int TARGUMENT = 1;
@@ -497,11 +497,11 @@ public interface HTPackage extends EPackage {
 	int TARGUMENT_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl <em>TExpression</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl <em>TExpression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExpression()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExpression()
 	 * @generated
 	 */
 	int TEXPRESSION = 11;
@@ -552,11 +552,11 @@ public interface HTPackage extends EPackage {
 	int TEXPRESSION_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl <em>TBoolean Expr</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl <em>TBoolean Expr</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanExpr()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanExpr()
 	 * @generated
 	 */
 	int TBOOLEAN_EXPR = 2;
@@ -607,11 +607,11 @@ public interface HTPackage extends EPackage {
 	int TBOOLEAN_EXPR_FEATURE_COUNT = TEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl <em>TExtensible Elements</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl <em>TExtensible Elements</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleElements()
 	 * @generated
 	 */
 	int TEXTENSIBLE_ELEMENTS = 12;
@@ -653,11 +653,11 @@ public interface HTPackage extends EPackage {
 	int TEXTENSIBLE_ELEMENTS_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl <em>TDeadline</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl <em>TDeadline</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadline()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadline()
 	 * @generated
 	 */
 	int TDEADLINE = 3;
@@ -726,11 +726,11 @@ public interface HTPackage extends EPackage {
 	int TDEADLINE_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl <em>TDeadline Expr</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl <em>TDeadline Expr</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlineExpr()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlineExpr()
 	 * @generated
 	 */
 	int TDEADLINE_EXPR = 4;
@@ -781,11 +781,11 @@ public interface HTPackage extends EPackage {
 	int TDEADLINE_EXPR_FEATURE_COUNT = TEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl <em>TDeadlines</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl <em>TDeadlines</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlines()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlines()
 	 * @generated
 	 */
 	int TDEADLINES = 5;
@@ -845,11 +845,11 @@ public interface HTPackage extends EPackage {
 	int TDEADLINES_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl <em>TDelegation</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl <em>TDelegation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDelegation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDelegation()
 	 * @generated
 	 */
 	int TDELEGATION = 6;
@@ -909,11 +909,11 @@ public interface HTPackage extends EPackage {
 	int TDELEGATION_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl <em>TDescription</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl <em>TDescription</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDescription()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDescription()
 	 * @generated
 	 */
 	int TDESCRIPTION = 7;
@@ -982,11 +982,11 @@ public interface HTPackage extends EPackage {
 	int TDESCRIPTION_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl <em>TDocumentation</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl <em>TDocumentation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDocumentation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDocumentation()
 	 * @generated
 	 */
 	int TDOCUMENTATION = 8;
@@ -1028,11 +1028,11 @@ public interface HTPackage extends EPackage {
 	int TDOCUMENTATION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl <em>TDuration Expr</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl <em>TDuration Expr</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDurationExpr()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDurationExpr()
 	 * @generated
 	 */
 	int TDURATION_EXPR = 9;
@@ -1083,11 +1083,11 @@ public interface HTPackage extends EPackage {
 	int TDURATION_EXPR_FEATURE_COUNT = TEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl <em>TEscalation</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl <em>TEscalation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTEscalation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTEscalation()
 	 * @generated
 	 */
 	int TESCALATION = 10;
@@ -1183,11 +1183,11 @@ public interface HTPackage extends EPackage {
 	int TESCALATION_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionImpl <em>TExtension</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionImpl <em>TExtension</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtension()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtension()
 	 * @generated
 	 */
 	int TEXTENSION = 14;
@@ -1247,11 +1247,11 @@ public interface HTPackage extends EPackage {
 	int TEXTENSION_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl <em>TExtensions</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl <em>TExtensions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensions()
 	 * @generated
 	 */
 	int TEXTENSIONS = 15;
@@ -1302,11 +1302,11 @@ public interface HTPackage extends EPackage {
 	int TEXTENSIONS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl <em>TFrom</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl <em>TFrom</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTFrom()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTFrom()
 	 * @generated
 	 */
 	int TFROM = 16;
@@ -1393,11 +1393,11 @@ public interface HTPackage extends EPackage {
 	int TFROM_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl <em>TGeneric Human Role</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl <em>TGeneric Human Role</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGenericHumanRole()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGenericHumanRole()
 	 * @generated
 	 */
 	int TGENERIC_HUMAN_ROLE = 17;
@@ -1448,11 +1448,11 @@ public interface HTPackage extends EPackage {
 	int TGENERIC_HUMAN_ROLE_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl <em>TGrouplist</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl <em>TGrouplist</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGrouplist()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGrouplist()
 	 * @generated
 	 */
 	int TGROUPLIST = 18;
@@ -1476,11 +1476,11 @@ public interface HTPackage extends EPackage {
 	int TGROUPLIST_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl <em>THuman Interactions</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl <em>THuman Interactions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTHumanInteractions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTHumanInteractions()
 	 * @generated
 	 */
 	int THUMAN_INTERACTIONS = 19;
@@ -1594,11 +1594,11 @@ public interface HTPackage extends EPackage {
 	int THUMAN_INTERACTIONS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 8;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TImportImpl <em>TImport</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TImportImpl <em>TImport</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TImportImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTImport()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TImportImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTImport()
 	 * @generated
 	 */
 	int TIMPORT = 20;
@@ -1667,11 +1667,11 @@ public interface HTPackage extends EPackage {
 	int TIMPORT_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLiteralImpl <em>TLiteral</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLiteralImpl <em>TLiteral</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLiteralImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLiteral()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLiteralImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLiteral()
 	 * @generated
 	 */
 	int TLITERAL = 21;
@@ -1713,11 +1713,11 @@ public interface HTPackage extends EPackage {
 	int TLITERAL_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl <em>TLocal Notification</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl <em>TLocal Notification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLocalNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLocalNotification()
 	 * @generated
 	 */
 	int TLOCAL_NOTIFICATION = 22;
@@ -1786,11 +1786,11 @@ public interface HTPackage extends EPackage {
 	int TLOCAL_NOTIFICATION_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl <em>TLogical People Group</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl <em>TLogical People Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroup()
 	 * @generated
 	 */
 	int TLOGICAL_PEOPLE_GROUP = 23;
@@ -1859,11 +1859,11 @@ public interface HTPackage extends EPackage {
 	int TLOGICAL_PEOPLE_GROUP_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl <em>TLogical People Groups</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl <em>TLogical People Groups</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroups()
 	 * @generated
 	 */
 	int TLOGICAL_PEOPLE_GROUPS = 24;
@@ -1914,11 +1914,11 @@ public interface HTPackage extends EPackage {
 	int TLOGICAL_PEOPLE_GROUPS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl <em>TNotification</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl <em>TNotification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotification()
 	 * @generated
 	 */
 	int TNOTIFICATION = 25;
@@ -2014,11 +2014,11 @@ public interface HTPackage extends EPackage {
 	int TNOTIFICATION_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl <em>TNotification Interface</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl <em>TNotification Interface</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotificationInterface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotificationInterface()
 	 * @generated
 	 */
 	int TNOTIFICATION_INTERFACE = 26;
@@ -2078,11 +2078,11 @@ public interface HTPackage extends EPackage {
 	int TNOTIFICATION_INTERFACE_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl <em>TNotifications</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl <em>TNotifications</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotifications()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotifications()
 	 * @generated
 	 */
 	int TNOTIFICATIONS = 27;
@@ -2133,11 +2133,11 @@ public interface HTPackage extends EPackage {
 	int TNOTIFICATIONS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl <em>TOrganizational Entity</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl <em>TOrganizational Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTOrganizationalEntity()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTOrganizationalEntity()
 	 * @generated
 	 */
 	int TORGANIZATIONAL_ENTITY = 28;
@@ -2170,11 +2170,11 @@ public interface HTPackage extends EPackage {
 	int TORGANIZATIONAL_ENTITY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TParameterImpl <em>TParameter</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TParameterImpl <em>TParameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TParameterImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTParameter()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TParameterImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTParameter()
 	 * @generated
 	 */
 	int TPARAMETER = 29;
@@ -2243,11 +2243,11 @@ public interface HTPackage extends EPackage {
 	int TPARAMETER_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl <em>TPeople Assignments</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl <em>TPeople Assignments</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPeopleAssignments()
 	 * @generated
 	 */
 	int TPEOPLE_ASSIGNMENTS = 30;
@@ -2352,11 +2352,11 @@ public interface HTPackage extends EPackage {
 	int TPEOPLE_ASSIGNMENTS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl <em>TPresentation Elements</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl <em>TPresentation Elements</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationElements()
 	 * @generated
 	 */
 	int TPRESENTATION_ELEMENTS = 31;
@@ -2434,11 +2434,11 @@ public interface HTPackage extends EPackage {
 	int TPRESENTATION_ELEMENTS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl <em>TPresentation Parameter</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl <em>TPresentation Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameter()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameter()
 	 * @generated
 	 */
 	int TPRESENTATION_PARAMETER = 32;
@@ -2507,11 +2507,11 @@ public interface HTPackage extends EPackage {
 	int TPRESENTATION_PARAMETER_FEATURE_COUNT = TPARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl <em>TPresentation Parameters</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl <em>TPresentation Parameters</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameters()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameters()
 	 * @generated
 	 */
 	int TPRESENTATION_PARAMETERS = 33;
@@ -2571,11 +2571,11 @@ public interface HTPackage extends EPackage {
 	int TPRESENTATION_PARAMETERS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPriorityImpl <em>TPriority</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPriorityImpl <em>TPriority</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPriorityImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPriority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPriorityImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPriority()
 	 * @generated
 	 */
 	int TPRIORITY = 34;
@@ -2626,11 +2626,11 @@ public interface HTPackage extends EPackage {
 	int TPRIORITY_FEATURE_COUNT = TEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TQueryImpl <em>TQuery</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TQueryImpl <em>TQuery</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TQueryImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTQuery()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TQueryImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTQuery()
 	 * @generated
 	 */
 	int TQUERY = 35;
@@ -2690,11 +2690,11 @@ public interface HTPackage extends EPackage {
 	int TQUERY_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl <em>TReassignment</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl <em>TReassignment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTReassignment()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTReassignment()
 	 * @generated
 	 */
 	int TREASSIGNMENT = 36;
@@ -2745,11 +2745,11 @@ public interface HTPackage extends EPackage {
 	int TREASSIGNMENT_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingImpl <em>TRendering</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingImpl <em>TRendering</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRendering()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRendering()
 	 * @generated
 	 */
 	int TRENDERING = 37;
@@ -2800,11 +2800,11 @@ public interface HTPackage extends EPackage {
 	int TRENDERING_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl <em>TRenderings</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl <em>TRenderings</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRenderings()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRenderings()
 	 * @generated
 	 */
 	int TRENDERINGS = 38;
@@ -2855,11 +2855,11 @@ public interface HTPackage extends EPackage {
 	int TRENDERINGS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskImpl <em>TTask</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskImpl <em>TTask</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTask()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTask()
 	 * @generated
 	 */
 	int TTASK = 39;
@@ -2991,11 +2991,11 @@ public interface HTPackage extends EPackage {
 	int TTASK_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl <em>TTask Interface</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl <em>TTask Interface</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTaskInterface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTaskInterface()
 	 * @generated
 	 */
 	int TTASK_INTERFACE = 40;
@@ -3073,11 +3073,11 @@ public interface HTPackage extends EPackage {
 	int TTASK_INTERFACE_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTasksImpl <em>TTasks</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTasksImpl <em>TTasks</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTasksImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTasks()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTasksImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTasks()
 	 * @generated
 	 */
 	int TTASKS = 41;
@@ -3128,11 +3128,11 @@ public interface HTPackage extends EPackage {
 	int TTASKS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTextImpl <em>TText</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTextImpl <em>TText</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTextImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTText()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTextImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTText()
 	 * @generated
 	 */
 	int TTEXT = 42;
@@ -3192,11 +3192,11 @@ public interface HTPackage extends EPackage {
 	int TTEXT_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartImpl <em>TTo Part</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartImpl <em>TTo Part</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToPart()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToPart()
 	 * @generated
 	 */
 	int TTO_PART = 43;
@@ -3265,11 +3265,11 @@ public interface HTPackage extends EPackage {
 	int TTO_PART_FEATURE_COUNT = TEXTENSIBLE_MIXED_CONTENT_ELEMENTS_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartsImpl <em>TTo Parts</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartsImpl <em>TTo Parts</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartsImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToParts()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartsImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToParts()
 	 * @generated
 	 */
 	int TTO_PARTS = 44;
@@ -3320,11 +3320,11 @@ public interface HTPackage extends EPackage {
 	int TTO_PARTS_FEATURE_COUNT = TEXTENSIBLE_ELEMENTS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TUserlistImpl <em>TUserlist</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TUserlistImpl <em>TUserlist</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TUserlistImpl
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUserlist()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TUserlistImpl
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUserlist()
 	 * @generated
 	 */
 	int TUSERLIST = 45;
@@ -3348,21 +3348,21 @@ public interface HTPackage extends EPackage {
 	int TUSERLIST_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}' enum.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBoolean()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBoolean()
 	 * @generated
 	 */
 	int TBOOLEAN = 46;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}' enum.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegatees()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegatees()
 	 * @generated
 	 */
 	int TPOTENTIAL_DELEGATEES = 47;
@@ -3371,8 +3371,8 @@ public interface HTPackage extends EPackage {
 	 * The meta object id for the '<em>TBoolean Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanObject()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanObject()
 	 * @generated
 	 */
 	int TBOOLEAN_OBJECT = 48;
@@ -3382,7 +3382,7 @@ public interface HTPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.lang.String
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGroup()
 	 * @generated
 	 */
 	int TGROUP = 49;
@@ -3391,8 +3391,8 @@ public interface HTPackage extends EPackage {
 	 * The meta object id for the '<em>TPotential Delegatees Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegateesObject()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegateesObject()
 	 * @generated
 	 */
 	int TPOTENTIAL_DELEGATEES_OBJECT = 50;
@@ -3402,2017 +3402,2017 @@ public interface HTPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.lang.String
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUser()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUser()
 	 * @generated
 	 */
 	int TUSER = 51;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot <em>Document Root</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot <em>Document Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Document Root</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot
 	 * @generated
 	 */
 	EClass getDocumentRoot();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getMixed()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EAttribute getDocumentRoot_Mixed();
 
 	/**
-	 * Returns the meta object for the map '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
+	 * Returns the meta object for the map '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXMLNSPrefixMap()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_XMLNSPrefixMap();
 
 	/**
-	 * Returns the meta object for the map '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
+	 * Returns the meta object for the map '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getXSISchemaLocation()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_XSISchemaLocation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators <em>Business Administrators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Business Administrators</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getBusinessAdministrators()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_BusinessAdministrators();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners <em>Excluded Owners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Excluded Owners</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getExcludedOwners()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_ExcludedOwners();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Group</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroup()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EAttribute getDocumentRoot_Group();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Groups</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getGroups()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Groups();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions <em>Human Interactions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Human Interactions</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getHumanInteractions()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_HumanInteractions();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getImport <em>Import</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Import</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getImport()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getImport()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Import();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups <em>Logical People Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Logical People Groups</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getLogicalPeopleGroups()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_LogicalPeopleGroups();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Notification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotification()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Notification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications <em>Notifications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Notifications</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getNotifications()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Notifications();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity <em>Organizational Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Organizational Entity</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getOrganizationalEntity()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_OrganizationalEntity();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments <em>People Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>People Assignments</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPeopleAssignments()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_PeopleAssignments();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners <em>Potential Owners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Potential Owners</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPotentialOwners()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_PotentialOwners();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Priority</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getPriority()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Priority();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients <em>Recipients</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Recipients</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getRecipients()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Recipients();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Task</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTask()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTask()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Task();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator <em>Task Initiator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Task Initiator</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskInitiator()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_TaskInitiator();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Tasks</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTasks()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Tasks();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders <em>Task Stakeholders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Task Stakeholders</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getTaskStakeholders()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_TaskStakeholders();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUser <em>User</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>User</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUser()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUser()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EAttribute getDocumentRoot_User();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers <em>Users</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Users</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.DocumentRoot#getUsers()
 	 * @see #getDocumentRoot()
 	 * @generated
 	 */
 	EReference getDocumentRoot_Users();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument <em>TArgument</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument <em>TArgument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TArgument</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument
 	 * @generated
 	 */
 	EClass getTArgument();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument#getExpressionLanguage()
 	 * @see #getTArgument()
 	 * @generated
 	 */
 	EAttribute getTArgument_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TArgument#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TArgument#getName()
 	 * @see #getTArgument()
 	 * @generated
 	 */
 	EAttribute getTArgument_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr <em>TBoolean Expr</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr <em>TBoolean Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TBoolean Expr</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBooleanExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBooleanExpr
 	 * @generated
 	 */
 	EClass getTBooleanExpr();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline <em>TDeadline</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline <em>TDeadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDeadline</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline
 	 * @generated
 	 */
 	EClass getTDeadline();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getFor <em>For</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>For</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getFor()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getFor()
 	 * @see #getTDeadline()
 	 * @generated
 	 */
 	EReference getTDeadline_For();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getUntil <em>Until</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Until</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getUntil()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getUntil()
 	 * @see #getTDeadline()
 	 * @generated
 	 */
 	EReference getTDeadline_Until();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getEscalation <em>Escalation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getEscalation <em>Escalation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Escalation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadline#getEscalation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadline#getEscalation()
 	 * @see #getTDeadline()
 	 * @generated
 	 */
 	EReference getTDeadline_Escalation();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr <em>TDeadline Expr</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr <em>TDeadline Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDeadline Expr</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlineExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlineExpr
 	 * @generated
 	 */
 	EClass getTDeadlineExpr();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines <em>TDeadlines</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines <em>TDeadlines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDeadlines</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines
 	 * @generated
 	 */
 	EClass getTDeadlines();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines#getStartDeadline <em>Start Deadline</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines#getStartDeadline <em>Start Deadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Start Deadline</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines#getStartDeadline()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines#getStartDeadline()
 	 * @see #getTDeadlines()
 	 * @generated
 	 */
 	EReference getTDeadlines_StartDeadline();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines#getCompletionDeadline <em>Completion Deadline</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines#getCompletionDeadline <em>Completion Deadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Completion Deadline</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDeadlines#getCompletionDeadline()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDeadlines#getCompletionDeadline()
 	 * @see #getTDeadlines()
 	 * @generated
 	 */
 	EReference getTDeadlines_CompletionDeadline();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation <em>TDelegation</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation <em>TDelegation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDelegation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation
 	 * @generated
 	 */
 	EClass getTDelegation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation#getFrom <em>From</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>From</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation#getFrom()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation#getFrom()
 	 * @see #getTDelegation()
 	 * @generated
 	 */
 	EReference getTDelegation_From();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation#getPotentialDelegatees <em>Potential Delegatees</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation#getPotentialDelegatees <em>Potential Delegatees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Potential Delegatees</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDelegation#getPotentialDelegatees()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDelegation#getPotentialDelegatees()
 	 * @see #getTDelegation()
 	 * @generated
 	 */
 	EAttribute getTDelegation_PotentialDelegatees();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription <em>TDescription</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription <em>TDescription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDescription</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription
 	 * @generated
 	 */
 	EClass getTDescription();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription#getContentType <em>Content Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription#getContentType <em>Content Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Content Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription#getContentType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription#getContentType()
 	 * @see #getTDescription()
 	 * @generated
 	 */
 	EAttribute getTDescription_ContentType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription#getLang <em>Lang</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription#getLang <em>Lang</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Lang</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDescription#getLang()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDescription#getLang()
 	 * @see #getTDescription()
 	 * @generated
 	 */
 	EAttribute getTDescription_Lang();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation <em>TDocumentation</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation <em>TDocumentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDocumentation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation
 	 * @generated
 	 */
 	EClass getTDocumentation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getMixed()
 	 * @see #getTDocumentation()
 	 * @generated
 	 */
 	EAttribute getTDocumentation_Mixed();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getAny()
 	 * @see #getTDocumentation()
 	 * @generated
 	 */
 	EAttribute getTDocumentation_Any();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getLang <em>Lang</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Lang</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDocumentation#getLang()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDocumentation#getLang()
 	 * @see #getTDocumentation()
 	 * @generated
 	 */
 	EAttribute getTDocumentation_Lang();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr <em>TDuration Expr</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr <em>TDuration Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TDuration Expr</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TDurationExpr
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TDurationExpr
 	 * @generated
 	 */
 	EClass getTDurationExpr();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation <em>TEscalation</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation <em>TEscalation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TEscalation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation
 	 * @generated
 	 */
 	EClass getTEscalation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getCondition()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getCondition()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EReference getTEscalation_Condition();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getToParts <em>To Parts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getToParts <em>To Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>To Parts</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getToParts()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getToParts()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EReference getTEscalation_ToParts();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getNotification <em>Notification</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getNotification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Notification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getNotification()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EReference getTEscalation_Notification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getLocalNotification <em>Local Notification</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getLocalNotification <em>Local Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Local Notification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getLocalNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getLocalNotification()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EReference getTEscalation_LocalNotification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getReassignment <em>Reassignment</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getReassignment <em>Reassignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Reassignment</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getReassignment()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getReassignment()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EReference getTEscalation_Reassignment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TEscalation#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TEscalation#getName()
 	 * @see #getTEscalation()
 	 * @generated
 	 */
 	EAttribute getTEscalation_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression <em>TExpression</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression <em>TExpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TExpression</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression
 	 * @generated
 	 */
 	EClass getTExpression();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getMixed()
 	 * @see #getTExpression()
 	 * @generated
 	 */
 	EAttribute getTExpression_Mixed();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getAny()
 	 * @see #getTExpression()
 	 * @generated
 	 */
 	EAttribute getTExpression_Any();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getExpressionLanguage()
 	 * @see #getTExpression()
 	 * @generated
 	 */
 	EAttribute getTExpression_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getAnyAttribute <em>Any Attribute</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getAnyAttribute <em>Any Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any Attribute</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExpression#getAnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExpression#getAnyAttribute()
 	 * @see #getTExpression()
 	 * @generated
 	 */
 	EAttribute getTExpression_AnyAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements <em>TExtensible Elements</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements <em>TExtensible Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TExtensible Elements</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements
 	 * @generated
 	 */
 	EClass getTExtensibleElements();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getDocumentation <em>Documentation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Documentation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getDocumentation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getDocumentation()
 	 * @see #getTExtensibleElements()
 	 * @generated
 	 */
 	EReference getTExtensibleElements_Documentation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getAny()
 	 * @see #getTExtensibleElements()
 	 * @generated
 	 */
 	EAttribute getTExtensibleElements_Any();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getAnyAttribute <em>Any Attribute</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getAnyAttribute <em>Any Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any Attribute</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleElements#getAnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleElements#getAnyAttribute()
 	 * @see #getTExtensibleElements()
 	 * @generated
 	 */
 	EAttribute getTExtensibleElements_AnyAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements <em>TExtensible Mixed Content Elements</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements <em>TExtensible Mixed Content Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TExtensible Mixed Content Elements</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements
 	 * @generated
 	 */
 	EClass getTExtensibleMixedContentElements();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getMixed()
 	 * @see #getTExtensibleMixedContentElements()
 	 * @generated
 	 */
 	EAttribute getTExtensibleMixedContentElements_Mixed();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getDocumentation <em>Documentation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getDocumentation <em>Documentation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Documentation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getDocumentation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getDocumentation()
 	 * @see #getTExtensibleMixedContentElements()
 	 * @generated
 	 */
 	EReference getTExtensibleMixedContentElements_Documentation();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAny()
 	 * @see #getTExtensibleMixedContentElements()
 	 * @generated
 	 */
 	EAttribute getTExtensibleMixedContentElements_Any();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAnyAttribute <em>Any Attribute</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAnyAttribute <em>Any Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any Attribute</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensibleMixedContentElements#getAnyAttribute()
 	 * @see #getTExtensibleMixedContentElements()
 	 * @generated
 	 */
 	EAttribute getTExtensibleMixedContentElements_AnyAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension <em>TExtension</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension <em>TExtension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TExtension</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension
 	 * @generated
 	 */
 	EClass getTExtension();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand <em>Must Understand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Must Understand</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getMustUnderstand()
 	 * @see #getTExtension()
 	 * @generated
 	 */
 	EAttribute getTExtension_MustUnderstand();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtension#getNamespace()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtension#getNamespace()
 	 * @see #getTExtension()
 	 * @generated
 	 */
 	EAttribute getTExtension_Namespace();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions <em>TExtensions</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions <em>TExtensions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TExtensions</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions
 	 * @generated
 	 */
 	EClass getTExtensions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions#getExtension <em>Extension</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions#getExtension <em>Extension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Extension</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TExtensions#getExtension()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TExtensions#getExtension()
 	 * @see #getTExtensions()
 	 * @generated
 	 */
 	EReference getTExtensions_Extension();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom <em>TFrom</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom <em>TFrom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TFrom</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom
 	 * @generated
 	 */
 	EClass getTFrom();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getArgument <em>Argument</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getArgument <em>Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Argument</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getArgument()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getArgument()
 	 * @see #getTFrom()
 	 * @generated
 	 */
 	EReference getTFrom_Argument();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getLiteral <em>Literal</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getLiteral <em>Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Literal</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getLiteral()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getLiteral()
 	 * @see #getTFrom()
 	 * @generated
 	 */
 	EReference getTFrom_Literal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getExpressionLanguage()
 	 * @see #getTFrom()
 	 * @generated
 	 */
 	EAttribute getTFrom_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getLogicalPeopleGroup <em>Logical People Group</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getLogicalPeopleGroup <em>Logical People Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Logical People Group</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TFrom#getLogicalPeopleGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TFrom#getLogicalPeopleGroup()
 	 * @see #getTFrom()
 	 * @generated
 	 */
 	EAttribute getTFrom_LogicalPeopleGroup();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole <em>TGeneric Human Role</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole <em>TGeneric Human Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TGeneric Human Role</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole
 	 * @generated
 	 */
 	EClass getTGenericHumanRole();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>From</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGenericHumanRole#getFrom()
 	 * @see #getTGenericHumanRole()
 	 * @generated
 	 */
 	EReference getTGenericHumanRole_From();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist <em>TGrouplist</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist <em>TGrouplist</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TGrouplist</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist
 	 * @generated
 	 */
 	EClass getTGrouplist();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist#getGroup <em>Group</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist#getGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Group</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TGrouplist#getGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TGrouplist#getGroup()
 	 * @see #getTGrouplist()
 	 * @generated
 	 */
 	EAttribute getTGrouplist_Group();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions <em>THuman Interactions</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions <em>THuman Interactions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>THuman Interactions</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions
 	 * @generated
 	 */
 	EClass getTHumanInteractions();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions <em>Extensions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Extensions</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExtensions()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EReference getTHumanInteractions_Extensions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getImport <em>Import</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getImport <em>Import</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Import</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getImport()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getImport()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EReference getTHumanInteractions_Import();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups <em>Logical People Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Logical People Groups</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getLogicalPeopleGroups()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EReference getTHumanInteractions_LogicalPeopleGroups();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Tasks</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTasks()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EReference getTHumanInteractions_Tasks();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications <em>Notifications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Notifications</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getNotifications()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EReference getTHumanInteractions_Notifications();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getExpressionLanguage()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EAttribute getTHumanInteractions_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage <em>Query Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Query Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getQueryLanguage()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EAttribute getTHumanInteractions_QueryLanguage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace <em>Target Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Target Namespace</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.THumanInteractions#getTargetNamespace()
 	 * @see #getTHumanInteractions()
 	 * @generated
 	 */
 	EAttribute getTHumanInteractions_TargetNamespace();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport <em>TImport</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport <em>TImport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TImport</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TImport
 	 * @generated
 	 */
 	EClass getTImport();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getImportType <em>Import Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getImportType <em>Import Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Import Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getImportType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getImportType()
 	 * @see #getTImport()
 	 * @generated
 	 */
 	EAttribute getTImport_ImportType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getLocation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getLocation()
 	 * @see #getTImport()
 	 * @generated
 	 */
 	EAttribute getTImport_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TImport#getNamespace()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TImport#getNamespace()
 	 * @see #getTImport()
 	 * @generated
 	 */
 	EAttribute getTImport_Namespace();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral <em>TLiteral</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral <em>TLiteral</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TLiteral</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral
 	 * @generated
 	 */
 	EClass getTLiteral();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getMixed()
 	 * @see #getTLiteral()
 	 * @generated
 	 */
 	EAttribute getTLiteral_Mixed();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAny()
 	 * @see #getTLiteral()
 	 * @generated
 	 */
 	EAttribute getTLiteral_Any();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute <em>Any Attribute</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute <em>Any Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any Attribute</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLiteral#getAnyAttribute()
 	 * @see #getTLiteral()
 	 * @generated
 	 */
 	EAttribute getTLiteral_AnyAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification <em>TLocal Notification</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification <em>TLocal Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TLocal Notification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification
 	 * @generated
 	 */
 	EClass getTLocalNotification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Priority</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPriority()
 	 * @see #getTLocalNotification()
 	 * @generated
 	 */
 	EReference getTLocalNotification_Priority();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments <em>People Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>People Assignments</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getPeopleAssignments()
 	 * @see #getTLocalNotification()
 	 * @generated
 	 */
 	EReference getTLocalNotification_PeopleAssignments();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reference</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLocalNotification#getReference()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLocalNotification#getReference()
 	 * @see #getTLocalNotification()
 	 * @generated
 	 */
 	EAttribute getTLocalNotification_Reference();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup <em>TLogical People Group</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup <em>TLogical People Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TLogical People Group</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup
 	 * @generated
 	 */
 	EClass getTLogicalPeopleGroup();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getParameter <em>Parameter</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getParameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameter</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getParameter()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getParameter()
 	 * @see #getTLogicalPeopleGroup()
 	 * @generated
 	 */
 	EReference getTLogicalPeopleGroup_Parameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getName()
 	 * @see #getTLogicalPeopleGroup()
 	 * @generated
 	 */
 	EAttribute getTLogicalPeopleGroup_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getReference <em>Reference</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reference</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getReference()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroup#getReference()
 	 * @see #getTLogicalPeopleGroup()
 	 * @generated
 	 */
 	EAttribute getTLogicalPeopleGroup_Reference();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups <em>TLogical People Groups</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups <em>TLogical People Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TLogical People Groups</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups
 	 * @generated
 	 */
 	EClass getTLogicalPeopleGroups();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups#getLogicalPeopleGroup <em>Logical People Group</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups#getLogicalPeopleGroup <em>Logical People Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Logical People Group</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups#getLogicalPeopleGroup()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TLogicalPeopleGroups#getLogicalPeopleGroup()
 	 * @see #getTLogicalPeopleGroups()
 	 * @generated
 	 */
 	EReference getTLogicalPeopleGroups_LogicalPeopleGroup();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification <em>TNotification</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification <em>TNotification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TNotification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification
 	 * @generated
 	 */
 	EClass getTNotification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getInterface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Interface</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getInterface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getInterface()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EReference getTNotification_Interface();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Priority</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPriority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPriority()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EReference getTNotification_Priority();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments <em>People Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>People Assignments</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPeopleAssignments()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EReference getTNotification_PeopleAssignments();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements <em>Presentation Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Presentation Elements</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getPresentationElements()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EReference getTNotification_PresentationElements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getRenderings <em>Renderings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Renderings</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getRenderings()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getRenderings()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EReference getTNotification_Renderings();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotification#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotification#getName()
 	 * @see #getTNotification()
 	 * @generated
 	 */
 	EAttribute getTNotification_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface <em>TNotification Interface</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface <em>TNotification Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TNotification Interface</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface
 	 * @generated
 	 */
 	EClass getTNotificationInterface();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Operation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getOperation()
 	 * @see #getTNotificationInterface()
 	 * @generated
 	 */
 	EAttribute getTNotificationInterface_Operation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Port Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotificationInterface#getPortType()
 	 * @see #getTNotificationInterface()
 	 * @generated
 	 */
 	EAttribute getTNotificationInterface_PortType();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications <em>TNotifications</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications <em>TNotifications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TNotifications</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications
 	 * @generated
 	 */
 	EClass getTNotifications();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications#getNotification <em>Notification</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications#getNotification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Notification</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TNotifications#getNotification()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TNotifications#getNotification()
 	 * @see #getTNotifications()
 	 * @generated
 	 */
 	EReference getTNotifications_Notification();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity <em>TOrganizational Entity</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity <em>TOrganizational Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TOrganizational Entity</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity
 	 * @generated
 	 */
 	EClass getTOrganizationalEntity();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers <em>Users</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Users</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getUsers()
 	 * @see #getTOrganizationalEntity()
 	 * @generated
 	 */
 	EReference getTOrganizationalEntity_Users();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Groups</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TOrganizationalEntity#getGroups()
 	 * @see #getTOrganizationalEntity()
 	 * @generated
 	 */
 	EReference getTOrganizationalEntity_Groups();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter <em>TParameter</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter <em>TParameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TParameter</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter
 	 * @generated
 	 */
 	EClass getTParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getName()
 	 * @see #getTParameter()
 	 * @generated
 	 */
 	EAttribute getTParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TParameter#getType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TParameter#getType()
 	 * @see #getTParameter()
 	 * @generated
 	 */
 	EAttribute getTParameter_Type();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments <em>TPeople Assignments</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments <em>TPeople Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TPeople Assignments</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments
 	 * @generated
 	 */
 	EClass getTPeopleAssignments();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getGenericHumanRole <em>Generic Human Role</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getGenericHumanRole <em>Generic Human Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Generic Human Role</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getGenericHumanRole()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getGenericHumanRole()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EAttribute getTPeopleAssignments_GenericHumanRole();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getPotentialOwners <em>Potential Owners</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getPotentialOwners <em>Potential Owners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Potential Owners</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getPotentialOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getPotentialOwners()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_PotentialOwners();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getExcludedOwners <em>Excluded Owners</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getExcludedOwners <em>Excluded Owners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Excluded Owners</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getExcludedOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getExcludedOwners()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_ExcludedOwners();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskInitiator <em>Task Initiator</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskInitiator <em>Task Initiator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Task Initiator</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskInitiator()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskInitiator()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_TaskInitiator();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskStakeholders <em>Task Stakeholders</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskStakeholders <em>Task Stakeholders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Task Stakeholders</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskStakeholders()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getTaskStakeholders()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_TaskStakeholders();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getBusinessAdministrators <em>Business Administrators</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getBusinessAdministrators <em>Business Administrators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Business Administrators</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getBusinessAdministrators()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getBusinessAdministrators()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_BusinessAdministrators();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getRecipients <em>Recipients</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getRecipients <em>Recipients</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Recipients</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPeopleAssignments#getRecipients()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPeopleAssignments#getRecipients()
 	 * @see #getTPeopleAssignments()
 	 * @generated
 	 */
 	EReference getTPeopleAssignments_Recipients();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements <em>TPresentation Elements</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements <em>TPresentation Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TPresentation Elements</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements
 	 * @generated
 	 */
 	EClass getTPresentationElements();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getName()
 	 * @see #getTPresentationElements()
 	 * @generated
 	 */
 	EReference getTPresentationElements_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getPresentationParameters <em>Presentation Parameters</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getPresentationParameters <em>Presentation Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Presentation Parameters</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getPresentationParameters()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getPresentationParameters()
 	 * @see #getTPresentationElements()
 	 * @generated
 	 */
 	EReference getTPresentationElements_PresentationParameters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getSubject <em>Subject</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getSubject <em>Subject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Subject</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getSubject()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getSubject()
 	 * @see #getTPresentationElements()
 	 * @generated
 	 */
 	EReference getTPresentationElements_Subject();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Description</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationElements#getDescription()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationElements#getDescription()
 	 * @see #getTPresentationElements()
 	 * @generated
 	 */
 	EReference getTPresentationElements_Description();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter <em>TPresentation Parameter</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter <em>TPresentation Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TPresentation Parameter</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameter
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameter
 	 * @generated
 	 */
 	EClass getTPresentationParameter();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters <em>TPresentation Parameters</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters <em>TPresentation Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TPresentation Parameters</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters
 	 * @generated
 	 */
 	EClass getTPresentationParameters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter <em>Presentation Parameter</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter <em>Presentation Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Presentation Parameter</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getPresentationParameter()
 	 * @see #getTPresentationParameters()
 	 * @generated
 	 */
 	EReference getTPresentationParameters_PresentationParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPresentationParameters#getExpressionLanguage()
 	 * @see #getTPresentationParameters()
 	 * @generated
 	 */
 	EAttribute getTPresentationParameters_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority <em>TPriority</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority <em>TPriority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TPriority</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPriority
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPriority
 	 * @generated
 	 */
 	EClass getTPriority();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery <em>TQuery</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery <em>TQuery</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TQuery</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery
 	 * @generated
 	 */
 	EClass getTQuery();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getMixed()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getMixed()
 	 * @see #getTQuery()
 	 * @generated
 	 */
 	EAttribute getTQuery_Mixed();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAny <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAny()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAny()
 	 * @see #getTQuery()
 	 * @generated
 	 */
 	EAttribute getTQuery_Any();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getPart <em>Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Part</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getPart()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getPart()
 	 * @see #getTQuery()
 	 * @generated
 	 */
 	EAttribute getTQuery_Part();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage <em>Query Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Query Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getQueryLanguage()
 	 * @see #getTQuery()
 	 * @generated
 	 */
 	EAttribute getTQuery_QueryLanguage();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute <em>Any Attribute</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute <em>Any Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Any Attribute</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TQuery#getAnyAttribute()
 	 * @see #getTQuery()
 	 * @generated
 	 */
 	EAttribute getTQuery_AnyAttribute();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment <em>TReassignment</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment <em>TReassignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TReassignment</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment
 	 * @generated
 	 */
 	EClass getTReassignment();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment#getPotentialOwners <em>Potential Owners</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment#getPotentialOwners <em>Potential Owners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Potential Owners</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TReassignment#getPotentialOwners()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TReassignment#getPotentialOwners()
 	 * @see #getTReassignment()
 	 * @generated
 	 */
 	EReference getTReassignment_PotentialOwners();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering <em>TRendering</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering <em>TRendering</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TRendering</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering
 	 * @generated
 	 */
 	EClass getTRendering();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRendering#getType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRendering#getType()
 	 * @see #getTRendering()
 	 * @generated
 	 */
 	EAttribute getTRendering_Type();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings <em>TRenderings</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings <em>TRenderings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TRenderings</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings
 	 * @generated
 	 */
 	EClass getTRenderings();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings#getRendering <em>Rendering</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings#getRendering <em>Rendering</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Rendering</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TRenderings#getRendering()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TRenderings#getRendering()
 	 * @see #getTRenderings()
 	 * @generated
 	 */
 	EReference getTRenderings_Rendering();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask <em>TTask</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask <em>TTask</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TTask</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask
 	 * @generated
 	 */
 	EClass getTTask();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getInterface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Interface</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getInterface()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getInterface()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Interface();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Priority</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPriority()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPriority()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Priority();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments <em>People Assignments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>People Assignments</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPeopleAssignments()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_PeopleAssignments();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDelegation <em>Delegation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Delegation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDelegation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDelegation()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Delegation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPresentationElements <em>Presentation Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Presentation Elements</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getPresentationElements()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getPresentationElements()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_PresentationElements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getOutcome <em>Outcome</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Outcome</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getOutcome()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getOutcome()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Outcome();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getSearchBy <em>Search By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Search By</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getSearchBy()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getSearchBy()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_SearchBy();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getRenderings <em>Renderings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Renderings</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getRenderings()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getRenderings()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Renderings();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDeadlines <em>Deadlines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Deadlines</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getDeadlines()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getDeadlines()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EReference getTTask_Deadlines();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTask#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTask#getName()
 	 * @see #getTTask()
 	 * @generated
 	 */
 	EAttribute getTTask_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface <em>TTask Interface</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface <em>TTask Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TTask Interface</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface
 	 * @generated
 	 */
 	EClass getTTaskInterface();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Operation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getOperation()
 	 * @see #getTTaskInterface()
 	 * @generated
 	 */
 	EAttribute getTTaskInterface_Operation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Port Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getPortType()
 	 * @see #getTTaskInterface()
 	 * @generated
 	 */
 	EAttribute getTTaskInterface_PortType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation <em>Response Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Response Operation</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponseOperation()
 	 * @see #getTTaskInterface()
 	 * @generated
 	 */
 	EAttribute getTTaskInterface_ResponseOperation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType <em>Response Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Response Port Type</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTaskInterface#getResponsePortType()
 	 * @see #getTTaskInterface()
 	 * @generated
 	 */
 	EAttribute getTTaskInterface_ResponsePortType();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks <em>TTasks</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks <em>TTasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TTasks</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks
 	 * @generated
 	 */
 	EClass getTTasks();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks#getTask <em>Task</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Task</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TTasks#getTask()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TTasks#getTask()
 	 * @see #getTTasks()
 	 * @generated
 	 */
 	EReference getTTasks_Task();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TText <em>TText</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TText <em>TText</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TText</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TText
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TText
 	 * @generated
 	 */
 	EClass getTText();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TText#getLang <em>Lang</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TText#getLang <em>Lang</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Lang</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TText#getLang()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TText#getLang()
 	 * @see #getTText()
 	 * @generated
 	 */
 	EAttribute getTText_Lang();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart <em>TTo Part</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart <em>TTo Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TTo Part</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart
 	 * @generated
 	 */
 	EClass getTToPart();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression Language</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getExpressionLanguage()
 	 * @see #getTToPart()
 	 * @generated
 	 */
 	EAttribute getTToPart_ExpressionLanguage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToPart#getName()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToPart#getName()
 	 * @see #getTToPart()
 	 * @generated
 	 */
 	EAttribute getTToPart_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts <em>TTo Parts</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts <em>TTo Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TTo Parts</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts
 	 * @generated
 	 */
 	EClass getTToParts();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts#getToPart <em>To Part</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts#getToPart <em>To Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>To Part</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TToParts#getToPart()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TToParts#getToPart()
 	 * @see #getTToParts()
 	 * @generated
 	 */
 	EReference getTToParts_ToPart();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist <em>TUserlist</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist <em>TUserlist</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>TUserlist</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist
 	 * @generated
 	 */
 	EClass getTUserlist();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist#getUser <em>User</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist#getUser <em>User</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>User</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TUserlist#getUser()
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TUserlist#getUser()
 	 * @see #getTUserlist()
 	 * @generated
 	 */
 	EAttribute getTUserlist_User();
 
 	/**
-	 * Returns the meta object for enum '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}'.
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>TBoolean</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
 	 * @generated
 	 */
 	EEnum getTBoolean();
 
 	/**
-	 * Returns the meta object for enum '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}'.
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>TPotential Delegatees</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
 	 * @generated
 	 */
 	EEnum getTPotentialDelegatees();
 
 	/**
-	 * Returns the meta object for data type '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean Object</em>}'.
+	 * Returns the meta object for data type '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>TBoolean Object</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
-	 * @model instanceClass="org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
+	 * @model instanceClass="org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean"
 	 *        extendedMetaData="name='tBoolean:Object' baseType='tBoolean'"
 	 * @generated
 	 */
@@ -5431,12 +5431,12 @@ public interface HTPackage extends EPackage {
 	EDataType getTGroup();
 
 	/**
-	 * Returns the meta object for data type '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees Object</em>}'.
+	 * Returns the meta object for data type '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>TPotential Delegatees Object</em>'.
-	 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
-	 * @model instanceClass="org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees"
+	 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+	 * @model instanceClass="org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees"
 	 *        extendedMetaData="name='tPotentialDelegatees:Object' baseType='tPotentialDelegatees'"
 	 * @generated
 	 */
@@ -5477,11 +5477,11 @@ public interface HTPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl <em>Document Root</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl <em>Document Root</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getDocumentRoot()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.DocumentRootImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getDocumentRoot()
 		 * @generated
 		 */
 		EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot();
@@ -5671,11 +5671,11 @@ public interface HTPackage extends EPackage {
 		EReference DOCUMENT_ROOT__USERS = eINSTANCE.getDocumentRoot_Users();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TArgumentImpl <em>TArgument</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TArgumentImpl <em>TArgument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TArgumentImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTArgument()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TArgumentImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTArgument()
 		 * @generated
 		 */
 		EClass TARGUMENT = eINSTANCE.getTArgument();
@@ -5697,21 +5697,21 @@ public interface HTPackage extends EPackage {
 		EAttribute TARGUMENT__NAME = eINSTANCE.getTArgument_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl <em>TBoolean Expr</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl <em>TBoolean Expr</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanExpr()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TBooleanExprImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanExpr()
 		 * @generated
 		 */
 		EClass TBOOLEAN_EXPR = eINSTANCE.getTBooleanExpr();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl <em>TDeadline</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl <em>TDeadline</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadline()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadline()
 		 * @generated
 		 */
 		EClass TDEADLINE = eINSTANCE.getTDeadline();
@@ -5741,21 +5741,21 @@ public interface HTPackage extends EPackage {
 		EReference TDEADLINE__ESCALATION = eINSTANCE.getTDeadline_Escalation();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl <em>TDeadline Expr</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl <em>TDeadline Expr</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlineExpr()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlineExprImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlineExpr()
 		 * @generated
 		 */
 		EClass TDEADLINE_EXPR = eINSTANCE.getTDeadlineExpr();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl <em>TDeadlines</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl <em>TDeadlines</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlines()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDeadlinesImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDeadlines()
 		 * @generated
 		 */
 		EClass TDEADLINES = eINSTANCE.getTDeadlines();
@@ -5777,11 +5777,11 @@ public interface HTPackage extends EPackage {
 		EReference TDEADLINES__COMPLETION_DEADLINE = eINSTANCE.getTDeadlines_CompletionDeadline();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl <em>TDelegation</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl <em>TDelegation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDelegationImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDelegation()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDelegationImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDelegation()
 		 * @generated
 		 */
 		EClass TDELEGATION = eINSTANCE.getTDelegation();
@@ -5803,11 +5803,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TDELEGATION__POTENTIAL_DELEGATEES = eINSTANCE.getTDelegation_PotentialDelegatees();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl <em>TDescription</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl <em>TDescription</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDescription()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDescriptionImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDescription()
 		 * @generated
 		 */
 		EClass TDESCRIPTION = eINSTANCE.getTDescription();
@@ -5829,11 +5829,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TDESCRIPTION__LANG = eINSTANCE.getTDescription_Lang();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl <em>TDocumentation</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl <em>TDocumentation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDocumentation()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDocumentationImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDocumentation()
 		 * @generated
 		 */
 		EClass TDOCUMENTATION = eINSTANCE.getTDocumentation();
@@ -5863,21 +5863,21 @@ public interface HTPackage extends EPackage {
 		EAttribute TDOCUMENTATION__LANG = eINSTANCE.getTDocumentation_Lang();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl <em>TDuration Expr</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl <em>TDuration Expr</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDurationExpr()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TDurationExprImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTDurationExpr()
 		 * @generated
 		 */
 		EClass TDURATION_EXPR = eINSTANCE.getTDurationExpr();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl <em>TEscalation</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl <em>TEscalation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TEscalationImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTEscalation()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TEscalationImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTEscalation()
 		 * @generated
 		 */
 		EClass TESCALATION = eINSTANCE.getTEscalation();
@@ -5931,11 +5931,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TESCALATION__NAME = eINSTANCE.getTEscalation_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl <em>TExpression</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl <em>TExpression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExpressionImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExpression()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExpressionImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExpression()
 		 * @generated
 		 */
 		EClass TEXPRESSION = eINSTANCE.getTExpression();
@@ -5973,11 +5973,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TEXPRESSION__ANY_ATTRIBUTE = eINSTANCE.getTExpression_AnyAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl <em>TExtensible Elements</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl <em>TExtensible Elements</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleElements()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleElementsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleElements()
 		 * @generated
 		 */
 		EClass TEXTENSIBLE_ELEMENTS = eINSTANCE.getTExtensibleElements();
@@ -6007,11 +6007,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TEXTENSIBLE_ELEMENTS__ANY_ATTRIBUTE = eINSTANCE.getTExtensibleElements_AnyAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl <em>TExtensible Mixed Content Elements</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl <em>TExtensible Mixed Content Elements</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleMixedContentElements()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensibleMixedContentElementsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensibleMixedContentElements()
 		 * @generated
 		 */
 		EClass TEXTENSIBLE_MIXED_CONTENT_ELEMENTS = eINSTANCE.getTExtensibleMixedContentElements();
@@ -6049,11 +6049,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TEXTENSIBLE_MIXED_CONTENT_ELEMENTS__ANY_ATTRIBUTE = eINSTANCE.getTExtensibleMixedContentElements_AnyAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionImpl <em>TExtension</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionImpl <em>TExtension</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtension()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtension()
 		 * @generated
 		 */
 		EClass TEXTENSION = eINSTANCE.getTExtension();
@@ -6075,11 +6075,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TEXTENSION__NAMESPACE = eINSTANCE.getTExtension_Namespace();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl <em>TExtensions</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl <em>TExtensions</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensions()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TExtensionsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTExtensions()
 		 * @generated
 		 */
 		EClass TEXTENSIONS = eINSTANCE.getTExtensions();
@@ -6093,11 +6093,11 @@ public interface HTPackage extends EPackage {
 		EReference TEXTENSIONS__EXTENSION = eINSTANCE.getTExtensions_Extension();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl <em>TFrom</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl <em>TFrom</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TFromImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTFrom()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TFromImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTFrom()
 		 * @generated
 		 */
 		EClass TFROM = eINSTANCE.getTFrom();
@@ -6135,11 +6135,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TFROM__LOGICAL_PEOPLE_GROUP = eINSTANCE.getTFrom_LogicalPeopleGroup();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl <em>TGeneric Human Role</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl <em>TGeneric Human Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGenericHumanRole()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGenericHumanRoleImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGenericHumanRole()
 		 * @generated
 		 */
 		EClass TGENERIC_HUMAN_ROLE = eINSTANCE.getTGenericHumanRole();
@@ -6153,11 +6153,11 @@ public interface HTPackage extends EPackage {
 		EReference TGENERIC_HUMAN_ROLE__FROM = eINSTANCE.getTGenericHumanRole_From();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl <em>TGrouplist</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl <em>TGrouplist</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGrouplist()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TGrouplistImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGrouplist()
 		 * @generated
 		 */
 		EClass TGROUPLIST = eINSTANCE.getTGrouplist();
@@ -6171,11 +6171,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TGROUPLIST__GROUP = eINSTANCE.getTGrouplist_Group();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl <em>THuman Interactions</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl <em>THuman Interactions</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTHumanInteractions()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.THumanInteractionsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTHumanInteractions()
 		 * @generated
 		 */
 		EClass THUMAN_INTERACTIONS = eINSTANCE.getTHumanInteractions();
@@ -6245,11 +6245,11 @@ public interface HTPackage extends EPackage {
 		EAttribute THUMAN_INTERACTIONS__TARGET_NAMESPACE = eINSTANCE.getTHumanInteractions_TargetNamespace();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TImportImpl <em>TImport</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TImportImpl <em>TImport</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TImportImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTImport()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TImportImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTImport()
 		 * @generated
 		 */
 		EClass TIMPORT = eINSTANCE.getTImport();
@@ -6279,11 +6279,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TIMPORT__NAMESPACE = eINSTANCE.getTImport_Namespace();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLiteralImpl <em>TLiteral</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLiteralImpl <em>TLiteral</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLiteralImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLiteral()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLiteralImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLiteral()
 		 * @generated
 		 */
 		EClass TLITERAL = eINSTANCE.getTLiteral();
@@ -6313,11 +6313,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TLITERAL__ANY_ATTRIBUTE = eINSTANCE.getTLiteral_AnyAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl <em>TLocal Notification</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl <em>TLocal Notification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLocalNotification()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLocalNotificationImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLocalNotification()
 		 * @generated
 		 */
 		EClass TLOCAL_NOTIFICATION = eINSTANCE.getTLocalNotification();
@@ -6347,11 +6347,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TLOCAL_NOTIFICATION__REFERENCE = eINSTANCE.getTLocalNotification_Reference();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl <em>TLogical People Group</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl <em>TLogical People Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroup()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroup()
 		 * @generated
 		 */
 		EClass TLOGICAL_PEOPLE_GROUP = eINSTANCE.getTLogicalPeopleGroup();
@@ -6381,11 +6381,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TLOGICAL_PEOPLE_GROUP__REFERENCE = eINSTANCE.getTLogicalPeopleGroup_Reference();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl <em>TLogical People Groups</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl <em>TLogical People Groups</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroups()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TLogicalPeopleGroupsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTLogicalPeopleGroups()
 		 * @generated
 		 */
 		EClass TLOGICAL_PEOPLE_GROUPS = eINSTANCE.getTLogicalPeopleGroups();
@@ -6399,11 +6399,11 @@ public interface HTPackage extends EPackage {
 		EReference TLOGICAL_PEOPLE_GROUPS__LOGICAL_PEOPLE_GROUP = eINSTANCE.getTLogicalPeopleGroups_LogicalPeopleGroup();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl <em>TNotification</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl <em>TNotification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotification()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotification()
 		 * @generated
 		 */
 		EClass TNOTIFICATION = eINSTANCE.getTNotification();
@@ -6457,11 +6457,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TNOTIFICATION__NAME = eINSTANCE.getTNotification_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl <em>TNotification Interface</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl <em>TNotification Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotificationInterface()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationInterfaceImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotificationInterface()
 		 * @generated
 		 */
 		EClass TNOTIFICATION_INTERFACE = eINSTANCE.getTNotificationInterface();
@@ -6483,11 +6483,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TNOTIFICATION_INTERFACE__PORT_TYPE = eINSTANCE.getTNotificationInterface_PortType();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl <em>TNotifications</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl <em>TNotifications</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotifications()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TNotificationsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTNotifications()
 		 * @generated
 		 */
 		EClass TNOTIFICATIONS = eINSTANCE.getTNotifications();
@@ -6501,11 +6501,11 @@ public interface HTPackage extends EPackage {
 		EReference TNOTIFICATIONS__NOTIFICATION = eINSTANCE.getTNotifications_Notification();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl <em>TOrganizational Entity</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl <em>TOrganizational Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTOrganizationalEntity()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TOrganizationalEntityImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTOrganizationalEntity()
 		 * @generated
 		 */
 		EClass TORGANIZATIONAL_ENTITY = eINSTANCE.getTOrganizationalEntity();
@@ -6527,11 +6527,11 @@ public interface HTPackage extends EPackage {
 		EReference TORGANIZATIONAL_ENTITY__GROUPS = eINSTANCE.getTOrganizationalEntity_Groups();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TParameterImpl <em>TParameter</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TParameterImpl <em>TParameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TParameterImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTParameter()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TParameterImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTParameter()
 		 * @generated
 		 */
 		EClass TPARAMETER = eINSTANCE.getTParameter();
@@ -6553,11 +6553,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TPARAMETER__TYPE = eINSTANCE.getTParameter_Type();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl <em>TPeople Assignments</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl <em>TPeople Assignments</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPeopleAssignments()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPeopleAssignmentsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPeopleAssignments()
 		 * @generated
 		 */
 		EClass TPEOPLE_ASSIGNMENTS = eINSTANCE.getTPeopleAssignments();
@@ -6619,11 +6619,11 @@ public interface HTPackage extends EPackage {
 		EReference TPEOPLE_ASSIGNMENTS__RECIPIENTS = eINSTANCE.getTPeopleAssignments_Recipients();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl <em>TPresentation Elements</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl <em>TPresentation Elements</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationElements()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationElementsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationElements()
 		 * @generated
 		 */
 		EClass TPRESENTATION_ELEMENTS = eINSTANCE.getTPresentationElements();
@@ -6661,21 +6661,21 @@ public interface HTPackage extends EPackage {
 		EReference TPRESENTATION_ELEMENTS__DESCRIPTION = eINSTANCE.getTPresentationElements_Description();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl <em>TPresentation Parameter</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl <em>TPresentation Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameter()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParameterImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameter()
 		 * @generated
 		 */
 		EClass TPRESENTATION_PARAMETER = eINSTANCE.getTPresentationParameter();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl <em>TPresentation Parameters</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl <em>TPresentation Parameters</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameters()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPresentationParametersImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPresentationParameters()
 		 * @generated
 		 */
 		EClass TPRESENTATION_PARAMETERS = eINSTANCE.getTPresentationParameters();
@@ -6697,21 +6697,21 @@ public interface HTPackage extends EPackage {
 		EAttribute TPRESENTATION_PARAMETERS__EXPRESSION_LANGUAGE = eINSTANCE.getTPresentationParameters_ExpressionLanguage();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPriorityImpl <em>TPriority</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPriorityImpl <em>TPriority</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TPriorityImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPriority()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TPriorityImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPriority()
 		 * @generated
 		 */
 		EClass TPRIORITY = eINSTANCE.getTPriority();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TQueryImpl <em>TQuery</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TQueryImpl <em>TQuery</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TQueryImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTQuery()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TQueryImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTQuery()
 		 * @generated
 		 */
 		EClass TQUERY = eINSTANCE.getTQuery();
@@ -6757,11 +6757,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TQUERY__ANY_ATTRIBUTE = eINSTANCE.getTQuery_AnyAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl <em>TReassignment</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl <em>TReassignment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTReassignment()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TReassignmentImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTReassignment()
 		 * @generated
 		 */
 		EClass TREASSIGNMENT = eINSTANCE.getTReassignment();
@@ -6775,11 +6775,11 @@ public interface HTPackage extends EPackage {
 		EReference TREASSIGNMENT__POTENTIAL_OWNERS = eINSTANCE.getTReassignment_PotentialOwners();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingImpl <em>TRendering</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingImpl <em>TRendering</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRendering()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRendering()
 		 * @generated
 		 */
 		EClass TRENDERING = eINSTANCE.getTRendering();
@@ -6793,11 +6793,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TRENDERING__TYPE = eINSTANCE.getTRendering_Type();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl <em>TRenderings</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl <em>TRenderings</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRenderings()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TRenderingsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTRenderings()
 		 * @generated
 		 */
 		EClass TRENDERINGS = eINSTANCE.getTRenderings();
@@ -6811,11 +6811,11 @@ public interface HTPackage extends EPackage {
 		EReference TRENDERINGS__RENDERING = eINSTANCE.getTRenderings_Rendering();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskImpl <em>TTask</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskImpl <em>TTask</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTask()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTask()
 		 * @generated
 		 */
 		EClass TTASK = eINSTANCE.getTTask();
@@ -6901,11 +6901,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TTASK__NAME = eINSTANCE.getTTask_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl <em>TTask Interface</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl <em>TTask Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTaskInterface()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTaskInterfaceImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTaskInterface()
 		 * @generated
 		 */
 		EClass TTASK_INTERFACE = eINSTANCE.getTTaskInterface();
@@ -6943,11 +6943,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TTASK_INTERFACE__RESPONSE_PORT_TYPE = eINSTANCE.getTTaskInterface_ResponsePortType();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTasksImpl <em>TTasks</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTasksImpl <em>TTasks</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTasksImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTasks()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTasksImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTTasks()
 		 * @generated
 		 */
 		EClass TTASKS = eINSTANCE.getTTasks();
@@ -6961,11 +6961,11 @@ public interface HTPackage extends EPackage {
 		EReference TTASKS__TASK = eINSTANCE.getTTasks_Task();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTextImpl <em>TText</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTextImpl <em>TText</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TTextImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTText()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TTextImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTText()
 		 * @generated
 		 */
 		EClass TTEXT = eINSTANCE.getTText();
@@ -6979,11 +6979,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TTEXT__LANG = eINSTANCE.getTText_Lang();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartImpl <em>TTo Part</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartImpl <em>TTo Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToPart()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToPart()
 		 * @generated
 		 */
 		EClass TTO_PART = eINSTANCE.getTToPart();
@@ -7005,11 +7005,11 @@ public interface HTPackage extends EPackage {
 		EAttribute TTO_PART__NAME = eINSTANCE.getTToPart_Name();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartsImpl <em>TTo Parts</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartsImpl <em>TTo Parts</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TToPartsImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToParts()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TToPartsImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTToParts()
 		 * @generated
 		 */
 		EClass TTO_PARTS = eINSTANCE.getTToParts();
@@ -7023,11 +7023,11 @@ public interface HTPackage extends EPackage {
 		EReference TTO_PARTS__TO_PART = eINSTANCE.getTToParts_ToPart();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TUserlistImpl <em>TUserlist</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TUserlistImpl <em>TUserlist</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.TUserlistImpl
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUserlist()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.TUserlistImpl
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUserlist()
 		 * @generated
 		 */
 		EClass TUSERLIST = eINSTANCE.getTUserlist();
@@ -7041,21 +7041,21 @@ public interface HTPackage extends EPackage {
 		EAttribute TUSERLIST__USER = eINSTANCE.getTUserlist_User();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}' enum.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean <em>TBoolean</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBoolean()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBoolean()
 		 * @generated
 		 */
 		EEnum TBOOLEAN = eINSTANCE.getTBoolean();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}' enum.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees <em>TPotential Delegatees</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegatees()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegatees()
 		 * @generated
 		 */
 		EEnum TPOTENTIAL_DELEGATEES = eINSTANCE.getTPotentialDelegatees();
@@ -7064,8 +7064,8 @@ public interface HTPackage extends EPackage {
 		 * The meta object literal for the '<em>TBoolean Object</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TBoolean
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanObject()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TBoolean
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTBooleanObject()
 		 * @generated
 		 */
 		EDataType TBOOLEAN_OBJECT = eINSTANCE.getTBooleanObject();
@@ -7075,7 +7075,7 @@ public interface HTPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.lang.String
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGroup()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTGroup()
 		 * @generated
 		 */
 		EDataType TGROUP = eINSTANCE.getTGroup();
@@ -7084,8 +7084,8 @@ public interface HTPackage extends EPackage {
 		 * The meta object literal for the '<em>TPotential Delegatees Object</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.TPotentialDelegatees
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegateesObject()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.TPotentialDelegatees
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTPotentialDelegateesObject()
 		 * @generated
 		 */
 		EDataType TPOTENTIAL_DELEGATEES_OBJECT = eINSTANCE.getTPotentialDelegateesObject();
@@ -7095,7 +7095,7 @@ public interface HTPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.lang.String
-		 * @see org.wso2.carbonstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUser()
+		 * @see org.wso2.developerstudio.eclipse.humantask.model.ht.impl.HTPackageImpl#getTUser()
 		 * @generated
 		 */
 		EDataType TUSER = eINSTANCE.getTUser();

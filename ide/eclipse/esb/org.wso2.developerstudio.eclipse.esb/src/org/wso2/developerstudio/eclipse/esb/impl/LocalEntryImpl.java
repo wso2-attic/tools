@@ -222,7 +222,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return EsbPackage.Literals.LOCAL_ENTRY;
     }
@@ -337,7 +337,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
@@ -359,7 +359,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
@@ -386,7 +386,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void eUnset(int featureID) {
         switch (featureID) {
             case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
@@ -413,7 +413,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
@@ -435,7 +435,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
@@ -454,7 +454,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
         return result.toString();
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

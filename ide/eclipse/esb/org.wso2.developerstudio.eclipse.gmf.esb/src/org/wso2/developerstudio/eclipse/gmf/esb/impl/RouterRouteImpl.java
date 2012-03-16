@@ -112,7 +112,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ROUTER_ROUTE;
 	}
@@ -246,7 +246,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_ROUTE__TARGET:
@@ -261,7 +261,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -283,7 +283,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -308,7 +308,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -333,7 +333,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
@@ -354,7 +354,7 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

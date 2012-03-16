@@ -213,7 +213,7 @@ public enum SqlExecutorConnectionType implements Enumerator {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public String toString() {
         return literal;
     }

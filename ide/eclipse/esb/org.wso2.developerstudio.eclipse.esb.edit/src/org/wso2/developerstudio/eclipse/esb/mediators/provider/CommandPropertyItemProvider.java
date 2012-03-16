@@ -65,7 +65,7 @@ public class CommandPropertyItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		CommandProperty property = (CommandProperty) object;
 		if (itemPropertyDescriptors != null) {
@@ -257,7 +257,7 @@ public class CommandPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandProperty"));
     }
@@ -267,7 +267,7 @@ public class CommandPropertyItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		CommandProperty property = (CommandProperty) object;		
 		return String.format("Property (%s)", property.getPropertyName());
@@ -280,7 +280,7 @@ public class CommandPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
@@ -305,7 +305,7 @@ public class CommandPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
@@ -316,7 +316,7 @@ public class CommandPropertyItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
         return EsbEditPlugin.INSTANCE;
     }

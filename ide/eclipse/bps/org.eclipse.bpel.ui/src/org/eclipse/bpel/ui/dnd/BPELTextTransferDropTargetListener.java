@@ -81,7 +81,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	}
 
 	
-	@Override
+	
 	protected void unload() {		
 		super.unload();
 		fTargetRequest = null;
@@ -109,7 +109,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	 * @see org.eclipse.gef.dnd.AbstractTransferDropTargetListener#createTargetRequest()
 	 */
 	@SuppressWarnings("nls")
-	@Override
+	
 	protected Request createTargetRequest() {
 
 		CreateRequest request = new CreateRequest();	
@@ -142,7 +142,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	 * 
 	 * @see AbstractTransferDropTargetListener#handleDragOperationChanged()
 	 */
-	@Override
+	
 	protected void handleDragOperationChanged() {		
 		if (getCreateRequest().getNewObject() == null ) {
 			getCurrentEvent().detail = DND.DROP_NONE;			
@@ -157,7 +157,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	 * <code>DND.DROP_COPY</code> by default.
 	 * @see org.eclipse.gef.dnd.AbstractTransferDropTargetListener#handleDragOver()
 	 */
-	@Override
+	
 	protected void handleDragOver() {
 		if ( getCreateRequest().getNewObject() == null ) {
 			getCurrentEvent().detail = DND.DROP_NONE;
@@ -173,7 +173,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	 * Overridden to select the created object.
 	 * @see org.eclipse.gef.dnd.AbstractTransferDropTargetListener#handleDrop()
 	 */
-	@Override
+	
 	protected void handleDrop() {
 		CreateRequest cr = getCreateRequest();
 		super.handleDrop();
@@ -202,7 +202,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	/**
 	 * 
 	 */
-	@Override
+	
 	protected Request getTargetRequest() {
 		if (fTargetRequest == null) {
 			fTargetRequest = createTargetRequest();
@@ -214,7 +214,7 @@ public class BPELTextTransferDropTargetListener extends AbstractTransferDropTarg
 	/**
 	 * Assumes that the target request is a {@link CreateRequest}. 
 	 */
-	@Override
+	
 	protected void updateTargetRequest() {
 		CreateRequest request = getCreateRequest();
 		request.setLocation(getDropLocation());

@@ -60,7 +60,7 @@ public class NewBPELProjectWizard extends NewProjectDataModelFacetWizard
 	 * @see <code>FacetProjectCreationDataModelProvider</code>
 	 * @return <code>IDataModel</code>
 	 */
-	@Override
+	
 	protected IDataModel createDataModel() {
 		
 		/*
@@ -76,7 +76,7 @@ public class NewBPELProjectWizard extends NewProjectDataModelFacetWizard
 	 * 
 	 * @return <code>ImageDescriptor</code>
 	 */
-	@Override
+	
 	protected ImageDescriptor getDefaultPageImageDescriptor() {
 		return RuntimesPlugin.getPlugin().getImageDescriptor(IRuntimesUIConstants.ICON_NEWPRJ_WIZARD_BANNER);
 	}
@@ -90,7 +90,7 @@ public class NewBPELProjectWizard extends NewProjectDataModelFacetWizard
 	 * @return org.eclipse.wst.common.project.core.IFacetedProjectTemplate
 	 * 
 	 */
-	@Override
+	
 	protected IFacetedProjectTemplate getTemplate() {
 		return ProjectFacetsManager.getTemplate(IBPELModuleFacetConstants.BPEL20_FACET_TEMPLATE); 
 	}
@@ -100,7 +100,7 @@ public class NewBPELProjectWizard extends NewProjectDataModelFacetWizard
 	 * (non-Javadoc)
 	 * @see org.eclipse.wst.web.ui.internal.wizards.NewProjectDataModelFacetWizard#createFirstPage()
 	 */
-	@Override
+	
 	protected IWizardPage createFirstPage() {
 		return new NewBPELProjectWizardPage1(model, "newBPELProject"); // $NON-NLS-1$
 	}

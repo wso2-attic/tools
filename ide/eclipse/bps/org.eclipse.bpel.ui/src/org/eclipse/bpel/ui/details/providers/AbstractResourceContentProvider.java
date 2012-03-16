@@ -87,7 +87,7 @@ public abstract class AbstractResourceContentProvider extends AbstractContentPro
 		
 	
 
-	@Override
+	
 	public void collectElements (Object input, List list) {
 		try {
 			doCollectElements ( input, list );

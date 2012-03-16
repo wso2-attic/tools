@@ -67,12 +67,12 @@ public class FilterThenBranchImpl extends MediatorBranchImpl implements FilterTh
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected EClass eStaticClass() {
         return MediatorsPackage.Literals.FILTER_THEN_BRANCH;
     }
 
-	@Override
+	
     public Map<String, ObjectValidator> validate() {
 	    // TODO Auto-generated method stub
 	    return null;

@@ -29,7 +29,7 @@ public class IfAdapter extends ContainerActivityAdapter implements IAnnotatedEle
 
 	/* IContainer delegate */
 		
-	@Override
+	
 	public IContainer createContainerDelegate() {
 		MultiContainer omc = new MultiContainer();
 		omc.add(new ActivityContainer(BPELPackage.eINSTANCE.getIf_Activity()));
@@ -40,7 +40,7 @@ public class IfAdapter extends ContainerActivityAdapter implements IAnnotatedEle
 
 	/* EditPartFactory */
 	
-	@Override
+	
 	public EditPart createEditPart(EditPart context, Object model) {
 		EditPart result = new IfEditPart();
 		result.setModel(model);
@@ -49,7 +49,7 @@ public class IfAdapter extends ContainerActivityAdapter implements IAnnotatedEle
 
 	/* IOutlineEditPartFactory */
 	
-	@Override
+	
 	public EditPart createOutlineEditPart(EditPart context, Object model) {
 		EditPart result = new OutlineTreeEditPart();
 		result.setModel(model);
@@ -58,7 +58,7 @@ public class IfAdapter extends ContainerActivityAdapter implements IAnnotatedEle
 	
 	/* IEditPartActionContributor */
 	
-	@Override
+	
 	public List getEditPartActions(final EditPart editPart) {
 		List actions = super.getEditPartActions(editPart);
 		Object modelObject = editPart.getModel();

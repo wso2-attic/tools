@@ -30,7 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	public Activator() {
 	}
 
-	@Override
+	
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		URL baseURL = getBundle().getEntry("/");
 		createImageDescriptor(HTConstants.DEFAULT_ICON_16, baseURL);

@@ -31,7 +31,7 @@ public abstract class AbstractDeclarationAction extends AbstractAction {
 		super(anEditPart);
 	}
 
-	@Override
+	
 	public boolean onButtonPressed() {
 		parent = getParent();
 		child = getChild();
@@ -48,7 +48,7 @@ public abstract class AbstractDeclarationAction extends AbstractAction {
 		return true;
 	}
 
-	@Override
+	
 	public String getToolTip() {
 		return getChild().eClass().getName();
 	}

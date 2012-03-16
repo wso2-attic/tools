@@ -46,7 +46,7 @@ public class BPELPasteCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#canDoExecute()
 	 */
-	@Override
+	
 	public boolean canDoExecute() {		
 		return fBpelEditor.getTransferBuffer().canCopyTransferBufferTo(fTargetObject,fReference);
 	}
@@ -54,7 +54,7 @@ public class BPELPasteCommand extends AutoUndoCommand {
 	/**
 	 * @see org.eclipse.bpel.ui.commands.util.AutoUndoCommand#doExecute()
 	 */
-	@Override
+	
 	public void doExecute() {
 		TransferBuffer transferBuffer = fBpelEditor.getTransferBuffer();
 		fPastedObjects  = transferBuffer.copyTransferBuffer(fTargetObject, fBpelEditor.getExtensionMap(),fReference );

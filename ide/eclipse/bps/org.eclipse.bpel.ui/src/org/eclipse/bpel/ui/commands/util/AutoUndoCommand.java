@@ -199,7 +199,7 @@ public abstract class AutoUndoCommand extends AbstractEditModelCommand {
 	 * Default implementation.  Assume that any resource containing a modelRoot
 	 * will be modified by the command.
 	 */
-	@Override
+	
 	public Resource[] getResources() {
 		if (getModelRoots().size() < 2) {
 			if (getModelRoots().isEmpty()) {
@@ -232,7 +232,7 @@ public abstract class AutoUndoCommand extends AbstractEditModelCommand {
 	 * TODO: maybe a better way is to just query the recorder for affected resources...!
 	 */
 	
-	@Override
+	
 	public final Resource[] getModifiedResources() {
 		return getResources(); 
 	}

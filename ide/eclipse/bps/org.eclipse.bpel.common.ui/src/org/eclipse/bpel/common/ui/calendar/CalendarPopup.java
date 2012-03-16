@@ -177,12 +177,12 @@ public class CalendarPopup {
 		calendar.addMouseListener(new MouseAdapter() {
 			private int index = -1;
 			
-			@Override
+			
 			public void mouseDown(MouseEvent e) {
 				index = calendar.getMatrixIndex(e.x, e.y);
 			}
 			
-			@Override
+			
 			public void mouseUp(MouseEvent e) {
 				if (index != -1 && index == calendar.getMatrixIndex(e.x, e.y)) {
 					selectAndClose(calendar.getSelectedDate());
@@ -193,7 +193,7 @@ public class CalendarPopup {
 		});
 		
 		calendar.addKeyListener(new KeyAdapter() {
-			@Override
+			
 			public void keyPressed(KeyEvent e) {
 				// TODO Is this Platform independent?
 				if (e.keyCode == SWT.CR) {
@@ -203,14 +203,14 @@ public class CalendarPopup {
 		});
 	
 		todayButton.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				selectAndClose(new Date());
 			}
 		});
 		
 		noneButton.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				selectAndClose(null);
 			}

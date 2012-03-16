@@ -19,7 +19,7 @@ public class NoBorderButton extends Button {
 	public NoBorderButton(Image image) {
 		super(image);
 	}
-	@Override
+	
 	protected void paintBorder(Graphics graphics) {
 		// Do nothing
 	}

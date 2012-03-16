@@ -14,7 +14,7 @@ import org.eclipse.bpel.ui.extensions.ExpressionEditorDescriptor;
 
 public class ExpressionEditorDescriptorLabelProvider extends org.eclipse.jface.viewers.LabelProvider {
 	
-	@Override
+	
 	public String getText(Object element) {
 		ExpressionEditorDescriptor descriptor = (ExpressionEditorDescriptor) element;
 		String text = descriptor.getLabel();

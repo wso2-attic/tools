@@ -58,7 +58,7 @@ public class ProxyInSequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		super.getPropertyDescriptors(object);
 		
@@ -71,7 +71,7 @@ public class ProxyInSequenceConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public Object getImage(Object object) {
         return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyInSequenceConfiguration"));
     }
@@ -81,7 +81,7 @@ public class ProxyInSequenceConfigurationItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
+	
 	public String getText(Object object) {
 		return getString("_UI_ProxyInSequenceConfiguration_type");
 	}
@@ -93,7 +93,7 @@ public class ProxyInSequenceConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	public void notifyChanged(Notification notification) {
         updateChildren(notification);
         super.notifyChanged(notification);
@@ -106,7 +106,7 @@ public class ProxyInSequenceConfigurationItemProvider
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }

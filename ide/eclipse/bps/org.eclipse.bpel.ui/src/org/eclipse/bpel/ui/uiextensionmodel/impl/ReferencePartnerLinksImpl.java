@@ -48,7 +48,7 @@ public class ReferencePartnerLinksImpl extends EObjectImpl implements ReferenceP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return UiextensionmodelPackage.Literals.REFERENCE_PARTNER_LINKS;
 	}

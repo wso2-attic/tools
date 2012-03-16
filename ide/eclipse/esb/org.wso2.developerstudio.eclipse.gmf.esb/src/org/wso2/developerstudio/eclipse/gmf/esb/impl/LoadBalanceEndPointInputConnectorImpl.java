@@ -35,7 +35,7 @@ public class LoadBalanceEndPointInputConnectorImpl extends InputConnectorImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.LOAD_BALANCE_END_POINT_INPUT_CONNECTOR;
 	}

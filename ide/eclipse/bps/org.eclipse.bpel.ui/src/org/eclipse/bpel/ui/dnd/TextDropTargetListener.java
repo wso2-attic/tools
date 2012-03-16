@@ -42,7 +42,7 @@ public class TextDropTargetListener extends FileDropTargetListener {
 	 * @see org.eclipse.swt.dnd.DropTargetListener#drop(org.eclipse.swt.dnd.DropTargetEvent)
 	 */
 	@SuppressWarnings("nls")
-	@Override
+	
 	public void drop (DropTargetEvent event) {
 		
 		 if (getTransfer().isSupportedType(event.currentDataType)) {
@@ -83,7 +83,7 @@ public class TextDropTargetListener extends FileDropTargetListener {
 	/** (non-Javadoc)
 	 * @see org.eclipse.jface.util.TransferDropTargetListener#getTransfer()
 	 */
-	@Override
+	
 	public Transfer getTransfer() {		
 		return TextTransfer.getInstance();
 	}
@@ -101,7 +101,7 @@ public class TextDropTargetListener extends FileDropTargetListener {
 	/** (non-Javadoc)
 	 * @see org.eclipse.jface.util.TransferDropTargetListener#isEnabled(org.eclipse.swt.dnd.DropTargetEvent)
 	 */
-	@Override
+	
 	public boolean isEnabled (DropTargetEvent event) {
 		if (TextTransfer.getInstance().isSupportedType(event.currentDataType)) {			
 			String data = (String) TextTransfer.getInstance().nativeToJava(event.currentDataType);

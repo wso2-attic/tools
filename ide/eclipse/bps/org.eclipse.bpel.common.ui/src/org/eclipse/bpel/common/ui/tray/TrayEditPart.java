@@ -58,14 +58,14 @@ public abstract class TrayEditPart extends AbstractGraphicalEditPart {
 		};
 	}
 
-	@Override
+	
 	public void activate() {
 		super.activate();
 		EObject modelObject = (EObject)getModel();
 		modelObject.eAdapters().add(adapter);
 	}
 
-	@Override
+	
 	public void deactivate() {
 		super.deactivate();
 		EObject modelObject = (EObject)getModel();
@@ -87,7 +87,7 @@ public abstract class TrayEditPart extends AbstractGraphicalEditPart {
 	 * Overwrite the default behaviour since these edit parts
 	 * should not move.
 	 */
-	@Override
+	
 	public DragTracker getDragTracker(Request request) {
 		return new SelectEditPartTracker(this);
 	}
@@ -95,7 +95,7 @@ public abstract class TrayEditPart extends AbstractGraphicalEditPart {
 	/**
 	 * Override to handle direct edit requests
 	 */
-	@Override
+	
 	public void performRequest(Request request) {
 		if (request.getType() == RequestConstants.REQ_DIRECT_EDIT) {
 			performDirectEdit((DirectEditRequest)request);
@@ -132,7 +132,7 @@ public abstract class TrayEditPart extends AbstractGraphicalEditPart {
 	 */
 	public abstract Label getDirectEditLabel();
 
-	@Override
+	
 	protected AccessibleEditPart getAccessibleEditPart() {
 		if (acc == null) acc = createAccessible();
 		return acc;
@@ -142,7 +142,7 @@ public abstract class TrayEditPart extends AbstractGraphicalEditPart {
 		return new TrayAccessibleEditPart(this);
 	}
 
-	@Override
+	
 	public Object getAdapter(Class key) {
 		if (key == AccessibleEditPart.class) {
 			return getAccessibleEditPart();

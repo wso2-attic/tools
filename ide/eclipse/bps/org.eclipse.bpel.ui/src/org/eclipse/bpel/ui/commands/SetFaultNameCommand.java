@@ -27,11 +27,11 @@ public class SetFaultNameCommand extends SetCommand {
 		super(target, newFaultName);
 	}
 
-	@Override
+	
 	public Object get() {
 		return ModelHelper.getFaultName(fTarget);
 	}
-	@Override
+	
 	public void set(Object o) {
 		ModelHelper.setFaultName(fTarget, (String)o);
 	}

@@ -74,7 +74,7 @@ public class AddImportCommand extends AutoUndoCommand {
 		return fProcess.getImports();		
 	}
 	
-	@Override
+	
 	public void doExecute() {
 		if (bNoop) {
 			return ;

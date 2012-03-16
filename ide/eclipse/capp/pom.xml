@@ -6,34 +6,34 @@
     	<artifactId>wso2-eclipse-parent</artifactId>
     	<version>2.0.0-SNAPSHOT</version>
     </parent>
-	<groupId>org.wso2.carbonstudio</groupId>
+	<groupId>org.wso2.developerstudio</groupId>
 	<artifactId>carbon-application-parent</artifactId>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <name>WSO2 Carbon Application Eclipse Tools Parent</name>
     <modules>
-        <module>org.wso2.carbonstudio.eclipse.capp.core</module>
-        <!--module>org.wso2.carbonstudio.eclipse.capp.module</module-->
-        <module>org.wso2.carbonstudio.eclipse.capp.maven</module>
-        <!--module>org.wso2.carbonstudio.eclipse.capp.project</module-->
-        <!--module>org.wso2.carbonstudio.eclipse.capp.artifact.axis2</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.bpel</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.dataservice</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.endpoint</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.gadgets</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.jaxws</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.proxyservice</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.registry</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.sequence</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.synapse</module>
-        <module>org.wso2.carbonstudio.eclipse.capp.artifact.war</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.libraries</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.localentry</module>	    
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.registry.filters</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.mediators</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.registry.handler</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.carbon.ui.bundle</module>
-	    <module>org.wso2.carbonstudio.eclipse.capp.artifact.dataservice.validator</module-->
+        <module>org.wso2.developerstudio.eclipse.capp.core</module>
+        <!--module>org.wso2.developerstudio.eclipse.capp.module</module-->
+        <module>org.wso2.developerstudio.eclipse.capp.maven</module>
+        <!--module>org.wso2.developerstudio.eclipse.capp.project</module-->
+        <!--module>org.wso2.developerstudio.eclipse.capp.artifact.axis2</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.bpel</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.dataservice</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.endpoint</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.gadgets</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.jaxws</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.proxyservice</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.registry</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.sequence</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.synapse</module>
+        <module>org.wso2.developerstudio.eclipse.capp.artifact.war</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.libraries</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.localentry</module>	    
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.registry.filters</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.mediators</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.registry.handler</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.carbon.ui.bundle</module>
+	    <module>org.wso2.developerstudio.eclipse.capp.artifact.dataservice.validator</module-->
     </modules>
     <!--repositories>
     	<repository>
@@ -46,67 +46,67 @@
     	<dependencies>
 	        <dependency>
 	            <groupId>org.wso2.eclipse</groupId>
-	            <artifactId>org.wso2.carbonstudio.eclipse.libraries</artifactId>
+	            <artifactId>org.wso2.developerstudio.eclipse.libraries</artifactId>
 	            <version>${common.libraries.version}</version>
 	        </dependency>      
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.samples</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.samples</artifactId>
 	            <version>${core.plugins.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.logging</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.logging</artifactId>
                 <version>${logging.tools.version}</version>                
             </dependency>
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.ui</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.ui</artifactId>
 	            <version>${common.ui.version}</version>                
             </dependency>   
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.utils</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.utils</artifactId>
 	            <version>${common.utils.version}</version>                
             </dependency>              
             <dependency>
                 <groupId>org.wso2.eclipse</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.maven</artifactId>
+                <artifactId>org.wso2.developerstudio.eclipse.maven</artifactId>
                 <version>${common.maven.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.greg.core</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.greg.core</artifactId>
                 <version>${core.plugins.version}</version>
             </dependency>   
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.platform.core</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.platform.core</artifactId>
                 <version>${core.plugins.version}</version>
             </dependency>           
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.samples</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.samples</artifactId>
                 <version>${core.plugins.version}</version>                
             </dependency>    
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.carbonserver.base</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.carbonserver.base</artifactId>
                 <version>${server.plugins.version}</version>
             </dependency>             
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.capp.core</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.capp.core</artifactId>
                 <version>${capp.tools.version}</version>
             </dependency>  
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.esb.core</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.esb.core</artifactId>
                 <version>${core.plugins.version}</version>
             </dependency>                        
             <dependency>
-                <groupId>org.wso2.carbonstudio</groupId>
-                <artifactId>org.wso2.carbonstudio.eclipse.bpel.core</artifactId>
+                <groupId>org.wso2.developerstudio</groupId>
+                <artifactId>org.wso2.developerstudio.eclipse.bpel.core</artifactId>
                 <version>${core.plugins.version}</version>
             </dependency>                        
     	</dependencies>

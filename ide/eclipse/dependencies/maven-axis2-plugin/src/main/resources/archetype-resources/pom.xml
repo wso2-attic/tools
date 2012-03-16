@@ -31,7 +31,7 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
 					<additionalProjectnatures>
-						<projectnature>org.wso2.carbonstudio.eclipse.artifacts.axis2.service.nature</projectnature>
+						<projectnature>org.wso2.developerstudio.eclipse.artifacts.axis2.service.nature</projectnature>
 					</additionalProjectnatures>
 					<buildOutputDirectory>${project.build.outputDirectory}</buildOutputDirectory>
 				</configuration>

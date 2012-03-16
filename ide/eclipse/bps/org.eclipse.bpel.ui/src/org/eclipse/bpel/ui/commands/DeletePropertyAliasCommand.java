@@ -20,7 +20,7 @@ import org.eclipse.bpel.ui.IBPELUIConstants;
  */
 public class DeletePropertyAliasCommand extends DeleteWSDLExtensibilityElementCommand {
 
-	@Override
+	
 	public String getDefaultLabel() { return IBPELUIConstants.CMD_DELETE_PROPERTY_ALIAS; }
 
 	public DeletePropertyAliasCommand(PropertyAlias propertyAlias) {

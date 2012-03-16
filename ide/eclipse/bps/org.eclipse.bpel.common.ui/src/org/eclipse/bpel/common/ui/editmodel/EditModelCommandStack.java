@@ -61,7 +61,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#getUndoCommand()
 	 */
-	@Override
+	
 	public Command getUndoCommand() {
 		if (fCurrentLocation < 1) {
 			return null;
@@ -72,7 +72,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#canUndo()
 	 */
-	@Override
+	
 	public boolean canUndo() {
 		Command c = getUndoCommand();
 		return (c != null) && c.canUndo();
@@ -82,7 +82,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#getRedoCommand()
 	 */
-	@Override
+	
 	public Command getRedoCommand() {
 		if (fCurrentLocation >= fContexts.size()) return null;
 		return fContexts.get(fCurrentLocation).fCommand;
@@ -91,7 +91,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#canRedo()
 	 */
-	@Override
+	
 	public boolean canRedo() {
 		return (getRedoCommand() != null);
 	}
@@ -99,7 +99,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#execute(org.eclipse.gef.commands.Command)
 	 */	
-	@Override
+	
 	public void execute (Command command) {
 		SharedCommandStackChangedEvent event = notifyListeners(SharedCommandStackListener.EVENT_START_EXECUTE);
 		if (!event.doit) return;
@@ -207,7 +207,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#dispose()
 	 */
-	@Override
+	
 	public void dispose() {
 		drop(0,fContexts.size());
 	}
@@ -215,7 +215,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#flush()
 	 */
-	@Override
+	
 	public void flush() {
 		SharedCommandStackChangedEvent event = notifyListeners(SharedCommandStackListener.EVENT_START_FLUSH);
 		if (!event.doit) return;
@@ -231,7 +231,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#getCommands()
 	 */
-	@Override
+	
 	public Object[] getCommands() {		
 		Object[] commands = new Object[fContexts.size()];
 		for (int i = 0; i < fContexts.size(); i++) {
@@ -244,7 +244,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#isDirty()
 	 */
-	@Override
+	
 	public boolean isDirty() {
 		//System.out.println("isDirty: C="+currentLocation+"  S="+saveLocation+"  dus="+dirtyUntilSave.size());
 		return (fCurrentLocation != saveLocation) || !dirtyUntilSave.isEmpty();
@@ -253,7 +253,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#markSaveLocation()
 	 */
-	@Override
+	
 	public void markSaveLocation() {
 //		// mark all the resources we know about as clean!
 //		for (int i = 0; i<contexts.size(); i++) {
@@ -273,7 +273,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#undo()
 	 */
-	@Override
+	
 	public void undo() {
 		SharedCommandStackChangedEvent event = notifyListeners(SharedCommandStackListener.EVENT_START_UNDO);
 		if (!event.doit) return;
@@ -300,7 +300,7 @@ public class EditModelCommandStack extends CommandStack {
 	/**
 	 * @see org.eclipse.gef.commands.CommandStack#redo()
 	 */
-	@Override
+	
 	public void redo() {
 		SharedCommandStackChangedEvent event = notifyListeners(SharedCommandStackListener.EVENT_START_REDO);
 		if (!event.doit) return;

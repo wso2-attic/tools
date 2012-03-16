@@ -21,17 +21,17 @@
 
 
     <parent>
-        <groupId>org.wso2.carbonstudio</groupId>
+        <groupId>org.wso2.developerstudio</groupId>
         <artifactId>wso2-eclipse-carbonstudio-esb-feature</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbonstudio.eclipse.esb.feature</artifactId>
+    <artifactId>org.wso2.developerstudio.eclipse.esb.feature</artifactId>
     <packaging>pom</packaging>
     <name>Enterprise Service Bus Tools</name>
     <url>http://wso2.org</url>
-    <description>This feature contains WSO2 Carbon Studio ESB Feature</description>
+    <description>This feature contains WSO2 Developer Studio ESB Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -49,10 +49,10 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.edit:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.editor:${esb.tools.version}</bundleDef>
-                                <bundleDef>org.wso2.carbonstudio:org.wso2.carbonstudio.eclipse.esb.mediator:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.edit:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.editor:${esb.tools.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.mediator:${esb.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

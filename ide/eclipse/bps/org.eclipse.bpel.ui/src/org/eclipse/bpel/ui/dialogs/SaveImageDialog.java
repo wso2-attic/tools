@@ -39,13 +39,13 @@ public class SaveImageDialog extends TrayDialog {
 		settings = BPELUIPlugin.INSTANCE.getDialogSettingsFor(this);
 	}
 
-	@Override
+	
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
 		shell.setText("Export as image");
 	}
 
-	@Override
+	
 	protected Control createDialogArea(Composite parent) {
 		Composite composite = (Composite) super.createDialogArea(parent);
 
@@ -67,7 +67,7 @@ public class SaveImageDialog extends TrayDialog {
 		Button browseButton = new Button(composite, SWT.NONE);
 		browseButton.setText("Browse...");
 		browseButton.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
 			public void widgetSelected(SelectionEvent e) {
 				selectFile();
 			}
@@ -123,7 +123,7 @@ public class SaveImageDialog extends TrayDialog {
 		return transparent;
 	}
 
-	@Override
+	
 	protected void okPressed() {
 		imageFileName = txtImageFileName.getText();
 		transparent = btnTransparent.getSelection();

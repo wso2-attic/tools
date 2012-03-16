@@ -286,7 +286,7 @@ public enum EnrichSourceType implements Enumerator {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		return literal;
 	}

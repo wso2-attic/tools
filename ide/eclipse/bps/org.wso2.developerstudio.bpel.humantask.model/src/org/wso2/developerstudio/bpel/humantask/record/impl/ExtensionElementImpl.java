@@ -43,7 +43,7 @@ public abstract class ExtensionElementImpl extends BPELExtensibleElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	
 	protected EClass eStaticClass() {
 		return RecordPackage.Literals.EXTENSION_ELEMENT;
 	}
@@ -53,7 +53,7 @@ public abstract class ExtensionElementImpl extends BPELExtensibleElementImpl imp
    * 
    * @customized
    */
-  @Override
+  
   public Element fixElement(Document document) {
     if (getElement() == null && !isUpdatingDOM()) {
       try {
@@ -83,7 +83,7 @@ public abstract class ExtensionElementImpl extends BPELExtensibleElementImpl imp
   /**
    * @see org.eclipse.bpel.model.impl.ExtensibleElementImpl#setUpdatingDOM(boolean)
    */
-  @Override
+  
   public void setUpdatingDOM(boolean updatingDOM) {
     super.setUpdatingDOM(updatingDOM);
     // Adjust extension activity
