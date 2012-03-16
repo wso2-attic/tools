@@ -23,7 +23,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
@@ -64,8 +63,8 @@ public class ArtifactProjectRenameRefactorParticipant extends RenameParticipant 
 	        if(projects[i].isOpen() && projects[i].hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")){
 	        	try {
 	                MavenProject mavenProject = MavenUtils.getMavenProject(projects[i].getFile("pom.xml").getLocation().toFile());
-	                List dependencies = mavenProject.getDependencies();
-	                for (Iterator iterator = dependencies.iterator(); iterator.hasNext();) {
+	                List<?> dependencies = mavenProject.getDependencies();
+	                for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
 	                    Dependency dependency = (Dependency) iterator.next();
 	                    if(originalProject.getName().equalsIgnoreCase(dependency.getArtifactId())){
 	                    	artifactChange.add(new MavenConfigurationFileChange(projects[i].getName(), projects[i].getFile("pom.xml"), originalProject.getName(), projects[i], latestName));
