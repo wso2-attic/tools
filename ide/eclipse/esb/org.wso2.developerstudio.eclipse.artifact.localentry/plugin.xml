@@ -4,25 +4,25 @@
    <extension
          point="org.eclipse.ui.newWizards">
          <wizard name="Local Entry" 
-         	category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.message.mediation/org.wso2.carbonstudio.eclipse.message.mediation.features"
-			class="org.wso2.carbonstudio.eclipse.artifact.localentry.ui.wizard.LocalEntryProjectCreationWizard"
+         	category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
+			class="org.wso2.developerstudio.eclipse.artifact.localentry.ui.wizard.LocalEntryProjectCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newlocalentry"
+			id="org.wso2.developerstudio.eclipse.artifact.newlocalentry"
 			icon="icons/local-entries-16x16.png">
 			<description>Local Entry</description>
 		</wizard>
    </extension>
    	<!--extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.localentry.project.nature" name="Local Entry Project Nature">
+		id="org.wso2.developerstudio.eclipse.localentry.project.nature" name="Local Entry Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.localentry.project.nature.LocalEntryProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.localentry.project.nature.LocalEntryProjectNature">
 			</run>
 		</runtime>
 	</extension-->
 	<!--extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.localentry.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.localentry.project.nature" icon="icons/local-entries-16x16.png">
+		<image id="org.wso2.developerstudio.eclipse.localentry.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.localentry.project.nature" icon="icons/local-entries-16x16.png">
 		</image>
 	</extension-->
     <extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -31,9 +31,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="2org.wso2.carbonstudio.eclipse.artifact.esb"
+					menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newlocalentry">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newlocalentry">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -54,10 +54,10 @@
 		</navigatorContent>
 	  </extension>
 	<extension
-         point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
+         point="org.wso2.developerstudio.eclipse.esb.configurationProvider">
       <localentry
-            class="org.wso2.carbonstudio.eclipse.artifact.localentry.provider.LocalEntryProvider"
-            id="org.wso2.carbonstudio.eclipse.artifact.localentry"
+            class="org.wso2.developerstudio.eclipse.artifact.localentry.provider.LocalEntryProvider"
+            id="org.wso2.developerstudio.eclipse.artifact.localentry"
             name="Carbon Application Local Entries">
       </localentry>
    	</extension>

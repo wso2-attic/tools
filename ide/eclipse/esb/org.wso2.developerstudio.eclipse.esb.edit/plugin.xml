@@ -17,8 +17,8 @@
 -->
 <plugin>
 	<extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-		<factory uri="http:///org/wso2/carbonstudio/eclipse/esb"
-			class="org.wso2.carbonstudio.eclipse.esb.provider.EsbItemProviderAdapterFactory"
+		<factory uri="http:///org/wso2/developerstudio/eclipse/esb"
+			class="org.wso2.developerstudio.eclipse.esb.provider.EsbItemProviderAdapterFactory"
 			supportedTypes="org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
@@ -26,8 +26,8 @@
                org.eclipse.emf.edit.provider.IItemPropertySource" />
 	</extension>
 	<extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-		<factory uri="http:///org/wso2/carbonstudio/eclipse/esb/mediators"
-			class="org.wso2.carbonstudio.eclipse.esb.mediators.provider.MediatorsItemProviderAdapterFactory"
+		<factory uri="http:///org/wso2/developerstudio/eclipse/esb/mediators"
+			class="org.wso2.developerstudio.eclipse.esb.mediators.provider.MediatorsItemProviderAdapterFactory"
 			supportedTypes="org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider

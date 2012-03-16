@@ -17,29 +17,29 @@
 -->
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
-		<package uri="http:///org/wso2/carbonstudio/eclipse/esb"
-			class="org.wso2.carbonstudio.eclipse.esb.EsbPackage" genModel="model/esb.genmodel" />
+		<package uri="http:///org/wso2/developerstudio/eclipse/esb"
+			class="org.wso2.developerstudio.eclipse.esb.EsbPackage" genModel="model/esb.genmodel" />
 	</extension>
 
 	<extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="ESB" id="org.wso2.carbonstudio.eclipse.esb"
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="ESB" id="org.wso2.developerstudio.eclipse.esb"
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
 	</extension>
 
 	<extension point="org.eclipse.emf.validation.constraintProviders">
 		<category name="WSO2 ESB Model Constraints"
-			id="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsCategory" mandatory="true"/>
+			id="org.wso2.developerstudio.eclipse.esb.ModelConstraintsCategory" mandatory="true"/>
 		<constraintProvider cache="true">
-			<package namespaceUri="http:///org/wso2/carbonstudio/eclipse/esb" />
-			<package namespaceUri="http:///org/wso2/carbonstudio/eclipse/esb/mediators" />
-			<constraints categories="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsCategory">
+			<package namespaceUri="http:///org/wso2/developerstudio/eclipse/esb" />
+			<package namespaceUri="http:///org/wso2/developerstudio/eclipse/esb/mediators" />
+			<constraints categories="org.wso2.developerstudio.eclipse.esb.ModelConstraintsCategory">
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
 					severity="ERROR" mode="Live" name="Mandatory string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryStringPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.MandatoryStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory string properties should not be assigned blank values.
@@ -310,9 +310,9 @@
 					</target>
 				</constraint>
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
 					severity="ERROR" mode="Live" name="Mandatory xml string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryXmlStringPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.MandatoryXmlStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory XML string properties should always contain valid XML strings.
@@ -352,9 +352,9 @@
 					</target>															
 				</constraint>
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
 					severity="ERROR" mode="Live" name="Mandatory namespaced properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryNamespacedPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.MandatoryNamespacedPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory namespaced properties should not be assigned blank values.
@@ -464,9 +464,9 @@
 					</target>										
 				</constraint>				
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
 					severity="ERROR" mode="Live" name="Mandatory registry key properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.MandatoryRegistryKeyPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.MandatoryRegistryKeyPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory registry key properties should not be assigned blank values.
@@ -615,9 +615,9 @@
 					</target>																														
 				</constraint>
 				<!--constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryStringPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory string properties should not be assigned blank values.
@@ -888,9 +888,9 @@
 					</target>
 				</constraint>
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory xml string properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryXmlStringPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryXmlStringPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory XML string properties should always contain valid XML strings.
@@ -930,9 +930,9 @@
 					</target>															
 				</constraint>
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory namespaced properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryNamespacedPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryNamespacedPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory namespaced properties should not be assigned blank values.
@@ -1042,9 +1042,9 @@
 					</target>										
 				</constraint>				
 				<constraint lang="Java"
-					class="org.wso2.carbonstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
+					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryRegistryKeyPropertyConstraint"
 					severity="ERROR" mode="Batch" name="Mandatory registry key properties"
-					id="org.wso2.carbonstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryRegistryKeyPropertyConstraint"
+					id="org.wso2.developerstudio.eclipse.esb.ModelConstraints.batchvalidation.MandatoryRegistryKeyPropertyConstraint"
 					statusCode="1">
 					<description>
 						Mandatory registry key properties should not be assigned blank values.
@@ -1199,123 +1199,123 @@
 	<extension point="org.eclipse.emf.validation.constraintBindings">
       <clientContext
             default="false"
-            id="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsContext">
-         <selector class="org.wso2.carbonstudio.eclipse.esb.ValidationContextSelector"/>
+            id="org.wso2.developerstudio.eclipse.esb.ModelConstraintsContext">
+         <selector class="org.wso2.developerstudio.eclipse.esb.ValidationContextSelector"/>
       </clientContext>
       <binding
-            context="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsContext"
-            category="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsCategory"/>
+            context="org.wso2.developerstudio.eclipse.esb.ModelConstraintsContext"
+            category="org.wso2.developerstudio.eclipse.esb.ModelConstraintsCategory"/>
    	</extension> 	
    	
    	<extension
          point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
-      <clientContext id="org.wso2.carbonstudio.eclipse.esb.ModelConstraintsContext"/>
+      <clientContext id="org.wso2.developerstudio.eclipse.esb.ModelConstraintsContext"/>
    </extension>
     <extension
-          point="org.wso2.carbonstudio.eclipse.platform.core.artifacttemplates">
+          point="org.wso2.developerstudio.eclipse.platform.core.artifacttemplates">
        <template
              file="resources/templates/endpoints/default_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep2"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep2"
              name="Default Endpoint">
        </template>
        <template
              file="resources/templates/sequences/sequence.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.sequence"
+             id="org.wso2.developerstudio.eclipse.esb.sequence"
              name="Sequence">
        </template>
        <template
              file="resources/templates/endpoints/address_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep1"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep1"
              name="Address Endpoint">
        </template>
        <template
              file="resources/templates/endpoints/wsdl_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep5"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep5"
              name="WSDL Endpoint">
        </template>
        <template
              file="resources/templates/endpoints/fail_over_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep3"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep3"
              name="Fail Over Endpoint">
        </template>
        <template
              file="resources/templates/endpoints/load_balance_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep4"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep4"
              name="Load Balance Endpoint">
        </template>
        <template
              file="resources/templates/endpoints/template_endpoint.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.ep0"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep0"
              name="Template Endpoint">
        </template>
        <template
              file="resources/templates/smooks/smooks-config-template.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.smooks"
+             id="org.wso2.developerstudio.eclipse.esb.template.smooks"
              name="Smooks Configuration">
        </template>
        <template
              file="resources/templates/proxyservices/transformer-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.template.proxy1"
+             id="org.wso2.developerstudio.eclipse.esb.template.proxy1"
              name="Transformer Proxy">
        </template>
        <template
              file="resources/templates/proxyservices/log-forward-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.proxy2"
+             id="org.wso2.developerstudio.eclipse.esb.proxy2"
              name="Log Forward Proxy">
        </template>
        <template
              file="resources/templates/proxyservices/pass-through-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.proxy3"
+             id="org.wso2.developerstudio.eclipse.esb.proxy3"
              name="Pass Through Proxy">
        </template>
        <template
              file="resources/templates/proxyservices/wsdl-based-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.proxy4"
+             id="org.wso2.developerstudio.eclipse.esb.proxy4"
              name="WSDL Based Proxy">
        </template>
        <template
              file="resources/templates/proxyservices/secure-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.proxy5"
+             id="org.wso2.developerstudio.eclipse.esb.proxy5"
              name="Secure Proxy">
        </template>
        <template
              file="resources/templates/proxyservices/custom-proxy.xml"
-             id="org.wso2.carbonstudio.eclipse.esb.proxy6"
+             id="org.wso2.developerstudio.eclipse.esb.proxy6"
              name="Custom Proxy">
        </template>
        <template
              file="resources/templates/empty_css.css"
-             id="org.wso2.carbonstudio.eclipse.esb.template.css"
+             id="org.wso2.developerstudio.eclipse.esb.template.css"
              name="CSS File">
        </template>
        <template
              file="resources/templates/empty_html_template.html"
-             id="org.wso2.carbonstudio.eclipse.esb.template.html"
+             id="org.wso2.developerstudio.eclipse.esb.template.html"
              name="HTML File">
        </template>
        <template
              file="resources/templates/empty_java_script.js"
-             id="org.wso2.carbonstudio.eclipse.esb.template.js"
+             id="org.wso2.developerstudio.eclipse.esb.template.js"
              name="JavaScript File">
        </template>
        <template
              file="resources/templates/empty_sql_script.sql"
-             id="org.wso2.carbonstudio.eclipse.esb.template.sql"
+             id="org.wso2.developerstudio.eclipse.esb.template.sql"
              name="SQL Script File">
        </template>
        <template
              file="resources/templates/NewStylesheet.xsl"
-             id="org.wso2.carbonstudio.eclipse.esb.template.xsl"
+             id="org.wso2.developerstudio.eclipse.esb.template.xsl"
              name="XSL File">
        </template>
        <template
              file="resources/templates/NewStylesheet.xslt"
-             id="org.wso2.carbonstudio.eclipse.esb.template.xslt"
+             id="org.wso2.developerstudio.eclipse.esb.template.xslt"
              name="XSLT File">
        </template>
        <template
              file="resources/templates/NewWSDLFile.wsdl"
-             id="org.wso2.carbonstudio.eclipse.esb.template.wsdl"
+             id="org.wso2.developerstudio.eclipse.esb.template.wsdl"
              name="WSDL File">
        </template>
     </extension>

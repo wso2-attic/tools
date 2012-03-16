@@ -4,19 +4,19 @@
    <extension
          point="org.eclipse.ui.newWizards">
        <wizard
-            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.extensions/org.wso2.carbonstudio.eclipse.extensions.features"
-            class="org.wso2.carbonstudio.eclipse.esb.mediators.ui.wizard.NewMediatorWizard"
+            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions/org.wso2.developerstudio.eclipse.extensions.features"
+            class="org.wso2.developerstudio.eclipse.esb.mediators.ui.wizard.NewMediatorWizard"
             icon="icons/new-mediator-16x16.png"
-            id="org.wso2.carbonstudio.eclipse.esb.mediators.NewMediatorWizard"
+            id="org.wso2.developerstudio.eclipse.esb.mediators.NewMediatorWizard"
             name="Synapse Mediator Class">
             <description>Create new synapse mediator class</description>
       </wizard>
    </extension>
    <!--extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="ESB" id="org.wso2.carbonstudio.eclipse.esb" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="ESB" id="org.wso2.developerstudio.eclipse.esb" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
    </extension-->
 </plugin>

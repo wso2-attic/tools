@@ -12,8 +12,8 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http:///org/wso2/carbonstudio/eclipse/gmf/esb"
-            class="org.wso2.carbonstudio.eclipse.gmf.esb.provider.EsbItemProviderAdapterFactory"
+            uri="http:///org/wso2/developerstudio/eclipse/gmf/esb"
+            class="org.wso2.developerstudio.eclipse.gmf.esb.provider.EsbItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

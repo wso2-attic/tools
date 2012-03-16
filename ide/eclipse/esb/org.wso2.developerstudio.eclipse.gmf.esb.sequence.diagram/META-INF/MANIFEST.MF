@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram; singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.part.EsbDiagramEditorPlugin
+Bundle-Activator: org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.part.EsbDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.custom,
- org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.edit.parts,
- org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.part,
- org.wso2.carbonstudio.eclipse.gmf.esb.sequence.diagram.providers
+Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom,
+ org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.edit.parts,
+ org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.part,
+ org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,
@@ -33,8 +33,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
  org.eclipse.draw2d;visibility:=reexport,
- org.wso2.carbonstudio.eclipse.gmf.esb;visibility:=reexport,
- org.wso2.carbonstudio.eclipse.gmf.esb.edit;visibility:=reexport,
+ org.wso2.developerstudio.eclipse.gmf.esb;visibility:=reexport,
+ org.wso2.developerstudio.eclipse.gmf.esb.edit;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.ocl.ecore;visibility:=reexport
@@ -43,4 +43,4 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: org.apache.commons.lang,
  org.eclipse.wst.sse.ui,
  org.eclipse.wst.xml.xpath.core.util,
- org.wso2.carbonstudio.eclipse.gmf.esb.persistence
+ org.wso2.developerstudio.eclipse.gmf.esb.persistence

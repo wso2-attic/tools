@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esb"
-    nsURI="http:///org/wso2/carbonstudio/eclipse/esb" nsPrefix="esb">
+    nsURI="http:///org/wso2/developerstudio/eclipse/esb" nsPrefix="esb">
   <eClassifiers xsi:type="ecore:EClass" name="ModelObject" abstract="true">
     <eOperations name="validate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectState" eType="#//ModelObjectState"

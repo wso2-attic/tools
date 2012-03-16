@@ -77,7 +77,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="EastPointerFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="50"
@@ -93,7 +93,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="WestPointerFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="50"
@@ -135,7 +135,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FilterMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.FilterMediatorGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FilterMediatorGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -155,7 +155,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="LogMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -174,7 +174,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ProxyServiceGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="150"
@@ -193,7 +193,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DropMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"/>
@@ -211,7 +211,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SequenceGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -231,7 +231,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="PropertyMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -250,7 +250,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="EnrichMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -269,7 +269,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="XSLTMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -288,7 +288,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DefaultEndPointGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="248"
@@ -307,7 +307,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DefaultEndPointGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="248"
@@ -326,7 +326,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SwitchMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.SwitchMediatorGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SwitchMediatorGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -346,7 +346,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="MessageMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="150"
@@ -359,7 +359,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="EventMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -379,7 +379,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="EntitlementMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -398,7 +398,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ClassMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -417,7 +417,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SpringMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -436,7 +436,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ScriptMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -455,7 +455,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FaultMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -474,7 +474,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="XQueryMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -493,7 +493,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CommandMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -512,7 +512,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DBLookupMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -531,7 +531,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DBReportMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -550,7 +550,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SmooksMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -569,7 +569,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SendMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -589,7 +589,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FailoverEndPointGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -615,7 +615,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="WSDLEndPointGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -635,7 +635,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="LoadBalanceEndPointGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -655,7 +655,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="HeaderMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -675,7 +675,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CloneMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -695,7 +695,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="IterateMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -715,7 +715,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CacheMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -735,7 +735,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AggregateMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape">
         <layout
             xsi:type="gmfgraph:FlowLayout"
             matchMinorSize="true"
@@ -761,7 +761,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CalloutMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -781,7 +781,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="TransactionMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -801,7 +801,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ThrottleMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -821,7 +821,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="RMSequenceMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -841,7 +841,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="OAuthMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -861,7 +861,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="RuleMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.carbonstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"

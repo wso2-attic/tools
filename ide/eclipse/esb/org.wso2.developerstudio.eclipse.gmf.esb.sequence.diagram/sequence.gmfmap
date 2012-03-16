@@ -7,53 +7,53 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SequenceDiagram/sequence"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SequenceDiagram/sequence"/>
     <ownedChild>
       <domainMetaElement
-          href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence"/>
+          href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence"/>
       <tool
           xsi:type="gmftool:CreationTool"
           href="sequence.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
-          href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequence"/>
+          href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequence"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorLogCategory"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorLogCategory"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/logCategory"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/logCategory"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.2"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//LogMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#LogMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -61,85 +61,85 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorPropertyName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorPropertyName"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/propertyName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/propertyName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.3"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//PropertyMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#PropertyMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
       </children>
       <children>
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/input"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/input"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequenceInputConnector"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequenceInputConnector"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequenceInput"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequenceInput"/>
         </ownedChild>
       </children>
       <children>
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/output"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/output"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequenceOutputConnector"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequenceOutputConnector"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequenceOutput"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbSequenceOutput"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.0"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DropMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DropMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DropMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DropMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DropMediatorInputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -147,41 +147,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorSourceType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorSourceType"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/sourceType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/sourceType"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.4"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EnrichMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EnrichMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -189,51 +189,51 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorConditionType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorConditionType"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/conditionType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/conditionType"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.1"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/passOutputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/passOutputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorPassOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorPassOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorPassOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorPassOutputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/failOutputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediator/failOutputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorFailOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FilterMediatorFailOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorFailOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FilterMediatorFailOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -241,33 +241,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.5"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XSLTMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XSLTMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -275,41 +275,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorTopicType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorTopicType"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/topicType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/topicType"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.7"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EventMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EventMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -317,41 +317,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorServerName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorServerName"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/serverURL"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/serverURL"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.8"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EntitlementMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EntitlementMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -359,43 +359,43 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.6"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/caseBranches"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/caseBranches"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchCaseBranchOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchCaseBranchOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchCaseBranchOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchCaseBranchOutputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/defaultBranch"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchMediator/defaultBranch"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchDefaultBranchOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SwitchDefaultBranchOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchDefaultBranchOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SwitchDefaultBranchOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -403,41 +403,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorClassName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorClassName"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/className"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/className"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.9"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ClassMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ClassMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -445,41 +445,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorSpringBean"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorSpringBean"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/beanName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/beanName"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.10"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SpringMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SpringMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -487,41 +487,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorMediatorLanguage"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorMediatorLanguage"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/scriptLanguage"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/scriptLanguage"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.11"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ScriptMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ScriptMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -529,42 +529,42 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true"
               viewPattern="">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorFaultCode"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorFaultCode"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/faultStringType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/faultStringType"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.12"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//FaultMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#FaultMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -572,41 +572,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorKey"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorKey"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/scriptKeyType"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/scriptKeyType"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.13"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//XQueryMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#XQueryMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -614,41 +614,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorClassName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorClassName"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/className"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/className"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.14"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CommandMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CommandMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -656,41 +656,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorUrl"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorUrl"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.15"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBLookupMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBLookupMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -698,41 +698,41 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorUrl"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorUrl"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.16"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//DBReportMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#DBReportMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -740,33 +740,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.17"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SmooksMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SmooksMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -774,33 +774,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.18"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator/InputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator/InputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator/OutputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediator/OutputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SendMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SendMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -808,40 +808,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorHeaderName"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorHeaderName"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/valueLiteral"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/valueLiteral"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.19"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//HeaderMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#HeaderMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -849,40 +849,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorId"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/cloneID"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/cloneID"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.20"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CloneMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CloneMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -890,40 +890,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorId"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/cacheId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/cacheId"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.21"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CacheMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CacheMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -931,40 +931,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorId"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/iterateID"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/iterateID"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.22"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//IterateMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#IterateMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -972,50 +972,50 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorId"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/aggregateID"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/aggregateID"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.23"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorOutputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/onCompleteOutputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediator/onCompleteOutputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorOnCompleteOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//AggregateMediatorOnCompleteOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorOnCompleteOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#AggregateMediatorOnCompleteOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1023,40 +1023,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorSoapAction"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorSoapAction"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/soapAction"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/soapAction"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.24"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//CalloutMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#CalloutMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1064,33 +1064,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.25"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//TransactionMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#TransactionMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1098,40 +1098,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorGroupId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorGroupId"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/groupId"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/groupId"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.26"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//ThrottleMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#ThrottleMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1139,33 +1139,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.27"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RMSequenceMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RMSequenceMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1173,33 +1173,33 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.28"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//RuleMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#RuleMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1207,40 +1207,40 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbSequence/childMediators"/>
         <ownedChild>
           <domainMetaElement
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorRemoteServiceURL"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorRemoteServiceURL"/>
             <features
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/remoteServiceUrl"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/remoteServiceUrl"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="sequence.gmftool#//@palette/@tools.1/@tools.29"/>
           <diagramNode
-              href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediator"/>
+              href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediator"/>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/inputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/inputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediatorInputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorInputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorInputConnector"/>
             </ownedChild>
           </children>
           <children>
             <containmentFeature
-                href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/outputConnector"/>
+                href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediator/outputConnector"/>
             <ownedChild>
               <domainMetaElement
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OAuthMediatorOutputConnector"/>
               <diagramNode
-                  href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorOutputConnector"/>
+                  href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#OAuthMediatorOutputConnector"/>
             </ownedChild>
           </children>
         </ownedChild>
@@ -1248,26 +1248,26 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.13 //@nodes.0/@ownedChild/@children.14 //@nodes.0/@ownedChild/@children.15 //@nodes.0/@ownedChild/@children.16 //@nodes.0/@ownedChild/@children.17 //@nodes.0/@ownedChild/@children.18 //@nodes.0/@ownedChild/@children.19 //@nodes.0/@ownedChild/@children.20 //@nodes.0/@ownedChild/@children.21 //@nodes.0/@ownedChild/@children.22 //@nodes.0/@ownedChild/@children.23 //@nodes.0/@ownedChild/@children.24 //@nodes.0/@ownedChild/@children.25 //@nodes.0/@ownedChild/@children.26 //@nodes.0/@ownedChild/@children.27 //@nodes.0/@ownedChild/@children.28 //@nodes.0/@ownedChild/@children.29 //@nodes.0/@ownedChild/@children.30 //@nodes.0/@ownedChild/@children.31">
         <compartment
-            href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#SeqContentsCompartment"/>
+            href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#SeqContentsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
   <links>
     <domainMetaElement
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink"/>
     <containmentFeature
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//OutputConnector/outgoingLink"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//OutputConnector/outgoingLink"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="sequence.gmftool#//@palette/@tools.2/@tools.0"/>
     <diagramLink
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbLink"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#EsbLink"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink/source"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink/source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink/target"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//EsbLink/target"/>
     <creationConstraints>
       <sourceEnd
           body="self.shouldConnect(oppositeEnd)"/>
@@ -1277,11 +1277,11 @@
   </links>
   <diagram>
     <diagramCanvas
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.gmfgraph#esb"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.gmfgraph#esb"/>
     <domainModel
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#/"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#/"/>
     <domainMetaElement
-        href="../org.wso2.carbonstudio.eclipse.gmf.esb/model/esb.ecore#//SequenceDiagram"/>
+        href="../org.wso2.developerstudio.eclipse.gmf.esb/model/esb.ecore#//SequenceDiagram"/>
     <palette
         href="sequence.gmftool#//@palette"/>
   </diagram>

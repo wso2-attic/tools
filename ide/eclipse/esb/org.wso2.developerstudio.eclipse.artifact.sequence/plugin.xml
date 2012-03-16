@@ -4,10 +4,10 @@
    <extension
          point="org.eclipse.ui.newWizards">
          <wizard name="Sequence" 
-         	category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.message.mediation/org.wso2.carbonstudio.eclipse.message.mediation.features"
-			class="org.wso2.carbonstudio.eclipse.artifact.sequence.ui.wizard.SequenceProjectCreationWizard"
+         	category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
+			class="org.wso2.developerstudio.eclipse.artifact.sequence.ui.wizard.SequenceProjectCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newsequenceartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newsequenceartifact"
 			icon="icons/sequence-normal.png">
 			<description>Sequence</description>
 		</wizard>
@@ -18,9 +18,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="2org.wso2.carbonstudio.eclipse.artifact.esb"
+					menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newsequenceartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newsequenceartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -42,21 +42,21 @@
 	  </extension>
    <!--extension point="org.eclipse.ui.popupMenus">
 		<objectContribution objectClass="org.eclipse.core.resources.IFile"
-			id="org.wso2.carbonstudio.eclipse.artifact.sequence"
+			id="org.wso2.developerstudio.eclipse.artifact.sequence"
 			nameFilter="*.xml">
 			<filter
            	 	name="projectNature"
-            	value="org.wso2.carbonstudio.eclipse.esb.project.nature">
+            	value="org.wso2.developerstudio.eclipse.esb.project.nature">
          	</filter>
-			<menu id="org.wso2.carbonstudio.eclipse.artifact.sequence"
+			<menu id="org.wso2.developerstudio.eclipse.artifact.sequence"
 				label="Generate" path="additions">
 				<separator name="group1" />
 			</menu>
 			<action
-				id="org.wso2.carbonstudio.eclipse.artifact.generate.proxy"
+				id="org.wso2.developerstudio.eclipse.artifact.generate.proxy"
 				label="Proxy Service"
-				menubarPath="org.wso2.carbonstudio.eclipse.artifact.sequence/group1"
-				class="org.wso2.carbonstudio.eclipse.artifact.sequence.actions.ProxyServiceGenerateAction"
+				menubarPath="org.wso2.developerstudio.eclipse.artifact.sequence/group1"
+				class="org.wso2.developerstudio.eclipse.artifact.sequence.actions.ProxyServiceGenerateAction"
 				enablesFor="1">
 			</action>
 		</objectContribution>
@@ -65,9 +65,9 @@
 	
 	<extension point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="org.wso2.carbonstudio.eclipse.artifact.sequence.property.SequencePropertyTester"
-            id="org.wso2.carbonstudio.eclipse.server.propertytester"
-            namespace="org.wso2.carbonstudio.eclipse"
+            class="org.wso2.developerstudio.eclipse.artifact.sequence.property.SequencePropertyTester"
+            id="org.wso2.developerstudio.eclipse.server.propertytester"
+            namespace="org.wso2.developerstudio.eclipse"
             properties="createproxy"
             type="org.eclipse.core.resources.IFile">
       </propertyTester>
@@ -76,22 +76,22 @@
 	<extension point="org.eclipse.ui.commands">
   		<command
         description="Generate Proxy Service"
-        id="org.wso2.carbonstudio.eclipse.artifact.seqence.create.proxy"
+        id="org.wso2.developerstudio.eclipse.artifact.seqence.create.proxy"
         name="Generate Proxy">
   		</command>
 	</extension>
 	<!--Handler-->
 	<extension point="org.eclipse.ui.handlers">
   		<handler
-        class="org.wso2.carbonstudio.eclipse.artifact.sequence.actions.SequenceHandler"
-        commandId="org.wso2.carbonstudio.eclipse.artifact.seqence.create.proxy">
+        class="org.wso2.developerstudio.eclipse.artifact.sequence.actions.SequenceHandler"
+        commandId="org.wso2.developerstudio.eclipse.artifact.seqence.create.proxy">
      <!--enabledWhen>
         <with variable="selection">
            <iterate
                  ifEmpty="false"
                  operator="and">
               <test
-                    property="org.wso2.carbonstudio.eclipse.serverModuleEnablement"
+                    property="org.wso2.developerstudio.eclipse.serverModuleEnablement"
                     value="org.eclipse.wst.server.ui.IServerModule">
               </test>
            </iterate>
@@ -103,7 +103,7 @@
 	<extension point="org.eclipse.ui.menus">
     <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
      <command
-           commandId="org.wso2.carbonstudio.eclipse.artifact.seqence.create.proxy"
+           commandId="org.wso2.developerstudio.eclipse.artifact.seqence.create.proxy"
            style="push">
         <visibleWhen checkEnabled="false">
             <with variable="activeMenuSelection">
@@ -113,7 +113,7 @@
                   </instanceof>
                   <and>
                   <test
-                    property="org.wso2.carbonstudio.eclipse.createproxy"
+                    property="org.wso2.developerstudio.eclipse.createproxy"
                     value="org.eclipse.core.resources.IFile">
               </test>                 
                   </and>
@@ -124,18 +124,18 @@
   </menuContribution>
 </extension>
 	<!--extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.sequence.project.nature" name="Sequence Project Nature">
+		id="org.wso2.developerstudio.eclipse.sequence.project.nature" name="Sequence Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.sequence.project.nature.SequenceProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.sequence.project.nature.SequenceProjectNature">
 			</run>
 		</runtime>
 	</extension-->
  <extension
-         point="org.wso2.carbonstudio.eclipse.esb.configurationProvider">
+         point="org.wso2.developerstudio.eclipse.esb.configurationProvider">
       <sequence
-            class="org.wso2.carbonstudio.eclipse.artifact.sequence.provider.SequenceProvider"
-            id="org.wso2.carbonstudio.eclipse.artifact.sequence"
+            class="org.wso2.developerstudio.eclipse.artifact.sequence.provider.SequenceProvider"
+            id="org.wso2.developerstudio.eclipse.artifact.sequence"
             name="Carbon Application Sequences">
       </sequence>
    </extension>

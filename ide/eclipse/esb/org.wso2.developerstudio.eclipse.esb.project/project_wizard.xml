@@ -10,7 +10,7 @@
 				  title="New ESB Config Project" 
 				  description="Create new ESB Config Project" 
 				  error="Please give a name for the ESB Config Project">
-			<data modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.esb.project.controller.ESBProjectFieldController">Project Name</data>
+			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.esb.project.controller.ESBProjectFieldController">Project Name</data>
 			<projectNatures>
 				<nature>org.eclipse.jdt.core.javanature</nature>
 			</projectNatures>

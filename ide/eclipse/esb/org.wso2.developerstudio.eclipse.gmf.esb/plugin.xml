@@ -12,8 +12,8 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///org/wso2/carbonstudio/eclipse/gmf/esb"
-            class="org.wso2.carbonstudio.eclipse.gmf.esb.EsbPackage"
+            uri="http:///org/wso2/developerstudio/eclipse/gmf/esb"
+            class="org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage"
             genModel="model/esb.genmodel"/>
    </extension>
 
