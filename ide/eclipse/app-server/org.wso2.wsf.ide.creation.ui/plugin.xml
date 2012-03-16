@@ -56,7 +56,7 @@
       </clientRuntime>
     </extension>     
 	<extension point="org.eclipse.ui.exportWizards">
-		<wizard id="org.wso2.carbonstudio.eclipse.axis2.exporttoaar" name="Axis2 Service Archive [AAR]"
+		<wizard id="org.wso2.developerstudio.eclipse.axis2.exporttoaar" name="Axis2 Service Archive [AAR]"
 			class="org.wso2.wsf.ide.creation.ui.wizard.Axis2ServiceExportWizard" icon="icons/axis2.png"
 			category="org.wso2.exportcategory">
 			<description>

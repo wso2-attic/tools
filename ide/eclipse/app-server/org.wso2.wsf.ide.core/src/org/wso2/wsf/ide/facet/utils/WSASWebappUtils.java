@@ -21,10 +21,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.server.base.core.ServerController;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.core.plugin.WebServiceWSASCorePlugin;
 import org.wso2.wsf.ide.core.plugin.data.ServerModel;
 import org.wso2.wsf.ide.core.plugin.messages.WSASCoreUIMessages;
@@ -32,7 +32,7 @@ import org.wso2.wsf.ide.core.utils.WSASCoreUtils;
 import org.wso2.wsf.ide.facet.messages.WSASFacetUIMessages;
 
 public class WSASWebappUtils {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
 
 	private static String tempWarLocation = null;
 	private static boolean alreadyWarExist = false;

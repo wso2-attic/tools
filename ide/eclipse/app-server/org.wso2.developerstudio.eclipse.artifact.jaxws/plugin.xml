@@ -2,33 +2,33 @@
 <?eclipse version="3.4"?>
 <plugin>
  <extension point="org.eclipse.ui.newWizards">
-		<wizard name="JAX-WS Service Project" category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting/org.wso2.carbonstudio.eclipse.service.hosting.project.types"
-			class="org.wso2.carbonstudio.eclipse.artifact.jaxws.ui.wizard.JaxwsServiceCreationWizard"
+		<wizard name="JAX-WS Service Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
+			class="org.wso2.developerstudio.eclipse.artifact.jaxws.ui.wizard.JaxwsServiceCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newjaxwsartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact"
 			project="true" icon="icons/JAX-WS-16x16.png">
 			<description>JAX-WS Service Project</description>
 		</wizard>
 	 </extension>
 	 <extension point="org.eclipse.ui.newWizards">
-		<wizard name="JAX-WS Service Class" category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting/org.wso2.carbonstudio.eclipse.service.hosting.features"
-			class="org.wso2.carbonstudio.eclipse.artifact.jaxws.ui.wizard.JaxwsClassWizard"
-			id="org.wso2.carbonstudio.eclipse.artifact.newjaxwsartifactClass"
+		<wizard name="JAX-WS Service Class" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"
+			class="org.wso2.developerstudio.eclipse.artifact.jaxws.ui.wizard.JaxwsClassWizard"
+			id="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifactClass"
 			project="false" icon="icons/JAX-WS-16x16.png">
 			<description>JAX-WS Service Class</description>
 		</wizard>	
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.jaxws.project.nature" name="JAX-WS Service Project Nature">
+		id="org.wso2.developerstudio.eclipse.jaxws.project.nature" name="JAX-WS Service Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.jaxws.project.nature.JaxwsServiceProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.jaxws.project.nature.JaxwsServiceProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.jaxws.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.jaxws.project.nature" icon="icons/JAX-WS-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.jaxws.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.jaxws.project.nature" icon="icons/JAX-WS-12x12.png">
 		</image>
 	</extension>
 	  <extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -37,9 +37,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="1org.wso2.carbonstudio.eclipse.artifact.webservice"
+					menuGroupId="1org.wso2.developerstudio.eclipse.artifact.webservice"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newjaxwsartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -61,13 +61,13 @@
 	  </extension>
 	 <extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="1org.wso2.carbonstudio.eclipse.artifact.webservice1"
-				wizardId="org.wso2.carbonstudio.eclipse.artifact.newjaxwsartifactClass">
+			    menuGroupId="1org.wso2.developerstudio.eclipse.artifact.webservice1"
+				wizardId="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifactClass">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
 							<test property="org.eclipse.core.resources.projectNature"
-								value="org.wso2.carbonstudio.eclipse.jaxws.project.nature" />
+								value="org.wso2.developerstudio.eclipse.jaxws.project.nature" />
 						</adapt>
 						<!--adapt type="org.eclipse.core.resources.IFolder">
 						</adapt-->
@@ -78,10 +78,10 @@
 			</commonWizard>
 	</extension>
    <extension
-         point="org.wso2.carbonstudio.eclipse.project.export.handler">
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
       <handler
-            class="org.wso2.carbonstudio.eclipse.artifact.jaxws.project.export.JaxwsArtfactExportHandler"
-            id="org.wso2.carbonstudio.eclipse.artifact.jaxws.project.export.handler"
+            class="org.wso2.developerstudio.eclipse.artifact.jaxws.project.export.JaxwsArtfactExportHandler"
+            id="org.wso2.developerstudio.eclipse.artifact.jaxws.project.export.handler"
             type="service/jaxws">
       </handler>
    </extension>

@@ -29,10 +29,10 @@ Export-Package: org.wso2.wsf.ide.creation.ui.widgets.bean,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: WSO2
 Import-Package: org.apache.axis2.util,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.utils.archive,
- org.wso2.carbonstudio.eclipse.utils.data,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project,
- org.wso2.carbonstudio.eclipse.utils.wst
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.utils.archive,
+ org.wso2.developerstudio.eclipse.utils.data,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.wst

@@ -30,7 +30,7 @@ import org.eclipse.wst.common.environment.IEnvironment;
 import org.eclipse.wst.common.environment.IStatusHandler;
 import org.eclipse.wst.common.frameworks.datamodel.AbstractDataModelOperation;
 import org.eclipse.wst.ws.internal.wsrt.WebServiceScenario;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.consumption.core.utils.ContentCopyUtils;
 import org.wso2.wsf.ide.creation.core.data.DataModel;
 import org.wso2.wsf.ide.creation.core.messages.WSASCreationUIMessages;

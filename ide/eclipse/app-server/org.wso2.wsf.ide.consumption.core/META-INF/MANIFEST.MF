@@ -41,6 +41,6 @@ Import-Package: javax.wsdl;version="1.6.2.wso2v1",
  org.apache.axis2.util,
  org.apache.axis2.wsdl.codegen,
  org.apache.woden,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.jdt
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.jdt

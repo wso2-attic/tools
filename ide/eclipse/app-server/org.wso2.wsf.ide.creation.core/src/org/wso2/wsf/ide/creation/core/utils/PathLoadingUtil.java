@@ -16,7 +16,7 @@
 package org.wso2.wsf.ide.creation.core.utils;
 
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.creation.core.data.DataModel;
 import org.wso2.wsf.ide.creation.core.messages.WSASCreationUIMessages;
 

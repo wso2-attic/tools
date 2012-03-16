@@ -30,13 +30,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.utils.wst.Axis2ServiceUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.wst.Axis2ServiceUtils;
 import org.wso2.wsf.ide.creation.ui.plugin.WebServiceWSASCreationUIPlugin;
 
 public class Axis2ServiceExportWizardPage extends WizardPage {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
 
     private Combo serviceSelectionCombo;
     private IFolder selectedFolder;

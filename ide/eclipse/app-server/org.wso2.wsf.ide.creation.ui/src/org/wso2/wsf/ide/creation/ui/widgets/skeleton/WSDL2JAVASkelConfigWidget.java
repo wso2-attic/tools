@@ -48,8 +48,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wst.command.internal.env.core.common.StatusUtils;
 import org.eclipse.wst.command.internal.env.ui.widgets.SimpleWidgetDataContributor;
 import org.eclipse.wst.command.internal.env.ui.widgets.WidgetDataEvents;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.wsf.ide.consumption.core.messages.WSASConsumptionUIMessages;
 import org.wso2.wsf.ide.consumption.core.utils.WSDLPropertyReader;
 import org.wso2.wsf.ide.core.context.WSASEmitterContext;
@@ -60,7 +60,7 @@ import org.wso2.wsf.ide.creation.core.messages.WSASCreationUIMessages;
 import org.wso2.wsf.ide.creation.ui.plugin.WebServiceWSASCreationUIPlugin;
 
 public class WSDL2JAVASkelConfigWidget extends SimpleWidgetDataContributor{
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
 
 	private DataModel model;
 	IStatus status = Status.OK_STATUS;

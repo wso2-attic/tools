@@ -25,13 +25,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.wst.common.frameworks.datamodel.AbstractDataModelOperation;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.core.plugin.messages.WSASCoreUIMessages;
 import org.wso2.wsf.ide.core.utils.FacetContainerUtils;
 import org.wso2.wsf.ide.core.utils.WSASCoreUtils;
 import org.wso2.wsf.ide.facet.utils.ContentCopyUtils;
 import org.wso2.wsf.ide.facet.utils.WSASWebappUtils;
-import org.wso2.carbonstudio.eclipse.utils.j2ee.WebContainerUtils;
+import org.wso2.developerstudio.eclipse.utils.j2ee.WebContainerUtils;
 
 public class WSASWebservicesServerCommand extends
 AbstractDataModelOperation {

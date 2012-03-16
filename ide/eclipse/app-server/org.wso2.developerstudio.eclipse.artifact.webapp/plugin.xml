@@ -4,10 +4,10 @@
    <extension point="org.eclipse.ui.newWizards">
 		<wizard 
 			name="Web Application" 
-			category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.web.apps"
-			class="org.wso2.carbonstudio.eclipse.artifact.webapp.ui.wizard.WebAppCreationWizard"
+			category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.web.apps"
+			class="org.wso2.developerstudio.eclipse.artifact.webapp.ui.wizard.WebAppCreationWizard"
 			wizardManifest="project_wizard.xml"
-			id="org.wso2.carbonstudio.eclipse.artifact.newwarartifact"
+			id="org.wso2.developerstudio.eclipse.artifact.newwarartifact"
 			icon="icons/war-16x16.png"
 			project="true">
 			<description>Web Application (WAR)</description>
@@ -15,16 +15,16 @@
 		
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.carbonstudio.eclipse.webapp.project.nature" name="Web App Project Nature">
+		id="org.wso2.developerstudio.eclipse.webapp.project.nature" name="Web App Project Nature">
 		<runtime>
 			<run
-				class="org.wso2.carbonstudio.eclipse.artifact.webapp.project.nature.WebAppProjectNature">
+				class="org.wso2.developerstudio.eclipse.artifact.webapp.project.nature.WebAppProjectNature">
 			</run>
 		</runtime>
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
-		<image id="org.wso2.carbonstudio.eclipse.webapp.project.natureImage"
-			natureId="org.wso2.carbonstudio.eclipse.webapp.project.nature" icon="icons/war-12x12.png">
+		<image id="org.wso2.developerstudio.eclipse.webapp.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.webapp.project.nature" icon="icons/war-12x12.png">
 		</image>
 	</extension>
 	<extension point="org.eclipse.ui.navigator.navigatorContent">	
@@ -33,9 +33,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="1org.wso2.carbonstudio.eclipse.artifact.webservice"
+					menuGroupId="1org.wso2.developerstudio.eclipse.artifact.webservice"
 			  	 	type="new"
-					wizardId="org.wso2.carbonstudio.eclipse.artifact.newwarartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newwarartifact">
 					<enablement>
 						<or>
 					   		<adapt type="org.eclipse.core.resources.IWorkbench"/>
@@ -57,10 +57,10 @@
 		</navigatorContent>
 	</extension>
  <extension
-       point="org.wso2.carbonstudio.eclipse.project.export.handler">
+       point="org.wso2.developerstudio.eclipse.project.export.handler">
     <handler
-          class="org.wso2.carbonstudio.eclipse.artifact.webapp.project.export.WebAppArtfactExportHandler"
-          id="org.wso2.carbonstudio.eclipse.artifact.webapp.project.export.handler"
+          class="org.wso2.developerstudio.eclipse.artifact.webapp.project.export.WebAppArtfactExportHandler"
+          id="org.wso2.developerstudio.eclipse.artifact.webapp.project.export.handler"
           type="web/application">
     </handler>
  </extension>

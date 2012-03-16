@@ -27,17 +27,17 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.utils.archive.ArchiveManipulator;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
-import org.wso2.carbonstudio.eclipse.utils.jdt.JavaUtils;
-import org.wso2.carbonstudio.eclipse.utils.project.ProjectUtils;
-import org.wso2.carbonstudio.eclipse.utils.wst.Axis2ServiceUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
+import org.wso2.developerstudio.eclipse.utils.wst.Axis2ServiceUtils;
 import org.wso2.wsf.ide.creation.ui.plugin.WebServiceWSASCreationUIPlugin;
 
 public class Axis2ServiceExportWizard extends Wizard implements IExportWizard {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCreationUIPlugin.PLUGIN_ID);
 
 	private Axis2ServiceExportWizardPage mainPage;
 	private IStructuredSelection selection;

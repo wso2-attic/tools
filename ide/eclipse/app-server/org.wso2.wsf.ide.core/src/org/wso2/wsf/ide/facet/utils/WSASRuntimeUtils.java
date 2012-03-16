@@ -30,16 +30,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.core.plugin.WebServiceWSASCorePlugin;
 import org.wso2.wsf.ide.core.plugin.data.ServerModel;
 import org.wso2.wsf.ide.core.plugin.messages.WSASCoreUIMessages;
 import org.wso2.wsf.ide.core.utils.WSASCoreUtils;
 
 public class WSASRuntimeUtils {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
 
 	public static final int ZIP=0, UNZIP = 1;
 	protected static int mode = UNZIP;

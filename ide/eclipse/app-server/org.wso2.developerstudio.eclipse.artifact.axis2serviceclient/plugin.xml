@@ -5,21 +5,21 @@
 	   <extension
          point="org.eclipse.ui.newWizards">
        <wizard
-            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting/org.wso2.carbonstudio.eclipse.service.hosting.features"
+            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"
             icon="icons/axis2-wizard.png"
-            id="org.wso2.carbonstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard1"
+            id="org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard1"
             name="Generate Axis2 Web Service Skeleton">
             <description>Generate Axis2 Web Service Skeleton</description>
-                <class class="org.wso2.carbonstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
+                <class class="org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
       <parameter name="type" value="1" />
     </class>
       </wizard>
    </extension>
    <!--extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="ApplicationServer" id="org.wso2.carbonstudio.eclipse.service.hosting" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="ApplicationServer" id="org.wso2.developerstudio.eclipse.service.hosting" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
    </extension-->
    
@@ -27,21 +27,21 @@
    <extension
          point="org.eclipse.ui.newWizards">
        <wizard
-            category="org.wso2.carbonstudio.eclipse.capp.project/org.wso2.carbonstudio.eclipse.service.hosting/org.wso2.carbonstudio.eclipse.service.hosting.project.types"
+            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
             icon="icons/axis2-wizard.png"
-            id="org.wso2.carbonstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard2"
+            id="org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard2"
             name="Generate Axis2 Web Service Client">
             <description>Generate Axis2 Web Service Client</description>
-                <class class="org.wso2.carbonstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
+                <class class="org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
                       <parameter name="type" value="0" />
     </class>
       </wizard>
    </extension>
    <!--extension point="org.eclipse.ui.newWizards">
-		<category name="WSO2" id="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="WSO2" id="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
-		<category name="Application Server" id="org.wso2.carbonstudio.eclipse.service.hosting" 
-			parentCategory="org.wso2.carbonstudio.eclipse.capp.project">
+		<category name="Application Server" id="org.wso2.developerstudio.eclipse.service.hosting" 
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project">
 		</category>
    </extension-->
 </plugin>

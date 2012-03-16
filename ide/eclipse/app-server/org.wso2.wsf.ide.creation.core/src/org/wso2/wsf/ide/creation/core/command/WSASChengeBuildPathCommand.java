@@ -28,12 +28,12 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.wst.common.frameworks.datamodel.AbstractDataModelOperation;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.wsf.ide.creation.core.plugin.WebServiceWSASCreationCorePlugin;
 
 public class WSASChengeBuildPathCommand extends AbstractDataModelOperation {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCreationCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCreationCorePlugin.PLUGIN_ID);
 
 	private IProject project;
 	private String srcDir;

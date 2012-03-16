@@ -12,15 +12,15 @@
 				  title="Create New Axis2 Service" 
 				  description="Give a project name for the new axis2 service" 
 				  error="Please give a name to the project">
-			<data modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name    </data>
+			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name    </data>
 
-			<!-- data group="testid" modelProperty="service.class" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Service Class</data -->
+			<!-- data group="testid" modelProperty="service.class" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Service Class</data -->
 			<data modelProperty="service.class.package.name" 
  					type="string" 
- 					fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController" group="testid">Package Name</data>
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController" group="testid">Package Name</data>
  			<data modelProperty="service.class.name" 
  					type="string" 
- 					fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController" group="testid">Class Name</data>	 
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController" group="testid">Class Name</data>	 
 			
 			<group id="testid"></group>
 			
@@ -35,9 +35,9 @@
 				  description="Give a project name for the new axis2 service" 
 				  error="Please give a name to the project">
 
-			<data modelProperty="import.file" type="file" filter="*.wsdl" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">WSDL File       </data>
+			<data modelProperty="import.file" type="file" filter="*.wsdl" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">WSDL File       </data>
 			
-			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name</data>
+			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name</data>
 			
 			<group id="testid"></group>
 			
@@ -52,8 +52,8 @@
 				  description="Browse the location of a AAR file" 
 				  error="Browse and select a AAR file">
 			
-			<data modelProperty="import.file" type="file" filter="*.aar" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">AAR File</data>
-			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name</data>
+			<data modelProperty="import.file" type="file" filter="*.aar" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">AAR File</data>
+			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.axis2.validators.Axis2FieldController">Project Name</data>
 			
 			<group id="testid"></group>
 			

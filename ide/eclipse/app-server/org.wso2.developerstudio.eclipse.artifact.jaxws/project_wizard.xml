@@ -11,17 +11,17 @@
 				  title="Create New JAX-WS Service" 
 				  description="Give a project name for the new JAX-WS service" 
 				  error="Please give a name to the project">
-			<data modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Project Name    </data>	
+			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Project Name    </data>	
 			
-			<data group="createSampleClass" modelProperty="create.class" type="choice" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Create JAX-WS Class</data>	
-			<!-- data group="createSampleClass" modelProperty="service.class" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Class Name</data -->			
+			<data group="createSampleClass" modelProperty="create.class" type="choice" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Create JAX-WS Class</data>	
+			<!-- data group="createSampleClass" modelProperty="service.class" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Class Name</data -->			
 			
 			<data modelProperty="service.class.package.name" 
  					type="string" 
- 					fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController" group="createSampleClass">Package Name</data>
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController" group="createSampleClass">Package Name</data>
  			<data modelProperty="service.class.name" 
  					type="string" 
- 					fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController" group="createSampleClass">Class Name</data>	 
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController" group="createSampleClass">Class Name</data>	 
 			
 			
 			<group id="createSampleClass"></group>
@@ -35,10 +35,10 @@
 				  description="Give a project name for the new JAXWS service" 
 				  error="Please give a name to the project">
 
-			<data modelProperty="import.file" type="file" filter="*.wsdl" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">WSDL File</data>
-			<data modelProperty="source.package" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Custom Package Name</data>
+			<data modelProperty="import.file" type="file" filter="*.wsdl" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">WSDL File</data>
+			<data modelProperty="source.package" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Custom Package Name</data>
 			
-			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.carbonstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Project Name</data>
+			<data group="testid" modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxws.validators.JaxwsFieldController">Project Name</data>
 			
 			<group id="testid"></group>
 			

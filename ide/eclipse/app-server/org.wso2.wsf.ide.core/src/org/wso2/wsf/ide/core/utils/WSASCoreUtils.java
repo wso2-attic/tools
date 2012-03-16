@@ -23,7 +23,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.core.plugin.messages.WSASCoreUIMessages;
 
 public class WSASCoreUtils {

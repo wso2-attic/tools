@@ -49,8 +49,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wst.command.internal.env.core.common.StatusUtils;
 import org.eclipse.wst.command.internal.env.ui.widgets.SimpleWidgetDataContributor;
 import org.eclipse.wst.command.internal.env.ui.widgets.WidgetDataEvents;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.wsf.ide.consumption.core.data.DataModel;
 import org.wso2.wsf.ide.consumption.core.messages.WSASConsumptionUIMessages;
 import org.wso2.wsf.ide.consumption.core.utils.WSDLPropertyReader;
@@ -60,7 +60,7 @@ import org.wso2.wsf.ide.core.plugin.WebServiceWSASCorePlugin;
 import org.wso2.wsf.ide.core.plugin.messages.WSASCoreUIMessages;
 
 public class WSASProxyWidget extends SimpleWidgetDataContributor {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASConsumptionUIPlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASConsumptionUIPlugin.PLUGIN_ID);
 
 	DataModel model;
 	IStatus status = Status.OK_STATUS;

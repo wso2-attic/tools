@@ -33,17 +33,17 @@ import org.eclipse.wst.command.internal.env.core.common.StatusUtils;
 import org.eclipse.wst.common.environment.IEnvironment;
 import org.eclipse.wst.common.frameworks.datamodel.AbstractDataModelOperation;
 import org.eclipse.wst.ws.internal.wsrt.WebServiceInfo;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.wsf.ide.creation.core.data.DataModel;
 import org.wso2.wsf.ide.creation.core.messages.WSASCreationUIMessages;
 import org.wso2.wsf.ide.creation.core.plugin.WebServiceWSASCreationCorePlugin;
 import org.wso2.wsf.ide.creation.core.utils.CommonUtils;
-import org.wso2.carbonstudio.eclipse.utils.jdt.JavaUtils;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
 public class WSASSkelImplCommand extends AbstractDataModelOperation {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCreationCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCreationCorePlugin.PLUGIN_ID);
 
 	private WebServiceInfo webServiceInfo;
 	private DataModel model;

@@ -29,8 +29,8 @@ import javax.wsdl.xml.WSDLReader;
 import javax.xml.namespace.QName;
 
 import org.apache.axis2.util.URLProcessor;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.wsf.ide.consumption.core.plugin.WebServiceWSASConsumptionCorePlugin;
 
 /**
@@ -44,7 +44,7 @@ import org.wso2.wsf.ide.consumption.core.plugin.WebServiceWSASConsumptionCorePlu
  * One would need to change this to suit a proper WSDL 
  */
 public class WSDLPropertyReader {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASConsumptionCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASConsumptionCorePlugin.PLUGIN_ID);
 
 
 	//private Definition wsdlDefinition = null;

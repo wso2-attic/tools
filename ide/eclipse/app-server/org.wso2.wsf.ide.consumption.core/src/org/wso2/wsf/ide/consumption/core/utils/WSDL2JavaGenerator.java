@@ -35,13 +35,13 @@ import org.apache.axis2.util.CommandLineOption;
 import org.apache.axis2.util.CommandLineOptionConstants.WSDL2JavaConstants;
 import org.apache.woden.WSDLException;
 import org.w3c.dom.Document;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.wsf.ide.consumption.core.plugin.WebServiceWSASConsumptionCorePlugin;
 import org.xml.sax.SAXException;
 
 public class WSDL2JavaGenerator {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASConsumptionCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASConsumptionCorePlugin.PLUGIN_ID);
 
     /**
      * Maps a string containing the name of a language to a constant defined in 

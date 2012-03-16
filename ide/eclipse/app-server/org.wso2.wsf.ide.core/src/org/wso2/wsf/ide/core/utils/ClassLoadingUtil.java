@@ -29,13 +29,13 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.wst.common.project.facet.core.IFacetedProject;
 import org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl;
 import org.eclipse.wst.common.project.facet.core.runtime.IRuntime;
-import org.wso2.carbonstudio.eclipse.logging.core.ICarbonStudioLog;
-import org.wso2.carbonstudio.eclipse.logging.core.Logger;
-import org.wso2.carbonstudio.eclipse.server.base.core.ServerController;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
 import org.wso2.wsf.ide.core.plugin.WebServiceWSASCorePlugin;
 
 public class ClassLoadingUtil {
-	private static ICarbonStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(WebServiceWSASCorePlugin.PLUGIN_ID);
 
 	private static String[] wsasClassPath = null;
 	private static List<String> tmpClassPaths = null;

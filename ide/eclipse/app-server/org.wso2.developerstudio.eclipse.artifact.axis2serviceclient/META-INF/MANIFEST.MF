@@ -1,15 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Axis2serviceclient
-Bundle-SymbolicName: org.wso2.carbonstudio.eclipse.artifact.axis2serviceclient;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.axis2serviceclient;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: org.wso2.carbonstudio.eclipse.artifact.axis2serviceclient.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.Activator
 Bundle-Vendor: WSO2 Inc
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.carbonstudio.eclipse.libraries,
+ org.wso2.developerstudio.eclipse.libraries,
  org.eclipse.jdt.ui,
- org.wso2.carbonstudio.eclipse.utils
+ org.wso2.developerstudio.eclipse.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.wsdl,
@@ -21,10 +21,10 @@ Import-Package: javax.wsdl,
  org.eclipse.jdt.internal.ui.wizards,
  org.eclipse.jst.ws.internal.common,
  org.eclipse.wst.command.internal.env.core.common,
- org.wso2.carbonstudio.eclipse.logging.core,
- org.wso2.carbonstudio.eclipse.utils.data,
- org.wso2.carbonstudio.eclipse.utils.file,
- org.wso2.carbonstudio.eclipse.utils.jdt,
- org.wso2.carbonstudio.eclipse.utils.project,
- org.wso2.carbonstudio.eclipse.utils.template,
- org.wso2.carbonstudio.eclipse.utils.wst
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.utils.data,
+ org.wso2.developerstudio.eclipse.utils.file,
+ org.wso2.developerstudio.eclipse.utils.jdt,
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.template,
+ org.wso2.developerstudio.eclipse.utils.wst
