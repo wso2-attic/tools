@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.platform.core.Activator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +53,8 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 		setEdit(multiEdit);
 
 		setSaveMode(FORCE_SAVE);
-		
-//		addEdit(new ReplaceEdit(991, 229, "\n"));
+
+		// addEdit(new ReplaceEdit(991, 229, "\n"));
 
 		if (pomFile.exists()) {
 			identifyDepenencyEntry();
@@ -61,6 +62,8 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 	}
 
 	private void identifyDepenencyEntry() {
+		FileReader fileReader = null;
+		BufferedReader reader = null;
 		try {
 			int fullIndex = 0;
 			int startIndex = 0;
@@ -84,9 +87,8 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 			Dependency dependencyForTheProject =
 			                                     ProjectRefactorUtils.getDependencyForTheProject(deletingProject);
 
-			BufferedReader reader =
-			                        new BufferedReader(new FileReader(pomFile.getLocation()
-			                                                                 .toFile()));
+			fileReader = new FileReader(pomFile.getLocation().toFile());
+			reader = new BufferedReader(fileReader);
 
 			String line = reader.readLine();
 
@@ -107,8 +109,8 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 						int dependencyEntryindex = line.indexOf(dependencyStart);
 						startIndex = fullIndex + dependencyEntryindex;
 						if (dependencyEntryindex != -1) {
-	                        dependencyEntry.add(line.substring(dependencyEntryindex));
-                        }
+							dependencyEntry.add(line.substring(dependencyEntryindex));
+						}
 					}
 
 					if (isDependency) {
@@ -129,13 +131,16 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 								}
 							}
 						}
-						
-						if(isGroupMatch && line.contains(artifactIdStart) && line.contains(artifactIdEnd)){
+
+						if (isGroupMatch && line.contains(artifactIdStart) &&
+						    line.contains(artifactIdEnd)) {
 							if (line.contains(dependencyForTheProject.getArtifactId())) {
 								int start = line.indexOf(artifactIdStart);
 								int end = line.indexOf(artifactIdEnd);
 
-								String artifactId = line.substring(start + artifactIdStart.length(), end);
+								String artifactId =
+								                    line.substring(start + artifactIdStart.length(),
+								                                   end);
 								if (artifactId.equalsIgnoreCase(dependencyForTheProject.getArtifactId())) {
 									isArtifactMatch = true;
 									if (!dependencyEntry.contains(line)) {
@@ -147,8 +152,9 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 								}
 							}
 						}
-						
-						if(isGroupMatch && isArtifactMatch && line.contains(versionStart) && line.contains(versionEnd)){
+
+						if (isGroupMatch && isArtifactMatch && line.contains(versionStart) &&
+						    line.contains(versionEnd)) {
 							if (line.contains(dependencyForTheProject.getVersion())) {
 								int start = line.indexOf(versionStart);
 								int end = line.indexOf(versionEnd);
@@ -164,8 +170,8 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 									dependencyEntry.clear();
 								}
 							}
-						}	
-						
+						}
+
 						if (isGroupMatch && isArtifactMatch && isVersionMatch) {
 							if (line.contains(dependencyEnd)) {
 								int end = line.indexOf(dependencyEnd) + dependencyEnd.length();
@@ -180,7 +186,7 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 								}
 
 								addEdit(new ReplaceEdit(startIndex, length, ""));
-								
+
 								dependencyEntry.clear();
 								break;
 							} else {
@@ -189,15 +195,30 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 								}
 							}
 						}
-						
+
 					}
 
 				}
-				fullIndex+=ProjectRefactorUtils.charsOnTheLine(line);
-				line=reader.readLine();
+				fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
+				line = reader.readLine();
 			}
 		} catch (Exception e) {
 			log.error("Error occured while trying to generate the Refactoring for the project", e);
+		}finally{
+			try {
+	            if (fileReader != null) {
+	                fileReader.close();
+                }
+            } catch (IOException e) {
+            	log.error("Error occured while trying to close the file stream", e);
+            }
+			try {
+				if (reader != null) {
+	                reader.close();
+                }
+            } catch (IOException e) {
+            	log.error("Error occured while trying to close the file stream.", e);
+            }
 		}
 
 	}
