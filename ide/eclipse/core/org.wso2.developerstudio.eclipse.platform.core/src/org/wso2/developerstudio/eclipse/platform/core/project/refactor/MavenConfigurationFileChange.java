@@ -80,11 +80,6 @@ public class MavenConfigurationFileChange extends TextFileChange {
 		}
 	}
 
-	private int charsOnTheLine(String line) {
-		// Here we need to add one to represent the newline character
-		return line.length() + 1;
-	}
-
 	private void identifyIdArtifactReplacement() throws IOException {
 		int fullIndex = 0;
 		BufferedReader reader = new BufferedReader(new FileReader(pomFile.getLocation().toFile()));
@@ -114,7 +109,7 @@ public class MavenConfigurationFileChange extends TextFileChange {
 
 				}
 			}
-			fullIndex += charsOnTheLine(line);
+			fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
 			previousLine = line;
 			line = reader.readLine();
 		}
@@ -150,7 +145,7 @@ public class MavenConfigurationFileChange extends TextFileChange {
 					break;
 				}
 			}
-			fullIndex += charsOnTheLine(line);
+			fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
 			previousLine = line;
 			line = reader.readLine();
 		}

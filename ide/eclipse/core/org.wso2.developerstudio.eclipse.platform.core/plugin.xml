@@ -326,4 +326,25 @@
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
    </extension>
+   <extension
+         point="org.eclipse.ltk.core.refactoring.deleteParticipants">
+       <deleteParticipant
+			class="org.wso2.developerstudio.eclipse.platform.core.project.refactor.ArtifactProjectDeleteParticipant"
+			id="ArtifactProjectDeleteParticipant"
+			name="ArtifactProjectDeleteParticipantRefactor">
+				<enablement>
+					<and>
+							<instanceof
+								value="org.eclipse.core.resources.IProject">
+							</instanceof>
+						<adapt type="org.eclipse.core.resources.IResource">
+             				<test
+                   				property="org.wso2.developerstudio.eclipse.artifactproject"
+                   				value="org.eclipse.core.resources.IProject">
+             				</test>
+         				</adapt>
+					</and>
+				</enablement>
+		</deleteParticipant>
+   </extension>
 </plugin>
