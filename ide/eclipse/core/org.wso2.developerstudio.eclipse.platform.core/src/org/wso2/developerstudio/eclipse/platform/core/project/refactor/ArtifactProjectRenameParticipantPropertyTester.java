@@ -22,7 +22,6 @@ import org.eclipse.core.resources.IProject;
 
 public class ArtifactProjectRenameParticipantPropertyTester extends PropertyTester {
 
-	@Override
 	public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
 		IProject projectToBeRenamed = (IProject) arg0;
 		if (projectToBeRenamed.isOpen()) {
