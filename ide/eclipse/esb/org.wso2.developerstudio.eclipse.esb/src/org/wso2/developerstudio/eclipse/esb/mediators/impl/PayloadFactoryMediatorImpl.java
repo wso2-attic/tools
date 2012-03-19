@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.validation.internal.util.Log;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -66,7 +66,7 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
      * @generated NOT
      * @ordered
      */
-    protected static final String FORMAT_EDEFAULT = "";
+    protected static final String FORMAT_EDEFAULT = "<inline/>";
 
     /**
      * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -289,8 +289,20 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		try {
+            Element formatElem = EsbUtils.parseElement(getFormat());
+        } catch (Exception e) {
+        	validateMap.put("Format", "Invalid payload format, must be valid xml");
+        }
+		if(getArgs().size()<=0){
+	    		validateMap.put("Arguments", "Must have at least one argument");
+		} 
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("PayloadFactory Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //PayloadFactoryMediatorImpl

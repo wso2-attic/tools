@@ -77,10 +77,10 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getArgumentValue()
-     * @generated
+     * @generated NOT
      * @ordered
      */
-    protected static final String ARGUMENT_VALUE_EDEFAULT = null;
+    protected static final String ARGUMENT_VALUE_EDEFAULT  = "Value";
 
     /**
      * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
@@ -114,7 +114,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 				.createNamespacedProperty();
         argumentExpression.setPrettyName("expression");
         argumentExpression.setPropertyName("Expression");
-        argumentExpression.setPropertyValue("");
+        argumentExpression.setPropertyValue("/default/expression");
 		setArgumentExpression(argumentExpression);
     }
 
@@ -357,8 +357,21 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if(getArgumentType()==PayloadFactoryArgumentType.VALUE){
+			if(null==getArgumentValue() || getArgumentValue().trim().isEmpty()){
+	    		validateMap.put("Argument Value", "Argument Value is empty");
+	    	}
+		} else{
+			if(null==getArgumentExpression().getPropertyValue() || getArgumentExpression().getPropertyValue().trim().isEmpty()){
+	    		validateMap.put("Argument Expression", "Argument Expression is empty");
+	    	}
+		}
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("PayloadFactory Argument", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //PayloadFactoryArgumentImpl

@@ -308,6 +308,22 @@
 							<feature name="valueURL" />
 						</event>											
 					</target>
+					<target class="CallTemplateParameter">
+						<event name="Set">
+							<feature name="parameterName" />
+							<feature name="parameterValue" />
+						</event>						
+					</target>
+					<target class="PayloadFactoryArgument">
+						<event name="Set">
+							<feature name="argumentValue" />
+						</event>						
+					</target>
+					<target class="PayloadFactoryMediator">
+						<event name="Set">
+							<feature name="format" />
+						</event>						
+					</target>
 				</constraint>
 				<constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
@@ -349,7 +365,12 @@
 						<event name="Set">							
 							<feature name="valueXML" />
 						</event>											
-					</target>															
+					</target>
+					<target class="PayloadFactoryMediator">
+						<event name="Set">
+							<feature name="format" />
+						</event>						
+					</target>																
 				</constraint>
 				<constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryNamespacedPropertyConstraint"
@@ -460,6 +481,16 @@
 					<target class="SqlParameterDefinition">
 						<event name="Set">
 							<feature name="valueExpression" />
+						</event>						
+					</target>
+					<target class="CallTemplateParameter">
+						<event name="Set">
+							<feature name="parameterExpression" />
+						</event>						
+					</target>
+					<target class="PayloadFactoryArgument">
+						<event name="Set">
+							<feature name="argumentExpression" />
 						</event>						
 					</target>										
 				</constraint>				

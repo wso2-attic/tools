@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,10 +55,10 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #getParameterName()
-     * @generated
+     * @generated NOT
      * @ordered
      */
-	protected static final String PARAMETER_NAME_EDEFAULT = null;
+	protected static final String PARAMETER_NAME_EDEFAULT = "Parameter";
 	/**
      * The cached value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -90,10 +91,10 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @see #getParameterValue()
-     * @generated
+     * @generated NOT
      * @ordered
      */
-	protected static final String PARAMETER_VALUE_EDEFAULT = null;
+	protected static final String PARAMETER_VALUE_EDEFAULT  = "Value";
 	/**
      * The cached value of the '{@link #getParameterValue() <em>Parameter Value</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -120,6 +121,13 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
      */
 	protected CallTemplateParameterImpl() {
         super();
+        NamespacedProperty expression = getEsbFactory().createNamespacedProperty();
+		expression.setPrettyName("Expression");
+		expression.setPropertyName("expression");
+		expression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
+		setParameterExpression(expression);
+		setParameterName(parameterName);
+		setParameterValue(parameterValue);
     }
 	
 	/**
@@ -405,8 +413,29 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+    	if(null==getParameterName() || getParameterName().trim().isEmpty()){
+    		validateMap.put("Parameter Name", "Parameter Name is empty");
+    	}
+		switch (getTemplateParameterType()) {
+			case VALUE:
+				if (null == getParameterValue() || getParameterValue().trim().isEmpty()) {
+					validateMap.put("Parameter Value", "Parameter Value is empty");
+				}
+				break;
+			case EXPRESSION:
+				if (null == getParameterExpression().getPropertyValue() ||
+				    getParameterExpression().getPropertyValue().trim().isEmpty()) {
+					validateMap.put("Parameter Expression", "Parameter Expression is empty");
+				}
+				break;
+		}
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("CallTemplate Parameter", objectValidator);
+	    return mediatorValidateMap;
     }
 
 	
