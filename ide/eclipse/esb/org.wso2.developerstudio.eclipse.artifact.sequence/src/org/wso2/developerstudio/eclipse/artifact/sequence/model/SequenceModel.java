@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.sequence.model;
 
 import java.io.File;
@@ -16,15 +32,20 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
 import org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class SequenceModel extends ProjectDataModel {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private boolean saveAsDynamic = false;
 	private String dynamicSeqRegistryPath = "conf:";
@@ -70,13 +91,13 @@ public class SequenceModel extends ProjectDataModel {
 					}
 					returnResult = false;
 				} catch (OMException e) {
-					e.printStackTrace();
+					log.error("Error reading object model", e);
 				} catch (XMLStreamException e) {
-					e.printStackTrace();
+					log.error("XML stream error", e);
 				} catch (IOException e) {
-					e.printStackTrace();
+					log.error("I/O error has occurred", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 			}
 		} else if (key.equals("dynamic.sequence")) {
@@ -165,7 +186,7 @@ public class SequenceModel extends ProjectDataModel {
 					}
 				}
 			} catch (CoreException e) {
-				e.printStackTrace();
+				log.error("An unexpected error has occurred", e);
 			}
 		}
 		IContainer newSequenceSaveLocation = null;
