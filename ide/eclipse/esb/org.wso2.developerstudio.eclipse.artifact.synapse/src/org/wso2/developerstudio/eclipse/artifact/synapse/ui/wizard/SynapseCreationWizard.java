@@ -98,7 +98,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				this.createNewSynapseConfig(SynapseClassTemplate.getRichTemplate());
 			} else if (synapseModel.getSelectedOption().equals("import.synapse.config")) {
 				if (synapseModel.isESBartifactsCreate()) {
-					List<OMElement> esbArtiList = synapseModel.getAvailablePLESList();
+					List<OMElement> esbArtiList = synapseModel.getSelectedArtifacts();
 					createESBArtifacts(esbArtiList);
 				} else {
 					File synConfig = new File(saveLocation.getLocation().toFile(),
@@ -112,7 +112,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			updatePom();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
-			if(MessageDialog.openQuestion(getShell(), "Open imported files in the Editor", "Do you like to open the imported files in Developer Studio?")){
+			if(MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor", "Do you like to open the file(s) in Developer Studio?")){
 				for (File file : fileList) {
 	                openEditor(file);
                 }

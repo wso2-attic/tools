@@ -32,18 +32,25 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.artifact.synapse.Activator;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class SynapseModel extends ProjectDataModel {
 	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private String name;
 	private IContainer esbProject;
 	private List<OMElement> availablePLESList;
+	private List<OMElement> selectedArtifacts=new ArrayList<OMElement>();
 	private boolean isESBartifactsCreate;
+	
  	public Object getModelPropertyValue(String key) {
 	  Object modelPropertyValue = super.getModelPropertyValue(key);
 	  if(key.equals("config.name")){
@@ -51,8 +58,8 @@ public class SynapseModel extends ProjectDataModel {
 		}else if(key.equals("save.file")){
 			modelPropertyValue = getEsbProject();
 		}else if(key.equals("available.af")){
-			if(getAvailablePLESList()!=null){
-				modelPropertyValue = getAvailablePLESList().toArray();
+			if(getSelectedArtifacts()!=null){
+				modelPropertyValue = getSelectedArtifacts().toArray();
 			}
 		}else if(key.equals("create.esb.af")){
 			modelPropertyValue = isESBartifactsCreate();
@@ -85,15 +92,24 @@ public class SynapseModel extends ProjectDataModel {
 					}
 					 isUiControlUpdated = false;
 				} catch (OMException e) {
-					e.printStackTrace();
+					log.error("Error reading object model", e);
 				} catch (XMLStreamException e) {
-					e.printStackTrace();
-				} catch (IOException e){
-					e.printStackTrace();
+					log.error("XML stream error", e);
+				} catch (IOException e) {
+					log.error("I/O error has occurred", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 			}
+		} else if (key.equals("available.af")){
+			Object[] selectedEPs = (Object[])data;
+			if(selectedArtifacts!=null ) selectedArtifacts.clear();
+			for (Object object : selectedEPs) {
+				if(object instanceof OMElement){
+					selectedArtifacts.add((OMElement)object);
+				}
+			}
+			setSelectedArtifacts(selectedArtifacts);
 		}
 		return isUiControlUpdated;
 	}
@@ -148,7 +164,7 @@ public class SynapseModel extends ProjectDataModel {
 					}
 				}
 			} catch (CoreException e) {
-				e.printStackTrace();
+				log.error("An unexpected error has occurred", e);
 			}
 		}
 		IContainer newLocalEntrySaveLocation = null;
@@ -181,6 +197,14 @@ public class SynapseModel extends ProjectDataModel {
 
 	public boolean isESBartifactsCreate() {
 		return isESBartifactsCreate;
+	}
+
+	public void setSelectedArtifacts(List<OMElement> selectedArtifacts) {
+		this.selectedArtifacts = selectedArtifacts;
+	}
+
+	public List<OMElement> getSelectedArtifacts() {
+		return selectedArtifacts;
 	}
 
 }

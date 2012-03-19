@@ -32,12 +32,8 @@ import java.util.List;
 public class SynapseArtfactExportHandler extends ProjectArtifactHandler{
 	private static final String FILE_EXTENSION = "xml";
 
-    public List<IResource> exportArtifact(IProject project) {
+    public List<IResource> exportArtifact(IProject project) throws Exception  {
     	List<IResource> exportResources = new ArrayList<IResource>();
-		if(!project.isOpen()){
-			return exportResources;
-		}
-		try {
 			 File[] xmlfiles = FileUtils.getAllMatchingFiles(project.getLocation()
 					.toString(), null, FILE_EXTENSION,
 					   new ArrayList<File>());
@@ -51,9 +47,6 @@ public class SynapseArtfactExportHandler extends ProjectArtifactHandler{
 					exportResources.add((IResource) xmlFileRef);
 				}
 			 }
-        } catch (Exception e) {
-	        e.printStackTrace();
-        }
 		return exportResources;
     }
     
