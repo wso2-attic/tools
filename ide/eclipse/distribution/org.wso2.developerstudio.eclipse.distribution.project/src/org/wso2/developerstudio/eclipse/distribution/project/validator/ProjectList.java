@@ -28,6 +28,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.Constants;
@@ -35,10 +36,14 @@ import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUti
 import org.wso2.developerstudio.eclipse.distribution.project.util.ServerRoleMapping;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class ProjectList extends AbstractListDataProvider {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public List<ListData> getListData(String modelProperty,ProjectDataModel model) {
 		List<ListData> list = new ArrayList<ListData>();
@@ -133,7 +138,7 @@ public class ProjectList extends AbstractListDataProvider {
 				}
 			}
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("Error reading project list", e);
 			}
 		}
 		return list;

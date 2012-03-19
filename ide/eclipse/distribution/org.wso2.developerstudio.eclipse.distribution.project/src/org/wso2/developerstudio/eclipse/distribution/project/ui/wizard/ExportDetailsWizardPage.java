@@ -41,9 +41,15 @@ import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.util.Constants;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class ExportDetailsWizardPage extends WizardPage {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private Text txtExportPath;
 	private Combo cmbProjects;
 	private IProject selectedProject;
@@ -59,7 +65,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 				setSelectedProject(project);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error reading project", e);
 		}
 	}
 

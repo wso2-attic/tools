@@ -22,9 +22,14 @@ import java.io.InputStream;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.content.IContentDescription;
 import org.eclipse.core.runtime.content.XMLContentDescriber;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 public class POMDescriber extends XMLContentDescriber {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public int describe(InputStream input, IContentDescription description)
 			throws IOException {
@@ -34,7 +39,7 @@ public class POMDescriber extends XMLContentDescriber {
 				return VALID;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.warn(e);
 		}
 		return INVALID;
 	}
