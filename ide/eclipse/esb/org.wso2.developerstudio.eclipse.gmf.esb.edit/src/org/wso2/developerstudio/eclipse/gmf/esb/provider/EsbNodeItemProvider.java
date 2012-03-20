@@ -52,7 +52,7 @@ public class EsbNodeItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -68,7 +68,7 @@ public class EsbNodeItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String getText(Object object) {
 		return getString("_UI_EsbNode_type");
 	}
@@ -81,7 +81,7 @@ public class EsbNodeItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
@@ -95,7 +95,7 @@ public class EsbNodeItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -107,7 +107,7 @@ public class EsbNodeItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return EsbEditPlugin.INSTANCE;
 	}

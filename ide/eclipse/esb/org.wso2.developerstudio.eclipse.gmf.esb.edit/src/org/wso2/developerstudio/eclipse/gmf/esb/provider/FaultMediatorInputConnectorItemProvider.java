@@ -51,7 +51,7 @@ public class FaultMediatorInputConnectorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -67,7 +67,7 @@ public class FaultMediatorInputConnectorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/FaultMediatorInputConnector"));
 	}
@@ -79,7 +79,7 @@ public class FaultMediatorInputConnectorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String getText(Object object) {
 		return getString("_UI_FaultMediatorInputConnector_type");
 	}
@@ -92,7 +92,7 @@ public class FaultMediatorInputConnectorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
@@ -106,7 +106,7 @@ public class FaultMediatorInputConnectorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}

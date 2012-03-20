@@ -224,7 +224,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
@@ -243,7 +243,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
@@ -258,7 +258,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/SmooksMediator"));
 	}
@@ -270,7 +270,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String getText(Object object) {
 		SmooksMediator smooksMediator = (SmooksMediator)object;
 		return getString("_UI_SmooksMediator_type") + " " + smooksMediator.isReverse();
@@ -284,7 +284,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -308,7 +308,7 @@ public class SmooksMediatorItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 

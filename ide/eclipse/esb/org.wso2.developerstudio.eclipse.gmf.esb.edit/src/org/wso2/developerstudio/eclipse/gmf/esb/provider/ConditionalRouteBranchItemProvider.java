@@ -60,7 +60,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -99,7 +99,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConditionalRouteBranch"));
 	}
@@ -111,7 +111,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String getText(Object object) {
 		ConditionalRouteBranch conditionalRouteBranch = (ConditionalRouteBranch)object;
 		return getString("_UI_ConditionalRouteBranch_type") + " " + conditionalRouteBranch.isBreakRoute();
@@ -125,7 +125,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -145,7 +145,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -157,7 +157,7 @@ public class ConditionalRouteBranchItemProvider
 	 * @generated
 	 */
 	
-	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return EsbEditPlugin.INSTANCE;
 	}
