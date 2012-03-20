@@ -1361,7 +1361,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 			break;
 		}
 		}
-	
+	    /* commenting out to fix TOOLS-958
 		Command setAttribCommand = SetCommand
 				.create(getEditingDomain(),
 						synapseConfiguration,
@@ -1372,7 +1372,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 		if (setAttribCommand.canExecute()) {
 			getEditingDomain().getCommandStack().execute(setAttribCommand);
 		}
-		
+		*/
 		
 	}
 

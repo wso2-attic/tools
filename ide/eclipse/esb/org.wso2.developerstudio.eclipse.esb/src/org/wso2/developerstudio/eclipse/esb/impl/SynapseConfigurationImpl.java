@@ -90,12 +90,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	 */
 	public void doLoad(Element self) throws Exception {		
 		
-		//System.out.println("bbbbbbbbbb"+self.getAttributes().getLength());
-		//System.out.println("bbbbbbbbbb"+self.getAttribute("xsi:schemaLocation"));
 		
-		//if (self.hasAttribute("schemaLocation")) {
-			setSchemaLocation(self.getAttribute("xsi:schemaLocation"));
-    	//}
 		
 		loadObjects(self, ConfigurationElement.class, new ObjectHandler<ConfigurationElement>() {
 			public void handle(ConfigurationElement object) {
@@ -110,7 +105,6 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 	public Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "definitions");
 		
-		self.setAttribute("xsi:schemaLocation", getSchemaLocation());
 		
 		for (ConfigurationElement child : getConfigurationElements()) {
 			child.save(self);
