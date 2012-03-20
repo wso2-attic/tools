@@ -324,6 +324,11 @@
 							<feature name="format" />
 						</event>						
 					</target>
+					<target class="StoreMediator">
+						<event name="Set">
+							<feature name="messageStore" />
+						</event>						
+					</target>
 				</constraint>
 				<constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"

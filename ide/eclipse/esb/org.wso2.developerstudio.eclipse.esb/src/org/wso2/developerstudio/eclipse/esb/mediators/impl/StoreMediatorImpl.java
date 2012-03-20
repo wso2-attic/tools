@@ -54,10 +54,10 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
      * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
      * @see #getMessageStore()
-     * @generated
+     * @generated NOT
      * @ordered
      */
-	protected static final String MESSAGE_STORE_EDEFAULT = "<test/>";
+	protected static final String MESSAGE_STORE_EDEFAULT = "messageStore";
 	/**
      * The cached value of the '{@link #getMessageStore() <em>Message Store</em>}' attribute.
      * <!-- begin-user-doc --> <!--
@@ -289,7 +289,17 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-    	return new HashMap<String, ObjectValidator>();
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		 
+    	if(null==getMessageStore() || getMessageStore().trim().isEmpty()){
+    		validateMap.put("MessageStore", "MessageStore is empty");
+    	}
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Store Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } // StoreMediatorImpl
