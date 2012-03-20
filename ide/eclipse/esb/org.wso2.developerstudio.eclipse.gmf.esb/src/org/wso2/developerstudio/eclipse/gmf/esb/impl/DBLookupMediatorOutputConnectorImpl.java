@@ -36,7 +36,7 @@ public class DBLookupMediatorOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DB_LOOKUP_MEDIATOR_OUTPUT_CONNECTOR;
 	}

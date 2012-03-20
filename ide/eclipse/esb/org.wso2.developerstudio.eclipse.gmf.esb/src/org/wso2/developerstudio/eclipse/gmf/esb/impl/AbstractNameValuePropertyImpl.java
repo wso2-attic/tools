@@ -86,7 +86,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ABSTRACT_NAME_VALUE_PROPERTY;
 	}
@@ -139,7 +139,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
@@ -156,7 +156,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
@@ -175,7 +175,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
@@ -194,7 +194,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
@@ -211,7 +211,7 @@ public abstract class AbstractNameValuePropertyImpl extends EObjectImpl implemen
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

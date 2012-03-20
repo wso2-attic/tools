@@ -148,7 +148,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.EVENT_MEDIATOR;
 	}
@@ -373,7 +373,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
@@ -394,7 +394,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -419,7 +419,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -450,7 +450,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -481,7 +481,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.EVENT_MEDIATOR__TOPIC_TYPE:
@@ -506,7 +506,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

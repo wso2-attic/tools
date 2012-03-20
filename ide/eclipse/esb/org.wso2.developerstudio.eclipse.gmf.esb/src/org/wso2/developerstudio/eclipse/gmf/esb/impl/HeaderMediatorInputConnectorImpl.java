@@ -35,7 +35,7 @@ public class HeaderMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.HEADER_MEDIATOR_INPUT_CONNECTOR;
 	}

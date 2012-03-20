@@ -35,7 +35,7 @@ public class CalloutMediatorInputConnectorImpl extends InputConnectorImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CALLOUT_MEDIATOR_INPUT_CONNECTOR;
 	}

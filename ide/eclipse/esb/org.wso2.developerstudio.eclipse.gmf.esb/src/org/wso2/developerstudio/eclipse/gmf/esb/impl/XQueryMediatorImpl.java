@@ -183,7 +183,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XQUERY_MEDIATOR;
 	}
@@ -485,7 +485,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
@@ -512,7 +512,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
@@ -541,7 +541,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -580,7 +580,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
@@ -617,7 +617,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XQUERY_MEDIATOR__VARIABLES:
@@ -646,7 +646,7 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

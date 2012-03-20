@@ -131,7 +131,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SEQUENCE;
 	}
@@ -282,7 +282,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SEQUENCE__INPUT_CONNECTOR:
@@ -301,7 +301,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SEQUENCE__NAME:
@@ -325,7 +325,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 */
 	
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SEQUENCE__NAME:
@@ -354,7 +354,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SEQUENCE__NAME:
@@ -382,7 +382,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SEQUENCE__NAME:
@@ -405,7 +405,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

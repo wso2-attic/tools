@@ -58,7 +58,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EsbPackage.ESB_DIAGRAM: return createEsbDiagram();
@@ -260,7 +260,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.PROXY_WSDL_TYPE:
@@ -406,7 +406,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.PROXY_WSDL_TYPE:
@@ -716,7 +716,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public DefaultEndPoint createDefaultEndPoint() {
 		DefaultEndPointImpl defaultEndPoint = new DefaultEndPointImpl();
 		defaultEndPoint.setInputConnector(createDefaultEndPointInputConnector());
-		defaultEndPoint.setOutputConnector(createDefaultEndPointOutputConnector());
 		return defaultEndPoint;
 	}
 
@@ -899,7 +898,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AddressEndPoint createAddressEndPoint() {
 		AddressEndPointImpl addressEndPoint = new AddressEndPointImpl();
 		addressEndPoint.setInputConnector(createAddressEndPointInputConnector());
-		addressEndPoint.setOutputConnector(createAddressEndPointOutputConnector());
 		return addressEndPoint;
 	}
 
@@ -2384,8 +2382,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public FailoverEndPoint createFailoverEndPoint() {
 		FailoverEndPointImpl failoverEndPoint = new FailoverEndPointImpl();
 		failoverEndPoint.setInputConnector(createFailoverEndPointInputConnector());
-		failoverEndPoint.setWestOutputConnector(createFailoverEndPointWestOutputConnector());
-		//failoverEndPoint.getOutputConnector().add(createFailoverEndPointOutputConnector());
 		return failoverEndPoint;
 	}
 
@@ -2437,7 +2433,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public WSDLEndPoint createWSDLEndPoint() {
 		WSDLEndPointImpl wsdlEndPoint = new WSDLEndPointImpl();
 		wsdlEndPoint.setInputConnector(createWSDLEndPointInputConnector());
-		wsdlEndPoint.setOutputConnector(createWSDLEndPointOutputConnector());
 		return wsdlEndPoint;
 	}
 
@@ -2488,9 +2483,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 */
 	public LoadBalanceEndPoint createLoadBalanceEndPoint() {
 		LoadBalanceEndPointImpl loadBalanceEndPoint = new LoadBalanceEndPointImpl();		
-		loadBalanceEndPoint.setInputConnector(createLoadBalanceEndPointInputConnector());
-		loadBalanceEndPoint.setWestOutputConnector(createLoadBalanceEndPointWestOutputConnector());
-		//loadBalanceEndPoint.getOutputConnector().add(createLoadBalanceEndPointOutputConnector());		
+		loadBalanceEndPoint.setInputConnector(createLoadBalanceEndPointInputConnector());	
 		return loadBalanceEndPoint;
 	}
 

@@ -38,7 +38,7 @@ public abstract class EsbNodeImpl extends EObjectImpl implements EsbNode {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_NODE;
 	}

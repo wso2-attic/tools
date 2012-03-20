@@ -90,7 +90,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ADDRESS_END_POINT;
 	}
@@ -208,7 +208,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ADDRESS_END_POINT__INPUT_CONNECTOR:
@@ -225,7 +225,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ADDRESS_END_POINT__INPUT_CONNECTOR:
@@ -244,7 +244,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ADDRESS_END_POINT__INPUT_CONNECTOR:
@@ -266,7 +266,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ADDRESS_END_POINT__INPUT_CONNECTOR:
@@ -288,7 +288,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ADDRESS_END_POINT__INPUT_CONNECTOR:
@@ -307,7 +307,7 @@ public class AddressEndPointImpl extends AbstractEndPointImpl implements Address
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

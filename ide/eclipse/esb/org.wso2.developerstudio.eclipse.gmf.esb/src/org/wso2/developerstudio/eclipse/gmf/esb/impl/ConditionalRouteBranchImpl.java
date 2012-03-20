@@ -65,7 +65,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CONDITIONAL_ROUTE_BRANCH;
 	}
@@ -97,7 +97,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE:
@@ -112,7 +112,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE:
@@ -128,7 +128,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE:
@@ -144,7 +144,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE:
@@ -159,7 +159,7 @@ public class ConditionalRouteBranchImpl extends EObjectImpl implements Condition
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

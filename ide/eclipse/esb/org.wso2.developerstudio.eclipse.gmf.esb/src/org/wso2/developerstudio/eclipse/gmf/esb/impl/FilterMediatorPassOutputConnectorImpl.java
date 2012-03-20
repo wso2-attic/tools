@@ -36,7 +36,7 @@ public class FilterMediatorPassOutputConnectorImpl extends OutputConnectorImpl i
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FILTER_MEDIATOR_PASS_OUTPUT_CONNECTOR;
 	}

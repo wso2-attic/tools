@@ -340,7 +340,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		return literal;
 	}

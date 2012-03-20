@@ -35,7 +35,7 @@ public class CloneMediatorOutputConnectorImpl extends OutputConnectorImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CLONE_MEDIATOR_OUTPUT_CONNECTOR;
 	}

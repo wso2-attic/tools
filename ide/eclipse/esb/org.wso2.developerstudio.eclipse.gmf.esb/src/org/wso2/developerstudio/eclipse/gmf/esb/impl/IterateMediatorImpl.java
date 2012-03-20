@@ -204,7 +204,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ITERATE_MEDIATOR;
 	}
@@ -514,7 +514,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ITERATE_MEDIATOR__ITERATE_EXPRESSION:
@@ -537,7 +537,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ITERATE_MEDIATOR__ITERATE_ID:
@@ -568,7 +568,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ITERATE_MEDIATOR__ITERATE_ID:
@@ -608,7 +608,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ITERATE_MEDIATOR__ITERATE_ID:
@@ -648,7 +648,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ITERATE_MEDIATOR__ITERATE_ID:
@@ -679,7 +679,7 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

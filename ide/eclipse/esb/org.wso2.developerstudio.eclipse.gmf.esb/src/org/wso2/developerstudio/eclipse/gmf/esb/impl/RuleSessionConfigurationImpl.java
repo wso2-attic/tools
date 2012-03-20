@@ -86,7 +86,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_SESSION_CONFIGURATION;
 	}
@@ -130,7 +130,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
@@ -145,7 +145,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
@@ -162,7 +162,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -183,7 +183,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
@@ -202,7 +202,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
@@ -219,7 +219,7 @@ public class RuleSessionConfigurationImpl extends EObjectImpl implements RuleSes
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

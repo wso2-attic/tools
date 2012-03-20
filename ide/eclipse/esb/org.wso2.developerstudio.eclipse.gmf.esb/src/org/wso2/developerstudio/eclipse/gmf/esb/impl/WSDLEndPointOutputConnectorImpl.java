@@ -35,7 +35,7 @@ public class WSDLEndPointOutputConnectorImpl extends OutputConnectorImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.WSDL_END_POINT_OUTPUT_CONNECTOR;
 	}

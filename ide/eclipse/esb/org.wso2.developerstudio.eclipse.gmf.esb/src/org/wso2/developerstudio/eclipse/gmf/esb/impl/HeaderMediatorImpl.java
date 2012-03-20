@@ -171,7 +171,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.HEADER_MEDIATOR;
 	}
@@ -417,7 +417,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
@@ -438,7 +438,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
@@ -465,7 +465,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
@@ -499,7 +499,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
@@ -533,7 +533,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
@@ -560,7 +560,7 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

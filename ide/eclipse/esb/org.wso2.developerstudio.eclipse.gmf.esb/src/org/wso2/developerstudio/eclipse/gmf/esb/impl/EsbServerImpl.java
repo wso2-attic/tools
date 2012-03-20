@@ -75,7 +75,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_SERVER;
 	}
@@ -141,7 +141,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ESB_SERVER__CHILDREN:
@@ -158,7 +158,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ESB_SERVER__CHILDREN:
@@ -175,7 +175,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -196,7 +196,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_SERVER__CHILDREN:
@@ -215,7 +215,7 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_SERVER__CHILDREN:

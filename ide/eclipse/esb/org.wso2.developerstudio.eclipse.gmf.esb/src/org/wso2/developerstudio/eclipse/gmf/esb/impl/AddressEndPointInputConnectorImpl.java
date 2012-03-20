@@ -36,7 +36,7 @@ public class AddressEndPointInputConnectorImpl extends InputConnectorImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ADDRESS_END_POINT_INPUT_CONNECTOR;
 	}

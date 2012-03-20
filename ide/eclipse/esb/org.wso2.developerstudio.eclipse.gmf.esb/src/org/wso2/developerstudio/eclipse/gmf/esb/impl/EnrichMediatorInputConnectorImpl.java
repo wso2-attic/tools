@@ -36,7 +36,7 @@ public class EnrichMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ENRICH_MEDIATOR_INPUT_CONNECTOR;
 	}

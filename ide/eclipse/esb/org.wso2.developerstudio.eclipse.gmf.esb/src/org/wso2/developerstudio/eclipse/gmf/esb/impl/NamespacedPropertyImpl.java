@@ -121,7 +121,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.NAMESPACED_PROPERTY;
 	}
@@ -216,7 +216,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
@@ -237,7 +237,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -263,7 +263,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
@@ -288,7 +288,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
@@ -309,7 +309,7 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

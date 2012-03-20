@@ -35,7 +35,7 @@ public class FailoverEndPointOutputConnectorImpl extends OutputConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FAILOVER_END_POINT_OUTPUT_CONNECTOR;
 	}

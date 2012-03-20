@@ -109,7 +109,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.COMMAND_MEDIATOR;
 	}
@@ -239,7 +239,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_MEDIATOR__PROPERTIES:
@@ -258,7 +258,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_MEDIATOR__CLASS_NAME:
@@ -279,7 +279,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -306,7 +306,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_MEDIATOR__CLASS_NAME:
@@ -331,7 +331,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.COMMAND_MEDIATOR__CLASS_NAME:
@@ -352,7 +352,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

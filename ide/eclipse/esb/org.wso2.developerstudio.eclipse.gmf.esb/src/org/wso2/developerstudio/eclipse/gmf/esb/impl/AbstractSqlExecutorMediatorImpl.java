@@ -488,7 +488,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ABSTRACT_SQL_EXECUTOR_MEDIATOR;
 	}
@@ -931,7 +931,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_SQL_EXECUTOR_MEDIATOR__SQL_STATEMENTS:
@@ -946,7 +946,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_SQL_EXECUTOR_MEDIATOR__CONNECTION_TYPE:
@@ -1001,7 +1001,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -1079,7 +1079,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_SQL_EXECUTOR_MEDIATOR__CONNECTION_TYPE:
@@ -1155,7 +1155,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_SQL_EXECUTOR_MEDIATOR__CONNECTION_TYPE:
@@ -1210,7 +1210,7 @@ public abstract class AbstractSqlExecutorMediatorImpl extends MediatorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

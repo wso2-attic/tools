@@ -78,7 +78,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ABSTRACT_LOCATION_KEY_RESOURCE;
 	}
@@ -153,7 +153,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__KEY:
@@ -168,7 +168,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__LOCATION:
@@ -185,7 +185,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__LOCATION:
@@ -204,7 +204,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__LOCATION:
@@ -223,7 +223,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__LOCATION:
@@ -240,7 +240,7 @@ public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -35,7 +35,7 @@ public class ThrottleMediatorInputConnectorImpl extends InputConnectorImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.THROTTLE_MEDIATOR_INPUT_CONNECTOR;
 	}

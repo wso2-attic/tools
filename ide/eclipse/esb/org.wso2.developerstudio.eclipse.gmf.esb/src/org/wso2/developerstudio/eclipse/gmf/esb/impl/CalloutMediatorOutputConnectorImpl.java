@@ -35,7 +35,7 @@ public class CalloutMediatorOutputConnectorImpl extends OutputConnectorImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CALLOUT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

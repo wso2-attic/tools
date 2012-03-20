@@ -212,7 +212,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.AGGREGATE_MEDIATOR;
 	}
@@ -534,7 +534,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
@@ -559,7 +559,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
@@ -593,7 +593,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 */
 	
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
@@ -637,7 +637,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
@@ -680,7 +680,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
@@ -713,7 +713,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

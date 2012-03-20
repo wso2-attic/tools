@@ -131,7 +131,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.REGISTRY_KEY_PROPERTY;
 	}
@@ -226,7 +226,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -247,7 +247,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -272,7 +272,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -297,7 +297,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
@@ -318,7 +318,7 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

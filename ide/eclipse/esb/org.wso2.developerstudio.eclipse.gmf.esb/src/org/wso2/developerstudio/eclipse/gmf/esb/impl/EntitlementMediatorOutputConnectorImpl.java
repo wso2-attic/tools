@@ -36,7 +36,7 @@ public class EntitlementMediatorOutputConnectorImpl extends OutputConnectorImpl 
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

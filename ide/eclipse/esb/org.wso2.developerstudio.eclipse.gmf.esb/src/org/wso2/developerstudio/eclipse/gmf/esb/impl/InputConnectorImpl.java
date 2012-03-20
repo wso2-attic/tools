@@ -57,7 +57,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.INPUT_CONNECTOR;
 	}
@@ -90,7 +90,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -106,7 +106,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.INPUT_CONNECTOR__INCOMING_LINKS:
@@ -121,7 +121,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.INPUT_CONNECTOR__INCOMING_LINKS:
@@ -136,7 +136,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -154,7 +154,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.INPUT_CONNECTOR__INCOMING_LINKS:
@@ -170,7 +170,7 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.INPUT_CONNECTOR__INCOMING_LINKS:

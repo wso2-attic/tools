@@ -313,7 +313,7 @@ public enum RuleResultType implements Enumerator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		return literal;
 	}

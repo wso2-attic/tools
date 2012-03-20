@@ -36,7 +36,7 @@ public class FaultMediatorOutputConnectorImpl extends OutputConnectorImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FAULT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

@@ -36,7 +36,7 @@ public class DBReportMediatorOutputConnectorImpl extends OutputConnectorImpl imp
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

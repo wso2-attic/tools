@@ -36,7 +36,7 @@ public class CommandMediatorOutputConnectorImpl extends OutputConnectorImpl impl
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.COMMAND_MEDIATOR_OUTPUT_CONNECTOR;
 	}

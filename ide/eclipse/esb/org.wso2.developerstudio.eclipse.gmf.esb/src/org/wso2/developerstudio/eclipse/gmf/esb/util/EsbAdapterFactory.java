@@ -53,7 +53,7 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -72,811 +72,815 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected EsbSwitch<Adapter> modelSwitch =
 		new EsbSwitch<Adapter>() {
-			
+			@Override
 			public Adapter caseEsbDiagram(EsbDiagram object) {
 				return createEsbDiagramAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbNode(EsbNode object) {
 				return createEsbNodeAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbElement(EsbElement object) {
 				return createEsbElementAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbServer(EsbServer object) {
 				return createEsbServerAdapter();
 			}
-			
+			@Override
 			public Adapter caseMediator(Mediator object) {
 				return createMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbConnector(EsbConnector object) {
 				return createEsbConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseInputConnector(InputConnector object) {
 				return createInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseOutputConnector(OutputConnector object) {
 				return createOutputConnectorAdapter();
 			}
-			
+			@Override
+			public Adapter caseAdditionalOutputConnector(AdditionalOutputConnector object) {
+				return createAdditionalOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseEsbLink(EsbLink object) {
 				return createEsbLinkAdapter();
 			}
-			
+			@Override
 			public Adapter caseEndPoint(EndPoint object) {
 				return createEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyService(ProxyService object) {
 				return createProxyServiceAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyOutputConnector(ProxyOutputConnector object) {
 				return createProxyOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyInputConnector(ProxyInputConnector object) {
 				return createProxyInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServiceParameter(ProxyServiceParameter object) {
 				return createProxyServiceParameterAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServicePolicy(ProxyServicePolicy object) {
 				return createProxyServicePolicyAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServiceInSequence(ProxyServiceInSequence object) {
 				return createProxyServiceInSequenceAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServiceOutSequence(ProxyServiceOutSequence object) {
 				return createProxyServiceOutSequenceAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServiceSequenceContainer(ProxyServiceSequenceContainer object) {
 				return createProxyServiceSequenceContainerAdapter();
 			}
-			
+			@Override
 			public Adapter caseProxyServiceEndpointContainer(ProxyServiceEndpointContainer object) {
 				return createProxyServiceEndpointContainerAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
 				return createAbstractEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseMessageMediator(MessageMediator object) {
 				return createMessageMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMessageInputConnector(MessageInputConnector object) {
 				return createMessageInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMessageOutputConnector(MessageOutputConnector object) {
 				return createMessageOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDefaultEndPoint(DefaultEndPoint object) {
 				return createDefaultEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseDefaultEndPointInputConnector(DefaultEndPointInputConnector object) {
 				return createDefaultEndPointInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDefaultEndPointOutputConnector(DefaultEndPointOutputConnector object) {
 				return createDefaultEndPointOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAddressEndPoint(AddressEndPoint object) {
 				return createAddressEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseAddressEndPointInputConnector(AddressEndPointInputConnector object) {
 				return createAddressEndPointInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAddressEndPointOutputConnector(AddressEndPointOutputConnector object) {
 				return createAddressEndPointOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDropMediator(DropMediator object) {
 				return createDropMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDropMediatorInputConnector(DropMediatorInputConnector object) {
 				return createDropMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFilterMediator(FilterMediator object) {
 				return createFilterMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFilterMediatorInputConnector(FilterMediatorInputConnector object) {
 				return createFilterMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFilterMediatorPassOutputConnector(FilterMediatorPassOutputConnector object) {
 				return createFilterMediatorPassOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFilterMediatorFailOutputConnector(FilterMediatorFailOutputConnector object) {
 				return createFilterMediatorFailOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMergeNode(MergeNode object) {
 				return createMergeNodeAdapter();
 			}
-			
+			@Override
 			public Adapter caseMergeNodeFirstInputConnector(MergeNodeFirstInputConnector object) {
 				return createMergeNodeFirstInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMergeNodeSecondInputConnector(MergeNodeSecondInputConnector object) {
 				return createMergeNodeSecondInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMergeNodeOutputConnector(MergeNodeOutputConnector object) {
 				return createMergeNodeOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLogMediator(LogMediator object) {
 				return createLogMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLogMediatorInputConnector(LogMediatorInputConnector object) {
 				return createLogMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLogMediatorOutputConnector(LogMediatorOutputConnector object) {
 				return createLogMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLogProperty(LogProperty object) {
 				return createLogPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseRegistryKeyProperty(RegistryKeyProperty object) {
 				return createRegistryKeyPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter casePropertyMediator(PropertyMediator object) {
 				return createPropertyMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter casePropertyMediatorInputConnector(PropertyMediatorInputConnector object) {
 				return createPropertyMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter casePropertyMediatorOutputConnector(PropertyMediatorOutputConnector object) {
 				return createPropertyMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseNamespacedProperty(NamespacedProperty object) {
 				return createNamespacedPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseEnrichMediator(EnrichMediator object) {
 				return createEnrichMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEnrichMediatorInputConnector(EnrichMediatorInputConnector object) {
 				return createEnrichMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEnrichMediatorOutputConnector(EnrichMediatorOutputConnector object) {
 				return createEnrichMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractNameValueExpressionProperty(AbstractNameValueExpressionProperty object) {
 				return createAbstractNameValueExpressionPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractBooleanFeature(AbstractBooleanFeature object) {
 				return createAbstractBooleanFeatureAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractLocationKeyResource(AbstractLocationKeyResource object) {
 				return createAbstractLocationKeyResourceAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTMediator(XSLTMediator object) {
 				return createXSLTMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTProperty(XSLTProperty object) {
 				return createXSLTPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTFeature(XSLTFeature object) {
 				return createXSLTFeatureAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTResource(XSLTResource object) {
 				return createXSLTResourceAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTMediatorInputConnector(XSLTMediatorInputConnector object) {
 				return createXSLTMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseXSLTMediatorOutputConnector(XSLTMediatorOutputConnector object) {
 				return createXSLTMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSwitchMediator(SwitchMediator object) {
 				return createSwitchMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSwitchCaseBranchOutputConnector(SwitchCaseBranchOutputConnector object) {
 				return createSwitchCaseBranchOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSwitchDefaultBranchOutputConnector(SwitchDefaultBranchOutputConnector object) {
 				return createSwitchDefaultBranchOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSwitchMediatorInputConnector(SwitchMediatorInputConnector object) {
 				return createSwitchMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSequenceDiagram(SequenceDiagram object) {
 				return createSequenceDiagramAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbSequence(EsbSequence object) {
 				return createEsbSequenceAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbSequenceInput(EsbSequenceInput object) {
 				return createEsbSequenceInputAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbSequenceOutput(EsbSequenceOutput object) {
 				return createEsbSequenceOutputAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbSequenceInputConnector(EsbSequenceInputConnector object) {
 				return createEsbSequenceInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEsbSequenceOutputConnector(EsbSequenceOutputConnector object) {
 				return createEsbSequenceOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSequence(Sequence object) {
 				return createSequenceAdapter();
 			}
-			
+			@Override
 			public Adapter caseSequenceInputConnector(SequenceInputConnector object) {
 				return createSequenceInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSequenceOutputConnector(SequenceOutputConnector object) {
 				return createSequenceOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEventMediator(EventMediator object) {
 				return createEventMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEventMediatorInputConnector(EventMediatorInputConnector object) {
 				return createEventMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEventMediatorOutputConnector(EventMediatorOutputConnector object) {
 				return createEventMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractNameValueProperty(AbstractNameValueProperty object) {
 				return createAbstractNameValuePropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseEntitlementMediator(EntitlementMediator object) {
 				return createEntitlementMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEntitlementMediatorInputConnector(EntitlementMediatorInputConnector object) {
 				return createEntitlementMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEntitlementMediatorOutputConnector(EntitlementMediatorOutputConnector object) {
 				return createEntitlementMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseEnqueueMediator(EnqueueMediator object) {
 				return createEnqueueMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseClassMediator(ClassMediator object) {
 				return createClassMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseClassMediatorInputConnector(ClassMediatorInputConnector object) {
 				return createClassMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseClassMediatorOutputConnector(ClassMediatorOutputConnector object) {
 				return createClassMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseClassProperty(ClassProperty object) {
 				return createClassPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseSpringMediator(SpringMediator object) {
 				return createSpringMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSpringMediatorInputConnector(SpringMediatorInputConnector object) {
 				return createSpringMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSpringMediatorOutputConnector(SpringMediatorOutputConnector object) {
 				return createSpringMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseValidateMediator(ValidateMediator object) {
 				return createValidateMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseValidateOnFailBranch(ValidateOnFailBranch object) {
 				return createValidateOnFailBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseValidateFeature(ValidateFeature object) {
 				return createValidateFeatureAdapter();
 			}
-			
+			@Override
 			public Adapter caseValidateSchema(ValidateSchema object) {
 				return createValidateSchemaAdapter();
 			}
-			
+			@Override
 			public Adapter caseScriptMediator(ScriptMediator object) {
 				return createScriptMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseScriptMediatorInputConnector(ScriptMediatorInputConnector object) {
 				return createScriptMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseScriptMediatorOutputConnector(ScriptMediatorOutputConnector object) {
 				return createScriptMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFaultMediator(FaultMediator object) {
 				return createFaultMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFaultMediatorInputConnector(FaultMediatorInputConnector object) {
 				return createFaultMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFaultMediatorOutputConnector(FaultMediatorOutputConnector object) {
 				return createFaultMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAggregateMediator(AggregateMediator object) {
 				return createAggregateMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAggregateMediatorInputConnector(AggregateMediatorInputConnector object) {
 				return createAggregateMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAggregateMediatorOutputConnector(AggregateMediatorOutputConnector object) {
 				return createAggregateMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAggregateMediatorOnCompleteOutputConnector(AggregateMediatorOnCompleteOutputConnector object) {
 				return createAggregateMediatorOnCompleteOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAggregateOnCompleteBranch(AggregateOnCompleteBranch object) {
 				return createAggregateOnCompleteBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseRouterMediator(RouterMediator object) {
 				return createRouterMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRouterRoute(RouterRoute object) {
 				return createRouterRouteAdapter();
 			}
-			
+			@Override
 			public Adapter caseRouteTarget(RouteTarget object) {
 				return createRouteTargetAdapter();
 			}
-			
+			@Override
 			public Adapter caseCloneMediator(CloneMediator object) {
 				return createCloneMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCloneMediatorInputConnector(CloneMediatorInputConnector object) {
 				return createCloneMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCloneMediatorOutputConnector(CloneMediatorOutputConnector object) {
 				return createCloneMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCloneMediatorTargetOutputConnector(CloneMediatorTargetOutputConnector object) {
 				return createCloneMediatorTargetOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseIterateMediator(IterateMediator object) {
 				return createIterateMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseIterateMediatorInputConnector(IterateMediatorInputConnector object) {
 				return createIterateMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseIterateMediatorOutputConnector(IterateMediatorOutputConnector object) {
 				return createIterateMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseIterateTarget(IterateTarget object) {
 				return createIterateTargetAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractCommonTarget(AbstractCommonTarget object) {
 				return createAbstractCommonTargetAdapter();
 			}
-			
+			@Override
 			public Adapter caseMediatorSequence(MediatorSequence object) {
 				return createMediatorSequenceAdapter();
 			}
-			
+			@Override
 			public Adapter caseCacheMediator(CacheMediator object) {
 				return createCacheMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCacheMediatorInputConnector(CacheMediatorInputConnector object) {
 				return createCacheMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCacheMediatorOutputConnector(CacheMediatorOutputConnector object) {
 				return createCacheMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCacheOnHitBranch(CacheOnHitBranch object) {
 				return createCacheOnHitBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseXQueryMediator(XQueryMediator object) {
 				return createXQueryMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseXQueryMediatorInputConnector(XQueryMediatorInputConnector object) {
 				return createXQueryMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseXQueryMediatorOutputConnector(XQueryMediatorOutputConnector object) {
 				return createXQueryMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseXQueryVariable(XQueryVariable object) {
 				return createXQueryVariableAdapter();
 			}
-			
+			@Override
 			public Adapter caseCalloutMediator(CalloutMediator object) {
 				return createCalloutMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCalloutMediatorInputConnector(CalloutMediatorInputConnector object) {
 				return createCalloutMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCalloutMediatorOutputConnector(CalloutMediatorOutputConnector object) {
 				return createCalloutMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRMSequenceMediator(RMSequenceMediator object) {
 				return createRMSequenceMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRMSequenceMediatorInputConnector(RMSequenceMediatorInputConnector object) {
 				return createRMSequenceMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRMSequenceMediatorOutputConnector(RMSequenceMediatorOutputConnector object) {
 				return createRMSequenceMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseTransactionMediator(TransactionMediator object) {
 				return createTransactionMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseTransactionMediatorInputConnector(TransactionMediatorInputConnector object) {
 				return createTransactionMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseTransactionMediatorOutputConnector(TransactionMediatorOutputConnector object) {
 				return createTransactionMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseOAuthMediator(OAuthMediator object) {
 				return createOAuthMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseOAuthMediatorInputConnector(OAuthMediatorInputConnector object) {
 				return createOAuthMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseOAuthMediatorOutputConnector(OAuthMediatorOutputConnector object) {
 				return createOAuthMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAutoscaleInMediator(AutoscaleInMediator object) {
 				return createAutoscaleInMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseAutoscaleOutMediator(AutoscaleOutMediator object) {
 				return createAutoscaleOutMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseHeaderMediator(HeaderMediator object) {
 				return createHeaderMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseHeaderMediatorInputConnector(HeaderMediatorInputConnector object) {
 				return createHeaderMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseHeaderMediatorOutputConnector(HeaderMediatorOutputConnector object) {
 				return createHeaderMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottleMediator(ThrottleMediator object) {
 				return createThrottleMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottleMediatorInputConnector(ThrottleMediatorInputConnector object) {
 				return createThrottleMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottleMediatorOutputConnector(ThrottleMediatorOutputConnector object) {
 				return createThrottleMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottlePolicyConfiguration(ThrottlePolicyConfiguration object) {
 				return createThrottlePolicyConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottlePolicyEntry(ThrottlePolicyEntry object) {
 				return createThrottlePolicyEntryAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottleOnAcceptBranch(ThrottleOnAcceptBranch object) {
 				return createThrottleOnAcceptBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseThrottleOnRejectBranch(ThrottleOnRejectBranch object) {
 				return createThrottleOnRejectBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseCommandMediator(CommandMediator object) {
 				return createCommandMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCommandMediatorInputConnector(CommandMediatorInputConnector object) {
 				return createCommandMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCommandMediatorOutputConnector(CommandMediatorOutputConnector object) {
 				return createCommandMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseCommandProperty(CommandProperty object) {
 				return createCommandPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseAbstractSqlExecutorMediator(AbstractSqlExecutorMediator object) {
 				return createAbstractSqlExecutorMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSqlStatement(SqlStatement object) {
 				return createSqlStatementAdapter();
 			}
-			
+			@Override
 			public Adapter caseSqlParameterDefinition(SqlParameterDefinition object) {
 				return createSqlParameterDefinitionAdapter();
 			}
-			
+			@Override
 			public Adapter caseSqlResultMapping(SqlResultMapping object) {
 				return createSqlResultMappingAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBLookupMediator(DBLookupMediator object) {
 				return createDBLookupMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBLookupMediatorInputConnector(DBLookupMediatorInputConnector object) {
 				return createDBLookupMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBLookupMediatorOutputConnector(DBLookupMediatorOutputConnector object) {
 				return createDBLookupMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBReportMediator(DBReportMediator object) {
 				return createDBReportMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBReportMediatorInputConnector(DBReportMediatorInputConnector object) {
 				return createDBReportMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDBReportMediatorOutputConnector(DBReportMediatorOutputConnector object) {
 				return createDBReportMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleMediator(RuleMediator object) {
 				return createRuleMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleMediatorInputConnector(RuleMediatorInputConnector object) {
 				return createRuleMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleMediatorOutputConnector(RuleMediatorOutputConnector object) {
 				return createRuleMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleSetConfiguration(RuleSetConfiguration object) {
 				return createRuleSetConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleSetCreationProperty(RuleSetCreationProperty object) {
 				return createRuleSetCreationPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleSessionConfiguration(RuleSessionConfiguration object) {
 				return createRuleSessionConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleSessionProperty(RuleSessionProperty object) {
 				return createRuleSessionPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleFactsConfiguration(RuleFactsConfiguration object) {
 				return createRuleFactsConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleFact(RuleFact object) {
 				return createRuleFactAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleResultsConfiguration(RuleResultsConfiguration object) {
 				return createRuleResultsConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleResult(RuleResult object) {
 				return createRuleResultAdapter();
 			}
-			
+			@Override
 			public Adapter caseRuleChildMediatorsConfiguration(RuleChildMediatorsConfiguration object) {
 				return createRuleChildMediatorsConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseSmooksMediator(SmooksMediator object) {
 				return createSmooksMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSmooksMediatorInputConnector(SmooksMediatorInputConnector object) {
 				return createSmooksMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSmooksMediatorOutputConnector(SmooksMediatorOutputConnector object) {
 				return createSmooksMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSmooksInConfiguration(SmooksInConfiguration object) {
 				return createSmooksInConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseSmooksOutConfiguration(SmooksOutConfiguration object) {
 				return createSmooksOutConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseStoreMediator(StoreMediator object) {
 				return createStoreMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseConditionalRouteBranch(ConditionalRouteBranch object) {
 				return createConditionalRouteBranchAdapter();
 			}
-			
+			@Override
 			public Adapter caseConditionalRouterMediator(ConditionalRouterMediator object) {
 				return createConditionalRouterMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSendMediator(SendMediator object) {
 				return createSendMediatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSendMediatorInputConnector(SendMediatorInputConnector object) {
 				return createSendMediatorInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseSendMediatorOutputConnector(SendMediatorOutputConnector object) {
 				return createSendMediatorOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFailoverEndPoint(FailoverEndPoint object) {
 				return createFailoverEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseFailoverEndPointInputConnector(FailoverEndPointInputConnector object) {
 				return createFailoverEndPointInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFailoverEndPointOutputConnector(FailoverEndPointOutputConnector object) {
 				return createFailoverEndPointOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseFailoverEndPointWestOutputConnector(FailoverEndPointWestOutputConnector object) {
 				return createFailoverEndPointWestOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseParentEndPoint(ParentEndPoint object) {
 				return createParentEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseWSDLEndPoint(WSDLEndPoint object) {
 				return createWSDLEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseWSDLDefinition(WSDLDefinition object) {
 				return createWSDLDefinitionAdapter();
 			}
-			
+			@Override
 			public Adapter caseWSDLDescription(WSDLDescription object) {
 				return createWSDLDescriptionAdapter();
 			}
-			
+			@Override
 			public Adapter caseWSDLEndPointInputConnector(WSDLEndPointInputConnector object) {
 				return createWSDLEndPointInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseWSDLEndPointOutputConnector(WSDLEndPointOutputConnector object) {
 				return createWSDLEndPointOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLoadBalanceEndPoint(LoadBalanceEndPoint object) {
 				return createLoadBalanceEndPointAdapter();
 			}
-			
+			@Override
 			public Adapter caseLoadBalanceEndPointInputConnector(LoadBalanceEndPointInputConnector object) {
 				return createLoadBalanceEndPointInputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLoadBalanceEndPointOutputConnector(LoadBalanceEndPointOutputConnector object) {
 				return createLoadBalanceEndPointOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLoadBalanceEndPointWestOutputConnector(LoadBalanceEndPointWestOutputConnector object) {
 				return createLoadBalanceEndPointWestOutputConnectorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLocalEntry(LocalEntry object) {
 				return createLocalEntryAdapter();
 			}
-			
+			@Override
 			public Adapter caseSession(Session object) {
 				return createSessionAdapter();
 			}
-			
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -891,7 +895,7 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject)target);
 	}
@@ -1006,6 +1010,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector <em>Additional Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector
+	 * @generated
+	 */
+	public Adapter createAdditionalOutputConnectorAdapter() {
 		return null;
 	}
 

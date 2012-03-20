@@ -8,28 +8,31 @@ package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Output Connector</b></em>'.
+ * An implementation of the model object '<em><b>Additional Output Connector</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OutputConnectorImpl#getOutgoingLink <em>Outgoing Link</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AdditionalOutputConnectorImpl#getOutgoingLink <em>Outgoing Link</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class OutputConnectorImpl extends EsbConnectorImpl implements OutputConnector {
+public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl implements AdditionalOutputConnector {
 	/**
 	 * The cached value of the '{@link #getOutgoingLink() <em>Outgoing Link</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -45,7 +48,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OutputConnectorImpl() {
+	protected AdditionalOutputConnectorImpl() {
 		super();
 	}
 
@@ -54,10 +57,9 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EClass eStaticClass() {
-		return EsbPackage.Literals.OUTPUT_CONNECTOR;
+		return EsbPackage.Literals.ADDITIONAL_OUTPUT_CONNECTOR;
 	}
 
 	/**
@@ -78,7 +80,7 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 		EsbLink oldOutgoingLink = outgoingLink;
 		outgoingLink = newOutgoingLink;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK, oldOutgoingLink, newOutgoingLink);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, oldOutgoingLink, newOutgoingLink);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -93,24 +95,25 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 		if (newOutgoingLink != outgoingLink) {
 			NotificationChain msgs = null;
 			if (outgoingLink != null)
-				msgs = ((InternalEObject)outgoingLink).eInverseRemove(this, EsbPackage.ESB_LINK__SOURCE, EsbLink.class, msgs);
+				msgs = ((InternalEObject)outgoingLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, null, msgs);
 			if (newOutgoingLink != null)
-				msgs = ((InternalEObject)newOutgoingLink).eInverseAdd(this, EsbPackage.ESB_LINK__SOURCE, EsbLink.class, msgs);
+				msgs = ((InternalEObject)newOutgoingLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, null, msgs);
 			msgs = basicSetOutgoingLink(newOutgoingLink, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK, newOutgoingLink, newOutgoingLink));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, newOutgoingLink, newOutgoingLink));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public boolean shouldConnect(InputConnector targetEnd) {
-		// By default we allow connections to any target.
-		return true;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -118,28 +121,10 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
-				if (outgoingLink != null)
-					msgs = ((InternalEObject)outgoingLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK, null, msgs);
-				return basicSetOutgoingLink((EsbLink)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
 				return basicSetOutgoingLink(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -150,11 +135,10 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
 				return getOutgoingLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -165,11 +149,10 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
 				setOutgoingLink((EsbLink)newValue);
 				return;
 		}
@@ -181,11 +164,10 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
 				setOutgoingLink((EsbLink)null);
 				return;
 		}
@@ -197,14 +179,13 @@ public abstract class OutputConnectorImpl extends EsbConnectorImpl implements Ou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
 				return outgoingLink != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //OutputConnectorImpl
+} //AdditionalOutputConnectorImpl

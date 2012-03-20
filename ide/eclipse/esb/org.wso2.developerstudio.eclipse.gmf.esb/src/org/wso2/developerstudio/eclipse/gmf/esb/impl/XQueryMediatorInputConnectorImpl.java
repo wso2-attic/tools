@@ -36,7 +36,7 @@ public class XQueryMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XQUERY_MEDIATOR_INPUT_CONNECTOR;
 	}

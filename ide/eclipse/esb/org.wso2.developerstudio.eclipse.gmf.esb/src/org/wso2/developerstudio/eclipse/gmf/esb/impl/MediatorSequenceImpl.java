@@ -136,7 +136,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MEDIATOR_SEQUENCE;
 	}
@@ -259,7 +259,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
@@ -283,7 +283,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
@@ -311,7 +311,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
@@ -338,7 +338,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
@@ -360,7 +360,7 @@ public class MediatorSequenceImpl extends EsbNodeImpl implements MediatorSequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

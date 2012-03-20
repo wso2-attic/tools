@@ -35,7 +35,7 @@ public class RMSequenceMediatorOutputConnectorImpl extends OutputConnectorImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RM_SEQUENCE_MEDIATOR_OUTPUT_CONNECTOR;
 	}

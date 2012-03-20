@@ -383,7 +383,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_SERVICE;
 	}
@@ -864,7 +864,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -891,7 +891,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -941,7 +941,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 */
 	
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -1010,7 +1010,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -1077,7 +1077,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -1126,7 +1126,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

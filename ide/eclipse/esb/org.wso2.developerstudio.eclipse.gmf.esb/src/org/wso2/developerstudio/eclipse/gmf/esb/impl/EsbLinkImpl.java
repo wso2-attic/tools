@@ -62,7 +62,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ESB_LINK;
 	}
@@ -174,7 +174,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -195,7 +195,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -212,7 +212,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -227,7 +227,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -245,7 +245,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -264,7 +264,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:
@@ -283,7 +283,7 @@ public class EsbLinkImpl extends EObjectImpl implements EsbLink {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ESB_LINK__SOURCE:

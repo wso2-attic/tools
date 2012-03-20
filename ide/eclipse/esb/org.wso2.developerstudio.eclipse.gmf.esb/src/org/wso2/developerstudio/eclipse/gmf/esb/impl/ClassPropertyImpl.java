@@ -36,7 +36,7 @@ public class ClassPropertyImpl extends AbstractNameValuePropertyImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CLASS_PROPERTY;
 	}

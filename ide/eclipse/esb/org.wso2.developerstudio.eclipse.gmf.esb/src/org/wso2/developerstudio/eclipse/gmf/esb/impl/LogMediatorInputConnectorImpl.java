@@ -36,7 +36,7 @@ public class LogMediatorInputConnectorImpl extends InputConnectorImpl implements
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.LOG_MEDIATOR_INPUT_CONNECTOR;
 	}

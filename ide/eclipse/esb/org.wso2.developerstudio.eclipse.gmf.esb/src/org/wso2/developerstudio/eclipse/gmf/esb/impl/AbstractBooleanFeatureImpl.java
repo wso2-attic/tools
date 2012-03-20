@@ -85,7 +85,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ABSTRACT_BOOLEAN_FEATURE;
 	}
@@ -138,7 +138,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_BOOLEAN_FEATURE__FEATURE_NAME:
@@ -155,7 +155,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_BOOLEAN_FEATURE__FEATURE_NAME:
@@ -174,7 +174,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_BOOLEAN_FEATURE__FEATURE_NAME:
@@ -193,7 +193,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ABSTRACT_BOOLEAN_FEATURE__FEATURE_NAME:
@@ -210,7 +210,7 @@ public abstract class AbstractBooleanFeatureImpl extends EsbNodeImpl implements 
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

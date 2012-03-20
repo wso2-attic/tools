@@ -36,7 +36,7 @@ public class SwitchDefaultBranchOutputConnectorImpl extends OutputConnectorImpl 
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SWITCH_DEFAULT_BRANCH_OUTPUT_CONNECTOR;
 	}

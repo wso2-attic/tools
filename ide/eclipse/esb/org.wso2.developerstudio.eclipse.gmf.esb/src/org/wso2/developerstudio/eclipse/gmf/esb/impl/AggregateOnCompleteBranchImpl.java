@@ -104,7 +104,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.AGGREGATE_ON_COMPLETE_BRANCH;
 	}
@@ -222,7 +222,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
@@ -239,7 +239,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
@@ -258,7 +258,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
@@ -280,7 +280,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
@@ -302,7 +302,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
@@ -321,7 +321,7 @@ public class AggregateOnCompleteBranchImpl extends EObjectImpl implements Aggreg
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

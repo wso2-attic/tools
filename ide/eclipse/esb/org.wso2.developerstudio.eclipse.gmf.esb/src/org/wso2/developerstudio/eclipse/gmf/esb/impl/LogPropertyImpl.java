@@ -41,7 +41,7 @@ public class LogPropertyImpl extends AbstractNameValueExpressionPropertyImpl imp
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.LOG_PROPERTY;
 	}

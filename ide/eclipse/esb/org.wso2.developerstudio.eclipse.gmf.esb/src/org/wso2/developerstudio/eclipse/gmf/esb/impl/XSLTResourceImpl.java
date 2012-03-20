@@ -36,7 +36,7 @@ public class XSLTResourceImpl extends AbstractLocationKeyResourceImpl implements
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_RESOURCE;
 	}

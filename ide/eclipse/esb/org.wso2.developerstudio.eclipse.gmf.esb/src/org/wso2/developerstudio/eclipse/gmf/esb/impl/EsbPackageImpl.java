@@ -19,7 +19,283 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.*;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractBooleanFeature;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractCommonTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractLocationKeyResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueExpressionProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractNameValueProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractSqlExecutorMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ClassProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DropMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutput;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EventMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EventMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EventMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EventTopicType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ExpressionAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointCaseBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointDefaultBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap11;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap12;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultSoapVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultStringType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorFailOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorPassOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.MergeNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeFirstInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeSecondInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
+import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServicePolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RMSpecVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.Session;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.SomeXML;
+import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorBooleanValue;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorConnectionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorDatasourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorIsolationLevel;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterDataType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterDefinition;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlResultMapping;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlStatement;
+import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.Task;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.TransactionAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.Trigger;
+import org.wso2.developerstudio.eclipse.gmf.esb.Type;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLDefinition;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLDescription;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariable;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType;
+import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTFeature;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.XSLTResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskString;
+import org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskXML;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,6 +359,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass outputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass additionalOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2091,6 +2374,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getOutputConnector_OutgoingLink() {
 		return (EReference)outputConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAdditionalOutputConnector() {
+		return additionalOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAdditionalOutputConnector_OutgoingLink() {
+		return (EReference)additionalOutputConnectorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -8507,6 +8808,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		outputConnectorEClass = createEClass(OUTPUT_CONNECTOR);
 		createEReference(outputConnectorEClass, OUTPUT_CONNECTOR__OUTGOING_LINK);
 
+		additionalOutputConnectorEClass = createEClass(ADDITIONAL_OUTPUT_CONNECTOR);
+		createEReference(additionalOutputConnectorEClass, ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK);
+
 		esbLinkEClass = createEClass(ESB_LINK);
 		createEReference(esbLinkEClass, ESB_LINK__SOURCE);
 		createEReference(esbLinkEClass, ESB_LINK__TARGET);
@@ -9447,6 +9751,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		mediatorEClass.getESuperTypes().add(this.getEsbElement());
 		inputConnectorEClass.getESuperTypes().add(this.getEsbConnector());
 		outputConnectorEClass.getESuperTypes().add(this.getEsbConnector());
+		additionalOutputConnectorEClass.getESuperTypes().add(this.getEsbConnector());
 		endPointEClass.getESuperTypes().add(this.getEsbElement());
 		proxyServiceEClass.getESuperTypes().add(this.getEsbElement());
 		proxyOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -9635,6 +9940,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getOutputConnector_OutgoingLink(), this.getEsbLink(), this.getEsbLink_Source(), "outgoingLink", null, 0, 1, OutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(outputConnectorEClass, ecorePackage.getEBoolean(), "shouldConnect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getInputConnector(), "targetEnd", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(additionalOutputConnectorEClass, AdditionalOutputConnector.class, "AdditionalOutputConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAdditionalOutputConnector_OutgoingLink(), this.getEsbLink(), null, "outgoingLink", null, 0, 1, AdditionalOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(additionalOutputConnectorEClass, ecorePackage.getEBoolean(), "shouldConnect", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getInputConnector(), "targetEnd", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(esbLinkEClass, EsbLink.class, "EsbLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

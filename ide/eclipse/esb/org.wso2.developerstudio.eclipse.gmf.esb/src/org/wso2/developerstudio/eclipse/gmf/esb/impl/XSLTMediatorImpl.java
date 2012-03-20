@@ -224,7 +224,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_MEDIATOR;
 	}
@@ -550,7 +550,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.XSLT_MEDIATOR__INPUT_CONNECTOR:
@@ -581,7 +581,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.XSLT_MEDIATOR__INPUT_CONNECTOR:
@@ -614,7 +614,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -661,7 +661,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XSLT_MEDIATOR__INPUT_CONNECTOR:
@@ -704,7 +704,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.XSLT_MEDIATOR__INPUT_CONNECTOR:
@@ -736,7 +736,7 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

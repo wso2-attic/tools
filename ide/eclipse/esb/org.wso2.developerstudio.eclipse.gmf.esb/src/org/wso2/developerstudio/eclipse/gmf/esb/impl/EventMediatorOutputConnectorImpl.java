@@ -36,7 +36,7 @@ public class EventMediatorOutputConnectorImpl extends OutputConnectorImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.EVENT_MEDIATOR_OUTPUT_CONNECTOR;
 	}

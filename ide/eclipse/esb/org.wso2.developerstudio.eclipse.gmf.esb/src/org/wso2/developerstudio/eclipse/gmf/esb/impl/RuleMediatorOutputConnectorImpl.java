@@ -35,7 +35,7 @@ public class RuleMediatorOutputConnectorImpl extends OutputConnectorImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.RULE_MEDIATOR_OUTPUT_CONNECTOR;
 	}

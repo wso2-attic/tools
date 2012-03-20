@@ -36,7 +36,7 @@ public class XSLTFeatureImpl extends AbstractBooleanFeatureImpl implements XSLTF
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.XSLT_FEATURE;
 	}

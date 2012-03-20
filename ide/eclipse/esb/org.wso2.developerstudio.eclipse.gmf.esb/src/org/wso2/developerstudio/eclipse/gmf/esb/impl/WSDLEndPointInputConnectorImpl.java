@@ -35,7 +35,7 @@ public class WSDLEndPointInputConnectorImpl extends InputConnectorImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.WSDL_END_POINT_INPUT_CONNECTOR;
 	}

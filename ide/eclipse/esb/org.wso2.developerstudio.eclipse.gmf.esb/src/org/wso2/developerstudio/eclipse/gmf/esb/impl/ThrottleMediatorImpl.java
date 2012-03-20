@@ -126,7 +126,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.THROTTLE_MEDIATOR;
 	}
@@ -373,7 +373,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
@@ -396,7 +396,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -421,7 +421,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -452,7 +452,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -483,7 +483,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
@@ -508,7 +508,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

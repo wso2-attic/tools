@@ -35,7 +35,7 @@ public class TransactionMediatorInputConnectorImpl extends InputConnectorImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.TRANSACTION_MEDIATOR_INPUT_CONNECTOR;
 	}

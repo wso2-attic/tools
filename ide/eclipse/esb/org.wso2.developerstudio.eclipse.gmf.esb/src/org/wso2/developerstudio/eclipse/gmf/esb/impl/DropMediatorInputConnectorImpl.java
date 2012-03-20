@@ -36,7 +36,7 @@ public class DropMediatorInputConnectorImpl extends InputConnectorImpl implement
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.DROP_MEDIATOR_INPUT_CONNECTOR;
 	}

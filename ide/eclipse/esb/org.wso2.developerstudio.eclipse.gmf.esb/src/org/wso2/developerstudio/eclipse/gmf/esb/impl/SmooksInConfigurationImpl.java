@@ -86,7 +86,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SMOOKS_IN_CONFIGURATION;
 	}
@@ -160,7 +160,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_IN_CONFIGURATION__EXPRESSION:
@@ -175,7 +175,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -192,7 +192,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -211,7 +211,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -230,7 +230,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.SMOOKS_IN_CONFIGURATION__TYPE:
@@ -247,7 +247,7 @@ public class SmooksInConfigurationImpl extends EObjectImpl implements SmooksInCo
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

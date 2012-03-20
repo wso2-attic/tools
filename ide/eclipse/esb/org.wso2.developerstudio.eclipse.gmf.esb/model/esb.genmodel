@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.wso2.developerstudio.eclipse.gmf.esb/src"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.wso2.developerstudio.eclipse.gmf.esb/src/"
     modelPluginID="org.wso2.developerstudio.eclipse.gmf.esb" modelName="Esb" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false">
+    copyrightFields="false">
   <foreignModel>esb.ecore</foreignModel>
   <genPackages prefix="Esb" basePackage="org.wso2.developerstudio.eclipse.gmf" disposableProviderFactory="true"
-      ecorePackage="esb.ecore#/">
+      loadInitialization="true" literalsInterface="false" ecorePackage="esb.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ProxyWsdlType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/INLINE"/>
@@ -372,7 +372,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//EsbConnector"/>
     <genClasses image="false" ecoreClass="esb.ecore#//InputConnector">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//InputConnector/incomingLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//InputConnector/incomingLinks"/>
       <genOperations ecoreOperation="esb.ecore#//InputConnector/shouldConnect">
         <genParameters ecoreParameter="esb.ecore#//InputConnector/shouldConnect/sourceEnd"/>
       </genOperations>
@@ -383,11 +383,17 @@
         <genParameters ecoreParameter="esb.ecore#//OutputConnector/shouldConnect/targetEnd"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="esb.ecore#//AdditionalOutputConnector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AdditionalOutputConnector/additionalOutgoingLink"/>
+      <genOperations ecoreOperation="esb.ecore#//AdditionalOutputConnector/shouldConnect">
+        <genParameters ecoreParameter="esb.ecore#//AdditionalOutputConnector/shouldConnect/targetEnd"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//EsbLink">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esb.ecore#//EsbLink/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//EsbLink/target"/>
     </genClasses>
-    <genClasses ecoreClass="esb.ecore#//EndPoint">
+    <genClasses image="false" ecoreClass="esb.ecore#//EndPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/endPointName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/anonymous"/>
     </genClasses>
@@ -480,8 +486,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/passOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/failOutputConnector"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/xpath"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/xpath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FilterMediator/source"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//FilterMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//FilterMediatorPassOutputConnector"/>
@@ -811,10 +817,10 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//XQueryMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/variables"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/targetXPath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/targetXPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//XQueryMediator/scriptKeyType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/staticScriptKey"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/dynamicScriptKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/staticScriptKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/dynamicScriptKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/queryKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/outputConnector"/>
@@ -830,7 +836,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryVariable/valueKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CalloutMediator">
-      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/serviceURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/serviceURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/soapAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2xml"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2Repository"/>
@@ -1043,11 +1049,11 @@
     <genClasses ecoreClass="esb.ecore#//SmooksMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SmooksInConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksInConfiguration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksInConfiguration/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksInConfiguration/expression"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SmooksOutConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksOutConfiguration/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksOutConfiguration/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/action"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/outputMethod"/>

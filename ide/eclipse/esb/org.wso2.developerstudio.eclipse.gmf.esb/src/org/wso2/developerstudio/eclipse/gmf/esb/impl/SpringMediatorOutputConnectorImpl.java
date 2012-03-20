@@ -36,7 +36,7 @@ public class SpringMediatorOutputConnectorImpl extends OutputConnectorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SPRING_MEDIATOR_OUTPUT_CONNECTOR;
 	}

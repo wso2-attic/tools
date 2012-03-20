@@ -36,7 +36,7 @@ public class MessageOutputConnectorImpl extends OutputConnectorImpl implements M
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MESSAGE_OUTPUT_CONNECTOR;
 	}

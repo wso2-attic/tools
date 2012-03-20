@@ -141,6 +141,13 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR: {
+				AdditionalOutputConnector additionalOutputConnector = (AdditionalOutputConnector)theEObject;
+				T result = caseAdditionalOutputConnector(additionalOutputConnector);
+				if (result == null) result = caseEsbConnector(additionalOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.ESB_LINK: {
 				EsbLink esbLink = (EsbLink)theEObject;
 				T result = caseEsbLink(esbLink);
@@ -1776,6 +1783,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseOutputConnector(OutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Additional Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Additional Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdditionalOutputConnector(AdditionalOutputConnector object) {
 		return null;
 	}
 

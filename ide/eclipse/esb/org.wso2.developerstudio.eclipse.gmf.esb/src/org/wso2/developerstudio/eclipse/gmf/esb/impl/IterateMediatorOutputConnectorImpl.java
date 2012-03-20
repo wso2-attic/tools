@@ -35,7 +35,7 @@ public class IterateMediatorOutputConnectorImpl extends OutputConnectorImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ITERATE_MEDIATOR_OUTPUT_CONNECTOR;
 	}

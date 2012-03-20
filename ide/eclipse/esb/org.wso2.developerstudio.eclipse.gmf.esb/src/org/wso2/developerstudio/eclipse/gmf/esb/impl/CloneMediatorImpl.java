@@ -152,7 +152,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CLONE_MEDIATOR;
 	}
@@ -324,7 +324,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
@@ -343,7 +343,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.CLONE_MEDIATOR__CLONE_ID:
@@ -368,7 +368,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -401,7 +401,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CLONE_MEDIATOR__CLONE_ID:
@@ -432,7 +432,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.CLONE_MEDIATOR__CLONE_ID:
@@ -457,7 +457,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

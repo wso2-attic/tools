@@ -36,7 +36,7 @@ public class EnrichMediatorOutputConnectorImpl extends OutputConnectorImpl imple
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ENRICH_MEDIATOR_OUTPUT_CONNECTOR;
 	}

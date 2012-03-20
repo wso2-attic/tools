@@ -24,6 +24,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="InputConnector" abstract="true" eSuperTypes="#//EsbConnector">
     <eOperations name="shouldConnect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="sourceEnd" eType="#//OutputConnector"/>
+      <eParameters name="AdditionalSpurceEnd" eType="#//AdditionalOutputConnector"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingLinks" upperBound="-1"
         eType="#//EsbLink" eOpposite="#//EsbLink/target"/>
@@ -34,6 +35,14 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingLink" eType="#//EsbLink"
         containment="true" eOpposite="#//EsbLink/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditionalOutputConnector" abstract="true"
+      eSuperTypes="#//EsbConnector">
+    <eOperations name="shouldConnect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="targetEnd" eType="#//InputConnector"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalOutgoingLink"
+        eType="#//EsbLink" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EsbLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//OutputConnector"

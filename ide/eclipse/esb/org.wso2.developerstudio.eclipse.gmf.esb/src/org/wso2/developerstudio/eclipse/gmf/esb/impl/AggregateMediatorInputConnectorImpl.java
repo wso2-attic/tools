@@ -35,7 +35,7 @@ public class AggregateMediatorInputConnectorImpl extends InputConnectorImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.AGGREGATE_MEDIATOR_INPUT_CONNECTOR;
 	}

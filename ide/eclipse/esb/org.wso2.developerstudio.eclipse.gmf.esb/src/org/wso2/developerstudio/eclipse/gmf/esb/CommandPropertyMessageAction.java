@@ -232,7 +232,7 @@ public enum CommandPropertyMessageAction implements Enumerator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		return literal;
 	}

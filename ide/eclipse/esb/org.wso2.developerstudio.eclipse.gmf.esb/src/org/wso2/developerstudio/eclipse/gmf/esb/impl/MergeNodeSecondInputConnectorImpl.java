@@ -36,7 +36,7 @@ public class MergeNodeSecondInputConnectorImpl extends InputConnectorImpl implem
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.MERGE_NODE_SECOND_INPUT_CONNECTOR;
 	}

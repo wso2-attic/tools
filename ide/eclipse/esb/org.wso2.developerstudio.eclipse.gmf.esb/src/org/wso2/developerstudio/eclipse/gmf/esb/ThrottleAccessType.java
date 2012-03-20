@@ -232,7 +232,7 @@ public enum ThrottleAccessType implements Enumerator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		return literal;
 	}

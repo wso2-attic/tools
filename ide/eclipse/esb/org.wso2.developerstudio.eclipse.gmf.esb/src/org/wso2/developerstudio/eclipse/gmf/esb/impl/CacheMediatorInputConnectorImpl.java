@@ -35,7 +35,7 @@ public class CacheMediatorInputConnectorImpl extends InputConnectorImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.CACHE_MEDIATOR_INPUT_CONNECTOR;
 	}

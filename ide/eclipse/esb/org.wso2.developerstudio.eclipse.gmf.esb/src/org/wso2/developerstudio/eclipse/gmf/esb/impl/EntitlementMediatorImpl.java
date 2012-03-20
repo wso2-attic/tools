@@ -132,7 +132,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.ENTITLEMENT_MEDIATOR;
 	}
@@ -292,7 +292,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
@@ -309,7 +309,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
@@ -332,7 +332,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
@@ -360,7 +360,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
@@ -388,7 +388,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
@@ -411,7 +411,7 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

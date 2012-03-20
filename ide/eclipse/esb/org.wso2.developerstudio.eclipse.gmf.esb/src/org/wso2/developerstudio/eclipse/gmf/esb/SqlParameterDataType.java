@@ -583,7 +583,7 @@ public enum SqlParameterDataType implements Enumerator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		return literal;
 	}

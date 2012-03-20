@@ -402,7 +402,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.FAULT_MEDIATOR;
 	}
@@ -901,7 +901,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
@@ -924,7 +924,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -973,7 +973,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1040,7 +1040,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1107,7 +1107,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
@@ -1156,7 +1156,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 */
 	
-	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
