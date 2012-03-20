@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -482,8 +483,23 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (getScriptType().equals(ScriptType.REGISTRY_REFERENCE)){						
+			if (null == getScriptKey().getKeyValue() || getScriptKey().getKeyValue().trim().isEmpty()) {
+				validateMap.put("Script key","Script key is empty");
+			}
+			
+		} else {		
+			if (null == getScriptBody() || getScriptBody().trim().isEmpty()) {
+				validateMap.put("Script Body","Script Body is empty");
+			}
+		}		
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Script Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //ScriptMediatorImpl

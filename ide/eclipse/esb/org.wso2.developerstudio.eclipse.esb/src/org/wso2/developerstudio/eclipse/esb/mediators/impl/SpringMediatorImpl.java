@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -281,8 +282,18 @@ public class SpringMediatorImpl extends MediatorImpl implements SpringMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (null == getBeanName() || getBeanName().trim().isEmpty()) {
+			validateMap.put("Bean Name","Bean Name is empty");
+		}
+		if (null == getConfigurationKey().getKeyValue() || getConfigurationKey().getKeyValue().trim().isEmpty()) {
+			validateMap.put("Spring Configuration","Spring Configuration key is empty");
+		}
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Spring Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } // SpringMediatorImpl

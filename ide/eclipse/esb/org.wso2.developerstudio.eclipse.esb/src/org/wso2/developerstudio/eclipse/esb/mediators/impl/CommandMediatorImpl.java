@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -268,8 +269,15 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (null == getClassName() || getClassName().trim().isEmpty()) {
+			validateMap.put("ClassName","ClassName is empty");
+		}
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Command Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //CommandMediatorImpl

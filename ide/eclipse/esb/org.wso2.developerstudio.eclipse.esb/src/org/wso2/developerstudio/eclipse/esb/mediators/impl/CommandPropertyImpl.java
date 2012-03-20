@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +31,9 @@ import org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyContextActi
 import org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyMessageAction;
 import org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.PropertyDataType;
+import org.wso2.developerstudio.eclipse.esb.mediators.PropertyValueType;
+import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -616,8 +620,42 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+    	if(null==getPropertyName() || getPropertyName().trim().isEmpty()){
+    		validateMap.put("Property Name", "Property Name is empty");
+    	}
+    	
+    	switch (getValueType()) {
+		case LITERAL: {
+			if(null==getValueLiteral() || getValueLiteral().trim().isEmpty()){
+	    		validateMap.put("Property value", "Property value is empty");
+	    	}
+			break;
+		}
+		
+		case CONTEXT_PROPERTY: {
+			if(null==getContextAction().getLiteral() || getContextAction().getLiteral().trim().isEmpty()){
+	    		validateMap.put("ContextAction", "ContextAction is empty");
+	    	}
+			if(null==getValueContextPropertyName() || getValueContextPropertyName().trim().isEmpty()){
+	    		validateMap.put("ContextPropertyName", "ContextPropertyName is empty");
+	    	}
+			break;
+		}
+		
+		case MESSAGE_ELEMENT: {
+			if(null==getMessageAction().getLiteral() || getMessageAction().getLiteral().trim().isEmpty()){
+	    		validateMap.put("MessageAction", "MessageAction is empty");
+	    	}
+			break;
+		}
+	}
+	
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Command Mediator - Command Property", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //CommandPropertyImpl
