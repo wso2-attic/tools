@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -430,8 +431,15 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+ 		if (null == getGroupId()|| getGroupId().trim().isEmpty()) {
+ 			validateMap.put("Group id", "Group id is empty");
+ 		}			
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Throttle Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //ThrottleMediatorImpl

@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -390,8 +391,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return new HashMap<String, ObjectValidator>();
     }
 
 } // CloneMediatorImpl

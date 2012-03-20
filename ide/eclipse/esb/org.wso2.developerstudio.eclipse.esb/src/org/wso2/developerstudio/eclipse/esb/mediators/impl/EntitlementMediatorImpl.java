@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,6 +25,8 @@ import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorConnectionType;
+import org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorDatasourceType;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -304,8 +307,21 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (null == getServerURL() || getServerURL().trim().isEmpty()) {
+			validateMap.put("RemoteService URL","RemoteService URL Context is empty");
+		}
+		if (null == getUsername() || getUsername().trim().isEmpty()) {
+			validateMap.put("remoteService username","RemoteService username is empty");
+		}
+		if (null == getPassword() || getPassword().trim().isEmpty()) {
+			validateMap.put("remoteService password","RemoteService password is empty");
+		}	
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Entitlement Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 	

@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -878,8 +879,44 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+ 		if (null == getServiceURL()|| getServiceURL().trim().isEmpty()) {
+ 			validateMap.put("Service URL", "Service URL is empty");
+ 		}			
+ 		// Payload.
+		if (getPayloadType().equals(CalloutPayloadType.MESSAGE_ELEMENT)) {
+			if (null == getPayloadMessageXpath().getPropertyValue()
+					|| getPayloadMessageXpath().getPropertyValue().trim()
+							.isEmpty()) {
+				validateMap.put("PayloadMessage Xpath", "PayloadMessage Xpath is empty");
+			}
+		} else {
+			if (null == getPayloadRegistryKey().getKeyValue()
+					|| getPayloadRegistryKey().getKeyValue().trim()
+							.isEmpty()) {
+				validateMap.put("PayloadRegistry Key", "PayloadRegistry Key is empty");
+			}
+		}
+
+		// Result.
+		if (getResultType().equals(CalloutResultType.MESSAGE_ELEMENT)) {
+			if (null == getResultMessageXpath().getPropertyValue()
+					|| getResultMessageXpath().getPropertyValue().trim()
+							.isEmpty()) {
+				validateMap.put("ResultMessage Xpath", "ResultMessage Xpath is empty");
+			}
+		} else {
+			if (null == getResultContextProperty()
+					|| getResultContextProperty().trim()
+							.isEmpty()) {
+				validateMap.put("ResultContext Property", "ResultContext Property is empty");
+			}
+		}
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Callout Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } // CalloutMediatorImpl

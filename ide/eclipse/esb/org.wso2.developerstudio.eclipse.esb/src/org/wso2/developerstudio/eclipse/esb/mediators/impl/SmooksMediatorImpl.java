@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -366,8 +367,15 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (null == configurationKey.getKeyValue() || configurationKey.getKeyValue().trim().isEmpty()) {
+			validateMap.put("Config-Key","Config-Key is empty");
+		}
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Smooks Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //SmooksMediatorImpl

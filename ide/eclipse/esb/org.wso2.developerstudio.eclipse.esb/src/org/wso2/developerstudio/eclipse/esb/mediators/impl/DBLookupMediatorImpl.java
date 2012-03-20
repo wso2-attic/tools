@@ -15,12 +15,15 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.mediators.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorConnectionType;
+import org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorDatasourceType;
 import org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
@@ -94,8 +97,39 @@ public class DBLookupMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+ 		if (getConnectionType().equals(SqlExecutorConnectionType.DB_CONNECTION)) {
+			if (null == getConnectionDbDriver()|| getConnectionDbDriver().trim().isEmpty()) {
+				validateMap.put("Database driver", "Database driver is empty");
+			}
+		} else {			
+			if (getConnectionDsType().equals(SqlExecutorDatasourceType.EXTERNAL)) {
+				if (null == getConnectionDsInitialContext()|| getConnectionDsInitialContext().trim().isEmpty()) {
+		 			validateMap.put("Initial Context", "Initial Context is empty");
+				}
+			}
+			if (null == getConnectionDsName()|| getConnectionDsName().trim().isEmpty()) {
+	 			validateMap.put("Initial Context", "Initial Context is empty");
+			}
+		}
+		
+		if (!getConnectionDsType().equals(SqlExecutorDatasourceType.CARBON)) {
+
+			if (null == getConnectionURL()|| getConnectionURL().trim().isEmpty()) {
+	 			validateMap.put("Connection URL", "Connection URL Context is empty");
+			}
+			if (null == getConnectionUsername()|| getConnectionUsername().trim().isEmpty()) {
+	 			validateMap.put("Connection username", "Connection username is empty");
+			}
+			if (null == getConnectionPassword()|| getConnectionPassword().trim().isEmpty()) {
+	 			validateMap.put("Connection password", "Connection password is empty");
+			}
+		}		
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("DBLookup Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //DBLookupMediatorImpl

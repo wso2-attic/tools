@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.esb.impl.MediatorImpl;
+import org.wso2.developerstudio.eclipse.esb.mediators.CacheAction;
 import org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
@@ -669,8 +671,17 @@ public class IterateMediatorImpl extends MediatorImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (null == getIterateExpression().getPropertyValue()
+				|| getIterateExpression().getPropertyValue().trim().isEmpty()) {
+			validateMap
+					.put("Iterate expression", "Iterate expression is empty");
+		}			
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Iterate Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } // IterateMediatorImpl

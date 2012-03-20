@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -381,8 +382,17 @@ public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+ 		if (null == getAggregationExpression().getPropertyValue()
+ 				|| getAggregationExpression().getPropertyValue().trim().isEmpty()) {
+ 			validateMap
+ 					.put("Aggregation expression", "Aggregation expression is empty");
+ 		}			
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Aggregate Mediator OnCompleteBranch", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } //OnCompleteBranchImpl

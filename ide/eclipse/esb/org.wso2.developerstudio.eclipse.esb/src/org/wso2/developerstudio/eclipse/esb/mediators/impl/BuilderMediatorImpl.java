@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -186,9 +187,8 @@ public class BuilderMediatorImpl extends MediatorImpl implements BuilderMediator
     }
 
 	
-    public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
+	public Map<String, ObjectValidator> validate() {
+		return new HashMap<String, ObjectValidator>();
+	}
 
 } //BuilderMediatorImpl

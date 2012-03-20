@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -71,8 +72,7 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return new HashMap<String, ObjectValidator>();
     }
 
 } //AutoscaleOutMediatorImpl

@@ -329,6 +329,11 @@
 							<feature name="messageStore" />
 						</event>						
 					</target>
+					<target class="CacheMediator">
+						<event name="Set">
+							<feature name="hashGenerator" />
+						</event>						
+					</target>
 				</constraint>
 				<constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
