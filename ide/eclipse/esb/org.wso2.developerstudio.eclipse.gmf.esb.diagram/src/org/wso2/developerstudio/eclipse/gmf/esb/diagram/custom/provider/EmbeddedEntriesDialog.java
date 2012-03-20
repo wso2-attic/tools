@@ -33,7 +33,7 @@ public class EmbeddedEntriesDialog extends Dialog {
 	 * Create contents of the dialog.
 	 * @param parent
 	 */
-	
+	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
 		
@@ -65,7 +65,7 @@ public class EmbeddedEntriesDialog extends Dialog {
 	 * Create contents of the button bar.
 	 * @param parent
 	 */
-	
+	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
 				true);
@@ -76,7 +76,7 @@ public class EmbeddedEntriesDialog extends Dialog {
 	/**
 	 * Return the initial size of the dialog.
 	 */
-	
+	@Override
 	protected Point getInitialSize() {
 		return new Point(450, 300);
 	}

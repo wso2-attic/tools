@@ -131,8 +131,9 @@ public class EsbDomainNavigatorContentProvider implements
 	 * @generated
 	 */
 	void unloadAllResources() {
-		for (Resource nextResource : myEditingDomain.getResourceSet()
-				.getResources()) {
+		for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = myEditingDomain
+				.getResourceSet().getResources().iterator(); it.hasNext();) {
+			Resource nextResource = (Resource) it.next();
 			nextResource.unload();
 		}
 	}

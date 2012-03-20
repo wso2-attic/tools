@@ -28,8 +28,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 
 public class ConfigureSwitchMediatorDialog extends Dialog {
 	private Text txtXPath;

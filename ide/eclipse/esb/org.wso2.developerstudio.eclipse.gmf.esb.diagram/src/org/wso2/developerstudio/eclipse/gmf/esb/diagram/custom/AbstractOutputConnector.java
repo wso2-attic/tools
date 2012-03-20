@@ -17,10 +17,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 //import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.LinkToolEntry;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.WestPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public abstract class AbstractOutputConnector extends AbstractBorderItemEditPart{
 

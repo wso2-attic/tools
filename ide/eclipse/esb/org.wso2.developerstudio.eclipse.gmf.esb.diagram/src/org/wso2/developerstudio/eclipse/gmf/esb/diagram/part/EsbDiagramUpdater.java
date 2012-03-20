@@ -23,7 +23,8 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSemanticChildren(View view) {
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSemanticChildren(
+			View view) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
 		case EsbDiagramEditPart.VISUAL_ID:
 			return getEsbDiagram_1000SemanticChildren(view);
@@ -256,19 +257,19 @@ public class EsbDiagramUpdater {
 		case ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID:
 			return getProxyServiceEndpointContainerEndpointCompartment_7010SemanticChildren(view);
 		}
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEsbServer_2001SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEsbServer_2001SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EsbServer modelElement = (EsbServer) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			MessageMediator childElement = modelElement.getMessageMediator();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -283,13 +284,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getProxyService_3001SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getProxyService_3001SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ProxyService modelElement = (ProxyService) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ProxyOutputConnector childElement = modelElement
 					.getOutputConnector();
@@ -331,14 +332,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getProxyServiceSequenceContainer_3196SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getProxyServiceSequenceContainer_3196SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ProxyServiceSequenceContainer modelElement = (ProxyServiceSequenceContainer) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ProxyServiceInSequence childElement = modelElement.getInSequence();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -362,13 +363,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDropMediator_3191SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDropMediator_3191SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DropMediator modelElement = (DropMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DropMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -384,13 +385,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getPropertyMediator_3199SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getPropertyMediator_3199SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		PropertyMediator modelElement = (PropertyMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			PropertyMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -415,13 +416,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getThrottleMediator_3205SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getThrottleMediator_3205SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ThrottleMediator modelElement = (ThrottleMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ThrottleMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -446,13 +447,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFilterMediator_3209SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFilterMediator_3209SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FilterMediator modelElement = (FilterMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FilterMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -486,13 +487,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getLogMediator_3210SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getLogMediator_3210SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		LogMediator modelElement = (LogMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			LogMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -517,13 +518,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEnrichMediator_3387SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEnrichMediator_3387SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EnrichMediator modelElement = (EnrichMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EnrichMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -548,13 +549,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXSLTMediator_3212SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXSLTMediator_3212SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XSLTMediator modelElement = (XSLTMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XSLTMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -579,13 +580,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchMediator_3213SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSwitchMediator_3213SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SwitchMediator modelElement = (SwitchMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SwitchMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -595,7 +596,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getCaseBranches().iterator(); it
 				.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -621,13 +622,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSequence_3214SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSequence_3214SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		Sequence modelElement = (Sequence) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SequenceInputConnector childElement = modelElement
 					.getInputConnector();
@@ -652,13 +653,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEventMediator_3215SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEventMediator_3215SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EventMediator modelElement = (EventMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EventMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -683,14 +684,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEntitlementMediator_3216SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEntitlementMediator_3216SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EntitlementMediator modelElement = (EntitlementMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EntitlementMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -715,13 +716,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getClassMediator_3217SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getClassMediator_3217SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ClassMediator modelElement = (ClassMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ClassMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -746,13 +747,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSpringMediator_3218SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSpringMediator_3218SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SpringMediator modelElement = (SpringMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SpringMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -777,13 +778,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getScriptMediator_3219SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getScriptMediator_3219SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ScriptMediator modelElement = (ScriptMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ScriptMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -808,13 +809,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFaultMediator_3220SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFaultMediator_3220SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FaultMediator modelElement = (FaultMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FaultMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -839,13 +840,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXQueryMediator_3221SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXQueryMediator_3221SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XQueryMediator modelElement = (XQueryMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XQueryMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -870,13 +871,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCommandMediator_3222SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCommandMediator_3222SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CommandMediator modelElement = (CommandMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CommandMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -901,13 +902,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBLookupMediator_3223SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBLookupMediator_3223SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBLookupMediator modelElement = (DBLookupMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBLookupMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -932,13 +933,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBReportMediator_3224SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBReportMediator_3224SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBReportMediator modelElement = (DBReportMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBReportMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -963,13 +964,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSmooksMediator_3225SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSmooksMediator_3225SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SmooksMediator modelElement = (SmooksMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SmooksMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -994,13 +995,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSendMediator_3226SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSendMediator_3226SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SendMediator modelElement = (SendMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SendMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1025,13 +1026,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getHeaderMediator_3227SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getHeaderMediator_3227SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		HeaderMediator modelElement = (HeaderMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			HeaderMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1056,13 +1057,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCloneMediator_3228SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCloneMediator_3228SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CloneMediator modelElement = (CloneMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CloneMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1081,7 +1082,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getTargetsOutputConnector()
+		for (Iterator/*[?]*/it = modelElement.getTargetsOutputConnector()
 				.iterator(); it.hasNext();) {
 			CloneMediatorTargetOutputConnector childElement = (CloneMediatorTargetOutputConnector) it
 					.next();
@@ -1098,13 +1099,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCacheMediator_3229SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCacheMediator_3229SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CacheMediator modelElement = (CacheMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CacheMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1129,13 +1130,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getIterateMediator_3230SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getIterateMediator_3230SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		IterateMediator modelElement = (IterateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			IterateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1160,13 +1161,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCalloutMediator_3231SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCalloutMediator_3231SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CalloutMediator modelElement = (CalloutMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CalloutMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1191,14 +1192,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getTransactionMediator_3232SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getTransactionMediator_3232SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		TransactionMediator modelElement = (TransactionMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			TransactionMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1223,14 +1224,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRMSequenceMediator_3233SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRMSequenceMediator_3233SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RMSequenceMediator modelElement = (RMSequenceMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RMSequenceMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1255,13 +1256,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRuleMediator_3234SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRuleMediator_3234SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RuleMediator modelElement = (RuleMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RuleMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1286,13 +1287,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getOAuthMediator_3235SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getOAuthMediator_3235SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		OAuthMediator modelElement = (OAuthMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			OAuthMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1317,13 +1318,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getAggregateMediator_3236SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getAggregateMediator_3236SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		AggregateMediator modelElement = (AggregateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			AggregateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1357,13 +1358,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDropMediator_3194SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDropMediator_3194SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DropMediator modelElement = (DropMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DropMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1379,13 +1380,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getPropertyMediator_3200SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getPropertyMediator_3200SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		PropertyMediator modelElement = (PropertyMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			PropertyMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1410,13 +1411,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getThrottleMediator_3206SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getThrottleMediator_3206SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ThrottleMediator modelElement = (ThrottleMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ThrottleMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1441,13 +1442,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFilterMediator_3237SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFilterMediator_3237SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FilterMediator modelElement = (FilterMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FilterMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1481,13 +1482,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getLogMediator_3241SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getLogMediator_3241SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		LogMediator modelElement = (LogMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			LogMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1512,13 +1513,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEnrichMediator_3244SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEnrichMediator_3244SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EnrichMediator modelElement = (EnrichMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EnrichMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1543,13 +1544,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXSLTMediator_3247SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXSLTMediator_3247SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XSLTMediator modelElement = (XSLTMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XSLTMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1574,13 +1575,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchMediator_3250SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSwitchMediator_3250SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SwitchMediator modelElement = (SwitchMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SwitchMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1590,7 +1591,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getCaseBranches().iterator(); it
 				.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -1616,13 +1617,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSequence_3254SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSequence_3254SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		Sequence modelElement = (Sequence) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SequenceInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1647,13 +1648,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEventMediator_3257SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEventMediator_3257SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EventMediator modelElement = (EventMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EventMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1678,14 +1679,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEntitlementMediator_3260SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEntitlementMediator_3260SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EntitlementMediator modelElement = (EntitlementMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EntitlementMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1710,13 +1711,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getClassMediator_3263SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getClassMediator_3263SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ClassMediator modelElement = (ClassMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ClassMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1741,13 +1742,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSpringMediator_3266SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSpringMediator_3266SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SpringMediator modelElement = (SpringMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SpringMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1772,13 +1773,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getScriptMediator_3269SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getScriptMediator_3269SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ScriptMediator modelElement = (ScriptMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			ScriptMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1803,13 +1804,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFaultMediator_3272SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFaultMediator_3272SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FaultMediator modelElement = (FaultMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FaultMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1834,13 +1835,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXQueryMediator_3275SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXQueryMediator_3275SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XQueryMediator modelElement = (XQueryMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XQueryMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1865,13 +1866,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCommandMediator_3278SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCommandMediator_3278SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CommandMediator modelElement = (CommandMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CommandMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1896,13 +1897,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBLookupMediator_3281SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBLookupMediator_3281SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBLookupMediator modelElement = (DBLookupMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBLookupMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1927,13 +1928,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBReportMediator_3284SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBReportMediator_3284SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBReportMediator modelElement = (DBReportMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBReportMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1958,13 +1959,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSmooksMediator_3287SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSmooksMediator_3287SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SmooksMediator modelElement = (SmooksMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SmooksMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -1989,13 +1990,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSendMediator_3290SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSendMediator_3290SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SendMediator modelElement = (SendMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SendMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2020,13 +2021,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getHeaderMediator_3293SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getHeaderMediator_3293SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		HeaderMediator modelElement = (HeaderMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			HeaderMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2051,13 +2052,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCloneMediator_3296SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCloneMediator_3296SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CloneMediator modelElement = (CloneMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CloneMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2076,7 +2077,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getTargetsOutputConnector()
+		for (Iterator/*[?]*/it = modelElement.getTargetsOutputConnector()
 				.iterator(); it.hasNext();) {
 			CloneMediatorTargetOutputConnector childElement = (CloneMediatorTargetOutputConnector) it
 					.next();
@@ -2093,13 +2094,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCacheMediator_3300SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCacheMediator_3300SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CacheMediator modelElement = (CacheMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CacheMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2124,13 +2125,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getIterateMediator_3303SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getIterateMediator_3303SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		IterateMediator modelElement = (IterateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			IterateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2155,13 +2156,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCalloutMediator_3306SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCalloutMediator_3306SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CalloutMediator modelElement = (CalloutMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CalloutMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2186,14 +2187,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getTransactionMediator_3309SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getTransactionMediator_3309SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		TransactionMediator modelElement = (TransactionMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			TransactionMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2218,14 +2219,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRMSequenceMediator_3312SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRMSequenceMediator_3312SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RMSequenceMediator modelElement = (RMSequenceMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RMSequenceMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2250,13 +2251,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRuleMediator_3315SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRuleMediator_3315SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RuleMediator modelElement = (RuleMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RuleMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2281,13 +2282,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getOAuthMediator_3318SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getOAuthMediator_3318SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		OAuthMediator modelElement = (OAuthMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			OAuthMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2312,13 +2313,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getAggregateMediator_3321SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getAggregateMediator_3321SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		AggregateMediator modelElement = (AggregateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			AggregateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2352,13 +2353,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getLogMediator_3325SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getLogMediator_3325SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		LogMediator modelElement = (LogMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			LogMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2383,13 +2384,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDropMediator_3328SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDropMediator_3328SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DropMediator modelElement = (DropMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DropMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2405,13 +2406,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFilterMediator_3329SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFilterMediator_3329SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FilterMediator modelElement = (FilterMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FilterMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2445,13 +2446,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getPropertyMediator_3333SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getPropertyMediator_3333SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		PropertyMediator modelElement = (PropertyMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			PropertyMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2476,13 +2477,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEnrichMediator_3334SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEnrichMediator_3334SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EnrichMediator modelElement = (EnrichMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EnrichMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2507,13 +2508,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXSLTMediator_3337SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXSLTMediator_3337SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XSLTMediator modelElement = (XSLTMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XSLTMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2538,13 +2539,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchMediator_3340SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSwitchMediator_3340SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SwitchMediator modelElement = (SwitchMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SwitchMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2554,7 +2555,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getCaseBranches().iterator(); it
 				.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -2580,13 +2581,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFaultMediator_3344SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFaultMediator_3344SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FaultMediator modelElement = (FaultMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FaultMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2611,13 +2612,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBLookupMediator_3347SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBLookupMediator_3347SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBLookupMediator modelElement = (DBLookupMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBLookupMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2642,13 +2643,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBReportMediator_3350SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBReportMediator_3350SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBReportMediator modelElement = (DBReportMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBReportMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2673,13 +2674,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSendMediator_3353SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSendMediator_3353SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SendMediator modelElement = (SendMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SendMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2704,13 +2705,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getHeaderMediator_3356SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getHeaderMediator_3356SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		HeaderMediator modelElement = (HeaderMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			HeaderMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2735,13 +2736,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCloneMediator_3359SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCloneMediator_3359SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CloneMediator modelElement = (CloneMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CloneMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2760,7 +2761,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getTargetsOutputConnector()
+		for (Iterator/*[?]*/it = modelElement.getTargetsOutputConnector()
 				.iterator(); it.hasNext();) {
 			CloneMediatorTargetOutputConnector childElement = (CloneMediatorTargetOutputConnector) it
 					.next();
@@ -2777,13 +2778,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getIterateMediator_3363SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getIterateMediator_3363SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		IterateMediator modelElement = (IterateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			IterateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2808,13 +2809,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCalloutMediator_3366SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCalloutMediator_3366SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CalloutMediator modelElement = (CalloutMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CalloutMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2839,14 +2840,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getTransactionMediator_3369SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getTransactionMediator_3369SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		TransactionMediator modelElement = (TransactionMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			TransactionMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2871,14 +2872,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRMSequenceMediator_3372SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRMSequenceMediator_3372SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RMSequenceMediator modelElement = (RMSequenceMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RMSequenceMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2903,13 +2904,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSequence_3375SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSequence_3375SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		Sequence modelElement = (Sequence) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SequenceInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2934,13 +2935,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDefaultEndPoint_3382SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDefaultEndPoint_3382SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DefaultEndPoint modelElement = (DefaultEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DefaultEndPointInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2965,13 +2966,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getAddressEndPoint_3383SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getAddressEndPoint_3383SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		AddressEndPoint modelElement = (AddressEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			AddressEndPointInputConnector childElement = modelElement
 					.getInputConnector();
@@ -2996,13 +2997,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFailoverEndPoint_3384SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFailoverEndPoint_3384SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FailoverEndPoint modelElement = (FailoverEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FailoverEndPointInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3012,7 +3013,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getOutputConnector().iterator(); it
 				.hasNext();) {
 			FailoverEndPointOutputConnector childElement = (FailoverEndPointOutputConnector) it
 					.next();
@@ -3038,13 +3039,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getWSDLEndPoint_3385SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getWSDLEndPoint_3385SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		WSDLEndPoint modelElement = (WSDLEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			WSDLEndPointInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3069,14 +3070,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getLoadBalanceEndPoint_3386SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getLoadBalanceEndPoint_3386SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		LoadBalanceEndPoint modelElement = (LoadBalanceEndPoint) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			LoadBalanceEndPointInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3086,7 +3087,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getOutputConnector().iterator(); it
 				.hasNext();) {
 			LoadBalanceEndPointOutputConnector childElement = (LoadBalanceEndPointOutputConnector) it
 					.next();
@@ -3112,13 +3113,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getMessageMediator_3045SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getMessageMediator_3045SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		MessageMediator modelElement = (MessageMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			MessageInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3143,13 +3144,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getMergeNode_3013SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getMergeNode_3013SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		MergeNode modelElement = (MergeNode) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			MergeNodeFirstInputConnector childElement = modelElement
 					.getFirstInputConnector();
@@ -3183,13 +3184,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getLogMediator_3134SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getLogMediator_3134SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		LogMediator modelElement = (LogMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			LogMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3214,13 +3215,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDropMediator_3137SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDropMediator_3137SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DropMediator modelElement = (DropMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DropMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3236,13 +3237,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFilterMediator_3139SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFilterMediator_3139SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FilterMediator modelElement = (FilterMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FilterMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3276,13 +3277,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getPropertyMediator_3143SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getPropertyMediator_3143SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		PropertyMediator modelElement = (PropertyMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			PropertyMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3307,13 +3308,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEnrichMediator_3146SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEnrichMediator_3146SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EnrichMediator modelElement = (EnrichMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EnrichMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3338,13 +3339,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getXSLTMediator_3149SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getXSLTMediator_3149SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		XSLTMediator modelElement = (XSLTMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			XSLTMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3369,13 +3370,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchMediator_3152SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSwitchMediator_3152SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SwitchMediator modelElement = (SwitchMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SwitchMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3385,7 +3386,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it
+		for (Iterator/*[?]*/it = modelElement.getCaseBranches().iterator(); it
 				.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -3411,13 +3412,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getFaultMediator_3156SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getFaultMediator_3156SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		FaultMediator modelElement = (FaultMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			FaultMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3442,13 +3443,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBLookupMediator_3159SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBLookupMediator_3159SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBLookupMediator modelElement = (DBLookupMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBLookupMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3473,13 +3474,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDBReportMediator_3162SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getDBReportMediator_3162SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		DBReportMediator modelElement = (DBReportMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			DBReportMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3504,13 +3505,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSendMediator_3165SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSendMediator_3165SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		SendMediator modelElement = (SendMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SendMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3535,13 +3536,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getHeaderMediator_3168SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getHeaderMediator_3168SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		HeaderMediator modelElement = (HeaderMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			HeaderMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3566,13 +3567,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCloneMediator_3171SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCloneMediator_3171SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CloneMediator modelElement = (CloneMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CloneMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3591,7 +3592,7 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		for (Iterator<?> it = modelElement.getTargetsOutputConnector()
+		for (Iterator/*[?]*/it = modelElement.getTargetsOutputConnector()
 				.iterator(); it.hasNext();) {
 			CloneMediatorTargetOutputConnector childElement = (CloneMediatorTargetOutputConnector) it
 					.next();
@@ -3608,13 +3609,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getIterateMediator_3175SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getIterateMediator_3175SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		IterateMediator modelElement = (IterateMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			IterateMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3639,13 +3640,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getCalloutMediator_3178SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getCalloutMediator_3178SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		CalloutMediator modelElement = (CalloutMediator) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			CalloutMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3670,14 +3671,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getTransactionMediator_3179SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getTransactionMediator_3179SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		TransactionMediator modelElement = (TransactionMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			TransactionMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3702,14 +3703,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getRMSequenceMediator_3180SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getRMSequenceMediator_3180SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		RMSequenceMediator modelElement = (RMSequenceMediator) view
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			RMSequenceMediatorInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3734,13 +3735,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSequence_3187SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getSequence_3187SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		Sequence modelElement = (Sequence) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			SequenceInputConnector childElement = modelElement
 					.getInputConnector();
@@ -3765,18 +3766,18 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEsbServerContentsCompartment_7001SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEsbServerContentsCompartment_7001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EsbServer modelElement = (EsbServer) containerView.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -3796,19 +3797,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getProxyServiceInSequenceProxyServiceInSequenceCompartment_7005SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getProxyServiceInSequenceProxyServiceInSequenceCompartment_7005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ProxyServiceInSequence modelElement = (ProxyServiceInSequence) containerView
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -3944,19 +3945,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getAggregateMediatorAggregateCompartment_7007SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getAggregateMediatorAggregateCompartment_7007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		AggregateMediator modelElement = (AggregateMediator) containerView
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -4040,19 +4041,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getProxyServiceOutSequenceProxyServiceOutSequenceCompartment_7006SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getProxyServiceOutSequenceProxyServiceOutSequenceCompartment_7006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ProxyServiceOutSequence modelElement = (ProxyServiceOutSequence) containerView
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -4188,19 +4189,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getAggregateMediatorAggregateCompartment_7008SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getAggregateMediatorAggregateCompartment_7008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		AggregateMediator modelElement = (AggregateMediator) containerView
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -4284,19 +4285,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getProxyServiceEndpointContainerEndpointCompartment_7010SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getProxyServiceEndpointContainerEndpointCompartment_7010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		View containerView = (View) view.eContainer();
 		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		ProxyServiceEndpointContainer modelElement = (ProxyServiceEndpointContainer) containerView
 				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
+		for (Iterator/*[?]*/it = modelElement.getChildren().iterator(); it
 				.hasNext();) {
 			EsbElement childElement = (EsbElement) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -4328,13 +4329,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getEsbDiagram_1000SemanticChildren(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/getEsbDiagram_1000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
 		EsbDiagram modelElement = (EsbDiagram) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/();
 		{
 			EsbServer childElement = modelElement.getServer();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
@@ -4349,7 +4350,8 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getContainedLinks(View view) {
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getContainedLinks(
+			View view) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
 		case EsbDiagramEditPart.VISUAL_ID:
 			return getEsbDiagram_1000ContainedLinks(view);
@@ -5028,13 +5030,14 @@ public class EsbDiagramUpdater {
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIncomingLinks(View view) {
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIncomingLinks(
+			View view) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
 		case EsbServerEditPart.VISUAL_ID:
 			return getEsbServer_2001IncomingLinks(view);
@@ -5711,13 +5714,14 @@ public class EsbDiagramUpdater {
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOutgoingLinks(View view) {
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOutgoingLinks(
+			View view) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
 		case EsbServerEditPart.VISUAL_ID:
 			return getEsbServer_2001OutgoingLinks(view);
@@ -6394,41 +6398,41 @@ public class EsbDiagramUpdater {
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbDiagram_1000ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbDiagram_1000ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbServer_2001ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbServer_2001ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyService_3001ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyService_3001ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyOutputConnector_3002ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyOutputConnector_3002ContainedLinks(
 			View view) {
 		ProxyOutputConnector modelElement = (ProxyOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6436,59 +6440,59 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyInputConnector_3003ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyInputConnector_3003ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3196ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceSequenceContainer_3196ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceInSequence_3197ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3191ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3191ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageMediator_3045ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageMediator_3045ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageInputConnector_3046ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageInputConnector_3046ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageOutputConnector_3047ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageOutputConnector_3047ContainedLinks(
 			View view) {
 		MessageOutputConnector modelElement = (MessageOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6496,51 +6500,51 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3008ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3008ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3199ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3199ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceOutSequence_3198ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3194ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3194ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3010ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3010ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3011ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3011ContainedLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6548,11 +6552,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3012ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3012ContainedLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6560,43 +6564,43 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3210ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3210ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNode_3013ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNode_3013ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeFirstInputConnector_3014ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeFirstInputConnector_3014ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeSecondInputConnector_3015ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeSecondInputConnector_3015ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeOutputConnector_3016ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeOutputConnector_3016ContainedLinks(
 			View view) {
 		MergeNodeOutputConnector modelElement = (MergeNodeOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6604,19 +6608,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3018ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3019ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3019ContainedLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6624,27 +6628,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3387ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3387ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3201ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3201ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3202ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3202ContainedLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6652,19 +6656,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3033ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3033ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3034ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3034ContainedLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6672,27 +6676,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3205ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3205ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3036ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3036ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3037ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3037ContainedLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6700,27 +6704,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3212ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3212ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3039ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3039ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3040ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3040ContainedLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6728,27 +6732,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3213ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3213ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3042ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3042ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3043ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3043ContainedLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6756,11 +6760,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3044ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3044ContainedLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6768,27 +6772,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3214ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3214ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3049ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3049ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3050ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3050ContainedLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6796,27 +6800,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3215ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3215ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3052ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3052ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3053ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3053ContainedLinks(
 			View view) {
 		EventMediatorOutputConnector modelElement = (EventMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6824,27 +6828,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3216ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3216ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3055ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3055ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3056ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3056ContainedLinks(
 			View view) {
 		EntitlementMediatorOutputConnector modelElement = (EntitlementMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6852,27 +6856,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3217ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3217ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3058ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3058ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3059ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3059ContainedLinks(
 			View view) {
 		ClassMediatorOutputConnector modelElement = (ClassMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6880,27 +6884,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3218ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3218ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3061ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3061ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3062ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3062ContainedLinks(
 			View view) {
 		SpringMediatorOutputConnector modelElement = (SpringMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6908,27 +6912,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3219ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3219ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3064ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3064ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3065ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3065ContainedLinks(
 			View view) {
 		ScriptMediatorOutputConnector modelElement = (ScriptMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6936,27 +6940,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3220ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3220ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3067ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3067ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3068ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3068ContainedLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6964,27 +6968,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3221ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3221ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3070ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3070ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3071ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3071ContainedLinks(
 			View view) {
 		XQueryMediatorOutputConnector modelElement = (XQueryMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -6992,27 +6996,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3222ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3222ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3073ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3073ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3074ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3074ContainedLinks(
 			View view) {
 		CommandMediatorOutputConnector modelElement = (CommandMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7020,27 +7024,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3223ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3223ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3076ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3076ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3077ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3077ContainedLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7048,27 +7052,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3224ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3224ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3079ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3079ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3080ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3080ContainedLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7076,27 +7080,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3225ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3225ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3082ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3082ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3083ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3083ContainedLinks(
 			View view) {
 		SmooksMediatorOutputConnector modelElement = (SmooksMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7104,27 +7108,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3226ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3226ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3085ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3085ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3086ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3086ContainedLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7132,27 +7136,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3227ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3227ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3088ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointInputConnector_3088ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3090ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointOutputConnector_3090ContainedLinks(
 			View view) {
 		FailoverEndPointOutputConnector modelElement = (FailoverEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7160,11 +7164,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3097ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointWestOutputConnector_3097ContainedLinks(
 			View view) {
 		FailoverEndPointWestOutputConnector modelElement = (FailoverEndPointWestOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7172,27 +7176,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3385ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPoint_3385ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3092ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointInputConnector_3092ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3093ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointOutputConnector_3093ContainedLinks(
 			View view) {
 		WSDLEndPointOutputConnector modelElement = (WSDLEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7200,27 +7204,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3386ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPoint_3386ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3095ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointInputConnector_3095ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3096ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointOutputConnector_3096ContainedLinks(
 			View view) {
 		LoadBalanceEndPointOutputConnector modelElement = (LoadBalanceEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7228,11 +7232,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(
 			View view) {
 		LoadBalanceEndPointWestOutputConnector modelElement = (LoadBalanceEndPointWestOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7240,19 +7244,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3100ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3100ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3101ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3101ContainedLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7260,27 +7264,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3228ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3228ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3103ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3103ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3104ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3104ContainedLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7288,11 +7292,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3133ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3133ContainedLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7300,27 +7304,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3229ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3229ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3106ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3106ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3107ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3107ContainedLinks(
 			View view) {
 		CacheMediatorOutputConnector modelElement = (CacheMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7328,27 +7332,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3230ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3230ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3109ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3109ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3110ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3110ContainedLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7356,27 +7360,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3231ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3231ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3112ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3112ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3113ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3113ContainedLinks(
 			View view) {
 		AggregateMediatorOutputConnector modelElement = (AggregateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7384,11 +7388,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3132ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3132ContainedLinks(
 			View view) {
 		AggregateMediatorOnCompleteOutputConnector modelElement = (AggregateMediatorOnCompleteOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7396,27 +7400,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3134ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3134ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3135ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3135ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3136ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3136ContainedLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7424,43 +7428,43 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3137ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3137ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3195ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3195ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3329ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3329ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3330ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3330ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3331ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3331ContainedLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7468,11 +7472,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3332ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3332ContainedLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7480,59 +7484,59 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3333ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3333ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3192ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3192ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3138ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3138ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3200ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3200ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3139ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3139ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3140ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3140ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3141ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3141ContainedLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7540,11 +7544,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3142ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3142ContainedLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7552,27 +7556,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3143ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3143ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3203ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3203ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3204ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3204ContainedLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7580,27 +7584,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3334ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3334ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3388ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3388ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3389ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3389ContainedLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7608,27 +7612,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3337ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3337ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3338ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3338ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3339ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3339ContainedLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7636,27 +7640,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3340ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3340ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3341ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3341ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3342ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3342ContainedLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7664,11 +7668,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3343ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3343ContainedLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7676,27 +7680,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3344ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3344ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3345ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3345ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3346ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3346ContainedLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7704,27 +7708,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3347ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3347ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3348ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3348ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3349ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3349ContainedLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7732,27 +7736,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3350ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3350ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3351ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3351ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3352ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3352ContainedLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7760,27 +7764,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3353ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3353ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3354ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3354ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3355ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3355ContainedLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7788,27 +7792,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3356ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3356ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3357ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3357ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3358ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3358ContainedLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7816,27 +7820,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3359ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3359ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3360ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3360ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3361ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3361ContainedLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7844,11 +7848,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3362ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3362ContainedLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7856,27 +7860,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3363ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3363ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3364ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3364ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3365ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3365ContainedLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7884,27 +7888,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3366ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3366ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3367ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3367ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3368ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3368ContainedLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7912,27 +7916,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3369ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3369ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3370ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3370ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3371ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3371ContainedLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7940,27 +7944,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3372ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3372ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3373ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3373ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3374ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3374ContainedLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7968,27 +7972,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3375ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3375ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3376ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3376ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3377ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3377ContainedLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -7996,35 +8000,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3381ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceEndpointContainer_3381ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3382ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPoint_3382ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3144ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3144ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3145ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3145ContainedLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8032,27 +8036,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3206ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3206ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3207ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3207ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3208ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3208ContainedLinks(
 			View view) {
 		ThrottleMediatorOutputConnector modelElement = (ThrottleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8060,27 +8064,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3237ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3237ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3238ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3238ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3239ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3239ContainedLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8088,11 +8092,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3240ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3240ContainedLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8100,27 +8104,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3241ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3241ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3242ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3242ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3243ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3243ContainedLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8128,27 +8132,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3244ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3244ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3245ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3245ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3246ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3246ContainedLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8156,27 +8160,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3247ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3247ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3248ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3248ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3249ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3249ContainedLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8184,27 +8188,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3250ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3250ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3251ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3251ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3252ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3252ContainedLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8212,11 +8216,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3253ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3253ContainedLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8224,27 +8228,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3254ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3254ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3255ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3255ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3256ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3256ContainedLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8252,27 +8256,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3257ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3257ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3258ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3258ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3259ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3259ContainedLinks(
 			View view) {
 		EventMediatorOutputConnector modelElement = (EventMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8280,27 +8284,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3260ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3260ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3261ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3261ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3262ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3262ContainedLinks(
 			View view) {
 		EntitlementMediatorOutputConnector modelElement = (EntitlementMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8308,27 +8312,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3263ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3263ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3264ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3264ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3265ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3265ContainedLinks(
 			View view) {
 		ClassMediatorOutputConnector modelElement = (ClassMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8336,27 +8340,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3266ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3266ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3267ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3267ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3268ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3268ContainedLinks(
 			View view) {
 		SpringMediatorOutputConnector modelElement = (SpringMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8364,27 +8368,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3269ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3269ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3270ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3270ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3271ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3271ContainedLinks(
 			View view) {
 		ScriptMediatorOutputConnector modelElement = (ScriptMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8392,27 +8396,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3272ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3272ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3273ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3273ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3274ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3274ContainedLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8420,27 +8424,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3275ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3275ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3276ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3276ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3277ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3277ContainedLinks(
 			View view) {
 		XQueryMediatorOutputConnector modelElement = (XQueryMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8448,27 +8452,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3278ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3278ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3279ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3279ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3280ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3280ContainedLinks(
 			View view) {
 		CommandMediatorOutputConnector modelElement = (CommandMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8476,27 +8480,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3281ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3281ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3282ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3282ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3283ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3283ContainedLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8504,27 +8508,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3284ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3284ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3285ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3285ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3286ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3286ContainedLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8532,27 +8536,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3287ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3287ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3288ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3288ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3289ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3289ContainedLinks(
 			View view) {
 		SmooksMediatorOutputConnector modelElement = (SmooksMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8560,27 +8564,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3290ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3290ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3291ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3291ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3292ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3292ContainedLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8588,27 +8592,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3293ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3293ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3294ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3294ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3295ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3295ContainedLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8616,27 +8620,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3296ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3296ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3297ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3297ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3298ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3298ContainedLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8644,11 +8648,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3299ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3299ContainedLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8656,27 +8660,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3300ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3300ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3301ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3301ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3302ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3302ContainedLinks(
 			View view) {
 		CacheMediatorOutputConnector modelElement = (CacheMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8684,27 +8688,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3303ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3303ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3304ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3304ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3305ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3305ContainedLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8712,27 +8716,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3306ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3306ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3307ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3307ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3308ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3308ContainedLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8740,27 +8744,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3309ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3309ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3310ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3310ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3311ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3311ContainedLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8768,27 +8772,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3312ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3312ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3313ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3313ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3314ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3314ContainedLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8796,27 +8800,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3315ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3315ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3316ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3316ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3317ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3317ContainedLinks(
 			View view) {
 		RuleMediatorOutputConnector modelElement = (RuleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8824,27 +8828,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3318ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3318ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3319ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3319ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3320ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3320ContainedLinks(
 			View view) {
 		OAuthMediatorOutputConnector modelElement = (OAuthMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8852,27 +8856,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3321ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3321ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3322ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3322ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3323ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3323ContainedLinks(
 			View view) {
 		AggregateMediatorOutputConnector modelElement = (AggregateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8880,11 +8884,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3324ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3324ContainedLinks(
 			View view) {
 		AggregateMediatorOnCompleteOutputConnector modelElement = (AggregateMediatorOnCompleteOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8892,27 +8896,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3325ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3325ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3326ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3326ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3327ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3327ContainedLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8920,35 +8924,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3328ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3328ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3146ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3146ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3147ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3147ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3148ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3148ContainedLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8956,27 +8960,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3149ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3149ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3150ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3150ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3151ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3151ContainedLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -8984,27 +8988,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3152ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3152ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3153ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3153ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3154ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3154ContainedLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9012,11 +9016,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3155ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3155ContainedLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9024,27 +9028,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3156ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3156ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3157ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3157ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3158ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3158ContainedLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9052,27 +9056,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3159ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3159ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3160ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3160ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3161ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3161ContainedLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9080,27 +9084,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3162ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3162ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3163ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3163ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3164ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3164ContainedLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9108,27 +9112,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3165ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3165ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3166ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3166ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3167ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3167ContainedLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9136,27 +9140,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3168ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3168ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3169ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3169ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3170ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3170ContainedLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9164,27 +9168,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3171ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3171ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3172ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3172ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3173ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3173ContainedLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9192,11 +9196,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3174ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3174ContainedLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9204,27 +9208,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3175ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3175ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3176ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3176ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3177ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3177ContainedLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9232,27 +9236,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3178ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3178ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3181ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3181ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3182ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3182ContainedLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9260,19 +9264,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3115ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3115ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3116ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3116ContainedLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9280,35 +9284,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3232ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3232ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3179ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3179ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3183ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3183ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3184ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3184ContainedLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9316,19 +9320,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3118ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3118ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3119ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3119ContainedLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9336,35 +9340,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3233ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3233ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3180ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3180ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3121ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3121ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3122ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3122ContainedLinks(
 			View view) {
 		ThrottleMediatorOutputConnector modelElement = (ThrottleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9372,27 +9376,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3209ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3209ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3185ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3185ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3186ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3186ContainedLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9400,19 +9404,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3124ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3124ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3125ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3125ContainedLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9420,35 +9424,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3234ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3234ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3187ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3187ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3188ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3188ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3189ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3189ContainedLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9456,19 +9460,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3127ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3127ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3128ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3128ContainedLinks(
 			View view) {
 		RuleMediatorOutputConnector modelElement = (RuleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9476,27 +9480,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3235ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3235ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3130ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3130ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3131ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3131ContainedLinks(
 			View view) {
 		OAuthMediatorOutputConnector modelElement = (OAuthMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9504,27 +9508,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3236ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3236ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3021ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointInputConnector_3021ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3022ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointOutputConnector_3022ContainedLinks(
 			View view) {
 		DefaultEndPointOutputConnector modelElement = (DefaultEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9532,27 +9536,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3383ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPoint_3383ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3030ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointInputConnector_3030ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3031ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointOutputConnector_3031ContainedLinks(
 			View view) {
 		AddressEndPointOutputConnector modelElement = (AddressEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -9560,53 +9564,53 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3384ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPoint_3384ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbLink_4001ContainedLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbLink_4001ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbServer_2001IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbServer_2001IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyService_3001IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyService_3001IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyOutputConnector_3002IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyOutputConnector_3002IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyInputConnector_3003IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyInputConnector_3003IncomingLinks(
 			View view) {
 		ProxyInputConnector modelElement = (ProxyInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9615,45 +9619,45 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3196IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceSequenceContainer_3196IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceInSequence_3197IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3191IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3191IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageMediator_3045IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageMediator_3045IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageInputConnector_3046IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageInputConnector_3046IncomingLinks(
 			View view) {
 		MessageInputConnector modelElement = (MessageInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9662,21 +9666,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageOutputConnector_3047IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageOutputConnector_3047IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3008IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3008IncomingLinks(
 			View view) {
 		DropMediatorInputConnector modelElement = (DropMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9685,37 +9689,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3199IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3199IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceOutSequence_3198IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3194IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3194IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3010IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3010IncomingLinks(
 			View view) {
 		FilterMediatorInputConnector modelElement = (FilterMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9724,45 +9728,45 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3011IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3011IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3012IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3012IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3210IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3210IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNode_3013IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNode_3013IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeFirstInputConnector_3014IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeFirstInputConnector_3014IncomingLinks(
 			View view) {
 		MergeNodeFirstInputConnector modelElement = (MergeNodeFirstInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9771,13 +9775,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeSecondInputConnector_3015IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeSecondInputConnector_3015IncomingLinks(
 			View view) {
 		MergeNodeSecondInputConnector modelElement = (MergeNodeSecondInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9786,21 +9790,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeOutputConnector_3016IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeOutputConnector_3016IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3018IncomingLinks(
 			View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9809,29 +9813,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3019IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3019IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3387IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3387IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3201IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3201IncomingLinks(
 			View view) {
 		PropertyMediatorInputConnector modelElement = (PropertyMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9840,21 +9844,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3202IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3202IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3033IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3033IncomingLinks(
 			View view) {
 		PropertyMediatorInputConnector modelElement = (PropertyMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9863,29 +9867,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3034IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3034IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3205IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3205IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3036IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3036IncomingLinks(
 			View view) {
 		EnrichMediatorInputConnector modelElement = (EnrichMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9894,29 +9898,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3037IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3037IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3212IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3212IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3039IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3039IncomingLinks(
 			View view) {
 		XSLTMediatorInputConnector modelElement = (XSLTMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9925,29 +9929,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3040IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3040IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3213IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3213IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3042IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3042IncomingLinks(
 			View view) {
 		SwitchMediatorInputConnector modelElement = (SwitchMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9956,37 +9960,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3043IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3043IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3044IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3044IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3214IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3214IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3049IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3049IncomingLinks(
 			View view) {
 		SequenceInputConnector modelElement = (SequenceInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -9995,29 +9999,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3050IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3050IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3215IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3215IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3052IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3052IncomingLinks(
 			View view) {
 		EventMediatorInputConnector modelElement = (EventMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10026,29 +10030,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3053IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3053IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3216IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3216IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3055IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3055IncomingLinks(
 			View view) {
 		EntitlementMediatorInputConnector modelElement = (EntitlementMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10057,29 +10061,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3056IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3056IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3217IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3217IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3058IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3058IncomingLinks(
 			View view) {
 		ClassMediatorInputConnector modelElement = (ClassMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10088,29 +10092,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3059IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3059IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3218IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3218IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3061IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3061IncomingLinks(
 			View view) {
 		SpringMediatorInputConnector modelElement = (SpringMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10119,29 +10123,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3062IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3062IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3219IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3219IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3064IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3064IncomingLinks(
 			View view) {
 		ScriptMediatorInputConnector modelElement = (ScriptMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10150,29 +10154,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3065IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3065IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3220IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3220IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3067IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3067IncomingLinks(
 			View view) {
 		FaultMediatorInputConnector modelElement = (FaultMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10181,29 +10185,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3068IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3068IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3221IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3221IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3070IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3070IncomingLinks(
 			View view) {
 		XQueryMediatorInputConnector modelElement = (XQueryMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10212,29 +10216,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3071IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3071IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3222IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3222IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3073IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3073IncomingLinks(
 			View view) {
 		CommandMediatorInputConnector modelElement = (CommandMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10243,29 +10247,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3074IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3074IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3223IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3223IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3076IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3076IncomingLinks(
 			View view) {
 		DBLookupMediatorInputConnector modelElement = (DBLookupMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10274,29 +10278,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3077IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3077IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3224IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3224IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3079IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3079IncomingLinks(
 			View view) {
 		DBReportMediatorInputConnector modelElement = (DBReportMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10305,29 +10309,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3080IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3080IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3225IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3225IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3082IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3082IncomingLinks(
 			View view) {
 		SmooksMediatorInputConnector modelElement = (SmooksMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10336,29 +10340,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3083IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3083IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3226IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3226IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3085IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3085IncomingLinks(
 			View view) {
 		SendMediatorInputConnector modelElement = (SendMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10367,29 +10371,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3086IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3086IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3227IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3227IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3088IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointInputConnector_3088IncomingLinks(
 			View view) {
 		FailoverEndPointInputConnector modelElement = (FailoverEndPointInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10398,37 +10402,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3090IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointOutputConnector_3090IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3097IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointWestOutputConnector_3097IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3385IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPoint_3385IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3092IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointInputConnector_3092IncomingLinks(
 			View view) {
 		WSDLEndPointInputConnector modelElement = (WSDLEndPointInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10437,29 +10441,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3093IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointOutputConnector_3093IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3386IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPoint_3386IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3095IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointInputConnector_3095IncomingLinks(
 			View view) {
 		LoadBalanceEndPointInputConnector modelElement = (LoadBalanceEndPointInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10468,29 +10472,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3096IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointOutputConnector_3096IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3098IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointWestOutputConnector_3098IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3100IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3100IncomingLinks(
 			View view) {
 		HeaderMediatorInputConnector modelElement = (HeaderMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10499,29 +10503,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3101IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3101IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3228IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3228IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3103IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3103IncomingLinks(
 			View view) {
 		CloneMediatorInputConnector modelElement = (CloneMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10530,37 +10534,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3104IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3104IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3133IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3133IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3229IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3229IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3106IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3106IncomingLinks(
 			View view) {
 		CacheMediatorInputConnector modelElement = (CacheMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10569,29 +10573,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3107IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3107IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3230IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3230IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3109IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3109IncomingLinks(
 			View view) {
 		IterateMediatorInputConnector modelElement = (IterateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10600,29 +10604,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3110IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3110IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3231IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3231IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3112IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3112IncomingLinks(
 			View view) {
 		AggregateMediatorInputConnector modelElement = (AggregateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10631,37 +10635,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3113IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3113IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3132IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3132IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3134IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3134IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3135IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3135IncomingLinks(
 			View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10670,29 +10674,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3136IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3136IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3137IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3137IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3195IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3195IncomingLinks(
 			View view) {
 		DropMediatorInputConnector modelElement = (DropMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10701,21 +10705,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3329IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3329IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3330IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3330IncomingLinks(
 			View view) {
 		FilterMediatorInputConnector modelElement = (FilterMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10724,37 +10728,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3331IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3331IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3332IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3332IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3333IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3333IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3192IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3192IncomingLinks(
 			View view) {
 		DropMediatorInputConnector modelElement = (DropMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10763,13 +10767,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3138IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3138IncomingLinks(
 			View view) {
 		DropMediatorInputConnector modelElement = (DropMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10778,29 +10782,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3200IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3200IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3139IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3139IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3140IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3140IncomingLinks(
 			View view) {
 		FilterMediatorInputConnector modelElement = (FilterMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10809,37 +10813,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3141IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3141IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3142IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3142IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3143IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3143IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3203IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3203IncomingLinks(
 			View view) {
 		PropertyMediatorInputConnector modelElement = (PropertyMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10848,29 +10852,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3204IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3204IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3334IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3334IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3388IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3388IncomingLinks(
 			View view) {
 		EnrichMediatorInputConnector modelElement = (EnrichMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10879,29 +10883,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3389IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3389IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3337IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3337IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3338IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3338IncomingLinks(
 			View view) {
 		XSLTMediatorInputConnector modelElement = (XSLTMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10910,29 +10914,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3339IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3339IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3340IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3340IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3341IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3341IncomingLinks(
 			View view) {
 		SwitchMediatorInputConnector modelElement = (SwitchMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10941,37 +10945,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3342IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3342IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3343IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3343IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3344IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3344IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3345IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3345IncomingLinks(
 			View view) {
 		FaultMediatorInputConnector modelElement = (FaultMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -10980,29 +10984,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3346IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3346IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3347IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3347IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3348IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3348IncomingLinks(
 			View view) {
 		DBLookupMediatorInputConnector modelElement = (DBLookupMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11011,29 +11015,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3349IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3349IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3350IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3350IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3351IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3351IncomingLinks(
 			View view) {
 		DBReportMediatorInputConnector modelElement = (DBReportMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11042,29 +11046,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3352IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3352IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3353IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3353IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3354IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3354IncomingLinks(
 			View view) {
 		SendMediatorInputConnector modelElement = (SendMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11073,29 +11077,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3355IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3355IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3356IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3356IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3357IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3357IncomingLinks(
 			View view) {
 		HeaderMediatorInputConnector modelElement = (HeaderMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11104,29 +11108,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3358IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3358IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3359IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3359IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3360IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3360IncomingLinks(
 			View view) {
 		CloneMediatorInputConnector modelElement = (CloneMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11135,37 +11139,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3361IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3361IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3362IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3362IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3363IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3363IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3364IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3364IncomingLinks(
 			View view) {
 		IterateMediatorInputConnector modelElement = (IterateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11174,29 +11178,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3365IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3365IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3366IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3366IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3367IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3367IncomingLinks(
 			View view) {
 		CalloutMediatorInputConnector modelElement = (CalloutMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11205,29 +11209,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3368IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3368IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3369IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3369IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3370IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3370IncomingLinks(
 			View view) {
 		TransactionMediatorInputConnector modelElement = (TransactionMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11236,29 +11240,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3371IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3371IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3372IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3372IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3373IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3373IncomingLinks(
 			View view) {
 		RMSequenceMediatorInputConnector modelElement = (RMSequenceMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11267,29 +11271,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3374IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3374IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3375IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3375IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3376IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3376IncomingLinks(
 			View view) {
 		SequenceInputConnector modelElement = (SequenceInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11298,37 +11302,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3377IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3377IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3381IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceEndpointContainer_3381IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3382IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPoint_3382IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3144IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3144IncomingLinks(
 			View view) {
 		PropertyMediatorInputConnector modelElement = (PropertyMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11337,29 +11341,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3145IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3145IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3206IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3206IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3207IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3207IncomingLinks(
 			View view) {
 		ThrottleMediatorInputConnector modelElement = (ThrottleMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11368,29 +11372,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3208IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3208IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3237IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3237IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3238IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3238IncomingLinks(
 			View view) {
 		FilterMediatorInputConnector modelElement = (FilterMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11399,37 +11403,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3239IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3239IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3240IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3240IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3241IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3241IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3242IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3242IncomingLinks(
 			View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11438,29 +11442,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3243IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3243IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3244IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3244IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3245IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3245IncomingLinks(
 			View view) {
 		EnrichMediatorInputConnector modelElement = (EnrichMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11469,29 +11473,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3246IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3246IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3247IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3247IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3248IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3248IncomingLinks(
 			View view) {
 		XSLTMediatorInputConnector modelElement = (XSLTMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11500,29 +11504,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3249IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3249IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3250IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3250IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3251IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3251IncomingLinks(
 			View view) {
 		SwitchMediatorInputConnector modelElement = (SwitchMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11531,37 +11535,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3252IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3252IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3253IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3253IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3254IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3254IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3255IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3255IncomingLinks(
 			View view) {
 		SequenceInputConnector modelElement = (SequenceInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11570,29 +11574,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3256IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3256IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3257IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3257IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3258IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3258IncomingLinks(
 			View view) {
 		EventMediatorInputConnector modelElement = (EventMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11601,29 +11605,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3259IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3259IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3260IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3260IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3261IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3261IncomingLinks(
 			View view) {
 		EntitlementMediatorInputConnector modelElement = (EntitlementMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11632,29 +11636,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3262IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3262IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3263IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3263IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3264IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3264IncomingLinks(
 			View view) {
 		ClassMediatorInputConnector modelElement = (ClassMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11663,29 +11667,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3265IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3265IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3266IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3266IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3267IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3267IncomingLinks(
 			View view) {
 		SpringMediatorInputConnector modelElement = (SpringMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11694,29 +11698,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3268IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3268IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3269IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3269IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3270IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3270IncomingLinks(
 			View view) {
 		ScriptMediatorInputConnector modelElement = (ScriptMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11725,29 +11729,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3271IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3271IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3272IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3272IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3273IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3273IncomingLinks(
 			View view) {
 		FaultMediatorInputConnector modelElement = (FaultMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11756,29 +11760,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3274IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3274IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3275IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3275IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3276IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3276IncomingLinks(
 			View view) {
 		XQueryMediatorInputConnector modelElement = (XQueryMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11787,29 +11791,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3277IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3277IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3278IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3278IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3279IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3279IncomingLinks(
 			View view) {
 		CommandMediatorInputConnector modelElement = (CommandMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11818,29 +11822,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3280IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3280IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3281IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3281IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3282IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3282IncomingLinks(
 			View view) {
 		DBLookupMediatorInputConnector modelElement = (DBLookupMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11849,29 +11853,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3283IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3283IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3284IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3284IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3285IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3285IncomingLinks(
 			View view) {
 		DBReportMediatorInputConnector modelElement = (DBReportMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11880,29 +11884,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3286IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3286IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3287IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3287IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3288IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3288IncomingLinks(
 			View view) {
 		SmooksMediatorInputConnector modelElement = (SmooksMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11911,29 +11915,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3289IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3289IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3290IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3290IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3291IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3291IncomingLinks(
 			View view) {
 		SendMediatorInputConnector modelElement = (SendMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11942,29 +11946,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3292IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3292IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3293IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3293IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3294IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3294IncomingLinks(
 			View view) {
 		HeaderMediatorInputConnector modelElement = (HeaderMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -11973,29 +11977,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3295IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3295IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3296IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3296IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3297IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3297IncomingLinks(
 			View view) {
 		CloneMediatorInputConnector modelElement = (CloneMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12004,37 +12008,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3298IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3298IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3299IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3299IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3300IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3300IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3301IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3301IncomingLinks(
 			View view) {
 		CacheMediatorInputConnector modelElement = (CacheMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12043,29 +12047,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3302IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3302IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3303IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3303IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3304IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3304IncomingLinks(
 			View view) {
 		IterateMediatorInputConnector modelElement = (IterateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12074,29 +12078,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3305IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3305IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3306IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3306IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3307IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3307IncomingLinks(
 			View view) {
 		CalloutMediatorInputConnector modelElement = (CalloutMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12105,29 +12109,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3308IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3308IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3309IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3309IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3310IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3310IncomingLinks(
 			View view) {
 		TransactionMediatorInputConnector modelElement = (TransactionMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12136,29 +12140,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3311IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3311IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3312IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3312IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3313IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3313IncomingLinks(
 			View view) {
 		RMSequenceMediatorInputConnector modelElement = (RMSequenceMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12167,29 +12171,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3314IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3314IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3315IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3315IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3316IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3316IncomingLinks(
 			View view) {
 		RuleMediatorInputConnector modelElement = (RuleMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12198,29 +12202,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3317IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3317IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3318IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3318IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3319IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3319IncomingLinks(
 			View view) {
 		OAuthMediatorInputConnector modelElement = (OAuthMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12229,29 +12233,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3320IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3320IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3321IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3321IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3322IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3322IncomingLinks(
 			View view) {
 		AggregateMediatorInputConnector modelElement = (AggregateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12260,37 +12264,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3323IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3323IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3324IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3324IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3325IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3325IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3326IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3326IncomingLinks(
 			View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12299,37 +12303,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3327IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3327IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3328IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3328IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3146IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3146IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3147IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3147IncomingLinks(
 			View view) {
 		EnrichMediatorInputConnector modelElement = (EnrichMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12338,29 +12342,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3148IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3148IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3149IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3149IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3150IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3150IncomingLinks(
 			View view) {
 		XSLTMediatorInputConnector modelElement = (XSLTMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12369,29 +12373,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3151IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3151IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3152IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3152IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3153IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3153IncomingLinks(
 			View view) {
 		SwitchMediatorInputConnector modelElement = (SwitchMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12400,37 +12404,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3154IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3154IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3155IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3155IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3156IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3156IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3157IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3157IncomingLinks(
 			View view) {
 		FaultMediatorInputConnector modelElement = (FaultMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12439,29 +12443,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3158IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3158IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3159IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3159IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3160IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3160IncomingLinks(
 			View view) {
 		DBLookupMediatorInputConnector modelElement = (DBLookupMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12470,29 +12474,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3161IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3161IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3162IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3162IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3163IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3163IncomingLinks(
 			View view) {
 		DBReportMediatorInputConnector modelElement = (DBReportMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12501,29 +12505,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3164IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3164IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3165IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3165IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3166IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3166IncomingLinks(
 			View view) {
 		SendMediatorInputConnector modelElement = (SendMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12532,29 +12536,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3167IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3167IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3168IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3168IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3169IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3169IncomingLinks(
 			View view) {
 		HeaderMediatorInputConnector modelElement = (HeaderMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12563,29 +12567,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3170IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3170IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3171IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3171IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3172IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3172IncomingLinks(
 			View view) {
 		CloneMediatorInputConnector modelElement = (CloneMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12594,37 +12598,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3173IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3173IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3174IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3174IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3175IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3175IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3176IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3176IncomingLinks(
 			View view) {
 		IterateMediatorInputConnector modelElement = (IterateMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12633,29 +12637,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3177IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3177IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3178IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3178IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3181IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3181IncomingLinks(
 			View view) {
 		CalloutMediatorInputConnector modelElement = (CalloutMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12664,21 +12668,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3182IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3182IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3115IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3115IncomingLinks(
 			View view) {
 		CalloutMediatorInputConnector modelElement = (CalloutMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12687,37 +12691,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3116IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3116IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3232IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3232IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3179IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3179IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3183IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3183IncomingLinks(
 			View view) {
 		TransactionMediatorInputConnector modelElement = (TransactionMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12726,21 +12730,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3184IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3184IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3118IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3118IncomingLinks(
 			View view) {
 		TransactionMediatorInputConnector modelElement = (TransactionMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12749,37 +12753,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3119IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3119IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3233IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3233IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3180IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3180IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3121IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3121IncomingLinks(
 			View view) {
 		ThrottleMediatorInputConnector modelElement = (ThrottleMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12788,29 +12792,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3122IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3122IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3209IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3209IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3185IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3185IncomingLinks(
 			View view) {
 		RMSequenceMediatorInputConnector modelElement = (RMSequenceMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12819,21 +12823,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3186IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3186IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3124IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3124IncomingLinks(
 			View view) {
 		RMSequenceMediatorInputConnector modelElement = (RMSequenceMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12842,37 +12846,37 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3125IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3125IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3234IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3234IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3187IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3187IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3188IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3188IncomingLinks(
 			View view) {
 		SequenceInputConnector modelElement = (SequenceInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12881,21 +12885,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3189IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3189IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3127IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3127IncomingLinks(
 			View view) {
 		RuleMediatorInputConnector modelElement = (RuleMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12904,29 +12908,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3128IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3128IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3235IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3235IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3130IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3130IncomingLinks(
 			View view) {
 		OAuthMediatorInputConnector modelElement = (OAuthMediatorInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12935,29 +12939,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3131IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3131IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3236IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3236IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3021IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointInputConnector_3021IncomingLinks(
 			View view) {
 		DefaultEndPointInputConnector modelElement = (DefaultEndPointInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12966,29 +12970,29 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3022IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointOutputConnector_3022IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3383IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPoint_3383IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3030IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointInputConnector_3030IncomingLinks(
 			View view) {
 		AddressEndPointInputConnector modelElement = (AddressEndPointInputConnector) view
 				.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+		Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
 				crossReferences));
 		return result;
@@ -12997,50 +13001,51 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3031IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointOutputConnector_3031IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3384IncomingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPoint_3384IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbLink_4001IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getEsbServer_2001OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbLink_4001IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyService_3001OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbServer_2001OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyOutputConnector_3002OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyService_3001OutgoingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyOutputConnector_3002OutgoingLinks(
 			View view) {
 		ProxyOutputConnector modelElement = (ProxyOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13048,59 +13053,59 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyInputConnector_3003OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyInputConnector_3003OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3196OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceSequenceContainer_3196OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceInSequence_3197OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3191OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3191OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageMediator_3045OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageMediator_3045OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageInputConnector_3046OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageInputConnector_3046OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMessageOutputConnector_3047OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMessageOutputConnector_3047OutgoingLinks(
 			View view) {
 		MessageOutputConnector modelElement = (MessageOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13108,51 +13113,51 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3008OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3008OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3199OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3199OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceOutSequence_3198OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3194OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3194OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3010OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3010OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3011OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3011OutgoingLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13160,11 +13165,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3012OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3012OutgoingLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13172,43 +13177,43 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3210OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3210OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNode_3013OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNode_3013OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeFirstInputConnector_3014OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeFirstInputConnector_3014OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeSecondInputConnector_3015OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeSecondInputConnector_3015OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getMergeNodeOutputConnector_3016OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getMergeNodeOutputConnector_3016OutgoingLinks(
 			View view) {
 		MergeNodeOutputConnector modelElement = (MergeNodeOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13216,19 +13221,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3018OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3019OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3019OutgoingLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13236,27 +13241,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3387OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3387OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3201OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3201OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3202OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3202OutgoingLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13264,19 +13269,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3033OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3033OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3034OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3034OutgoingLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13284,27 +13289,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3205OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3205OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3036OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3036OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3037OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3037OutgoingLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13312,27 +13317,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3212OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3212OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3039OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3039OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3040OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3040OutgoingLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13340,27 +13345,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3213OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3213OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3042OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3042OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3043OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3043OutgoingLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13368,11 +13373,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13380,27 +13385,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3214OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3214OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3049OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3049OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3050OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3050OutgoingLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13408,27 +13413,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3215OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3215OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3052OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3052OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3053OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3053OutgoingLinks(
 			View view) {
 		EventMediatorOutputConnector modelElement = (EventMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13436,27 +13441,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3216OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3216OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3055OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3055OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3056OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3056OutgoingLinks(
 			View view) {
 		EntitlementMediatorOutputConnector modelElement = (EntitlementMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13464,27 +13469,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3217OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3217OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3058OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3058OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3059OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3059OutgoingLinks(
 			View view) {
 		ClassMediatorOutputConnector modelElement = (ClassMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13492,27 +13497,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3218OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3218OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3061OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3061OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3062OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3062OutgoingLinks(
 			View view) {
 		SpringMediatorOutputConnector modelElement = (SpringMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13520,27 +13525,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3219OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3219OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3064OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3064OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3065OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3065OutgoingLinks(
 			View view) {
 		ScriptMediatorOutputConnector modelElement = (ScriptMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13548,27 +13553,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3220OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3220OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3067OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3067OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3068OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3068OutgoingLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13576,27 +13581,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3221OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3221OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3070OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3070OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3071OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3071OutgoingLinks(
 			View view) {
 		XQueryMediatorOutputConnector modelElement = (XQueryMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13604,27 +13609,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3222OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3222OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3073OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3073OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3074OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3074OutgoingLinks(
 			View view) {
 		CommandMediatorOutputConnector modelElement = (CommandMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13632,27 +13637,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3223OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3223OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3076OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3076OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3077OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3077OutgoingLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13660,27 +13665,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3224OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3224OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3079OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3079OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3080OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3080OutgoingLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13688,27 +13693,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3225OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3225OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3082OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3082OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3083OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3083OutgoingLinks(
 			View view) {
 		SmooksMediatorOutputConnector modelElement = (SmooksMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13716,27 +13721,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3226OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3226OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3085OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3085OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3086OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3086OutgoingLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13744,27 +13749,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3227OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3227OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3088OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointInputConnector_3088OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3090OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointOutputConnector_3090OutgoingLinks(
 			View view) {
 		FailoverEndPointOutputConnector modelElement = (FailoverEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13772,11 +13777,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3097OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPointWestOutputConnector_3097OutgoingLinks(
 			View view) {
 		FailoverEndPointWestOutputConnector modelElement = (FailoverEndPointWestOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13784,27 +13789,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3385OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPoint_3385OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3092OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointInputConnector_3092OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3093OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getWSDLEndPointOutputConnector_3093OutgoingLinks(
 			View view) {
 		WSDLEndPointOutputConnector modelElement = (WSDLEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13812,27 +13817,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3386OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPoint_3386OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3095OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointInputConnector_3095OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3096OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointOutputConnector_3096OutgoingLinks(
 			View view) {
 		LoadBalanceEndPointOutputConnector modelElement = (LoadBalanceEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13840,11 +13845,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3098OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLoadBalanceEndPointWestOutputConnector_3098OutgoingLinks(
 			View view) {
 		LoadBalanceEndPointWestOutputConnector modelElement = (LoadBalanceEndPointWestOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13852,19 +13857,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3100OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3100OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3101OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3101OutgoingLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13872,27 +13877,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3228OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3228OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3103OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3103OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3104OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3104OutgoingLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13900,11 +13905,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3133OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3133OutgoingLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13912,27 +13917,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3229OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3229OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3106OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3106OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3107OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3107OutgoingLinks(
 			View view) {
 		CacheMediatorOutputConnector modelElement = (CacheMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13940,27 +13945,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3230OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3230OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3109OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3109OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3110OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3110OutgoingLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13968,27 +13973,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3231OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3231OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3112OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3112OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3113OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3113OutgoingLinks(
 			View view) {
 		AggregateMediatorOutputConnector modelElement = (AggregateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -13996,11 +14001,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3132OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3132OutgoingLinks(
 			View view) {
 		AggregateMediatorOnCompleteOutputConnector modelElement = (AggregateMediatorOnCompleteOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14008,27 +14013,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3134OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3134OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3135OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3135OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3136OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3136OutgoingLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14036,43 +14041,43 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3137OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3137OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3195OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3195OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3329OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3329OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3330OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3330OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3331OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3331OutgoingLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14080,11 +14085,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3332OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3332OutgoingLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14092,59 +14097,59 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3333OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3333OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3192OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3192OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediatorInputConnector_3138OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediatorInputConnector_3138OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3200OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3200OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3139OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3139OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3140OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3140OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3141OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3141OutgoingLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14152,11 +14157,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3142OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3142OutgoingLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14164,27 +14169,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediator_3143OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediator_3143OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3203OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3203OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3204OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3204OutgoingLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14192,27 +14197,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3334OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3334OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3388OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3388OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3389OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3389OutgoingLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14220,27 +14225,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3337OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3337OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3338OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3338OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3339OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3339OutgoingLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14248,27 +14253,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3340OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3340OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3341OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3341OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3342OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3342OutgoingLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14276,11 +14281,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3343OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3343OutgoingLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14288,27 +14293,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3344OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3344OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3345OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3345OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3346OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3346OutgoingLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14316,27 +14321,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3347OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3347OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3348OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3348OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3349OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3349OutgoingLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14344,27 +14349,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3350OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3350OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3351OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3351OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3352OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3352OutgoingLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14372,27 +14377,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3353OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3353OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3354OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3354OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3355OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3355OutgoingLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14400,27 +14405,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3356OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3356OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3357OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3357OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3358OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3358OutgoingLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14428,27 +14433,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3359OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3359OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3360OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3360OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3361OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3361OutgoingLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14456,11 +14461,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3362OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3362OutgoingLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14468,27 +14473,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3363OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3363OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3364OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3364OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3365OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3365OutgoingLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14496,27 +14501,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3366OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3366OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3367OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3367OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3368OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3368OutgoingLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14524,27 +14529,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3369OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3369OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3370OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3370OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3371OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3371OutgoingLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14552,27 +14557,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3372OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3372OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3373OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3373OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3374OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3374OutgoingLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14580,27 +14585,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3375OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3375OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3376OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3376OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3377OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3377OutgoingLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14608,35 +14613,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3381OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getProxyServiceEndpointContainer_3381OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3382OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPoint_3382OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorInputConnector_3144OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorInputConnector_3144OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getPropertyMediatorOutputConnector_3145OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getPropertyMediatorOutputConnector_3145OutgoingLinks(
 			View view) {
 		PropertyMediatorOutputConnector modelElement = (PropertyMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14644,27 +14649,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediator_3206OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediator_3206OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3207OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3207OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3208OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3208OutgoingLinks(
 			View view) {
 		ThrottleMediatorOutputConnector modelElement = (ThrottleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14672,27 +14677,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3237OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3237OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorInputConnector_3238OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorInputConnector_3238OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorPassOutputConnector_3239OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorPassOutputConnector_3239OutgoingLinks(
 			View view) {
 		FilterMediatorPassOutputConnector modelElement = (FilterMediatorPassOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14700,11 +14705,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediatorFailOutputConnector_3240OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediatorFailOutputConnector_3240OutgoingLinks(
 			View view) {
 		FilterMediatorFailOutputConnector modelElement = (FilterMediatorFailOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14712,27 +14717,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3241OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3241OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3242OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3242OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3243OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3243OutgoingLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14740,27 +14745,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3244OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3244OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3245OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3245OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3246OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3246OutgoingLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14768,27 +14773,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3247OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3247OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3248OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3248OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3249OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3249OutgoingLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14796,27 +14801,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3250OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3250OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3251OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3251OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3252OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3252OutgoingLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14824,11 +14829,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3253OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3253OutgoingLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14836,27 +14841,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3254OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3254OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3255OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3255OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3256OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3256OutgoingLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14864,27 +14869,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediator_3257OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediator_3257OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorInputConnector_3258OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorInputConnector_3258OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEventMediatorOutputConnector_3259OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEventMediatorOutputConnector_3259OutgoingLinks(
 			View view) {
 		EventMediatorOutputConnector modelElement = (EventMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14892,27 +14897,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediator_3260OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediator_3260OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorInputConnector_3261OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorInputConnector_3261OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEntitlementMediatorOutputConnector_3262OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEntitlementMediatorOutputConnector_3262OutgoingLinks(
 			View view) {
 		EntitlementMediatorOutputConnector modelElement = (EntitlementMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14920,27 +14925,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediator_3263OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediator_3263OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorInputConnector_3264OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorInputConnector_3264OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getClassMediatorOutputConnector_3265OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getClassMediatorOutputConnector_3265OutgoingLinks(
 			View view) {
 		ClassMediatorOutputConnector modelElement = (ClassMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14948,27 +14953,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediator_3266OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediator_3266OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorInputConnector_3267OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorInputConnector_3267OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSpringMediatorOutputConnector_3268OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSpringMediatorOutputConnector_3268OutgoingLinks(
 			View view) {
 		SpringMediatorOutputConnector modelElement = (SpringMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -14976,27 +14981,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediator_3269OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediator_3269OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorInputConnector_3270OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorInputConnector_3270OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getScriptMediatorOutputConnector_3271OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getScriptMediatorOutputConnector_3271OutgoingLinks(
 			View view) {
 		ScriptMediatorOutputConnector modelElement = (ScriptMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15004,27 +15009,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3272OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3272OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3273OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3273OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3274OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3274OutgoingLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15032,27 +15037,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediator_3275OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediator_3275OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorInputConnector_3276OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorInputConnector_3276OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXQueryMediatorOutputConnector_3277OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXQueryMediatorOutputConnector_3277OutgoingLinks(
 			View view) {
 		XQueryMediatorOutputConnector modelElement = (XQueryMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15060,27 +15065,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediator_3278OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediator_3278OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorInputConnector_3279OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorInputConnector_3279OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCommandMediatorOutputConnector_3280OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCommandMediatorOutputConnector_3280OutgoingLinks(
 			View view) {
 		CommandMediatorOutputConnector modelElement = (CommandMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15088,27 +15093,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3281OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3281OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3282OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3282OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3283OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3283OutgoingLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15116,27 +15121,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3284OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3284OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3285OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3285OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3286OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3286OutgoingLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15144,27 +15149,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediator_3287OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediator_3287OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorInputConnector_3288OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorInputConnector_3288OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSmooksMediatorOutputConnector_3289OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSmooksMediatorOutputConnector_3289OutgoingLinks(
 			View view) {
 		SmooksMediatorOutputConnector modelElement = (SmooksMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15172,27 +15177,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3290OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3290OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3291OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3291OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3292OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3292OutgoingLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15200,27 +15205,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3293OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3293OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3294OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3294OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3295OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3295OutgoingLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15228,27 +15233,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3296OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3296OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3297OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3297OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3298OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3298OutgoingLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15256,11 +15261,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3299OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3299OutgoingLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15268,27 +15273,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediator_3300OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediator_3300OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorInputConnector_3301OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorInputConnector_3301OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCacheMediatorOutputConnector_3302OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCacheMediatorOutputConnector_3302OutgoingLinks(
 			View view) {
 		CacheMediatorOutputConnector modelElement = (CacheMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15296,27 +15301,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3303OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3303OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3304OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3304OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3305OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3305OutgoingLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15324,27 +15329,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3306OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3306OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3307OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3307OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3308OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3308OutgoingLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15352,27 +15357,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3309OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3309OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3310OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3310OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3311OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3311OutgoingLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15380,27 +15385,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3312OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3312OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3313OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3313OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3314OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3314OutgoingLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15408,27 +15413,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3315OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3315OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3316OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3316OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3317OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3317OutgoingLinks(
 			View view) {
 		RuleMediatorOutputConnector modelElement = (RuleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15436,27 +15441,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3318OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3318OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3319OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3319OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3320OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3320OutgoingLinks(
 			View view) {
 		OAuthMediatorOutputConnector modelElement = (OAuthMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15464,27 +15469,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3321OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3321OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorInputConnector_3322OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorInputConnector_3322OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOutputConnector_3323OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOutputConnector_3323OutgoingLinks(
 			View view) {
 		AggregateMediatorOutputConnector modelElement = (AggregateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15492,11 +15497,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediatorOnCompleteOutputConnector_3324OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediatorOnCompleteOutputConnector_3324OutgoingLinks(
 			View view) {
 		AggregateMediatorOnCompleteOutputConnector modelElement = (AggregateMediatorOnCompleteOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15504,27 +15509,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediator_3325OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediator_3325OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3326OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorInputConnector_3326OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLogMediatorOutputConnector_3327OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getLogMediatorOutputConnector_3327OutgoingLinks(
 			View view) {
 		LogMediatorOutputConnector modelElement = (LogMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15532,35 +15537,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDropMediator_3328OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDropMediator_3328OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediator_3146OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediator_3146OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorInputConnector_3147OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorInputConnector_3147OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEnrichMediatorOutputConnector_3148OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEnrichMediatorOutputConnector_3148OutgoingLinks(
 			View view) {
 		EnrichMediatorOutputConnector modelElement = (EnrichMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15568,27 +15573,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediator_3149OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediator_3149OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorInputConnector_3150OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorInputConnector_3150OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getXSLTMediatorOutputConnector_3151OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getXSLTMediatorOutputConnector_3151OutgoingLinks(
 			View view) {
 		XSLTMediatorOutputConnector modelElement = (XSLTMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15596,27 +15601,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediator_3152OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediator_3152OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchMediatorInputConnector_3153OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchMediatorInputConnector_3153OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseBranchOutputConnector_3154OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchCaseBranchOutputConnector_3154OutgoingLinks(
 			View view) {
 		SwitchCaseBranchOutputConnector modelElement = (SwitchCaseBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15624,11 +15629,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultBranchOutputConnector_3155OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSwitchDefaultBranchOutputConnector_3155OutgoingLinks(
 			View view) {
 		SwitchDefaultBranchOutputConnector modelElement = (SwitchDefaultBranchOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15636,27 +15641,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediator_3156OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediator_3156OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorInputConnector_3157OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorInputConnector_3157OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFaultMediatorOutputConnector_3158OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFaultMediatorOutputConnector_3158OutgoingLinks(
 			View view) {
 		FaultMediatorOutputConnector modelElement = (FaultMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15664,27 +15669,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediator_3159OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediator_3159OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorInputConnector_3160OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorInputConnector_3160OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBLookupMediatorOutputConnector_3161OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBLookupMediatorOutputConnector_3161OutgoingLinks(
 			View view) {
 		DBLookupMediatorOutputConnector modelElement = (DBLookupMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15692,27 +15697,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediator_3162OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediator_3162OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorInputConnector_3163OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorInputConnector_3163OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDBReportMediatorOutputConnector_3164OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDBReportMediatorOutputConnector_3164OutgoingLinks(
 			View view) {
 		DBReportMediatorOutputConnector modelElement = (DBReportMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15720,27 +15725,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediator_3165OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediator_3165OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorInputConnector_3166OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorInputConnector_3166OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSendMediatorOutputConnector_3167OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSendMediatorOutputConnector_3167OutgoingLinks(
 			View view) {
 		SendMediatorOutputConnector modelElement = (SendMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15748,27 +15753,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediator_3168OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediator_3168OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorInputConnector_3169OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorInputConnector_3169OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getHeaderMediatorOutputConnector_3170OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getHeaderMediatorOutputConnector_3170OutgoingLinks(
 			View view) {
 		HeaderMediatorOutputConnector modelElement = (HeaderMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15776,27 +15781,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediator_3171OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediator_3171OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorInputConnector_3172OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorInputConnector_3172OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorOutputConnector_3173OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorOutputConnector_3173OutgoingLinks(
 			View view) {
 		CloneMediatorOutputConnector modelElement = (CloneMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15804,11 +15809,11 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCloneMediatorTargetOutputConnector_3174OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCloneMediatorTargetOutputConnector_3174OutgoingLinks(
 			View view) {
 		CloneMediatorTargetOutputConnector modelElement = (CloneMediatorTargetOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15816,27 +15821,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediator_3175OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediator_3175OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorInputConnector_3176OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorInputConnector_3176OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getIterateMediatorOutputConnector_3177OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIterateMediatorOutputConnector_3177OutgoingLinks(
 			View view) {
 		IterateMediatorOutputConnector modelElement = (IterateMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15844,27 +15849,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediator_3178OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediator_3178OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3181OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3181OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3182OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3182OutgoingLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15872,19 +15877,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorInputConnector_3115OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorInputConnector_3115OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getCalloutMediatorOutputConnector_3116OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getCalloutMediatorOutputConnector_3116OutgoingLinks(
 			View view) {
 		CalloutMediatorOutputConnector modelElement = (CalloutMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15892,35 +15897,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3232OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3232OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediator_3179OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediator_3179OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3183OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3183OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3184OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3184OutgoingLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15928,19 +15933,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorInputConnector_3118OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorInputConnector_3118OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getTransactionMediatorOutputConnector_3119OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getTransactionMediatorOutputConnector_3119OutgoingLinks(
 			View view) {
 		TransactionMediatorOutputConnector modelElement = (TransactionMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15948,35 +15953,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3233OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3233OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediator_3180OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediator_3180OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorInputConnector_3121OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorInputConnector_3121OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getThrottleMediatorOutputConnector_3122OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getThrottleMediatorOutputConnector_3122OutgoingLinks(
 			View view) {
 		ThrottleMediatorOutputConnector modelElement = (ThrottleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -15984,27 +15989,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFilterMediator_3209OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFilterMediator_3209OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3185OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3185OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3186OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3186OutgoingLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16012,19 +16017,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorInputConnector_3124OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorInputConnector_3124OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRMSequenceMediatorOutputConnector_3125OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRMSequenceMediatorOutputConnector_3125OutgoingLinks(
 			View view) {
 		RMSequenceMediatorOutputConnector modelElement = (RMSequenceMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16032,35 +16037,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediator_3234OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediator_3234OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequence_3187OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequence_3187OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceInputConnector_3188OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceInputConnector_3188OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSequenceOutputConnector_3189OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getSequenceOutputConnector_3189OutgoingLinks(
 			View view) {
 		SequenceOutputConnector modelElement = (SequenceOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16068,19 +16073,19 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorInputConnector_3127OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorInputConnector_3127OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getRuleMediatorOutputConnector_3128OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getRuleMediatorOutputConnector_3128OutgoingLinks(
 			View view) {
 		RuleMediatorOutputConnector modelElement = (RuleMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16088,27 +16093,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediator_3235OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediator_3235OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorInputConnector_3130OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorInputConnector_3130OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getOAuthMediatorOutputConnector_3131OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOAuthMediatorOutputConnector_3131OutgoingLinks(
 			View view) {
 		OAuthMediatorOutputConnector modelElement = (OAuthMediatorOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16116,27 +16121,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAggregateMediator_3236OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAggregateMediator_3236OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3021OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointInputConnector_3021OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3022OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getDefaultEndPointOutputConnector_3022OutgoingLinks(
 			View view) {
 		DefaultEndPointOutputConnector modelElement = (DefaultEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16144,27 +16149,27 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3383OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPoint_3383OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3030OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointInputConnector_3030OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3031OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getAddressEndPointOutputConnector_3031OutgoingLinks(
 			View view) {
 		AddressEndPointOutputConnector modelElement = (AddressEndPointOutputConnector) view
 				.getElement();
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
 	}
@@ -16172,24 +16177,25 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3384OutgoingLinks(
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getFailoverEndPoint_3384OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getEsbLink_4001OutgoingLinks(View view) {
-		return Collections.emptyList();
+	public static List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getEsbLink_4001OutgoingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<EsbLinkDescriptor> getContainedTypeModelFacetLinks_EsbLink_4001(
+	private static Collection/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getContainedTypeModelFacetLinks_EsbLink_4001(
 			OutputConnector container) {
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		EsbLink link = container.getOutgoingLink();
 		if (EsbLinkEditPart.VISUAL_ID != EsbVisualIDRegistry
 				.getLinkWithClassVisualID(link)) {
@@ -16205,13 +16211,16 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<EsbLinkDescriptor> getIncomingTypeModelFacetLinks_EsbLink_4001(
+	private static Collection/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getIncomingTypeModelFacetLinks_EsbLink_4001(
 			InputConnector target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
+			Map/*[org.eclipse.emf.ecore.EObject, java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature.Setting>]*/crossReferences) {
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
+		Collection/*[org.eclipse.emf.ecore.EStructuralFeature.Setting]*/settings = (Collection) crossReferences
 				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
+		for (Iterator/*[org.eclipse.emf.ecore.EStructuralFeature.Setting]*/it = settings
+				.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
 			if (setting.getEStructuralFeature() != EsbPackage.eINSTANCE
 					.getEsbLink_Target()
 					|| false == setting.getEObject() instanceof EsbLink) {
@@ -16232,7 +16241,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<EsbLinkDescriptor> getOutgoingTypeModelFacetLinks_EsbLink_4001(
+	private static Collection/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/getOutgoingTypeModelFacetLinks_EsbLink_4001(
 			OutputConnector source) {
 		OutputConnector container = null;
 		// Find container element for the link.
@@ -16245,9 +16254,9 @@ public class EsbDiagramUpdater {
 			}
 		}
 		if (container == null) {
-			return Collections.emptyList();
+			return Collections.EMPTY_LIST;
 		}
-		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor]*/();
 		EsbLink link = container.getOutgoingLink();
 		if (EsbLinkEditPart.VISUAL_ID != EsbVisualIDRegistry
 				.getLinkWithClassVisualID(link)) {

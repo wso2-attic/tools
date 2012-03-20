@@ -157,7 +157,9 @@ public class EsbNavigatorActionProvider extends CommonActionProvider {
 		 */
 		private static IEditorInput getEditorInput(Diagram diagram) {
 			Resource diagramResource = diagram.eResource();
-			for (EObject nextEObject : diagramResource.getContents()) {
+			for (Iterator/*[org.eclipse.emf.ecore.EObject]*/it = diagramResource
+					.getContents().iterator(); it.hasNext();) {
+				EObject nextEObject = (EObject) it.next();
 				if (nextEObject == diagram) {
 					return new FileEditorInput(
 							WorkspaceSynchronizer.getFile(diagramResource));

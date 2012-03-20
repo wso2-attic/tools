@@ -71,7 +71,7 @@ public class DeveloperStudioElementProviderDialog extends Dialog {
 		treeViewer = new TreeViewer(container, SWT.BORDER);
 		Tree treeResrouceProviders = treeViewer.getTree();
 		treeResrouceProviders.addSelectionListener(new SelectionAdapter() {
-			
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				updateSelectedElement();
 				updateOKButtonStatus();

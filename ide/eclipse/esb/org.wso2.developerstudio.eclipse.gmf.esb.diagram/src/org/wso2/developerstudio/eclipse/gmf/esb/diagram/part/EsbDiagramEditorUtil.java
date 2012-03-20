@@ -61,8 +61,8 @@ public class EsbDiagramEditorUtil {
 	/**
 	 * @generated
 	 */
-	public static Map<?, ?> getSaveOptions() {
-		HashMap<String, Object> saveOptions = new HashMap<String, Object>();
+	public static Map/*[?, ?]*/getSaveOptions() {
+		HashMap/*[String, Object]*/saveOptions = new HashMap/*[String, Object]*/();
 		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
 				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
@@ -237,11 +237,14 @@ public class EsbDiagramEditorUtil {
 	 * @generated
 	 */
 	public static void selectElementsInDiagram(
-			IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
+			IDiagramWorkbenchPart diagramPart,
+			List/*[org.eclipse.gef.EditPart]*/editParts) {
 		diagramPart.getDiagramGraphicalViewer().deselectAll();
 
 		EditPart firstPrimary = null;
-		for (EditPart nextPart : editParts) {
+		for (Iterator/*[org.eclipse.gef.EditPart]*/it = editParts.iterator(); it
+				.hasNext();) {
+			EditPart nextPart = (EditPart) it.next();
 			diagramPart.getDiagramGraphicalViewer().appendSelection(nextPart);
 			if (firstPrimary == null && nextPart instanceof IPrimaryEditPart) {
 				firstPrimary = nextPart;
@@ -259,7 +262,8 @@ public class EsbDiagramEditorUtil {
 	 * @generated
 	 */
 	private static int findElementsInDiagramByID(DiagramEditPart diagramPart,
-			EObject element, List<EditPart> editPartCollector) {
+			EObject element,
+			List/*[org.eclipse.gef.EditPart]*/editPartCollector) {
 		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart
 				.getViewer();
 		final int intialNumOfEditParts = editPartCollector.size();
@@ -274,11 +278,12 @@ public class EsbDiagramEditorUtil {
 		}
 
 		String elementID = EMFCoreUtil.getProxyID(element);
-		@SuppressWarnings("unchecked")
-		List<EditPart> associatedParts = viewer.findEditPartsForElement(
-				elementID, IGraphicalEditPart.class);
+		List/*[org.eclipse.gef.EditPart]*/associatedParts = viewer
+				.findEditPartsForElement(elementID, IGraphicalEditPart.class);
 		// perform the possible hierarchy disjoint -> take the top-most parts only
-		for (EditPart nextPart : associatedParts) {
+		for (Iterator/*[org.eclipse.gef.EditPart]*/it = associatedParts
+				.iterator(); it.hasNext();) {
+			EditPart nextPart = (EditPart) it.next();
 			EditPart parentPart = nextPart.getParent();
 			while (parentPart != null && !associatedParts.contains(parentPart)) {
 				parentPart = parentPart.getParent();
@@ -313,13 +318,14 @@ public class EsbDiagramEditorUtil {
 		}
 
 		View view = null;
-		LinkedList<EditPart> editPartHolder = new LinkedList<EditPart>();
+		LinkedList/*[org.eclipse.gef.EditPart]*/editPartHolder = new LinkedList/*[org.eclipse.gef.EditPart]*/();
 		if (hasStructuralURI
 				&& !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
-			view = lazyElement2ViewMap.getElement2ViewMap().get(targetElement);
+			view = (View) lazyElement2ViewMap.getElement2ViewMap().get(
+					targetElement);
 		} else if (findElementsInDiagramByID(diagramEditPart, targetElement,
 				editPartHolder) > 0) {
-			EditPart editPart = editPartHolder.get(0);
+			EditPart editPart = (EditPart) editPartHolder.get(0);
 			view = editPart.getModel() instanceof View ? (View) editPart
 					.getModel() : null;
 		}
@@ -334,7 +340,7 @@ public class EsbDiagramEditorUtil {
 		/**
 		 * @generated
 		 */
-		private Map<EObject, View> element2ViewMap;
+		private Map/*[org.eclipse.emf.ecore.EObject, org.eclipse.gmf.runtime.notation.View]*/element2ViewMap;
 
 		/**
 		 * @generated
@@ -344,12 +350,13 @@ public class EsbDiagramEditorUtil {
 		/**
 		 * @generated
 		 */
-		private Set<? extends EObject> elementSet;
+		private Set/*[? extends org.eclipse.emf.ecore.EObject]*/elementSet;
 
 		/**
 		 * @generated
 		 */
-		public LazyElement2ViewMap(View scope, Set<? extends EObject> elements) {
+		public LazyElement2ViewMap(View scope,
+				Set/*[? extends org.eclipse.emf.ecore.EObject]*/elements) {
 			this.scope = scope;
 			this.elementSet = elements;
 		}
@@ -357,11 +364,13 @@ public class EsbDiagramEditorUtil {
 		/**
 		 * @generated
 		 */
-		public final Map<EObject, View> getElement2ViewMap() {
+		public final Map/*[org.eclipse.emf.ecore.EObject, org.eclipse.gmf.runtime.notation.View]*/getElement2ViewMap() {
 			if (element2ViewMap == null) {
-				element2ViewMap = new HashMap<EObject, View>();
+				element2ViewMap = new HashMap/*[org.eclipse.emf.ecore.EObject, org.eclipse.gmf.runtime.notation.View]*/();
 				// map possible notation elements to itself as these can't be found by view.getElement()
-				for (EObject element : elementSet) {
+				for (Iterator/*[org.eclipse.emf.ecore.EObject]*/it = elementSet
+						.iterator(); it.hasNext();) {
+					EObject element = (EObject) it.next();
 					if (element instanceof View) {
 						View view = (View) element;
 						if (view.getDiagram() == scope.getDiagram()) {
@@ -378,9 +387,10 @@ public class EsbDiagramEditorUtil {
 		/**
 		 * @generated
 		 */
-		private static boolean buildElement2ViewMap(View parentView,
-				Map<EObject, View> element2ViewMap,
-				Set<? extends EObject> elements) {
+		private static boolean buildElement2ViewMap(
+				View parentView,
+				Map/*[org.eclipse.emf.ecore.EObject, org.eclipse.gmf.runtime.notation.View]*/element2ViewMap,
+				Set/*[? extends org.eclipse.emf.ecore.EObject]*/elements) {
 			if (elements.size() == element2ViewMap.size()) {
 				return true;
 			}
@@ -394,17 +404,17 @@ public class EsbDiagramEditorUtil {
 				}
 			}
 			boolean complete = false;
-			for (Iterator<?> it = parentView.getChildren().iterator(); it
+			for (Iterator/*[?]*/it = parentView.getChildren().iterator(); it
 					.hasNext() && !complete;) {
 				complete = buildElement2ViewMap((View) it.next(),
 						element2ViewMap, elements);
 			}
-			for (Iterator<?> it = parentView.getSourceEdges().iterator(); it
+			for (Iterator/*[?]*/it = parentView.getSourceEdges().iterator(); it
 					.hasNext() && !complete;) {
 				complete = buildElement2ViewMap((View) it.next(),
 						element2ViewMap, elements);
 			}
-			for (Iterator<?> it = parentView.getTargetEdges().iterator(); it
+			for (Iterator/*[?]*/it = parentView.getTargetEdges().iterator(); it
 					.hasNext() && !complete;) {
 				complete = buildElement2ViewMap((View) it.next(),
 						element2ViewMap, elements);

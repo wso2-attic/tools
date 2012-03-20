@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -29,6 +30,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DefaultSizeCaseBranchPointerNodeFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EvenlyDividedFixedBorderItemLocator;
@@ -39,9 +44,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.FailoverEn
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
+public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 
 	/**
 	 * @generated
@@ -145,12 +150,20 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnectorEditPart) {
-
+			double position;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
+			if(((FailoverEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().size()!=0){
+				EObject source=((FailoverEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().get(0).getSource().eContainer();
+				position=((source instanceof LoadBalanceEndPoint)||(source instanceof FailoverEndPoint))? 0.5: 0.25;
+			}
+			else{
+				position=0.25;
+			}			
 			IFigure borderItemFigure = ((FailoverEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.25);
+					position);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
 					locator);
 			return true;
@@ -352,12 +365,15 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		int outputCount = outputParts.size();
 
 		for (FailoverEndPointOutputConnectorEditPart caseBranchEditpart : outputParts) {
+			EvenlyDividedFixedBorderItemLocator borderItemLocator = null;
 			// if (((DefaultSizeCaseBranchPointerNodeFigure) caseBranch
 			// .getFigure()).getId() == -1) {
 			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart
 					.getFigure()).setId(id++);
-			EvenlyDividedFixedBorderItemLocator borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
+			if(caseBranchEditpart.getBorderItemLocator() instanceof EvenlyDividedFixedBorderItemLocator){
+			 borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
 					.getBorderItemLocator();
+		}
 			if (borderItemLocator != null) {
 				borderItemLocator.setSiblingCount(outputCount);
 			}
@@ -423,6 +439,11 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 			return THIS_LABEL_BACK;
 		}
 
+	}
+	
+	public void refreshChildren() {
+		// TODO Auto-generated method stub
+		super.refreshChildren();
 	}
 
 	/**

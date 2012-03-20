@@ -16296,7 +16296,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
 				.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
+		ArrayList/*[org.eclipse.gmf.runtime.notation.datatype.RelativeBendpoint]*/points = new ArrayList/*[org.eclipse.gmf.runtime.notation.datatype.RelativeBendpoint]*/(
 				2);
 		points.add(new RelativeBendpoint());
 		points.add(new RelativeBendpoint());

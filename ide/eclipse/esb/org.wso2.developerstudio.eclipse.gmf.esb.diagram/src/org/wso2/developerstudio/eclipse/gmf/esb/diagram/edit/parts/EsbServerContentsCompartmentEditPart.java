@@ -16,10 +16,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.CustomDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EsbServerContentsCompartmentCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EsbServerContentsCompartmentItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
-import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 
 /**
  * @generated
@@ -69,8 +70,8 @@ public class EsbServerContentsCompartmentEditPart extends
 				new EsbServerContentsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
-		// installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-		// new DragDropEditPolicy());
+		 installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+		 new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new EsbServerContentsCompartmentCanonicalEditPolicy());
 	}

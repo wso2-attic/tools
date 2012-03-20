@@ -143,7 +143,8 @@ public class DiagramEditorContextMenuProvider extends
 				new ConfigureSwitchMediatorAction(part));
 		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(
 				part));
-		contextActions.put(XQueryMediator.class, new ConfigureXQueryMediatorAction(part));
+		contextActions.put(XQueryMediator.class,
+				new ConfigureXQueryMediatorAction(part));
 
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
 		addBranchContextActions.put(SwitchMediator.class,

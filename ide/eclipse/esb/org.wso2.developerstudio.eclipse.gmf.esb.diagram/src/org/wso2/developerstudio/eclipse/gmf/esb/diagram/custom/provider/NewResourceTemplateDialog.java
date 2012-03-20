@@ -68,7 +68,7 @@ public class NewResourceTemplateDialog extends Dialog {
 	 * 
 	 * @param parent
 	 */
-	
+	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setLayout(new FormLayout());
@@ -143,7 +143,7 @@ public class NewResourceTemplateDialog extends Dialog {
 
 		lstTemplates = new List(container, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
 		lstTemplates.addSelectionListener(new SelectionAdapter() {
-			
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				updateResourceFileName();
 			}
@@ -242,7 +242,7 @@ public class NewResourceTemplateDialog extends Dialog {
 		updateResourceFileName();
 	}
 
-	
+	@Override
 	protected void okPressed() {
 		int selectionIndex = lstTemplates.getSelectionIndex();
 		try {
@@ -296,7 +296,7 @@ public class NewResourceTemplateDialog extends Dialog {
 	 * 
 	 * @param parent
 	 */
-	
+	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
 				true);
@@ -308,7 +308,7 @@ public class NewResourceTemplateDialog extends Dialog {
 	/**
 	 * Return the initial size of the dialog.
 	 */
-	
+	@Override
 	protected Point getInitialSize() {
 		return new Point(446, 304);
 	}

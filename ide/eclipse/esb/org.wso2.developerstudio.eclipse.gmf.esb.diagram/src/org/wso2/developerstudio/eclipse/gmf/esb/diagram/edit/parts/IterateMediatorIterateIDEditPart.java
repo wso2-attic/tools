@@ -67,7 +67,7 @@ public class IterateMediatorIterateIDEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	private List<?> parserElements;
+	private List/*[?]*/parserElements;
 
 	/**
 	 * @generated
@@ -242,7 +242,7 @@ public class IterateMediatorIterateIDEditPart extends CompartmentEditPart
 					try {
 						IParserEditStatus valid = (IParserEditStatus) getEditingDomain()
 								.runExclusive(
-										new RunnableWithResult.Impl<IParserEditStatus>() {
+										new RunnableWithResult.Impl/*[org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus]*/() {
 
 											public void run() {
 												setResult(parser

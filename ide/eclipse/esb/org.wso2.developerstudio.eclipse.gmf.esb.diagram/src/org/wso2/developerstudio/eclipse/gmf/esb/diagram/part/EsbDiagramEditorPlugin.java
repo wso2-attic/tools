@@ -19,10 +19,10 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+import org.wso2.developerstudio.eclipse.gmf.esb.provider.EsbItemProviderAdapterFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EsbBaseItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.expressions.EsbOCLFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.ElementInitializers;
-import org.wso2.developerstudio.eclipse.gmf.esb.provider.EsbItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -111,7 +111,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	protected ComposedAdapterFactory createAdapterFactory() {
-		ArrayList<AdapterFactory> factories = new ArrayList<AdapterFactory>();
+		ArrayList/*[org.eclipse.emf.common.notify.AdapterFactory]*/factories = new ArrayList/*[org.eclipse.emf.common.notify.AdapterFactory]*/();
 		fillItemProviderFactories(factories);
 		return new ComposedAdapterFactory(factories);
 	}
@@ -119,7 +119,8 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
+	protected void fillItemProviderFactories(
+			List/*[org.eclipse.emf.common.notify.AdapterFactory]*/factories) {
 		factories.add(new EsbItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());

@@ -36,17 +36,20 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof EsbDiagramEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.EsbServer_2001);
 			return types;
 		}
 		if (editPart instanceof EsbServerEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.MessageMediator_3045);
 			return types;
 		}
 		if (editPart instanceof ProxyServiceEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					4);
 			types.add(EsbElementTypes.ProxyOutputConnector_3002);
 			types.add(EsbElementTypes.ProxyInputConnector_3003);
 			types.add(EsbElementTypes.ProxyServiceSequenceContainer_3196);
@@ -54,662 +57,770 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof ProxyServiceSequenceContainerEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ProxyServiceInSequence_3197);
 			types.add(EsbElementTypes.ProxyServiceOutSequence_3198);
 			return types;
 		}
 		if (editPart instanceof DropMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.DropMediatorInputConnector_3008);
 			return types;
 		}
 		if (editPart instanceof PropertyMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.PropertyMediatorInputConnector_3033);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3034);
 			return types;
 		}
 		if (editPart instanceof ThrottleMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ThrottleMediatorInputConnector_3121);
 			types.add(EsbElementTypes.ThrottleMediatorOutputConnector_3122);
 			return types;
 		}
 		if (editPart instanceof FilterMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.FilterMediatorInputConnector_3010);
 			types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3011);
 			types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3012);
 			return types;
 		}
 		if (editPart instanceof LogMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.LogMediatorInputConnector_3018);
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
 			return types;
 		}
 		if (editPart instanceof EnrichMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EnrichMediatorInputConnector_3036);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
 			return types;
 		}
 		if (editPart instanceof XSLTMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XSLTMediatorInputConnector_3039);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
 			return types;
 		}
 		if (editPart instanceof SwitchMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3042);
 			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
 			return types;
 		}
 		if (editPart instanceof SequenceEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SequenceInputConnector_3049);
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			return types;
 		}
 		if (editPart instanceof EventMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EventMediatorInputConnector_3052);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
 			return types;
 		}
 		if (editPart instanceof EntitlementMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EntitlementMediatorInputConnector_3055);
 			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3056);
 			return types;
 		}
 		if (editPart instanceof ClassMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ClassMediatorInputConnector_3058);
 			types.add(EsbElementTypes.ClassMediatorOutputConnector_3059);
 			return types;
 		}
 		if (editPart instanceof SpringMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SpringMediatorInputConnector_3061);
 			types.add(EsbElementTypes.SpringMediatorOutputConnector_3062);
 			return types;
 		}
 		if (editPart instanceof ScriptMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ScriptMediatorInputConnector_3064);
 			types.add(EsbElementTypes.ScriptMediatorOutputConnector_3065);
 			return types;
 		}
 		if (editPart instanceof FaultMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.FaultMediatorInputConnector_3067);
 			types.add(EsbElementTypes.FaultMediatorOutputConnector_3068);
 			return types;
 		}
 		if (editPart instanceof XQueryMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XQueryMediatorInputConnector_3070);
 			types.add(EsbElementTypes.XQueryMediatorOutputConnector_3071);
 			return types;
 		}
 		if (editPart instanceof CommandMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CommandMediatorInputConnector_3073);
 			types.add(EsbElementTypes.CommandMediatorOutputConnector_3074);
 			return types;
 		}
 		if (editPart instanceof DBLookupMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3076);
 			types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3077);
 			return types;
 		}
 		if (editPart instanceof DBReportMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBReportMediatorInputConnector_3079);
 			types.add(EsbElementTypes.DBReportMediatorOutputConnector_3080);
 			return types;
 		}
 		if (editPart instanceof SmooksMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SmooksMediatorInputConnector_3082);
 			types.add(EsbElementTypes.SmooksMediatorOutputConnector_3083);
 			return types;
 		}
 		if (editPart instanceof SendMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SendMediatorInputConnector_3085);
 			types.add(EsbElementTypes.SendMediatorOutputConnector_3086);
 			return types;
 		}
 		if (editPart instanceof HeaderMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.HeaderMediatorInputConnector_3100);
 			types.add(EsbElementTypes.HeaderMediatorOutputConnector_3101);
 			return types;
 		}
 		if (editPart instanceof CloneMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.CloneMediatorInputConnector_3103);
 			types.add(EsbElementTypes.CloneMediatorOutputConnector_3104);
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3133);
 			return types;
 		}
 		if (editPart instanceof CacheMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CacheMediatorInputConnector_3106);
 			types.add(EsbElementTypes.CacheMediatorOutputConnector_3107);
 			return types;
 		}
 		if (editPart instanceof IterateMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.IterateMediatorInputConnector_3109);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3110);
 			return types;
 		}
 		if (editPart instanceof CalloutMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CalloutMediatorInputConnector_3115);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3116);
 			return types;
 		}
 		if (editPart instanceof TransactionMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.TransactionMediatorInputConnector_3118);
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3119);
 			return types;
 		}
 		if (editPart instanceof RMSequenceMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3124);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3125);
 			return types;
 		}
 		if (editPart instanceof RuleMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RuleMediatorInputConnector_3127);
 			types.add(EsbElementTypes.RuleMediatorOutputConnector_3128);
 			return types;
 		}
 		if (editPart instanceof OAuthMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.OAuthMediatorInputConnector_3130);
 			types.add(EsbElementTypes.OAuthMediatorOutputConnector_3131);
 			return types;
 		}
 		if (editPart instanceof AggregateMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.AggregateMediatorInputConnector_3112);
 			types.add(EsbElementTypes.AggregateMediatorOutputConnector_3113);
 			types.add(EsbElementTypes.AggregateMediatorOnCompleteOutputConnector_3132);
 			return types;
 		}
 		if (editPart instanceof LogMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.LogMediatorInputConnector_3135);
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3136);
 			return types;
 		}
 		if (editPart instanceof DropMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.DropMediatorInputConnector_3138);
 			return types;
 		}
 		if (editPart instanceof FilterMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.FilterMediatorInputConnector_3140);
 			types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3141);
 			types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3142);
 			return types;
 		}
 		if (editPart instanceof PropertyMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.PropertyMediatorInputConnector_3144);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3145);
 			return types;
 		}
 		if (editPart instanceof EnrichMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EnrichMediatorInputConnector_3147);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3148);
 			return types;
 		}
 		if (editPart instanceof XSLTMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XSLTMediatorInputConnector_3150);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3151);
 			return types;
 		}
 		if (editPart instanceof SwitchMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3153);
 			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3154);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3155);
 			return types;
 		}
 		if (editPart instanceof FaultMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.FaultMediatorInputConnector_3157);
 			types.add(EsbElementTypes.FaultMediatorOutputConnector_3158);
 			return types;
 		}
 		if (editPart instanceof DBLookupMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3160);
 			types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3161);
 			return types;
 		}
 		if (editPart instanceof DBReportMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBReportMediatorInputConnector_3163);
 			types.add(EsbElementTypes.DBReportMediatorOutputConnector_3164);
 			return types;
 		}
 		if (editPart instanceof SendMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SendMediatorInputConnector_3166);
 			types.add(EsbElementTypes.SendMediatorOutputConnector_3167);
 			return types;
 		}
 		if (editPart instanceof HeaderMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.HeaderMediatorInputConnector_3169);
 			types.add(EsbElementTypes.HeaderMediatorOutputConnector_3170);
 			return types;
 		}
 		if (editPart instanceof CloneMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.CloneMediatorInputConnector_3172);
 			types.add(EsbElementTypes.CloneMediatorOutputConnector_3173);
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3174);
 			return types;
 		}
 		if (editPart instanceof IterateMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.IterateMediatorInputConnector_3176);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3177);
 			return types;
 		}
 		if (editPart instanceof CalloutMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CalloutMediatorInputConnector_3181);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3182);
 			return types;
 		}
 		if (editPart instanceof TransactionMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.TransactionMediatorInputConnector_3183);
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3184);
 			return types;
 		}
 		if (editPart instanceof RMSequenceMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3185);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3186);
 			return types;
 		}
 		if (editPart instanceof Sequence2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SequenceInputConnector_3188);
 			types.add(EsbElementTypes.SequenceOutputConnector_3189);
 			return types;
 		}
 		if (editPart instanceof DropMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.DropMediatorInputConnector_3192);
 			return types;
 		}
 		if (editPart instanceof PropertyMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.PropertyMediatorInputConnector_3201);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3202);
 			return types;
 		}
 		if (editPart instanceof ThrottleMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ThrottleMediatorInputConnector_3207);
 			types.add(EsbElementTypes.ThrottleMediatorOutputConnector_3208);
 			return types;
 		}
 		if (editPart instanceof FilterMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.FilterMediatorInputConnector_3238);
 			types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3239);
 			types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3240);
 			return types;
 		}
 		if (editPart instanceof LogMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.LogMediatorInputConnector_3242);
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3243);
 			return types;
 		}
 		if (editPart instanceof EnrichMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EnrichMediatorInputConnector_3245);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3246);
 			return types;
 		}
 		if (editPart instanceof XSLTMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XSLTMediatorInputConnector_3248);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3249);
 			return types;
 		}
 		if (editPart instanceof SwitchMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3251);
 			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3252);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3253);
 			return types;
 		}
 		if (editPart instanceof Sequence3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SequenceInputConnector_3255);
 			types.add(EsbElementTypes.SequenceOutputConnector_3256);
 			return types;
 		}
 		if (editPart instanceof EventMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EventMediatorInputConnector_3258);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3259);
 			return types;
 		}
 		if (editPart instanceof EntitlementMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EntitlementMediatorInputConnector_3261);
 			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3262);
 			return types;
 		}
 		if (editPart instanceof ClassMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ClassMediatorInputConnector_3264);
 			types.add(EsbElementTypes.ClassMediatorOutputConnector_3265);
 			return types;
 		}
 		if (editPart instanceof SpringMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SpringMediatorInputConnector_3267);
 			types.add(EsbElementTypes.SpringMediatorOutputConnector_3268);
 			return types;
 		}
 		if (editPart instanceof ScriptMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ScriptMediatorInputConnector_3270);
 			types.add(EsbElementTypes.ScriptMediatorOutputConnector_3271);
 			return types;
 		}
 		if (editPart instanceof FaultMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.FaultMediatorInputConnector_3273);
 			types.add(EsbElementTypes.FaultMediatorOutputConnector_3274);
 			return types;
 		}
 		if (editPart instanceof XQueryMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XQueryMediatorInputConnector_3276);
 			types.add(EsbElementTypes.XQueryMediatorOutputConnector_3277);
 			return types;
 		}
 		if (editPart instanceof CommandMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CommandMediatorInputConnector_3279);
 			types.add(EsbElementTypes.CommandMediatorOutputConnector_3280);
 			return types;
 		}
 		if (editPart instanceof DBLookupMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3282);
 			types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3283);
 			return types;
 		}
 		if (editPart instanceof DBReportMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBReportMediatorInputConnector_3285);
 			types.add(EsbElementTypes.DBReportMediatorOutputConnector_3286);
 			return types;
 		}
 		if (editPart instanceof SmooksMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SmooksMediatorInputConnector_3288);
 			types.add(EsbElementTypes.SmooksMediatorOutputConnector_3289);
 			return types;
 		}
 		if (editPart instanceof SendMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SendMediatorInputConnector_3291);
 			types.add(EsbElementTypes.SendMediatorOutputConnector_3292);
 			return types;
 		}
 		if (editPart instanceof HeaderMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.HeaderMediatorInputConnector_3294);
 			types.add(EsbElementTypes.HeaderMediatorOutputConnector_3295);
 			return types;
 		}
 		if (editPart instanceof CloneMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.CloneMediatorInputConnector_3297);
 			types.add(EsbElementTypes.CloneMediatorOutputConnector_3298);
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3299);
 			return types;
 		}
 		if (editPart instanceof CacheMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CacheMediatorInputConnector_3301);
 			types.add(EsbElementTypes.CacheMediatorOutputConnector_3302);
 			return types;
 		}
 		if (editPart instanceof IterateMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.IterateMediatorInputConnector_3304);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3305);
 			return types;
 		}
 		if (editPart instanceof CalloutMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CalloutMediatorInputConnector_3307);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3308);
 			return types;
 		}
 		if (editPart instanceof TransactionMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.TransactionMediatorInputConnector_3310);
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3311);
 			return types;
 		}
 		if (editPart instanceof RMSequenceMediator3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3313);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3314);
 			return types;
 		}
 		if (editPart instanceof RuleMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RuleMediatorInputConnector_3316);
 			types.add(EsbElementTypes.RuleMediatorOutputConnector_3317);
 			return types;
 		}
 		if (editPart instanceof OAuthMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.OAuthMediatorInputConnector_3319);
 			types.add(EsbElementTypes.OAuthMediatorOutputConnector_3320);
 			return types;
 		}
 		if (editPart instanceof AggregateMediator2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.AggregateMediatorInputConnector_3322);
 			types.add(EsbElementTypes.AggregateMediatorOutputConnector_3323);
 			types.add(EsbElementTypes.AggregateMediatorOnCompleteOutputConnector_3324);
 			return types;
 		}
 		if (editPart instanceof LogMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.LogMediatorInputConnector_3326);
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3327);
 			return types;
 		}
 		if (editPart instanceof DropMediator5EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					1);
 			types.add(EsbElementTypes.DropMediatorInputConnector_3195);
 			return types;
 		}
 		if (editPart instanceof FilterMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.FilterMediatorInputConnector_3330);
 			types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3331);
 			types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3332);
 			return types;
 		}
 		if (editPart instanceof PropertyMediator5EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.PropertyMediatorInputConnector_3203);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3204);
 			return types;
 		}
 		if (editPart instanceof EnrichMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.EnrichMediatorInputConnector_3388);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3389);
 			return types;
 		}
 		if (editPart instanceof XSLTMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.XSLTMediatorInputConnector_3338);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3339);
 			return types;
 		}
 		if (editPart instanceof SwitchMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3341);
 			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3342);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3343);
 			return types;
 		}
 		if (editPart instanceof FaultMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.FaultMediatorInputConnector_3345);
 			types.add(EsbElementTypes.FaultMediatorOutputConnector_3346);
 			return types;
 		}
 		if (editPart instanceof DBLookupMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3348);
 			types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3349);
 			return types;
 		}
 		if (editPart instanceof DBReportMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DBReportMediatorInputConnector_3351);
 			types.add(EsbElementTypes.DBReportMediatorOutputConnector_3352);
 			return types;
 		}
 		if (editPart instanceof SendMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SendMediatorInputConnector_3354);
 			types.add(EsbElementTypes.SendMediatorOutputConnector_3355);
 			return types;
 		}
 		if (editPart instanceof HeaderMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.HeaderMediatorInputConnector_3357);
 			types.add(EsbElementTypes.HeaderMediatorOutputConnector_3358);
 			return types;
 		}
 		if (editPart instanceof CloneMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.CloneMediatorInputConnector_3360);
 			types.add(EsbElementTypes.CloneMediatorOutputConnector_3361);
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3362);
 			return types;
 		}
 		if (editPart instanceof IterateMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.IterateMediatorInputConnector_3364);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3365);
 			return types;
 		}
 		if (editPart instanceof CalloutMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.CalloutMediatorInputConnector_3367);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3368);
 			return types;
 		}
 		if (editPart instanceof TransactionMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.TransactionMediatorInputConnector_3370);
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3371);
 			return types;
 		}
 		if (editPart instanceof RMSequenceMediator4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3373);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3374);
 			return types;
 		}
 		if (editPart instanceof Sequence4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.SequenceInputConnector_3376);
 			types.add(EsbElementTypes.SequenceOutputConnector_3377);
 			return types;
 		}
 		if (editPart instanceof DefaultEndPoint2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
 			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
 			return types;
 		}
 		if (editPart instanceof AddressEndPoint2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			return types;
 		}
 		if (editPart instanceof FailoverEndPoint2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3097);
 			return types;
 		}
 		if (editPart instanceof WSDLEndPoint2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3093);
 			return types;
 		}
 		if (editPart instanceof LoadBalanceEndPoint2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
 			return types;
 		}
 		if (editPart instanceof MessageMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			return types;
 		}
 		if (editPart instanceof MergeNodeEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					3);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			return types;
 		}
 		if (editPart instanceof EsbServerContentsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					2);
 			types.add(EsbElementTypes.ProxyService_3001);
 			types.add(EsbElementTypes.MergeNode_3013);
 			return types;
 		}
 		if (editPart instanceof ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(31);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					31);
 			types.add(EsbElementTypes.DropMediator_3191);
 			types.add(EsbElementTypes.PropertyMediator_3199);
 			types.add(EsbElementTypes.ThrottleMediator_3205);
@@ -744,7 +855,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof AggregateMediatorAggregateCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(18);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					18);
 			types.add(EsbElementTypes.LogMediator_3134);
 			types.add(EsbElementTypes.DropMediator_3137);
 			types.add(EsbElementTypes.FilterMediator_3139);
@@ -766,7 +878,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(31);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					31);
 			types.add(EsbElementTypes.DropMediator_3194);
 			types.add(EsbElementTypes.PropertyMediator_3200);
 			types.add(EsbElementTypes.ThrottleMediator_3206);
@@ -801,7 +914,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof AggregateMediatorAggregateCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(18);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					18);
 			types.add(EsbElementTypes.LogMediator_3325);
 			types.add(EsbElementTypes.DropMediator_3328);
 			types.add(EsbElementTypes.FilterMediator_3329);
@@ -823,7 +937,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof ProxyServiceEndpointContainerEndpointCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
+					5);
 			types.add(EsbElementTypes.DefaultEndPoint_3382);
 			types.add(EsbElementTypes.AddressEndPoint_3383);
 			types.add(EsbElementTypes.FailoverEndPoint_3384);
@@ -3187,10 +3302,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return null;
 		}
 		Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-		HashSet<EObject> elements = new HashSet<EObject>();
-		for (Iterator<EObject> it = diagram.getElement().eAllContents(); it
-				.hasNext();) {
-			EObject element = it.next();
+		HashSet/*[org.eclipse.emf.ecore.EObject]*/elements = new HashSet/*[org.eclipse.emf.ecore.EObject]*/();
+		for (Iterator/*[org.eclipse.emf.ecore.EObject]*/it = diagram
+				.getElement().eAllContents(); it.hasNext();) {
+			EObject element = (EObject) it.next();
 			if (isApplicableElement(element, types)) {
 				elements.add(element);
 			}

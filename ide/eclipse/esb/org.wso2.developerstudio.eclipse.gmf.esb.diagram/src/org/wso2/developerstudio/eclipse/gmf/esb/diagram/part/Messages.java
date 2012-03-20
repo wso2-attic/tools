@@ -813,6 +813,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_LoadBalanceEndPointOutputConnector_3096_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RMSequenceMediatorInputConnector_3124_incominglinks;
 
 	/**
@@ -908,11 +913,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LoadBalanceEndPointOutputConnector_3096_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_DBLookupMediatorInputConnector_3348_incominglinks;
 
 	/**
@@ -964,6 +964,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EnrichMediatorInputConnector_3388_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FailoverEndPointOutputConnector_3090_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1304,11 +1309,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CacheMediatorOutputConnector_3302_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_FailoverEndPointOutputConnector_3090_outgoinglinks;
 
 	/**
 	 * @generated

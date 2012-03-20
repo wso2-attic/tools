@@ -18,8 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamespacedPropertyEditorDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamespacedPropertyEditorDialog;
 
 /**
  * {@link CustomDialogCellEditor} responsible for handling namespaced

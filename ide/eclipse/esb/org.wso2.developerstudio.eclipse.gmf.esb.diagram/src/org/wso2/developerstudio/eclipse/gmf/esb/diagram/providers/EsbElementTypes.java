@@ -33,7 +33,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	private static Map<IElementType, ENamedElement> elements;
+	private static Map/*[org.eclipse.gmf.runtime.emf.type.core.IElementType, org.eclipse.emf.ecore.ENamedElement]*/elements;
 
 	/**
 	 * @generated
@@ -43,7 +43,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
+	private static Set/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/KNOWN_ELEMENT_TYPES;
 
 	/**
 	 * @generated
@@ -1842,7 +1842,7 @@ public class EsbElementTypes {
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
-			elements = new IdentityHashMap<IElementType, ENamedElement>();
+			elements = new IdentityHashMap/*[org.eclipse.gmf.runtime.emf.type.core.IElementType, org.eclipse.emf.ecore.ENamedElement]*/();
 
 			elements.put(EsbDiagram_1000, EsbPackage.eINSTANCE.getEsbDiagram());
 
@@ -2884,7 +2884,7 @@ public class EsbElementTypes {
 	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
-			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
+			KNOWN_ELEMENT_TYPES = new HashSet/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/();
 			KNOWN_ELEMENT_TYPES.add(EsbDiagram_1000);
 			KNOWN_ELEMENT_TYPES.add(EsbServer_2001);
 			KNOWN_ELEMENT_TYPES.add(ProxyService_3001);

@@ -37,14 +37,14 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Set<EStructuralFeature> myFeaturesToSynchronize;
+	private Set/*[org.eclipse.emf.ecore.EStructuralFeature]*/myFeaturesToSynchronize;
 
 	/**
 	 * @generated
 	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
-		List<?> c = getHost().getChildren();
+		List/*[?]*/c = getHost().getChildren();
 		for (int i = 0; i < c.size(); i++) {
 			((EditPart) c.get(i)).activate();
 		}
@@ -56,7 +56,7 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize = new HashSet/*[org.eclipse.emf.ecore.EStructuralFeature]*/();
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getRMSequenceMediator_InputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
@@ -71,10 +71,12 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
-		LinkedList<EObject> result = new LinkedList<EObject>();
-		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
+		LinkedList/*[org.eclipse.emf.ecore.EObject]*/result = new LinkedList/*[org.eclipse.emf.ecore.EObject]*/();
+		List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/childDescriptors = EsbDiagramUpdater
 				.getRMSequenceMediator_3233SemanticChildren(viewObject);
-		for (EsbNodeDescriptor d : childDescriptors) {
+		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/it = childDescriptors
+				.iterator(); it.hasNext();) {
+			EsbNodeDescriptor d = (EsbNodeDescriptor) it.next();
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -83,7 +85,8 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected boolean isOrphaned(Collection<EObject> semanticChildren,
+	protected boolean isOrphaned(
+			Collection/*[org.eclipse.emf.ecore.EObject]*/semanticChildren,
 			final View view) {
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -105,14 +108,16 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (resolveSemanticElement() == null) {
 			return;
 		}
-		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
-		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
+		LinkedList/*[org.eclipse.core.runtime.IAdaptable]*/createdViews = new LinkedList/*[org.eclipse.core.runtime.IAdaptable]*/();
+		List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/childDescriptors = EsbDiagramUpdater
 				.getRMSequenceMediator_3233SemanticChildren((View) getHost()
 						.getModel());
-		LinkedList<View> orphaned = new LinkedList<View>();
+		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/orphaned = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
 		// we care to check only views we recognize as ours
-		LinkedList<View> knownViewChildren = new LinkedList<View>();
-		for (View v : getViewChildren()) {
+		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/knownViewChildren = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
+		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = getViewChildren()
+				.iterator(); it.hasNext();) {
+			View v = (View) it.next();
 			if (isMyDiagramElement(v)) {
 				knownViewChildren.add(v);
 			}
@@ -122,12 +127,15 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<EsbNodeDescriptor> descriptorsIterator = childDescriptors
+		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			EsbNodeDescriptor next = descriptorsIterator.next();
+			EsbNodeDescriptor next = (EsbNodeDescriptor) descriptorsIterator
+					.next();
 			String hint = EsbVisualIDRegistry.getType(next.getVisualID());
-			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
-			for (View childView : getViewChildren()) {
+			LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/perfectMatch = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/(); // both semanticElement and hint match that of NodeDescriptor
+			for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = getViewChildren()
+					.iterator(); it.hasNext();) {
+				View childView = (View) it.next();
 				EObject semanticElement = childView.getElement();
 				if (next.getModelElement().equals(semanticElement)) {
 					if (hint.equals(childView.getType())) {
@@ -148,9 +156,11 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		// or those we have potential matches to, and thus need to be recreated, preserving size/location information.
 		orphaned.addAll(knownViewChildren);
 		//
-		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
+		ArrayList/*[org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor]*/viewDescriptors = new ArrayList/*[org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor]*/(
 				childDescriptors.size());
-		for (EsbNodeDescriptor next : childDescriptors) {
+		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/it = childDescriptors
+				.iterator(); it.hasNext();) {
+			EsbNodeDescriptor next = (EsbNodeDescriptor) it.next();
 			String hint = EsbVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
@@ -168,8 +178,9 @@ public class RMSequenceMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 			SetViewMutabilityCommand.makeMutable(
 					new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
-			@SuppressWarnings("unchecked")
-			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
+
+			List/*[org.eclipse.core.runtime.IAdaptable]*/nl = (List/*[org.eclipse.core.runtime.IAdaptable]*/) request
+					.getNewObject();
 			createdViews.addAll(nl);
 		}
 		if (changed || createdViews.size() > 0) {

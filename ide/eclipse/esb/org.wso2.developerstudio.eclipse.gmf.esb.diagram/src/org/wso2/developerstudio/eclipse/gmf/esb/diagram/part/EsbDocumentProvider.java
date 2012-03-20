@@ -131,9 +131,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	 */
 	private long computeModificationStamp(ResourceSetInfo info) {
 		int result = 0;
-		for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-				.hasNext();) {
-			Resource nextResource = it.next();
+		for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+				.getLoadedResourcesIterator(); it.hasNext();) {
+			Resource nextResource = (Resource) it.next();
 			IFile file = WorkspaceSynchronizer.getFile(nextResource);
 			if (file != null) {
 				if (file.getLocation() != null) {
@@ -334,10 +334,10 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			LinkedList<IFile> files2Validate = new LinkedList<IFile>();
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			LinkedList/*[org.eclipse.core.resources.IFile]*/files2Validate = new LinkedList/*[org.eclipse.core.resources.IFile]*/();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null && file.isReadOnly()) {
 					files2Validate.add(file);
@@ -403,9 +403,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	protected void updateCache(Object element) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null && file.isReadOnly()) {
 					info.setReadOnly(true);
@@ -447,10 +447,10 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	protected ISchedulingRule getResetRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/rules = new LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null) {
 					rules.add(ResourcesPlugin.getWorkspace().getRuleFactory()
@@ -470,10 +470,10 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	protected ISchedulingRule getSaveRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/rules = new LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null) {
 					rules.add(computeSchedulingRule(file));
@@ -492,10 +492,10 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	protected ISchedulingRule getSynchronizeRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/rules = new LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null) {
 					rules.add(ResourcesPlugin.getWorkspace().getRuleFactory()
@@ -515,10 +515,10 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 	protected ISchedulingRule getValidateStateRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			LinkedList<ISchedulingRule> files = new LinkedList<ISchedulingRule>();
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/files = new LinkedList/*[org.eclipse.core.runtime.jobs.ISchedulingRule]*/();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null) {
 					files.add(file);
@@ -564,9 +564,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
-			for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-					.hasNext();) {
-				Resource nextResource = it.next();
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+					.getLoadedResourcesIterator(); it.hasNext();) {
+				Resource nextResource = (Resource) it.next();
 				handleElementChanged(info, nextResource, monitor);
 			}
 			return;
@@ -595,9 +595,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 			try {
 				monitor.beginTask(Messages.EsbDocumentProvider_SaveDiagramTask,
 						info.getResourceSet().getResources().size() + 1); //"Saving diagram"
-				for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
-						.hasNext();) {
-					Resource nextResource = it.next();
+				for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = info
+						.getLoadedResourcesIterator(); it.hasNext();) {
+					Resource nextResource = (Resource) it.next();
 					monitor.setTaskName(NLS.bind(
 							Messages.EsbDocumentProvider_SaveNextResourceTask,
 							nextResource.getURI()));
@@ -627,7 +627,7 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 			}
 		} else {
 			URI newResoruceURI;
-			List<IFile> affectedFiles = null;
+			List/*[org.eclipse.core.resources.IFile]*/affectedFiles = null;
 			if (element instanceof FileEditorInput) {
 				IFile newFile = ((FileEditorInput) element).getFile();
 				affectedFiles = Collections.singletonList(newFile);
@@ -789,7 +789,7 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 		/**
 		 * @generated
 		 */
-		private LinkedList<Resource> myUnSynchronizedResources = new LinkedList<Resource>();
+		private LinkedList/*[org.eclipse.emf.ecore.resource.Resource]*/myUnSynchronizedResources = new LinkedList/*[org.eclipse.emf.ecore.resource.Resource]*/();
 
 		/**
 		 * @generated
@@ -865,9 +865,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 		/**
 		 * @generated
 		 */
-		public Iterator<Resource> getLoadedResourcesIterator() {
-			return new ArrayList<Resource>(getResourceSet().getResources())
-					.iterator();
+		public Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/getLoadedResourcesIterator() {
+			return new ArrayList/*[org.eclipse.emf.ecore.resource.Resource]*/(
+					getResourceSet().getResources()).iterator();
 		}
 
 		/**
@@ -883,9 +883,9 @@ public class EsbDocumentProvider extends AbstractDocumentProvider implements
 		public void dispose() {
 			stopResourceListening();
 			getResourceSet().eAdapters().remove(myResourceSetListener);
-			for (Iterator<Resource> it = getLoadedResourcesIterator(); it
+			for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = getLoadedResourcesIterator(); it
 					.hasNext();) {
-				Resource resource = it.next();
+				Resource resource = (Resource) it.next();
 				resource.unload();
 			}
 			getEditingDomain().dispose();
