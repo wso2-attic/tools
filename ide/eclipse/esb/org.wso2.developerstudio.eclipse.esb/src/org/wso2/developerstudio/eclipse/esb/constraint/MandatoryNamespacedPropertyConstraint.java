@@ -42,6 +42,7 @@ public class MandatoryNamespacedPropertyConstraint extends AbstractModelConstrai
 		EMFEventType eType = ctx.getEventType();
 		if (eType == EMFEventType.NULL) {
 			if(eObj instanceof ModelObject){
+				/*
 				Map<String, ObjectValidator> validateMap = ((ModelObject)eObj).validate();
 				for (ObjectValidator obValidator : validateMap.values()) {
 					Map<String, String> mediatorErrorMap = obValidator.getMediatorErrorMap();
@@ -51,7 +52,8 @@ public class MandatoryNamespacedPropertyConstraint extends AbstractModelConstrai
 						Status status = new Status(4, "org.wso2.developerstudio.eclipse.esb", mediatorErrorMap.values().toArray(new String[]{})[0]);
 						return status;	
 					}
-				}
+				}*/
+				return ctx.createSuccessStatus();
 			}
 		}else{
 		

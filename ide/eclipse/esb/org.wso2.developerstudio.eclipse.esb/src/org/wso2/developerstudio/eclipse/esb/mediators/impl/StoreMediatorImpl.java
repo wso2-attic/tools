@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -288,8 +289,7 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	return new HashMap<String, ObjectValidator>();
     }
 
 } // StoreMediatorImpl

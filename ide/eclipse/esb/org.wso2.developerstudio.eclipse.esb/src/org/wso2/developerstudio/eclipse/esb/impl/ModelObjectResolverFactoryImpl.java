@@ -26,8 +26,6 @@ import org.wso2.developerstudio.eclipse.esb.ModelObjectResolver;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectResolverFactory;
 import org.wso2.developerstudio.eclipse.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration;
-import org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl.ObjectHandler;
-import org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator;

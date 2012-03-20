@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -801,8 +802,31 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+    	if(null==getPropertyName() || getPropertyName().trim().isEmpty()){
+    		validateMap.put("Property Name", "Property Name is empty");
+    	}
+    	if (getValueType().equals(PropertyValueType.EXPRESSION)) {
+    		if(null==getValueExpression().getPropertyValue() || getValueExpression().getPropertyValue().trim().isEmpty()){
+	    		validateMap.put("Property Expression", "Expression is empty");
+	    	}
+		} else if (getPropertyDataType().equals(PropertyDataType.OM)) {
+			try {
+				Element omElem = EsbUtils.parseElement(getValueOM());
+			} catch (Exception ex) {
+				validateMap.put("ValueXML", "Invalid ValueXML");			
+			}
+		} else {
+			if(null==getValueLiteral() || getValueLiteral().trim().isEmpty()){
+	    		validateMap.put("Property value", "Property value is empty");
+	    	}
+		}
+	
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Property Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //PropertyMediatorImpl

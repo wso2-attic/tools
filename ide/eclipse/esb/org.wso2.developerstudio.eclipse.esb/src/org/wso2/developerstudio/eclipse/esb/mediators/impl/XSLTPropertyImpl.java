@@ -60,9 +60,5 @@ public class XSLTPropertyImpl extends AbstractNameValueExpressionPropertyImpl im
     }
 
 	
-    public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
 
 } //XSLTPropertyImpl

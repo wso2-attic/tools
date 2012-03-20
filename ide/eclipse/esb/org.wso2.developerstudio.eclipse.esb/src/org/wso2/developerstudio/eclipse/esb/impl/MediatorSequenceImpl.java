@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -456,8 +457,17 @@ public class MediatorSequenceImpl extends ConfigurationElementImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		if (!isAnonymous()) {
+			if(null==getSequenceName() ||getSequenceName().trim().isEmpty()){
+	    		validateMap.put("Sequence Name", "Sequence Name is empty");
+	    	}
+		}
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Sequence", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } // SequenceMediatorImpl

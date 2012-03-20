@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -343,8 +344,21 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		 
+    	if(null==getExecutor() || getExecutor().trim().isEmpty()){
+    		validateMap.put("Executor", "Executor is empty");
+    	}
+    	
+    	if(null==getSequenceKey() || getSequenceKey().getKeyValue().trim().isEmpty()){
+    		validateMap.put("Sequence key", "Sequence key is empty");
+	    }
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Enqueue Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 

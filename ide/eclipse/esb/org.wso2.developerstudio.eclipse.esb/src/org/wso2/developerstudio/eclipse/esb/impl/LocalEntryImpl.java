@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -456,8 +457,38 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+    	if(null==getEntryName() || getEntryName().trim().isEmpty()){
+    		validateMap.put("key", "key is empty");
+    	}
+		switch (getValueType()) {
+			case LITERAL: {
+				if(null==getValueLiteral() || getValueLiteral().trim().isEmpty()){
+		    		validateMap.put("Value", "Value is empty");
+		    	}
+				break;
+			}
+			case URL: {
+				if(null==getValueURL() || getValueURL().trim().isEmpty()){
+		    		validateMap.put("URL", "URL is empty");
+		    		//TODO: validate URL
+		    	}
+				break;
+			}
+			case XML: {
+				try {
+					Element xmlElem = EsbUtils.parseElement(getValueXML());
+				} catch (Exception ex) {
+					validateMap.put("ValueXML", "Invalid ValueXML");
+				}				
+			}
+    	
+		}
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Local Entry", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //LocalEntryImpl

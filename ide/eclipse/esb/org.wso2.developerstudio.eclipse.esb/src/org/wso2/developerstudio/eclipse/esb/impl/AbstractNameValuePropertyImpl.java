@@ -15,12 +15,16 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -248,6 +252,25 @@ public abstract class AbstractNameValuePropertyImpl extends ModelObjectImpl impl
         result.append(propertyValue);
         result.append(')');
         return result.toString();
+    }
+	
+	@Override
+    public Map<String, ObjectValidator> validate() {
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+    	if(null==getPropertyName() || getPropertyName().trim().isEmpty()){
+    		validateMap.put("Property Name", "Property Name is empty");
+    	}
+    	
+		if(null==getPropertyValue() || getPropertyValue().trim().isEmpty()){
+	    		validateMap.put("Property Value", "Property Value is empty");
+	    }
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Name Value Property", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //AbstractNameValuePropertyImpl

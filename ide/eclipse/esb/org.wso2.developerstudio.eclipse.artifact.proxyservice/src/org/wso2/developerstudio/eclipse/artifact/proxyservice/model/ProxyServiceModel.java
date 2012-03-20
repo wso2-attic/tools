@@ -25,10 +25,13 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.artifact.proxyservice.Activator;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
@@ -41,6 +44,8 @@ import java.util.List;
 import javax.xml.stream.XMLStreamException;
 
 public class ProxyServiceModel extends ProjectDataModel {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private ArtifactTemplate selectedTemplate;
 	private List<OMElement> availablePSList;
@@ -129,13 +134,13 @@ public class ProxyServiceModel extends ProjectDataModel {
 					}
 					returnResult = false;
 				} catch (OMException e) {
-					e.printStackTrace();
+					log.error("Error reading object model", e);
 				} catch (XMLStreamException e) {
-					e.printStackTrace();
+					log.error("XML stream error", e);
 				} catch (IOException e) {
-					e.printStackTrace();
+					log.error("I/O error has occurred", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 			}
 		} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_PS_TYPE)) {

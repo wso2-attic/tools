@@ -63,9 +63,5 @@ public class LogPropertyImpl extends AbstractNameValueExpressionPropertyImpl imp
     }
 
 	
-    public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
 
 } //LogPropertyImpl

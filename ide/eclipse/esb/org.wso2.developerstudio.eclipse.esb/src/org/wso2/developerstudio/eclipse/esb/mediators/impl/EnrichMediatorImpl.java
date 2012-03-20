@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -1013,8 +1014,89 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+	
+		switch (getCurrentEsbVersion()) {
+			case ESB301:
+				// Source XPath.
+				if (getSourceType().equals(EnrichSourceType.CUSTOM)) {
+					if(null==getSourceXpath().getPropertyValue() || getSourceXpath().getPropertyValue().trim().isEmpty()){
+			    		validateMap.put("Property Expression", "Source Expression is empty");
+			    	}
+				}
+				// Source property.
+				if (getSourceType().equals(EnrichSourceType.PROPERTY)) {
+					if(null==getSourceProperty() || getSourceProperty().trim().isEmpty()){
+			    		validateMap.put("Property Value", "Source Property Value is empty");
+			    	}
+				}
+				// Source inline XML & Registry Key.
+				if (getSourceType().equals(EnrichSourceType.INLINE)) {
+					try {
+						Element inlineElem = EsbUtils.parseElement(getSourceXML());
+					} catch (Exception ex) {
+						validateMap.put("Source XML", "Property Value is empty");
+					}
+				}
+				// Target XPath.
+				if (getTargetType().equals(EnrichTargetType.CUSTOM)) {
+					if(null==getTargetXpath().getPropertyValue() || getTargetXpath().getPropertyValue().trim().isEmpty()){
+			    		validateMap.put("Property Expression", "Target Expression is empty");
+			    	}
+				}
+				// Target property.
+				if (getTargetType().equals(EnrichTargetType.PROPERTY)) {
+					if(null==getTargetProperty() || getTargetProperty().trim().isEmpty()){
+			    		validateMap.put("Property Value", "Target Property Value is empty");
+			    	}
+				}
+				break;
+			case ESB400:
+				// Source XPath.
+				if (getSourceType().equals(EnrichSourceType.CUSTOM)) {
+					if(null==getSourceXpath().getPropertyValue() || getSourceXpath().getPropertyValue().trim().isEmpty()){
+			    		validateMap.put("Property Expression", "Source Expression is empty");
+			    	}
+				}
+				// Source property.
+				if (getSourceType().equals(EnrichSourceType.PROPERTY)) {
+					validateMap.put("Property Value", "Property Value is empty");
+				}
+				// Source inline XML & Registry Key.
+				if (getSourceType().equals(EnrichSourceType.INLINE)) {
+					switch (getInlineType()) {
+					case CONTENT:
+						try {
+							Element inlineElem = EsbUtils.parseElement(getSourceXML());
+						} catch (Exception ex) {
+							validateMap.put("Source XML", "Property Value is empty");
+						}
+						break;
+					case KEY:
+						
+						break;
+					}
+				}
+				// Target XPath.
+				if (getTargetType().equals(EnrichTargetType.CUSTOM)) {
+					if(null==getTargetXpath().getPropertyValue() || getTargetXpath().getPropertyValue().trim().isEmpty()){
+			    		validateMap.put("Property Expression", "Target Expression is empty");
+			    	}
+				}
+				// Target property.
+				if (getTargetType().equals(EnrichTargetType.PROPERTY)) {
+					if(null==getTargetProperty() || getTargetProperty().trim().isEmpty()){
+			    		validateMap.put("Property Value", "Target Property Value is empty");
+			    	}
+				}
+				break;
+			}
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Enrich Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //EnrichMediatorImpl

@@ -15,6 +15,8 @@
  */
 package org.wso2.developerstudio.eclipse.esb.constraint;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.EMFEventType;
 import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.wso2.developerstudio.eclipse.esb.ModelObject;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
@@ -44,17 +47,24 @@ public class MandatoryStringPropertyConstraint extends AbstractModelConstraint {
 		if (eType == EMFEventType.NULL) {
 			if(eObj instanceof ModelObject){
 				Map<String, ObjectValidator> validateMap = ((ModelObject)eObj).validate();
-				for (ObjectValidator obValidator : validateMap.values()) {
-					Map<String, String> mediatorErrorMap = obValidator.getMediatorErrorMap();
-					if(mediatorErrorMap.size() == 0){
-						return ctx.createSuccessStatus();
-					}else{
-						
-						Status status = new Status(4, "org.wso2.developerstudio.eclipse.esb", mediatorErrorMap.values().toArray(new String[]{})[0]);
-						System.out.println("error msg " + status.getMessage());
-						return status;					
+				if(null!=validateMap){
+					for (ObjectValidator obValidator : validateMap.values()) {
+						Map<String, String> mediatorErrorMap = obValidator.getMediatorErrorMap();
+						Collection<IStatus> statuses = new ArrayList<IStatus>();
+						if(mediatorErrorMap.size() == 0){
+							return ctx.createSuccessStatus();
+						}else{
+							String object = validateMap.keySet().iterator().next();
+							for (String err : mediatorErrorMap.values()){
+								String msg = object + " : " + err;
+								statuses.add(new Status(4, "org.wso2.carbonstudio.eclipse.esb",  msg));
+							}
+							//TODO: ((ModelObject)eObj).setObjectState(ModelObjectState.INCOMPLETE);
+							IStatus status = ConstraintStatus.createMultiStatus(ctx, statuses);
+							return status;					
+						}
 					}
-				}
+				} else return ctx.createSuccessStatus();
 			}
 			
 		}else{

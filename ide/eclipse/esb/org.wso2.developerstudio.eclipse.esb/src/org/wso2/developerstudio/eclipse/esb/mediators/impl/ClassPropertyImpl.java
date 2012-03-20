@@ -15,13 +15,11 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
-import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
 import org.wso2.developerstudio.eclipse.esb.impl.AbstractNameValuePropertyImpl;
 import org.wso2.developerstudio.eclipse.esb.mediators.ClassProperty;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
-import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,9 +51,5 @@ public class ClassPropertyImpl extends AbstractNameValuePropertyImpl implements 
     }
 
 	
-    public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
 
 } // ClassPropertyImpl

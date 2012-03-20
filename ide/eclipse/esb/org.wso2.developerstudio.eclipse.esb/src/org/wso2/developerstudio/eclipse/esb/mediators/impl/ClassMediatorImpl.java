@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -250,8 +251,16 @@ public class ClassMediatorImpl extends MediatorImpl implements ClassMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+    	if(null==getClassName() || getClassName().trim().isEmpty()){
+    		validateMap.put("Class Name", "Class Name is empty");
+    	}
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Class Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 

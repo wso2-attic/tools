@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -1146,8 +1147,18 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+    	if(null==getName() || getName().trim().isEmpty()){
+    		validateMap.put("Name", "Name is empty");
+    	}
+    	//TODO
+
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Proxy Service", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //ProxyServiceImpl

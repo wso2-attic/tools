@@ -8,9 +8,15 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.wso2.developerstudio.eclipse.esb.project.Activator;
 import org.wso2.developerstudio.eclipse.esb.project.ui.wizard.ESBProjectWizard;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class ESBProjectUtils {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	public static IProject createESBProject(Shell shell){
 		IWizardDescriptor wizardDesc = PlatformUI.getWorkbench().getNewWizardRegistry().findWizard("org.wso2.developerstudio.eclipse.artifact.newesbproject");
 		if (wizardDesc!=null) {

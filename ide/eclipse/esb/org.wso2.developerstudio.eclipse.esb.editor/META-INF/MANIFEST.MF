@@ -28,6 +28,8 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.lang,
  org.apache.xml.serialize,
  org.eclipse.core.filesystem,
+ org.eclipse.wst.validation.internal.core,
+ org.eclipse.wst.validation.internal.provisional.core,
  org.wso2.developerstudio.eclipse.capp.core.artifacts.manager,
  org.wso2.developerstudio.eclipse.capp.core.model,
  org.wso2.developerstudio.eclipse.esb.core,
@@ -36,6 +38,7 @@ Import-Package: org.apache.commons.lang,
  org.wso2.developerstudio.eclipse.greg.core.interfaces,
  org.wso2.developerstudio.eclipse.platform.core.interfaces,
  org.wso2.developerstudio.eclipse.platform.core.templates,
+ org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.utils.data,
  org.wso2.developerstudio.eclipse.utils.file
 
