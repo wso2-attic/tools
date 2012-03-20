@@ -27,3 +27,4 @@ Import-Package: org.wso2.developerstudio.eclipse.esb.core.preferences.ui,
  org.wso2.developerstudio.eclipse.platform.core.mediatype,
  org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.utils.file
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
