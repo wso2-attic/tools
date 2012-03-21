@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -479,8 +480,32 @@ public class WsdlEndPointImpl extends AbstractEndPointImpl implements WsdlEndPoi
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		 if (getWsdlType().equals(EndPointWsdlType.URI)) {
+			 if (null == getWsdlURI() || getWsdlURI().trim().isEmpty()) {
+					validateMap.put("WSDL URI","WSDL URI is empty");
+				} 
+		    } else {
+		    	try {
+		    		Element definitionsElem = EsbUtils.parseElement(getWsdlXML());
+		    	} catch (Exception ex) {
+		    		validateMap.put("WSDL XML","WSDL XML, must be valid xml");
+		    	}	    		    	
+		    }
+		
+		if (null == getService() || getService().trim().isEmpty()) {
+			validateMap.put("Service","Service is empty");
+		}
+		if (null == getPort() || getPort().trim().isEmpty()) {
+			validateMap.put("URI","URI is empty");
+		}
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("WSDL EndPoint", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //WsdlEndPointImpl

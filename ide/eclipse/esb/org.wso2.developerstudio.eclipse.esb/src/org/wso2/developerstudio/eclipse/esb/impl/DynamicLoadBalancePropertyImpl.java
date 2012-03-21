@@ -51,10 +51,5 @@ public class DynamicLoadBalancePropertyImpl extends AbstractNameValuePropertyImp
         return EsbPackage.Literals.DYNAMIC_LOAD_BALANCE_PROPERTY;
     }
 
-	
-    public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
 
 } //DynamicLoadBalancePropertyImpl

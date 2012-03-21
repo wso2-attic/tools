@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -397,8 +398,17 @@ public class DynamicLoadBalanceEndPointImpl extends EndPointImpl implements Dyna
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (null == getMembershipHandlerClass() || getMembershipHandlerClass().trim().isEmpty()) {
+			validateMap.put("Membership Handler Class","Membership handler class is empty");
+		}
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Dynamic LoadBalance EndPoint", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //DynamicLoadBalanceEndPointImpl
