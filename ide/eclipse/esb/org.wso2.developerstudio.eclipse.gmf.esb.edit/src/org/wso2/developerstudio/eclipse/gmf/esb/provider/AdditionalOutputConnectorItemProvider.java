@@ -78,7 +78,7 @@ public class AdditionalOutputConnectorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK);
+			childrenFeatures.add(EsbPackage.Literals.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK);
 		}
 		return childrenFeatures;
 	}
@@ -119,7 +119,7 @@ public class AdditionalOutputConnectorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AdditionalOutputConnector.class)) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,7 +139,7 @@ public class AdditionalOutputConnectorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK,
+				(EsbPackage.Literals.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK,
 				 EsbFactory.eINSTANCE.createEsbLink()));
 	}
 
