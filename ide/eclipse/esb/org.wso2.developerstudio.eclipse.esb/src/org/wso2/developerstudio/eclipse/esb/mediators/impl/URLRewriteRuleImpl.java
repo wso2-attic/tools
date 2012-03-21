@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -299,8 +300,18 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();	
+		
+		try {
+            Element formatElem = EsbUtils.parseElement(getUrlRewriteRuleCondition().getEvaluatorValue());
+        } catch (Exception e) {
+        	validateMap.put("Format", "Invalid payload format, must be valid xml");
+        }
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("URLRewrite Mediator - RewriteRule", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } // URLRewriteRuleImpl

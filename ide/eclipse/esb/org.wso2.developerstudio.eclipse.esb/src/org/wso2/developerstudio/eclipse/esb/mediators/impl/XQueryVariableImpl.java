@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -31,6 +32,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType;
+import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -568,8 +570,22 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (null == getVariableName() || getVariableName().trim().isEmpty()) {
+			validateMap.put("VariableName","Variable Name is empty");
+		}
+		
+		if (getValueType().equals(XQueryVariableValueType.LITERAL)) {
+			if (null == getValueLiteral() || getValueLiteral().trim().isEmpty()) {
+				validateMap.put("VariableValue","Variable Value is empty");
+			}
+		} 
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("XQuery Mediator - Variable", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //XQueryVariableImpl

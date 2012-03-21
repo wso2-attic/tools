@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,7 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.esb.impl.MediatorImpl;
 import org.wso2.developerstudio.eclipse.esb.mediators.KeyType;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.ScriptType;
 import org.wso2.developerstudio.eclipse.esb.mediators.XSLTFeature;
 import org.wso2.developerstudio.eclipse.esb.mediators.XSLTMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.XSLTProperty;
@@ -726,8 +728,34 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		switch (getCurrentEsbVersion()) {
+		case ESB301:	
+			if (null == getXsltKey().getKeyValue() || getXsltKey().getKeyValue().trim().isEmpty()) {
+				validateMap.put("Schema Key","Schema Key is empty");
+			}
+			break;
+		case ESB400:
+			switch (getXsltSchemaKeyType()) {
+			case STATIC:
+				if (null == getXsltKey().getKeyValue() || getXsltKey().getKeyValue().trim().isEmpty()) {
+					validateMap.put("Schema Key","Schema Key is empty");
+				}
+				break;
+			case DYNAMIC:
+				if (null == getXsltDynamicSchemaKey().getPropertyValue() || getXsltDynamicSchemaKey().getPropertyValue().trim().isEmpty()) {
+					validateMap.put("Schema Key","Schema Key is empty");
+				}
+				break;
+			}
+		}
+		
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("XSLTMediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } // XSLTMediatorImpl

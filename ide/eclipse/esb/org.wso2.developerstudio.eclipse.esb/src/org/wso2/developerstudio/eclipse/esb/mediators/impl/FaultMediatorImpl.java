@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.FaultReasonType;
 import org.wso2.developerstudio.eclipse.esb.mediators.FaultSoapVersion;
 import org.wso2.developerstudio.eclipse.esb.mediators.FaultStringType;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -1181,8 +1183,43 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (getSoapVersion().equals(FaultSoapVersion.SOAP_11)) {
+			// Fault string.
+			if (getFaultStringType().equals(FaultStringType.VALUE)) {
+				if (null == getFaultStringValue() || getFaultStringValue().trim().isEmpty()) {
+					validateMap.put("Fault String (Literal)","Fault String (Literal) is empty");
+				}
+			} else {
+				if (null == getFaultStringExpression().getPropertyValue()
+						|| getFaultStringExpression().getPropertyValue().trim()
+								.isEmpty()) {
+					validateMap.put("Fault String (Expression)", "Fault String (Expression) is empty");
+				}
+			}
+						
+		} else {
+			// Fault code (soap 1.2).
+			// Fault reason.
+			if (getFaultReasonType().equals(FaultReasonType.VALUE)) {
+				if (null == getFaultReasonValue() || getFaultReasonValue().trim().isEmpty()) {
+					validateMap.put("Fault Reason (Literal)","Fault Reason (Literal) is empty");
+				}
+			} else {
+				if (null == getFaultReasonExpression().getPropertyValue()
+						|| getFaultReasonExpression().getPropertyValue().trim()
+								.isEmpty()) {
+					validateMap.put("Fault Reason (Expression)", "Fault Reason (Expression) is empty");
+				}
+			}
+
+		}		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Fault Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //FaultMediatorImpl

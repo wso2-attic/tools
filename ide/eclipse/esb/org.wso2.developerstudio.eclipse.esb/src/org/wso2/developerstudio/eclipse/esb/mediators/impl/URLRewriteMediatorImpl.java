@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -352,8 +353,7 @@ public class URLRewriteMediatorImpl extends MediatorImpl implements URLRewriteMe
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return new HashMap<String, ObjectValidator>();
     }
 
 	

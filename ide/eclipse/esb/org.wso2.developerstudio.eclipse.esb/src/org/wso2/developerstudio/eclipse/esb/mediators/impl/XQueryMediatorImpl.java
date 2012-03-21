@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -598,8 +599,34 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		switch (getCurrentEsbVersion()) {
+		case ESB301:	
+			if (null == getQueryKey().getKeyValue() || getQueryKey().getKeyValue().trim().isEmpty()) {
+				validateMap.put("Script Key","Script Key is empty");
+			}
+			break;
+		case ESB400:
+			switch (getScriptKeyType()) {
+			case STATIC:
+				if (null == getStaticScriptKey().getKeyValue() || getStaticScriptKey().getKeyValue().trim().isEmpty()) {
+					validateMap.put("Script Key","Script Key is empty");
+				}
+				break;
+			case DYNAMIC:
+				if (null == getDynamicScriptKey().getPropertyValue() || getDynamicScriptKey().getPropertyValue().trim().isEmpty()) {
+					validateMap.put("Script Key","Script Key is empty");
+				}
+				break;
+			}
+		}
+		
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("XQuery Mediator", objectValidator);
+ 	    return mediatorValidateMap;
     }
 
 } // XQueryMediatorImpl
