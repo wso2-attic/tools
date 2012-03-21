@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -428,8 +429,17 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (null == getRouteExpression().getPropertyValue() || getRouteExpression().getPropertyValue().trim().isEmpty()) {
+			validateMap.put("Route Expression","Route Expression is empty");
+		}
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Router Mediator - Route", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //RouteImpl

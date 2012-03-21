@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +31,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.FilterElseBranch;
 import org.wso2.developerstudio.eclipse.esb.mediators.FilterMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.FilterThenBranch;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
+import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -609,8 +611,25 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (getConditionType().equals(FilterConditionType.XPATH)) {
+			if (null == getFilterXpath().getPropertyValue() || getFilterXpath().getPropertyValue().trim().isEmpty()) {
+				validateMap.put("XPath","XPath is empty");
+			}
+		} else {
+			if (null == getFilterSource().getPropertyValue() || getFilterSource().getPropertyValue().trim().isEmpty()) {
+				validateMap.put("Source","Source is empty");
+			}
+			if (null == getFilterRegex() || getFilterRegex().trim().isEmpty()) {
+				validateMap.put("Regular expression","Regular expression is empty");
+			}
+		}	
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Filter Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //FilterMediatorImpl

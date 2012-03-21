@@ -32,7 +32,6 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType;
-import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**

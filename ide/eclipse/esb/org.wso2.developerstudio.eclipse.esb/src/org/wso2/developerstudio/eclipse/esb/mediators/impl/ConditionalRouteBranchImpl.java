@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -401,8 +402,23 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (null == getTargetSequence().getKeyValue() || getTargetSequence().getKeyValue().trim().isEmpty()) {
+			validateMap.put("Target Sequence","Target Sequence is empty");
+		}
+		
+		try {
+            Element formatElem = EsbUtils.parseElement(getEvaluatorExpression().getEvaluatorValue());
+        } catch (Exception e) {
+        	validateMap.put("Evaluator Expression", "Evaluator expression format, must be valid xml");
+        }
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Conditional Router Mediator - Conditional Route", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } // ConditionalRouteBranchImpl

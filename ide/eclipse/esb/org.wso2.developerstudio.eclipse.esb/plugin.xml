@@ -339,6 +339,11 @@
 							<feature name="urlRewriteRuleCondition" />
 						</event>						
 					</target>	
+					<target class="ConditionalRouteBranch">
+						<event name="Set">
+							<feature name="evaluatorExpression" />
+						</event>						
+					</target>	
 				</constraint>
 				<constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryXmlStringPropertyConstraint"
@@ -389,6 +394,11 @@
 					<target class="URLRewriteRule">
 						<event name="Set">
 							<feature name="urlRewriteRuleCondition" />
+						</event>						
+					</target>
+					<target class="ConditionalRouteBranch">
+						<event name="Set">
+							<feature name="evaluatorExpression" />
 						</event>						
 					</target>																
 				</constraint>
@@ -663,7 +673,12 @@
 							<feature name="reliableMessagingPolicy" />
 							<feature name="securityPolicy" />
 						</event>											
-					</target>																														
+					</target>	
+					<target class="ConditionalRouteBranch">
+						<event name="Set">
+							<feature name="targetSequence" />
+						</event>						
+					</target>																													
 				</constraint>
 				<!--constraint lang="Java"
 					class="org.wso2.developerstudio.eclipse.esb.constraint.MandatoryStringPropertyConstraint"

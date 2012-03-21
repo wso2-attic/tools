@@ -307,7 +307,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 		try {
             Element formatElem = EsbUtils.parseElement(getUrlRewriteRuleCondition().getEvaluatorValue());
         } catch (Exception e) {
-        	validateMap.put("Format", "Invalid payload format, must be valid xml");
+        	validateMap.put("Condition", "Invalid condition, must be valid xml");
         }
  	    objectValidator.setMediatorErrorMap(validateMap);
  	    mediatorValidateMap.put("URLRewrite Mediator - RewriteRule", objectValidator);

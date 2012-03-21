@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch;
 import org.wso2.developerstudio.eclipse.esb.mediators.SwitchDefaultBranch;
 import org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator;
+import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -350,8 +352,17 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+		
+		if (null == getSourceXpath().getPropertyValue() || getSourceXpath().getPropertyValue().trim().isEmpty()) {
+			validateMap.put("Source Xpath","Source Xpath is empty");
+		}
+		
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Switch Mediator", objectValidator);
+	    return mediatorValidateMap;
     }
 
 } //SwitchMediatorImpl
