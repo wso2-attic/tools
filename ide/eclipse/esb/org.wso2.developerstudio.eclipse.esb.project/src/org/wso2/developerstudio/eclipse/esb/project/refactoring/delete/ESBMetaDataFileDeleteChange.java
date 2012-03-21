@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +17,6 @@
 package org.wso2.developerstudio.eclipse.esb.project.refactoring.delete;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
@@ -28,85 +27,86 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ESBMetaDataFileDeleteChange extends TextFileChange{
+public class ESBMetaDataFileDeleteChange extends TextFileChange {
 	private IFile metaDataFile;
-	private IProject esbProject;
 	private IFile originalFile;
 
-	public ESBMetaDataFileDeleteChange(String name, IFile file, IFile originalFile, IProject esbProject) {
-	    super(name, file);
-	    metaDataFile=file;
-	    this.originalFile=originalFile;
-	    this.esbProject=esbProject;
-	    
-	    addTextEdits();
-    }
-	
+	public ESBMetaDataFileDeleteChange(String name, IFile file, IFile originalFile) {
+		super(name, file);
+		metaDataFile = file;
+		this.originalFile = originalFile;
+
+		addTextEdits();
+	}
+
 	private void addTextEdits() {
 		if (metaDataFile.getName().equalsIgnoreCase("artifact.xml")) {
 			setEdit(new MultiTextEdit());
 			try {
-	            identifyReplaces();
-            } catch (IOException e) {
-	            e.printStackTrace();
-            }
+				identifyReplaces();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-	
+
 	private void identifyReplaces() throws IOException {
-		String artifactsStart="<artifacts>";
-		String artifactsEnd="</artifacts>";
-		String artifactStart="<artifact";
-		String artifactEnd="</artifact>";
-		String nameProperty="name=\"";
-		String versionProperty="version=\"";
-		
-		List<String> artifactEntry=new ArrayList<String>();
-		boolean isArtifact=false;
-		boolean isArtifacts=false;
-		boolean isArtifactMatch=false;
-		
+		String artifactsStart = "<artifacts>";
+		String artifactsEnd = "</artifacts>";
+		String artifactStart = "<artifact";
+		String artifactEnd = "</artifact>";
+		String nameProperty = "name=\"";
+		String versionProperty = "version=\"";
+
+		List<String> artifactEntry = new ArrayList<String>();
+		boolean isArtifact = false;
+		boolean isArtifacts = false;
+		boolean isArtifactMatch = false;
+
 		int fullIndex = 0;
-		int startIndex=0;
+		int startIndex = 0;
 		BufferedReader reader =
 		                        new BufferedReader(new FileReader(metaDataFile.getLocation()
 		                                                                      .toFile()));
 		String line = reader.readLine();
-		String fileName=originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1);
+		String fileName =
+		                  originalFile.getName().substring(0,
+		                                                   originalFile.getName().length() -
+		                                                       originalFile.getFileExtension()
+		                                                                   .length() - 1);
 		while (line != null) {
-			if(!isArtifacts && line.contains(artifactsStart)){
-				isArtifacts=true;
+			if (!isArtifacts && line.contains(artifactsStart)) {
+				isArtifacts = true;
 			}
-			
-			if(isArtifacts && line.contains(artifactsEnd)){
-				isArtifacts=false;
+
+			if (isArtifacts && line.contains(artifactsEnd)) {
+				isArtifacts = false;
 			}
-			
-			if(isArtifacts){
-				if(!isArtifact && line.trim().startsWith(artifactStart)){
-					startIndex=fullIndex+ line.indexOf(artifactStart);
-					if(line.contains(nameProperty+fileName+"\"")){
-						isArtifact=true;
+
+			if (isArtifacts) {
+				if (!isArtifact && line.trim().startsWith(artifactStart)) {
+					startIndex = fullIndex + line.indexOf(artifactStart);
+					if (line.contains(nameProperty + fileName + "\"")) {
+						isArtifact = true;
 						artifactEntry.add(line);
-					}else{
-						isArtifact=false;
+					} else {
+						isArtifact = false;
 						artifactEntry.clear();
-						startIndex=0;
+						startIndex = 0;
 					}
 				}
-				
-				if(isArtifact){
+
+				if (isArtifact) {
 					if (!artifactEntry.contains(line)) {
-	                    artifactEntry.add(line);
-                    }
-					if(line.trim().startsWith(artifactEnd)){
-						isArtifact=false;
-						isArtifactMatch=true;
+						artifactEntry.add(line);
+					}
+					if (line.trim().startsWith(artifactEnd)) {
+						isArtifact = false;
+						isArtifactMatch = true;
 					}
 				}
-				
-				
-				if(isArtifactMatch){
+
+				if (isArtifactMatch) {
 					int length = 0;
 					for (String string : artifactEntry) {
 						length += charsOnTheLine(string);
@@ -114,33 +114,18 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange{
 					addEdit(new DeleteEdit(startIndex, length));
 					break;
 				}
-				
-				
+
 			}
-			
-			
-			
-			
-			fullIndex+=charsOnTheLine(line);
+
+			fullIndex += charsOnTheLine(line);
 			line = reader.readLine();
 		}
 		reader.close();
 	}
-	
-	private int charsOnTheLine(String line){
-		//Here we need to add one to represent the newline character 
-		return line.length()+1;
-	}
-	
-	private int getarrayIndexWithString(String stringToSearch, String[] array){
-		int index=0;
-		for (String string : array) {
-	        if(string.contains(stringToSearch)){
-	        	return index;
-	        }
-	        index++;
-        }
-		return -1;
+
+	private int charsOnTheLine(String line) {
+		// Here we need to add one to represent the newline character
+		return line.length() + 1;
 	}
 
 }
