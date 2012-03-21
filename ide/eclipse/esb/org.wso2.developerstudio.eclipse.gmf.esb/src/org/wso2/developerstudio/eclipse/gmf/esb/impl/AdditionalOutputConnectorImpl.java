@@ -26,7 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AdditionalOutputConnectorImpl#getOutgoingLink <em>Outgoing Link</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AdditionalOutputConnectorImpl#getAdditionalOutgoingLink <em>Additional Outgoing Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,15 +34,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
  */
 public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl implements AdditionalOutputConnector {
 	/**
-	 * The cached value of the '{@link #getOutgoingLink() <em>Outgoing Link</em>}' containment reference.
+	 * The cached value of the '{@link #getAdditionalOutgoingLink() <em>Additional Outgoing Link</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutgoingLink()
+	 * @see #getAdditionalOutgoingLink()
 	 * @generated
 	 * @ordered
 	 */
-	protected EsbLink outgoingLink;
-
+	protected EsbLink additionalOutgoingLink;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,8 +66,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EsbLink getOutgoingLink() {
-		return outgoingLink;
+	public EsbLink getAdditionalOutgoingLink() {
+		return additionalOutgoingLink;
 	}
 
 	/**
@@ -76,11 +75,11 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutgoingLink(EsbLink newOutgoingLink, NotificationChain msgs) {
-		EsbLink oldOutgoingLink = outgoingLink;
-		outgoingLink = newOutgoingLink;
+	public NotificationChain basicSetAdditionalOutgoingLink(EsbLink newAdditionalOutgoingLink, NotificationChain msgs) {
+		EsbLink oldAdditionalOutgoingLink = additionalOutgoingLink;
+		additionalOutgoingLink = newAdditionalOutgoingLink;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, oldOutgoingLink, newOutgoingLink);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK, oldAdditionalOutgoingLink, newAdditionalOutgoingLink);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -91,18 +90,18 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutgoingLink(EsbLink newOutgoingLink) {
-		if (newOutgoingLink != outgoingLink) {
+	public void setAdditionalOutgoingLink(EsbLink newAdditionalOutgoingLink) {
+		if (newAdditionalOutgoingLink != additionalOutgoingLink) {
 			NotificationChain msgs = null;
-			if (outgoingLink != null)
-				msgs = ((InternalEObject)outgoingLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, null, msgs);
-			if (newOutgoingLink != null)
-				msgs = ((InternalEObject)newOutgoingLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, null, msgs);
-			msgs = basicSetOutgoingLink(newOutgoingLink, msgs);
+			if (additionalOutgoingLink != null)
+				msgs = ((InternalEObject)additionalOutgoingLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK, null, msgs);
+			if (newAdditionalOutgoingLink != null)
+				msgs = ((InternalEObject)newAdditionalOutgoingLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK, null, msgs);
+			msgs = basicSetAdditionalOutgoingLink(newAdditionalOutgoingLink, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK, newOutgoingLink, newOutgoingLink));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK, newAdditionalOutgoingLink, newAdditionalOutgoingLink));
 	}
 
 	/**
@@ -124,8 +123,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
-				return basicSetOutgoingLink(null, msgs);
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
+				return basicSetAdditionalOutgoingLink(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -138,8 +137,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
-				return getOutgoingLink();
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
+				return getAdditionalOutgoingLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,8 +151,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
-				setOutgoingLink((EsbLink)newValue);
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
+				setAdditionalOutgoingLink((EsbLink)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,8 +166,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
-				setOutgoingLink((EsbLink)null);
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
+				setAdditionalOutgoingLink((EsbLink)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -182,8 +181,8 @@ public abstract class AdditionalOutputConnectorImpl extends EsbConnectorImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK:
-				return outgoingLink != null;
+			case EsbPackage.ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK:
+				return additionalOutgoingLink != null;
 		}
 		return super.eIsSet(featureID);
 	}

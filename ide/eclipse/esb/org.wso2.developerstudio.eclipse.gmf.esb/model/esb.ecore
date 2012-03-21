@@ -24,7 +24,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="InputConnector" abstract="true" eSuperTypes="#//EsbConnector">
     <eOperations name="shouldConnect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="sourceEnd" eType="#//OutputConnector"/>
-      <eParameters name="AdditionalSpurceEnd" eType="#//AdditionalOutputConnector"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingLinks" upperBound="-1"
         eType="#//EsbLink" eOpposite="#//EsbLink/target"/>

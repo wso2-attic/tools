@@ -2390,7 +2390,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAdditionalOutputConnector_OutgoingLink() {
+	public EReference getAdditionalOutputConnector_AdditionalOutgoingLink() {
 		return (EReference)additionalOutputConnectorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -8809,7 +8809,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(outputConnectorEClass, OUTPUT_CONNECTOR__OUTGOING_LINK);
 
 		additionalOutputConnectorEClass = createEClass(ADDITIONAL_OUTPUT_CONNECTOR);
-		createEReference(additionalOutputConnectorEClass, ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK);
+		createEReference(additionalOutputConnectorEClass, ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK);
 
 		esbLinkEClass = createEClass(ESB_LINK);
 		createEReference(esbLinkEClass, ESB_LINK__SOURCE);
@@ -9943,7 +9943,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEParameter(op, this.getInputConnector(), "targetEnd", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(additionalOutputConnectorEClass, AdditionalOutputConnector.class, "AdditionalOutputConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAdditionalOutputConnector_OutgoingLink(), this.getEsbLink(), null, "outgoingLink", null, 0, 1, AdditionalOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAdditionalOutputConnector_AdditionalOutgoingLink(), this.getEsbLink(), null, "additionalOutgoingLink", null, 0, 1, AdditionalOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(additionalOutputConnectorEClass, ecorePackage.getEBoolean(), "shouldConnect", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getInputConnector(), "targetEnd", 0, 1, IS_UNIQUE, IS_ORDERED);

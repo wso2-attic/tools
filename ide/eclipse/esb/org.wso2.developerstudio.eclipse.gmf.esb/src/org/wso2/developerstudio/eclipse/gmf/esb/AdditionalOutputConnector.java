@@ -15,7 +15,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getOutgoingLink <em>Outgoing Link</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getAdditionalOutgoingLink <em>Additional Outgoing Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,30 +25,30 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  */
 public interface AdditionalOutputConnector extends EsbConnector {
 	/**
-	 * Returns the value of the '<em><b>Outgoing Link</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Additional Outgoing Link</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Outgoing Link</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Additional Outgoing Link</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing Link</em>' containment reference.
-	 * @see #setOutgoingLink(EsbLink)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAdditionalOutputConnector_OutgoingLink()
+	 * @return the value of the '<em>Additional Outgoing Link</em>' containment reference.
+	 * @see #setAdditionalOutgoingLink(EsbLink)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAdditionalOutputConnector_AdditionalOutgoingLink()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EsbLink getOutgoingLink();
+	EsbLink getAdditionalOutgoingLink();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getOutgoingLink <em>Outgoing Link</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getAdditionalOutgoingLink <em>Additional Outgoing Link</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Outgoing Link</em>' containment reference.
-	 * @see #getOutgoingLink()
+	 * @param value the new value of the '<em>Additional Outgoing Link</em>' containment reference.
+	 * @see #getAdditionalOutgoingLink()
 	 * @generated
 	 */
-	void setOutgoingLink(EsbLink value);
+	void setAdditionalOutgoingLink(EsbLink value);
 
 	/**
 	 * <!-- begin-user-doc -->

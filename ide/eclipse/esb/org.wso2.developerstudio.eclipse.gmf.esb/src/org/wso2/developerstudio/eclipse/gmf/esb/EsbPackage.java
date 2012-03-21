@@ -287,13 +287,13 @@ public interface EsbPackage extends EPackage {
 	int ADDITIONAL_OUTPUT_CONNECTOR = 8;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
+	 * The feature id for the '<em><b>Additional Outgoing Link</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK = ESB_CONNECTOR_FEATURE_COUNT + 0;
+	int ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK = ESB_CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Additional Output Connector</em>' class.
@@ -11155,15 +11155,15 @@ public interface EsbPackage extends EPackage {
 	EClass getAdditionalOutputConnector();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getOutgoingLink <em>Outgoing Link</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getAdditionalOutgoingLink <em>Additional Outgoing Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Outgoing Link</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getOutgoingLink()
+	 * @return the meta object for the containment reference '<em>Additional Outgoing Link</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector#getAdditionalOutgoingLink()
 	 * @see #getAdditionalOutputConnector()
 	 * @generated
 	 */
-	EReference getAdditionalOutputConnector_OutgoingLink();
+	EReference getAdditionalOutputConnector_AdditionalOutgoingLink();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EsbLink <em>Link</em>}'.
@@ -18853,12 +18853,12 @@ public interface EsbPackage extends EPackage {
 		EClass ADDITIONAL_OUTPUT_CONNECTOR = eINSTANCE.getAdditionalOutputConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing Link</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Additional Outgoing Link</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADDITIONAL_OUTPUT_CONNECTOR__OUTGOING_LINK = eINSTANCE.getAdditionalOutputConnector_OutgoingLink();
+		EReference ADDITIONAL_OUTPUT_CONNECTOR__ADDITIONAL_OUTGOING_LINK = eINSTANCE.getAdditionalOutputConnector_AdditionalOutgoingLink();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbLinkImpl <em>Link</em>}' class.
