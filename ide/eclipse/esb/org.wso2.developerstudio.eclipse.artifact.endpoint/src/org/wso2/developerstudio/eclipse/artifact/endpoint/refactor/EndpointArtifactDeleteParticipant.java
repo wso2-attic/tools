@@ -51,7 +51,7 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
     public Change createPreChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
 		
-		CompositeChange deleteChange=new CompositeChange("Delete Artifact Project");
+		CompositeChange deleteChange=new CompositeChange("Delete ESB Artifact");
 		
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		
@@ -60,10 +60,8 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	        	try {
 					IFile pomFile = project.getFile("pom.xml");
 					MavenProject mavenProject = RefactorUtils.getMavenProject(project);
-					Dependency projectDependency = new Dependency();
-					projectDependency.setGroupId("org.wso2.carbon");
+					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalFile.getProject());
 					projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
-					projectDependency.setVersion("1.0.0");
 					
 					List<?> dependencies = mavenProject.getDependencies();
 					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
