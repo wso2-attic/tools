@@ -49,12 +49,18 @@ import org.eclipse.ui.wizards.IWizardCategory;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.eclipse.ui.wizards.IWizardRegistry;
 import org.eclipse.ui.forms.events.HyperlinkEvent;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.samples.contributor.IDeveloperStudioSampleContributor;
 import org.wso2.developerstudio.eclipse.samples.utils.ExtensionPointHandler;
 import org.wso2.developerstudio.eclipse.samples.wizards.ProjectCreationWizard;
 
 public class DashboardPage extends FormPage {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private static Map<String, String[]> wizardCategoryMap=new HashMap<String, String[]>(); 
 	private  Map<String, IWizardDescriptor> wizardDescriptor; 
 	
@@ -62,7 +68,9 @@ public class DashboardPage extends FormPage {
 		wizardCategoryMap.put("Application Server", new String[] {
 				"org.wso2.developerstudio.eclipse.artifact.newaxis2artifact",
 				"org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact",
-				"org.wso2.developerstudio.eclipse.artifact.newwarartifact"
+				"org.wso2.developerstudio.eclipse.artifact.newwarartifact",
+				"org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient",
+				"org.wso2.developerstudio.eclipse.artifact.generation.axis2service"
 				});
 		
 		wizardCategoryMap.put("Business Process Server", new String[] {
@@ -340,7 +348,7 @@ public class DashboardPage extends FormPage {
 				}
 	            contributor.addSampleTo(createdProject);
             } catch (Exception e) {
-	            e.printStackTrace();
+            	log.error("Cannot open wizard",e);
             }
 		}
 	}
@@ -361,7 +369,7 @@ public class DashboardPage extends FormPage {
 		     wd.open();
 		   }
 		 } catch (CoreException e) {
-		   e.printStackTrace();
+		   log.error("Cannot open wizard",e);
 		 }
 		}
 

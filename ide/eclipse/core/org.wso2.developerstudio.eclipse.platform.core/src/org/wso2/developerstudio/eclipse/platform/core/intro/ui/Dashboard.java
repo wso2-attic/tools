@@ -18,16 +18,21 @@ package org.wso2.developerstudio.eclipse.platform.core.intro.ui;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 
 public class Dashboard extends FormEditor {
-private DashboardPage dashbordPage;
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private DashboardPage dashbordPage;
 
 	protected void addPages() {
 		dashbordPage = new DashboardPage(this,"org.wso2.developerstudio.eclipse.platform.core.intro.ui.Dashboard","Dashboard");
 		try {
 			addPage(dashbordPage);
 		} catch (PartInitException e) {
-			e.printStackTrace();
+			log.error("Cannot initialize dashboard page",e);
 		}
 	}
 

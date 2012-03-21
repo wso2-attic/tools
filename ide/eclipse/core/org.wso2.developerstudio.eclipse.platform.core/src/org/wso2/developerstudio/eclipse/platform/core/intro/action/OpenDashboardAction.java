@@ -23,13 +23,17 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.intro.IIntroSite;
-import org.eclipse.ui.intro.config.IIntroAction;; 
+import org.eclipse.ui.intro.config.IIntroAction; 
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 
 public class OpenDashboardAction extends Action implements IIntroAction {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public void run(IIntroSite introSite, Properties properties) {
 		final IIntroPart introPart = PlatformUI.getWorkbench().getIntroManager().getIntro(); 
@@ -40,7 +44,7 @@ public class OpenDashboardAction extends Action implements IIntroAction {
         	PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", window);
 			page.openEditor(new NullEditorInput(), "org.wso2.developerstudio.eclipse.dashboard");
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Cannot open dashboard",e);
 		}
 	}
 	
