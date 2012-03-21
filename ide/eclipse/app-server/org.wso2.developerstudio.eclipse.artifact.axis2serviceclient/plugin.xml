@@ -5,9 +5,10 @@
 	   <extension
          point="org.eclipse.ui.newWizards">
        <wizard
-            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"
-            icon="icons/axis2-wizard.png"
-            id="org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard1"
+            category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
+            icon="icons/axis2.png"
+            project="true" 
+            id="org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient"
             name="Generate Axis2 Web Service Skeleton">
             <description>Generate Axis2 Web Service Skeleton</description>
                 <class class="org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
@@ -28,8 +29,9 @@
          point="org.eclipse.ui.newWizards">
        <wizard
             category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
-            icon="icons/axis2-wizard.png"
-            id="org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver.NewDataserviceValidatorWizard2"
+            icon="icons/axis2.png"
+            project="true"
+            id="org.wso2.developerstudio.eclipse.artifact.generation.axis2service"
             name="Generate Axis2 Web Service Client">
             <description>Generate Axis2 Web Service Client</description>
                 <class class="org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard.Axis2ClientGenerationWizard">
