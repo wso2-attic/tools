@@ -158,7 +158,7 @@ public class SequenceMediatorImpl extends MediatorImpl implements
 						&& referenceKeyValue.endsWith("}")) {
 					setReferringSequenceType(getReferringSequenceType().DYNAMIC);
 					referenceKeyValue = referenceKeyValue.substring(1,
-							referenceKeyValue.length() - 2);
+							referenceKeyValue.length() - 1);
 					getDynamicReferenceKey()
 							.setPropertyValue(referenceKeyValue);
 				} else {
