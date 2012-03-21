@@ -30,4 +30,5 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project,
  org.wso2.developerstudio.eclipse.utils.template,
+ org.wso2.developerstudio.eclipse.utils.ui,
  org.wso2.developerstudio.eclipse.utils.wst

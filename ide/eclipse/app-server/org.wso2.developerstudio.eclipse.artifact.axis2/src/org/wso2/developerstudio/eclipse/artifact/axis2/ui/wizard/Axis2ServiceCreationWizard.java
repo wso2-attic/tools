@@ -33,11 +33,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.Axis2Model;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.DataModel;
+import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ParametersUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -66,6 +68,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 		setAxis2Model(new Axis2Model());
 		setModel(getAxis2Model());
 		setWindowTitle("Create New Axis2 Service");
+		setDefaultPageImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 	}
 	
 	
@@ -235,14 +238,13 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 	
 	public IWizardPage getNextPage(IWizardPage page) {
 		IWizardPage nextPage = super.getNextPage(page);
-
 		if(page instanceof ProjectOptionsDataPage ){
-				if(getModel().getSelectedOption().equalsIgnoreCase("import.Axis2wsdl")){
-					dataModel.setWsdlURI(getModel().getImportFile().getAbsolutePath());
-					dataModel.setGenerateServerSideCode(true);
-					nextPage = wsdlConfigurationPage;
-					wsdlConfigurationPage.populateParamsFromWSDL();
-				}
+			if(getModel().getSelectedOption().equalsIgnoreCase("import.Axis2wsdl")){
+				dataModel.setWsdlURI(getModel().getImportFile().getAbsolutePath());
+				dataModel.setGenerateServerSideCode(true);
+				nextPage = wsdlConfigurationPage;
+				wsdlConfigurationPage.populateParamsFromWSDL();
+			}
 		}
 		if(page instanceof Axis2ConfigurationPage ){
 			nextPage = pages[2];

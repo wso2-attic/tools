@@ -60,11 +60,12 @@ import org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.page
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.pages.NewFilterClassWizardPage;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.pages.NewHandlerClassWizardPage;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.Constants;
+import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerInfo;
-import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.JavaCodeFormatter;
-import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.RegistryHandlerUtils;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerInfo.DataType;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerInfo.PropertyData;
+import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.JavaCodeFormatter;
+import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.RegistryHandlerUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
@@ -127,6 +128,7 @@ public class RegistryHandlerCreationWizard extends
 		regModel = new RegistryHandlerModel();
 		setFilterModel(regModel);
 		setModel(getFilterModel());
+		setDefaultPageImageDescriptor(HandlerImageUtils.getInstance().getImageDescriptor("registry-handler-wizard.png"));
 	}
 
 	public IResource getCreatedResource() {
@@ -518,7 +520,7 @@ public class RegistryHandlerCreationWizard extends
 		}else if(page instanceof ImportFilterClassWizardPage || page instanceof NewFilterClassWizardPage|| page instanceof ImportHandlerJarWizardPage){
 			nextPage = pages[1];
 		}else if(page instanceof MavenDetailsPage ){
-				nextPage=null;
+			nextPage=null;
 
 		}
 		return nextPage;

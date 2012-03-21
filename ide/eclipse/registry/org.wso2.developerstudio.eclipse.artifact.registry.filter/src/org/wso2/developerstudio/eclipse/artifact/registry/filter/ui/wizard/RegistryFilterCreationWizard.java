@@ -40,6 +40,7 @@ import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.ui.IEditorPart;
 import org.wso2.developerstudio.eclipse.artifact.registry.filter.model.RegistryFilterModel;
 import org.wso2.developerstudio.eclipse.artifact.registry.filter.util.Constants;
+import org.wso2.developerstudio.eclipse.artifact.registry.filter.util.RegistryFilterImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
@@ -62,6 +63,8 @@ public class RegistryFilterCreationWizard extends
 		filterModel = new RegistryFilterModel();
 		setFilterModel(filterModel);
 		setModel(getFilterModel());
+		setWindowTitle("Registry Filter Artifact Createtion Wizard");
+		setDefaultPageImageDescriptor(RegistryFilterImageUtils.getInstance().getImageDescriptor("new-registry-filter-wizard.png"));
 	}
 
 	public IResource getCreatedResource() {

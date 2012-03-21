@@ -17,6 +17,7 @@ import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.dataservice.model.DataServiceModel;
+import org.wso2.developerstudio.eclipse.artifact.dataservice.utils.DataServiceImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.dataservice.utils.DataServiceTemplateUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
@@ -36,6 +37,7 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 		this.dsModel = new DataServiceModel();
 		setModel(this.dsModel);
 		setWindowTitle(DS_WIZARD_WINDOW_TITLE);
+		setDefaultPageImageDescriptor(DataServiceImageUtils.getInstance().getImageDescriptor("ds-wizard.png"));
 	}
 
 	
@@ -134,7 +136,6 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 	
 	public IWizardPage getNextPage(IWizardPage page) {
 		IWizardPage nextPage = super.getNextPage(page);
-
 		if(page instanceof ProjectOptionsDataPage ){
 				if(getModel().getSelectedOption().equalsIgnoreCase("new.dsproject")){
 					nextPage = newDataSourcepage;

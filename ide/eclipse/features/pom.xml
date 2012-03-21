@@ -54,6 +54,7 @@
         <!--module>gadgets</module-->                        
         <module>carbon-studio</module>
         <module>repository</module>
+	<!--module>installed-distributions</module-->
     </modules>        
 
     <!--properties>

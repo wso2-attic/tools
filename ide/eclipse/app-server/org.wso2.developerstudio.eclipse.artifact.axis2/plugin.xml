@@ -7,6 +7,7 @@
 			class="org.wso2.developerstudio.eclipse.artifact.axis2.ui.wizard.Axis2ServiceCreationWizard"
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newaxis2artifact"
+			descriptionImage="axis2-wizard.png"
 			project="true" icon="icons/axis2.png">
 			<description>Axis2 Service Project</description>
 		</wizard>

@@ -42,6 +42,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.artifact.registry.Activator;
 import org.wso2.developerstudio.eclipse.artifact.registry.model.RegistryArtifactModel;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants;
+import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryResourceImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryResourceInfo;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryResourceInfoDoc;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryResourceUtils;
@@ -74,13 +75,13 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	public RegistryResourceCreationWizard() {
 		regModel = new RegistryArtifactModel();
 		setModel(regModel);
+		setDefaultPageImageDescriptor(RegistryResourceImageUtils.getInstance().getImageDescriptor("registry-artifact-wizard.png"));
 	}
 	
 	
 	public IResource getCreatedResource() {
 		return null;
 	}
-
 	
 	public boolean performFinish() {
 		try {

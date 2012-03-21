@@ -31,4 +31,5 @@ Import-Package: org.apache.maven.model,
  org.wso2.developerstudio.eclipse.utils.archive,
  org.wso2.developerstudio.eclipse.utils.file,
  org.wso2.developerstudio.eclipse.utils.jdt,
- org.wso2.developerstudio.eclipse.utils.project
+ org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.ui

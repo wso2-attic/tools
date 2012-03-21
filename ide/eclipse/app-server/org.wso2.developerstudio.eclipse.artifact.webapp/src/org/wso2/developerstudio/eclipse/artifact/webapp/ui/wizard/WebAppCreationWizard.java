@@ -1,5 +1,11 @@
 package org.wso2.developerstudio.eclipse.artifact.webapp.ui.wizard;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -11,17 +17,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebXMLModel;
+import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private WebAppModel webAppModel;
@@ -31,9 +32,9 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		setWebAppModel(new WebAppModel());
 		setModel(getWebAppModel());
 		setWindowTitle("Create New Web Application");
+		setDefaultPageImageDescriptor(WebAppImageUtils.getInstance().getImageDescriptor("war-wizard.png"));
 	}
 
-	
 	public boolean performFinish() {
 		try {
 			project = createNewProject();

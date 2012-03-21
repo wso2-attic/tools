@@ -22,11 +22,13 @@ import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.IEditorPart;
 import org.wso2.developerstudio.eclipse.artifact.mediator.model.CustomMediatorModel;
 import org.wso2.developerstudio.eclipse.artifact.mediator.template.CustomMediatorClassTemplate;
+import org.wso2.developerstudio.eclipse.artifact.mediator.utils.MediatorImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -39,6 +41,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
      setCustomMediatorModel(new CustomMediatorModel());
      setModel(customMediatorModel);
      setWindowTitle("Mediator Creation Wizard");
+     setDefaultPageImageDescriptor(MediatorImageUtils.getInstance().getImageDescriptor("new-mediator-wizard.png"));
     }
     
     public IWizardPage getNextPage(IWizardPage page) {
@@ -63,7 +66,6 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		return nextPage;
 	}
    
-	
 	public boolean performFinish(){
 	    try {
 	    	

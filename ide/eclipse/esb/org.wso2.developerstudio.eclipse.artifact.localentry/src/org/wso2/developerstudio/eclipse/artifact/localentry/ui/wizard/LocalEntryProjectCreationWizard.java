@@ -42,13 +42,13 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryArtifactConstants;
+import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryTemplateUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
@@ -63,6 +63,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		this.localEntryModel = new LocalEntryModel();
 		setModel(this.localEntryModel);
 		setWindowTitle(LocalEntryArtifactConstants.LE_WIZARD_WINDOW_TITLE);
+		setDefaultPageImageDescriptor(LocalEntryImageUtils.getInstance().getImageDescriptor("local-entries-wizard-artifact.png"));
 	}
 	
 	

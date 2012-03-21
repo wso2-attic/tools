@@ -43,6 +43,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
+import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.ProxyServiceImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
@@ -50,7 +51,6 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private final ProxyServiceModel psModel;
@@ -63,6 +63,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 		this.psModel = new ProxyServiceModel();
 		setModel(this.psModel);
 		setWindowTitle(PsArtifactConstants.PS_WIZARD_WINDOW_TITLE);
+		setDefaultPageImageDescriptor(ProxyServiceImageUtils.getInstance().getImageDescriptor("proxy-service-wizard.png"));
 	}
 
 	

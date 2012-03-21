@@ -43,6 +43,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
 import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
+import org.wso2.developerstudio.eclipse.artifact.sequence.utils.SequenceImageUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -52,7 +53,6 @@ import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	
@@ -68,8 +68,8 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		this.seqModel = new SequenceModel();
 		setModel(this.seqModel);
 		setWindowTitle(SEQ_WIZARD_WINDOW_TITLE);
+		setDefaultPageImageDescriptor(SequenceImageUtils.getInstance().getImageDescriptor("seq-wizard.png"));
 	}
-
 	
 	protected boolean isRequireProjectLocationSection() {
 		return false;

@@ -39,11 +39,13 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.synapse.Activator;
 import org.wso2.developerstudio.eclipse.artifact.synapse.model.SynapseModel;
 import org.wso2.developerstudio.eclipse.artifact.synapse.template.SynapseClassTemplate;
+import org.wso2.developerstudio.eclipse.artifact.synapse.utils.SynapseImageUtils;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
@@ -51,6 +53,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
@@ -69,6 +72,16 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		setSynapseModel(new SynapseModel());
 		setModel(synapseModel);
 		setWindowTitle("Create a Synapse Configuration");
+		setDefaultPageImageDescriptor(SynapseImageUtils.getInstance().getImageDescriptor("synapse-wizard.png"));
+	}
+	
+	public IWizardPage getNextPage(IWizardPage page) {
+		IWizardPage nextPage = super.getNextPage(page);
+		nextPage.setImageDescriptor(SynapseImageUtils.getInstance().getImageDescriptor("synapse-wizard.png"));
+		if(page instanceof ProjectOptionsPage){
+			page.setImageDescriptor(SynapseImageUtils.getInstance().getImageDescriptor("synapse-wizard.png"));
+		}
+		return nextPage;
 	}
 
 	protected boolean isRequireProjectLocationSection() {

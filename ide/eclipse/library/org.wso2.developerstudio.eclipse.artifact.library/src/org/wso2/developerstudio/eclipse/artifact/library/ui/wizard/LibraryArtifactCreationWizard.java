@@ -28,7 +28,6 @@ import org.apache.maven.model.Repository;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -36,15 +35,13 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.wso2.developerstudio.eclipse.artifact.library.model.LibraryArtifactModel;
 import org.wso2.developerstudio.eclipse.artifact.library.util.Constants;
+import org.wso2.developerstudio.eclipse.artifact.library.util.LibraryImageUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
-import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.developerstudio.eclipse.platform.core.bundle.BundlesDataInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryBean;
-import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class LibraryArtifactCreationWizard extends
@@ -57,6 +54,7 @@ public class LibraryArtifactCreationWizard extends
 		libraryModel = new LibraryArtifactModel();
 		setLibraryModel(libraryModel);
 		setModel(getLibraryModel());
+		setDefaultPageImageDescriptor(LibraryImageUtils.getInstance().getImageDescriptor("jar-wizard.png"));
 	}
 
 	public IResource getCreatedResource() {

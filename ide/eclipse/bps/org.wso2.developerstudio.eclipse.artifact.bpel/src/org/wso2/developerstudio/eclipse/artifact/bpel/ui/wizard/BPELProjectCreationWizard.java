@@ -10,14 +10,17 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.artifact.bpel.model.BpelModel;
 import org.wso2.developerstudio.eclipse.artifact.bpel.utils.BPELArtifactConstants;
+import org.wso2.developerstudio.eclipse.artifact.bpel.utils.BPELImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.bpel.utils.BPELTemplateUtils;
 
 public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
@@ -33,6 +36,7 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		this.bpelModel = new BpelModel();
 		setModel(this.bpelModel);
 		setWindowTitle(BPEL_WIZARD_WINDOW_TITLE);
+		setDefaultPageImageDescriptor(BPELImageUtils.getInstance().getImageDescriptor("bpel-wizard.png"));
 	}
 
 	
@@ -85,12 +89,9 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 //	
 //	public IWizardPage getNextPage(IWizardPage page) {
 //		IWizardPage nextPage = super.getNextPage(page);
-//		if(page instanceof ProjectOptionsDataPage ){
-//			if(getModel().getSelectedOption().equals("new.bpelproject")){
-//				nextPage = wsdlInfoPage;
-//			}
-//		}else if(page instanceof WSDLInfoWizardPage){
-//			nextPage = mavenDetailsPage;
+//		nextPage.setImageDescriptor(BPELImageUtils.getInstance().getImageDescriptor("bpel-wizard.png"));
+//		if(page instanceof ProjectOptionsPage){
+//			page.setImageDescriptor(BPELImageUtils.getInstance().getImageDescriptor("bpel-wizard.png"));
 //		}
 //		return nextPage;
 //	}

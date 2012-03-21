@@ -12,11 +12,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -27,11 +24,13 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.model.CarbonUiModel;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.templates.CarbonUIbudleTemplate;
+import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.utils.CarbonUIImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -45,6 +44,7 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
      setUibundleModel(new CarbonUiModel());
      setModel(uibundleModel);
      setWindowTitle("Carbon UI bundle wizard");
+     setDefaultPageImageDescriptor(CarbonUIImageUtils.getInstance().getImageDescriptor("carbon-ui-bundle-wizard.png"));
     }
     
    public IWizardPage getNextPage(IWizardPage page) {

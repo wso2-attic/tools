@@ -15,13 +15,16 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.gadget.model.GadgetModel;
 import org.wso2.developerstudio.eclipse.artifact.gadget.template.GadgetTemplate;
+import org.wso2.developerstudio.eclipse.artifact.gadget.utils.GadgetImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
@@ -36,8 +39,9 @@ public class GadgetCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		setGadgetModel(new GadgetModel());
 		setModel(getGadgetModel());
 		setWindowTitle("Create New Gadget ");
+		setDefaultPageImageDescriptor(GadgetImageUtils.getInstance().getImageDescriptor("Gadget-wizard.png"));
 	}
-
+	
 	public boolean performFinish(){
 		try{
 		File gadgetFile =null;

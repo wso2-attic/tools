@@ -194,7 +194,7 @@ public class WSO2LibraryWizardPage extends WizardPage implements
 		for (LibraryArtifact libraryArtifact : libraryArtifacts) {
 			if (!isLibraryExists(libraryArtifact.getFileName())) {
 				TableItem tableItem = new TableItem(table, SWT.NONE);
-				tableItem.setImage(LibImageUtils.getInstance().getJarImage()
+				tableItem.setImage(LibImageUtils.getInstance().getImageDescriptor("jar_obj.gif")
 						.createImage());
 				tableItem.setText(new String[] { libraryArtifact.getName(),
 						libraryArtifact.getDescription() });

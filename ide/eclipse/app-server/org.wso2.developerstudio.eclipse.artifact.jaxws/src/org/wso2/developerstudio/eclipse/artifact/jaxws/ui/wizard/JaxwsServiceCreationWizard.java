@@ -29,7 +29,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.model.JaxwsModel;
+import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxWSImageUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.eclipse.jdt.core.IAnnotation;
@@ -44,6 +46,7 @@ import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 
@@ -58,13 +61,13 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 		setjaxwsModel(new JaxwsModel());
 		setModel(getJaxwsModel());
 		setWindowTitle("Create New JAX-WS Service");
+		setDefaultPageImageDescriptor(JaxWSImageUtils.getInstance().getImageDescriptor("JAX-WS-wizard.png"));
 	}
 	
 	
 	public void init(IWorkbench arg0, IStructuredSelection selection) {
 		super.init(arg0, selection);
 	}
-	
 	
 	public boolean performFinish() {
 		try {
