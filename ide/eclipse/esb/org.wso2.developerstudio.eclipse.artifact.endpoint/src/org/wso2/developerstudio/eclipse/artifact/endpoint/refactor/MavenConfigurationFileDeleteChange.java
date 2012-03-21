@@ -18,7 +18,6 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
 import org.apache.maven.model.Dependency;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
@@ -35,15 +34,13 @@ import java.util.List;
 public class MavenConfigurationFileDeleteChange extends TextFileChange {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
-	private IFile deletingProjectFile;
 	private MultiTextEdit multiEdit;
 	private IFile pomFile;
 	private Dependency deletingArtifactDependency;
 
-	public MavenConfigurationFileDeleteChange(String name, IFile file, IFile deletingProjectFile, Dependency deletingArtifactDependency) {
+	public MavenConfigurationFileDeleteChange(String name, IFile file, Dependency deletingArtifactDependency) {
 		super(name, file);
 		pomFile = file;
-		this.deletingProjectFile = deletingProjectFile;
 		this.deletingArtifactDependency=deletingArtifactDependency;
 
 		addTextEdits();

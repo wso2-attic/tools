@@ -69,7 +69,7 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
 						Dependency dependency = (Dependency) iterator.next();
 						if (RefactorUtils.isDependenciesEqual(projectDependency, dependency)) {
-							deleteChange.add(new MavenConfigurationFileDeleteChange(project.getName(), pomFile, originalFile, projectDependency));
+							deleteChange.add(new MavenConfigurationFileDeleteChange(project.getName(), pomFile, projectDependency));
 						}
 					}
 				} catch (Exception e) {
