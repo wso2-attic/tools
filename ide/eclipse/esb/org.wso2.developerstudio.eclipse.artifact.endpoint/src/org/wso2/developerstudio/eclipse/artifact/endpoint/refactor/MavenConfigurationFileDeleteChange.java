@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 import org.apache.maven.model.Dependency;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
+import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
@@ -183,7 +184,7 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 									length += RefactorUtils.charsOnTheLine(string);
 								}
 
-								addEdit(new ReplaceEdit(startIndex, length, ""));
+								addEdit(new DeleteEdit(startIndex, length));
 
 								dependencyEntry.clear();
 								break;

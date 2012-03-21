@@ -19,19 +19,24 @@ package org.wso2.developerstudio.eclipse.esb.project.refactoring.delete;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
+import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ESBMetaDataFileDeleteChange extends TextFileChange{
 	private IFile metaDataFile;
 	private IProject esbProject;
+	private IFile originalFile;
 
-	public ESBMetaDataFileDeleteChange(String name, IFile file, IProject esbProject) {
+	public ESBMetaDataFileDeleteChange(String name, IFile file, IFile originalFile, IProject esbProject) {
 	    super(name, file);
 	    metaDataFile=file;
+	    this.originalFile=originalFile;
 	    this.esbProject=esbProject;
 	    
 	    addTextEdits();
@@ -49,13 +54,69 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange{
 	}
 	
 	private void identifyReplaces() throws IOException {
+		String artifactsStart="<artifacts>";
+		String artifactsEnd="</artifacts>";
+		String artifactStart="<artifact";
+		String artifactEnd="</artifact>";
+		String nameProperty="name=\"";
+		String versionProperty="version=\"";
+		
+		List<String> artifactEntry=new ArrayList<String>();
+		boolean isArtifact=false;
+		boolean isArtifacts=false;
+		boolean isArtifactMatch=false;
+		
 		int fullIndex = 0;
+		int startIndex=0;
 		BufferedReader reader =
 		                        new BufferedReader(new FileReader(metaDataFile.getLocation()
 		                                                                      .toFile()));
 		String line = reader.readLine();
+		String fileName=originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1);
 		while (line != null) {
+			if(!isArtifacts && line.contains(artifactsStart)){
+				isArtifacts=true;
+			}
 			
+			if(isArtifacts && line.contains(artifactsEnd)){
+				isArtifacts=false;
+			}
+			
+			if(isArtifacts){
+				if(!isArtifact && line.trim().startsWith(artifactStart)){
+					startIndex=fullIndex+ line.indexOf(artifactStart);
+					if(line.contains(nameProperty+fileName+"\"")){
+						isArtifact=true;
+						artifactEntry.add(line);
+					}else{
+						isArtifact=false;
+						artifactEntry.clear();
+						startIndex=0;
+					}
+				}
+				
+				if(isArtifact){
+					if (!artifactEntry.contains(line)) {
+	                    artifactEntry.add(line);
+                    }
+					if(line.trim().startsWith(artifactEnd)){
+						isArtifact=false;
+						isArtifactMatch=true;
+					}
+				}
+				
+				
+				if(isArtifactMatch){
+					int length = 0;
+					for (String string : artifactEntry) {
+						length += charsOnTheLine(string);
+					}
+					addEdit(new DeleteEdit(startIndex, length));
+					break;
+				}
+				
+				
+			}
 			
 			
 			
