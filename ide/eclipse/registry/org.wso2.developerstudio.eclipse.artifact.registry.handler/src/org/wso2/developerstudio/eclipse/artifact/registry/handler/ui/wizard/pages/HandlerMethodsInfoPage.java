@@ -79,7 +79,8 @@ public class HandlerMethodsInfoPage extends WizardPage{
 				   SWT.FULL_SELECTION);
 		handlerPropertiesTable.setHeaderVisible(true);
 		handlerPropertiesTable.setLinesVisible(true);
-		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+//		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+		GridData data = new GridData();
 		data.heightHint = 100;
 		data.horizontalSpan = 3;
 		handlerPropertiesTable.setLayoutData(data);
@@ -87,17 +88,17 @@ public class HandlerMethodsInfoPage extends WizardPage{
 		TableLayout handlerProptableLayout = new TableLayout();
 		handlerPropertiesTable.setLayout(handlerProptableLayout);
 		
-		handlerProptableLayout.addColumnData(new ColumnWeightData(10, 150, true));
+		handlerProptableLayout.addColumnData(new ColumnWeightData(10, 250, true));
 		TableColumn column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(titles[0]);
 		column.setAlignment(SWT.LEFT);
 		
-		handlerProptableLayout.addColumnData(new ColumnWeightData(15, 150, true));
+		handlerProptableLayout.addColumnData(new ColumnWeightData(15, 250, true));
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(titles[1]);
 		column.setAlignment(SWT.LEFT);
 		
-		handlerProptableLayout.addColumnData(new ColumnWeightData(20, 50, true));
+		handlerProptableLayout.addColumnData(new ColumnWeightData(20, 100, true));
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(titles[2]);
 		column.setAlignment(SWT.LEFT);
@@ -138,6 +139,7 @@ public class HandlerMethodsInfoPage extends WizardPage{
 
 		handlerMethodsTable.setLinesVisible(true);
 		gd = new GridData(GridData.FILL_HORIZONTAL);
+//		gd.widthHint = 475;
 		gd.heightHint = 100;
 		gd.horizontalSpan=3;
 		handlerMethodsTable.setLayoutData(gd);

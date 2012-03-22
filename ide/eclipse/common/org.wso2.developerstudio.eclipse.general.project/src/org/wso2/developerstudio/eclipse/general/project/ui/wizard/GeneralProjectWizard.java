@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.general.project.ui.wizard;
 
+import java.io.File;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -23,18 +25,17 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.model.GeneralProjectModel;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectImageUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
-import org.eclipse.jdt.core.IJavaProject;
-
-import java.io.File;
 
 public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	private IProject project;
 
 	public GeneralProjectWizard() {
 		setModel(new GeneralProjectModel());
+		setDefaultPageImageDescriptor(GeneralProjectImageUtils.getInstance().getImageDescriptor("general-project-wizard.png"));
 	}
 
 	

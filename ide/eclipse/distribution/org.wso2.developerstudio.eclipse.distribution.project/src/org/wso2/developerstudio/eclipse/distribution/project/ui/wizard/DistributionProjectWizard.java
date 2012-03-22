@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DistributionProjectModel;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
+import org.wso2.developerstudio.eclipse.distribution.project.util.DistributionProjectImageUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -52,6 +53,7 @@ public class DistributionProjectWizard extends
 
 	public DistributionProjectWizard() {
 		setModel(new DistributionProjectModel());
+		setDefaultPageImageDescriptor(DistributionProjectImageUtils.getInstance().getImageDescriptor("distribution-project-wizard.png"));
 	}
 
 	public IResource getCreatedResource() {

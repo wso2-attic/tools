@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.ISelection;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.model.ESBProjectModel;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBImageUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -34,6 +35,7 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 
 	public ESBProjectWizard() {
 		setModel(new ESBProjectModel());
+		setDefaultPageImageDescriptor(ESBImageUtils.getInstance().getImageDescriptor("esb-project-wizard.png"));
 	}
 	
 	public boolean performFinish() {
