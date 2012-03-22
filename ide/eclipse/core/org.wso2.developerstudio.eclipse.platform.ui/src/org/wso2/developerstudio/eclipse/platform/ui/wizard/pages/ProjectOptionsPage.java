@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.wizard.pages;
 
+import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -94,6 +95,7 @@ public class ProjectOptionsPage extends WizardPage {
 
 		Label lblA = new Label(composite, SWT.NONE);
 		lblA.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		TrayDialog.setDialogHelpAvailable(false);
 	}
 
 	public void setSelectedProjectOption(ProjectOption selectedProjectOption) {

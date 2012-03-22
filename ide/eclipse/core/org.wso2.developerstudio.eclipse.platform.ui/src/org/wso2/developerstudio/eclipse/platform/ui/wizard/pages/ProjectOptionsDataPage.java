@@ -21,6 +21,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
@@ -184,6 +185,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 			workigSetSection.setLayoutData(gridData_1);
 			new WorkingSetComposite(workigSetSection, SWT.NONE, model);
 		}
+		TrayDialog.setDialogHelpAvailable(false);
 	}
 
 	private void setupProjectOptionControls(Composite projectOptionsSection, int columns) {

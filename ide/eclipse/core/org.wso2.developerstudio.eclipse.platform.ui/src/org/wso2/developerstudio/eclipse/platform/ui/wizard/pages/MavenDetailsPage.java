@@ -7,6 +7,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import org.apache.maven.project.MavenProject;
+import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -198,6 +199,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		setControl(container);
 		updateMavenDetailsControls();
 		updatePageStatus();
+		TrayDialog.setDialogHelpAvailable(false);
 	}
 
 	private void setParentMavenInfo(String parentProjectInfo) {
