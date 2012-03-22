@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developer.studio.eclipse.greg.base.ui.util;
 
 import java.util.List;
@@ -6,7 +22,6 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
@@ -22,6 +37,7 @@ import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowser
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
+import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IFieldControlData;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IOnAction;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.UIControl;
@@ -34,6 +50,12 @@ public class RegistryBrowserUIControl implements UIControl {
 	private static RegistryResourceNode selectedRegistryResourceNode = null;
 	Label regLabel; 
 	Button btnRegBrowse; 
+	private String[] pathList = new String[]{
+			"/",
+			"/_system/local",
+			"/_system/config",
+			"/_system/governance"
+	};
 	
 	public IFieldControlData createUIField(String id, Composite container, int columns,
 			Integer verticalIndent, Integer horizontalIndent,
@@ -41,7 +63,9 @@ public class RegistryBrowserUIControl implements UIControl {
 			final Shell shell,
 			final String label, 
 			String fileButtonCaption,
-			int selectedOption) {
+			int selectedOption,
+			ProjectDataModel model,
+			String pathBindingProperty) {
 		if (id.equals("registry.browser")){
 			regLabel = new Label(container, SWT.None);
 			regLabel.setText(label);
@@ -65,7 +89,7 @@ public class RegistryBrowserUIControl implements UIControl {
 			}
 			
 			IFieldControlData regControlData =
-		        addRegistryBrowseButton(container, shell, label, fileButtonCaption, txtValue,selectedOption);
+		        addRegistryBrowseButton(container, shell, label, fileButtonCaption, txtValue,selectedOption,model,pathBindingProperty);
 			return regControlData;
 		}
 		return null;
@@ -73,17 +97,31 @@ public class RegistryBrowserUIControl implements UIControl {
 	
 	public IFieldControlData addRegistryBrowseButton(Composite container,
 			final Shell shell, String label, String buttonCaption, final Text txtValue,
-			final int selectedOption) {
+			final int selectedOption,
+			final ProjectDataModel model,
+			final String pathBindingProperty) {
 //		RegistryResourceNode selectedRegistryResourceNode = null;
 		btnRegBrowse = new Button(container, SWT.None);
 		btnRegBrowse.setText(buttonCaption);
 		btnRegBrowse.addSelectionListener(new SelectionListener() {
 			
 			public void widgetDefaultSelected(SelectionEvent event) {
-				RegistryTreeBrowserDialog r = new RegistryTreeBrowserDialog(shell,selectedOption);
+				
+				int pathID=0;
+				try {
+					pathID = Integer.parseInt(model.getModelPropertyValue(pathBindingProperty).toString());
+					if(pathID<0 || pathID>3){
+						pathID=0;
+					}
+				} catch (Exception e) {
+				/* ignore*/
+				}
+				
+				RegistryTreeBrowserDialog r = new RegistryTreeBrowserDialog(shell,selectedOption,pathID);
 				r.create();
 				List<RegistryURLInfo> allRegistryUrls = RegistryUrlStore.getInstance().getAllRegistryUrls();
 				for (RegistryURLInfo registryURLInfo : allRegistryUrls) {
+					registryURLInfo.setPath(pathList[pathID]);
 					r.addRegistryNode(registryURLInfo, null);
 				}
 				if(r.open() == Window.OK){

@@ -249,12 +249,14 @@ public class WSO2UIToolkit {
 																 final Shell shell,
 																 final String label, 
 																 String fileButtonCaption,
-																 int selectedOption) {
+																 int selectedOption,
+																 ProjectDataModel model,
+																 String pathBindingProperty) {
 		IFieldControlData fieldControl = null;
 		List<UIControl> uiControlList = RegisterUIControl.getUiControlList();
 		for (UIControl uiControl : uiControlList) {
 			if(uiControl instanceof UIControl){
-				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent, horizontalIndent, isTextReadonly, shell, label, fileButtonCaption, selectedOption);
+				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent, horizontalIndent, isTextReadonly, shell, label, fileButtonCaption, selectedOption,model,pathBindingProperty);
 			}
 		}
 		return fieldControl;

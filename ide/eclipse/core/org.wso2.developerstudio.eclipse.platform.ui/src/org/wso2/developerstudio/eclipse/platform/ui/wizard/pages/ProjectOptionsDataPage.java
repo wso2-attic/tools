@@ -355,7 +355,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 													getControl().getParent().getShell(), 
 													optionData.getCaption(), 
 													"Browse...", 
-													optionData.getRegistyResourceSelectionType());
+													optionData.getRegistyResourceSelectionType(),
+													getModel(),
+													optionData.getRegistyPathBindingProperty());
 	
 		FieldExecutor fieldExecutor =
 	        new CommonFieldExecutor(optionData, getModel(), txtReg.getControl()) {

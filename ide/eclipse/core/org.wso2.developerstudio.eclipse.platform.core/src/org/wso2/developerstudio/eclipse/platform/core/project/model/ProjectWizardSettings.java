@@ -265,8 +265,17 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 		
 	}
 
-	private void updateSelectedRegistryOptionType(OMElement dataElement, ProjectOptionData projectOptionData){
+	private void updateSelectedRegistryOptionType(OMElement dataElement, ProjectOptionData projectOptionData) throws CoreException {
 		Map<String, String> controlData = getControlData(dataElement);
+		String registyPathBindingProperty = null;
+		/*boolean editable = false;*/
+		if (controlData.containsKey("path.binding.property")) {
+			registyPathBindingProperty =controlData.get("path.binding.property");
+		}
+		/*
+		if (controlData.containsKey("modify")) {
+			editable = controlData.get("modify").toLowerCase().equals("editable");
+		}*/
 		if(controlData.containsKey("registry.selection.type")){
 			String value = controlData.get("registry.selection.type");
 			if(value != null){
@@ -281,8 +290,9 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 				}
 			}
 		} else {
-			projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_NONE);
+			projectOptionData.setRegistyResourceSelectionType(RegistryOptionsConstants.SELECTED_REGISTRY);
 		}
+		projectOptionData.setRegistyPathBindingProperty(registyPathBindingProperty);
 	}
 	
 

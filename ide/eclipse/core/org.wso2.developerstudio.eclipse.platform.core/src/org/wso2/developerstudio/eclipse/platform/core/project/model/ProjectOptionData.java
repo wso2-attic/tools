@@ -53,6 +53,7 @@ public class ProjectOptionData {
 	
 	//For registry
 	private int registyResourceSelectionType;
+	private String registyPathBindingProperty;
 	
 	//for textboxes 
 	private boolean textMultiline;
@@ -218,6 +219,14 @@ public class ProjectOptionData {
 
 	public int getRegistyResourceSelectionType() {
 		return registyResourceSelectionType;
+	}
+
+	public void setRegistyPathBindingProperty(String registyPathBindingProperty) {
+		this.registyPathBindingProperty = registyPathBindingProperty;
+	}
+
+	public String getRegistyPathBindingProperty() {
+		return registyPathBindingProperty;
 	}
 
 }
