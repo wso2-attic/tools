@@ -42,11 +42,14 @@ import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.axis2.Activator;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.Axis2Model;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.DataModel;
 import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ParametersUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
@@ -55,6 +58,9 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private Axis2Model axis2Model;
 	private Axis2ConfigurationPage wsdlConfigurationPage;
 	private DataModel dataModel;
@@ -70,8 +76,8 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 	}
 	
 	
-	public void init(IWorkbench arg0, IStructuredSelection selection) {
-		super.init(arg0, selection);
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		super.init(workbench, selection);
 	}
 	
 	
@@ -115,7 +121,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				try {
 					IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),sourceFile);
 				} catch (Exception e) {
-					
+					log.error("Cannot open file in editor", e);
 				}
 				
 				
@@ -158,11 +164,11 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
 		} catch (CoreException e) {
-			e.printStackTrace();
+			log.error("CoreException has occurred", e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("I/O error has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 
 		return true;
@@ -184,7 +190,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 		try {
 			serviceXML.create(new ByteArrayInputStream(serviceXMLContent.getBytes()), true, null);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 	
@@ -256,7 +262,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 
 	
 	public IWizardPage getPreviousPage(IWizardPage page) {
-		IWizardPage previousPage = super.getNextPage(page);
+		IWizardPage previousPage = super.getPreviousPage(page);
 		if(page instanceof MavenDetailsPage ){
 			if(getModel().getSelectedOption().equalsIgnoreCase("import.Axis2wsdl")){
 				previousPage = wsdlConfigurationPage;
