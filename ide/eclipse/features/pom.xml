@@ -50,7 +50,7 @@
 	<module>distribution</module>
 	<module>library</module>
 	<module>gadgets</module>
-	<module>smooks</module>
+	<!--module>smooks</module-->
         <!--module>gadgets</module-->                        
         <module>carbon-studio</module>
         <module>repository</module>
