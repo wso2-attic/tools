@@ -105,8 +105,10 @@ public class ExportDetailsWizardPage extends WizardPage {
 			
 			public void modifyText(ModifyEvent evt) {
 				setExportPath(txtExportPath.getText());
+				txtExportPath.setFocus();
+				int charcount =txtExportPath.getCharCount();
+				txtExportPath.setSelection(charcount);		
 				validate();
-				
 			}
 		});
 		
