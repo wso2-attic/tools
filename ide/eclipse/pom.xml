@@ -51,7 +51,7 @@
 		<module>distribution</module>
 		<module>library</module>
 		<module>features</module>     
-		<!--module>docs</module-->   
+		<module>docs</module>   
             </modules>
         </profile>
         <profile>
