@@ -31,6 +31,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.wso2.developerstudio.eclipse.artifact.axis2.Activator;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.DataModel;
+import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ParametersUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -52,7 +53,7 @@ public class Axis2ImportWizard extends Wizard implements INewWizard{
 	      this.selection = selection;
 	      this.dataModel = new DataModel();
 	      setWindowTitle("New axis2 class");
-	      setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/axis2-wizard.png"));
+	      setDefaultPageImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 	}
 	
 	public void addPages() {

@@ -26,11 +26,22 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizardPage;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.Axis2Model;
 import org.wso2.developerstudio.eclipse.artifact.axis2.model.DataModel;
 import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ImageUtils;
@@ -39,23 +50,9 @@ import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragment;
-import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.jface.viewers.IDecoration;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.wizard.IWizardPage;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
 
 public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	private Axis2Model axis2Model;
@@ -69,6 +66,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 		setModel(getAxis2Model());
 		setWindowTitle("Create New Axis2 Service");
 		setDefaultPageImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
+		
 	}
 	
 	

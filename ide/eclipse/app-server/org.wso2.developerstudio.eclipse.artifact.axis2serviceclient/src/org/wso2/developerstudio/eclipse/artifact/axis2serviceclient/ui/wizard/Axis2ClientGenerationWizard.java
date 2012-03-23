@@ -16,7 +16,6 @@
 
 package org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard;
 
-import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,15 +45,12 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
-
 import org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.Activator;
+import org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.utils.Axis2ImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
-import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
-import org.wso2.developerstudio.eclipse.utils.wst.Axis2ServiceUtils;
 
 public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
@@ -75,7 +71,7 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 	public int getModelGeneratingType() {
 		return modelGeneratingType;
 	}
-
+	
 	public void setModelGeneratingType(int modelGeneratingType) {
 		this.modelGeneratingType = modelGeneratingType;
 	}
@@ -189,6 +185,7 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 
 		if (wsdlFileLocation == null) {
 			wsdlPage = new Axis2SelectWSDLPage("Select WSDL", model);
+			wsdlPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 			addPage(wsdlPage);
 		} else {
 			model.setWsdlURI(wsdlFileLocation);
@@ -217,8 +214,11 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 		codeGenOptionPage = new Axis2CodeGenerationOptionPage(
 				codeGenOptionPageTitle, sourceFolder, model,
 				modelGeneratingType);
+		codeGenOptionPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
+
 		clientConfigurationPage = new Axis2ClientConfigurationPage(
 				clientConfigOptionPageTitle, model);
+		clientConfigurationPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 
 		addPage(codeGenOptionPage);
 		addPage(clientConfigurationPage);
@@ -332,6 +332,7 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 
 	public IWizardPage getNextPage(IWizardPage page) {
 		IWizardPage nextPage = super.getNextPage(page);
+		nextPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 		// if (page instanceof Axis2GenerateClientOptionPage){
 		// // if (clientOptionPage.getSourceFolder()==null){
 		// // clientOptionPage.setSourceFolder(sourceFolder);

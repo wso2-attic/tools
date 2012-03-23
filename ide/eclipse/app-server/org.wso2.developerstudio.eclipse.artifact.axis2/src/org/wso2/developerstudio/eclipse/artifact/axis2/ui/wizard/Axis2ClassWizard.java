@@ -29,6 +29,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.wso2.developerstudio.eclipse.artifact.axis2.Activator;
+import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ImageUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 
@@ -43,14 +44,14 @@ public class Axis2ClassWizard  extends Wizard implements INewWizard{
 	      this.workbench = workbench;
 	      this.selection = selection;
 	      setWindowTitle("New axis2 class");
-	      setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/axis2-wizard.png"));
+	      setDefaultPageImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
 	}
 	
 	public void addPages() {
 		axisClassWizardPage = new Axis2ClassWizardPage(workbench, selection);
 		addPage(axisClassWizardPage);
 		axisClassWizardPage.init(selection);
-		axisClassWizardPage.setImageDescriptor(Activator.getImageDescriptor("icons/axis2-wizard.png"));
+//		axisClassWizardPage.setImageDescriptor(Activator.getImageDescriptor("icons/axis2-wizard.png"));
 	}
 	
 	public boolean performFinish() {
