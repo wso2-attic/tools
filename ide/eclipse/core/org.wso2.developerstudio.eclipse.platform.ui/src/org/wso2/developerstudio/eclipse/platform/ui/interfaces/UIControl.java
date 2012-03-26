@@ -1,11 +1,3 @@
-package org.wso2.developerstudio.eclipse.platform.ui.interfaces;
-
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
-import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
-
 /*
  * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
@@ -21,6 +13,14 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.wso2.developerstudio.eclipse.platform.ui.interfaces;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 
 public interface UIControl {

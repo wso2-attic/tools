@@ -28,12 +28,16 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectOption;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectWizardSettings;
 
 public class ProjectOptionsPage extends WizardPage {
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private ProjectOption selectedProjectOption;
 	private ProjectDataModel dataModel;
 	private ProjectWizardSettings settings;
@@ -103,7 +107,7 @@ public class ProjectOptionsPage extends WizardPage {
 		try {
 			getDataModel().setSelectedOption(selectedProjectOption.getId());
 		} catch (ObserverFailedException e) {
-			e.printStackTrace();
+			log.error("ObserverFailed", e);
 		}
 	}
 

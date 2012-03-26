@@ -46,6 +46,9 @@ import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractComposite;
@@ -70,6 +73,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class ProjectOptionsDataPage extends WizardPage implements Observer {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private ProjectWizardSettings settings;
 	private ProjectDataModel model;
 	private String currentOptionSelected;
@@ -331,9 +337,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				try {
 					updateField(modelProperty);
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 			}
 						
@@ -401,9 +407,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 					updateField(modelProperty);
 				}
 			} catch (ObserverFailedException e) {
-				e.printStackTrace();
+				log.error("ObserverFailed:", e);
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("An unexpected error has occurred", e);
 			}
 			doPostFieldModificationAction(optionData);
 		}
@@ -412,7 +418,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 	try {
 		updateField(optionData.getModelProperty());
 	} catch (Exception e) {
-		e.printStackTrace();
+		log.error("An unexpected error has occurred", e);
 	}
 
 	}
@@ -438,7 +444,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						        ResourcesPlugin.getWorkspace().getRoot()
 						                .getFile(new Path(txtFile.getText()));
 					} catch (Exception e) {
-						e.printStackTrace();
+						log.error("An unexpected error has occurred", e);
 					}
 					optionData.getFieldController().validate(optionData.getModelProperty(), file,
 					                                         model);
@@ -479,9 +485,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -489,7 +495,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -569,9 +575,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -579,7 +585,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -650,9 +656,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 
@@ -662,7 +668,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -737,7 +743,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -779,7 +785,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						}
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -787,7 +793,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -832,9 +838,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -842,7 +848,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -887,9 +893,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -897,7 +903,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 	
@@ -951,9 +957,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						updateField(modelProperty);
 					}
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 			}
@@ -962,7 +968,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -1052,9 +1058,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 					}
 
 				} catch (ObserverFailedException e) {
-					e.printStackTrace();
+					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 				doPostFieldModificationAction(optionData);
 
@@ -1064,7 +1070,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -1157,9 +1163,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 						}
 
 					} catch (ObserverFailedException e) {
-						e.printStackTrace();
+						log.error("ObserverFailed:", e);
 					} catch (Exception e) {
-						e.printStackTrace();
+						log.error("An unexpected error has occurred", e);
 					}
 					doPostFieldModificationAction(optionData);
 				}
@@ -1169,7 +1175,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		try {
 			updateField(optionData.getModelProperty());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -1310,7 +1316,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 			setPageComplete(false);
 			setErrorMessage(e.getMessage());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
