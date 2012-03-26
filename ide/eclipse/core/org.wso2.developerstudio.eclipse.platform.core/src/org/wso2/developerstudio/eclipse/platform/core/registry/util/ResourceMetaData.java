@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.registry.utils;
+package org.wso2.developerstudio.eclipse.platform.core.registry.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

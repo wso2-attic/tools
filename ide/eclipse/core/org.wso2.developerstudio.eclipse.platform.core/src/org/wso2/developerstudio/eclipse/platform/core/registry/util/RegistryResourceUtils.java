@@ -14,17 +14,23 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.registry.utils;
+package org.wso2.developerstudio.eclipse.platform.core.registry.util;
 
 import java.io.File;
 import javax.xml.stream.FactoryConfigurationError;
 
-import static org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_COLLECTION;
-import static org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_DUMP;
-import static org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_RESOURCE;
-import static org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants.REGISTRY_UNDEFINED;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
+
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_COLLECTION;
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_DUMP;
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_UNDEFINED;
 
 public class RegistryResourceUtils {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public RegistryResourceUtils() {
 	}
@@ -70,9 +76,9 @@ public class RegistryResourceUtils {
 				}
 			}
 		} catch (FactoryConfigurationError e) {
-			e.printStackTrace();
+			log.error("XML FactoryConfiguration Error", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 	

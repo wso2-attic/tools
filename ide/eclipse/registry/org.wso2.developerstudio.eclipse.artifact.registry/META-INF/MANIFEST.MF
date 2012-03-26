@@ -43,6 +43,7 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.platform.core.nature,
  org.wso2.developerstudio.eclipse.platform.core.project.export,
  org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.core.registry.util,
  org.wso2.developerstudio.eclipse.platform.core.templates,
  org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.platform.ui.wizard,
@@ -54,3 +55,4 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.template,
  org.wso2.developerstudio.eclipse.utils.wst,
  org.wso2.registry.checkin
+Export-Package: org.wso2.developerstudio.eclipse.artifact.registry.utils

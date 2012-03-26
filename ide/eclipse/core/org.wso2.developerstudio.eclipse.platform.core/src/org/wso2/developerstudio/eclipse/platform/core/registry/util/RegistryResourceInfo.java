@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.registry.utils;
+package org.wso2.developerstudio.eclipse.platform.core.registry.util;
 
 import java.io.File;
 import java.util.List;
 
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
-import org.wso2.developerstudio.eclipse.artifact.registry.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 
 public class RegistryResourceInfo extends AbstractXMLDoc {
@@ -77,21 +77,21 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	protected void deserialize(OMElement documentElement) {
 
 		if (documentElement.getLocalName().equals(RESOURCE_TAG_NAME)) {
-			setType(RegistryArtifactConstants.REGISTRY_RESOURCE);
+			setType(Constants.REGISTRY_RESOURCE);
 			List<OMElement> childElements = getChildElements(documentElement,
 					"file");
 			if (childElements.size() > 0) {
 				setRelativePath(childElements.get(0).getText());
 			}
 		} else if (documentElement.getLocalName().equals(COLLECTION_TAG_NAME)) {
-			setType(RegistryArtifactConstants.REGISTRY_COLLECTION);
+			setType(Constants.REGISTRY_COLLECTION);
 			List<OMElement> childElements = getChildElements(documentElement,
 					"directory");
 			if (childElements.size() > 0) {
 				setRelativePath(childElements.get(0).getText());
 			}
 		} else if (documentElement.getLocalName().equals(DUMP_TAG_NAME)) {
-			setType(RegistryArtifactConstants.REGISTRY_DUMP);
+			setType(Constants.REGISTRY_DUMP);
 			List<OMElement> childElements = getChildElements(documentElement,
 					"file");
 			if (childElements.size() > 0) {
@@ -122,7 +122,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	private OMElement getDocumentElement() {
 		OMElement documentElement;
 		// String content = "";
-		if (getType() == RegistryArtifactConstants.REGISTRY_RESOURCE) {
+		if (getType() == Constants.REGISTRY_RESOURCE) {
 			documentElement = getElement("item", "");
 			OMElement fileElement = getElement("file",
 					getResourceBaseRelativePath());
@@ -130,7 +130,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			// content = "\t<item>\n\t\t" + "<path>" + getPath()
 			// + "</path>\n\t\t" + "<file>" + getResourceBaseRelativePath()
 			// + "</file>\n\t" + "</item>";
-		} else if (getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
+		} else if (getType() == Constants.REGISTRY_COLLECTION) {
 			documentElement = getElement("collection", "");
 			OMElement fileElement = getElement("directory",
 					getResourceBaseRelativePath());
@@ -163,7 +163,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	}
 
 	public String getDeployPath() {
-		if (getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
+		if (getType() == Constants.REGISTRY_COLLECTION) {
 			return getPath().trim();
 		} else {
 			return getPath().trim().endsWith("/") ? getPath().trim()

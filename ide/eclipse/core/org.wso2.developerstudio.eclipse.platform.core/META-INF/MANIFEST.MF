@@ -21,6 +21,7 @@ Export-Package: org.wso2.developerstudio.eclipse.platform.core,
  org.wso2.developerstudio.eclipse.platform.core.project.export,
  org.wso2.developerstudio.eclipse.platform.core.project.export.util,
  org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.core.registry.util,
  org.wso2.developerstudio.eclipse.platform.core.templates,
  org.wso2.developerstudio.eclipse.platform.core.types,
  org.wso2.developerstudio.eclipse.platform.core.utils

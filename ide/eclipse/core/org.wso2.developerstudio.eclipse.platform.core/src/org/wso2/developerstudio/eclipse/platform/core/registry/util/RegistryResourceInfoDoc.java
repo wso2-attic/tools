@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.registry.utils;
+package org.wso2.developerstudio.eclipse.platform.core.registry.util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,9 +23,9 @@ import java.util.List;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.axiom.om.OMElement;
-import org.wso2.developerstudio.eclipse.artifact.registry.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 
 public class RegistryResourceInfoDoc extends AbstractXMLDoc {
@@ -35,8 +35,8 @@ public class RegistryResourceInfoDoc extends AbstractXMLDoc {
 
 	public void addRegistryResourceInfoDoc(String path, File inputFile,
 			int type, File base, String relativePath) {
-		if (type == RegistryArtifactConstants.REGISTRY_COLLECTION
-				&& RegistryArtifactConstants.getStaticPath().contains(path)) {
+		if (type == Constants.REGISTRY_COLLECTION
+				&& Constants.getStaticPath().contains(path)) {
 			File[] listFiles = inputFile.listFiles();
 			for (File file : listFiles) {
 				String newPath = path;
@@ -46,8 +46,8 @@ public class RegistryResourceInfoDoc extends AbstractXMLDoc {
 				addRegistryResourceInfoDoc(
 						newPath,
 						file,
-						file.isFile() ? RegistryArtifactConstants.REGISTRY_RESOURCE
-								: RegistryArtifactConstants.REGISTRY_COLLECTION,
+						file.isFile() ? Constants.REGISTRY_RESOURCE
+								: Constants.REGISTRY_COLLECTION,
 						base, relativePath);
 			}
 		} else {
