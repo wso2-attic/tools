@@ -58,7 +58,7 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 	
 	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 		boolean enableField = super.isEnableField(modelProperty, model);
-		if (modelProperty.equals("reg.path")) {
+		if (modelProperty.equals("reg.path") || modelProperty.equals("reg.browse")) {
 			enableField = ((SequenceModel) model).isSaveAsDynamic();
 		} else if (modelProperty.equals("import.file")) {
 			enableField = true;
@@ -71,10 +71,13 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 		List<String> updateFields = super.getUpdateFields(modelProperty, model);
 		if (modelProperty.equals("dynamic.sequence")) {
 			updateFields.add("reg.path");
+			updateFields.add("reg.browse");
 		} else if (modelProperty.equals("import.file")) {
 			updateFields.add("available.sequences");
 		} else if (modelProperty.equals("create.esb.prj")) {
 			updateFields.add("save.file");
+		} else if (modelProperty.equals("reg.path")){
+			updateFields.add("reg.browse");
 		}
 		return updateFields;
 	}
@@ -94,7 +97,9 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 		boolean readOnlyField = super.isReadOnlyField(modelProperty, model);
 		if (modelProperty.equals("save.file")) {
 			readOnlyField = true;
-		}
+		} else if (modelProperty.equals("reg.browse")) {
+			readOnlyField = true;
+		} 
 	    return readOnlyField;
 	}
 

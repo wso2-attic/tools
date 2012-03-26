@@ -33,9 +33,8 @@
 			
 			
 			<data modelProperty="dynamic.ep" type="choice" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group1">Make this as Dynamic Endpoint</data>
-			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group1" controlData="select=single;modify=editable;class=org.wso2.developerstudio.eclipse.artifact.endpoint.validators.RegOptionsList">     Registry path</data>
-
-			<!-- data modelProperty="registry.browser" type="registry" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group1" controlData="registry.selection.type=collection">     abc property</data -->
+			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group1" controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.endpoint.validators.RegOptionsList">     Registry</data>
+			<data modelProperty="registry.browser" type="registry" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" group="group1" controlData="registry.selection.type=collection;path.binding.property=reg.path">     Registry Path</data>
 			
 			
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>

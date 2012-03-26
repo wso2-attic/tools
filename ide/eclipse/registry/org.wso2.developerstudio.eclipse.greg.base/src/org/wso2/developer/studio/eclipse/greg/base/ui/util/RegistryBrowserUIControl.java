@@ -101,17 +101,20 @@ public class RegistryBrowserUIControl implements UIControl {
 			final ProjectDataModel model,
 			final String pathBindingProperty) {
 //		RegistryResourceNode selectedRegistryResourceNode = null;
+		final RegistryFieldControlData regFiledControlData = new RegistryFieldControlData(txtValue);
 		btnRegBrowse = new Button(container, SWT.None);
 		btnRegBrowse.setText(buttonCaption);
 		btnRegBrowse.addSelectionListener(new SelectionListener() {
 			
 			public void widgetDefaultSelected(SelectionEvent event) {
-				
+				boolean returnAsString = false;
 				int pathID=0;
 				try {
 					pathID = Integer.parseInt(model.getModelPropertyValue(pathBindingProperty).toString());
 					if(pathID<0 || pathID>3){
 						pathID=0;
+					} else if(pathID>=1 || pathID<=3){
+						returnAsString=true;
 					}
 				} catch (Exception e) {
 				/* ignore*/
@@ -136,8 +139,23 @@ public class RegistryBrowserUIControl implements UIControl {
 								break;
 						}
 						if(selectedRegistryResourceNode!=null){
-							txtValue.setData(selectedRegistryResourceNode);
-							txtValue.setText(selectedRegistryResourceNode.getRegistryResourcePath());
+							if(returnAsString){
+								String ResourcePath = selectedRegistryResourceNode.getRegistryResourcePath();
+								if (ResourcePath.startsWith("/_system/config")) {
+									ResourcePath = ResourcePath.replaceFirst("/_system/config","conf:");
+								} else if (ResourcePath.startsWith("/_system/governance")) {
+									ResourcePath = ResourcePath.replaceFirst(
+									"/_system/governance", "gov:");
+								} else {
+									ResourcePath = ResourcePath.replaceFirst(
+											"/_system/local", "local:");
+								}
+								txtValue.setData(ResourcePath);
+								txtValue.setText(ResourcePath);
+							} else{
+								txtValue.setData(selectedRegistryResourceNode);
+								txtValue.setText(selectedRegistryResourceNode.getRegistryResourcePath());
+							}
 						}	
 					}
 				}
@@ -148,7 +166,7 @@ public class RegistryBrowserUIControl implements UIControl {
 				widgetDefaultSelected(event);
 			}
 		});
-		RegistryFieldControlData regFiledControlData = new RegistryFieldControlData(txtValue);
+	//	regFiledControlData = new RegistryFieldControlData(txtValue);
 //		regFiledControlData.setSelectedRegistryNode(selectedRegistryResourceNode);
 		WSO2UIToolkit.propagateControlStatus(txtValue,regLabel,btnRegBrowse);
 		return regFiledControlData;
@@ -167,10 +185,12 @@ public class RegistryBrowserUIControl implements UIControl {
 		public void setData(Object data) {
 			if (data!=null){
 				if(data instanceof RegistryResourceNode){
+					//callback=0;
+					//updateModel=true;
 					((Text) getControl()).setText(((RegistryResourceNode)data).getRegistryResourcePath());
 					getControl().setData(data);
 				} else{
-					((Text) getControl()).setText("");
+					((Text) getControl()).setText(data.toString());
 				}
 			} else{
 				((Text) getControl()).setText("");
@@ -190,11 +210,11 @@ public class RegistryBrowserUIControl implements UIControl {
 		
 		public void setOnAction(IOnAction action) {
 			this.onAction = action;
-			Text ctrl = (Text) getControl();
+			final Text ctrl = (Text) getControl();
 			ctrl.addModifyListener(new ModifyListener() {
 				
 				public void modifyText(ModifyEvent evt) {
-					getOnAction().onModifyAction();
+						getOnAction().onModifyAction();	
 				}
 			});
 			ctrl.addKeyListener(new KeyAdapter() {

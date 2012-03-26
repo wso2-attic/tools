@@ -1,12 +1,29 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.endpoint.validators;
 
 import org.apache.axiom.om.OMElement;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
-
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,6 +35,10 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	
 	public void validate(String modelProperty, Object value, ProjectDataModel model)
 	        throws FieldValidationException {
+		boolean isAddressEP = EpArtifactConstants.ADDRESS_EP
+				.equals(((EndpointModel) model).getSelectedTemplate().getName());
+		boolean isWSDlEP = EpArtifactConstants.WSDL_EP
+		.equals(((EndpointModel) model).getSelectedTemplate().getName());
 		if (modelProperty.equals("ep.name")) {
 			if (value == null) {
 				throw new FieldValidationException("Endpoint name cannot be empty");
@@ -38,6 +59,26 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			IResource resource = (IResource)value;
 			if(!resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
+		} else if (modelProperty.equals("templ.address.ep.uri") && isAddressEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("Address url cannot be empty");
+			} else{
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL url");
+			}	
+		} else if (modelProperty.equals("templ.wsdl.ep.uri") && isWSDlEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL url cannot be empty");
+			} else{
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL url");
+			}
+		} else if (modelProperty.equals("templ.wsdl.ep.service") && isWSDlEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL service cannot be empty");
+			} 
+		} else if (modelProperty.equals("templ.wsdl.ep.port") && isWSDlEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL port cannot be empty");
+			} 
 		}
 	}
 
@@ -46,9 +87,13 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		boolean enableField = super.isEnableField(modelProperty, model);
 		if (modelProperty.equals("reg.path")) {
 			enableField = ((EndpointModel) model).isSaveAsDynamic();
+		} else if (modelProperty.equals("reg.path")) {
+			enableField = ((EndpointModel) model).isSaveAsDynamic();
 		} else if (modelProperty.equals("import.file")) {
 			enableField = true;
-		}
+		} else if(modelProperty.equals("registry.browser")) {
+			enableField = ((EndpointModel) model).isSaveAsDynamic();
+		} 
 		return enableField;
 	}
 
@@ -57,6 +102,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		List<String> updateFields = super.getUpdateFields(modelProperty, model);
 		if (modelProperty.equals("dynamic.ep")) {
 			updateFields.add("reg.path");
+			updateFields.add("registry.browser");
 		} else if (modelProperty.equals("import.file")) {
 			updateFields.add("available.eps");
 		} else if (modelProperty.equals("create.esb.prj")) {
@@ -66,7 +112,9 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			for (List<String> fields : templateFieldProperties.values()) {
 				updateFields.addAll(fields);
 			}
-		}
+		} else if (modelProperty.equals("reg.path")) {
+			updateFields.add("registry.browser");
+		} 
 		return updateFields;
 	}
 

@@ -26,13 +26,12 @@ public class RegOptionsList extends AbstractListDataProvider{
 
 	public static final String CONST_CONFIG = "Configuration";
 	public static final String CONST_GOVERNANCE = "Governance";
-
 	
 	public List<ListData> getListData(String modelProperty,
 			ProjectDataModel model) {
 		List<ListData> list = new ArrayList<ListData>();
-		list.add(createListData(CONST_GOVERNANCE, CONST_GOVERNANCE));
-		list.add(createListData(CONST_CONFIG, CONST_CONFIG));
+		list.add(createListData(CONST_CONFIG, "2"));
+		list.add(createListData(CONST_GOVERNANCE, "3"));
 		return list;
 	}
 

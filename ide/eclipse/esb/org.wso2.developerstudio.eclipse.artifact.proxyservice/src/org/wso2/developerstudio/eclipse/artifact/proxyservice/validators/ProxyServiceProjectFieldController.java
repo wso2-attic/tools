@@ -25,6 +25,7 @@ import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationE
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 import java.io.File;
 import java.util.List;
@@ -63,9 +64,13 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 				throw new FieldValidationException("Specified Target Endpoint");	
 			}**/
 		} else if (modelProperty.equals("templ.common.ps.epurl")) {
-			if((((ProxyServiceModel)model).getTargetEPType()==TargetEPType.URL) && (value==null || value.toString().equals("")) && !(optWsdlbasedProxy||optCustomProxy)){
-				throw new FieldValidationException("Specified Target Endpoint URL");
-			}			
+			if(((ProxyServiceModel)model).getTargetEPType()==TargetEPType.URL && !(optWsdlbasedProxy||optCustomProxy)){
+				if(value==null || value.toString().equals("")){
+					throw new FieldValidationException("Specified Target Endpoint URL");
+				} else{
+					CommonFieldValidator.isValidUrl(value.toString().trim(), "Endpoint URL");
+				}	
+			}		
 		} else if (modelProperty.equals("templ.common.ps.epkey")) {
 			if((((ProxyServiceModel)model).getTargetEPType()==TargetEPType.REGISTRY) && (value==null || value.toString().equals("")) && !(optWsdlbasedProxy||optCustomProxy)){
 				throw new FieldValidationException("Specified Target Endpoint key");
@@ -73,8 +78,12 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 		} else if (modelProperty.equals("templ.secure.ps.secpolicy")) {
 						
 		} else if (modelProperty.equals("templ.wsdl.ps.wsdlurl")) {
-			if(optWsdlbasedProxy && (value==null || value.toString().equals(""))){
-				throw new FieldValidationException("Specified Target WSDL URL");
+			if(optWsdlbasedProxy){
+				if(value==null || value.toString().equals("")){
+					throw new FieldValidationException("Specified Target WSDL URL");
+				} else{
+					CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL URL");
+				}	
 			}
 		} else if (modelProperty.equals("templ.wsdl.ps.wsdlservice")) {
 			if(optWsdlbasedProxy  && (value==null || value.toString().equals(""))){

@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.endpoint.model;
 
 import org.apache.axiom.om.OMElement;
@@ -9,12 +25,14 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndPointTemplateList;
-import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.RegOptionsList;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
@@ -27,10 +45,13 @@ import java.util.List;
 import javax.xml.stream.XMLStreamException;
 
 public class EndpointModel extends ProjectDataModel {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private ArtifactTemplate selectedTemplate;
 	private boolean saveAsDynamic = false;
-	private String dynamicEpRegistryPath = "conf:";
+	private String registryPathID = "2";
+	private String dynamicEpRegistryPath;
 	private List<OMElement> availableEPList;
 	private IContainer endpointSaveLocation;
 	private String epName;
@@ -51,12 +72,14 @@ public class EndpointModel extends ProjectDataModel {
 				modelPropertyValue = getSelectedTemplate();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
 				modelPropertyValue = isSaveAsDynamic();
-			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)) {
-				modelPropertyValue = getDynamicEpRegistryPath();
+			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
+				modelPropertyValue = getRegistryPathID();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
 				modelPropertyValue = getEndpointSaveLocation();
-			}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
+			} else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
 				modelPropertyValue = selectedEPList.toArray();
+			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
+				modelPropertyValue = getDynamicEpRegistryPath();
 			}
 
 		}
@@ -83,13 +106,13 @@ public class EndpointModel extends ProjectDataModel {
 					}
 					returnResult = false;
 				} catch (OMException e) {
-					e.printStackTrace();
+					log.error("Error reading object model", e);
 				} catch (XMLStreamException e) {
-					e.printStackTrace();
+					log.error("XML stream error", e);
 				} catch (IOException e) {
-					e.printStackTrace();
+					log.error("I/O error has occurred", e);
 				} catch (Exception e) {
-					e.printStackTrace();
+					log.error("An unexpected error has occurred", e);
 				}
 			}
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_TYPE)) {
@@ -97,15 +120,9 @@ public class EndpointModel extends ProjectDataModel {
 			setSelectedTemplate(template);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
 			setSaveAsDynamic((Boolean) data);
-		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)) {
-			if (data.toString().equals(RegOptionsList.CONST_GOVERNANCE)) {
-				data = "gov:";
-				returnResult = true;
-			} else if (data.toString().equals(RegOptionsList.CONST_CONFIG)) {
-				data = "conf:";
-				returnResult = true;
-			}
-			setDynamicEpRegistryPath(data.toString());
+		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
+			setDynamicEpRegistryPath("");
+			setRegistryPathID(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
 			setEndpointSaveLocation((IContainer) data);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
@@ -138,6 +155,10 @@ public class EndpointModel extends ProjectDataModel {
 				}
 			}
 			setSelectedEPList(selectedEPList);
+		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
+			if(null!=data){
+				setDynamicEpRegistryPath(data.toString());
+			}
 		}
 
 		return returnResult;
@@ -228,7 +249,7 @@ public class EndpointModel extends ProjectDataModel {
 					}
 				}
 			} catch (CoreException e) {
-				e.printStackTrace();
+				log.error("An unexpected error has occurred", e);
 			}
 		}
 		IContainer newEndpointSaveLocation = null;
@@ -237,7 +258,6 @@ public class EndpointModel extends ProjectDataModel {
 			        absolutionPath.toString().substring(
 			                                            currentSelection.getLocation().toFile()
 			                                                    .toString().length());
-
 			if (path.equals("")) {
 				newEndpointSaveLocation = currentSelection;
 			} else {
@@ -309,5 +329,15 @@ public class EndpointModel extends ProjectDataModel {
 
 	public List<OMElement> getSelectedEPList() {
 		return selectedEPList;
+	}
+
+
+	public void setRegistryPathID(String registryPathID) {
+		this.registryPathID = registryPathID;
+	}
+
+
+	public String getRegistryPathID() {
+		return registryPathID;
 	}
 }

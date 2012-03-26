@@ -20,8 +20,8 @@
 			
 			
 			<data modelProperty="dynamic.sequence" type="choice" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1">Make this as Dynamic Sequence</data>
-			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="h-indent=10;select=single;modify=editable;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList">Registry path    </data>
-			<!-- data modelProperty="reg.browse" type="registry" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="h-indent=10;select=single;modify=editable;reg.selection.option=resource;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList">   Registry Resource    </data-->
+			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="h-indent=10;select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList">Registry</data>
+			<data modelProperty="reg.browse" type="registry" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="h-indent=10;select=single;modify=non-editable;registry.selection.type=collection;path.binding.property=reg.path">   Registry Path</data>
 			<!-- group id="group1"></group -->
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
 
@@ -38,7 +38,8 @@
 			
 			<data modelProperty="available.sequences" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" controlData="select=multiple;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceList"  group="group1">Available Sequence</data>
 			<data modelProperty="dynamic.sequence" type="choice" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1">Make this as Dynamic Sequence</data>
-			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="select=single;modify=editable;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList">     Registry path    </data>
+			<data modelProperty="reg.path" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList">Registry path</data>
+			<data modelProperty="reg.browse" type="registry" fieldController="org.wso2.developerstudio.eclipse.artifact.sequence.validators.SequenceProjectFieldController" group="group1" controlData="h-indent=10;select=single;modify=non-editable;registry.selection.type=resource;path.binding.property=reg.path">   Registry Resource</data>
 			<group id="group1" title="Advanced Configuration" controlData="type=collapsible;state=expanded"></group>
 			
 			<!-- group id="group2"></group -->

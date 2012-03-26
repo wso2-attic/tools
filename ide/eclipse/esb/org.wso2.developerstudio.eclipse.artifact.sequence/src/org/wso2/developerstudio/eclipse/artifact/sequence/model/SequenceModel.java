@@ -33,7 +33,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
-import org.wso2.developerstudio.eclipse.artifact.sequence.validators.RegOptionsList;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
@@ -48,7 +47,8 @@ public class SequenceModel extends ProjectDataModel {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private boolean saveAsDynamic = false;
-	private String dynamicSeqRegistryPath = "conf:";
+	private String registryPathID = "2";
+	private String dynamicSeqRegistryPath;
 	private List<OMElement> availableSeqList;
 	private IContainer sequenceSaveLocation;
 	private String sequenceName;
@@ -63,9 +63,11 @@ public class SequenceModel extends ProjectDataModel {
 			if (key.equals("dynamic.sequence")) {
 				modelPropertyValue = isSaveAsDynamic();
 			} else if (key.equals("reg.path")) {
-				modelPropertyValue = getDynamicSeqRegistryPath();
+				modelPropertyValue = getRegistryPathID();
 			} else if (key.equals("save.file")) {
 				modelPropertyValue = getSequenceSaveLocation();
+			} else if (key.equals("reg.browse")){
+				modelPropertyValue = getDynamicSeqRegistryPath();
 			}
 
 		}
@@ -103,14 +105,8 @@ public class SequenceModel extends ProjectDataModel {
 		} else if (key.equals("dynamic.sequence")) {
 			setSaveAsDynamic((Boolean) data);
 		} else if (key.equals("reg.path")) {
-			if (data.toString().equals(RegOptionsList.CONST_GOVERNANCE)) {
-				data = "gov:";
-				returnResult = true;
-			} else if (data.toString().equals(RegOptionsList.CONST_CONFIG)) {
-				data = "conf:";
-				returnResult = true;
-			}
-			setDynamicSeqRegistryPath(data.toString());
+			setDynamicSeqRegistryPath("");
+			setRegistryPathID(data.toString());
 		} else if (key.equals("save.file")) {
 			setSequenceSaveLocation((IContainer) data);
 		} else if (key.equals("create.esb.prj")) {
@@ -139,6 +135,10 @@ public class SequenceModel extends ProjectDataModel {
 				}
 			}
 			setSelectedSeqList(selectedSeqList);
+		}else if (key.equals("reg.browse")){
+			if(null!=data){
+				setDynamicSeqRegistryPath(data.toString());
+			}
 		}
 
 		return returnResult;
@@ -229,12 +229,12 @@ public class SequenceModel extends ProjectDataModel {
 		return sequenceName;
 	}
 
-	public void setDynamicSeqRegistryPath(String dynamicSeqRegistryPath) {
-		this.dynamicSeqRegistryPath = dynamicSeqRegistryPath;
+	public void setRegistryPathID(String RegistryPathID) {
+		this.registryPathID = RegistryPathID;
 	}
 
-	public String getDynamicSeqRegistryPath() {
-		return dynamicSeqRegistryPath;
+	public String getRegistryPathID() {
+		return registryPathID;
 	}
 
 	public void setOnErrorSequence(String onErrorSequence) {
@@ -265,6 +265,16 @@ public class SequenceModel extends ProjectDataModel {
 
 	public List<OMElement> getSelectedSeqList() {
 		return selectedSeqList;
+	}
+
+
+	public void setDynamicSeqRegistryPath(String dynamicSeqRegistryPath) {
+		this.dynamicSeqRegistryPath = dynamicSeqRegistryPath;
+	}
+
+
+	public String getDynamicSeqRegistryPath() {
+		return dynamicSeqRegistryPath;
 	}
 
 }

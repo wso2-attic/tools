@@ -79,8 +79,6 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			JavaUtils.addJavaSupportAndSourceFolder(project, sourceFolder);
 			if (getModel().getSelectedOption().equals("new.jaxws")) {
 				if(jaxwsModel.isCreateClass()){
-//					String className = (jaxwsModel.getServiceClass().lastIndexOf('.') > 0)?jaxwsModel.getServiceClass().substring(jaxwsModel.getServiceClass().lastIndexOf('.')+1):jaxwsModel.getServiceClass();
-//					String PackageName = (jaxwsModel.getServiceClass().lastIndexOf('.') > 0)?jaxwsModel.getServiceClass().substring(0,jaxwsModel.getServiceClass().lastIndexOf('.')):"";
 					
 					String className = jaxwsModel.getServiceClass();
 					String PackageName = jaxwsModel.getClassPackage();
