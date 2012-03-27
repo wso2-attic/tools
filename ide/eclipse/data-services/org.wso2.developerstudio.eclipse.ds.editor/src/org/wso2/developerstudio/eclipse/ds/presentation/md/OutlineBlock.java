@@ -107,6 +107,10 @@ public class OutlineBlock extends MasterDetailsBlock {
 		viewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 		
+		//make sure that the workbench selection service knows about the object selected in tree viewer.
+		dseditor.getSite().setSelectionProvider(viewer); 
+
+	    
 		if(domain != null){
 			if(domain.getResourceSet() != null){
 				if(domain.getResourceSet().getResources() != null && domain.getResourceSet().getResources().size() != 0){
