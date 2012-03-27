@@ -32,8 +32,12 @@ import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class DistProjectEditor extends FormEditor {
+ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
  private DistProjectEditorPage distProjectEditorPage;
  private StructuredTextEditor sourceEditor;
  private boolean dirty;
@@ -69,9 +73,9 @@ public class DistProjectEditor extends FormEditor {
 	        });  
 
 		} catch (PartInitException e) {
-			e.printStackTrace();
+			log.error("Page init error has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 		
 	}
@@ -84,7 +88,7 @@ public class DistProjectEditor extends FormEditor {
 				dirty = false;
 				updateDirtyState();
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("An unexpected error has occurred", e);
 			}
 		} else if (sourceDirty){
 			sourceDirty = false;
@@ -128,7 +132,7 @@ public class DistProjectEditor extends FormEditor {
 			content = new Scanner(getFile().getContents()).useDelimiter("\\A").next();
 			getDocument().set(content);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
@@ -138,7 +142,7 @@ public class DistProjectEditor extends FormEditor {
 			getFile().setContents(content, true, true, null);
 			distProjectEditorPage.refreshForm();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 

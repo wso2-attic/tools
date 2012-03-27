@@ -60,10 +60,13 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.NodeData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
@@ -71,6 +74,8 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class DistProjectEditorPage extends FormPage {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private IFile pomFileRes;
 	private File pomFile; 
@@ -643,6 +648,7 @@ public class DistProjectEditorPage extends FormPage {
 			item.setImage(0, SWTResourceManager.getImage(this.getClass(),
 			"/icons/projects.gif"));
         } catch (Exception e) {
+        	log.error("createNode fail", e);
 	     return null;
         }	
 		return item;
@@ -697,8 +703,12 @@ public class DistProjectEditorPage extends FormPage {
 				public void run() {
 					try {
 						refreshForm();
+						if(getMissingDependencyList().size()==0){
+							setPageDirty(false);
+							updateDirtyState();
+						}
 					} catch (Exception e) {
-						e.printStackTrace();
+						log.error("An unexpected error has occurred", e);
 					}
 					
 				};
