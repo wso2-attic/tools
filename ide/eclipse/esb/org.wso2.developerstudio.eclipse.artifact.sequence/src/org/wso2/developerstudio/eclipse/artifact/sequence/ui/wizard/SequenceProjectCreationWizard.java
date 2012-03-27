@@ -41,11 +41,25 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+//import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.*;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
 import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
 import org.wso2.developerstudio.eclipse.artifact.sequence.utils.SequenceImageUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
+//import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+//import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+//import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+//import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+//import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -58,11 +72,11 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
-	private final SequenceModel seqModel;
+	private SequenceModel seqModel;
 	private static final String SEQ_WIZARD_WINDOW_TITLE = "Create New Sequence";
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
-	private IProject esbProject;
+	private IProject project;
 
 	public SequenceProjectCreationWizard() {
 		this.seqModel = new SequenceModel();
@@ -81,55 +95,15 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	
 	public boolean performFinish() {
 		try {
-			SequenceModel sequenceModel = (SequenceModel)getModel();
-			esbProject = sequenceModel.getSequenceSaveLocation().getProject();
-			IContainer location = esbProject.getFolder("src" + File.separator + "main" +
-			                                           File.separator +
-			                                           "synapse-config" +
-			                                           File.separator +
-			                                           "sequences");
-			
-			//Adding the metadata about the sequence to the metadata store.
-			esbProjectArtifact=new ESBProjectArtifact();
-			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
-			
-			if (getModel().getSelectedOption().equals("import.sequence")) {
-				copyImportFile(location);
-			}else{
-//				Map<String,List<String>> filters=new HashMap<String,List<String>> ();
-//				DeveloperStudioProviderUtils.addFilter(filters,
-//													CSProviderConstants.FILTER_MEDIA_TYPE,
-//													ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
-				ArtifactTemplate selectedTemplate = ArtifactTemplateHandler.getArtifactTemplates("org.wso2.developerstudio.eclipse.esb.sequence");
-				String templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
-				String content = createSequenceTemplate(templateContent);
-				File destFile = new File(location.getLocation().toFile(), sequenceModel.getSequenceName() + ".xml");
-				FileUtils.createFile(destFile, content);
-				fileLst.add(destFile);
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(sequenceModel.getSequenceName());
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/sequence");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),sequenceModel.getSequenceName()+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
-			}
-
-			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("synapse/sequence");
-			if(!pomfile.exists()){
-				createPOM(pomfile);
+			seqModel = (SequenceModel)getModel();
+			project = seqModel.getSequenceSaveLocation().getProject();
+			if(seqModel.isSaveAsDynamic()){
+				createDynamicSequenceArtifact(project,seqModel);
+			} else{
+				createSequenceArtifact(project,seqModel);
 			}
 			
-			updatePom();
-			
-//			ProjectUtils.addNatureToProject(esbProject,
-//					false,
-//                    "org.wso2.developerstudio.eclipse.sequence.project.nature" ,
-//                    "org.wso2.developerstudio.eclipse.esb.project.nature");
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
-			esbProjectArtifact.toFile();
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			if(fileLst.size()>0){
 				openEditor(fileLst.get(0));
@@ -145,7 +119,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	}
 	
 	public void updatePom() throws Exception{
-		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
 		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
@@ -190,6 +164,99 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
+	private void createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
+
+		IContainer location = project.getFolder("src" + File.separator + "main"
+				+ File.separator + "synapse-config" + File.separator
+				+ "sequences");
+
+		// Adding the metadata about the sequence to the metadata store.
+		esbProjectArtifact = new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(project.getFile("artifact.xml")
+				.getLocation().toFile());
+
+		if (getModel().getSelectedOption().equals("import.sequence")) {
+			copyImportFile(location);
+		} else {
+			// Map<String,List<String>> filters=new HashMap<String,List<String>>
+			// ();
+			// DeveloperStudioProviderUtils.addFilter(filters,
+			// CSProviderConstants.FILTER_MEDIA_TYPE,
+			// ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+			ArtifactTemplate selectedTemplate = ArtifactTemplateHandler
+					.getArtifactTemplates("org.wso2.developerstudio.eclipse.esb.sequence");
+			String templateContent = FileUtils
+					.getContentAsString(selectedTemplate
+							.getTemplateDataStream());
+			String content = createSequenceTemplate(templateContent);
+			File destFile = new File(location.getLocation().toFile(),
+					sequenceModel.getSequenceName() + ".xml");
+			FileUtils.createFile(destFile, content);
+			fileLst.add(destFile);
+			ESBArtifact artifact = new ESBArtifact();
+			artifact.setName(sequenceModel.getSequenceName());
+			artifact.setVersion("1.0.0");
+			artifact.setType("synapse/sequence");
+			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
+					.toFile(), new File(location.getLocation().toFile(),
+					sequenceModel.getSequenceName() + ".xml")));
+			esbProjectArtifact.addESBArtifact(artifact);
+		}
+
+		File pomfile = project.getFile("pom.xml").getLocation().toFile();
+		getModel().getMavenInfo().setPackageName("synapse/sequence");
+		if (!pomfile.exists()) {
+			createPOM(pomfile);
+		}
+
+		updatePom();
+		esbProjectArtifact.toFile();
+	}
+	
+	private void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{
+		String registryPath = sequenceModel.getDynamicSeqRegistryPath()
+				.replaceAll("^conf:", "/_system/config")
+				.replaceAll("^gov:", "/_system/governance")
+				.replaceAll("^local:", "/_system/local");
+		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
+
+		ArtifactTemplate selectedTemplate = ArtifactTemplateHandler
+				.getArtifactTemplates("org.wso2.developerstudio.eclipse.esb.sequence");
+		String templateContent = FileUtils.getContentAsString(selectedTemplate
+				.getTemplateDataStream());
+		String content = createSequenceTemplate(templateContent);
+		File destFile = new File(location.getLocation().toFile(),
+				sequenceModel.getSequenceName() + ".xml");
+		FileUtils.createFile(destFile, content);
+		fileLst.add(destFile);
+		RegistryResourceUtils.createMetaDataForFolder(registryPath, location
+				.getLocation().toFile());
+		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
+				project.getLocation().toFile(), registryPath);
+		
+		
+		GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
+		generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+		
+		RegistryArtifact artifact=new RegistryArtifact();
+		artifact.setName(sequenceModel.getSequenceName());
+		artifact.setVersion("1.0.0");
+		artifact.setType("registry/resource");
+		artifact.setServerRole("EnterpriseServiceBus");
+		List<RegistryResourceInfo> registryResources = regResInfoDoc.getRegistryResources();
+		for (RegistryResourceInfo registryResourceInfo : registryResources) {
+			RegistryElement item = null;
+			if (registryResourceInfo.getType() == REGISTRY_RESOURCE) {
+				item = new RegistryItem();
+				((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
+			} 
+			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",""));
+			artifact.addRegistryElement(item);
+        }
+		generalProjectArtifact.addArtifact(artifact);
+		generalProjectArtifact.toFile();
+	}
 
 	public void copyImportFile(IContainer importLocation) throws IOException {
 		File importFile = getModel().getImportFile();

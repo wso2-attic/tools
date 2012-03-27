@@ -33,9 +33,11 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
+import org.wso2.developerstudio.eclipse.artifact.sequence.validators.ProjectFilter;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
@@ -69,7 +71,6 @@ public class SequenceModel extends ProjectDataModel {
 			} else if (key.equals("reg.browse")){
 				modelPropertyValue = getDynamicSeqRegistryPath();
 			}
-
 		}
 		return modelPropertyValue;
 	}
@@ -104,15 +105,24 @@ public class SequenceModel extends ProjectDataModel {
 			}
 		} else if (key.equals("dynamic.sequence")) {
 			setSaveAsDynamic((Boolean) data);
+			ProjectFilter.setShowGeneralProjects((Boolean) data);
+			setSequenceSaveLocation("");
 		} else if (key.equals("reg.path")) {
 			setDynamicSeqRegistryPath("");
 			setRegistryPathID(data.toString());
 		} else if (key.equals("save.file")) {
 			setSequenceSaveLocation((IContainer) data);
 		} else if (key.equals("create.esb.prj")) {
-			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-			IProject esbProject = ESBProjectUtils.createESBProject(shell);
-			setSequenceSaveLocation(esbProject);
+			if(isSaveAsDynamic()){
+				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+				IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
+				setSequenceSaveLocation(generalProject);
+			} else{
+				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+				IProject esbProject = ESBProjectUtils.createESBProject(shell);
+				setSequenceSaveLocation(esbProject);
+			}
+			
 			// TODO show wizard to create a esb project
 			// get endpoint location of the esb project & set
 			// endpointSaveLocation as it is
