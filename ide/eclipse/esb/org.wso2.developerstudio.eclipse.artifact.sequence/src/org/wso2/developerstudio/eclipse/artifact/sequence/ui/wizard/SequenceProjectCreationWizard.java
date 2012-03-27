@@ -256,6 +256,64 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
         }
 		generalProjectArtifact.addArtifact(artifact);
 		generalProjectArtifact.toFile();
+		addGeneralProjectPlugin(project);
+	}
+	
+	private void addGeneralProjectPlugin(IProject project) throws Exception{
+		MavenProject mavenProject;
+		
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		if(!mavenProjectPomLocation.exists()){
+			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon", project.getName(), "1.0.0","pom");
+		} else {
+			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+		}
+		
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		
+		for(Plugin plg:plugins){
+			if(plg.getArtifactId().equals("wso2-general-project-plugin")){
+				return ;
+			}
+		}
+		
+		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", "1.0.5", true);
+		
+		PluginExecution pluginExecution;
+		
+		pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId("registry");
+		plugin.addExecution(pluginExecution);
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		Repository repo = new Repository();
+		repo.setUrl("http://dist.wso2.org/maven2");
+		repo.setId("wso2-maven2-repository-1");
+		
+		Repository repo1 = new Repository();
+		repo1.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo1.setId("wso2-nexus-maven2-repository-1");
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+
+		if (!mavenProject.getRepositories().contains(repo1)) {
+	        mavenProject.getModel().addRepository(repo1);
+	        mavenProject.getModel().addPluginRepository(repo1);
+        }
+		
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
 	public void copyImportFile(IContainer importLocation) throws IOException {
