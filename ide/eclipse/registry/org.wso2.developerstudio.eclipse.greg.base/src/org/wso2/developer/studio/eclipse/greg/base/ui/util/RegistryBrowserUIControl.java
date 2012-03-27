@@ -191,9 +191,11 @@ public class RegistryBrowserUIControl implements UIControl {
 					getControl().setData(data);
 				} else{
 					((Text) getControl()).setText(data.toString());
+					getControl().setData(null);
 				}
 			} else{
 				((Text) getControl()).setText("");
+				getControl().setData(null);
 			}
 		}
 

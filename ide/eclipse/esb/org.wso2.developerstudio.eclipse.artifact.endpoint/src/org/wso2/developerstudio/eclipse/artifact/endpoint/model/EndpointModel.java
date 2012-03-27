@@ -28,9 +28,11 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndPointTemplateList;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.ProjectFilter;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
@@ -120,15 +122,23 @@ public class EndpointModel extends ProjectDataModel {
 			setSelectedTemplate(template);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
 			setSaveAsDynamic((Boolean) data);
+			ProjectFilter.setShowGeneralProjects((Boolean) data);
+			setEndpointSaveLocation("");
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
 			setDynamicEpRegistryPath("");
 			setRegistryPathID(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
 			setEndpointSaveLocation((IContainer) data);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
-			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-			IProject esbProject = ESBProjectUtils.createESBProject(shell);
-			setEndpointSaveLocation(esbProject);
+			if(isSaveAsDynamic()){
+				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+				IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
+				setEndpointSaveLocation(generalProject);
+			} else{
+				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+				IProject esbProject = ESBProjectUtils.createESBProject(shell);
+				setEndpointSaveLocation(esbProject);
+			}			
 			// TODO show wizard to create a esb project
 			// get endpoint location of the esb project & set
 			// endpointSaveLocation as it is

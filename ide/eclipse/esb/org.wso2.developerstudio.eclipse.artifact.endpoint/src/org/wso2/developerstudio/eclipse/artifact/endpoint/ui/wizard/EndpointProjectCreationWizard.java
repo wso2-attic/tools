@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.ui.wizard;
 
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,22 +42,35 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EndPointImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
-	private final EndpointModel epModel;
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
+	private EndpointModel epModel;
 	private IFile endpointFile;
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
-	private IProject esbProject;
+	private IProject project;
 
 	public EndpointProjectCreationWizard() {
 		this.epModel = new EndpointModel();
@@ -75,78 +90,166 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 	public boolean performFinish() {
 		try {
-			String templateContent = "";
-			String template = "";
-			EndpointModel endpointModel = (EndpointModel) getModel();
-			esbProject = endpointModel.getEndpointSaveLocation().getProject();
-			IContainer location = esbProject.getFolder("src" + File.separator + "main" +
-			                                           File.separator +
-			                                           "synapse-config" +
-			                                           File.separator +
-			                                           "endpoints");
-			
-			//Adding the metadata about the endpoint to the metadata store.
-			esbProjectArtifact=new ESBProjectArtifact();
-			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
-			
-			if (getModel().getSelectedOption().equals(EpArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
-				copyImportFile(location);
-			} else {
-				ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
-				templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
-				if(selectedTemplate.getName().equals(EpArtifactConstants.ADDRESS_EP)){
-					template = createEPTemplate(templateContent, EpArtifactConstants.ADDRESS_EP);
-				}else if(selectedTemplate.getName().equals(EpArtifactConstants.WSDL_EP)){
-					template = createEPTemplate(templateContent, EpArtifactConstants.WSDL_EP);
-				}else if(selectedTemplate.getName().equals(EpArtifactConstants.TEMPLATE_EP)){
-					template = createEPTemplate(templateContent, EpArtifactConstants.TEMPLATE_EP);
-				}else{
-					template = createEPTemplate(templateContent, "");
-				}
-			
-				endpointFile = location.getFile(new Path(endpointModel.getEpName() + ".xml"));
-				File destFile = endpointFile.getLocation().toFile();
-				FileUtils.createFile(destFile, template);
-				fileLst.add(destFile);
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(endpointModel.getEpName());
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/endpoint");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),endpointModel.getEpName()+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
+			epModel = (EndpointModel) getModel();
+			project = epModel.getEndpointSaveLocation().getProject();
+	
+			if(epModel.isSaveAsDynamic()){
+				createDynamicEndpointArtifact(project,epModel);
+			} else{
+				createEndpointArtifact(project,epModel);
 			}
 			
-
-			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("synapse/endpoint");
-			if(!pomfile.exists()){
-				createPOM(pomfile);
-			}
-//			ProjectUtils.addNatureToProject(esbProject,
-//											false,
-//			                                EpArtifactConstants.ESB_PROJECT_NATURE,
-//			                                "org.wso2.developerstudio.eclipse.endpoint.project.nature" );
-			updatePom();
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
-			esbProjectArtifact.toFile();
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			if(fileLst.size()>0){
 				openEditor(fileLst.get(0));
 			}
 			
 		} catch (CoreException e) {
-			e.printStackTrace();
+			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 
 		return true;
 	}
 	
+	private void createEndpointArtifact(IProject prj, EndpointModel model)
+			throws Exception {
+		String templateContent = "";
+		String template = "";
+		IContainer location = project.getFolder("src" + File.separator
+				+ "main" + File.separator + "synapse-config" + File.separator
+				+ "endpoints");
+
+		// Adding the metadata about the endpoint to the metadata store.
+		esbProjectArtifact = new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(project.getFile("artifact.xml")
+				.getLocation().toFile());
+
+		if (getModel().getSelectedOption().equals(
+				EpArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
+			copyImportFile(location);
+		} else {
+			ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
+			templateContent = FileUtils.getContentAsString(selectedTemplate
+					.getTemplateDataStream());
+			if (selectedTemplate.getName().equals(
+					EpArtifactConstants.ADDRESS_EP)) {
+				template = createEPTemplate(templateContent,
+						EpArtifactConstants.ADDRESS_EP);
+			} else if (selectedTemplate.getName().equals(
+					EpArtifactConstants.WSDL_EP)) {
+				template = createEPTemplate(templateContent,
+						EpArtifactConstants.WSDL_EP);
+			} else if (selectedTemplate.getName().equals(
+					EpArtifactConstants.TEMPLATE_EP)) {
+				template = createEPTemplate(templateContent,
+						EpArtifactConstants.TEMPLATE_EP);
+			} else {
+				template = createEPTemplate(templateContent, "");
+			}
+
+			endpointFile = location.getFile(new Path(epModel.getEpName()
+					+ ".xml"));
+			File destFile = endpointFile.getLocation().toFile();
+			FileUtils.createFile(destFile, template);
+			fileLst.add(destFile);
+			ESBArtifact artifact = new ESBArtifact();
+			artifact.setName(epModel.getEpName());
+			artifact.setVersion("1.0.0");
+			artifact.setType("synapse/endpoint");
+			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
+					.toFile(), new File(location.getLocation().toFile(),
+					epModel.getEpName() + ".xml")));
+			esbProjectArtifact.addESBArtifact(artifact);
+		}
+
+		File pomfile = project.getFile("pom.xml").getLocation().toFile();
+		getModel().getMavenInfo().setPackageName("synapse/endpoint");
+		if (!pomfile.exists()) {
+			createPOM(pomfile);
+		}
+		// ProjectUtils.addNatureToProject(esbProject,
+		// false,
+		// EpArtifactConstants.ESB_PROJECT_NATURE,
+		// "org.wso2.developerstudio.eclipse.endpoint.project.nature" );
+		updatePom();
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
+
+		esbProjectArtifact.toFile();
+	}
+	
+	private void createDynamicEndpointArtifact(IContainer location,EndpointModel model) throws Exception{
+		String registryPath = model.getDynamicEpRegistryPath()
+				.replaceAll("^conf:", "/_system/config")
+				.replaceAll("^gov:", "/_system/governance")
+				.replaceAll("^local:", "/_system/local");
+		String templateContent = "";
+		String template = "";
+		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
+
+		ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
+		templateContent = FileUtils.getContentAsString(selectedTemplate
+				.getTemplateDataStream());
+		if (selectedTemplate.getName().equals(
+				EpArtifactConstants.ADDRESS_EP)) {
+			template = createEPTemplate(templateContent,
+					EpArtifactConstants.ADDRESS_EP);
+		} else if (selectedTemplate.getName().equals(
+				EpArtifactConstants.WSDL_EP)) {
+			template = createEPTemplate(templateContent,
+					EpArtifactConstants.WSDL_EP);
+		} else if (selectedTemplate.getName().equals(
+				EpArtifactConstants.TEMPLATE_EP)) {
+			template = createEPTemplate(templateContent,
+					EpArtifactConstants.TEMPLATE_EP);
+		} else {
+			template = createEPTemplate(templateContent, "");
+		}
+
+		endpointFile = location.getFile(new Path(epModel.getEpName()
+				+ ".xml"));
+		File destFile = endpointFile.getLocation().toFile();
+		FileUtils.createFile(destFile, template);
+		fileLst.add(destFile);
+		
+		
+		RegistryResourceUtils.createMetaDataForFolder(registryPath, location
+				.getLocation().toFile());
+		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
+				project.getLocation().toFile(), registryPath);
+
+		GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
+		generalProjectArtifact.fromFile(project.getFile("artifact.xml")
+				.getLocation().toFile());
+
+		RegistryArtifact artifact = new RegistryArtifact();
+		artifact.setName(epModel.getEpName());
+		artifact.setVersion("1.0.0");
+		artifact.setType("registry/resource");
+		artifact.setServerRole("EnterpriseServiceBus");
+		List<RegistryResourceInfo> registryResources = regResInfoDoc
+				.getRegistryResources();
+		for (RegistryResourceInfo registryResourceInfo : registryResources) {
+			RegistryElement item = null;
+			if (registryResourceInfo.getType() == REGISTRY_RESOURCE) {
+				item = new RegistryItem();
+				((RegistryItem) item).setFile(registryResourceInfo
+						.getResourceBaseRelativePath());
+			}
+			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
+					""));
+			artifact.addRegistryElement(item);
+		}
+		generalProjectArtifact.addArtifact(artifact);
+		generalProjectArtifact.toFile();
+	}
+	
 	public void updatePom() throws Exception{
-		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
 		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
@@ -208,8 +311,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				artifact.setType("synapse/endpoint");
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
-				
+				esbProjectArtifact.addESBArtifact(artifact);		
 			}
 			
 		}else{

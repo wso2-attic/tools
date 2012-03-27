@@ -79,6 +79,13 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("WSDL port cannot be empty");
 			} 
+		} else if(modelProperty.equals("registry.browser")){
+			EndpointModel seqModel = (EndpointModel) model; 
+			if(seqModel.isSaveAsDynamic()){
+				if(null==value || value.toString().trim().isEmpty()){
+					throw new FieldValidationException("Registry path cannot be empty");
+				}
+			}
 		}
 	}
 
