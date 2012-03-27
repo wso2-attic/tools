@@ -108,19 +108,26 @@ public class RemoteCarbonServer extends ServerDelegate{
 		}else{
 			if(getServerURL() == null || !getServerURL().toString().equals(url.toString())){
 				String[] paths = url.getPath().split("/");
-				if(paths.length != 0){
-					String firstPath = paths[0];
+				String firstPath="";
+				if(paths.length == 2){
+					firstPath = paths[1];
 					if (firstPath != null && (firstPath.equalsIgnoreCase("carbon") || firstPath.equalsIgnoreCase("registry") || firstPath.equalsIgnoreCase("services"))){
-						firstPath="/";
+						firstPath="";
 					}
-					URL serverURL = new URL(url.getProtocol(),url.getHost(),url.getPort(),firstPath);
-					setAttribute(ATTR_URL, serverURL.toString());
-					RemoteCarbonServerBehavior rcsb=(RemoteCarbonServerBehavior)getServer().loadAdapter(RemoteCarbonServerBehavior.class, null);
-					if(rcsb != null){
-						rcsb.stopPingThread();
-						rcsb.startPingThread();
-					}
+				}else {
+					firstPath = url.getPath();
 				}
+				if(firstPath.startsWith("/")){
+					firstPath = firstPath.substring(1, firstPath.length());
+				}
+				URL serverURL = new URL(url.getProtocol(),url.getHost(),url.getPort(), "/" + firstPath);
+				setAttribute(ATTR_URL, serverURL.toString());
+				RemoteCarbonServerBehavior rcsb=(RemoteCarbonServerBehavior)getServer().loadAdapter(RemoteCarbonServerBehavior.class, null);
+				if(rcsb != null){
+					rcsb.stopPingThread();
+					rcsb.startPingThread();
+				}
+				
 			}
 			
 		}
