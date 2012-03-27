@@ -33,28 +33,20 @@ import java.util.List;
 public class ProxyServiceArtfactExportHandler extends ProjectArtifactHandler{
 	private static final String FILE_EXTENSION = "xml";
 
-    public List<IResource> exportArtifact(IProject project) {
-    	List<IResource> exportResources = new ArrayList<IResource>();
-		if(!project.isOpen()){
-			return exportResources;
+    public List<IResource> exportArtifact(IProject project) throws Exception {
+		List<IResource> exportResources = new ArrayList<IResource>();
+		File[] xmlfiles = FileUtils.getAllMatchingFiles(project.getLocation()
+				.toString(), null, FILE_EXTENSION, new ArrayList<File>());
+		for (File xmlfile : xmlfiles) {
+			if (isProxy(xmlfile)) {
+				String xmlFileLocation = xmlfile.toString()
+						.replaceAll(
+								"^" + project.getLocation().toString()
+										+ File.separator, "");
+				IFile xmlFileRef = project.getFile(xmlFileLocation);
+				exportResources.add((IResource) xmlFileRef);
+			}
 		}
-		try {
-			 File[] xmlfiles = FileUtils.getAllMatchingFiles(project.getLocation()
-					.toString(), null, FILE_EXTENSION,
-					   new ArrayList<File>());
-			 for(File xmlfile : xmlfiles) {
-				if(isProxy(xmlfile)) {
-					String xmlFileLocation = xmlfile.toString()
-					.replaceAll(
-							"^" + project.getLocation().toString()
-									+ File.separator, "");
-					IFile xmlFileRef = project.getFile(xmlFileLocation);
-					exportResources.add((IResource) xmlFileRef);
-				}
-			 }
-        } catch (Exception e) {
-	        e.printStackTrace();
-        }
 		return exportResources;
     }
     

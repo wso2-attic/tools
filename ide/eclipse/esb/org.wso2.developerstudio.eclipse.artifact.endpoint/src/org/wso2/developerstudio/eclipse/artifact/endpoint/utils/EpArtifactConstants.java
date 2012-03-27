@@ -1,7 +1,3 @@
-package org.wso2.developerstudio.eclipse.artifact.endpoint.utils;
-
-import org.eclipse.osgi.util.NLS;
-
 /*
  * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
@@ -17,6 +13,10 @@ import org.eclipse.osgi.util.NLS;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.wso2.developerstudio.eclipse.artifact.endpoint.utils;
+
+import org.eclipse.osgi.util.NLS;
 
 public class EpArtifactConstants extends NLS{
 	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.endpoint.utils.epartifactconstants";
