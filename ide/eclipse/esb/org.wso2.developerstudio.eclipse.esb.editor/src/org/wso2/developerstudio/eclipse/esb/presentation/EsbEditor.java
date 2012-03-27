@@ -107,6 +107,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
@@ -128,6 +129,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IPropertyListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -156,7 +158,6 @@ import org.wso2.developerstudio.eclipse.esb.provider.EsbItemProviderAdapterFacto
 import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.eclipse.jface.viewers.TreeSelection;
 
 
 /**
@@ -1217,6 +1218,8 @@ public class EsbEditor extends MultiPageEditorPart implements
 				updateProblemIndication();
 			}
 		});
+		//Fixing TOOLS-776
+		addFocusChanger();
 	}
 	
 	private boolean deleteNode(TreeSelection item){
@@ -1645,7 +1648,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 		public CustomExtendedPropertySheetPage(
 				AdapterFactoryEditingDomain editingDomain) {
 			super(editingDomain);
-			setSorter(new CustomPropertySheetSorter());
+			setSorter(new CustomPropertySheetSorter());	
 		}
 
 		/**
@@ -1673,6 +1676,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 			}
 			super.setSorter(sorter);
 		}
+		
 	}
 
 	/**
@@ -2122,7 +2126,20 @@ public class EsbEditor extends MultiPageEditorPart implements
 
 		super.dispose();
 	}
-
+	
+	private void addFocusChanger(){
+		
+		 addPropertyListener(new IPropertyListener() {
+				
+				@Override
+				public void propertyChanged(Object arg0, int arg1) {
+				
+					setFocus();
+				    
+				}
+			});
+		
+	}
 	/**
 	 * Returns whether the outline view should be presented to the user. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
