@@ -49,8 +49,16 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 			}
 		}  else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
-			if(!resource.exists())	
+			if(null== resource || !resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
+		} else if(modelProperty.equals("reg.browse")){
+			SequenceModel seqModel = (SequenceModel) model; 
+			if(seqModel.isSaveAsDynamic()){
+				if(null==value || value.toString().trim().isEmpty()){
+					throw new FieldValidationException("Registry path cannot be empty");
+				}
+			}
+			
 		}
 
 	}
@@ -72,6 +80,7 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 		if (modelProperty.equals("dynamic.sequence")) {
 			updateFields.add("reg.path");
 			updateFields.add("reg.browse");
+			updateFields.add("save.file");
 		} else if (modelProperty.equals("import.file")) {
 			updateFields.add("available.sequences");
 		} else if (modelProperty.equals("create.esb.prj")) {

@@ -525,7 +525,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 							                .getFolder(new Path(text));
 						}
 					} catch (Exception e) {
-						throw new FieldValidationException(e.getLocalizedMessage());
+						/* ignore, this exception will handle by FieldController*/
 					}
 					optionData.getFieldController().validate(optionData.getModelProperty(), folder,
 					                                         model);
@@ -543,6 +543,8 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				}
 				if (!modelPropertyValue.equals("") && modelPropertyValue != null) {
 					txtFolder.setText(modelPropertyValue);
+				} else{
+					txtFolder.setText("");
 				}
 
 			}
@@ -574,11 +576,14 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 					if (getModel().setModelPropertyValue(modelProperty, folder)) {
 						updateField(modelProperty);
 					}
+					
+				} catch (IllegalArgumentException e) {
+				  /* ignore, this exception will handle by FieldController*/
 				} catch (ObserverFailedException e) {
 					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
 					log.error("An unexpected error has occurred", e);
-				}
+				} 
 				doPostFieldModificationAction(optionData);
 			}
 		});

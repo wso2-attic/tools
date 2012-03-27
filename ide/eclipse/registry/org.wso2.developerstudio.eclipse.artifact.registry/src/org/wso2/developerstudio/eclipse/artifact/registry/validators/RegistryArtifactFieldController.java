@@ -52,12 +52,12 @@ public class RegistryArtifactFieldController extends AbstractFieldController {
 				throw new FieldValidationException("Specified resource location is invalid");
 			}
 			File resource = (File) value;
-			if (!resource.exists()) {
+			if (resource==null || !resource.exists()) {
 				throw new FieldValidationException("Specified resource doesn't exist");
 			} 
 		} else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
-			if(!resource.exists())	
+			if(resource==null || !resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
 		} else if (modelProperty.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
 			if (value == null) {
