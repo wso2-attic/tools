@@ -17,6 +17,8 @@ import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.TraverseEvent;
+import org.eclipse.swt.events.TraverseListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -165,6 +167,7 @@ public class DetailSectionUiUtil {
 		dtxt.setLayoutData(gd);
 		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
 		addFocusListner(dtxt);
+		addTraverseListner(dtxt);
 		return dtxt;
 		
 	}
@@ -229,6 +232,21 @@ public class DetailSectionUiUtil {
 			}
 		});
 	}
+	
+	private void addTraverseListner(Composite comp) {
+
+		comp.addTraverseListener(new TraverseListener() {
+
+			public void keyTraversed(TraverseEvent e) {
+				if (e.detail == SWT.TRAVERSE_TAB_NEXT
+						|| e.detail == SWT.TRAVERSE_TAB_PREVIOUS) {
+					e.doit = true;
+
+				}
+			}
+		});
+	}
+	
 	
 	private void addModifyListnerForCustomComboFields(final Combo combo,final Object input,final EAttribute metaObject){
 		
