@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getCallQueryGroup <em>Call Query Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#isReturnRequestStatus <em>Return Request Status</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -108,6 +109,33 @@ public interface Operation extends EObject {
 	 * @generated
 	 */
 	void setDisableStreaming(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Return Request Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Request Status</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Request Status</em>' attribute.
+	 * @see #setReturnRequestStatus(boolean)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getOperation_ReturnRequestStatus()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 *        extendedMetaData="kind='attribute' name='returnRequestStatus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	boolean isReturnRequestStatus();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.Operation#isReturnRequestStatus <em>Return Request Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Request Status</em>' attribute.
+	 * @see #isReturnRequestStatus()
+	 * @generated
+	 */
+	void setReturnRequestStatus(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

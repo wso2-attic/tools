@@ -1121,6 +1121,16 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.OPERATION_DISABLE_STREAMING);
 					sectionUtil.getBooleanComboField(detailsclient, toolkit, operation,operation.isDisableStreaming() ,
 							DsPackage.eINSTANCE.getOperation_DisableStreaming());
+					labelMaker("");
+					labelMaker("");
+				}
+				
+				if(displayName.equals(DetailSectionCustomUiConstants.OPERATION_RETURN_REQUEST_STATUS)){
+					
+					labelMaker(DetailSectionCustomUiConstants.OPERATION_RETURN_REQUEST_STATUS);
+					sectionUtil.getBooleanComboField(detailsclient, toolkit, operation, operation.isReturnRequestStatus(),
+							DsPackage.eINSTANCE.getOperation_ReturnRequestStatus());
+					
 				}
 			}
 		}
@@ -1204,13 +1214,13 @@ public class DetailSection {
 					labelMaker("");
 				}
 				
-				if(displayName.equals(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS)){
+				/*if(displayName.equals(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS)){
 					
 					labelMaker(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS);
 					sectionUtil.getBooleanComboField(detailsclient, toolkit, resource, resource.isReturnRequestStatus(),
 							DsPackage.eINSTANCE.getResource_ReturnRequestStatus());
 					
-				}
+				}*/
 			}
 			
 		}

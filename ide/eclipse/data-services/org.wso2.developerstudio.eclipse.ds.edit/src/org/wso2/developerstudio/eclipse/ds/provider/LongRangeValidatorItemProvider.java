@@ -60,6 +60,7 @@ public class LongRangeValidatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -132,6 +133,7 @@ public class LongRangeValidatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public String getText(Object object) {
 		LongRangeValidator longRangeValidator = (LongRangeValidator)object;
 		return getString("_UI_LongRangeValidator_type") + " " + longRangeValidator.getMaximum();
@@ -145,6 +147,7 @@ public class LongRangeValidatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -165,6 +168,7 @@ public class LongRangeValidatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -176,6 +180,7 @@ public class LongRangeValidatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

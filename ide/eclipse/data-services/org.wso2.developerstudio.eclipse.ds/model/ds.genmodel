@@ -121,6 +121,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Operation/callQuery"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Operation/callQueryGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Operation/disableStreaming"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Operation/returnRequestStatus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Operation/name"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ParameterMapping">
@@ -171,7 +172,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Resource/callQuery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/returnRequestStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ResultMapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ResultMapping/element"/>

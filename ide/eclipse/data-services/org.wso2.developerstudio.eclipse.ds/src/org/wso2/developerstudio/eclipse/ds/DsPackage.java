@@ -1065,13 +1065,22 @@ public interface DsPackage extends EPackage {
 	int OPERATION__DISABLE_STREAMING = 2;
 
 	/**
+	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__RETURN_REQUEST_STATUS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = 3;
+	int OPERATION__NAME = 4;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -1080,7 +1089,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = 4;
+	int OPERATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl <em>Parameter Mapping</em>}' class.
@@ -1522,22 +1531,13 @@ public interface DsPackage extends EPackage {
 	int RESOURCE__PATH = 2;
 
 	/**
-	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__RETURN_REQUEST_STATUS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 4;
+	int RESOURCE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
@@ -2815,6 +2815,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getOperation_DisableStreaming();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.Operation#isReturnRequestStatus <em>Return Request Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Request Status</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.Operation#isReturnRequestStatus()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_ReturnRequestStatus();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.Operation#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3279,17 +3290,6 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_Path();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.Resource#isReturnRequestStatus <em>Return Request Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Request Status</em>'.
-	 * @see org.wso2.developerstudio.eclipse.ds.Resource#isReturnRequestStatus()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_ReturnRequestStatus();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.ResultMapping <em>Result Mapping</em>}'.
@@ -4346,6 +4346,14 @@ public interface DsPackage extends EPackage {
 		EAttribute OPERATION__DISABLE_STREAMING = eINSTANCE.getOperation_DisableStreaming();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Request Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__RETURN_REQUEST_STATUS = eINSTANCE.getOperation_ReturnRequestStatus();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4702,14 +4710,6 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__PATH = eINSTANCE.getResource_Path();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Request Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__RETURN_REQUEST_STATUS = eINSTANCE.getResource_ReturnRequestStatus();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.

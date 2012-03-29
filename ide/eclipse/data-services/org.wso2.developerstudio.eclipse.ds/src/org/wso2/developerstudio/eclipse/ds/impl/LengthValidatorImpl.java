@@ -88,6 +88,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.LENGTH_VALIDATOR;
 	}
@@ -140,6 +141,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
@@ -156,6 +158,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
@@ -174,6 +177,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
@@ -192,6 +196,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.LENGTH_VALIDATOR__MAXIMUM:
@@ -208,6 +213,7 @@ public class LengthValidatorImpl extends EObjectImpl implements LengthValidator 
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

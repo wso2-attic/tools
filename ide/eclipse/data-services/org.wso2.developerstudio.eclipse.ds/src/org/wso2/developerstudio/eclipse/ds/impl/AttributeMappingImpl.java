@@ -128,6 +128,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.ATTRIBUTE_MAPPING;
 	}
@@ -222,6 +223,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.ATTRIBUTE_MAPPING__COLUMN:
@@ -242,6 +244,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.ATTRIBUTE_MAPPING__COLUMN:
@@ -266,6 +269,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.ATTRIBUTE_MAPPING__COLUMN:
@@ -290,6 +294,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.ATTRIBUTE_MAPPING__COLUMN:
@@ -310,6 +315,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

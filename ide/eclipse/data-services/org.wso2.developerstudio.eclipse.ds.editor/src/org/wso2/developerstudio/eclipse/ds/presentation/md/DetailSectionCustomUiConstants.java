@@ -92,6 +92,7 @@ public interface DetailSectionCustomUiConstants {
 	
 	public String OPERATION_NAME = "Operation Name";
 	public String OPERATION_DISABLE_STREAMING = "Disable Streaming";
+	public String OPERATION_RETURN_REQUEST_STATUS ="Return Request Status";
 	
 	public String CALL_QUERY_LINK = "Query Id";
 	
@@ -101,5 +102,5 @@ public interface DetailSectionCustomUiConstants {
 	
 	public String RESOURCE_METHOD ="Resource Method";
 	public String RESOUCE_PATH = "Resource Path";
-	public String RESOURCE_RETURN_REQUEST_STATUS ="Return Request Status";
+	
 }

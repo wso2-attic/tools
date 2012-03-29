@@ -265,6 +265,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY;
 	}
@@ -485,6 +486,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.QUERY__SQL:
@@ -511,6 +513,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.QUERY__SQL:
@@ -549,6 +552,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -608,6 +612,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY__SQL:
@@ -659,6 +664,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY__SQL:
@@ -697,6 +703,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

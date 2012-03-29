@@ -60,6 +60,7 @@ public class SqlItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -149,6 +150,7 @@ public class SqlItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -169,6 +171,7 @@ public class SqlItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -180,6 +183,7 @@ public class SqlItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

@@ -65,6 +65,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.WORK_BOOK_NAME;
 	}
@@ -96,6 +97,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.WORK_BOOK_NAME__VALUE:
@@ -110,6 +112,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.WORK_BOOK_NAME__VALUE:
@@ -125,6 +128,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.WORK_BOOK_NAME__VALUE:
@@ -140,6 +144,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.WORK_BOOK_NAME__VALUE:
@@ -154,6 +159,7 @@ public class WorkBookNameImpl extends EObjectImpl implements WorkBookName {
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.ds.Operation;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQueryGroup <em>Call Query Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isDisableStreaming <em>Disable Streaming</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isReturnRequestStatus <em>Return Request Status</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -78,6 +79,26 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected boolean disableStreaming = DISABLE_STREAMING_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnRequestStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_REQUEST_STATUS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnRequestStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnRequestStatus = RETURN_REQUEST_STATUS_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,6 +133,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.OPERATION;
 	}
@@ -228,6 +250,27 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReturnRequestStatus() {
+		return returnRequestStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturnRequestStatus(boolean newReturnRequestStatus) {
+		boolean oldReturnRequestStatus = returnRequestStatus;
+		returnRequestStatus = newReturnRequestStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__RETURN_REQUEST_STATUS, oldReturnRequestStatus, returnRequestStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -250,6 +293,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -266,6 +310,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -274,6 +319,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				return getCallQueryGroup();
 			case DsPackage.OPERATION__DISABLE_STREAMING:
 				return isDisableStreaming();
+			case DsPackage.OPERATION__RETURN_REQUEST_STATUS:
+				return isReturnRequestStatus();
 			case DsPackage.OPERATION__NAME:
 				return getName();
 		}
@@ -286,6 +333,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -296,6 +344,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
 				setDisableStreaming((Boolean)newValue);
+				return;
+			case DsPackage.OPERATION__RETURN_REQUEST_STATUS:
+				setReturnRequestStatus((Boolean)newValue);
 				return;
 			case DsPackage.OPERATION__NAME:
 				setName((String)newValue);
@@ -310,6 +361,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -320,6 +372,9 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
 				setDisableStreaming(DISABLE_STREAMING_EDEFAULT);
+				return;
+			case DsPackage.OPERATION__RETURN_REQUEST_STATUS:
+				setReturnRequestStatus(RETURN_REQUEST_STATUS_EDEFAULT);
 				return;
 			case DsPackage.OPERATION__NAME:
 				setName(NAME_EDEFAULT);
@@ -334,6 +389,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -342,6 +398,8 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				return callQueryGroup != null;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
 				return disableStreaming != DISABLE_STREAMING_EDEFAULT;
+			case DsPackage.OPERATION__RETURN_REQUEST_STATUS:
+				return returnRequestStatus != RETURN_REQUEST_STATUS_EDEFAULT;
 			case DsPackage.OPERATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -354,12 +412,15 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (disableStreaming: ");
 		result.append(disableStreaming);
+		result.append(", returnRequestStatus: ");
+		result.append(returnRequestStatus);
 		result.append(", name: ");
 		result.append(name);
 		result.append(')');

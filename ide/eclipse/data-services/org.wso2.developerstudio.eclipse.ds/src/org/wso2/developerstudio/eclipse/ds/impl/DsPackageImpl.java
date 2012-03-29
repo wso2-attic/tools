@@ -1200,8 +1200,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperation_Name() {
+	public EAttribute getOperation_ReturnRequestStatus() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1587,15 +1596,6 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResource_ReturnRequestStatus() {
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getResultMapping() {
 		return resultMappingEClass;
 	}
@@ -1962,6 +1962,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEReference(operationEClass, OPERATION__CALL_QUERY);
 		createEReference(operationEClass, OPERATION__CALL_QUERY_GROUP);
 		createEAttribute(operationEClass, OPERATION__DISABLE_STREAMING);
+		createEAttribute(operationEClass, OPERATION__RETURN_REQUEST_STATUS);
 		createEAttribute(operationEClass, OPERATION__NAME);
 
 		parameterMappingEClass = createEClass(PARAMETER_MAPPING);
@@ -2012,7 +2013,6 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEReference(resourceEClass, RESOURCE__CALL_QUERY);
 		createEAttribute(resourceEClass, RESOURCE__METHOD);
 		createEAttribute(resourceEClass, RESOURCE__PATH);
-		createEAttribute(resourceEClass, RESOURCE__RETURN_REQUEST_STATUS);
 
 		resultMappingEClass = createEClass(RESULT_MAPPING);
 		createEReference(resultMappingEClass, RESULT_MAPPING__ELEMENT);
@@ -2195,6 +2195,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEReference(getOperation_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_CallQueryGroup(), this.getCallQueryList(), null, "callQueryGroup", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_DisableStreaming(), theXMLTypePackage.getBoolean(), "disableStreaming", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_ReturnRequestStatus(), theXMLTypePackage.getBoolean(), "returnRequestStatus", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterMappingEClass, ParameterMapping.class, "ParameterMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2245,7 +2246,6 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEReference(getResource_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Method(), theXMLTypePackage.getString(), "method", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Path(), theXMLTypePackage.getString(), "path", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResource_ReturnRequestStatus(), theXMLTypePackage.getBoolean(), "returnRequestStatus", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultMappingEClass, ResultMapping.class, "ResultMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResultMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2993,6 +2993,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
+		  (getOperation_ReturnRequestStatus(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "returnRequestStatus",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
 		  (getOperation_Name(), 
 		   source, 
 		   new String[] {
@@ -3326,14 +3334,6 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "path",
-			 "namespace", "##targetNamespace"
-		   });		
-		addAnnotation
-		  (getResource_ReturnRequestStatus(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "returnRequestStatus",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

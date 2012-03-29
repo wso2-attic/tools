@@ -60,14 +60,14 @@ public class ParameterMappingItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-			
+
+			addColumnPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addQueryParamPropertyDescriptor(object);
-			addColumnPropertyDescriptor(object);
-			
 		}
 		return itemPropertyDescriptors;
 	}
@@ -156,6 +156,7 @@ public class ParameterMappingItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public String getText(Object object) {
 		String label = ((ParameterMapping)object).getName();
 		return label == null || label.length() == 0 ?
@@ -171,6 +172,7 @@ public class ParameterMappingItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -192,6 +194,7 @@ public class ParameterMappingItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -203,6 +206,7 @@ public class ParameterMappingItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

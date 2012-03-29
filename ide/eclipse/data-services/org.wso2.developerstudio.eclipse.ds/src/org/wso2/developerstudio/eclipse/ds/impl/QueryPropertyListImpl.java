@@ -63,6 +63,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY_PROPERTY_LIST;
 	}
@@ -85,6 +86,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
@@ -99,6 +101,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
@@ -113,6 +116,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -130,6 +134,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
@@ -145,6 +150,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:

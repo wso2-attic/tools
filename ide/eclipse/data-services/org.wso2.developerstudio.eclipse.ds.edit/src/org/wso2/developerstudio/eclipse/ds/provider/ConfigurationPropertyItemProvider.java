@@ -147,6 +147,7 @@ public class ConfigurationPropertyItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -167,6 +168,7 @@ public class ConfigurationPropertyItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -178,6 +180,7 @@ public class ConfigurationPropertyItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

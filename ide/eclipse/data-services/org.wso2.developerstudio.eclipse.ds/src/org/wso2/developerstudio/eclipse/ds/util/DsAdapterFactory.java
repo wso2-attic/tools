@@ -53,6 +53,7 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -71,151 +72,151 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected DsSwitch<Adapter> modelSwitch =
 		new DsSwitch<Adapter>() {
-			
+			@Override
 			public Adapter caseAttributeMapping(AttributeMapping object) {
 				return createAttributeMappingAdapter();
 			}
-			
+			@Override
 			public Adapter caseCallQuery(CallQuery object) {
 				return createCallQueryAdapter();
 			}
-			
+			@Override
 			public Adapter caseCallQueryList(CallQueryList object) {
 				return createCallQueryListAdapter();
 			}
-			
+			@Override
 			public Adapter caseConfigurationProperty(ConfigurationProperty object) {
 				return createConfigurationPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseCustomValidator(CustomValidator object) {
 				return createCustomValidatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseDataService(DataService object) {
 				return createDataServiceAdapter();
 			}
-			
+			@Override
 			public Adapter caseDataSourceConfiguration(DataSourceConfiguration object) {
 				return createDataSourceConfigurationAdapter();
 			}
-			
+			@Override
 			public Adapter caseDescription(Description object) {
 				return createDescriptionAdapter();
 			}
-			
+			@Override
 			public Adapter caseDocumentRoot(DocumentRoot object) {
 				return createDocumentRootAdapter();
 			}
-			
+			@Override
 			public Adapter caseDoubleRangeValidator(DoubleRangeValidator object) {
 				return createDoubleRangeValidatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseElementMapping(ElementMapping object) {
 				return createElementMappingAdapter();
 			}
-			
+			@Override
 			public Adapter caseEventSubscriptionList(EventSubscriptionList object) {
 				return createEventSubscriptionListAdapter();
 			}
-			
+			@Override
 			public Adapter caseEventTrigger(EventTrigger object) {
 				return createEventTriggerAdapter();
 			}
-			
+			@Override
 			public Adapter caseExcelQuery(ExcelQuery object) {
 				return createExcelQueryAdapter();
 			}
-			
+			@Override
 			public Adapter caseExpression(Expression object) {
 				return createExpressionAdapter();
 			}
-			
+			@Override
 			public Adapter caseGSpreadQuery(GSpreadQuery object) {
 				return createGSpreadQueryAdapter();
 			}
-			
+			@Override
 			public Adapter caseHasHeader(HasHeader object) {
 				return createHasHeaderAdapter();
 			}
-			
+			@Override
 			public Adapter caseLengthValidator(LengthValidator object) {
 				return createLengthValidatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseLongRangeValidator(LongRangeValidator object) {
 				return createLongRangeValidatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseMaxRowCount(MaxRowCount object) {
 				return createMaxRowCountAdapter();
 			}
-			
+			@Override
 			public Adapter caseOperation(Operation object) {
 				return createOperationAdapter();
 			}
-			
+			@Override
 			public Adapter caseParameterMapping(ParameterMapping object) {
 				return createParameterMappingAdapter();
 			}
-			
+			@Override
 			public Adapter casePatternValidator(PatternValidator object) {
 				return createPatternValidatorAdapter();
 			}
-			
+			@Override
 			public Adapter caseQuery(Query object) {
 				return createQueryAdapter();
 			}
-			
+			@Override
 			public Adapter caseQueryParameter(QueryParameter object) {
 				return createQueryParameterAdapter();
 			}
-			
+			@Override
 			public Adapter caseQueryProperty(QueryProperty object) {
 				return createQueryPropertyAdapter();
 			}
-			
+			@Override
 			public Adapter caseQueryPropertyList(QueryPropertyList object) {
 				return createQueryPropertyListAdapter();
 			}
-			
+			@Override
 			public Adapter caseResource(Resource object) {
 				return createResourceAdapter();
 			}
-			
+			@Override
 			public Adapter caseResultMapping(ResultMapping object) {
 				return createResultMappingAdapter();
 			}
-			
+			@Override
 			public Adapter caseSparql(Sparql object) {
 				return createSparqlAdapter();
 			}
-			
+			@Override
 			public Adapter caseSql(Sql object) {
 				return createSqlAdapter();
 			}
-			
+			@Override
 			public Adapter caseStartingRow(StartingRow object) {
 				return createStartingRowAdapter();
 			}
-			
+			@Override
 			public Adapter caseSubscription(Subscription object) {
 				return createSubscriptionAdapter();
 			}
-			
+			@Override
 			public Adapter caseTargetTopic(TargetTopic object) {
 				return createTargetTopicAdapter();
 			}
-			
+			@Override
 			public Adapter caseWorkBookName(WorkBookName object) {
 				return createWorkBookNameAdapter();
 			}
-			
+			@Override
 			public Adapter caseWorkSheetNumber(WorkSheetNumber object) {
 				return createWorkSheetNumberAdapter();
 			}
-			
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -230,6 +231,7 @@ public class DsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	
+	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject)target);
 	}

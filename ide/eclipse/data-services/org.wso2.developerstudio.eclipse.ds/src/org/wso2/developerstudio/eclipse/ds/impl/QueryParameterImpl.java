@@ -260,6 +260,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY_PARAMETER;
 	}
@@ -570,6 +571,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
@@ -592,6 +594,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
@@ -628,6 +631,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -679,6 +683,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
@@ -727,6 +732,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
@@ -763,6 +769,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

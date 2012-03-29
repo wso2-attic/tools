@@ -63,6 +63,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.CALL_QUERY_LIST;
 	}
@@ -85,6 +86,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY_LIST__CALL_QUERY:
@@ -99,6 +101,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY_LIST__CALL_QUERY:
@@ -113,6 +116,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -130,6 +134,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY_LIST__CALL_QUERY:
@@ -145,6 +150,7 @@ public class CallQueryListImpl extends EObjectImpl implements CallQueryList {
 	 * @generated
 	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY_LIST__CALL_QUERY:
