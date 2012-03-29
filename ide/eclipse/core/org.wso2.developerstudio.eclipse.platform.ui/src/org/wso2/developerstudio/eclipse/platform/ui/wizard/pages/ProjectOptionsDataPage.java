@@ -168,7 +168,8 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		projectOptionsSection.setLayoutData(gridData);
 
 		if (!isRequireLocationSection()) {
-			getModel().setLocation(getSaveLocation());
+				getModel().setLocation(getSaveLocation());
+			
 		}
 		// Create the project options section
 		addProjectOptionUI();
@@ -180,7 +181,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 			gridData_1.horizontalAlignment = SWT.FILL;
 			gridData_1.grabExcessHorizontalSpace = true;
 			projectLocationSection.setLayoutData(gridData_1);
-			new LocationInfoComposite(projectLocationSection, SWT.NONE, model, getSaveLocation());
+			
+			LocationInfoComposite locationInfoComposite = new LocationInfoComposite(projectLocationSection, SWT.NONE, model, getSaveLocation(),getProjectOptionsInfo(),this);
+			
 		}
 		if(isRequiredWorkingSets()){
 			Composite workigSetSection = new Composite(mainSection, SWT.NONE);
