@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
@@ -37,10 +38,18 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
 	public boolean performFinish() {
 		try {
-			project = createNewProject();
 			if (getModel().getSelectedOption().equals("import.webapp")) {
+				IProject exproject = ResourcesPlugin.getWorkspace().getRoot().getProject(webAppModel.getProjectName());
+				if(exproject.exists()){
+					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+						return false;	
+					}
+				} 
+				project = createNewProject();
 				extractImportFile(project);
+				
 			} else if (getModel().getSelectedOption().equals("new.webapp")) {
+				project = createNewProject();
 				IFolder webappFolder =
 				        ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp");
 				File webappTemplateArchive =
