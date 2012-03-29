@@ -29,6 +29,9 @@ import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.Activator;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
@@ -37,12 +40,13 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class CustomMediatorProjectNature extends AbstractWSO2ProjectNature {
 
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public void configure() {
 		try {
 			this.updatePom();
 		} catch (Exception e) {
-			e.printStackTrace();
+			 log.error(e);
 		}
 	}
 	

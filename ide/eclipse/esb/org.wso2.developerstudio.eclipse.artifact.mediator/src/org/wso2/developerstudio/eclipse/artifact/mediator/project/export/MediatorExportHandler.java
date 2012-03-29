@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.mediator.project.export;
 import java.io.File;
 import java.util.ArrayList;
@@ -22,9 +38,12 @@ import org.wso2.developerstudio.eclipse.platform.core.manifest.BundleManifest;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.logging.core.*;
+import org.wso2.developerstudio.eclipse.maven.Activator;
 
 public class MediatorExportHandler extends ProjectArtifactHandler {
 
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public List<IResource> exportArtifact(IProject project) {
 		List<IResource> exportResources = new ArrayList<IResource>();
@@ -84,12 +103,11 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	        tempProject.delete(true, nullProgressMonitor);
 			
 		}catch (Exception e) {
-			 e.printStackTrace();
+			  log.error(e);
 		}
 		return exportResources;
 	}
-	
-	
+		
 	private List<String> getExportPackages(IJavaProject iJavaProject) throws CoreException,
 	JavaModelException, Exception {
 	ArrayList<String> exportedPackagesList = new ArrayList<String>();
@@ -104,6 +122,5 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	}
     return exportedPackagesList;
 }
-
-
+	
 }

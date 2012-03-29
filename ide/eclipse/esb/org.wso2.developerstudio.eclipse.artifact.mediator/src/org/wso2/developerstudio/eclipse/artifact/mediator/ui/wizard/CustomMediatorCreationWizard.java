@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.mediator.ui.wizard;
 
 import java.io.File;
@@ -24,6 +40,9 @@ import org.wso2.developerstudio.eclipse.artifact.mediator.model.CustomMediatorMo
 import org.wso2.developerstudio.eclipse.artifact.mediator.template.CustomMediatorClassTemplate;
 import org.wso2.developerstudio.eclipse.artifact.mediator.utils.MediatorImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.Activator;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
@@ -35,7 +54,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWizard {
     private  CustomMediatorModel customMediatorModel;
     private  IProject project;
-//	private  IDeveloperStudioLog log;
+    private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
     public CustomMediatorCreationWizard(){
      setCustomMediatorModel(new CustomMediatorModel());
@@ -56,7 +75,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 				    			  "1.0.0"));
 					      getModel().setProjectName(temp.getName());
 					} catch (Exception e) {
-						//log.error("project update fail",e);
+						log.error("project update fail",e);
 					}
 					}else{					    
 					   nextPage=null;
@@ -98,7 +117,9 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 				try {
 					IEditorPart javaEditor = JavaUI.openInEditor(cu);
 					JavaUI.revealInEditor(javaEditor, (IJavaElement) cu);
-				} catch (Exception e) { /* ignore */}
+				} catch (Exception e) {
+					log.error(e);
+				}
 			} else{
 		     project = customMediatorModel.getMediatorProject();
 		    // createExportPackages(JavaCore.create(project));
@@ -125,9 +146,9 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 			customMediatorModel.addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 	    } catch (CoreException e) {
-			e.printStackTrace();
+			 log.error(e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 		}
 		return true;
 	}
