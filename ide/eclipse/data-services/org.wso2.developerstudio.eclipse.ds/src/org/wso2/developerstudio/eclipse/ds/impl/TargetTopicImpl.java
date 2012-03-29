@@ -65,7 +65,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.TARGET_TOPIC;
 	}
@@ -97,7 +97,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.TARGET_TOPIC__VALUE:
@@ -112,7 +112,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.TARGET_TOPIC__VALUE:
@@ -128,7 +128,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.TARGET_TOPIC__VALUE:
@@ -144,7 +144,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.TARGET_TOPIC__VALUE:
@@ -159,7 +159,7 @@ public class TargetTopicImpl extends EObjectImpl implements TargetTopic {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -194,7 +194,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.RESULT_MAPPING;
 	}
@@ -346,7 +346,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__ELEMENT:
@@ -365,7 +365,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__ELEMENT:
@@ -394,7 +394,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -435,7 +435,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__ELEMENT:
@@ -472,7 +472,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__ELEMENT:
@@ -501,7 +501,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

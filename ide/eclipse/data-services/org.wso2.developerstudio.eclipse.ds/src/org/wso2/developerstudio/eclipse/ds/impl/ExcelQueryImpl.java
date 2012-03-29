@@ -96,7 +96,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.EXCEL_QUERY;
 	}
@@ -279,7 +279,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
@@ -300,7 +300,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
@@ -321,7 +321,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
@@ -346,7 +346,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
@@ -371,7 +371,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:

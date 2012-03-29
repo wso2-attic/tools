@@ -60,7 +60,7 @@ public class DoubleRangeValidatorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -133,7 +133,7 @@ public class DoubleRangeValidatorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String getText(Object object) {
 		DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator)object;
 		return getString("_UI_DoubleRangeValidator_type") + " " + doubleRangeValidator.getMaximum();
@@ -147,7 +147,7 @@ public class DoubleRangeValidatorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -168,7 +168,7 @@ public class DoubleRangeValidatorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -180,7 +180,7 @@ public class DoubleRangeValidatorItemProvider
 	 * @generated
 	 */
 	
-	@Override
+	
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

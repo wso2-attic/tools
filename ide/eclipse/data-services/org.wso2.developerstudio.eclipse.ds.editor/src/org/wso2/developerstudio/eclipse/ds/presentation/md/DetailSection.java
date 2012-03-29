@@ -596,11 +596,24 @@ public class DetailSection {
 				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_USE_CONFIG)){
+									
+					EList<DataSourceConfiguration> configList = dataService.getConfig();
 					
+					DataSourceConfiguration [] confArr = (DataSourceConfiguration [])configList.toArray();
+					
+					String [] displayValues = new String [confArr.length];
+					
+					for(int j = 0;j< configList.size() ; j++){
+						
+						configList.get(j).getId();
+						displayValues[j] = confArr[j].getId();
+						
+					}
+										
 					labelMaker(displayName);
-					
-					sectionUtil.getAttributeField(detailsclient, toolkit, query, query.getUseConfig(),
-							DsPackage.eINSTANCE.getQuery_UseConfig(), DetailSectionCustomUiConstants.STRING);
+					sectionUtil.getCustomComboField(detailsclient, toolkit, query, query.getUseConfig(),
+							DsPackage.eINSTANCE.getQuery_UseConfig(),displayValues);
+
 					labelMaker("");
 					labelMaker("");
 					

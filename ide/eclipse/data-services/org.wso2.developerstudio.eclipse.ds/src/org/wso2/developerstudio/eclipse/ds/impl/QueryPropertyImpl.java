@@ -86,7 +86,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY_PROPERTY;
 	}
@@ -139,7 +139,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY__VALUE:
@@ -156,7 +156,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY__VALUE:
@@ -175,7 +175,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY__VALUE:
@@ -194,7 +194,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY__VALUE:
@@ -211,7 +211,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

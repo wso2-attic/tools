@@ -65,7 +65,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.DESCRIPTION;
 	}
@@ -97,7 +97,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.DESCRIPTION__VALUE:
@@ -112,7 +112,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.DESCRIPTION__VALUE:
@@ -128,7 +128,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.DESCRIPTION__VALUE:
@@ -144,7 +144,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.DESCRIPTION__VALUE:
@@ -159,7 +159,7 @@ public class DescriptionImpl extends EObjectImpl implements Description {
 	 * @generated
 	 */
 	
-	@Override
+	
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
