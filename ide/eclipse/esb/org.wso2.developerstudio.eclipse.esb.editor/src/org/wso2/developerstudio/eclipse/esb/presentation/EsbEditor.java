@@ -2131,7 +2131,6 @@ public class EsbEditor extends MultiPageEditorPart implements
 		
 		 addPropertyListener(new IPropertyListener() {
 				
-				@Override
 				public void propertyChanged(Object arg0, int arg1) {
 				
 					setFocus();
