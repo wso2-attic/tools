@@ -296,7 +296,6 @@ public class DetailSection {
 			
 			for(int i = 0;i< queryList.size();i++){
 				
-				queryList.get(i).getId();
 				displayValues [i] = q[i].getId();
 			}
 			
@@ -605,7 +604,6 @@ public class DetailSection {
 					
 					for(int j = 0;j< configList.size() ; j++){
 						
-						configList.get(j).getId();
 						displayValues[j] = confArr[j].getId();
 						
 					}

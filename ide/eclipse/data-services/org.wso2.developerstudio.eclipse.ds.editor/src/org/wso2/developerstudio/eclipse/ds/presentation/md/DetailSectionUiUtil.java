@@ -55,15 +55,18 @@ public class DetailSectionUiUtil {
 		
 		for (int i= 0;i<displayValues.length;i++){
 			
+			if(displayValues[i] != null)
 			combo.add(displayValues[i],i);
 		}
 		if(initialValue != null){
 			
 			for(int j = 0 ; j<displayValues.length ;j++){
 				
-				if(initialValue.equals(displayValues[j])){
-					combo.select(j);
-					break;
+				if (displayValues[j] != null) {
+					if (initialValue.equals(displayValues[j])) {
+						combo.select(j);
+						break;
+					}
 				}
 			}
 		}
