@@ -1248,7 +1248,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 
 	private void doFieldValidation(String modelProperty) throws FieldValidationException {
 		FieldExecutor autoFeildValidator = fieldControllers.get(modelProperty);
-		autoFeildValidator.validate();
+		if(null!=autoFeildValidator){
+			autoFeildValidator.validate();
+		}
 	}
 
 	private void setSelectedItemLocation() {
