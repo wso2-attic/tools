@@ -28,7 +28,7 @@
 	</extension>
  <extension
        point="org.eclipse.ltk.core.refactoring.renameParticipants">
-              <renameParticipant
+       <renameParticipant
 			class="org.wso2.developerstudio.eclipse.general.project.refactor.RegistryResourceArtifactRenameParticipant"
 			id="RegistryResourceArtifactRenameParticipant"
 			name="RegistryResourceArtifactRename">
@@ -46,5 +46,26 @@
 					</and>
 				</enablement>
 		</renameParticipant>
+ </extension>
+ <extension
+       point="org.eclipse.ltk.core.refactoring.deleteParticipants">
+       <deleteParticipant
+			class="org.wso2.developerstudio.eclipse.general.project.refactor.RegistryArtifactMetadataDeleteParticipant"
+			id="RegistryResourceArtifactMetaDataDeleteParticipant"
+			name="RegistryResourceArtifactMetaDataDeleteParticipantRefactor">
+				<enablement>
+					<and>
+							<instanceof
+								value="org.eclipse.core.resources.IResource">
+							</instanceof>
+						<adapt type="org.eclipse.core.resources.IResource">
+             				<test
+                   				property="org.eclipse.core.resources.projectNature"
+                   				value="org.wso2.developerstudio.eclipse.general.project.nature">
+             				</test>
+         				</adapt>
+					</and>
+				</enablement>
+		</deleteParticipant>
  </extension>
 </plugin>

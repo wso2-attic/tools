@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.esb.project.refactoring.delete;
+package org.wso2.developerstudio.eclipse.general.project.refactor;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
-import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.general.project.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -30,16 +31,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ESBMetaDataFileDeleteChange extends TextFileChange {
+public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 	IDeveloperStudioLog log= Logger.getLog(Activator.PLUGIN_ID);
 	
 	private IFile metaDataFile;
-	private IFile originalFile;
+	private IResource originalResource;
 
-	public ESBMetaDataFileDeleteChange(String name, IFile file, IFile originalFile) {
+	public RegistryMetadataFileDeleteChange(String name, IFile file, IResource originalResource) {
 		super(name, file);
 		metaDataFile = file;
-		this.originalFile = originalFile;
+		this.originalResource = originalResource;
 
 		addTextEdits();
 	}
@@ -75,9 +76,9 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange {
 		                                                                      .toFile()));
 		String line = reader.readLine();
 		String fileName =
-		                  originalFile.getName().substring(0,
-		                                                   originalFile.getName().length() -
-		                                                       originalFile.getFileExtension()
+		                  originalResource.getName().substring(0,
+		                                                   originalResource.getName().length() -
+		                                                       originalResource.getFileExtension()
 		                                                                   .length() - 1);
 		while (line != null) {
 			if (!isArtifacts && line.contains(artifactsStart)) {
@@ -132,5 +133,4 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange {
 		// Here we need to add one to represent the newline character
 		return line.length() + 1;
 	}
-
 }
