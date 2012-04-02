@@ -139,7 +139,7 @@ permissions and ~ limitations under the License.
 		<p>
 		To select the needed <strong>WSO2 ESB</strong> version, go to <strong>Window -> Preferences</strong>
 		 page. Select <strong>ESB</strong> category from <strong>Developer Studio</strong> section. Then 
-		 you can select needed version as you wish. By default <strong>WSO2 ESB 3.0.1</strong> 
+		 you can select needed version as you wish. By default <strong>WSO2 ESB 4.0.0</strong> 
 		 version will be set. 
 		</p>
 		<p>
@@ -150,13 +150,11 @@ permissions and ~ limitations under the License.
 		
 		<br></br>
 		<p>
-		If you select ESB version as <strong>4.0.0</strong> and create a sequence, you will see 
-		all the new and modified mediators will appear. 
+		Now when you create a sequence, you will see all the new and modified mediators will appear. 
 		</p>
-		
 		<p>
 			<br></br>
-			<img alt="New Server Runtime" src="images/esb-version-support3.png"></img>
+			<img alt="New Server Runtime" src="images/esb-version-support2.png"></img>
 			<br></br>
 		</p>
 		
@@ -165,13 +163,11 @@ permissions and ~ limitations under the License.
 		If you set back the version to <strong>3.0.1</strong>, you will see those mediators will 
 		disappear. 	
 		</p>
-		
 		<p>
 			<br></br>
-			<img alt="New Server Runtime" src="images/esb-version-support2.png"></img>
+			<img alt="New Server Runtime" src="images/esb-version-support3.png"></img>
 			<br></br>
 		</p>
-		
 		<br></br>
 		<p>
 		If you want to apply the version change to already created ESB configuration, you have to 
