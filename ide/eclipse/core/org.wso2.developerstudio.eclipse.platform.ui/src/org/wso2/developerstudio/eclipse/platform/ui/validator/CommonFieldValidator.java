@@ -19,7 +19,7 @@ package org.wso2.developerstudio.eclipse.platform.ui.validator;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
-import org.apache.commons.validator.UrlValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 
 public class CommonFieldValidator {
 
@@ -72,8 +72,8 @@ public static void validateProjectField(Object value) throws FieldValidationExce
 
 public static void isValidUrl(String url,String field) throws FieldValidationException{
 	if(url.contains(":")){
-		if(url.startsWith("http:") || url.startsWith("https:")){
-			UrlValidator urlValidator = new UrlValidator();
+		if(url.startsWith("http:") || url.startsWith("https:") || url.startsWith("ftp:")){
+			UrlValidator urlValidator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 			if(!urlValidator.isValid(url)){
 				throw new FieldValidationException( field + ": Invalid URL provided");
 			}
