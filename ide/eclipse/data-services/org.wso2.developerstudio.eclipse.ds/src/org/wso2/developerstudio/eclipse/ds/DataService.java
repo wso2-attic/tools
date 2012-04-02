@@ -316,7 +316,7 @@ public interface DataService extends EObject {
 	 * @see #setServiceNamespace(String)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_ServiceNamespace()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name=' serviceNamespace' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='attribute' name='serviceNamespace' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getServiceNamespace();

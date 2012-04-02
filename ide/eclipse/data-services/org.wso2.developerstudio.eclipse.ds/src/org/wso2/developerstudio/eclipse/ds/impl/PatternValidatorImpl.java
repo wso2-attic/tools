@@ -66,6 +66,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.PATTERN_VALIDATOR;
 	}
@@ -98,6 +99,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.PATTERN_VALIDATOR__PATTERN:
@@ -113,6 +115,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.PATTERN_VALIDATOR__PATTERN:
@@ -129,6 +132,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.PATTERN_VALIDATOR__PATTERN:
@@ -145,6 +149,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.PATTERN_VALIDATOR__PATTERN:
@@ -160,6 +165,7 @@ public class PatternValidatorImpl extends EObjectImpl implements PatternValidato
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

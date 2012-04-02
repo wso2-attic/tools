@@ -58,6 +58,7 @@ public class DsResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	
 	
+	@Override
 	public Resource createResource(URI uri) {
 		XMLResource result = new DsResourceImpl(uri);
 		result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetaData);

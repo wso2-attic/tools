@@ -66,6 +66,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.EXPRESSION;
 	}
@@ -98,6 +99,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.EXPRESSION__VALUE:
@@ -113,6 +115,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.EXPRESSION__VALUE:
@@ -129,6 +132,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EXPRESSION__VALUE:
@@ -145,6 +149,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EXPRESSION__VALUE:
@@ -160,6 +165,7 @@ public class ExpressionImpl extends EObjectImpl implements Expression {
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

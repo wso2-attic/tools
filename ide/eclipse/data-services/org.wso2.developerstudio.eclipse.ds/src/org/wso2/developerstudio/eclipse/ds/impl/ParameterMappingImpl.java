@@ -108,6 +108,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.PARAMETER_MAPPING;
 	}
@@ -182,6 +183,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.PARAMETER_MAPPING__COLUMN:
@@ -201,6 +203,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.PARAMETER_MAPPING__COLUMN:
@@ -223,6 +226,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.PARAMETER_MAPPING__COLUMN:
@@ -245,6 +249,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.PARAMETER_MAPPING__COLUMN:
@@ -264,6 +269,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

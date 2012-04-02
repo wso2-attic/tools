@@ -134,6 +134,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.OPERATION;
 	}
@@ -294,6 +295,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -311,6 +313,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -334,6 +337,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -362,6 +366,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -390,6 +395,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.OPERATION__CALL_QUERY:
@@ -413,6 +419,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

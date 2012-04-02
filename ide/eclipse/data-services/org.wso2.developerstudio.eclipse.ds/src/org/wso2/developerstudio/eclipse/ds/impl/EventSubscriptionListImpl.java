@@ -68,6 +68,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.EVENT_SUBSCRIPTION_LIST;
 	}
@@ -91,6 +92,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 */
 	
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
@@ -106,6 +108,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
@@ -120,6 +123,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	
 	public void eSet(int featureID, Object newValue) {
@@ -139,6 +143,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
@@ -155,6 +160,7 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:

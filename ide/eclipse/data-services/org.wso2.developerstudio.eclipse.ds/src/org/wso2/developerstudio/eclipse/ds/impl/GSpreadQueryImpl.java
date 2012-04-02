@@ -97,6 +97,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.GSPREAD_QUERY;
 	}
@@ -280,6 +281,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
@@ -301,6 +303,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
@@ -322,6 +325,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
@@ -347,6 +351,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:
@@ -372,6 +377,7 @@ public class GSpreadQueryImpl extends EObjectImpl implements GSpreadQuery {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.GSPREAD_QUERY__WORKSHEETNUMBER:

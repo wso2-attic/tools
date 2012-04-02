@@ -66,6 +66,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.STARTING_ROW;
 	}
@@ -98,6 +99,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.STARTING_ROW__VALUE:
@@ -113,6 +115,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.STARTING_ROW__VALUE:
@@ -129,6 +132,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.STARTING_ROW__VALUE:
@@ -145,6 +149,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.STARTING_ROW__VALUE:
@@ -160,6 +165,7 @@ public class StartingRowImpl extends EObjectImpl implements StartingRow {
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

@@ -2531,7 +2531,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
-			 "name", " serviceNamespace",
+			 "name", "serviceNamespace",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

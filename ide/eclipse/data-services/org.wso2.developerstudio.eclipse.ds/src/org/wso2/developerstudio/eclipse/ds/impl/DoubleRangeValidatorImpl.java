@@ -87,6 +87,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.DOUBLE_RANGE_VALIDATOR;
 	}
@@ -140,6 +141,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.DOUBLE_RANGE_VALIDATOR__MAXIMUM:
@@ -157,6 +159,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.DOUBLE_RANGE_VALIDATOR__MAXIMUM:
@@ -176,6 +179,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.DOUBLE_RANGE_VALIDATOR__MAXIMUM:
@@ -195,6 +199,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.DOUBLE_RANGE_VALIDATOR__MAXIMUM:
@@ -212,6 +217,7 @@ public class DoubleRangeValidatorImpl extends EObjectImpl implements DoubleRange
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

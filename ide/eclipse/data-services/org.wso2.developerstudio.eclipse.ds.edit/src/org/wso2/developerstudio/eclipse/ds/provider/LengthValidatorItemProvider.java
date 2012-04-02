@@ -63,6 +63,7 @@ public class LengthValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -136,6 +137,7 @@ public class LengthValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public String getText(Object object) {
 		LengthValidator lengthValidator = (LengthValidator)object;
 		return getString("_UI_LengthValidator_type") + " " + lengthValidator.getMaximum();
@@ -150,6 +152,7 @@ public class LengthValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -171,6 +174,7 @@ public class LengthValidatorItemProvider
 	 */
 	
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -183,6 +187,7 @@ public class LengthValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

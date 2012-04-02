@@ -66,6 +66,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.SPARQL;
 	}
@@ -98,6 +99,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.SPARQL__VALUE:
@@ -113,6 +115,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.SPARQL__VALUE:
@@ -129,6 +132,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.SPARQL__VALUE:
@@ -145,6 +149,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.SPARQL__VALUE:
@@ -160,6 +165,7 @@ public class SparqlImpl extends EObjectImpl implements Sparql {
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

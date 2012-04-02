@@ -163,6 +163,7 @@ public class QueryPropertyItemProvider
 	 */
 	
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -184,6 +185,7 @@ public class QueryPropertyItemProvider
 	 */
 	
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -196,6 +198,7 @@ public class QueryPropertyItemProvider
 	 */
 	
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

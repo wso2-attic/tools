@@ -61,6 +61,7 @@ public class WorkBookNameItemProvider
 	 */
 	
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -100,6 +101,7 @@ public class WorkBookNameItemProvider
 	 */
 	
 	
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/WorkBookName"));
 	}
@@ -127,6 +129,7 @@ public class WorkBookNameItemProvider
 	 */
 	
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -147,6 +150,7 @@ public class WorkBookNameItemProvider
 	 */
 	
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -159,6 +163,7 @@ public class WorkBookNameItemProvider
 	 */
 	
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

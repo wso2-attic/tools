@@ -61,6 +61,7 @@ public class WorkSheetNumberItemProvider
 	 */
 	
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -100,6 +101,7 @@ public class WorkSheetNumberItemProvider
 	 */
 	
 	
+	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/WorkSheetNumber"));
 	}
@@ -128,6 +130,7 @@ public class WorkSheetNumberItemProvider
 	 */
 	
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -148,6 +151,7 @@ public class WorkSheetNumberItemProvider
 	 */
 	
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -160,6 +164,7 @@ public class WorkSheetNumberItemProvider
 	 */
 	
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

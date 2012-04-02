@@ -61,6 +61,7 @@ public class CustomValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
@@ -111,6 +112,7 @@ public class CustomValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public String getText(Object object) {
 		String label = ((CustomValidator)object).getClass_();
 		return label == null || label.length() == 0 ?
@@ -127,6 +129,7 @@ public class CustomValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
@@ -147,6 +150,7 @@ public class CustomValidatorItemProvider
 	 */
 	
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
@@ -159,6 +163,7 @@ public class CustomValidatorItemProvider
 	 */
 	
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
 		return DsEditPlugin.INSTANCE;
 	}

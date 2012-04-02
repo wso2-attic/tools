@@ -101,6 +101,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.RESOURCE;
 	}
@@ -197,6 +198,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__CALL_QUERY:
@@ -212,6 +214,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__CALL_QUERY:
@@ -231,6 +234,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__CALL_QUERY:
@@ -253,6 +257,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__CALL_QUERY:
@@ -275,6 +280,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__CALL_QUERY:
@@ -294,6 +300,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	
 	
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
