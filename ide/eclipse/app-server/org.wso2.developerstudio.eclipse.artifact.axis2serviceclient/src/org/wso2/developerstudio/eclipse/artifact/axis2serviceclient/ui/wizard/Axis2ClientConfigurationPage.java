@@ -27,7 +27,7 @@ import javax.wsdl.Definition;
 import javax.xml.namespace.QName;
 
 import org.apache.axis2.util.URLProcessor;
-import org.apache.commons.validator.UrlValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.woden.types.NCName;
 import org.apache.woden.types.NamespaceDeclaration;
 import org.apache.woden.wsdl20.Description;

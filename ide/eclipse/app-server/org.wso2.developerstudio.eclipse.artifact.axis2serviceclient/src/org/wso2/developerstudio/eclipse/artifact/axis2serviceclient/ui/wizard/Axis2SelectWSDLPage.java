@@ -16,7 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.ui.wizard;
 
-import org.apache.commons.validator.UrlValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -274,7 +274,7 @@ public class Axis2SelectWSDLPage extends WizardPage {
 
 		txtOnlineWSDLUri.addListener(SWT.Modify, new Listener() {
 
-			UrlValidator urlValidator = new UrlValidator();
+			UrlValidator urlValidator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
 			public void handleEvent(Event arg0) {
 				if (urlValidator.isValid(txtOnlineWSDLUri.getText())) {

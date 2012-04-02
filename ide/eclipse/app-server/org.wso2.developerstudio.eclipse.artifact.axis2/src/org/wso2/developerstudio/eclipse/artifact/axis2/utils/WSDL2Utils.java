@@ -25,7 +25,7 @@ import java.util.List;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.commons.validator.UrlValidator;
+import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.woden.WSDLFactory;
 import org.apache.woden.WSDLReader;
 import org.apache.woden.wsdl20.Description;
@@ -46,7 +46,7 @@ public class WSDL2Utils {
 	 */
 	public static int getWSDLVersion(String wsdlUrl) throws Exception {
 		InputStream stream = null;
-		if (new UrlValidator().isValid(wsdlUrl)) {
+		if (new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS).isValid(wsdlUrl)) {
 			stream = (new URL(wsdlUrl)).openStream();
 		} else {
 			stream = new FileInputStream(wsdlUrl);

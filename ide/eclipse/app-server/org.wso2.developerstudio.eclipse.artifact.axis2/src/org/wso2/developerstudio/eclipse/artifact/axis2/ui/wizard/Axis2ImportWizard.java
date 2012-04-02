@@ -57,7 +57,7 @@ public class Axis2ImportWizard extends Wizard implements INewWizard{
 	}
 	
 	public void addPages() {
-		configurationPage = new Axis2ConfigurationPage("import wsdl paage", dataModel);
+		configurationPage = new Axis2ConfigurationPage("import wsdl page", dataModel);
 		axisImportWizardPage = new Axis2ImportWizardPage(dataModel,configurationPage);
 		addPage(axisImportWizardPage);
 		addPage(configurationPage);
