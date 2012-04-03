@@ -67,6 +67,7 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange {
 		boolean isArtifact = false;
 		boolean isArtifacts = false;
 		boolean isArtifactMatch = false;
+		boolean isArtifactLine=false;
 
 		int fullIndex = 0;
 		int startIndex = 0;
@@ -89,11 +90,14 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange {
 			}
 
 			if (isArtifacts) {
+				isArtifactLine=false;
 				if (!isArtifact && line.trim().startsWith(artifactStart)) {
-					startIndex = fullIndex + line.indexOf(artifactStart);
+					int artifactTagIndex = line.indexOf(artifactStart);
+					startIndex = fullIndex + artifactTagIndex;
 					if (line.contains(nameProperty + fileName + "\"")) {
 						isArtifact = true;
-						artifactEntry.add(line);
+						artifactEntry.add(line.substring(artifactTagIndex));
+						isArtifactLine=true;
 					} else {
 						isArtifact = false;
 						artifactEntry.clear();
@@ -102,7 +106,7 @@ public class ESBMetaDataFileDeleteChange extends TextFileChange {
 				}
 
 				if (isArtifact) {
-					if (!artifactEntry.contains(line)) {
+					if (!isArtifactLine && !artifactEntry.contains(line)) {
 						artifactEntry.add(line);
 					}
 					if (line.trim().startsWith(artifactEnd)) {
