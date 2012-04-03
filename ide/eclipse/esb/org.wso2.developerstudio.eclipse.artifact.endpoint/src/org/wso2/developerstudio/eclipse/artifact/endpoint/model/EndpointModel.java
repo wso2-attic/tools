@@ -53,7 +53,7 @@ public class EndpointModel extends ProjectDataModel {
 	private ArtifactTemplate selectedTemplate;
 	private boolean saveAsDynamic = false;
 	private String registryPathID = "2";
-	private String dynamicEpRegistryPath;
+	private String dynamicEpRegistryPath= new String();
 	private List<OMElement> availableEPList;
 	private IContainer endpointSaveLocation;
 	private String epName;
