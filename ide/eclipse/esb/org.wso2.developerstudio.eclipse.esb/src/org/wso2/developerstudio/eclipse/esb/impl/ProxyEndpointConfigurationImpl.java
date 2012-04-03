@@ -58,7 +58,8 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
      * @generated
      * @ordered
      */
-	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.ANONYMOUS;
+//	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.ANONYMOUS;
+	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.NONE;
 	/**
      * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
      * <!-- begin-user-doc -->
