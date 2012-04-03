@@ -13,6 +13,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
@@ -43,13 +44,20 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 	
 	public boolean performFinish() {
 		try {
-			project = createNewProject();
 			File openFile =null;
 			if (getModel().getSelectedOption().equals("import.dsproject")) {
+				IProject exproject = ResourcesPlugin.getWorkspace().getRoot().getProject(dsModel.getProjectName());
+				if(exproject.exists()){
+					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+						return false;	
+					}
+				} 
+				project = createNewProject();
 				openFile = copyImportFile(project);
 			}
 
 			if (getModel().getSelectedOption().equals("new.dsproject")) {
+				project = createNewProject();
 				openFile = addDSTemplate(project);
 			}
 
