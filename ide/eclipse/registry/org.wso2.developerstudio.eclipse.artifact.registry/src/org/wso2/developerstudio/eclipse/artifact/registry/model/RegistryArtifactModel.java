@@ -101,7 +101,12 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		} else if(key.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)){
 			if (data != null) {
 				File importFile = new File(data.toString());
-				setResourceName(importFile.getName().substring(0,importFile.getName().lastIndexOf(".")));
+				int fileExtensionIndex = importFile.getName().lastIndexOf(".");
+				if (fileExtensionIndex != -1) {
+	                setResourceName(importFile.getName().substring(0, fileExtensionIndex));
+                }else{
+                	setResourceName(importFile.getName());
+                }
 			}
 		}
 		
