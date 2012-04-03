@@ -431,19 +431,30 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 		Element targetElem = createChildElement(self, "target");
 		
 		// In sequence.
-		getInSequenceConfiguration().save(targetElem);
+		if(getInSequenceConfiguration()!=null){
+			getInSequenceConfiguration().save(targetElem);
+		}
 		
 		// Endpoint.
-		getEndpointConfiguration().save(targetElem);
+		if(getEndpointConfiguration()!=null){
+			getEndpointConfiguration().save(targetElem);
+		}
+		
 		
 		// Out sequence.
-		getOutSequenceConfiguration().save(targetElem);
+		if(getOutSequenceConfiguration()!=null){
+			getOutSequenceConfiguration().save(targetElem);
+		}
 		
 		// Fault sequence.
-		getFaultSequenceConfiguration().save(targetElem);				
+		if(getFaultSequenceConfiguration()!=null){
+			getFaultSequenceConfiguration().save(targetElem);
+		}				
 		
-		// WSLD.
-		getWsdlConfiguration().save(self);		
+		// WSDL.
+		if(getWsdlConfiguration()!=null){
+			getWsdlConfiguration().save(self);
+		}
 		
 		// Service policies.
 		for (ProxyServicePolicy policy : getServicePolicies()) {
