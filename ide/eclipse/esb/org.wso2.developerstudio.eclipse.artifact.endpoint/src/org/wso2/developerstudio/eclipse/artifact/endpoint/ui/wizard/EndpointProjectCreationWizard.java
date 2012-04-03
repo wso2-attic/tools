@@ -40,6 +40,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
@@ -96,7 +97,9 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			if(epModel.isSaveAsDynamic()){
 				createDynamicEndpointArtifact(project,epModel);
 			} else{
-				createEndpointArtifact(project,epModel);
+				if(!createEndpointArtifact(project,epModel)){
+					 return false;
+				 }
 			}
 			
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -114,7 +117,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		return true;
 	}
 	
-	private void createEndpointArtifact(IProject prj, EndpointModel model)
+	private boolean createEndpointArtifact(IProject prj, EndpointModel model)
 			throws Exception {
 		String templateContent = "";
 		String template = "";
@@ -129,6 +132,12 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 		if (getModel().getSelectedOption().equals(
 				EpArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
+			endpointFile = location.getFile(new Path(getModel().getImportFile().getName()));
+			if(endpointFile.exists()){
+				if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+					return false;	
+				}
+			} 	
 			copyImportFile(location);
 		} else {
 			ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
@@ -180,6 +189,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				new NullProgressMonitor());
 
 		esbProjectArtifact.toFile();
+		return true;
 	}
 	
 	private void createDynamicEndpointArtifact(IContainer location,EndpointModel model) throws Exception{

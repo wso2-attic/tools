@@ -39,6 +39,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
@@ -94,7 +95,9 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			if(seqModel.isSaveAsDynamic()){
 				createDynamicSequenceArtifact(project,seqModel);
 			} else{
-				createSequenceArtifact(project,seqModel);
+				if(!createSequenceArtifact(project,seqModel)){
+					return false;
+				}
 			}
 			
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -158,7 +161,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	private void createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
+	private boolean createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
 
 		IContainer location = project.getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
@@ -170,6 +173,12 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				.getLocation().toFile());
 
 		if (getModel().getSelectedOption().equals("import.sequence")) {
+			IFile sequence = location.getFile(new Path(getModel().getImportFile().getName()));
+			if(sequence.exists()){
+				if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+					return false;	
+				}
+			} 	
 			copyImportFile(location);
 		} else {
 			// Map<String,List<String>> filters=new HashMap<String,List<String>>
@@ -206,6 +215,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 		updatePom();
 		esbProjectArtifact.toFile();
+		return true;
 	}
 	
 	private void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{

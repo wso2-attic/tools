@@ -38,6 +38,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
@@ -91,7 +92,13 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
 			
 			if (getModel().getSelectedOption().equals(LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
-					copyImportFile(location);
+				localEntryFile = location.getFile(new Path(getModel().getImportFile().getName()));
+				if(localEntryFile.exists()){
+					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+						return false;	
+					}
+				} 	
+				copyImportFile(location);
 				
 			} else {
 				File localEntryFile = new File(location.getLocation().toFile(),leModel.getLocalENtryName() + ".xml");

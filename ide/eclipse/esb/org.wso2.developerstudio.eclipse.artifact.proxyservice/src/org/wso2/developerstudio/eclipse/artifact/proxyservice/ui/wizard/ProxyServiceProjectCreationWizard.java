@@ -39,6 +39,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
@@ -92,6 +93,12 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
 			
 			if (getModel().getSelectedOption().equals(PsArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
+				proxyServiceFile = location.getFile(new Path(getModel().getImportFile().getName()));
+				if(proxyServiceFile.exists()){
+					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+						return false;	
+					}
+				} 
 				copyImportFile(location);
 			} else {
 				ArtifactTemplate selectedTemplate = psModel.getSelectedTemplate();
