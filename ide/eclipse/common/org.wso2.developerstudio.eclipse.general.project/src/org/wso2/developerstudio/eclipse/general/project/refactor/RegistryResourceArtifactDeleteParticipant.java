@@ -20,6 +20,7 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -39,12 +40,12 @@ import java.util.List;
 public class RegistryResourceArtifactDeleteParticipant extends DeleteParticipant{
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
-	private IFile originalFile;
+	private IResource originalResource;
 
 	@Override
     public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
                                                                                                 throws OperationCanceledException {
-	    return RefactoringStatus.createWarningStatus("You are about to delete an Registry Resource Artifact");
+	    return RefactoringStatus.createWarningStatus("You are about to delete a Registry Resource Artifact");
     }
 
 	@Override
@@ -60,9 +61,18 @@ public class RegistryResourceArtifactDeleteParticipant extends DeleteParticipant
 	        	try {
 					IFile pomFile = project.getFile("pom.xml");
 					MavenProject mavenProject = RefactorUtils.getMavenProject(project);
-					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalFile.getProject());
-					projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
-					
+					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalResource.getProject());
+					if (originalResource instanceof IFile) {
+	                    projectDependency.setArtifactId(originalResource.getName()
+	                                                                    .substring(0,
+	                                                                               originalResource.getName()
+	                                                                                               .length() -
+	                                                                                   originalResource.getFileExtension()
+	                                                                                                   .length() -
+	                                                                                   1));
+                    }else{
+                    	projectDependency.setArtifactId(originalResource.getName());
+                    }
 					List<?> dependencies = mavenProject.getDependencies();
 					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
 						Dependency dependency = (Dependency) iterator.next();
@@ -86,8 +96,8 @@ public class RegistryResourceArtifactDeleteParticipant extends DeleteParticipant
 
 	@Override
     protected boolean initialize(Object arg0) {
-		if (arg0 instanceof IFile) {
-			originalFile = (IFile) arg0;
+		if (arg0 instanceof IResource) {
+			originalResource = (IResource) arg0;
 			return true;
 		}
 		return false;
