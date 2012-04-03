@@ -21,7 +21,7 @@ public interface DSActionConstants {
 
 	// Actions
 
-	public String ADD_DESCRIPTION_ACTION= "ADD_Description";
+	public String ADD_DESCRIPTION_ACTION= "Add Description";
 	
 	public String ADD_DATASOURCE_ACTION = "Add DataSource";
 
@@ -33,9 +33,9 @@ public interface DSActionConstants {
 
 	public String ADD_RESOURCE_ACTION = "Add Resource";
 	
-	public String ADD_SQL_ACTION ="Add Sql Action";
+	public String ADD_SQL_ACTION ="Add Sql";
 	
-	public String ADD_SPARQL_ACTION = "Add sparql Action";
+	public String ADD_SPARQL_ACTION = "Add Sparql";
 
 	public String ADD_RESULT_ACTION = "Add Result";
 

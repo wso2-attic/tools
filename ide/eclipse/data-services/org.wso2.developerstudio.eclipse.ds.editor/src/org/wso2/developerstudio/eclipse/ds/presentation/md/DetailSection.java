@@ -259,21 +259,24 @@ public class DetailSection {
 			eventTriggerObejecConfigurator(eventTirg);
 			
 		}else if(input instanceof Expression){
-			
+			labelMaker("");
+			labelMaker("");
 			Expression expr = (Expression)input;
 			labelMaker(DetailSectionCustomUiConstants.EVENT_TRIGGER_EXPRESSION);
 			sectionUtil.getAttributeField(detailsclient, toolkit, expr, expr.getValue(),
 					DsPackage.eINSTANCE.getExpression_Value(),DetailSectionCustomUiConstants.STRING);
 			
 		}else if(input instanceof TargetTopic){
-			
+			labelMaker("");
+			labelMaker("");
 			TargetTopic ttpic = (TargetTopic)input;
 			labelMaker(DetailSectionCustomUiConstants.EVENT_TRIGGER_TARGET_TOPIC);
 			sectionUtil.getAttributeField(detailsclient, toolkit, ttpic, ttpic.getValue(), 
 					DsPackage.eINSTANCE.getTargetTopic_Value(),DetailSectionCustomUiConstants.STRING);
 			
 		}else if(input instanceof Subscription){
-			
+			labelMaker("");
+			labelMaker("");
 			Subscription subscription = (Subscription)input;
 			labelMaker(DetailSectionCustomUiConstants.EVENT_TRIGGER_SUBSCRIPTION);
 			sectionUtil.getAttributeField(detailsclient, toolkit, subscription, subscription.getValue(),
@@ -1185,6 +1188,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_COLUMN);
 					sectionUtil.getAttributeField(detailsclient, toolkit, paramMapping, paramMapping.getColumn(),
 							DsPackage.eINSTANCE.getParameterMapping_Column(),DetailSectionCustomUiConstants.STRING);
+					labelMaker("");
+					labelMaker("");
 				}
 			}
 		}
