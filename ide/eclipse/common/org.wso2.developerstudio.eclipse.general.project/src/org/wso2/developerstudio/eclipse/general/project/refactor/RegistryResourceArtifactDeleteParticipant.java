@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
+package org.wso2.developerstudio.eclipse.general.project.refactor;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -29,14 +29,14 @@ import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.DeleteParticipant;
-import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
+import org.wso2.developerstudio.eclipse.general.project.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
+public class RegistryResourceArtifactDeleteParticipant extends DeleteParticipant{
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	private IFile originalFile;
@@ -44,14 +44,14 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	@Override
     public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
                                                                                                 throws OperationCanceledException {
-	    return RefactoringStatus.createWarningStatus("You are about to delete an ESB Artifact");
+	    return RefactoringStatus.createWarningStatus("You are about to delete an Registry Resource Artifact");
     }
 
 	@Override
     public Change createPreChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
 		
-		CompositeChange deleteChange=new CompositeChange("Delete ESB Artifact");
+		CompositeChange deleteChange=new CompositeChange("Delete Registry Resource Artifact");
 		
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		
@@ -81,7 +81,7 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 
 	@Override
     public String getName() {
-	    return "ESB Artifact Deletion";
+	    return "Registry Resource Deletion";
     }
 
 	@Override
@@ -96,8 +96,6 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	@Override
     public Change createChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
-	    // TODO Auto-generated method stub
 	    return null;
     }
-
 }

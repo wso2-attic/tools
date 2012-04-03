@@ -67,5 +67,23 @@
 					</and>
 				</enablement>
 		</deleteParticipant>
+       <deleteParticipant
+			class="org.wso2.developerstudio.eclipse.general.project.refactor.RegistryResourceArtifactDeleteParticipant"
+			id="RegistryResiurceArtifactDeleteParticipant"
+			name="RegistryResiurceArtifactDeleteParticipantRefactor">
+				<enablement>
+					<and>
+							<instanceof
+								value="org.eclipse.core.resources.IResource">
+							</instanceof>
+						<adapt type="org.eclipse.core.resources.IResource">
+             				<test
+                   				property="org.eclipse.core.resources.projectNature"
+                   				value="org.wso2.developerstudio.eclipse.general.project.nature">
+             				</test>
+         				</adapt>
+					</and>
+				</enablement>
+		</deleteParticipant>
  </extension>
 </plugin>
