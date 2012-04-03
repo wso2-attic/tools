@@ -73,13 +73,13 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
 
+
 	public EndpointProjectCreationWizard() {
 		this.epModel = new EndpointModel();
 		setModel(this.epModel);
 		setWindowTitle(EpArtifactConstants.EP_WIZARD_WINDOW_TITLE);
 		setDefaultPageImageDescriptor(EndPointImageUtils.getInstance().getImageDescriptor("endpoint-wizard.png"));
 	}
-
 	
 	protected boolean isRequireProjectLocationSection() {
 		return false;
@@ -119,6 +119,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	
 	private boolean createEndpointArtifact(IProject prj, EndpointModel model)
 			throws Exception {
+	    boolean isNewArtifact=true;
 		String templateContent = "";
 		String template = "";
 		IContainer location = project.getFolder("src" + File.separator
@@ -137,8 +138,9 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
 					return false;	
 				}
+				isNewArtifact = false;
 			} 	
-			copyImportFile(location);
+			copyImportFile(location,isNewArtifact);
 		} else {
 			ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
 			templateContent = FileUtils.getContentAsString(selectedTemplate
@@ -164,6 +166,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			File destFile = endpointFile.getLocation().toFile();
 			FileUtils.createFile(destFile, template);
 			fileLst.add(destFile);
+					 
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(epModel.getEpName());
 			artifact.setVersion("1.0.0");
@@ -173,6 +176,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 					.toFile(), new File(location.getLocation().toFile(),
 					epModel.getEpName() + ".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
+ 
 		}
 
 		File pomfile = project.getFile("pom.xml").getLocation().toFile();
@@ -200,7 +204,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		String templateContent = "";
 		String template = "";
 		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
-
 		ArtifactTemplate selectedTemplate = epModel.getSelectedTemplate();
 		templateContent = FileUtils.getContentAsString(selectedTemplate
 				.getTemplateDataStream());
@@ -256,7 +259,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		}
 		generalProjectArtifact.addArtifact(artifact);
 		generalProjectArtifact.toFile();
-		
 		addGeneralProjectPlugin(project);
 	}
 	
@@ -363,7 +365,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	public void copyImportFile(IContainer importLocation) throws IOException {
+	public void copyImportFile(IContainer importLocation, boolean isNewArtifact) throws IOException {
 		File importFile = getModel().getImportFile();
 		EndpointModel endpointModel = (EndpointModel) getModel();
 		List<OMElement> selectedEPList = endpointModel.getSelectedEPList();
@@ -374,13 +376,10 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				destFile  = new File(importLocation.getLocation().toFile(), name + ".xml");
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(name);
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/endpoint");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);		
+				if(isNewArtifact){
+				String fileLocation = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml"));
+				esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name));
+				}
 			}
 			
 		}else{
@@ -388,17 +387,23 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$", "");
-			ESBArtifact artifact=new ESBArtifact();
-			artifact.setName(name);
-			artifact.setVersion("1.0.0");
-			artifact.setType("synapse/endpoint");
-			artifact.setServerRole("EnterpriseServiceBus");
-			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-			esbProjectArtifact.addESBArtifact(artifact);
+			if(isNewArtifact){
+			String fileLocation = FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml"));
+			esbProjectArtifact.addESBArtifact(createArtifactxml(fileLocation, name));
+			}
 		}
 	}
 
-	
+	private ESBArtifact createArtifactxml(String location, String artifactName) {
+		ESBArtifact artifact=new ESBArtifact();
+		artifact.setName(artifactName);
+		artifact.setVersion("1.0.0");
+		artifact.setType("synapse/endpoint");
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setFile(location);
+ 		return artifact;
+	}
+
 	public IResource getCreatedResource() {
 		return endpointFile;
 	}
