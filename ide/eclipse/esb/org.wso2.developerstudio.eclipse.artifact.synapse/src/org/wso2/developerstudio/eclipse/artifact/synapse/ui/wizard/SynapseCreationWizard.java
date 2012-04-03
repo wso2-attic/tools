@@ -107,18 +107,21 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 							synapseModel.getImportFile().getName());
 					FileUtils.copy(synapseModel.getImportFile(), synConfig);
 					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
-					createArtifactMetaDataEntry(synConfig.getName(), "synapse/configuration",
+					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
 					                            saveLocation.getLocation().toFile());
 				}
 			}
 			updatePom();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
-			if(MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor", "Do you like to open the file(s) in Developer Studio?")){
-				for (File file : fileList) {
-	                openEditor(file);
-                }
-			}
+			if (!fileList.isEmpty()) {
+	            if (MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor",
+	                                           "Do you like to open the file(s) in Developer Studio?")) {
+		            for (File file : fileList) {
+			            openEditor(file);
+		            }
+	            }
+            }
 		} catch (Exception e) {
 			log.error(e);
 		}
@@ -210,11 +213,14 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		artifact.setVersion("1.0.0");
 		artifact.setType(type);
 		artifact.setServerRole("EnterpriseServiceBus");
+		File destinationFile = new File(baseDir,
+                    name + ".xml");
 		artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(),
-			                                           new File(baseDir,
-			                                                    name + ".xml")));	
+			                                           destinationFile));	
 		esbProjectArtifact.addESBArtifact(artifact);
 		esbProjectArtifact.toFile();
+		
+		fileList.add(destinationFile);
 	}
 
 	public void setSynapseModel(SynapseModel customMediatorModel) {
