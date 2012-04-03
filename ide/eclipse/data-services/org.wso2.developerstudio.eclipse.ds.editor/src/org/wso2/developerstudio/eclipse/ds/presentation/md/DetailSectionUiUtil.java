@@ -354,7 +354,7 @@ public class DetailSectionUiUtil {
 				public void modifyText(ModifyEvent event) {
 					
 					String bigInt = ((StyledText) event.widget).getText();
-					if(isValidDoubleString(bigInt)){
+					if(isValidBigIntString(bigInt)){
 						
 						setBigIntAttribute(input,metaObject,bigInt);
 						controlDecoration.hide();
@@ -367,6 +367,30 @@ public class DetailSectionUiUtil {
 										
 				}
 			});
+		}else if(dataType.equals(DetailSectionCustomUiConstants.INTEGER)){
+			
+			dtxt.addModifyListener(new ModifyListener() {
+				
+				@Override
+				public void modifyText(ModifyEvent event) {
+					
+					String Int = ((StyledText)event.widget).getText();
+					if(isValidIntString(Int)){
+						
+						setIntegerAttribute(input, metaObject, Int);
+						controlDecoration.hide();
+						
+						}
+						else{
+						
+						controlDecoration.setDescriptionText("Please enter valid integer value");
+						controlDecoration.show();
+						
+						}
+					
+				}
+			});
+			
 		}
 		
  	}
@@ -426,6 +450,20 @@ public class DetailSectionUiUtil {
 		}
     }
     
+    private void setIntegerAttribute(Object input,EAttribute attributeRef,String text){
+    	
+    	Command setAttribCommand = SetCommand.create(editingDomain, input,
+    			attributeRef,new Integer(text) );
+    	if (setAttribCommand.canExecute()) {
+    			
+    		editingDomain.getCommandStack().execute(setAttribCommand);
+			
+		} else {
+			MessageDialog.openInformation(Display.getCurrent()
+					.getActiveShell(),"Problem Occurred!", "Can not modify "+attributeRef.getName());
+		}
+    }
+    
     private void setBooleanAttribute(Object input,EAttribute attributeRef,boolean isSet){
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef, new Boolean(isSet));
@@ -440,7 +478,7 @@ public class DetailSectionUiUtil {
     }
     
     
-    public static boolean isValidLongString(String text){
+    public boolean isValidLongString(String text){
 		
 		try{
 			
@@ -460,6 +498,34 @@ public class DetailSectionUiUtil {
 		try{
 			
 			new Double(text);
+			
+		}catch(NumberFormatException e){
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean isValidBigIntString(String text){
+		
+		try{
+			
+			new BigInteger(text);
+			
+		}catch(NumberFormatException e){
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean isValidIntString(String text){
+		
+		try{
+			
+			new Integer(text);
 			
 		}catch(NumberFormatException e){
 			
