@@ -109,6 +109,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
 					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
 					                            saveLocation.getLocation().toFile());
+					fileList.add(synConfig);
 				}
 			}
 			updatePom();
@@ -213,14 +214,11 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		artifact.setVersion("1.0.0");
 		artifact.setType(type);
 		artifact.setServerRole("EnterpriseServiceBus");
-		File destinationFile = new File(baseDir,
-                    name + ".xml");
 		artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(),
-			                                           destinationFile));	
+			                                           new File(baseDir,
+			                                                    name + ".xml")));	
 		esbProjectArtifact.addESBArtifact(artifact);
 		esbProjectArtifact.toFile();
-		
-		fileList.add(destinationFile);
 	}
 
 	public void setSynapseModel(SynapseModel customMediatorModel) {
@@ -286,7 +284,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					addPluginEntry("maven-proxy-plugin", MavenConstants.MAVEN_PROXY_SERVICE_VERSION);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir);
-				}else if (localName.equals("localentry")) {
+				}else if (localName.equals("localEntry")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
