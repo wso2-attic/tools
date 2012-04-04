@@ -4,7 +4,7 @@ public interface DsSyntax {
 
 	  public static final String [] rootTag = {"data"};
 
-	  public static final String [] leveLOne = {"description","config","query","event-trigger","operations","resource"};
+	  public static final String [] leveLOne = {"description","config","query","event-trigger","operation","resource"};
 	  
 	  public static final String [] configLevel = {"property"};
 	  
@@ -41,9 +41,9 @@ public interface DsSyntax {
 	  
 	  public static final String [] eventTriggerAttributes ={"id","language"};
 	  
-	  public static final String [] operationAttributes ={"name","disableStreaming"};
+	  public static final String [] operationAttributes ={"name","disableStreaming","returnRequestStatus"};
 	  
-	  public static final String [] resourceAttributes ={"path","method","returnRequestStatus"};
+	  public static final String [] resourceAttributes ={"path","method"};
 	  
 	  public static final String [] propertyAttributes ={"name"};
 	  
