@@ -484,6 +484,8 @@ class DsCompletionProcessor implements IContentAssistProcessor,DsSyntax {
 				
 			}else{
 				
+				sugession = queryParamLevel;
+				
 			}
 		}else if(leveTag.equals("properties")){
 			
