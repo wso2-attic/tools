@@ -241,13 +241,18 @@ public class DetailSection {
 			
 		}else if(input instanceof PatternValidator ){
 			
+			labelMaker("");
+			labelMaker("");
 			PatternValidator  pValiditor = (PatternValidator)input;
 			labelMaker(DetailSectionCustomUiConstants.VALIDATOR_PATTORN);
 			sectionUtil.getAttributeField(detailsclient, toolkit, pValiditor, pValiditor.getPattern(),
 					DsPackage.eINSTANCE.getPatternValidator_Pattern(), DetailSectionCustomUiConstants.STRING);
 			
+			
 		}else if(input instanceof CustomValidator){
 			
+			labelMaker("");
+			labelMaker("");
 			CustomValidator customValidator = (CustomValidator)input;
 			labelMaker(DetailSectionCustomUiConstants.VALIDATOR_CUSTOM);
 			sectionUtil.getAttributeField(detailsclient, toolkit, customValidator, customValidator.getClass_(),
@@ -1001,6 +1006,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MAXIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, lval,initVal , 
 							DsPackage.eINSTANCE.getLongRangeValidator_Maximum(),DetailSectionCustomUiConstants.LONG );
+					labelMaker("");
+					labelMaker("");
 				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM)){
@@ -1009,6 +1016,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, lval, initVal,
 							DsPackage.eINSTANCE.getLongRangeValidator_Minimum(), DetailSectionCustomUiConstants.LONG);
+					labelMaker("");
+					labelMaker("");
 				}
 			}
 		}else if(validatorObject instanceof DoubleRangeValidator && type.equals(DetailSectionCustomUiConstants.DOUBLE)){
@@ -1026,6 +1035,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MAXIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, dval,initVal , 
 							DsPackage.eINSTANCE.getDoubleRangeValidator_Maximum(),DetailSectionCustomUiConstants.DOUBLE );
+					labelMaker("");
+					labelMaker("");
 				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM)){
@@ -1034,6 +1045,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, dval, initVal,
 							DsPackage.eINSTANCE.getDoubleRangeValidator_Minimum(), DetailSectionCustomUiConstants.DOUBLE);
+					labelMaker("");
+					labelMaker("");
 				}
 			}
 		}else if(validatorObject instanceof LengthValidator && type.equals(DetailSectionCustomUiConstants.LONG)){
@@ -1052,6 +1065,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MAXIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, lval,initVal , 
 							DsPackage.eINSTANCE.getLengthValidator_Maximum(),DetailSectionCustomUiConstants.LONG );
+					labelMaker("");
+					labelMaker("");
 				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM)){
@@ -1060,6 +1075,8 @@ public class DetailSection {
 					labelMaker(DetailSectionCustomUiConstants.VALIDATOR_MINIMUM);
 					sectionUtil.getAttributeField(detailsclient, toolkit, lval, initVal,
 							DsPackage.eINSTANCE.getLengthValidator_Minimum(), DetailSectionCustomUiConstants.LONG);
+					labelMaker("");
+					labelMaker("");
 				}
 			}
 		}
