@@ -35,10 +35,14 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	
 	public void validate(String modelProperty, Object value, ProjectDataModel model)
 	        throws FieldValidationException {
-		boolean isAddressEP = EpArtifactConstants.ADDRESS_EP
-				.equals(((EndpointModel) model).getSelectedTemplate().getName());
-		boolean isWSDlEP = EpArtifactConstants.WSDL_EP
-		.equals(((EndpointModel) model).getSelectedTemplate().getName());
+		EndpointModel epModel = (EndpointModel) model; 
+		String templateName = new String();
+		if(epModel!=null && epModel.getSelectedTemplate()!=null){
+			templateName = epModel.getSelectedTemplate().getName();
+		}
+		boolean isAddressEP = EpArtifactConstants.ADDRESS_EP.equals(templateName);
+		boolean isWSDlEP = EpArtifactConstants.WSDL_EP.equals(templateName);
+		
 		if (modelProperty.equals("ep.name")) {
 			if (value == null) {
 				throw new FieldValidationException("Endpoint name cannot be empty");
@@ -80,8 +84,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 				throw new FieldValidationException("WSDL port cannot be empty");
 			} 
 		} else if(modelProperty.equals("registry.browser")){
-			EndpointModel seqModel = (EndpointModel) model; 
-			if(seqModel.isSaveAsDynamic()){
+			if(epModel.isSaveAsDynamic()){
 				if(null==value || value.toString().trim().isEmpty()){
 					throw new FieldValidationException("Registry path cannot be empty");
 				}
@@ -172,7 +175,9 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		boolean readOnlyField = super.isReadOnlyField(modelProperty, model);
 		if (modelProperty.equals("save.file")) {
 			readOnlyField = true;
-		}
+		} else if (modelProperty.equals("registry.browser")) {
+			readOnlyField = true;
+		} 
 	    return readOnlyField;
 	}
 }
