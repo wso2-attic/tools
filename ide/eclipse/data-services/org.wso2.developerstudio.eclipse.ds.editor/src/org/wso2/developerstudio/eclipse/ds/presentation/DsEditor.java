@@ -221,12 +221,12 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * Data Source Page index
 	 * 
 	 */
-	private static final int DATA_SOURCE_PAGE_INDEX = 1;
+	private static final int DATA_SOURCE_PAGE_INDEX = 2;
 	/**
 	 * Source view index
 	 * 
 	 */
-	private static final int SOURCE_VIEW_INDEX = 2;
+	private static final int SOURCE_VIEW_INDEX = 1;
 	
 	/**
 	 * Resource holder for the Dseditor
@@ -1051,16 +1051,16 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			addPage(DESIGN_VIEW_INDEX,mdPage);
 			setPageText(DESIGN_VIEW_INDEX,"Outline");
 			
-		    dataSourcePage = new DataSourcePage(this, dataService);
-			addPage(DATA_SOURCE_PAGE_INDEX,dataSourcePage);
-			setPageText(DATA_SOURCE_PAGE_INDEX,"Data Sources");
-			
 			sourceEditor = new DsObjectSourceEditor(this, editingDomain);
 			addPage(SOURCE_VIEW_INDEX, sourceEditor.getEditor(), sourceEditor.getInput());
 			setPageText(SOURCE_VIEW_INDEX,"Source");
 			sourceEditor.init();
 			
-			 addDesignViewAction();
+		    dataSourcePage = new DataSourcePage(this, dataService);
+			addPage(DATA_SOURCE_PAGE_INDEX,dataSourcePage);
+			setPageText(DATA_SOURCE_PAGE_INDEX,"Data Sources");
+			
+			addDesignViewAction();
 			
 		} catch (PartInitException e) {
 			e.printStackTrace();

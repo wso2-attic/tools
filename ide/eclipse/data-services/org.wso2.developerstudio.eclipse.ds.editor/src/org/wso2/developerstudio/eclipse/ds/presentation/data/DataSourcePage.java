@@ -93,9 +93,8 @@ public class DataSourcePage extends FormPage {
 
 		datasourceTable = dataSourceViewer.getTable();
 
-		GridData gd = new GridData(GridData.FILL_BOTH);
-		gd.heightHint = 20;
-		gd.widthHint = 100;
+		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd.heightHint = 100;
 
 		datasourceTable.setLayoutData(gd);
 		datasourceTable.setHeaderVisible(true);
