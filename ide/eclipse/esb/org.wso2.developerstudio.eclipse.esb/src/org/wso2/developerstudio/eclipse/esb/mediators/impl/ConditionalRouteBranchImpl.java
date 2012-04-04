@@ -145,7 +145,7 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 		if (!children.isEmpty()) {
 			// Question: Do we have to consider all the child elements?
 			getEvaluatorExpression().setEvaluatorValue(EsbUtils
-					.renderElement(children.get(0), true));
+					.renderElement(children.get(0), true,true));
 
 		}
 
@@ -188,7 +188,7 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 			Element evaluatorExpressionElem = null;
 			try {
 				evaluatorExpressionElem = EsbUtils
-						.parseElement(getEvaluatorExpression().getEvaluatorValue());
+						.parseElement(getEvaluatorExpression().getEvaluatorValue(),false);
 				evaluatorExpressionElem = (Element) self.getOwnerDocument()
 						.importNode(evaluatorExpressionElem, true);
 				self.appendChild(evaluatorExpressionElem);

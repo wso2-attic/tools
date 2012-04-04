@@ -102,7 +102,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 				// Question: Do we have to consider all the child elements?
 				getUrlRewriteRuleCondition().setEvaluatorValue(
 						"<condition>"
-								+ EsbUtils.renderElement(children.get(0), true)
+								+ EsbUtils.renderElement(children.get(0), true,true)
 								+ "</condition>");
 			} else {
 				getUrlRewriteRuleCondition().setEvaluatorValue(
@@ -140,7 +140,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 			try {
 				evaluatorExpressionElem = EsbUtils
 						.parseElement(getUrlRewriteRuleCondition()
-								.getEvaluatorValue());
+								.getEvaluatorValue(),false);
 				evaluatorExpressionElem = (Element) self.getOwnerDocument()
 						.importNode(evaluatorExpressionElem, true);
 				self.appendChild(evaluatorExpressionElem);

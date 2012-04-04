@@ -250,7 +250,7 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			Element format = (Element) formatNode.item(0);
 			List<Element> children = getChildElements(format);
 			if (!children.isEmpty()) {
-				setFormat(EsbUtils.renderElement(children.get(0), true));
+				setFormat(EsbUtils.renderElement(children.get(0), true,true));
 			}
 		}
 		NodeList argsNode = self.getElementsByTagName("args");
@@ -272,7 +272,7 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		if (null != getFormat()) {
 			try {
 	            Element format = createChildElement(self, "format");
-	            Element formatElem = EsbUtils.parseElement(getFormat());
+	            Element formatElem = EsbUtils.parseElement(getFormat(),false);
 	            formatElem = (Element) self.getOwnerDocument().importNode(formatElem, true);
 	            format.appendChild(formatElem);
             } catch (Exception e) {

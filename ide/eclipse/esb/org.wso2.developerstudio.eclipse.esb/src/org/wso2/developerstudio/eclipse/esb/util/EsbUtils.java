@@ -21,6 +21,7 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -82,6 +83,26 @@ public class EsbUtils {
 	 * 
 	 * @param element {@link Element} to be rendered.
 	 * @param omitXmlDeclaration whether to omit the XML declaration from output.
+	 * @param omitDefaultNs whether to omit the default XML namespace .
+	 * @return string serialized form of the given element.
+	 * @throws Exception if an error occurs during serialization.
+	 */
+	public static String renderElement(Element element,  boolean omitXmlDeclaration,boolean omitDefaultNs ) throws Exception {
+		StringWriter writer = new StringWriter();
+		renderElement(element, writer, omitXmlDeclaration);;
+		String xml = writer.toString();
+		if(omitDefaultNs){
+			xml = xml.replaceFirst(Pattern.quote("xmlns=\"" + element.getNamespaceURI() +"\""),"");
+		}
+		return xml;
+	}
+	
+	
+	/**
+	 * Utility method for rendering an {@link Element} into a string.
+	 * 
+	 * @param element {@link Element} to be rendered.
+	 * @param omitXmlDeclaration whether to omit the XML declaration from output.
 	 * @return string serialized form of the given element.
 	 * @throws Exception if an error occurs during serialization.
 	 */
@@ -130,12 +151,24 @@ public class EsbUtils {
 	 * @throws Exception if an error occurs while parsing.
 	 */
 	public static Element parseElement(String xml) throws Exception {
+		return parseElement(xml,true);
+	}	
+	
+	/**
+	 * Utility method for parsing an xml string into an {@link Element}.
+	 * 
+	 * @param xml source string.
+	 * @param namespaceAware namespace Aware.
+	 * @return {@link Element} corresponding to the specified xml string.
+	 * @throws Exception if an error occurs while parsing.
+	 */
+	public static Element parseElement(String xml, boolean namespaceAware) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
+		factory.setNamespaceAware(namespaceAware);
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document document = builder.parse(new InputSource(new StringReader(xml)));
 		return document.getDocumentElement();
-	}		
+	}	
 	
 	/**
 	 * Utiliy method for checking if an {@link Element} has a child with the given local name.
