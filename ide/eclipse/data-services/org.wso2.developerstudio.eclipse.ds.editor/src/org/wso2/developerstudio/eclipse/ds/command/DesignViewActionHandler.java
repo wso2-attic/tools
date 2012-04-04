@@ -1,7 +1,11 @@
 package org.wso2.developerstudio.eclipse.ds.command;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -25,6 +29,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.developerstudio.eclipse.ds.EventTrigger;
 import org.wso2.developerstudio.eclipse.ds.ExcelQuery;
+import org.wso2.developerstudio.eclipse.ds.Expression;
 import org.wso2.developerstudio.eclipse.ds.GSpreadQuery;
 import org.wso2.developerstudio.eclipse.ds.LengthValidator;
 import org.wso2.developerstudio.eclipse.ds.LongRangeValidator;
@@ -39,6 +44,7 @@ import org.wso2.developerstudio.eclipse.ds.Resource;
 import org.wso2.developerstudio.eclipse.ds.ResultMapping;
 import org.wso2.developerstudio.eclipse.ds.Sql;
 import org.wso2.developerstudio.eclipse.ds.Subscription;
+import org.wso2.developerstudio.eclipse.ds.TargetTopic;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
 public class DesignViewActionHandler {
@@ -253,9 +259,22 @@ public class DesignViewActionHandler {
 					feature = DsPackage.Literals.CALL_QUERY__WITH_PARAM;
 					parent = (CallQuery)editingDomain.getParent(value);
 						
-				}else{
+				}else if(referenceObject != null && referenceObject instanceof Expression){
 					
-				System.out.println("no implemantaion for this delete");
+					value = (Expression)referenceObject;
+					feature = DsPackage.Literals.EVENT_TRIGGER__EXPRESSION;
+					parent = (EventTrigger)editingDomain.getParent(value);
+					
+				}else if(referenceObject != null && referenceObject instanceof TargetTopic){
+					
+					value = (TargetTopic)referenceObject;
+					feature = DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC;
+					parent =(EventTrigger)editingDomain.getParent(value);
+				}
+				
+				else{
+					
+				MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error Occuerd", "Con not delete this component");
 				
 				} 
 				
@@ -263,6 +282,15 @@ public class DesignViewActionHandler {
 					RemoveCommand removeCommand = new RemoveCommand(editingDomain, parent, feature, value);
 					if (removeCommand.canExecute()) {
 						editingDomain.getCommandStack().execute(removeCommand);
+					}
+					
+					else{
+						Collection<EObject> collection=new ArrayList<EObject>();
+                        collection.add((EObject) value);
+                        DeleteCommand deleteCommand =new DeleteCommand(editingDomain,collection );
+                        if(deleteCommand.canExecute()){
+                                editingDomain.getCommandStack().execute(deleteCommand);
+                        }
 					}
 
 				}

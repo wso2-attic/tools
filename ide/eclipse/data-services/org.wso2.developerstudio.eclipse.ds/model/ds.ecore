@@ -113,7 +113,7 @@
       <details key="name" value="data_._type"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
         eType="#//Description" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>

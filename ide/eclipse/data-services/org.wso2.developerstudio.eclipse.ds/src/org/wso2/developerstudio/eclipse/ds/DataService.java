@@ -41,21 +41,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DataService extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.ds.Description}.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Description</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference list.
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(Description)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Description()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Description> getDescription();
+	Description getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.DataService#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(Description value);
 
 	/**
 	 * Returns the value of the '<em><b>Config</b></em>' containment reference list.

@@ -258,7 +258,7 @@ public interface DsPackage extends EPackage {
 	int DATA_SERVICE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2027,10 +2027,10 @@ public interface DsPackage extends EPackage {
 	EClass getDataService();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.DataService#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.DataService#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see org.wso2.developerstudio.eclipse.ds.DataService#getDescription()
 	 * @see #getDataService()
 	 * @generated
@@ -3732,7 +3732,7 @@ public interface DsPackage extends EPackage {
 		EClass DATA_SERVICE = eINSTANCE.getDataService();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

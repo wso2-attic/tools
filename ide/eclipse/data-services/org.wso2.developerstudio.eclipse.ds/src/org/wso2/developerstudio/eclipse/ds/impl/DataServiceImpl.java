@@ -62,14 +62,14 @@ import org.wso2.developerstudio.eclipse.ds.ServiceStatus;
  */
 public class DataServiceImpl extends EObjectImpl implements DataService {
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference list.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Description> description;
+	protected Description description;
 
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference list.
@@ -316,11 +316,42 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Description> getDescription() {
-		if (description == null) {
-			description = new EObjectContainmentEList<Description>(Description.class, this, DsPackage.DATA_SERVICE__DESCRIPTION);
-		}
+	public Description getDescription() {
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
+		Description oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(Description newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.DATA_SERVICE__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.DATA_SERVICE__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -587,7 +618,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
-				return ((InternalEList<?>)getDescription()).basicRemove(otherEnd, msgs);
+				return basicSetDescription(null, msgs);
 			case DsPackage.DATA_SERVICE__CONFIG:
 				return ((InternalEList<?>)getConfig()).basicRemove(otherEnd, msgs);
 			case DsPackage.DATA_SERVICE__QUERY:
@@ -656,8 +687,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
-				getDescription().clear();
-				getDescription().addAll((Collection<? extends Description>)newValue);
+				setDescription((Description)newValue);
 				return;
 			case DsPackage.DATA_SERVICE__CONFIG:
 				getConfig().clear();
@@ -718,7 +748,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
-				getDescription().clear();
+				setDescription((Description)null);
 				return;
 			case DsPackage.DATA_SERVICE__CONFIG:
 				getConfig().clear();
@@ -774,7 +804,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
-				return description != null && !description.isEmpty();
+				return description != null;
 			case DsPackage.DATA_SERVICE__CONFIG:
 				return config != null && !config.isEmpty();
 			case DsPackage.DATA_SERVICE__QUERY:
