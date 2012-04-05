@@ -56,7 +56,7 @@ public class DetailSection {
 	private FormToolkit toolkit;
 	private AdapterFactoryItemDelegator adapterFactoryItemDelegator;
 	private Composite detailsclient;
-	private Object input;
+	private Object selectedObject;
 	private DetailSectionUiUtil sectionUtil;
 	private EditingDomain editingDomain;
 	private DataService dataService;
@@ -67,7 +67,7 @@ public class DetailSection {
 		this.toolkit = toolkit;
 		this.adapterFactoryItemDelegator = adapterFactoryItemDelegator;
 		this.detailsclient = detailsclient;
-		this.input = input;
+		this.selectedObject = input;
 		this.editingDomain = editor.getEditingDomain();
 		this.dataService = editor.getDataService();
 		this.sectionUtil = new DetailSectionUiUtil(editor.getDataService(), editingDomain);
@@ -120,6 +120,17 @@ public class DetailSection {
 			labelMaker(DetailSectionCustomUiConstants.DATA_SOURCE_CONFIGURATION_ID);
 			sectionUtil.getAttributeField(detailsclient,toolkit,input,config.getId(),
 					DsPackage.eINSTANCE.getDataSourceConfiguration_Id(),DetailSectionCustomUiConstants.STRING);
+			if(config != null){
+				
+				EList<ConfigurationProperty> configProperties = config.getProperty();
+				
+				Iterator<ConfigurationProperty>iterator = configProperties.iterator();
+				
+				while (iterator.hasNext()) {
+					ConfigurationProperty configurationProperty = (ConfigurationProperty) iterator.next();
+					configurationPropertyObjectConfigurator(configurationProperty);
+				}
+			}
 			
 		//On configuration property selction
 		}else if(input instanceof ConfigurationProperty){
@@ -347,7 +358,7 @@ public class DetailSection {
 				
 				labelMaker(displayName);
 				
-				sectionUtil.getAttributeField(detailsclient,toolkit,input,dataService.getName(),
+				sectionUtil.getAttributeField(detailsclient,toolkit,selectedObject,dataService.getName(),
 						DsPackage.eINSTANCE.getDataService_Name(),DetailSectionCustomUiConstants.STRING);
 				labelMaker("");
 				labelMaker("");
@@ -356,7 +367,7 @@ public class DetailSection {
 			if(displayName.equals(DetailSectionCustomUiConstants.DATA_SERVICE_GROUP)){
 				
 				labelMaker(displayName);
-				sectionUtil.getAttributeField(detailsclient,toolkit,input,dataService.getServiceGroup(),
+				sectionUtil.getAttributeField(detailsclient,toolkit,selectedObject,dataService.getServiceGroup(),
 						DsPackage.eINSTANCE.getDataService_ServiceGroup(),DetailSectionCustomUiConstants.STRING);
 				labelMaker("");
 				labelMaker("");
@@ -365,7 +376,7 @@ public class DetailSection {
 			if(displayName.equals(DetailSectionCustomUiConstants.DATA_SERVICE_NAMESPACE)){
 				
 				labelMaker(displayName);
-				sectionUtil.getAttributeField(detailsclient, toolkit, input, dataService.getServiceNamespace(),
+				sectionUtil.getAttributeField(detailsclient, toolkit, selectedObject, dataService.getServiceNamespace(),
 						DsPackage.eINSTANCE.getDataService_ServiceNamespace(), DetailSectionCustomUiConstants.STRING);
 				labelMaker("");
 				labelMaker("");
@@ -374,7 +385,7 @@ public class DetailSection {
 			if(displayName.equals(DetailSectionCustomUiConstants.BASE_URI)){
 				
 				labelMaker(displayName);
-				sectionUtil.getAttributeField(detailsclient,toolkit,input,dataService.getBaseURI(),
+				sectionUtil.getAttributeField(detailsclient,toolkit,selectedObject,dataService.getBaseURI(),
 						DsPackage.eINSTANCE.getDataService_BaseURI(),DetailSectionCustomUiConstants.STRING);
 				labelMaker("");
 				labelMaker("");
@@ -384,7 +395,7 @@ public class DetailSection {
 				
 				
 				labelMaker(displayName);
-				sectionUtil.getBooleanComboField(detailsclient,toolkit,input,dataService.isEnableBatchRequests()
+				sectionUtil.getBooleanComboField(detailsclient,toolkit,selectedObject,dataService.isEnableBatchRequests()
 						,DsPackage.eINSTANCE.getDataService_EnableBatchRequests());
 				labelMaker("");
 				labelMaker("");
@@ -394,7 +405,7 @@ public class DetailSection {
 				
 				
 				labelMaker(displayName);
-				sectionUtil.getBooleanComboField(detailsclient,toolkit,input,dataService.isEnableBoxcarring()
+				sectionUtil.getBooleanComboField(detailsclient,toolkit,selectedObject,dataService.isEnableBoxcarring()
 						,DsPackage.eINSTANCE.getDataService_EnableBoxcarring());
 				labelMaker("");
 				labelMaker("");
@@ -403,7 +414,7 @@ public class DetailSection {
 			if(displayName.equals(DetailSectionCustomUiConstants.ENABLE_DTP)){
 				
 				labelMaker(displayName);
-				sectionUtil.getBooleanComboField(detailsclient,toolkit,input,dataService.isEnableDTP(),
+				sectionUtil.getBooleanComboField(detailsclient,toolkit,selectedObject,dataService.isEnableDTP(),
 						DsPackage.eINSTANCE.getDataService_EnableDTP());
 				labelMaker("");
 				labelMaker("");
@@ -569,7 +580,7 @@ public class DetailSection {
 					toolkit, configProperty, configProperty.getValue(),
 					DsPackage.eINSTANCE.getConfigurationProperty_Value());
 		} else {
-			sectionUtil.getAttributeField(detailsclient, toolkit, input,
+			sectionUtil.getAttributeField(detailsclient, toolkit, configProperty,
 					configProperty.getValue(),
 					DsPackage.eINSTANCE.getConfigurationProperty_Value(),
 					DetailSectionCustomUiConstants.STRING);
