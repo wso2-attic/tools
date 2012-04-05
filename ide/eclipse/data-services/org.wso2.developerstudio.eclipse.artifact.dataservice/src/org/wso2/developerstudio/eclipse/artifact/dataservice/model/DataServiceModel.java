@@ -246,9 +246,10 @@ public class DataServiceModel extends ProjectDataModel {
 			config.put("org.wso2.ws.dataservice.password",getJdbcPassword());
 			config.put("org.wso2.ws.dataservice.protocol",getJdbcUrl());
 			config.put("org.wso2.ws.dataservice.driver",getDriverClass());
-			config.put("org.wso2.ws.dataservice.minpoolsize","");
-			config.put("org.wso2.ws.dataservice.minpoolsize","");
-			config.put("org.wso2.ws.dataservice.validation_query","");
+		//	Fixing TOOLS-1000
+		//	config.put("org.wso2.ws.dataservice.minpoolsize","");
+		//	config.put("org.wso2.ws.dataservice.minpoolsize","");
+		//	config.put("org.wso2.ws.dataservice.validation_query","");
 			} else {
 				config.put("org.wso2.ws.dataservice.xa_datasource_class",getXaDsClass());	
 				String xaProperties = "\n";
