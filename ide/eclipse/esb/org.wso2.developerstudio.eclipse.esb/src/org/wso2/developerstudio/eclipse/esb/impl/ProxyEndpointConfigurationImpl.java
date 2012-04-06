@@ -51,59 +51,59 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements ProxyEndpointConfiguration {
 	/**
-     * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
 //	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.ANONYMOUS;
-	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.NONE;
+	protected static final ProxyEndpointType ENDPOINT_TYPE_EDEFAULT = ProxyEndpointType.ANONYMOUS;
 	/**
-     * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
 	protected ProxyEndpointType endpointType = ENDPOINT_TYPE_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getInlineEndpoint() <em>Inline Endpoint</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInlineEndpoint() <em>Inline Endpoint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getInlineEndpoint()
-     * @generated
-     * @ordered
-     */
+	 * @see #getInlineEndpoint()
+	 * @generated
+	 * @ordered
+	 */
 	protected EndPoint inlineEndpoint;
 	/**
-     * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty endpointKey;
 	/**
-     * The default value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String ENDPOINT_NAME_EDEFAULT = "endpoint_name";
 	/**
-     * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String endpointName = ENDPOINT_NAME_EDEFAULT;
 
 	/**
@@ -192,264 +192,271 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION;
-    }
+		return EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ProxyEndpointType getEndpointType() {
-        return endpointType;
-    }
+		return endpointType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointType(ProxyEndpointType newEndpointType) {
-        ProxyEndpointType oldEndpointType = endpointType;
-        endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE, oldEndpointType, endpointType));
-    }
+		ProxyEndpointType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EndPoint getInlineEndpoint() {
-        return inlineEndpoint;
-    }
+		return inlineEndpoint;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetInlineEndpoint(EndPoint newInlineEndpoint, NotificationChain msgs) {
-        EndPoint oldInlineEndpoint = inlineEndpoint;
-        inlineEndpoint = newInlineEndpoint;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, oldInlineEndpoint, newInlineEndpoint);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		EndPoint oldInlineEndpoint = inlineEndpoint;
+		inlineEndpoint = newInlineEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, oldInlineEndpoint, newInlineEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setInlineEndpoint(EndPoint newInlineEndpoint) {
-        if (newInlineEndpoint != inlineEndpoint) {
-            NotificationChain msgs = null;
-            if (inlineEndpoint != null)
-                msgs = ((InternalEObject)inlineEndpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, null, msgs);
-            if (newInlineEndpoint != null)
-                msgs = ((InternalEObject)newInlineEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, null, msgs);
-            msgs = basicSetInlineEndpoint(newInlineEndpoint, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, newInlineEndpoint, newInlineEndpoint));
-    }
+		if (newInlineEndpoint != inlineEndpoint) {
+			NotificationChain msgs = null;
+			if (inlineEndpoint != null)
+				msgs = ((InternalEObject)inlineEndpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, null, msgs);
+			if (newInlineEndpoint != null)
+				msgs = ((InternalEObject)newInlineEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, null, msgs);
+			msgs = basicSetInlineEndpoint(newInlineEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT, newInlineEndpoint, newInlineEndpoint));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getEndpointKey() {
-        return endpointKey;
-    }
+		return endpointKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEndpointKey(RegistryKeyProperty newEndpointKey, NotificationChain msgs) {
-        RegistryKeyProperty oldEndpointKey = endpointKey;
-        endpointKey = newEndpointKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldEndpointKey = endpointKey;
+		endpointKey = newEndpointKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointKey(RegistryKeyProperty newEndpointKey) {
-        if (newEndpointKey != endpointKey) {
-            NotificationChain msgs = null;
-            if (endpointKey != null)
-                msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, null, msgs);
-            if (newEndpointKey != null)
-                msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, null, msgs);
-            msgs = basicSetEndpointKey(newEndpointKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
-    }
+		if (newEndpointKey != endpointKey) {
+			NotificationChain msgs = null;
+			if (endpointKey != null)
+				msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, null, msgs);
+			if (newEndpointKey != null)
+				msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, null, msgs);
+			msgs = basicSetEndpointKey(newEndpointKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getEndpointName() {
-        return endpointName;
-    }
+		return endpointName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointName(String newEndpointName) {
-        String oldEndpointName = endpointName;
-        endpointName = newEndpointName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME, oldEndpointName, endpointName));
-    }
+		String oldEndpointName = endpointName;
+		endpointName = newEndpointName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME, oldEndpointName, endpointName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
-                return basicSetInlineEndpoint(null, msgs);
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
-                return basicSetEndpointKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
+				return basicSetInlineEndpoint(null, msgs);
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
+				return basicSetEndpointKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
-                return getEndpointType();
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
-                return getInlineEndpoint();
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
-                return getEndpointKey();
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
-                return getEndpointName();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
+				return getEndpointType();
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
+				return getInlineEndpoint();
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
+				return getEndpointKey();
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
+				return getEndpointName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
-                setEndpointType((ProxyEndpointType)newValue);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
-                setInlineEndpoint((EndPoint)newValue);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)newValue);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
-                setEndpointName((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
+				setEndpointType((ProxyEndpointType)newValue);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
+				setInlineEndpoint((EndPoint)newValue);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
+				setEndpointName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
-                setEndpointType(ENDPOINT_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
-                setInlineEndpoint((EndPoint)null);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)null);
-                return;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
-                setEndpointName(ENDPOINT_NAME_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
+				setInlineEndpoint((EndPoint)null);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
+				setEndpointName(ENDPOINT_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
-                return endpointType != ENDPOINT_TYPE_EDEFAULT;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
-                return inlineEndpoint != null;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
-                return endpointKey != null;
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
-                return ENDPOINT_NAME_EDEFAULT == null ? endpointName != null : !ENDPOINT_NAME_EDEFAULT.equals(endpointName);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__INLINE_ENDPOINT:
+				return inlineEndpoint != null;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY:
+				return endpointKey != null;
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME:
+				return ENDPOINT_NAME_EDEFAULT == null ? endpointName != null : !ENDPOINT_NAME_EDEFAULT.equals(endpointName);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (endpointType: ");
-        result.append(endpointType);
-        result.append(", endpointName: ");
-        result.append(endpointName);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (endpointType: ");
+		result.append(endpointType);
+		result.append(", endpointName: ");
+		result.append(endpointName);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

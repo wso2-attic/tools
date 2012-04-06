@@ -69,176 +69,183 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
     protected static final String FORMAT_EDEFAULT = "<inline/>";
 
     /**
-     * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFormat()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFormat()
+	 * @generated
+	 * @ordered
+	 */
     protected String format = FORMAT_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArgs()
-     * @generated
-     * @ordered
-     */
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<PayloadFactoryArgument> args;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected PayloadFactoryMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.PAYLOAD_FACTORY_MEDIATOR;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return MediatorsPackage.Literals.PAYLOAD_FACTORY_MEDIATOR;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getFormat() {
-        return format;
-    }
+		return format;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setFormat(String newFormat) {
-        String oldFormat = format;
-        format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT, oldFormat, format));
-    }
+		String oldFormat = format;
+		format = newFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT, oldFormat, format));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<PayloadFactoryArgument> getArgs() {
-        if (args == null) {
-            args = new EObjectContainmentEList<PayloadFactoryArgument>(PayloadFactoryArgument.class, this, MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS);
-        }
-        return args;
-    }
+		if (args == null) {
+			args = new EObjectContainmentEList<PayloadFactoryArgument>(PayloadFactoryArgument.class, this, MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS);
+		}
+		return args;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
-                return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+    @Override
+				public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
+				return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
-                return getFormat();
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
-                return getArgs();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
+				return getFormat();
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
+				return getArgs();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
+				@Override
     
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
-                setFormat((String)newValue);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
-                getArgs().clear();
-                getArgs().addAll((Collection<? extends PayloadFactoryArgument>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
+				setFormat((String)newValue);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
+				getArgs().clear();
+				getArgs().addAll((Collection<? extends PayloadFactoryArgument>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
-                getArgs().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
+				setFormat(FORMAT_EDEFAULT);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
+				getArgs().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
-                return args != null && !args.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
+				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
+				return args != null && !args.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (format: ");
+		result.append(format);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     protected void doLoad(Element self) throws Exception {
@@ -263,7 +270,7 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 							}
 						});
 		}
-	    
+		super.doLoad(self);
     }
 
 	
@@ -284,6 +291,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		for(PayloadFactoryArgument variable : getArgs()){
 			variable.save(args);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
     }
 

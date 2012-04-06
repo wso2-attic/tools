@@ -35,56 +35,56 @@ package org.wso2.developerstudio.eclipse.esb;
  */
 public interface AbstractLocationKeyResource extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Location</b></em>' attribute.
-     * The default value is <code>"default_location"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Location</b></em>' attribute.
+	 * The default value is <code>"default_location"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Location</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Location</em>' attribute.
-     * @see #setLocation(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractLocationKeyResource_Location()
-     * @model default="default_location"
-     * @generated
-     */
+	 * @return the value of the '<em>Location</em>' attribute.
+	 * @see #setLocation(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractLocationKeyResource_Location()
+	 * @model default="default_location"
+	 * @generated
+	 */
 	String getLocation();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractLocationKeyResource#getLocation <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractLocationKeyResource#getLocation <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Location</em>' attribute.
-     * @see #getLocation()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Location</em>' attribute.
+	 * @see #getLocation()
+	 * @generated
+	 */
 	void setLocation(String value);
 
 	/**
-     * Returns the value of the '<em><b>Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Key</em>' containment reference.
-     * @see #setKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractLocationKeyResource_Key()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Key</em>' containment reference.
+	 * @see #setKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractLocationKeyResource_Key()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractLocationKeyResource#getKey <em>Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractLocationKeyResource#getKey <em>Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Key</em>' containment reference.
-     * @see #getKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Key</em>' containment reference.
+	 * @see #getKey()
+	 * @generated
+	 */
 	void setKey(RegistryKeyProperty value);
 
 } // AbstractLocationKeyResource

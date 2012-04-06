@@ -40,87 +40,87 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface ValidateMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Source Xpath</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Source Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Xpath</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Source Xpath</em>' containment reference.
-     * @see #setSourceXpath(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_SourceXpath()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #setSourceXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_SourceXpath()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getSourceXpath();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getSourceXpath <em>Source Xpath</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getSourceXpath <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Source Xpath</em>' containment reference.
-     * @see #getSourceXpath()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #getSourceXpath()
+	 * @generated
+	 */
 	void setSourceXpath(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>On Fail Branch</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Fail Branch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Fail Branch</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Fail Branch</em>' containment reference.
-     * @see #setOnFailBranch(ValidateOnFailBranch)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_OnFailBranch()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>On Fail Branch</em>' containment reference.
+	 * @see #setOnFailBranch(ValidateOnFailBranch)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_OnFailBranch()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ValidateOnFailBranch getOnFailBranch();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getOnFailBranch <em>On Fail Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getOnFailBranch <em>On Fail Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Fail Branch</em>' containment reference.
-     * @see #getOnFailBranch()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Fail Branch</em>' containment reference.
+	 * @see #getOnFailBranch()
+	 * @generated
+	 */
 	void setOnFailBranch(ValidateOnFailBranch value);
 
 	/**
-     * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Features</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_Features()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Features</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_Features()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<ValidateFeature> getFeatures();
 
 	/**
-     * Returns the value of the '<em><b>Schemas</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Schemas</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schemas</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Schemas</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_Schemas()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Schemas</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_Schemas()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<ValidateSchema> getSchemas();
 
 } // ValidateMediator

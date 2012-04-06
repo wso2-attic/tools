@@ -59,60 +59,60 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class URLRewriteMediatorImpl extends MediatorImpl implements URLRewriteMediator {
 	/**
-     * The cached value of the '{@link #getUrlRewriteRules() <em>Url Rewrite Rules</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUrlRewriteRules() <em>Url Rewrite Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getUrlRewriteRules()
-     * @generated
-     * @ordered
-     */
+	 * @see #getUrlRewriteRules()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<URLRewriteRule> urlRewriteRules;
 
 	/**
-     * The default value of the '{@link #getInProperty() <em>In Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getInProperty() <em>In Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getInProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getInProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String IN_PROPERTY_EDEFAULT = null;
 	/**
-     * The cached value of the '{@link #getInProperty() <em>In Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInProperty() <em>In Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getInProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getInProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected String inProperty = IN_PROPERTY_EDEFAULT;
 	/**
-     * The default value of the '{@link #getOutProperty() <em>Out Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOutProperty() <em>Out Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOutProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOutProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String OUT_PROPERTY_EDEFAULT = null;
 	/**
-     * The cached value of the '{@link #getOutProperty() <em>Out Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutProperty() <em>Out Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOutProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOutProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected String outProperty = OUT_PROPERTY_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected URLRewriteMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -151,7 +151,7 @@ public class URLRewriteMediatorImpl extends MediatorImpl implements URLRewriteMe
 
 					}
 				});
-		
+		super.doLoad(self);
 		
 		
 	}
@@ -173,183 +173,192 @@ public class URLRewriteMediatorImpl extends MediatorImpl implements URLRewriteMe
 		for (URLRewriteRule urlRewriteRules: getUrlRewriteRules()) {
 			urlRewriteRules.save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.URL_REWRITE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.URL_REWRITE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<URLRewriteRule> getUrlRewriteRules() {
-        if (urlRewriteRules == null) {
-            urlRewriteRules = new EObjectContainmentEList<URLRewriteRule>(URLRewriteRule.class, this, MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
-        }
-        return urlRewriteRules;
-    }
+		if (urlRewriteRules == null) {
+			urlRewriteRules = new EObjectContainmentEList<URLRewriteRule>(URLRewriteRule.class, this, MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
+		}
+		return urlRewriteRules;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getInProperty() {
-        return inProperty;
-    }
+		return inProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setInProperty(String newInProperty) {
-        String oldInProperty = inProperty;
-        inProperty = newInProperty;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY, oldInProperty, inProperty));
-    }
+		String oldInProperty = inProperty;
+		inProperty = newInProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY, oldInProperty, inProperty));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getOutProperty() {
-        return outProperty;
-    }
+		return outProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOutProperty(String newOutProperty) {
-        String oldOutProperty = outProperty;
-        outProperty = newOutProperty;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY, oldOutProperty, outProperty));
-    }
+		String oldOutProperty = outProperty;
+		outProperty = newOutProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY, oldOutProperty, outProperty));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                return ((InternalEList<?>)getUrlRewriteRules()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				return ((InternalEList<?>)getUrlRewriteRules()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                return getUrlRewriteRules();
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
-                return getInProperty();
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
-                return getOutProperty();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				return getUrlRewriteRules();
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+				return getInProperty();
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				return getOutProperty();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                getUrlRewriteRules().clear();
-                getUrlRewriteRules().addAll((Collection<? extends URLRewriteRule>)newValue);
-                return;
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
-                setInProperty((String)newValue);
-                return;
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
-                setOutProperty((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				getUrlRewriteRules().clear();
+				getUrlRewriteRules().addAll((Collection<? extends URLRewriteRule>)newValue);
+				return;
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+				setInProperty((String)newValue);
+				return;
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				setOutProperty((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                getUrlRewriteRules().clear();
-                return;
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
-                setInProperty(IN_PROPERTY_EDEFAULT);
-                return;
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
-                setOutProperty(OUT_PROPERTY_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				getUrlRewriteRules().clear();
+				return;
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+				setInProperty(IN_PROPERTY_EDEFAULT);
+				return;
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				setOutProperty(OUT_PROPERTY_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                return urlRewriteRules != null && !urlRewriteRules.isEmpty();
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
-                return IN_PROPERTY_EDEFAULT == null ? inProperty != null : !IN_PROPERTY_EDEFAULT.equals(inProperty);
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
-                return OUT_PROPERTY_EDEFAULT == null ? outProperty != null : !OUT_PROPERTY_EDEFAULT.equals(outProperty);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				return urlRewriteRules != null && !urlRewriteRules.isEmpty();
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+				return IN_PROPERTY_EDEFAULT == null ? inProperty != null : !IN_PROPERTY_EDEFAULT.equals(inProperty);
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				return OUT_PROPERTY_EDEFAULT == null ? outProperty != null : !OUT_PROPERTY_EDEFAULT.equals(outProperty);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (InProperty: ");
-        result.append(inProperty);
-        result.append(", outProperty: ");
-        result.append(outProperty);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (InProperty: ");
+		result.append(inProperty);
+		result.append(", outProperty: ");
+		result.append(outProperty);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

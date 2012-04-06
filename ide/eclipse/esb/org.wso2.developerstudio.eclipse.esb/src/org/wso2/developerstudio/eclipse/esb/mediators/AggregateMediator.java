@@ -42,159 +42,159 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface AggregateMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Completion Timeout</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Completion Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Completion Timeout</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Completion Timeout</em>' attribute.
-     * @see #setCompletionTimeout(int)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionTimeout()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Completion Timeout</em>' attribute.
+	 * @see #setCompletionTimeout(int)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionTimeout()
+	 * @model
+	 * @generated
+	 */
 	int getCompletionTimeout();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionTimeout <em>Completion Timeout</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionTimeout <em>Completion Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Completion Timeout</em>' attribute.
-     * @see #getCompletionTimeout()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Completion Timeout</em>' attribute.
+	 * @see #getCompletionTimeout()
+	 * @generated
+	 */
 	void setCompletionTimeout(int value);
 
 	/**
-     * Returns the value of the '<em><b>Completion Min Messages</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Completion Min Messages</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Completion Min Messages</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Completion Min Messages</em>' attribute.
-     * @see #setCompletionMinMessages(int)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionMinMessages()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Completion Min Messages</em>' attribute.
+	 * @see #setCompletionMinMessages(int)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionMinMessages()
+	 * @model
+	 * @generated
+	 */
 	int getCompletionMinMessages();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionMinMessages <em>Completion Min Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionMinMessages <em>Completion Min Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Completion Min Messages</em>' attribute.
-     * @see #getCompletionMinMessages()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Completion Min Messages</em>' attribute.
+	 * @see #getCompletionMinMessages()
+	 * @generated
+	 */
 	void setCompletionMinMessages(int value);
 
 	/**
-     * Returns the value of the '<em><b>Completion Max Messages</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Completion Max Messages</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Completion Max Messages</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Completion Max Messages</em>' attribute.
-     * @see #setCompletionMaxMessages(int)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionMaxMessages()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Completion Max Messages</em>' attribute.
+	 * @see #setCompletionMaxMessages(int)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CompletionMaxMessages()
+	 * @model
+	 * @generated
+	 */
 	int getCompletionMaxMessages();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionMaxMessages <em>Completion Max Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCompletionMaxMessages <em>Completion Max Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Completion Max Messages</em>' attribute.
-     * @see #getCompletionMaxMessages()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Completion Max Messages</em>' attribute.
+	 * @see #getCompletionMaxMessages()
+	 * @generated
+	 */
 	void setCompletionMaxMessages(int value);
 
 	/**
-     * Returns the value of the '<em><b>Correlation Expression</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Correlation Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Correlation Expression</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Correlation Expression</em>' containment reference.
-     * @see #setCorrelationExpression(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CorrelationExpression()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Correlation Expression</em>' containment reference.
+	 * @see #setCorrelationExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_CorrelationExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getCorrelationExpression();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCorrelationExpression <em>Correlation Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getCorrelationExpression <em>Correlation Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Correlation Expression</em>' containment reference.
-     * @see #getCorrelationExpression()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Correlation Expression</em>' containment reference.
+	 * @see #getCorrelationExpression()
+	 * @generated
+	 */
 	void setCorrelationExpression(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>On Complete Branch</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Complete Branch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Complete Branch</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Complete Branch</em>' containment reference.
-     * @see #setOnCompleteBranch(AggregateOnCompleteBranch)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_OnCompleteBranch()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>On Complete Branch</em>' containment reference.
+	 * @see #setOnCompleteBranch(AggregateOnCompleteBranch)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_OnCompleteBranch()
+	 * @model containment="true"
+	 * @generated
+	 */
 	AggregateOnCompleteBranch getOnCompleteBranch();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getOnCompleteBranch <em>On Complete Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getOnCompleteBranch <em>On Complete Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Complete Branch</em>' containment reference.
-     * @see #getOnCompleteBranch()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Complete Branch</em>' containment reference.
+	 * @see #getOnCompleteBranch()
+	 * @generated
+	 */
 	void setOnCompleteBranch(AggregateOnCompleteBranch value);
 
 	/**
-     * Returns the value of the '<em><b>Aggregate ID</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Aggregate ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregate ID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Aggregate ID</em>' attribute.
-     * @see #setAggregateID(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_AggregateID()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Aggregate ID</em>' attribute.
+	 * @see #setAggregateID(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getAggregateMediator_AggregateID()
+	 * @model
+	 * @generated
+	 */
 	String getAggregateID();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getAggregateID <em>Aggregate ID</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator#getAggregateID <em>Aggregate ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Aggregate ID</em>' attribute.
-     * @see #getAggregateID()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Aggregate ID</em>' attribute.
+	 * @see #getAggregateID()
+	 * @generated
+	 */
 	void setAggregateID(String value);
 
 } // AggregateMediator

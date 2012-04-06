@@ -36,32 +36,32 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface TransactionMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Action</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Action</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Action</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Action</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction
-     * @see #setAction(TransactionAction)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getTransactionMediator_Action()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Action</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction
+	 * @see #setAction(TransactionAction)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getTransactionMediator_Action()
+	 * @model
+	 * @generated
+	 */
 	TransactionAction getAction();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator#getAction <em>Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator#getAction <em>Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Action</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction
-     * @see #getAction()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Action</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction
+	 * @see #getAction()
+	 * @generated
+	 */
 	void setAction(TransactionAction value);
 
 } // TransactionMediator

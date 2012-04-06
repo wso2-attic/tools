@@ -56,43 +56,43 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class CallTemplateMediatorImpl extends MediatorImpl implements CallTemplateMediator {
 	/**
-     * The default value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getTargetTemplate()
-     * @generated
-     * @ordered
-     */
+	 * @see #getTargetTemplate()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String TARGET_TEMPLATE_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getTargetTemplate()
-     * @generated
-     * @ordered
-     */
+	 * @see #getTargetTemplate()
+	 * @generated
+	 * @ordered
+	 */
 	protected String targetTemplate = TARGET_TEMPLATE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getTemplateParameters()
-     * @generated
-     * @ordered
-     */
+	 * @see #getTemplateParameters()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<CallTemplateParameter> templateParameters;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CallTemplateMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -116,7 +116,7 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 						getTemplateParameters().add(object);
 					}
 				});
-		
+		super.doLoad(self);
 	}
 
 	/**
@@ -132,151 +132,160 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 		for (CallTemplateParameter variable : getTemplateParameters()) {
 			variable.save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CALL_TEMPLATE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.CALL_TEMPLATE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getTargetTemplate() {
-        return targetTemplate;
-    }
+		return targetTemplate;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setTargetTemplate(String newTargetTemplate) {
-        String oldTargetTemplate = targetTemplate;
-        targetTemplate = newTargetTemplate;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, oldTargetTemplate, targetTemplate));
-    }
+		String oldTargetTemplate = targetTemplate;
+		targetTemplate = newTargetTemplate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, oldTargetTemplate, targetTemplate));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<CallTemplateParameter> getTemplateParameters() {
-        if (templateParameters == null) {
-            templateParameters = new EObjectContainmentEList<CallTemplateParameter>(CallTemplateParameter.class, this, MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS);
-        }
-        return templateParameters;
-    }
+		if (templateParameters == null) {
+			templateParameters = new EObjectContainmentEList<CallTemplateParameter>(CallTemplateParameter.class, this, MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS);
+		}
+		return templateParameters;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
-                return ((InternalEList<?>)getTemplateParameters()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
+				return ((InternalEList<?>)getTemplateParameters()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-                return getTargetTemplate();
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
-                return getTemplateParameters();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				return getTargetTemplate();
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
+				return getTemplateParameters();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-                setTargetTemplate((String)newValue);
-                return;
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
-                getTemplateParameters().clear();
-                getTemplateParameters().addAll((Collection<? extends CallTemplateParameter>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				setTargetTemplate((String)newValue);
+				return;
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				getTemplateParameters().addAll((Collection<? extends CallTemplateParameter>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-                setTargetTemplate(TARGET_TEMPLATE_EDEFAULT);
-                return;
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
-                getTemplateParameters().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				setTargetTemplate(TARGET_TEMPLATE_EDEFAULT);
+				return;
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-                return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
-                return templateParameters != null && !templateParameters.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
+				return templateParameters != null && !templateParameters.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (targetTemplate: ");
-        result.append(targetTemplate);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (targetTemplate: ");
+		result.append(targetTemplate);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

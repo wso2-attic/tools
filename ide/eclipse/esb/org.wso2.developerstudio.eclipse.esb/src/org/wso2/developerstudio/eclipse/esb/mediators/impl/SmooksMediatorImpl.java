@@ -53,31 +53,31 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	/**
-     * The cached value of the '{@link #getConfigurationKey() <em>Configuration Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getConfigurationKey() <em>Configuration Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getConfigurationKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getConfigurationKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty configurationKey;
 	/**
-     * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getInput()
-     * @generated
-     * @ordered
-     */
+	 * @see #getInput()
+	 * @generated
+	 * @ordered
+	 */
 	protected SmooksInConfiguration input;
 	/**
-     * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOutput()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOutput()
+	 * @generated
+	 * @ordered
+	 */
 	protected SmooksOutConfiguration output;
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,6 +117,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 				setOutput(object);
 			}			
 		});	
+		super.doLoad(self);
     }
 
 	/**
@@ -127,243 +128,251 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 		getConfigurationKey().save(self);   	
 		getInput().save(self);
 		getOutput().save(self);
+		if(description!=null)
+			description.save(self);
 		return self;
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SMOOKS_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.SMOOKS_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getConfigurationKey() {
-        return configurationKey;
-    }
+		return configurationKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetConfigurationKey(RegistryKeyProperty newConfigurationKey, NotificationChain msgs) {
-        RegistryKeyProperty oldConfigurationKey = configurationKey;
-        configurationKey = newConfigurationKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, oldConfigurationKey, newConfigurationKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldConfigurationKey = configurationKey;
+		configurationKey = newConfigurationKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, oldConfigurationKey, newConfigurationKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setConfigurationKey(RegistryKeyProperty newConfigurationKey) {
-        if (newConfigurationKey != configurationKey) {
-            NotificationChain msgs = null;
-            if (configurationKey != null)
-                msgs = ((InternalEObject)configurationKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, null, msgs);
-            if (newConfigurationKey != null)
-                msgs = ((InternalEObject)newConfigurationKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, null, msgs);
-            msgs = basicSetConfigurationKey(newConfigurationKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, newConfigurationKey, newConfigurationKey));
-    }
+		if (newConfigurationKey != configurationKey) {
+			NotificationChain msgs = null;
+			if (configurationKey != null)
+				msgs = ((InternalEObject)configurationKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, null, msgs);
+			if (newConfigurationKey != null)
+				msgs = ((InternalEObject)newConfigurationKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, null, msgs);
+			msgs = basicSetConfigurationKey(newConfigurationKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY, newConfigurationKey, newConfigurationKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksInConfiguration getInput() {
-        return input;
-    }
+		return input;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetInput(SmooksInConfiguration newInput, NotificationChain msgs) {
-        SmooksInConfiguration oldInput = input;
-        input = newInput;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__INPUT, oldInput, newInput);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		SmooksInConfiguration oldInput = input;
+		input = newInput;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__INPUT, oldInput, newInput);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setInput(SmooksInConfiguration newInput) {
-        if (newInput != input) {
-            NotificationChain msgs = null;
-            if (input != null)
-                msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__INPUT, null, msgs);
-            if (newInput != null)
-                msgs = ((InternalEObject)newInput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__INPUT, null, msgs);
-            msgs = basicSetInput(newInput, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__INPUT, newInput, newInput));
-    }
+		if (newInput != input) {
+			NotificationChain msgs = null;
+			if (input != null)
+				msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__INPUT, null, msgs);
+			if (newInput != null)
+				msgs = ((InternalEObject)newInput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__INPUT, null, msgs);
+			msgs = basicSetInput(newInput, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__INPUT, newInput, newInput));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksOutConfiguration getOutput() {
-        return output;
-    }
+		return output;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetOutput(SmooksOutConfiguration newOutput, NotificationChain msgs) {
-        SmooksOutConfiguration oldOutput = output;
-        output = newOutput;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, oldOutput, newOutput);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		SmooksOutConfiguration oldOutput = output;
+		output = newOutput;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, oldOutput, newOutput);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOutput(SmooksOutConfiguration newOutput) {
-        if (newOutput != output) {
-            NotificationChain msgs = null;
-            if (output != null)
-                msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, null, msgs);
-            if (newOutput != null)
-                msgs = ((InternalEObject)newOutput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, null, msgs);
-            msgs = basicSetOutput(newOutput, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, newOutput, newOutput));
-    }
+		if (newOutput != output) {
+			NotificationChain msgs = null;
+			if (output != null)
+				msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, null, msgs);
+			if (newOutput != null)
+				msgs = ((InternalEObject)newOutput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, null, msgs);
+			msgs = basicSetOutput(newOutput, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT, newOutput, newOutput));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
-                return basicSetConfigurationKey(null, msgs);
-            case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
-                return basicSetInput(null, msgs);
-            case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
-                return basicSetOutput(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
+				return basicSetConfigurationKey(null, msgs);
+			case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
+				return basicSetInput(null, msgs);
+			case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
+				return basicSetOutput(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
-                return getConfigurationKey();
-            case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
-                return getInput();
-            case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
-                return getOutput();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
+				return getConfigurationKey();
+			case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
+				return getInput();
+			case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
+				return getOutput();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
-                setConfigurationKey((RegistryKeyProperty)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
-                setInput((SmooksInConfiguration)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
-                setOutput((SmooksOutConfiguration)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
+				setConfigurationKey((RegistryKeyProperty)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
+				setInput((SmooksInConfiguration)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
+				setOutput((SmooksOutConfiguration)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
-                setConfigurationKey((RegistryKeyProperty)null);
-                return;
-            case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
-                setInput((SmooksInConfiguration)null);
-                return;
-            case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
-                setOutput((SmooksOutConfiguration)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
+				setConfigurationKey((RegistryKeyProperty)null);
+				return;
+			case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
+				setInput((SmooksInConfiguration)null);
+				return;
+			case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
+				setOutput((SmooksOutConfiguration)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
-                return configurationKey != null;
-            case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
-                return input != null;
-            case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
-                return output != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_MEDIATOR__CONFIGURATION_KEY:
+				return configurationKey != null;
+			case MediatorsPackage.SMOOKS_MEDIATOR__INPUT:
+				return input != null;
+			case MediatorsPackage.SMOOKS_MEDIATOR__OUTPUT:
+				return output != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

@@ -85,14 +85,15 @@ public class DefaultEndPointImpl extends AbstractDefaultEndPointImpl implements 
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.DEFAULT_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.DEFAULT_END_POINT;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

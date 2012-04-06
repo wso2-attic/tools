@@ -34,29 +34,29 @@ package org.wso2.developerstudio.eclipse.esb;
  */
 public interface RegistryKeyEndPointReference extends EndPointReference {
 	/**
-     * Returns the value of the '<em><b>Endpoint Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Key</em>' containment reference.
-     * @see #setEndpointKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getRegistryKeyEndPointReference_EndpointKey()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Key</em>' containment reference.
+	 * @see #setEndpointKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getRegistryKeyEndPointReference_EndpointKey()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getEndpointKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference#getEndpointKey <em>Endpoint Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference#getEndpointKey <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Key</em>' containment reference.
-     * @see #getEndpointKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Key</em>' containment reference.
+	 * @see #getEndpointKey()
+	 * @generated
+	 */
 	void setEndpointKey(RegistryKeyProperty value);
 
 } // RegistryKeyEndPointReference

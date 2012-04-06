@@ -36,19 +36,19 @@ import org.wso2.developerstudio.eclipse.esb.ModelObject;
  */
 public interface RuleFactsConfiguration extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Facts</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Facts</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Facts</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Facts</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRuleFactsConfiguration_Facts()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Facts</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRuleFactsConfiguration_Facts()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<RuleFact> getFacts();
 
 } // RuleFactsConfiguration

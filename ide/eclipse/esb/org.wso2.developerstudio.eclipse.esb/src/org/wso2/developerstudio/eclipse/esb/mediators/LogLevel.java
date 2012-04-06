@@ -32,244 +32,245 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum LogLevel implements Enumerator {
 	/**
-     * The '<em><b>FULL</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>FULL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #FULL_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #FULL_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	FULL(0, "FULL", "full"),
 
 	/**
-     * The '<em><b>SIMPLE</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>SIMPLE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #SIMPLE_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #SIMPLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	SIMPLE(1, "SIMPLE", "simple"),
 
 	/**
-     * The '<em><b>HEADERS</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>HEADERS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #HEADERS_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #HEADERS_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	HEADERS(2, "HEADERS", "headers"),
 
 	/**
-     * The '<em><b>CUSTOM</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>CUSTOM</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #CUSTOM_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #CUSTOM_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	CUSTOM(3, "CUSTOM", "custom");
 
 	/**
-     * The '<em><b>FULL</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>FULL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>FULL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #FULL
-     * @model literal="full"
-     * @generated
-     * @ordered
-     */
+	 * @see #FULL
+	 * @model literal="full"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int FULL_VALUE = 0;
 
 	/**
-     * The '<em><b>SIMPLE</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>SIMPLE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>SIMPLE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #SIMPLE
-     * @model literal="simple"
-     * @generated
-     * @ordered
-     */
+	 * @see #SIMPLE
+	 * @model literal="simple"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int SIMPLE_VALUE = 1;
 
 	/**
-     * The '<em><b>HEADERS</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>HEADERS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>HEADERS</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #HEADERS
-     * @model literal="headers"
-     * @generated
-     * @ordered
-     */
+	 * @see #HEADERS
+	 * @model literal="headers"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int HEADERS_VALUE = 2;
 
 	/**
-     * The '<em><b>CUSTOM</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>CUSTOM</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>CUSTOM</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #CUSTOM
-     * @model literal="custom"
-     * @generated
-     * @ordered
-     */
+	 * @see #CUSTOM
+	 * @model literal="custom"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int CUSTOM_VALUE = 3;
 
 	/**
-     * An array of all the '<em><b>Log Level</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Log Level</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private static final LogLevel[] VALUES_ARRAY =
 		new LogLevel[] {
-            FULL,
-            SIMPLE,
-            HEADERS,
-            CUSTOM,
-        };
+			FULL,
+			SIMPLE,
+			HEADERS,
+			CUSTOM,
+		};
 
 	/**
-     * A public read-only list of all the '<em><b>Log Level</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Log Level</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<LogLevel> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-     * Returns the '<em><b>Log Level</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Log Level</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LogLevel get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            LogLevel result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			LogLevel result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Log Level</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Log Level</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LogLevel getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            LogLevel result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			LogLevel result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Log Level</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Log Level</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LogLevel get(int value) {
-        switch (value) {
-            case FULL_VALUE: return FULL;
-            case SIMPLE_VALUE: return SIMPLE;
-            case HEADERS_VALUE: return HEADERS;
-            case CUSTOM_VALUE: return CUSTOM;
-        }
-        return null;
-    }
+		switch (value) {
+			case FULL_VALUE: return FULL;
+			case SIMPLE_VALUE: return SIMPLE;
+			case HEADERS_VALUE: return HEADERS;
+			case CUSTOM_VALUE: return CUSTOM;
+		}
+		return null;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private LogLevel(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
 	/**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        return literal;
-    }
+		return literal;
+	}
 	
 } //LogLevel

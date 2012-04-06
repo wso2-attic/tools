@@ -38,45 +38,45 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface RouterMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Continue After Routing</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Continue After Routing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Continue After Routing</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Continue After Routing</em>' attribute.
-     * @see #setContinueAfterRouting(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRouterMediator_ContinueAfterRouting()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Continue After Routing</em>' attribute.
+	 * @see #setContinueAfterRouting(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRouterMediator_ContinueAfterRouting()
+	 * @model
+	 * @generated
+	 */
 	boolean isContinueAfterRouting();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator#isContinueAfterRouting <em>Continue After Routing</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator#isContinueAfterRouting <em>Continue After Routing</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Continue After Routing</em>' attribute.
-     * @see #isContinueAfterRouting()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Continue After Routing</em>' attribute.
+	 * @see #isContinueAfterRouting()
+	 * @generated
+	 */
 	void setContinueAfterRouting(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Routes</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Routes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Routes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Routes</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRouterMediator_Routes()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Routes</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRouterMediator_Routes()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<RouterRoute> getRoutes();
 
 } // RouterMediator

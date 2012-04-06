@@ -51,33 +51,33 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class ThrottleOnRejectBranchImpl extends MediatorBranchImpl implements ThrottleOnRejectBranch {
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ThrottleSequenceType SEQUENCE_TYPE_EDEFAULT = ThrottleSequenceType.ANONYMOUS;
 
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected ThrottleSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 
 	/**
@@ -138,176 +138,183 @@ public class ThrottleOnRejectBranchImpl extends MediatorBranchImpl implements Th
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.THROTTLE_ON_REJECT_BRANCH;
-    }
+		return MediatorsPackage.Literals.THROTTLE_ON_REJECT_BRANCH;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleSequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(ThrottleSequenceType newSequenceType) {
-        ThrottleSequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		ThrottleSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        if (newSequenceKey != sequenceKey) {
-            NotificationChain msgs = null;
-            if (sequenceKey != null)
-                msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, null, msgs);
-            if (newSequenceKey != null)
-                msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, null, msgs);
-            msgs = basicSetSequenceKey(newSequenceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
-    }
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
-                return basicSetSequenceKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
-                return getSequenceType();
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
-                return getSequenceKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
+				return getSequenceType();
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
+				return getSequenceKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
-                setSequenceType((ThrottleSequenceType)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
+				setSequenceType((ThrottleSequenceType)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
-                return sequenceKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY:
+				return sequenceKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sequenceType: ");
-        result.append(sequenceType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sequenceType: ");
+		result.append(sequenceType);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

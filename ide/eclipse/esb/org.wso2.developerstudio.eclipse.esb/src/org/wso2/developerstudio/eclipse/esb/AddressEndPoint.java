@@ -34,30 +34,30 @@ package org.wso2.developerstudio.eclipse.esb;
  */
 public interface AddressEndPoint extends AbstractDefaultEndPoint {
     /**
-     * Returns the value of the '<em><b>Uri</b></em>' attribute.
-     * The default value is <code>"http://default/address/endpoint/uri"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
+	 * The default value is <code>"http://default/address/endpoint/uri"</code>.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Uri</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Uri</em>' attribute.
-     * @see #setUri(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAddressEndPoint_Uri()
-     * @model default="http://default/address/endpoint/uri"
-     * @generated
-     */
+	 * @return the value of the '<em>Uri</em>' attribute.
+	 * @see #setUri(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAddressEndPoint_Uri()
+	 * @model default="http://default/address/endpoint/uri"
+	 * @generated
+	 */
     String getUri();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint#getUri <em>Uri</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint#getUri <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Uri</em>' attribute.
-     * @see #getUri()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Uri</em>' attribute.
+	 * @see #getUri()
+	 * @generated
+	 */
     void setUri(String value);
 
 } // AddressEndPoint

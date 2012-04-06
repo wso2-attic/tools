@@ -47,21 +47,21 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	/**
-     * The default value of the '{@link #getTopicType() <em>Topic Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getTopicType()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getTopicType() <em>Topic Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getTopicType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final KeyType TOPIC_TYPE_EDEFAULT = KeyType.STATIC;
 
 	/**
-     * The cached value of the '{@link #getTopicType() <em>Topic Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getTopicType()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getTopicType() <em>Topic Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getTopicType()
+	 * @generated
+	 * @ordered
+	 */
 	protected KeyType topicType = TOPIC_TYPE_EDEFAULT;
 
 	/**
@@ -74,52 +74,52 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	protected static final String STATIC_TOPIC_EDEFAULT = "";
 
 	/**
-     * The cached value of the '{@link #getStaticTopic() <em>Static Topic</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getStaticTopic()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getStaticTopic() <em>Static Topic</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getStaticTopic()
+	 * @generated
+	 * @ordered
+	 */
 	protected String staticTopic = STATIC_TOPIC_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getDynamicTopic() <em>Dynamic Topic</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getDynamicTopic() <em>Dynamic Topic</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getDynamicTopic()
-     * @generated
-     * @ordered
-     */
+	 * @see #getDynamicTopic()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty dynamicTopic;
 
 	/**
-     * The cached value of the '{@link #getEventExpression() <em>Event Expression</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getEventExpression() <em>Event Expression</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getEventExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEventExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty eventExpression;
 
 	/**
-     * The default value of the '{@link #getEventSource() <em>Event Source</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEventSource() <em>Event Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEventSource()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEventSource()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String EVENT_SOURCE_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getEventSource() <em>Event Source</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEventSource() <em>Event Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEventSource()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEventSource()
+	 * @generated
+	 * @ordered
+	 */
 	protected String eventSource = EVENT_SOURCE_EDEFAULT;
 
 	/**
@@ -187,7 +187,7 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 			eventSourceValue = eventSourceValue.trim();
 			setEventSource(eventSourceValue);
 		}
-
+		super.doLoad(self);
 	}
 
 	/**
@@ -217,262 +217,269 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 			}
 			break;
 		}
-
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.EVENT_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.EVENT_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public KeyType getTopicType() {
-        return topicType;
-    }
+		return topicType;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setTopicType(KeyType newTopicType) {
-        KeyType oldTopicType = topicType;
-        topicType = newTopicType == null ? TOPIC_TYPE_EDEFAULT : newTopicType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE, oldTopicType, topicType));
-    }
+		KeyType oldTopicType = topicType;
+		topicType = newTopicType == null ? TOPIC_TYPE_EDEFAULT : newTopicType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE, oldTopicType, topicType));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getStaticTopic() {
-        return staticTopic;
-    }
+		return staticTopic;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setStaticTopic(String newStaticTopic) {
-        String oldStaticTopic = staticTopic;
-        staticTopic = newStaticTopic;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC, oldStaticTopic, staticTopic));
-    }
+		String oldStaticTopic = staticTopic;
+		staticTopic = newStaticTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC, oldStaticTopic, staticTopic));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty getDynamicTopic() {
-        if (dynamicTopic != null && dynamicTopic.eIsProxy()) {
-            InternalEObject oldDynamicTopic = (InternalEObject)dynamicTopic;
-            dynamicTopic = (NamespacedProperty)eResolveProxy(oldDynamicTopic);
-            if (dynamicTopic != oldDynamicTopic) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC, oldDynamicTopic, dynamicTopic));
-            }
-        }
-        return dynamicTopic;
-    }
+		if (dynamicTopic != null && dynamicTopic.eIsProxy()) {
+			InternalEObject oldDynamicTopic = (InternalEObject)dynamicTopic;
+			dynamicTopic = (NamespacedProperty)eResolveProxy(oldDynamicTopic);
+			if (dynamicTopic != oldDynamicTopic) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC, oldDynamicTopic, dynamicTopic));
+			}
+		}
+		return dynamicTopic;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty basicGetDynamicTopic() {
-        return dynamicTopic;
-    }
+		return dynamicTopic;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setDynamicTopic(NamespacedProperty newDynamicTopic) {
-        NamespacedProperty oldDynamicTopic = dynamicTopic;
-        dynamicTopic = newDynamicTopic;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC, oldDynamicTopic, dynamicTopic));
-    }
+		NamespacedProperty oldDynamicTopic = dynamicTopic;
+		dynamicTopic = newDynamicTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC, oldDynamicTopic, dynamicTopic));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty getEventExpression() {
-        if (eventExpression != null && eventExpression.eIsProxy()) {
-            InternalEObject oldEventExpression = (InternalEObject)eventExpression;
-            eventExpression = (NamespacedProperty)eResolveProxy(oldEventExpression);
-            if (eventExpression != oldEventExpression) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION, oldEventExpression, eventExpression));
-            }
-        }
-        return eventExpression;
-    }
+		if (eventExpression != null && eventExpression.eIsProxy()) {
+			InternalEObject oldEventExpression = (InternalEObject)eventExpression;
+			eventExpression = (NamespacedProperty)eResolveProxy(oldEventExpression);
+			if (eventExpression != oldEventExpression) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION, oldEventExpression, eventExpression));
+			}
+		}
+		return eventExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty basicGetEventExpression() {
-        return eventExpression;
-    }
+		return eventExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setEventExpression(NamespacedProperty newEventExpression) {
-        NamespacedProperty oldEventExpression = eventExpression;
-        eventExpression = newEventExpression;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION, oldEventExpression, eventExpression));
-    }
+		NamespacedProperty oldEventExpression = eventExpression;
+		eventExpression = newEventExpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION, oldEventExpression, eventExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getEventSource() {
-        return eventSource;
-    }
+		return eventSource;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEventSource(String newEventSource) {
-        String oldEventSource = eventSource;
-        eventSource = newEventSource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE, oldEventSource, eventSource));
-    }
+		String oldEventSource = eventSource;
+		eventSource = newEventSource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE, oldEventSource, eventSource));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
-                return getTopicType();
-            case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
-                return getStaticTopic();
-            case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
-                if (resolve) return getDynamicTopic();
-                return basicGetDynamicTopic();
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
-                if (resolve) return getEventExpression();
-                return basicGetEventExpression();
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
-                return getEventSource();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
+				return getTopicType();
+			case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
+				return getStaticTopic();
+			case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
+				if (resolve) return getDynamicTopic();
+				return basicGetDynamicTopic();
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
+				if (resolve) return getEventExpression();
+				return basicGetEventExpression();
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
+				return getEventSource();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
-                setTopicType((KeyType)newValue);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
-                setStaticTopic((String)newValue);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
-                setDynamicTopic((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
-                setEventExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
-                setEventSource((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
+				setTopicType((KeyType)newValue);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
+				setStaticTopic((String)newValue);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
+				setDynamicTopic((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
+				setEventExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
+				setEventSource((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
-                setTopicType(TOPIC_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
-                setStaticTopic(STATIC_TOPIC_EDEFAULT);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
-                setDynamicTopic((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
-                setEventExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
-                setEventSource(EVENT_SOURCE_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
+				setTopicType(TOPIC_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
+				setStaticTopic(STATIC_TOPIC_EDEFAULT);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
+				setDynamicTopic((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
+				setEventExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
+				setEventSource(EVENT_SOURCE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
-                return topicType != TOPIC_TYPE_EDEFAULT;
-            case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
-                return STATIC_TOPIC_EDEFAULT == null ? staticTopic != null : !STATIC_TOPIC_EDEFAULT.equals(staticTopic);
-            case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
-                return dynamicTopic != null;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
-                return eventExpression != null;
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
-                return EVENT_SOURCE_EDEFAULT == null ? eventSource != null : !EVENT_SOURCE_EDEFAULT.equals(eventSource);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
+				return topicType != TOPIC_TYPE_EDEFAULT;
+			case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
+				return STATIC_TOPIC_EDEFAULT == null ? staticTopic != null : !STATIC_TOPIC_EDEFAULT.equals(staticTopic);
+			case MediatorsPackage.EVENT_MEDIATOR__DYNAMIC_TOPIC:
+				return dynamicTopic != null;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_EXPRESSION:
+				return eventExpression != null;
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
+				return EVENT_SOURCE_EDEFAULT == null ? eventSource != null : !EVENT_SOURCE_EDEFAULT.equals(eventSource);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (topicType: ");
-        result.append(topicType);
-        result.append(", staticTopic: ");
-        result.append(staticTopic);
-        result.append(", eventSource: ");
-        result.append(eventSource);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (topicType: ");
+		result.append(topicType);
+		result.append(", staticTopic: ");
+		result.append(staticTopic);
+		result.append(", eventSource: ");
+		result.append(eventSource);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

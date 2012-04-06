@@ -49,41 +49,41 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleSessionConfigurationImpl extends ModelObjectImpl implements RuleSessionConfiguration {
 	/**
-     * The default value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isStatefulSession()
-     * @generated
-     * @ordered
-     */
+	 * @see #isStatefulSession()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean STATEFUL_SESSION_EDEFAULT = true;
 	/**
-     * The cached value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isStatefulSession()
-     * @generated
-     * @ordered
-     */
+	 * @see #isStatefulSession()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean statefulSession = STATEFUL_SESSION_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getProperties()
-     * @generated
-     * @ordered
-     */
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<RuleSessionProperty> properties;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSessionConfigurationImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -117,147 +117,154 @@ public class RuleSessionConfigurationImpl extends ModelObjectImpl implements Rul
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_SESSION_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.RULE_SESSION_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isStatefulSession() {
-        return statefulSession;
-    }
+		return statefulSession;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setStatefulSession(boolean newStatefulSession) {
-        boolean oldStatefulSession = statefulSession;
-        statefulSession = newStatefulSession;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION, oldStatefulSession, statefulSession));
-    }
+		boolean oldStatefulSession = statefulSession;
+		statefulSession = newStatefulSession;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION, oldStatefulSession, statefulSession));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<RuleSessionProperty> getProperties() {
-        if (properties == null) {
-            properties = new EObjectContainmentEList<RuleSessionProperty>(RuleSessionProperty.class, this, MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES);
-        }
-        return properties;
-    }
+		if (properties == null) {
+			properties = new EObjectContainmentEList<RuleSessionProperty>(RuleSessionProperty.class, this, MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES);
+		}
+		return properties;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
-                return isStatefulSession();
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
-                return getProperties();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
+				return isStatefulSession();
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
+				return getProperties();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
-                setStatefulSession((Boolean)newValue);
-                return;
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
-                getProperties().clear();
-                getProperties().addAll((Collection<? extends RuleSessionProperty>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
+				setStatefulSession((Boolean)newValue);
+				return;
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends RuleSessionProperty>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
-                setStatefulSession(STATEFUL_SESSION_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
-                getProperties().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
+				setStatefulSession(STATEFUL_SESSION_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
+				getProperties().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
-                return statefulSession != STATEFUL_SESSION_EDEFAULT;
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
-                return properties != null && !properties.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__STATEFUL_SESSION:
+				return statefulSession != STATEFUL_SESSION_EDEFAULT;
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION__PROPERTIES:
+				return properties != null && !properties.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (statefulSession: ");
-        result.append(statefulSession);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (statefulSession: ");
+		result.append(statefulSession);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

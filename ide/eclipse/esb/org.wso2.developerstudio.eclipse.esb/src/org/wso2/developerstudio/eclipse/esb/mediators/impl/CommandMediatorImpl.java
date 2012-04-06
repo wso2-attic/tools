@@ -50,43 +50,43 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class CommandMediatorImpl extends MediatorImpl implements CommandMediator {
 	/**
-     * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getClassName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String CLASS_NAME_EDEFAULT = "class_name";
 
 	/**
-     * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getClassName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getProperties()
-     * @generated
-     * @ordered
-     */
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<CommandProperty> properties;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CommandMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -105,6 +105,7 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 				getProperties().add(object);
 			}			
 		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -120,152 +121,160 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 		for (CommandProperty property : getProperties()) {
 			property.save(self);
 		}
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.COMMAND_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.COMMAND_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getClassName() {
-        return className;
-    }
+		return className;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setClassName(String newClassName) {
-        String oldClassName = className;
-        className = newClassName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME, oldClassName, className));
-    }
+		String oldClassName = className;
+		className = newClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME, oldClassName, className));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<CommandProperty> getProperties() {
-        if (properties == null) {
-            properties = new EObjectContainmentEList<CommandProperty>(CommandProperty.class, this, MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES);
-        }
-        return properties;
-    }
+		if (properties == null) {
+			properties = new EObjectContainmentEList<CommandProperty>(CommandProperty.class, this, MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES);
+		}
+		return properties;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
-                return getClassName();
-            case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
-                return getProperties();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
+				return getClassName();
+			case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
+				return getProperties();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
-                setClassName((String)newValue);
-                return;
-            case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
-                getProperties().clear();
-                getProperties().addAll((Collection<? extends CommandProperty>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
+				setClassName((String)newValue);
+				return;
+			case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends CommandProperty>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
-                setClassName(CLASS_NAME_EDEFAULT);
-                return;
-            case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
-                getProperties().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
+				return;
+			case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
+				getProperties().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
-                return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
-            case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
-                return properties != null && !properties.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.COMMAND_MEDIATOR__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
+			case MediatorsPackage.COMMAND_MEDIATOR__PROPERTIES:
+				return properties != null && !properties.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (className: ");
-        result.append(className);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (className: ");
+		result.append(className);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

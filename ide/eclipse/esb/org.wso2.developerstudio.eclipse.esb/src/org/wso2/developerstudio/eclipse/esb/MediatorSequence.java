@@ -42,125 +42,124 @@ import org.eclipse.emf.common.util.EList;
 public interface MediatorSequence extends ConfigurationElement {
 
 	/**
-     * Returns the value of the '<em><b>Anonymous</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Anonymous</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Anonymous</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Anonymous</em>' attribute.
-     * @see #setAnonymous(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Anonymous()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Anonymous</em>' attribute.
+	 * @see #setAnonymous(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Anonymous()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isAnonymous();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#isAnonymous <em>Anonymous</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#isAnonymous <em>Anonymous</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Anonymous</em>' attribute.
-     * @see #isAnonymous()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Anonymous</em>' attribute.
+	 * @see #isAnonymous()
+	 * @generated
+	 */
 	void setAnonymous(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Sequence Name</b></em>' attribute.
-     * The default value is <code>"sequence_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sequence Name</b></em>' attribute.
+	 * The default value is <code>"sequence_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequence Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Sequence Name</em>' attribute.
-     * @see #setSequenceName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_SequenceName()
-     * @model default="sequence_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Sequence Name</em>' attribute.
+	 * @see #setSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_SequenceName()
+	 * @model default="sequence_name"
+	 * @generated
+	 */
 	String getSequenceName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getSequenceName <em>Sequence Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getSequenceName <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Sequence Name</em>' attribute.
-     * @see #getSequenceName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Sequence Name</em>' attribute.
+	 * @see #getSequenceName()
+	 * @generated
+	 */
 	void setSequenceName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Mediators</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.Mediator}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Mediators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.Mediator}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mediators</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Mediators</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Mediators()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Mediators</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Mediators()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<Mediator> getMediators();
 
 	/**
-     * Returns the value of the '<em><b>On Error</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Error</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Error</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Error</em>' reference.
-     * @see #setOnError(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_OnError()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>On Error</em>' reference.
+	 * @see #setOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_OnError()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getOnError();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getOnError <em>On Error</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getOnError <em>On Error</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Error</em>' reference.
-     * @see #getOnError()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Error</em>' reference.
+	 * @see #getOnError()
+	 * @generated
+	 */
 	void setOnError(RegistryKeyProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Description</b></em>' attribute.
-     * The default value is <code>""</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Description</em>' attribute.
-     * @see #setDescription(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Description()
-     * @model default=""
-     * @generated
-     */
-	String getDescription();
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(Description)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getMediatorSequence_Description()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Description getDescription();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getDescription <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Description</em>' attribute.
-     * @see #getDescription()
-     * @generated
-     */
-	void setDescription(String value);
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(Description value);
 } // SequenceMediator

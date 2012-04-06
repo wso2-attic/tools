@@ -53,63 +53,63 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class ThrottlePolicyConfigurationImpl extends ModelObjectImpl implements ThrottlePolicyConfiguration {
 	/**
-     * The default value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPolicyType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPolicyType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ThrottlePolicyType POLICY_TYPE_EDEFAULT = ThrottlePolicyType.INLINE;
 
 	/**
-     * The cached value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPolicyType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPolicyType()
+	 * @generated
+	 * @ordered
+	 */
 	protected ThrottlePolicyType policyType = POLICY_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPolicyKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPolicyKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty policyKey;
 
 	/**
-     * The default value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getMaxConcurrentAccessCount()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMaxConcurrentAccessCount()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT = 0;
 
 	/**
-     * The cached value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getMaxConcurrentAccessCount()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMaxConcurrentAccessCount()
+	 * @generated
+	 * @ordered
+	 */
 	protected int maxConcurrentAccessCount = MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getPolicyEntries() <em>Policy Entries</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPolicyEntries() <em>Policy Entries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPolicyEntries()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPolicyEntries()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<ThrottlePolicyEntry> policyEntries;
 
 	/**
@@ -204,235 +204,242 @@ public class ThrottlePolicyConfigurationImpl extends ModelObjectImpl implements 
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyType getPolicyType() {
-        return policyType;
-    }
+		return policyType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPolicyType(ThrottlePolicyType newPolicyType) {
-        ThrottlePolicyType oldPolicyType = policyType;
-        policyType = newPolicyType == null ? POLICY_TYPE_EDEFAULT : newPolicyType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE, oldPolicyType, policyType));
-    }
+		ThrottlePolicyType oldPolicyType = policyType;
+		policyType = newPolicyType == null ? POLICY_TYPE_EDEFAULT : newPolicyType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE, oldPolicyType, policyType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getPolicyKey() {
-        return policyKey;
-    }
+		return policyKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetPolicyKey(RegistryKeyProperty newPolicyKey, NotificationChain msgs) {
-        RegistryKeyProperty oldPolicyKey = policyKey;
-        policyKey = newPolicyKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, oldPolicyKey, newPolicyKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldPolicyKey = policyKey;
+		policyKey = newPolicyKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, oldPolicyKey, newPolicyKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPolicyKey(RegistryKeyProperty newPolicyKey) {
-        if (newPolicyKey != policyKey) {
-            NotificationChain msgs = null;
-            if (policyKey != null)
-                msgs = ((InternalEObject)policyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, null, msgs);
-            if (newPolicyKey != null)
-                msgs = ((InternalEObject)newPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, null, msgs);
-            msgs = basicSetPolicyKey(newPolicyKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, newPolicyKey, newPolicyKey));
-    }
+		if (newPolicyKey != policyKey) {
+			NotificationChain msgs = null;
+			if (policyKey != null)
+				msgs = ((InternalEObject)policyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, null, msgs);
+			if (newPolicyKey != null)
+				msgs = ((InternalEObject)newPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, null, msgs);
+			msgs = basicSetPolicyKey(newPolicyKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY, newPolicyKey, newPolicyKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getMaxConcurrentAccessCount() {
-        return maxConcurrentAccessCount;
-    }
+		return maxConcurrentAccessCount;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setMaxConcurrentAccessCount(int newMaxConcurrentAccessCount) {
-        int oldMaxConcurrentAccessCount = maxConcurrentAccessCount;
-        maxConcurrentAccessCount = newMaxConcurrentAccessCount;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT, oldMaxConcurrentAccessCount, maxConcurrentAccessCount));
-    }
+		int oldMaxConcurrentAccessCount = maxConcurrentAccessCount;
+		maxConcurrentAccessCount = newMaxConcurrentAccessCount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT, oldMaxConcurrentAccessCount, maxConcurrentAccessCount));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<ThrottlePolicyEntry> getPolicyEntries() {
-        if (policyEntries == null) {
-            policyEntries = new EObjectContainmentEList<ThrottlePolicyEntry>(ThrottlePolicyEntry.class, this, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES);
-        }
-        return policyEntries;
-    }
+		if (policyEntries == null) {
+			policyEntries = new EObjectContainmentEList<ThrottlePolicyEntry>(ThrottlePolicyEntry.class, this, MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES);
+		}
+		return policyEntries;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
-                return basicSetPolicyKey(null, msgs);
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
-                return ((InternalEList<?>)getPolicyEntries()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
+				return basicSetPolicyKey(null, msgs);
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
+				return ((InternalEList<?>)getPolicyEntries()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
-                return getPolicyType();
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
-                return getPolicyKey();
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
-                return getMaxConcurrentAccessCount();
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
-                return getPolicyEntries();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
+				return getPolicyType();
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
+				return getPolicyKey();
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
+				return getMaxConcurrentAccessCount();
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
+				return getPolicyEntries();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
-                setPolicyType((ThrottlePolicyType)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
-                setPolicyKey((RegistryKeyProperty)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
-                setMaxConcurrentAccessCount((Integer)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
-                getPolicyEntries().clear();
-                getPolicyEntries().addAll((Collection<? extends ThrottlePolicyEntry>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
+				setPolicyType((ThrottlePolicyType)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
+				setMaxConcurrentAccessCount((Integer)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
+				getPolicyEntries().clear();
+				getPolicyEntries().addAll((Collection<? extends ThrottlePolicyEntry>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
-                setPolicyType(POLICY_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
-                setPolicyKey((RegistryKeyProperty)null);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
-                setMaxConcurrentAccessCount(MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT);
-                return;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
-                getPolicyEntries().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
+				setPolicyType(POLICY_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)null);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
+				setMaxConcurrentAccessCount(MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT);
+				return;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
+				getPolicyEntries().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
-                return policyType != POLICY_TYPE_EDEFAULT;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
-                return policyKey != null;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
-                return maxConcurrentAccessCount != MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT;
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
-                return policyEntries != null && !policyEntries.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE:
+				return policyType != POLICY_TYPE_EDEFAULT;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY:
+				return policyKey != null;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT:
+				return maxConcurrentAccessCount != MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT;
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES:
+				return policyEntries != null && !policyEntries.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (policyType: ");
-        result.append(policyType);
-        result.append(", maxConcurrentAccessCount: ");
-        result.append(maxConcurrentAccessCount);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (policyType: ");
+		result.append(policyType);
+		result.append(", maxConcurrentAccessCount: ");
+		result.append(maxConcurrentAccessCount);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

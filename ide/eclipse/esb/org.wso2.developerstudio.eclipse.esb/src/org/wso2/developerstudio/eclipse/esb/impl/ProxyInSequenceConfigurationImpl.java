@@ -89,14 +89,15 @@ public class ProxyInSequenceConfigurationImpl extends AbstractProxySequenceConfi
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.PROXY_IN_SEQUENCE_CONFIGURATION;
-    }
+		return EsbPackage.Literals.PROXY_IN_SEQUENCE_CONFIGURATION;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

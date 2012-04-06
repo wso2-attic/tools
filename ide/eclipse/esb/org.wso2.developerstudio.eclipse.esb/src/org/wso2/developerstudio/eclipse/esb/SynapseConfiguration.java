@@ -36,46 +36,46 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SynapseConfiguration extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Configuration Elements</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ConfigurationElement}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Configuration Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ConfigurationElement}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Configuration Elements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Configuration Elements</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseConfiguration_ConfigurationElements()
-     * @model containment="true" required="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Configuration Elements</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseConfiguration_ConfigurationElements()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
 	EList<ConfigurationElement> getConfigurationElements();
 
 	/**
-     * Returns the value of the '<em><b>Schema Location</b></em>' attribute.
-     * The default value is <code>"default_location"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Schema Location</b></em>' attribute.
+	 * The default value is <code>"default_location"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schema Location</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Schema Location</em>' attribute.
-     * @see #setSchemaLocation(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseConfiguration_SchemaLocation()
-     * @model default="default_location"
-     * @generated
-     */
+	 * @return the value of the '<em>Schema Location</em>' attribute.
+	 * @see #setSchemaLocation(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseConfiguration_SchemaLocation()
+	 * @model default="default_location"
+	 * @generated
+	 */
 	String getSchemaLocation();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration#getSchemaLocation <em>Schema Location</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration#getSchemaLocation <em>Schema Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Schema Location</em>' attribute.
-     * @see #getSchemaLocation()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Schema Location</em>' attribute.
+	 * @see #getSchemaLocation()
+	 * @generated
+	 */
 	void setSchemaLocation(String value);
 
 } // SynapseConfiguration

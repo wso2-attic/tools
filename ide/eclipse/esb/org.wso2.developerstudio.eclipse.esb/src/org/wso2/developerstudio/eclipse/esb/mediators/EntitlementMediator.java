@@ -38,84 +38,84 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface EntitlementMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Server URL</b></em>' attribute.
-     * The default value is <code>"server_url"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Server URL</b></em>' attribute.
+	 * The default value is <code>"server_url"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Server URL</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Server URL</em>' attribute.
-     * @see #setServerURL(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_ServerURL()
-     * @model default="server_url"
-     * @generated
-     */
+	 * @return the value of the '<em>Server URL</em>' attribute.
+	 * @see #setServerURL(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_ServerURL()
+	 * @model default="server_url"
+	 * @generated
+	 */
 	String getServerURL();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getServerURL <em>Server URL</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getServerURL <em>Server URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Server URL</em>' attribute.
-     * @see #getServerURL()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Server URL</em>' attribute.
+	 * @see #getServerURL()
+	 * @generated
+	 */
 	void setServerURL(String value);
 
 	/**
-     * Returns the value of the '<em><b>Username</b></em>' attribute.
-     * The default value is <code>"username"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Username</b></em>' attribute.
+	 * The default value is <code>"username"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Username</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Username</em>' attribute.
-     * @see #setUsername(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_Username()
-     * @model default="username"
-     * @generated
-     */
+	 * @return the value of the '<em>Username</em>' attribute.
+	 * @see #setUsername(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_Username()
+	 * @model default="username"
+	 * @generated
+	 */
 	String getUsername();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getUsername <em>Username</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getUsername <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Username</em>' attribute.
-     * @see #getUsername()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Username</em>' attribute.
+	 * @see #getUsername()
+	 * @generated
+	 */
 	void setUsername(String value);
 
 	/**
-     * Returns the value of the '<em><b>Password</b></em>' attribute.
-     * The default value is <code>"password"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Password</b></em>' attribute.
+	 * The default value is <code>"password"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Password</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Password</em>' attribute.
-     * @see #setPassword(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_Password()
-     * @model default="password"
-     * @generated
-     */
+	 * @return the value of the '<em>Password</em>' attribute.
+	 * @see #setPassword(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getEntitlementMediator_Password()
+	 * @model default="password"
+	 * @generated
+	 */
 	String getPassword();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getPassword <em>Password</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator#getPassword <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Password</em>' attribute.
-     * @see #getPassword()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Password</em>' attribute.
+	 * @see #getPassword()
+	 * @generated
+	 */
 	void setPassword(String value);
 
 } // EntitlementMediator

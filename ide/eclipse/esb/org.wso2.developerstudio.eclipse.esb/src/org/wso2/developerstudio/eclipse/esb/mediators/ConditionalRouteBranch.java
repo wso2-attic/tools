@@ -40,80 +40,80 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
 public interface ConditionalRouteBranch extends MediatorBranch {
 
 	/**
-     * Returns the value of the '<em><b>Break After Route</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Break After Route</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Break After Route</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Break After Route</em>' attribute.
-     * @see #setBreakAfterRoute(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_BreakAfterRoute()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Break After Route</em>' attribute.
+	 * @see #setBreakAfterRoute(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_BreakAfterRoute()
+	 * @model
+	 * @generated
+	 */
 	boolean isBreakAfterRoute();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#isBreakAfterRoute <em>Break After Route</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#isBreakAfterRoute <em>Break After Route</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Break After Route</em>' attribute.
-     * @see #isBreakAfterRoute()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Break After Route</em>' attribute.
+	 * @see #isBreakAfterRoute()
+	 * @generated
+	 */
 	void setBreakAfterRoute(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Evaluator Expression</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Evaluator Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Evaluator Expression</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Evaluator Expression</em>' reference.
-     * @see #setEvaluatorExpression(EvaluatorExpressionProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_EvaluatorExpression()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Evaluator Expression</em>' reference.
+	 * @see #setEvaluatorExpression(EvaluatorExpressionProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_EvaluatorExpression()
+	 * @model
+	 * @generated
+	 */
 	EvaluatorExpressionProperty getEvaluatorExpression();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#getEvaluatorExpression <em>Evaluator Expression</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#getEvaluatorExpression <em>Evaluator Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Evaluator Expression</em>' reference.
-     * @see #getEvaluatorExpression()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Evaluator Expression</em>' reference.
+	 * @see #getEvaluatorExpression()
+	 * @generated
+	 */
 	void setEvaluatorExpression(EvaluatorExpressionProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Target Sequence</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Target Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target Sequence</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Target Sequence</em>' reference.
-     * @see #setTargetSequence(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_TargetSequence()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Target Sequence</em>' reference.
+	 * @see #setTargetSequence(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouteBranch_TargetSequence()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getTargetSequence();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#getTargetSequence <em>Target Sequence</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch#getTargetSequence <em>Target Sequence</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Target Sequence</em>' reference.
-     * @see #getTargetSequence()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Target Sequence</em>' reference.
+	 * @see #getTargetSequence()
+	 * @generated
+	 */
 	void setTargetSequence(RegistryKeyProperty value);
 } // ConditionalRouteBranch

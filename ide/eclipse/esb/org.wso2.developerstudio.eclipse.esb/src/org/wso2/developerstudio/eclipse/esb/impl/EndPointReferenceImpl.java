@@ -30,22 +30,23 @@ import org.wso2.developerstudio.eclipse.esb.EsbPackage;
  */
 public abstract class EndPointReferenceImpl extends ModelObjectImpl implements EndPointReference {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EndPointReferenceImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.END_POINT_REFERENCE;
-    }
+		return EsbPackage.Literals.END_POINT_REFERENCE;
+	}
 
 } //EndPointImpl

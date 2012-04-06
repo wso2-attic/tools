@@ -36,13 +36,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class FilterElseBranchImpl extends MediatorBranchImpl implements FilterElseBranch {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected FilterElseBranchImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -63,14 +63,15 @@ public class FilterElseBranchImpl extends MediatorBranchImpl implements FilterEl
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.FILTER_ELSE_BRANCH;
-    }
+		return MediatorsPackage.Literals.FILTER_ELSE_BRANCH;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

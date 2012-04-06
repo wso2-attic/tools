@@ -78,14 +78,15 @@ public class ProxyOutSequenceConfigurationImpl extends AbstractProxySequenceConf
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.PROXY_OUT_SEQUENCE_CONFIGURATION;
-    }
+		return EsbPackage.Literals.PROXY_OUT_SEQUENCE_CONFIGURATION;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

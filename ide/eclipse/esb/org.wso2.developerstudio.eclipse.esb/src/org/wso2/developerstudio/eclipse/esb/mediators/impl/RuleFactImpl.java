@@ -53,112 +53,112 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleFactImpl extends ModelObjectImpl implements RuleFact {
 	/**
-     * The default value of the '{@link #getFactType() <em>Fact Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFactType() <em>Fact Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final RuleFactType FACT_TYPE_EDEFAULT = RuleFactType.CUSTOM;
 	/**
-     * The cached value of the '{@link #getFactType() <em>Fact Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFactType() <em>Fact Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactType()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleFactType factType = FACT_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getFactCustomType() <em>Fact Custom Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFactCustomType() <em>Fact Custom Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactCustomType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactCustomType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String FACT_CUSTOM_TYPE_EDEFAULT = "custom_type";
 	/**
-     * The cached value of the '{@link #getFactCustomType() <em>Fact Custom Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFactCustomType() <em>Fact Custom Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactCustomType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactCustomType()
+	 * @generated
+	 * @ordered
+	 */
 	protected String factCustomType = FACT_CUSTOM_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getFactName() <em>Fact Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFactName() <em>Fact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String FACT_NAME_EDEFAULT = "fact_name";
 	/**
-     * The cached value of the '{@link #getFactName() <em>Fact Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFactName() <em>Fact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String factName = FACT_NAME_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final RuleFactValueType VALUE_TYPE_EDEFAULT = RuleFactValueType.LITERAL;
 	/**
-     * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleFactValueType valueType = VALUE_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_LITERAL_EDEFAULT = "value";
 	/**
-     * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueLiteral = VALUE_LITERAL_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty valueExpression;
 	/**
-     * The cached value of the '{@link #getValueKey() <em>Value Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueKey() <em>Value Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty valueKey;
 
 	/**
@@ -250,363 +250,370 @@ public class RuleFactImpl extends ModelObjectImpl implements RuleFact {
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_FACT;
-    }
+		return MediatorsPackage.Literals.RULE_FACT;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactType getFactType() {
-        return factType;
-    }
+		return factType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setFactType(RuleFactType newFactType) {
-        RuleFactType oldFactType = factType;
-        factType = newFactType == null ? FACT_TYPE_EDEFAULT : newFactType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_TYPE, oldFactType, factType));
-    }
+		RuleFactType oldFactType = factType;
+		factType = newFactType == null ? FACT_TYPE_EDEFAULT : newFactType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_TYPE, oldFactType, factType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getFactCustomType() {
-        return factCustomType;
-    }
+		return factCustomType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setFactCustomType(String newFactCustomType) {
-        String oldFactCustomType = factCustomType;
-        factCustomType = newFactCustomType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE, oldFactCustomType, factCustomType));
-    }
+		String oldFactCustomType = factCustomType;
+		factCustomType = newFactCustomType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE, oldFactCustomType, factCustomType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getFactName() {
-        return factName;
-    }
+		return factName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setFactName(String newFactName) {
-        String oldFactName = factName;
-        factName = newFactName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_NAME, oldFactName, factName));
-    }
+		String oldFactName = factName;
+		factName = newFactName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__FACT_NAME, oldFactName, factName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactValueType getValueType() {
-        return valueType;
-    }
+		return valueType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueType(RuleFactValueType newValueType) {
-        RuleFactValueType oldValueType = valueType;
-        valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_TYPE, oldValueType, valueType));
-    }
+		RuleFactValueType oldValueType = valueType;
+		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_TYPE, oldValueType, valueType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueLiteral() {
-        return valueLiteral;
-    }
+		return valueLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueLiteral(String newValueLiteral) {
-        String oldValueLiteral = valueLiteral;
-        valueLiteral = newValueLiteral;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_LITERAL, oldValueLiteral, valueLiteral));
-    }
+		String oldValueLiteral = valueLiteral;
+		valueLiteral = newValueLiteral;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_LITERAL, oldValueLiteral, valueLiteral));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getValueExpression() {
-        return valueExpression;
-    }
+		return valueExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueExpression(NamespacedProperty newValueExpression, NotificationChain msgs) {
-        NamespacedProperty oldValueExpression = valueExpression;
-        valueExpression = newValueExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldValueExpression = valueExpression;
+		valueExpression = newValueExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueExpression(NamespacedProperty newValueExpression) {
-        if (newValueExpression != valueExpression) {
-            NotificationChain msgs = null;
-            if (valueExpression != null)
-                msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, null, msgs);
-            if (newValueExpression != null)
-                msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, null, msgs);
-            msgs = basicSetValueExpression(newValueExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, newValueExpression, newValueExpression));
-    }
+		if (newValueExpression != valueExpression) {
+			NotificationChain msgs = null;
+			if (valueExpression != null)
+				msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, null, msgs);
+			if (newValueExpression != null)
+				msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, null, msgs);
+			msgs = basicSetValueExpression(newValueExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_EXPRESSION, newValueExpression, newValueExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getValueKey() {
-        return valueKey;
-    }
+		return valueKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueKey(RegistryKeyProperty newValueKey, NotificationChain msgs) {
-        RegistryKeyProperty oldValueKey = valueKey;
-        valueKey = newValueKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_KEY, oldValueKey, newValueKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldValueKey = valueKey;
+		valueKey = newValueKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_KEY, oldValueKey, newValueKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueKey(RegistryKeyProperty newValueKey) {
-        if (newValueKey != valueKey) {
-            NotificationChain msgs = null;
-            if (valueKey != null)
-                msgs = ((InternalEObject)valueKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_KEY, null, msgs);
-            if (newValueKey != null)
-                msgs = ((InternalEObject)newValueKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_KEY, null, msgs);
-            msgs = basicSetValueKey(newValueKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_KEY, newValueKey, newValueKey));
-    }
+		if (newValueKey != valueKey) {
+			NotificationChain msgs = null;
+			if (valueKey != null)
+				msgs = ((InternalEObject)valueKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_KEY, null, msgs);
+			if (newValueKey != null)
+				msgs = ((InternalEObject)newValueKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_FACT__VALUE_KEY, null, msgs);
+			msgs = basicSetValueKey(newValueKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_FACT__VALUE_KEY, newValueKey, newValueKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-                return basicSetValueExpression(null, msgs);
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                return basicSetValueKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+				return basicSetValueExpression(null, msgs);
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				return basicSetValueKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACT__FACT_TYPE:
-                return getFactType();
-            case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
-                return getFactCustomType();
-            case MediatorsPackage.RULE_FACT__FACT_NAME:
-                return getFactName();
-            case MediatorsPackage.RULE_FACT__VALUE_TYPE:
-                return getValueType();
-            case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
-                return getValueLiteral();
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-                return getValueExpression();
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                return getValueKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACT__FACT_TYPE:
+				return getFactType();
+			case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
+				return getFactCustomType();
+			case MediatorsPackage.RULE_FACT__FACT_NAME:
+				return getFactName();
+			case MediatorsPackage.RULE_FACT__VALUE_TYPE:
+				return getValueType();
+			case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
+				return getValueLiteral();
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+				return getValueExpression();
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				return getValueKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACT__FACT_TYPE:
-                setFactType((RuleFactType)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
-                setFactCustomType((String)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__FACT_NAME:
-                setFactName((String)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_TYPE:
-                setValueType((RuleFactValueType)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
-                setValueLiteral((String)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                setValueKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACT__FACT_TYPE:
+				setFactType((RuleFactType)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
+				setFactCustomType((String)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__FACT_NAME:
+				setFactName((String)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_TYPE:
+				setValueType((RuleFactValueType)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
+				setValueLiteral((String)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				setValueKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACT__FACT_TYPE:
-                setFactType(FACT_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
-                setFactCustomType(FACT_CUSTOM_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_FACT__FACT_NAME:
-                setFactName(FACT_NAME_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_TYPE:
-                setValueType(VALUE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
-                setValueLiteral(VALUE_LITERAL_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                setValueKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACT__FACT_TYPE:
+				setFactType(FACT_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
+				setFactCustomType(FACT_CUSTOM_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_FACT__FACT_NAME:
+				setFactName(FACT_NAME_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_TYPE:
+				setValueType(VALUE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
+				setValueLiteral(VALUE_LITERAL_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				setValueKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACT__FACT_TYPE:
-                return factType != FACT_TYPE_EDEFAULT;
-            case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
-                return FACT_CUSTOM_TYPE_EDEFAULT == null ? factCustomType != null : !FACT_CUSTOM_TYPE_EDEFAULT.equals(factCustomType);
-            case MediatorsPackage.RULE_FACT__FACT_NAME:
-                return FACT_NAME_EDEFAULT == null ? factName != null : !FACT_NAME_EDEFAULT.equals(factName);
-            case MediatorsPackage.RULE_FACT__VALUE_TYPE:
-                return valueType != VALUE_TYPE_EDEFAULT;
-            case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
-                return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-                return valueExpression != null;
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                return valueKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACT__FACT_TYPE:
+				return factType != FACT_TYPE_EDEFAULT;
+			case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
+				return FACT_CUSTOM_TYPE_EDEFAULT == null ? factCustomType != null : !FACT_CUSTOM_TYPE_EDEFAULT.equals(factCustomType);
+			case MediatorsPackage.RULE_FACT__FACT_NAME:
+				return FACT_NAME_EDEFAULT == null ? factName != null : !FACT_NAME_EDEFAULT.equals(factName);
+			case MediatorsPackage.RULE_FACT__VALUE_TYPE:
+				return valueType != VALUE_TYPE_EDEFAULT;
+			case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
+				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+				return valueExpression != null;
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				return valueKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (factType: ");
-        result.append(factType);
-        result.append(", factCustomType: ");
-        result.append(factCustomType);
-        result.append(", factName: ");
-        result.append(factName);
-        result.append(", valueType: ");
-        result.append(valueType);
-        result.append(", valueLiteral: ");
-        result.append(valueLiteral);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (factType: ");
+		result.append(factType);
+		result.append(", factCustomType: ");
+		result.append(factCustomType);
+		result.append(", factName: ");
+		result.append(factName);
+		result.append(", valueType: ");
+		result.append(valueType);
+		result.append(", valueLiteral: ");
+		result.append(valueLiteral);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

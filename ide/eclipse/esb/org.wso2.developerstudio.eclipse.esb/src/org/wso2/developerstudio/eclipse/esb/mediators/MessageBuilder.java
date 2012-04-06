@@ -37,84 +37,84 @@ import org.wso2.developerstudio.eclipse.esb.ModelObject;
  */
 public interface MessageBuilder extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Content Type</b></em>' attribute.
-     * The default value is <code>"application/xml"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Content Type</b></em>' attribute.
+	 * The default value is <code>"application/xml"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Content Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Content Type</em>' attribute.
-     * @see #setContentType(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_ContentType()
-     * @model default="application/xml"
-     * @generated
-     */
+	 * @return the value of the '<em>Content Type</em>' attribute.
+	 * @see #setContentType(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_ContentType()
+	 * @model default="application/xml"
+	 * @generated
+	 */
 	String getContentType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getContentType <em>Content Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getContentType <em>Content Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Content Type</em>' attribute.
-     * @see #getContentType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Content Type</em>' attribute.
+	 * @see #getContentType()
+	 * @generated
+	 */
 	void setContentType(String value);
 
 	/**
-     * Returns the value of the '<em><b>Builder Class</b></em>' attribute.
-     * The default value is <code>"org.apache.axis2.builder.ApplicationXMLBuilder"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Builder Class</b></em>' attribute.
+	 * The default value is <code>"org.apache.axis2.builder.ApplicationXMLBuilder"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Builder Class</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Builder Class</em>' attribute.
-     * @see #setBuilderClass(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_BuilderClass()
-     * @model default="org.apache.axis2.builder.ApplicationXMLBuilder"
-     * @generated
-     */
+	 * @return the value of the '<em>Builder Class</em>' attribute.
+	 * @see #setBuilderClass(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_BuilderClass()
+	 * @model default="org.apache.axis2.builder.ApplicationXMLBuilder"
+	 * @generated
+	 */
 	String getBuilderClass();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getBuilderClass <em>Builder Class</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getBuilderClass <em>Builder Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Builder Class</em>' attribute.
-     * @see #getBuilderClass()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Builder Class</em>' attribute.
+	 * @see #getBuilderClass()
+	 * @generated
+	 */
 	void setBuilderClass(String value);
 
 	/**
-     * Returns the value of the '<em><b>Formatter Class</b></em>' attribute.
-     * The default value is <code>"org.apache.axis2.transport.http.ApplicationXMLFormatter"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Formatter Class</b></em>' attribute.
+	 * The default value is <code>"org.apache.axis2.transport.http.ApplicationXMLFormatter"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Formatter Class</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Formatter Class</em>' attribute.
-     * @see #setFormatterClass(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_FormatterClass()
-     * @model default="org.apache.axis2.transport.http.ApplicationXMLFormatter"
-     * @generated
-     */
+	 * @return the value of the '<em>Formatter Class</em>' attribute.
+	 * @see #setFormatterClass(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getMessageBuilder_FormatterClass()
+	 * @model default="org.apache.axis2.transport.http.ApplicationXMLFormatter"
+	 * @generated
+	 */
 	String getFormatterClass();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getFormatterClass <em>Formatter Class</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder#getFormatterClass <em>Formatter Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Formatter Class</em>' attribute.
-     * @see #getFormatterClass()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Formatter Class</em>' attribute.
+	 * @see #getFormatterClass()
+	 * @generated
+	 */
 	void setFormatterClass(String value);
 
 } // MessageBuilder

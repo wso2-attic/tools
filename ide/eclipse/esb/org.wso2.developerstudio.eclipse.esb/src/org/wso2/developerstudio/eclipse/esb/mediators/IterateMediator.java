@@ -43,185 +43,185 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface IterateMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Iterate ID</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Iterate ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Iterate ID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Iterate ID</em>' attribute.
-     * @see #setIterateID(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_IterateID()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Iterate ID</em>' attribute.
+	 * @see #setIterateID(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_IterateID()
+	 * @model
+	 * @generated
+	 */
 	String getIterateID();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getIterateID <em>Iterate ID</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getIterateID <em>Iterate ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Iterate ID</em>' attribute.
-     * @see #getIterateID()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Iterate ID</em>' attribute.
+	 * @see #getIterateID()
+	 * @generated
+	 */
 	void setIterateID(String value);
 
 	/**
-     * Returns the value of the '<em><b>Sequential Mediation</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sequential Mediation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequential Mediation</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Sequential Mediation</em>' attribute.
-     * @see #setSequentialMediation(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_SequentialMediation()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Sequential Mediation</em>' attribute.
+	 * @see #setSequentialMediation(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_SequentialMediation()
+	 * @model
+	 * @generated
+	 */
 	boolean isSequentialMediation();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isSequentialMediation <em>Sequential Mediation</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isSequentialMediation <em>Sequential Mediation</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Sequential Mediation</em>' attribute.
-     * @see #isSequentialMediation()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Sequential Mediation</em>' attribute.
+	 * @see #isSequentialMediation()
+	 * @generated
+	 */
 	void setSequentialMediation(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Continue Parent</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Continue Parent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Continue Parent</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Continue Parent</em>' attribute.
-     * @see #setContinueParent(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_ContinueParent()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Continue Parent</em>' attribute.
+	 * @see #setContinueParent(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_ContinueParent()
+	 * @model
+	 * @generated
+	 */
 	boolean isContinueParent();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isContinueParent <em>Continue Parent</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isContinueParent <em>Continue Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Continue Parent</em>' attribute.
-     * @see #isContinueParent()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Continue Parent</em>' attribute.
+	 * @see #isContinueParent()
+	 * @generated
+	 */
 	void setContinueParent(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Preserve Payload</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Preserve Payload</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Preserve Payload</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Preserve Payload</em>' attribute.
-     * @see #setPreservePayload(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_PreservePayload()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Preserve Payload</em>' attribute.
+	 * @see #setPreservePayload(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_PreservePayload()
+	 * @model
+	 * @generated
+	 */
 	boolean isPreservePayload();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isPreservePayload <em>Preserve Payload</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#isPreservePayload <em>Preserve Payload</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Preserve Payload</em>' attribute.
-     * @see #isPreservePayload()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Preserve Payload</em>' attribute.
+	 * @see #isPreservePayload()
+	 * @generated
+	 */
 	void setPreservePayload(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Iterate Expression</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Iterate Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Iterate Expression</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Iterate Expression</em>' containment reference.
-     * @see #setIterateExpression(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_IterateExpression()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Iterate Expression</em>' containment reference.
+	 * @see #setIterateExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_IterateExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getIterateExpression();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getIterateExpression <em>Iterate Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getIterateExpression <em>Iterate Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Iterate Expression</em>' containment reference.
-     * @see #getIterateExpression()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Iterate Expression</em>' containment reference.
+	 * @see #getIterateExpression()
+	 * @generated
+	 */
 	void setIterateExpression(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Attach Path</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Attach Path</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Attach Path</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Attach Path</em>' containment reference.
-     * @see #setAttachPath(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_AttachPath()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Attach Path</em>' containment reference.
+	 * @see #setAttachPath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_AttachPath()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getAttachPath();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getAttachPath <em>Attach Path</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getAttachPath <em>Attach Path</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Attach Path</em>' containment reference.
-     * @see #getAttachPath()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Attach Path</em>' containment reference.
+	 * @see #getAttachPath()
+	 * @generated
+	 */
 	void setAttachPath(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Target</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Target</em>' containment reference.
-     * @see #setTarget(IterateTarget)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_Target()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Target</em>' containment reference.
+	 * @see #setTarget(IterateTarget)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateMediator_Target()
+	 * @model containment="true"
+	 * @generated
+	 */
 	IterateTarget getTarget();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getTarget <em>Target</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator#getTarget <em>Target</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Target</em>' containment reference.
-     * @see #getTarget()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Target</em>' containment reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
 	void setTarget(IterateTarget value);
 
 } // IterateMediator

@@ -67,14 +67,15 @@ public class RouteTargetImpl extends AbstractCommonTargetImpl implements RouteTa
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.ROUTE_TARGET;
-    }
+		return MediatorsPackage.Literals.ROUTE_TARGET;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

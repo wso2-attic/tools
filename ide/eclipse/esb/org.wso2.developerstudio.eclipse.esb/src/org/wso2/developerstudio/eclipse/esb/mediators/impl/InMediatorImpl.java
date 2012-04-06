@@ -36,13 +36,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class InMediatorImpl extends ParentMediatorImpl implements InMediator {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected InMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -59,19 +59,22 @@ public class InMediatorImpl extends ParentMediatorImpl implements InMediator {
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.IN_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.IN_MEDIATOR;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

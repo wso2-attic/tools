@@ -32,271 +32,272 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum RuleActionType implements Enumerator {
 	/**
-     * The '<em><b>REPLACE</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>REPLACE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #REPLACE_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #REPLACE_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	REPLACE(0, "REPLACE", "Replace"),
 
 	/**
-     * The '<em><b>REMOVE</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>REMOVE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #REMOVE_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #REMOVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	REMOVE(1, "REMOVE", "Remove"),
 
 	/**
-     * The '<em><b>APPEND</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>APPEND</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #APPEND_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #APPEND_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	APPEND(2, "APPEND", "Append"),
 
 	/**
-     * The '<em><b>PREPEND</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>PREPEND</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #PREPEND_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #PREPEND_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	PREPEND(3, "PREPEND", "Prepend"),
 
 	/**
-     * The '<em><b>SET</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>SET</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #SET_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #SET_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	SET(4, "SET", "Set");
 
 	/**
-     * The '<em><b>REPLACE</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>REPLACE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>REPLACE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #REPLACE
-     * @model literal="Replace"
-     * @generated
-     * @ordered
-     */
+	 * @see #REPLACE
+	 * @model literal="Replace"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int REPLACE_VALUE = 0;
 
 	/**
-     * The '<em><b>REMOVE</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>REMOVE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>REMOVE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #REMOVE
-     * @model literal="Remove"
-     * @generated
-     * @ordered
-     */
+	 * @see #REMOVE
+	 * @model literal="Remove"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int REMOVE_VALUE = 1;
 
 	/**
-     * The '<em><b>APPEND</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>APPEND</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>APPEND</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #APPEND
-     * @model literal="Append"
-     * @generated
-     * @ordered
-     */
+	 * @see #APPEND
+	 * @model literal="Append"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int APPEND_VALUE = 2;
 
 	/**
-     * The '<em><b>PREPEND</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>PREPEND</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>PREPEND</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #PREPEND
-     * @model literal="Prepend"
-     * @generated
-     * @ordered
-     */
+	 * @see #PREPEND
+	 * @model literal="Prepend"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int PREPEND_VALUE = 3;
 
 	/**
-     * The '<em><b>SET</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>SET</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>SET</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #SET
-     * @model literal="Set"
-     * @generated
-     * @ordered
-     */
+	 * @see #SET
+	 * @model literal="Set"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int SET_VALUE = 4;
 
 	/**
-     * An array of all the '<em><b>Rule Action Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Rule Action Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private static final RuleActionType[] VALUES_ARRAY =
 		new RuleActionType[] {
-            REPLACE,
-            REMOVE,
-            APPEND,
-            PREPEND,
-            SET,
-        };
+			REPLACE,
+			REMOVE,
+			APPEND,
+			PREPEND,
+			SET,
+		};
 
 	/**
-     * A public read-only list of all the '<em><b>Rule Action Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Rule Action Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<RuleActionType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-     * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static RuleActionType get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            RuleActionType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			RuleActionType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static RuleActionType getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            RuleActionType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			RuleActionType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Rule Action Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static RuleActionType get(int value) {
-        switch (value) {
-            case REPLACE_VALUE: return REPLACE;
-            case REMOVE_VALUE: return REMOVE;
-            case APPEND_VALUE: return APPEND;
-            case PREPEND_VALUE: return PREPEND;
-            case SET_VALUE: return SET;
-        }
-        return null;
-    }
+		switch (value) {
+			case REPLACE_VALUE: return REPLACE;
+			case REMOVE_VALUE: return REMOVE;
+			case APPEND_VALUE: return APPEND;
+			case PREPEND_VALUE: return PREPEND;
+			case SET_VALUE: return SET;
+		}
+		return null;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private RuleActionType(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
 	/**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        return literal;
-    }
+		return literal;
+	}
 	
 } //RuleActionType

@@ -34,23 +34,24 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class ValidateFeatureImpl extends AbstractBooleanFeatureImpl implements ValidateFeature {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateFeatureImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.VALIDATE_FEATURE;
-    }
+		return MediatorsPackage.Literals.VALIDATE_FEATURE;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

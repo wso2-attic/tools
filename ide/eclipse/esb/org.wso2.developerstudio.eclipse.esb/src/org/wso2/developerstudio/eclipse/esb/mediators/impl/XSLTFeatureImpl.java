@@ -34,23 +34,24 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class XSLTFeatureImpl extends AbstractBooleanFeatureImpl implements XSLTFeature {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XSLTFeatureImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.XSLT_FEATURE;
-    }
+		return MediatorsPackage.Literals.XSLT_FEATURE;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

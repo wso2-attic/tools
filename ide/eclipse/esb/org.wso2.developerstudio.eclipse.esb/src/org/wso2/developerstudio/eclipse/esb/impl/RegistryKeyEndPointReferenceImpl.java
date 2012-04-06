@@ -47,13 +47,13 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class RegistryKeyEndPointReferenceImpl extends EndPointReferenceImpl implements RegistryKeyEndPointReference {
 	/**
-     * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty endpointKey;
 
 	/**
@@ -91,129 +91,135 @@ public class RegistryKeyEndPointReferenceImpl extends EndPointReferenceImpl impl
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.REGISTRY_KEY_END_POINT_REFERENCE;
-    }
+		return EsbPackage.Literals.REGISTRY_KEY_END_POINT_REFERENCE;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getEndpointKey() {
-        return endpointKey;
-    }
+		return endpointKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEndpointKey(RegistryKeyProperty newEndpointKey, NotificationChain msgs) {
-        RegistryKeyProperty oldEndpointKey = endpointKey;
-        endpointKey = newEndpointKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldEndpointKey = endpointKey;
+		endpointKey = newEndpointKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointKey(RegistryKeyProperty newEndpointKey) {
-        if (newEndpointKey != endpointKey) {
-            NotificationChain msgs = null;
-            if (endpointKey != null)
-                msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, null, msgs);
-            if (newEndpointKey != null)
-                msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, null, msgs);
-            msgs = basicSetEndpointKey(newEndpointKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
-    }
+		if (newEndpointKey != endpointKey) {
+			NotificationChain msgs = null;
+			if (endpointKey != null)
+				msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, null, msgs);
+			if (newEndpointKey != null)
+				msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, null, msgs);
+			msgs = basicSetEndpointKey(newEndpointKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
-                return basicSetEndpointKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
+				return basicSetEndpointKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
-                return getEndpointKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
+				return getEndpointKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
-                return endpointKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE__ENDPOINT_KEY:
+				return endpointKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

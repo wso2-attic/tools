@@ -57,14 +57,15 @@ public class XSLTResourceImpl extends AbstractLocationKeyResourceImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.XSLT_RESOURCE;
-    }
+		return MediatorsPackage.Literals.XSLT_RESOURCE;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

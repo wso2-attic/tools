@@ -52,73 +52,73 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SqlStatementImpl extends ModelObjectImpl implements SqlStatement {
 	/**
-     * The default value of the '{@link #getQueryString() <em>Query String</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getQueryString() <em>Query String</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getQueryString()
-     * @generated
-     * @ordered
-     */
+	 * @see #getQueryString()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String QUERY_STRING_EDEFAULT = "sql_query";
 
 	/**
-     * The cached value of the '{@link #getQueryString() <em>Query String</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getQueryString() <em>Query String</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getQueryString()
-     * @generated
-     * @ordered
-     */
+	 * @see #getQueryString()
+	 * @generated
+	 * @ordered
+	 */
 	protected String queryString = QUERY_STRING_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getParameters()
-     * @generated
-     * @ordered
-     */
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<SqlParameterDefinition> parameters;
 
 	/**
-     * The default value of the '{@link #isResultsEnabled() <em>Results Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isResultsEnabled() <em>Results Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isResultsEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isResultsEnabled()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean RESULTS_ENABLED_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isResultsEnabled() <em>Results Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isResultsEnabled() <em>Results Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isResultsEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isResultsEnabled()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean resultsEnabled = RESULTS_ENABLED_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getResults()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResults()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<SqlResultMapping> results;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SqlStatementImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -171,205 +171,212 @@ public class SqlStatementImpl extends ModelObjectImpl implements SqlStatement {
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SQL_STATEMENT;
-    }
+		return MediatorsPackage.Literals.SQL_STATEMENT;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getQueryString() {
-        return queryString;
-    }
+		return queryString;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setQueryString(String newQueryString) {
-        String oldQueryString = queryString;
-        queryString = newQueryString;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_STATEMENT__QUERY_STRING, oldQueryString, queryString));
-    }
+		String oldQueryString = queryString;
+		queryString = newQueryString;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_STATEMENT__QUERY_STRING, oldQueryString, queryString));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<SqlParameterDefinition> getParameters() {
-        if (parameters == null) {
-            parameters = new EObjectContainmentEList<SqlParameterDefinition>(SqlParameterDefinition.class, this, MediatorsPackage.SQL_STATEMENT__PARAMETERS);
-        }
-        return parameters;
-    }
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<SqlParameterDefinition>(SqlParameterDefinition.class, this, MediatorsPackage.SQL_STATEMENT__PARAMETERS);
+		}
+		return parameters;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isResultsEnabled() {
-        return resultsEnabled;
-    }
+		return resultsEnabled;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setResultsEnabled(boolean newResultsEnabled) {
-        boolean oldResultsEnabled = resultsEnabled;
-        resultsEnabled = newResultsEnabled;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED, oldResultsEnabled, resultsEnabled));
-    }
+		boolean oldResultsEnabled = resultsEnabled;
+		resultsEnabled = newResultsEnabled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED, oldResultsEnabled, resultsEnabled));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<SqlResultMapping> getResults() {
-        if (results == null) {
-            results = new EObjectContainmentEList<SqlResultMapping>(SqlResultMapping.class, this, MediatorsPackage.SQL_STATEMENT__RESULTS);
-        }
-        return results;
-    }
+		if (results == null) {
+			results = new EObjectContainmentEList<SqlResultMapping>(SqlResultMapping.class, this, MediatorsPackage.SQL_STATEMENT__RESULTS);
+		}
+		return results;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
-                return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-            case MediatorsPackage.SQL_STATEMENT__RESULTS:
-                return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case MediatorsPackage.SQL_STATEMENT__RESULTS:
+				return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
-                return getQueryString();
-            case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
-                return getParameters();
-            case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
-                return isResultsEnabled();
-            case MediatorsPackage.SQL_STATEMENT__RESULTS:
-                return getResults();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
+				return getQueryString();
+			case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
+				return getParameters();
+			case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
+				return isResultsEnabled();
+			case MediatorsPackage.SQL_STATEMENT__RESULTS:
+				return getResults();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
-                setQueryString((String)newValue);
-                return;
-            case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
-                getParameters().clear();
-                getParameters().addAll((Collection<? extends SqlParameterDefinition>)newValue);
-                return;
-            case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
-                setResultsEnabled((Boolean)newValue);
-                return;
-            case MediatorsPackage.SQL_STATEMENT__RESULTS:
-                getResults().clear();
-                getResults().addAll((Collection<? extends SqlResultMapping>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
+				setQueryString((String)newValue);
+				return;
+			case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends SqlParameterDefinition>)newValue);
+				return;
+			case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
+				setResultsEnabled((Boolean)newValue);
+				return;
+			case MediatorsPackage.SQL_STATEMENT__RESULTS:
+				getResults().clear();
+				getResults().addAll((Collection<? extends SqlResultMapping>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
-                setQueryString(QUERY_STRING_EDEFAULT);
-                return;
-            case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
-                getParameters().clear();
-                return;
-            case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
-                setResultsEnabled(RESULTS_ENABLED_EDEFAULT);
-                return;
-            case MediatorsPackage.SQL_STATEMENT__RESULTS:
-                getResults().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
+				setQueryString(QUERY_STRING_EDEFAULT);
+				return;
+			case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
+				getParameters().clear();
+				return;
+			case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
+				setResultsEnabled(RESULTS_ENABLED_EDEFAULT);
+				return;
+			case MediatorsPackage.SQL_STATEMENT__RESULTS:
+				getResults().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
-                return QUERY_STRING_EDEFAULT == null ? queryString != null : !QUERY_STRING_EDEFAULT.equals(queryString);
-            case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
-                return parameters != null && !parameters.isEmpty();
-            case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
-                return resultsEnabled != RESULTS_ENABLED_EDEFAULT;
-            case MediatorsPackage.SQL_STATEMENT__RESULTS:
-                return results != null && !results.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_STATEMENT__QUERY_STRING:
+				return QUERY_STRING_EDEFAULT == null ? queryString != null : !QUERY_STRING_EDEFAULT.equals(queryString);
+			case MediatorsPackage.SQL_STATEMENT__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case MediatorsPackage.SQL_STATEMENT__RESULTS_ENABLED:
+				return resultsEnabled != RESULTS_ENABLED_EDEFAULT;
+			case MediatorsPackage.SQL_STATEMENT__RESULTS:
+				return results != null && !results.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (queryString: ");
-        result.append(queryString);
-        result.append(", resultsEnabled: ");
-        result.append(resultsEnabled);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (queryString: ");
+		result.append(queryString);
+		result.append(", resultsEnabled: ");
+		result.append(resultsEnabled);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

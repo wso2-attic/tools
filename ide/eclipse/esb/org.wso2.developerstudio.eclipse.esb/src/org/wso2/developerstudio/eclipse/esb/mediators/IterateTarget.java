@@ -37,55 +37,55 @@ import org.wso2.developerstudio.eclipse.esb.AbstractCommonTarget;
  */
 public interface IterateTarget extends AbstractCommonTarget {
 	/**
-     * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Soap Action</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Soap Action</em>' attribute.
-     * @see #setSoapAction(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateTarget_SoapAction()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Soap Action</em>' attribute.
+	 * @see #setSoapAction(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateTarget_SoapAction()
+	 * @model
+	 * @generated
+	 */
 	String getSoapAction();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget#getSoapAction <em>Soap Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget#getSoapAction <em>Soap Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Soap Action</em>' attribute.
-     * @see #getSoapAction()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Soap Action</em>' attribute.
+	 * @see #getSoapAction()
+	 * @generated
+	 */
 	void setSoapAction(String value);
 
 	/**
-     * Returns the value of the '<em><b>To Address</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>To Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Address</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>To Address</em>' attribute.
-     * @see #setToAddress(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateTarget_ToAddress()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>To Address</em>' attribute.
+	 * @see #setToAddress(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getIterateTarget_ToAddress()
+	 * @model
+	 * @generated
+	 */
 	String getToAddress();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget#getToAddress <em>To Address</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget#getToAddress <em>To Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>To Address</em>' attribute.
-     * @see #getToAddress()
-     * @generated
-     */
+	 * @param value the new value of the '<em>To Address</em>' attribute.
+	 * @see #getToAddress()
+	 * @generated
+	 */
 	void setToAddress(String value);
 
 } // IterateTarget

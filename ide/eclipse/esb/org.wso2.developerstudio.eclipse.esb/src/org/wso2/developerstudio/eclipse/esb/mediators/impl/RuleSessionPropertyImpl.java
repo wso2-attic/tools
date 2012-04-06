@@ -34,23 +34,24 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleSessionPropertyImpl extends AbstractNameValuePropertyImpl implements RuleSessionProperty {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSessionPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_SESSION_PROPERTY;
-    }
+		return MediatorsPackage.Literals.RULE_SESSION_PROPERTY;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

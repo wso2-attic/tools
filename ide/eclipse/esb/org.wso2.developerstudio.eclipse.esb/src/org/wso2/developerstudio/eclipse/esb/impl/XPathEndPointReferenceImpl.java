@@ -43,13 +43,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements XPathEndPointReference {
 	/**
-     * The cached value of the '{@link #getEndpointXpath() <em>Endpoint Xpath</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointXpath() <em>Endpoint Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointXpath()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointXpath()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty endpointXpath;
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,129 +83,135 @@ public class XPathEndPointReferenceImpl extends EndPointReferenceImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.XPATH_END_POINT_REFERENCE;
-    }
+		return EsbPackage.Literals.XPATH_END_POINT_REFERENCE;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getEndpointXpath() {
-        return endpointXpath;
-    }
+		return endpointXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEndpointXpath(NamespacedProperty newEndpointXpath, NotificationChain msgs) {
-        NamespacedProperty oldEndpointXpath = endpointXpath;
-        endpointXpath = newEndpointXpath;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, oldEndpointXpath, newEndpointXpath);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldEndpointXpath = endpointXpath;
+		endpointXpath = newEndpointXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, oldEndpointXpath, newEndpointXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointXpath(NamespacedProperty newEndpointXpath) {
-        if (newEndpointXpath != endpointXpath) {
-            NotificationChain msgs = null;
-            if (endpointXpath != null)
-                msgs = ((InternalEObject)endpointXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, null, msgs);
-            if (newEndpointXpath != null)
-                msgs = ((InternalEObject)newEndpointXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, null, msgs);
-            msgs = basicSetEndpointXpath(newEndpointXpath, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, newEndpointXpath, newEndpointXpath));
-    }
+		if (newEndpointXpath != endpointXpath) {
+			NotificationChain msgs = null;
+			if (endpointXpath != null)
+				msgs = ((InternalEObject)endpointXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, null, msgs);
+			if (newEndpointXpath != null)
+				msgs = ((InternalEObject)newEndpointXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, null, msgs);
+			msgs = basicSetEndpointXpath(newEndpointXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH, newEndpointXpath, newEndpointXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
-                return basicSetEndpointXpath(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
+				return basicSetEndpointXpath(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
-                return getEndpointXpath();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
+				return getEndpointXpath();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
-                setEndpointXpath((NamespacedProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
+				setEndpointXpath((NamespacedProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
-                setEndpointXpath((NamespacedProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
+				setEndpointXpath((NamespacedProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
-                return endpointXpath != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.XPATH_END_POINT_REFERENCE__ENDPOINT_XPATH:
+				return endpointXpath != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

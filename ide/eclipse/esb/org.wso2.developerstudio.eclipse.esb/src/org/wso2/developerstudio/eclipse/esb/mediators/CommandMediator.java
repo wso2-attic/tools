@@ -37,46 +37,46 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface CommandMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Class Name</b></em>' attribute.
-     * The default value is <code>"class_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Class Name</b></em>' attribute.
+	 * The default value is <code>"class_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Class Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Class Name</em>' attribute.
-     * @see #setClassName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCommandMediator_ClassName()
-     * @model default="class_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Class Name</em>' attribute.
+	 * @see #setClassName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCommandMediator_ClassName()
+	 * @model default="class_name"
+	 * @generated
+	 */
 	String getClassName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator#getClassName <em>Class Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator#getClassName <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Class Name</em>' attribute.
-     * @see #getClassName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Class Name</em>' attribute.
+	 * @see #getClassName()
+	 * @generated
+	 */
 	void setClassName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Properties</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCommandMediator_Properties()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCommandMediator_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<CommandProperty> getProperties();
 
 } // CommandMediator

@@ -48,43 +48,43 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class IterateTargetImpl extends AbstractCommonTargetImpl implements IterateTarget {
 	/**
-     * The default value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSoapAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSoapAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SOAP_ACTION_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSoapAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSoapAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected String soapAction = SOAP_ACTION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getToAddress()
-     * @generated
-     * @ordered
-     */
+	 * @see #getToAddress()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String TO_ADDRESS_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getToAddress()
-     * @generated
-     * @ordered
-     */
+	 * @see #getToAddress()
+	 * @generated
+	 * @ordered
+	 */
 	protected String toAddress = TO_ADDRESS_EDEFAULT;
 
 	/**
@@ -153,142 +153,148 @@ public class IterateTargetImpl extends AbstractCommonTargetImpl implements Itera
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.ITERATE_TARGET;
-    }
+		return MediatorsPackage.Literals.ITERATE_TARGET;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getSoapAction() {
-        return soapAction;
-    }
+		return soapAction;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSoapAction(String newSoapAction) {
-        String oldSoapAction = soapAction;
-        soapAction = newSoapAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ITERATE_TARGET__SOAP_ACTION, oldSoapAction, soapAction));
-    }
+		String oldSoapAction = soapAction;
+		soapAction = newSoapAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ITERATE_TARGET__SOAP_ACTION, oldSoapAction, soapAction));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getToAddress() {
-        return toAddress;
-    }
+		return toAddress;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setToAddress(String newToAddress) {
-        String oldToAddress = toAddress;
-        toAddress = newToAddress;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ITERATE_TARGET__TO_ADDRESS, oldToAddress, toAddress));
-    }
+		String oldToAddress = toAddress;
+		toAddress = newToAddress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ITERATE_TARGET__TO_ADDRESS, oldToAddress, toAddress));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
-                return getSoapAction();
-            case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
-                return getToAddress();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
+				return getSoapAction();
+			case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
+				return getToAddress();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
-                setSoapAction((String)newValue);
-                return;
-            case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
-                setToAddress((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
+				setSoapAction((String)newValue);
+				return;
+			case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
+				setToAddress((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
-                setSoapAction(SOAP_ACTION_EDEFAULT);
-                return;
-            case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
-                setToAddress(TO_ADDRESS_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
+				setSoapAction(SOAP_ACTION_EDEFAULT);
+				return;
+			case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
+				setToAddress(TO_ADDRESS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
-                return SOAP_ACTION_EDEFAULT == null ? soapAction != null : !SOAP_ACTION_EDEFAULT.equals(soapAction);
-            case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
-                return TO_ADDRESS_EDEFAULT == null ? toAddress != null : !TO_ADDRESS_EDEFAULT.equals(toAddress);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ITERATE_TARGET__SOAP_ACTION:
+				return SOAP_ACTION_EDEFAULT == null ? soapAction != null : !SOAP_ACTION_EDEFAULT.equals(soapAction);
+			case MediatorsPackage.ITERATE_TARGET__TO_ADDRESS:
+				return TO_ADDRESS_EDEFAULT == null ? toAddress != null : !TO_ADDRESS_EDEFAULT.equals(toAddress);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (soapAction: ");
-        result.append(soapAction);
-        result.append(", toAddress: ");
-        result.append(toAddress);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (soapAction: ");
+		result.append(soapAction);
+		result.append(", toAddress: ");
+		result.append(toAddress);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

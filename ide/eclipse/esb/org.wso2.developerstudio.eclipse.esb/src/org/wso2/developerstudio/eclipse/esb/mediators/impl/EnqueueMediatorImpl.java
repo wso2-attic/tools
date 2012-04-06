@@ -51,53 +51,53 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator {
     /**
-     * The default value of the '{@link #getExecutor() <em>Executor</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getExecutor() <em>Executor</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getExecutor()
-     * @generated
-     * @ordered
-     */
+	 * @see #getExecutor()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String EXECUTOR_EDEFAULT = "executor_name";
 
     /**
-     * The cached value of the '{@link #getExecutor() <em>Executor</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getExecutor() <em>Executor</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getExecutor()
-     * @generated
-     * @ordered
-     */
+	 * @see #getExecutor()
+	 * @generated
+	 * @ordered
+	 */
     protected String executor = EXECUTOR_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPriority()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
     protected static final int PRIORITY_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPriority()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
     protected int priority = PRIORITY_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 
 	/**
@@ -124,7 +124,8 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
     public void doLoad(Element self) throws Exception {		
 		setExecutor(self.getAttribute("executor"));
 		setPriority(Integer.parseInt(self.getAttribute("priority")));
-		getSequenceKey().load(self);				
+		getSequenceKey().load(self);
+		super.doLoad(self);
     }
 
 	/**
@@ -134,213 +135,222 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
 		Element self =  createChildElement(parent, "enqueue");		
 		self.setAttribute("executor", getExecutor());
 		self.setAttribute("priority", Integer.toString(getPriority()));
-		getSequenceKey().save(self);   						
+		getSequenceKey().save(self);  
+		if(description!=null)
+			description.save(self);
 		return self;
     }
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.ENQUEUE_MEDIATOR;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return MediatorsPackage.Literals.ENQUEUE_MEDIATOR;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getExecutor() {
-        return executor;
-    }
+		return executor;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setExecutor(String newExecutor) {
-        String oldExecutor = executor;
-        executor = newExecutor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR, oldExecutor, executor));
-    }
+		String oldExecutor = executor;
+		executor = newExecutor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR, oldExecutor, executor));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public int getPriority() {
-        return priority;
-    }
+		return priority;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setPriority(int newPriority) {
-        int oldPriority = priority;
-        priority = newPriority;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY, oldPriority, priority));
-    }
+		int oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY, oldPriority, priority));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        if (newSequenceKey != sequenceKey) {
-            NotificationChain msgs = null;
-            if (sequenceKey != null)
-                msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, null, msgs);
-            if (newSequenceKey != null)
-                msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, null, msgs);
-            msgs = basicSetSequenceKey(newSequenceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
-    }
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                return basicSetSequenceKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-                return getExecutor();
-            case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
-                return getPriority();
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                return getSequenceKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
+				return getExecutor();
+			case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
+				return getPriority();
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				return getSequenceKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-                setExecutor((String)newValue);
-                return;
-            case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
-                setPriority((Integer)newValue);
-                return;
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
+				setExecutor((String)newValue);
+				return;
+			case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
+				setPriority((Integer)newValue);
+				return;
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-                setExecutor(EXECUTOR_EDEFAULT);
-                return;
-            case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
-                setPriority(PRIORITY_EDEFAULT);
-                return;
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
+				setExecutor(EXECUTOR_EDEFAULT);
+				return;
+			case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
+				setPriority(PRIORITY_EDEFAULT);
+				return;
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-                return EXECUTOR_EDEFAULT == null ? executor != null : !EXECUTOR_EDEFAULT.equals(executor);
-            case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
-                return priority != PRIORITY_EDEFAULT;
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                return sequenceKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
+				return EXECUTOR_EDEFAULT == null ? executor != null : !EXECUTOR_EDEFAULT.equals(executor);
+			case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
+				return priority != PRIORITY_EDEFAULT;
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				return sequenceKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (executor: ");
-        result.append(executor);
-        result.append(", priority: ");
-        result.append(priority);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (executor: ");
+		result.append(executor);
+		result.append(", priority: ");
+		result.append(priority);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

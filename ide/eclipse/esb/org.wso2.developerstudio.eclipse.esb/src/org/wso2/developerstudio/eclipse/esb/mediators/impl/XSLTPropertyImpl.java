@@ -50,14 +50,15 @@ public class XSLTPropertyImpl extends AbstractNameValueExpressionPropertyImpl im
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.XSLT_PROPERTY;
-    }
+		return MediatorsPackage.Literals.XSLT_PROPERTY;
+	}
 
 	
 

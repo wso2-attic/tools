@@ -43,23 +43,23 @@ import org.wso2.developerstudio.eclipse.esb.MediatorBranch;
  */
 public abstract class MediatorBranchImpl extends ModelObjectImpl implements MediatorBranch {
 	/**
-     * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getChildren()
-     * @generated
-     * @ordered
-     */
+	 * @see #getChildren()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<Mediator> children;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected MediatorBranchImpl() {
-        super();
-    }
+		super();
+	}
 	
 	/**
 	 * {@inheritDoc}
@@ -73,99 +73,105 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.MEDIATOR_BRANCH;
-    }
+		return EsbPackage.Literals.MEDIATOR_BRANCH;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<Mediator> getChildren() {
-        if (children == null) {
-            children = new EObjectContainmentEList<Mediator>(Mediator.class, this, EsbPackage.MEDIATOR_BRANCH__CHILDREN);
-        }
-        return children;
-    }
+		if (children == null) {
+			children = new EObjectContainmentEList<Mediator>(Mediator.class, this, EsbPackage.MEDIATOR_BRANCH__CHILDREN);
+		}
+		return children;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
-                return getChildren();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
+				return getChildren();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends Mediator>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends Mediator>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
-                getChildren().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
+				getChildren().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
-                return children != null && !children.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.MEDIATOR_BRANCH__CHILDREN:
+				return children != null && !children.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //MediatorBranchImpl

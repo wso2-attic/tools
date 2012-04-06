@@ -52,33 +52,33 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SmooksOutConfigurationImpl extends ModelObjectImpl implements SmooksOutConfiguration {
 	/**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final SmooksIODataType TYPE_EDEFAULT = SmooksIODataType.XML;
 
 	/**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
 	protected SmooksIODataType type = TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty expression;
 
 	/**
@@ -92,53 +92,53 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	protected static final String PROPERTY_EDEFAULT = "smooksOutputProperty";
 
 	/**
-     * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected String property = PROPERTY_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ExpressionAction ACTION_EDEFAULT = ExpressionAction.ADD;
 
 	/**
-     * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected ExpressionAction action = ACTION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getOutputMethod() <em>Output Method</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOutputMethod() <em>Output Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOutputMethod()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOutputMethod()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final OutputMethod OUTPUT_METHOD_EDEFAULT = OutputMethod.DEFAULT;
 
 	/**
-     * The cached value of the '{@link #getOutputMethod() <em>Output Method</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutputMethod() <em>Output Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOutputMethod()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOutputMethod()
+	 * @generated
+	 * @ordered
+	 */
 	protected OutputMethod outputMethod = OUTPUT_METHOD_EDEFAULT;
 
 	/**
@@ -160,257 +160,263 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksIODataType getType() {
-        return type;
-    }
+		return type;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setType(SmooksIODataType newType) {
-        SmooksIODataType oldType = type;
-        type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE, oldType, type));
-    }
+		SmooksIODataType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE, oldType, type));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getExpression() {
-        if (expression != null && expression.eIsProxy()) {
-            InternalEObject oldExpression = (InternalEObject)expression;
-            expression = (NamespacedProperty)eResolveProxy(oldExpression);
-            if (expression != oldExpression) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
-            }
-        }
-        return expression;
-    }
+		if (expression != null && expression.eIsProxy()) {
+			InternalEObject oldExpression = (InternalEObject)expression;
+			expression = (NamespacedProperty)eResolveProxy(oldExpression);
+			if (expression != oldExpression) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
+			}
+		}
+		return expression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty basicGetExpression() {
-        return expression;
-    }
+		return expression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setExpression(NamespacedProperty newExpression) {
-        NamespacedProperty oldExpression = expression;
-        expression = newExpression;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
-    }
+		NamespacedProperty oldExpression = expression;
+		expression = newExpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION, oldExpression, expression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getProperty() {
-        return property;
-    }
+		return property;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setProperty(String newProperty) {
-        String oldProperty = property;
-        property = newProperty;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY, oldProperty, property));
-    }
+		String oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY, oldProperty, property));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ExpressionAction getAction() {
-        return action;
-    }
+		return action;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setAction(ExpressionAction newAction) {
-        ExpressionAction oldAction = action;
-        action = newAction == null ? ACTION_EDEFAULT : newAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION, oldAction, action));
-    }
+		ExpressionAction oldAction = action;
+		action = newAction == null ? ACTION_EDEFAULT : newAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION, oldAction, action));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OutputMethod getOutputMethod() {
-        return outputMethod;
-    }
+		return outputMethod;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOutputMethod(OutputMethod newOutputMethod) {
-        OutputMethod oldOutputMethod = outputMethod;
-        outputMethod = newOutputMethod == null ? OUTPUT_METHOD_EDEFAULT : newOutputMethod;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD, oldOutputMethod, outputMethod));
-    }
+		OutputMethod oldOutputMethod = outputMethod;
+		outputMethod = newOutputMethod == null ? OUTPUT_METHOD_EDEFAULT : newOutputMethod;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD, oldOutputMethod, outputMethod));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
-                return getType();
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-                if (resolve) return getExpression();
-                return basicGetExpression();
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
-                return getProperty();
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
-                return getAction();
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
-                return getOutputMethod();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
+				return getType();
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+				if (resolve) return getExpression();
+				return basicGetExpression();
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
+				return getProperty();
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
+				return getAction();
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
+				return getOutputMethod();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
-                setType((SmooksIODataType)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-                setExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
-                setProperty((String)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
-                setAction((ExpressionAction)newValue);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
-                setOutputMethod((OutputMethod)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
+				setType((SmooksIODataType)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+				setExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
+				setProperty((String)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
+				setAction((ExpressionAction)newValue);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
+				setOutputMethod((OutputMethod)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
-                setType(TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-                setExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
-                setProperty(PROPERTY_EDEFAULT);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
-                setAction(ACTION_EDEFAULT);
-                return;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
-                setOutputMethod(OUTPUT_METHOD_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+				setExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
+				setProperty(PROPERTY_EDEFAULT);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
+				setAction(ACTION_EDEFAULT);
+				return;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
+				setOutputMethod(OUTPUT_METHOD_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
-                return type != TYPE_EDEFAULT;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-                return expression != null;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
-                return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
-                return action != ACTION_EDEFAULT;
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
-                return outputMethod != OUTPUT_METHOD_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
+				return type != TYPE_EDEFAULT;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+				return expression != null;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
+				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
+				return action != ACTION_EDEFAULT;
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
+				return outputMethod != OUTPUT_METHOD_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: ");
-        result.append(type);
-        result.append(", property: ");
-        result.append(property);
-        result.append(", action: ");
-        result.append(action);
-        result.append(", outputMethod: ");
-        result.append(outputMethod);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(", property: ");
+		result.append(property);
+		result.append(", action: ");
+		result.append(action);
+		result.append(", outputMethod: ");
+		result.append(outputMethod);
+		result.append(')');
+		return result.toString();
+	}
 
 	
 	protected void doLoad(Element self) throws Exception {

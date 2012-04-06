@@ -40,110 +40,110 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface SequenceMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Referring Sequence Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.KeyType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Referring Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.KeyType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Referring Sequence Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Referring Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
-     * @see #setReferringSequenceType(KeyType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_ReferringSequenceType()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Referring Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
+	 * @see #setReferringSequenceType(KeyType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_ReferringSequenceType()
+	 * @model
+	 * @generated
+	 */
 	KeyType getReferringSequenceType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getReferringSequenceType <em>Referring Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getReferringSequenceType <em>Referring Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Referring Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
-     * @see #getReferringSequenceType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Referring Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
+	 * @see #getReferringSequenceType()
+	 * @generated
+	 */
 	void setReferringSequenceType(KeyType value);
 
 	/**
-     * Returns the value of the '<em><b>Dynamic Reference Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Dynamic Reference Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dynamic Reference Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Dynamic Reference Key</em>' reference.
-     * @see #setDynamicReferenceKey(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_DynamicReferenceKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Dynamic Reference Key</em>' reference.
+	 * @see #setDynamicReferenceKey(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_DynamicReferenceKey()
+	 * @model
+	 * @generated
+	 */
 	NamespacedProperty getDynamicReferenceKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getDynamicReferenceKey <em>Dynamic Reference Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getDynamicReferenceKey <em>Dynamic Reference Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Dynamic Reference Key</em>' reference.
-     * @see #getDynamicReferenceKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Dynamic Reference Key</em>' reference.
+	 * @see #getDynamicReferenceKey()
+	 * @generated
+	 */
 	void setDynamicReferenceKey(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Static Reference Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Static Reference Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Static Reference Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Static Reference Key</em>' reference.
-     * @see #setStaticReferenceKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_StaticReferenceKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Static Reference Key</em>' reference.
+	 * @see #setStaticReferenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_StaticReferenceKey()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getStaticReferenceKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getStaticReferenceKey <em>Static Reference Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getStaticReferenceKey <em>Static Reference Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Static Reference Key</em>' reference.
-     * @see #getStaticReferenceKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Static Reference Key</em>' reference.
+	 * @see #getStaticReferenceKey()
+	 * @generated
+	 */
 	void setStaticReferenceKey(RegistryKeyProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Sequence Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sequence Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequence Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Sequence Key</em>' reference.
-     * @see #setSequenceKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_SequenceKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Sequence Key</em>' reference.
+	 * @see #setSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSequenceMediator_SequenceKey()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getSequenceKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getSequenceKey <em>Sequence Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator#getSequenceKey <em>Sequence Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Sequence Key</em>' reference.
-     * @see #getSequenceKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Sequence Key</em>' reference.
+	 * @see #getSequenceKey()
+	 * @generated
+	 */
 	void setSequenceKey(RegistryKeyProperty value);
 
 } // SequenceMediator

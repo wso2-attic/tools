@@ -48,33 +48,33 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			.getInstance();
 
 	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EsbFactoryImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static EsbFactory init() {
-        try {
-            EsbFactory theEsbFactory = (EsbFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/wso2/developerstudio/eclipse/esb"); 
-            if (theEsbFactory != null) {
-                return theEsbFactory;
-            }
-        }
-        catch (Exception exception) {
-            EcorePlugin.INSTANCE.log(exception);
-        }
-        return new EsbFactoryImpl();
-    }
+		try {
+			EsbFactory theEsbFactory = (EsbFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/wso2/developerstudio/eclipse/esb"); 
+			if (theEsbFactory != null) {
+				return theEsbFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new EsbFactoryImpl();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -188,323 +188,337 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public EObject create(EClass eClass) {
-        switch (eClass.getClassifierID()) {
-            case EsbPackage.NAMESPACE: return createNamespace();
-            case EsbPackage.SYNAPSE_CONFIGURATION: return createSynapseConfiguration();
-            case EsbPackage.UNKNOWN_OBJECT: return createUnknownObject();
-            case EsbPackage.MEDIATOR_SEQUENCE: return createMediatorSequence();
-            case EsbPackage.NAMESPACED_PROPERTY: return createNamespacedProperty();
-            case EsbPackage.REGISTRY_KEY_PROPERTY: return createRegistryKeyProperty();
-            case EsbPackage.DEFAULT_END_POINT: return createDefaultEndPoint();
-            case EsbPackage.ADDRESS_END_POINT: return createAddressEndPoint();
-            case EsbPackage.WSDL_END_POINT: return createWsdlEndPoint();
-            case EsbPackage.FAILOVER_END_POINT: return createFailoverEndPoint();
-            case EsbPackage.LOAD_BALANCE_END_POINT: return createLoadBalanceEndPoint();
-            case EsbPackage.DYNAMIC_LOAD_BALANCE_END_POINT: return createDynamicLoadBalanceEndPoint();
-            case EsbPackage.DYNAMIC_LOAD_BALANCE_PROPERTY: return createDynamicLoadBalanceProperty();
-            case EsbPackage.XPATH_END_POINT_REFERENCE: return createXPathEndPointReference();
-            case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE: return createRegistryKeyEndPointReference();
-            case EsbPackage.PROXY_SERVICE: return createProxyService();
-            case EsbPackage.PROXY_WSDL_CONFIGURATION: return createProxyWsdlConfiguration();
-            case EsbPackage.PROXY_WSDL_RESOURCE: return createProxyWsdlResource();
-            case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
-            case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
-            case EsbPackage.PROXY_IN_SEQUENCE_CONFIGURATION: return createProxyInSequenceConfiguration();
-            case EsbPackage.PROXY_ENDPOINT_CONFIGURATION: return createProxyEndpointConfiguration();
-            case EsbPackage.PROXY_OUT_SEQUENCE_CONFIGURATION: return createProxyOutSequenceConfiguration();
-            case EsbPackage.PROXY_FAULT_SEQUENCE_CONFIGURATION: return createProxyFaultSequenceConfiguration();
-            case EsbPackage.LOCAL_ENTRY: return createLocalEntry();
-            case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: return createEvaluatorExpressionProperty();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eClass.getClassifierID()) {
+			case EsbPackage.NAMESPACE: return createNamespace();
+			case EsbPackage.SYNAPSE_CONFIGURATION: return createSynapseConfiguration();
+			case EsbPackage.DESCRIPTION: return createDescription();
+			case EsbPackage.UNKNOWN_OBJECT: return createUnknownObject();
+			case EsbPackage.MEDIATOR_SEQUENCE: return createMediatorSequence();
+			case EsbPackage.NAMESPACED_PROPERTY: return createNamespacedProperty();
+			case EsbPackage.REGISTRY_KEY_PROPERTY: return createRegistryKeyProperty();
+			case EsbPackage.DEFAULT_END_POINT: return createDefaultEndPoint();
+			case EsbPackage.ADDRESS_END_POINT: return createAddressEndPoint();
+			case EsbPackage.WSDL_END_POINT: return createWsdlEndPoint();
+			case EsbPackage.FAILOVER_END_POINT: return createFailoverEndPoint();
+			case EsbPackage.LOAD_BALANCE_END_POINT: return createLoadBalanceEndPoint();
+			case EsbPackage.DYNAMIC_LOAD_BALANCE_END_POINT: return createDynamicLoadBalanceEndPoint();
+			case EsbPackage.DYNAMIC_LOAD_BALANCE_PROPERTY: return createDynamicLoadBalanceProperty();
+			case EsbPackage.XPATH_END_POINT_REFERENCE: return createXPathEndPointReference();
+			case EsbPackage.REGISTRY_KEY_END_POINT_REFERENCE: return createRegistryKeyEndPointReference();
+			case EsbPackage.PROXY_SERVICE: return createProxyService();
+			case EsbPackage.PROXY_WSDL_CONFIGURATION: return createProxyWsdlConfiguration();
+			case EsbPackage.PROXY_WSDL_RESOURCE: return createProxyWsdlResource();
+			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
+			case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
+			case EsbPackage.PROXY_IN_SEQUENCE_CONFIGURATION: return createProxyInSequenceConfiguration();
+			case EsbPackage.PROXY_ENDPOINT_CONFIGURATION: return createProxyEndpointConfiguration();
+			case EsbPackage.PROXY_OUT_SEQUENCE_CONFIGURATION: return createProxyOutSequenceConfiguration();
+			case EsbPackage.PROXY_FAULT_SEQUENCE_CONFIGURATION: return createProxyFaultSequenceConfiguration();
+			case EsbPackage.LOCAL_ENTRY: return createLocalEntry();
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: return createEvaluatorExpressionProperty();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-        switch (eDataType.getClassifierID()) {
-            case EsbPackage.MODEL_OBJECT_STATE:
-                return createModelObjectStateFromString(eDataType, initialValue);
-            case EsbPackage.PROPERTY_VALUE_TYPE:
-                return createPropertyValueTypeFromString(eDataType, initialValue);
-            case EsbPackage.TARGET_SEQUENCE_TYPE:
-                return createTargetSequenceTypeFromString(eDataType, initialValue);
-            case EsbPackage.TARGET_ENDPOINT_TYPE:
-                return createTargetEndpointTypeFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_ADDRESSING_VERSION:
-                return createEndPointAddressingVersionFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_TIME_OUT_ACTION:
-                return createEndPointTimeOutActionFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_MESSAGE_FORMAT:
-                return createEndPointMessageFormatFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_ATTACHMENT_OPTIMIZATION:
-                return createEndPointAttachmentOptimizationFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_WSDL_TYPE:
-                return createEndPointWsdlTypeFromString(eDataType, initialValue);
-            case EsbPackage.LOAD_BALANCE_ALGORITHM:
-                return createLoadBalanceAlgorithmFromString(eDataType, initialValue);
-            case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
-                return createLoadBalanceSessionTypeFromString(eDataType, initialValue);
-            case EsbPackage.PROXY_WSDL_TYPE:
-                return createProxyWsdlTypeFromString(eDataType, initialValue);
-            case EsbPackage.PROXY_SEQUENCE_TYPE:
-                return createProxySequenceTypeFromString(eDataType, initialValue);
-            case EsbPackage.PROXY_ENDPOINT_TYPE:
-                return createProxyEndpointTypeFromString(eDataType, initialValue);
-            case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
-                return createLocalEntryValueTypeFromString(eDataType, initialValue);
-            case EsbPackage.ESB_VERSION:
-                return createEsbVersionFromString(eDataType, initialValue);
-            case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
-                return createEndPointMessageFormatRestTypeFromString(eDataType, initialValue);
-            case EsbPackage.MAP:
-                return createMapFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case EsbPackage.MODEL_OBJECT_STATE:
+				return createModelObjectStateFromString(eDataType, initialValue);
+			case EsbPackage.PROPERTY_VALUE_TYPE:
+				return createPropertyValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.TARGET_SEQUENCE_TYPE:
+				return createTargetSequenceTypeFromString(eDataType, initialValue);
+			case EsbPackage.TARGET_ENDPOINT_TYPE:
+				return createTargetEndpointTypeFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_ADDRESSING_VERSION:
+				return createEndPointAddressingVersionFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_TIME_OUT_ACTION:
+				return createEndPointTimeOutActionFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_MESSAGE_FORMAT:
+				return createEndPointMessageFormatFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_ATTACHMENT_OPTIMIZATION:
+				return createEndPointAttachmentOptimizationFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_WSDL_TYPE:
+				return createEndPointWsdlTypeFromString(eDataType, initialValue);
+			case EsbPackage.LOAD_BALANCE_ALGORITHM:
+				return createLoadBalanceAlgorithmFromString(eDataType, initialValue);
+			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
+				return createLoadBalanceSessionTypeFromString(eDataType, initialValue);
+			case EsbPackage.PROXY_WSDL_TYPE:
+				return createProxyWsdlTypeFromString(eDataType, initialValue);
+			case EsbPackage.PROXY_SEQUENCE_TYPE:
+				return createProxySequenceTypeFromString(eDataType, initialValue);
+			case EsbPackage.PROXY_ENDPOINT_TYPE:
+				return createProxyEndpointTypeFromString(eDataType, initialValue);
+			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
+				return createLocalEntryValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.ESB_VERSION:
+				return createEsbVersionFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
+				return createEndPointMessageFormatRestTypeFromString(eDataType, initialValue);
+			case EsbPackage.MAP:
+				return createMapFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
-            case EsbPackage.MODEL_OBJECT_STATE:
-                return convertModelObjectStateToString(eDataType, instanceValue);
-            case EsbPackage.PROPERTY_VALUE_TYPE:
-                return convertPropertyValueTypeToString(eDataType, instanceValue);
-            case EsbPackage.TARGET_SEQUENCE_TYPE:
-                return convertTargetSequenceTypeToString(eDataType, instanceValue);
-            case EsbPackage.TARGET_ENDPOINT_TYPE:
-                return convertTargetEndpointTypeToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_ADDRESSING_VERSION:
-                return convertEndPointAddressingVersionToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_TIME_OUT_ACTION:
-                return convertEndPointTimeOutActionToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_MESSAGE_FORMAT:
-                return convertEndPointMessageFormatToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_ATTACHMENT_OPTIMIZATION:
-                return convertEndPointAttachmentOptimizationToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_WSDL_TYPE:
-                return convertEndPointWsdlTypeToString(eDataType, instanceValue);
-            case EsbPackage.LOAD_BALANCE_ALGORITHM:
-                return convertLoadBalanceAlgorithmToString(eDataType, instanceValue);
-            case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
-                return convertLoadBalanceSessionTypeToString(eDataType, instanceValue);
-            case EsbPackage.PROXY_WSDL_TYPE:
-                return convertProxyWsdlTypeToString(eDataType, instanceValue);
-            case EsbPackage.PROXY_SEQUENCE_TYPE:
-                return convertProxySequenceTypeToString(eDataType, instanceValue);
-            case EsbPackage.PROXY_ENDPOINT_TYPE:
-                return convertProxyEndpointTypeToString(eDataType, instanceValue);
-            case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
-                return convertLocalEntryValueTypeToString(eDataType, instanceValue);
-            case EsbPackage.ESB_VERSION:
-                return convertEsbVersionToString(eDataType, instanceValue);
-            case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
-                return convertEndPointMessageFormatRestTypeToString(eDataType, instanceValue);
-            case EsbPackage.MAP:
-                return convertMapToString(eDataType, instanceValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case EsbPackage.MODEL_OBJECT_STATE:
+				return convertModelObjectStateToString(eDataType, instanceValue);
+			case EsbPackage.PROPERTY_VALUE_TYPE:
+				return convertPropertyValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.TARGET_SEQUENCE_TYPE:
+				return convertTargetSequenceTypeToString(eDataType, instanceValue);
+			case EsbPackage.TARGET_ENDPOINT_TYPE:
+				return convertTargetEndpointTypeToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_ADDRESSING_VERSION:
+				return convertEndPointAddressingVersionToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_TIME_OUT_ACTION:
+				return convertEndPointTimeOutActionToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_MESSAGE_FORMAT:
+				return convertEndPointMessageFormatToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_ATTACHMENT_OPTIMIZATION:
+				return convertEndPointAttachmentOptimizationToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_WSDL_TYPE:
+				return convertEndPointWsdlTypeToString(eDataType, instanceValue);
+			case EsbPackage.LOAD_BALANCE_ALGORITHM:
+				return convertLoadBalanceAlgorithmToString(eDataType, instanceValue);
+			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
+				return convertLoadBalanceSessionTypeToString(eDataType, instanceValue);
+			case EsbPackage.PROXY_WSDL_TYPE:
+				return convertProxyWsdlTypeToString(eDataType, instanceValue);
+			case EsbPackage.PROXY_SEQUENCE_TYPE:
+				return convertProxySequenceTypeToString(eDataType, instanceValue);
+			case EsbPackage.PROXY_ENDPOINT_TYPE:
+				return convertProxyEndpointTypeToString(eDataType, instanceValue);
+			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
+				return convertLocalEntryValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.ESB_VERSION:
+				return convertEsbVersionToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
+				return convertEndPointMessageFormatRestTypeToString(eDataType, instanceValue);
+			case EsbPackage.MAP:
+				return convertMapToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Namespace createNamespace() {
-        NamespaceImpl namespace = new NamespaceImpl();
-        return namespace;
-    }
+		NamespaceImpl namespace = new NamespaceImpl();
+		return namespace;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndPointAddressingVersion createEndPointAddressingVersionFromString(
 			EDataType eDataType, String initialValue) {
-        EndPointAddressingVersion result = EndPointAddressingVersion.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointAddressingVersion result = EndPointAddressingVersion.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertEndPointAddressingVersionToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndPointTimeOutAction createEndPointTimeOutActionFromString(
 			EDataType eDataType, String initialValue) {
-        EndPointTimeOutAction result = EndPointTimeOutAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointTimeOutAction result = EndPointTimeOutAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertEndPointTimeOutActionToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndPointMessageFormat createEndPointMessageFormatFromString(
 			EDataType eDataType, String initialValue) {
-        EndPointMessageFormat result = EndPointMessageFormat.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointMessageFormat result = EndPointMessageFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertEndPointMessageFormatToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndPointAttachmentOptimization createEndPointAttachmentOptimizationFromString(
 			EDataType eDataType, String initialValue) {
-        EndPointAttachmentOptimization result = EndPointAttachmentOptimization.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointAttachmentOptimization result = EndPointAttachmentOptimization.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertEndPointAttachmentOptimizationToString(
 			EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EndPointWsdlType createEndPointWsdlTypeFromString(
 			EDataType eDataType, String initialValue) {
-        EndPointWsdlType result = EndPointWsdlType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointWsdlType result = EndPointWsdlType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertEndPointWsdlTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LoadBalanceAlgorithm createLoadBalanceAlgorithmFromString(
 			EDataType eDataType, String initialValue) {
-        LoadBalanceAlgorithm result = LoadBalanceAlgorithm.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		LoadBalanceAlgorithm result = LoadBalanceAlgorithm.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertLoadBalanceAlgorithmToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LoadBalanceSessionType createLoadBalanceSessionTypeFromString(
 			EDataType eDataType, String initialValue) {
-        LoadBalanceSessionType result = LoadBalanceSessionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		LoadBalanceSessionType result = LoadBalanceSessionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertLoadBalanceSessionTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SynapseConfiguration createSynapseConfiguration() {
-        SynapseConfigurationImpl synapseConfiguration = new SynapseConfigurationImpl();
-        return synapseConfiguration;
-    }
+		SynapseConfigurationImpl synapseConfiguration = new SynapseConfigurationImpl();
+		return synapseConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Description createDescription() {
+		DescriptionImpl description = new DescriptionImpl();
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MediatorSequence createMediatorSequence() {
-        MediatorSequenceImpl mediatorSequence = new MediatorSequenceImpl();
-        return mediatorSequence;
-    }
+		MediatorSequenceImpl mediatorSequence = new MediatorSequenceImpl();
+		return mediatorSequence;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UnknownObject createUnknownObject() {
-        UnknownObjectImpl unknownObject = new UnknownObjectImpl();
-        return unknownObject;
-    }
+		UnknownObjectImpl unknownObject = new UnknownObjectImpl();
+		return unknownObject;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty createNamespacedProperty() {
-        NamespacedPropertyImpl namespacedProperty = new NamespacedPropertyImpl();
-        return namespacedProperty;
-    }
+		NamespacedPropertyImpl namespacedProperty = new NamespacedPropertyImpl();
+		return namespacedProperty;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -520,13 +534,13 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyProperty createRegistryKeyProperty() {
-        RegistryKeyPropertyImpl registryKeyProperty = new RegistryKeyPropertyImpl();
-        return registryKeyProperty;
-    }
+		RegistryKeyPropertyImpl registryKeyProperty = new RegistryKeyPropertyImpl();
+		return registryKeyProperty;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -542,103 +556,103 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyService createProxyService() {
-        ProxyServiceImpl proxyService = new ProxyServiceImpl();
-        return proxyService;
-    }
+		ProxyServiceImpl proxyService = new ProxyServiceImpl();
+		return proxyService;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyWsdlConfiguration createProxyWsdlConfiguration() {
-        ProxyWsdlConfigurationImpl proxyWsdlConfiguration = new ProxyWsdlConfigurationImpl();
-        return proxyWsdlConfiguration;
-    }
+		ProxyWsdlConfigurationImpl proxyWsdlConfiguration = new ProxyWsdlConfigurationImpl();
+		return proxyWsdlConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyWsdlResource createProxyWsdlResource() {
-        ProxyWsdlResourceImpl proxyWsdlResource = new ProxyWsdlResourceImpl();
-        return proxyWsdlResource;
-    }
+		ProxyWsdlResourceImpl proxyWsdlResource = new ProxyWsdlResourceImpl();
+		return proxyWsdlResource;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyServiceParameter createProxyServiceParameter() {
-        ProxyServiceParameterImpl proxyServiceParameter = new ProxyServiceParameterImpl();
-        return proxyServiceParameter;
-    }
+		ProxyServiceParameterImpl proxyServiceParameter = new ProxyServiceParameterImpl();
+		return proxyServiceParameter;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyServicePolicy createProxyServicePolicy() {
-        ProxyServicePolicyImpl proxyServicePolicy = new ProxyServicePolicyImpl();
-        return proxyServicePolicy;
-    }
+		ProxyServicePolicyImpl proxyServicePolicy = new ProxyServicePolicyImpl();
+		return proxyServicePolicy;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyInSequenceConfiguration createProxyInSequenceConfiguration() {
-        ProxyInSequenceConfigurationImpl proxyInSequenceConfiguration = new ProxyInSequenceConfigurationImpl();
-        return proxyInSequenceConfiguration;
-    }
+		ProxyInSequenceConfigurationImpl proxyInSequenceConfiguration = new ProxyInSequenceConfigurationImpl();
+		return proxyInSequenceConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyEndpointConfiguration createProxyEndpointConfiguration() {
-        ProxyEndpointConfigurationImpl proxyEndpointConfiguration = new ProxyEndpointConfigurationImpl();
-        return proxyEndpointConfiguration;
-    }
+		ProxyEndpointConfigurationImpl proxyEndpointConfiguration = new ProxyEndpointConfigurationImpl();
+		return proxyEndpointConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyOutSequenceConfiguration createProxyOutSequenceConfiguration() {
-        ProxyOutSequenceConfigurationImpl proxyOutSequenceConfiguration = new ProxyOutSequenceConfigurationImpl();
-        return proxyOutSequenceConfiguration;
-    }
+		ProxyOutSequenceConfigurationImpl proxyOutSequenceConfiguration = new ProxyOutSequenceConfigurationImpl();
+		return proxyOutSequenceConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyFaultSequenceConfiguration createProxyFaultSequenceConfiguration() {
-        ProxyFaultSequenceConfigurationImpl proxyFaultSequenceConfiguration = new ProxyFaultSequenceConfigurationImpl();
-        return proxyFaultSequenceConfiguration;
-    }
+		ProxyFaultSequenceConfigurationImpl proxyFaultSequenceConfiguration = new ProxyFaultSequenceConfigurationImpl();
+		return proxyFaultSequenceConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LocalEntry createLocalEntry() {
-        LocalEntryImpl localEntry = new LocalEntryImpl();
-        return localEntry;
-    }
+		LocalEntryImpl localEntry = new LocalEntryImpl();
+		return localEntry;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EvaluatorExpressionProperty createEvaluatorExpressionProperty() {
-        EvaluatorExpressionPropertyImpl evaluatorExpressionProperty = new EvaluatorExpressionPropertyImpl();
-        return evaluatorExpressionProperty;
-    }
+		EvaluatorExpressionPropertyImpl evaluatorExpressionProperty = new EvaluatorExpressionPropertyImpl();
+		return evaluatorExpressionProperty;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -653,94 +667,94 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertPropertyValueTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DefaultEndPoint createDefaultEndPoint() {
-        DefaultEndPointImpl defaultEndPoint = new DefaultEndPointImpl();
-        return defaultEndPoint;
-    }
+		DefaultEndPointImpl defaultEndPoint = new DefaultEndPointImpl();
+		return defaultEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AddressEndPoint createAddressEndPoint() {
-        AddressEndPointImpl addressEndPoint = new AddressEndPointImpl();
-        return addressEndPoint;
-    }
+		AddressEndPointImpl addressEndPoint = new AddressEndPointImpl();
+		return addressEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WsdlEndPoint createWsdlEndPoint() {
-        WsdlEndPointImpl wsdlEndPoint = new WsdlEndPointImpl();
-        return wsdlEndPoint;
-    }
+		WsdlEndPointImpl wsdlEndPoint = new WsdlEndPointImpl();
+		return wsdlEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FailoverEndPoint createFailoverEndPoint() {
-        FailoverEndPointImpl failoverEndPoint = new FailoverEndPointImpl();
-        return failoverEndPoint;
-    }
+		FailoverEndPointImpl failoverEndPoint = new FailoverEndPointImpl();
+		return failoverEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LoadBalanceEndPoint createLoadBalanceEndPoint() {
-        LoadBalanceEndPointImpl loadBalanceEndPoint = new LoadBalanceEndPointImpl();
-        return loadBalanceEndPoint;
-    }
+		LoadBalanceEndPointImpl loadBalanceEndPoint = new LoadBalanceEndPointImpl();
+		return loadBalanceEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DynamicLoadBalanceEndPoint createDynamicLoadBalanceEndPoint() {
-        DynamicLoadBalanceEndPointImpl dynamicLoadBalanceEndPoint = new DynamicLoadBalanceEndPointImpl();
-        return dynamicLoadBalanceEndPoint;
-    }
+		DynamicLoadBalanceEndPointImpl dynamicLoadBalanceEndPoint = new DynamicLoadBalanceEndPointImpl();
+		return dynamicLoadBalanceEndPoint;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DynamicLoadBalanceProperty createDynamicLoadBalanceProperty() {
-        DynamicLoadBalancePropertyImpl dynamicLoadBalanceProperty = new DynamicLoadBalancePropertyImpl();
-        return dynamicLoadBalanceProperty;
-    }
+		DynamicLoadBalancePropertyImpl dynamicLoadBalanceProperty = new DynamicLoadBalancePropertyImpl();
+		return dynamicLoadBalanceProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XPathEndPointReference createXPathEndPointReference() {
-        XPathEndPointReferenceImpl xPathEndPointReference = new XPathEndPointReferenceImpl();
-        return xPathEndPointReference;
-    }
+		XPathEndPointReferenceImpl xPathEndPointReference = new XPathEndPointReferenceImpl();
+		return xPathEndPointReference;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyEndPointReference createRegistryKeyEndPointReference() {
-        RegistryKeyEndPointReferenceImpl registryKeyEndPointReference = new RegistryKeyEndPointReferenceImpl();
-        return registryKeyEndPointReference;
-    }
+		RegistryKeyEndPointReferenceImpl registryKeyEndPointReference = new RegistryKeyEndPointReferenceImpl();
+		return registryKeyEndPointReference;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -757,230 +771,230 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelObjectState createModelObjectStateFromString(
 			EDataType eDataType, String initialValue) {
-        ModelObjectState result = ModelObjectState.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ModelObjectState result = ModelObjectState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertModelObjectStateToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PropertyValueType createPropertyValueTypeFromString(
 			EDataType eDataType, String initialValue) {
-        PropertyValueType result = PropertyValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyValueType result = PropertyValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyWsdlType createProxyWsdlTypeFromString(EDataType eDataType,
 			String initialValue) {
-        ProxyWsdlType result = ProxyWsdlType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ProxyWsdlType result = ProxyWsdlType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertProxyWsdlTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxySequenceType createProxySequenceTypeFromString(
 			EDataType eDataType, String initialValue) {
-        ProxySequenceType result = ProxySequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ProxySequenceType result = ProxySequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertProxySequenceTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyEndpointType createProxyEndpointTypeFromString(
 			EDataType eDataType, String initialValue) {
-        ProxyEndpointType result = ProxyEndpointType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ProxyEndpointType result = ProxyEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertProxyEndpointTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LocalEntryValueType createLocalEntryValueTypeFromString(
 			EDataType eDataType, String initialValue) {
-        LocalEntryValueType result = LocalEntryValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		LocalEntryValueType result = LocalEntryValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertLocalEntryValueTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EsbVersion createEsbVersionFromString(EDataType eDataType, String initialValue) {
-        EsbVersion result = EsbVersion.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EsbVersion result = EsbVersion.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEsbVersionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EndPointMessageFormatRestType createEndPointMessageFormatRestTypeFromString(EDataType eDataType, String initialValue) {
-        EndPointMessageFormatRestType result = EndPointMessageFormatRestType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EndPointMessageFormatRestType result = EndPointMessageFormatRestType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String convertEndPointMessageFormatRestTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TargetSequenceType createTargetSequenceTypeFromString(
 			EDataType eDataType, String initialValue) {
-        TargetSequenceType result = TargetSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		TargetSequenceType result = TargetSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertTargetSequenceTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TargetEndpointType createTargetEndpointTypeFromString(
 			EDataType eDataType, String initialValue) {
-        TargetEndpointType result = TargetEndpointType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		TargetEndpointType result = TargetEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertTargetEndpointTypeToString(EDataType eDataType,
 			Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Map<?, ?> createMapFromString(EDataType eDataType,
 			String initialValue) {
-        return (Map<?, ?>)super.createFromString(initialValue);
-    }
+		return (Map<?, ?>)super.createFromString(initialValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String convertMapToString(EDataType eDataType, Object instanceValue) {
-        return super.convertToString(instanceValue);
-    }
+		return super.convertToString(instanceValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EsbPackage getEsbPackage() {
-        return (EsbPackage)getEPackage();
-    }
+		return (EsbPackage)getEPackage();
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @deprecated
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
 	@Deprecated
 	public static EsbPackage getPackage() {
-        return EsbPackage.eINSTANCE;
-    }
+		return EsbPackage.eINSTANCE;
+	}
 
 
 } // SequenceFactoryImpl

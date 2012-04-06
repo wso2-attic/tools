@@ -65,79 +65,79 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsFactory;
 public abstract class ModelObjectImpl extends EObjectImpl implements
 		ModelObject {
 	/**
-     * The default value of the '{@link #getObjectState() <em>Object State</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getObjectState()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getObjectState() <em>Object State</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getObjectState()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ModelObjectState OBJECT_STATE_EDEFAULT = ModelObjectState.NORMAL;
 
 	/**
-     * The cached value of the '{@link #getObjectState() <em>Object State</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getObjectState()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getObjectState() <em>Object State</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getObjectState()
+	 * @generated
+	 * @ordered
+	 */
 	protected ModelObjectState objectState = OBJECT_STATE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getSourceText() <em>Source Text</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getSourceText()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getSourceText() <em>Source Text</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getSourceText()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SOURCE_TEXT_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getSourceText() <em>Source Text</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getSourceText()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getSourceText() <em>Source Text</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getSourceText()
+	 * @generated
+	 * @ordered
+	 */
 	protected String sourceText = SOURCE_TEXT_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getDefaultNamespace()
-     * @generated
-     * @ordered
-     */
+	 * @see #getDefaultNamespace()
+	 * @generated
+	 * @ordered
+	 */
 	protected Namespace defaultNamespace;
 
 	/**
-     * The cached value of the '{@link #getAdditionalNamespaces() <em>Additional Namespaces</em>}' reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAdditionalNamespaces() <em>Additional Namespaces</em>}' reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAdditionalNamespaces()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAdditionalNamespaces()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<Namespace> additionalNamespaces;
 
 	/**
-     * The default value of the '{@link #getCurrentEsbVersion() <em>Current Esb Version</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getCurrentEsbVersion() <em>Current Esb Version</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getCurrentEsbVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCurrentEsbVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final EsbVersion CURRENT_ESB_VERSION_EDEFAULT = EsbVersion.ESB301;
 
 	/**
-     * The cached value of the '{@link #getCurrentEsbVersion() <em>Current Esb Version</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getCurrentEsbVersion() <em>Current Esb Version</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getCurrentEsbVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCurrentEsbVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected EsbVersion currentEsbVersion = CURRENT_ESB_VERSION_EDEFAULT;
 
 	/**
@@ -626,67 +626,68 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.MODEL_OBJECT;
-    }
+		return EsbPackage.Literals.MODEL_OBJECT;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelObjectState getObjectState() {
-        return objectState;
-    }
+		return objectState;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setObjectState(ModelObjectState newObjectState) {
-        ModelObjectState oldObjectState = objectState;
-        objectState = newObjectState == null ? OBJECT_STATE_EDEFAULT : newObjectState;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__OBJECT_STATE, oldObjectState, objectState));
-    }
+		ModelObjectState oldObjectState = objectState;
+		objectState = newObjectState == null ? OBJECT_STATE_EDEFAULT : newObjectState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__OBJECT_STATE, oldObjectState, objectState));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getSourceText() {
-        return sourceText;
-    }
+		return sourceText;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setSourceText(String newSourceText) {
-        String oldSourceText = sourceText;
-        sourceText = newSourceText;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__SOURCE_TEXT, oldSourceText, sourceText));
-    }
+		String oldSourceText = sourceText;
+		sourceText = newSourceText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__SOURCE_TEXT, oldSourceText, sourceText));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Namespace getDefaultNamespace() {
-        if (defaultNamespace != null && defaultNamespace.eIsProxy()) {
-            InternalEObject oldDefaultNamespace = (InternalEObject)defaultNamespace;
-            defaultNamespace = (Namespace)eResolveProxy(oldDefaultNamespace);
-            if (defaultNamespace != oldDefaultNamespace) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
-            }
-        }
-        return defaultNamespace;
-    }
+		if (defaultNamespace != null && defaultNamespace.eIsProxy()) {
+			InternalEObject oldDefaultNamespace = (InternalEObject)defaultNamespace;
+			defaultNamespace = (Namespace)eResolveProxy(oldDefaultNamespace);
+			if (defaultNamespace != oldDefaultNamespace) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
+			}
+		}
+		return defaultNamespace;
+	}
 
 	/**
 	 * Utility method for recursively looking up the namespace of this object.
@@ -705,168 +706,173 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Namespace basicGetDefaultNamespace() {
-        return defaultNamespace;
-    }
+		return defaultNamespace;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setDefaultNamespace(Namespace newDefaultNamespace) {
-        Namespace oldDefaultNamespace = defaultNamespace;
-        defaultNamespace = newDefaultNamespace;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
-    }
+		Namespace oldDefaultNamespace = defaultNamespace;
+		defaultNamespace = newDefaultNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Namespace> getAdditionalNamespaces() {
-        if (additionalNamespaces == null) {
-            additionalNamespaces = new EObjectResolvingEList<Namespace>(Namespace.class, this, EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES);
-        }
-        return additionalNamespaces;
-    }
+		if (additionalNamespaces == null) {
+			additionalNamespaces = new EObjectResolvingEList<Namespace>(Namespace.class, this, EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES);
+		}
+		return additionalNamespaces;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EsbVersion getCurrentEsbVersion() {
-        return currentEsbVersion;
-    }
+		return currentEsbVersion;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCurrentEsbVersion(EsbVersion newCurrentEsbVersion) {
-        EsbVersion oldCurrentEsbVersion = currentEsbVersion;
-        currentEsbVersion = newCurrentEsbVersion == null ? CURRENT_ESB_VERSION_EDEFAULT : newCurrentEsbVersion;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION, oldCurrentEsbVersion, currentEsbVersion));
-    }
+		EsbVersion oldCurrentEsbVersion = currentEsbVersion;
+		currentEsbVersion = newCurrentEsbVersion == null ? CURRENT_ESB_VERSION_EDEFAULT : newCurrentEsbVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION, oldCurrentEsbVersion, currentEsbVersion));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
-                return getObjectState();
-            case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
-                return getSourceText();
-            case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
-                if (resolve) return getDefaultNamespace();
-                return basicGetDefaultNamespace();
-            case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
-                return getAdditionalNamespaces();
-            case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
-                return getCurrentEsbVersion();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
+				return getObjectState();
+			case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
+				return getSourceText();
+			case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
+				if (resolve) return getDefaultNamespace();
+				return basicGetDefaultNamespace();
+			case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
+				return getAdditionalNamespaces();
+			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
+				return getCurrentEsbVersion();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
-                setObjectState((ModelObjectState)newValue);
-                return;
-            case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
-                setSourceText((String)newValue);
-                return;
-            case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
-                setDefaultNamespace((Namespace)newValue);
-                return;
-            case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
-                getAdditionalNamespaces().clear();
-                getAdditionalNamespaces().addAll((Collection<? extends Namespace>)newValue);
-                return;
-            case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
-                setCurrentEsbVersion((EsbVersion)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
+				setObjectState((ModelObjectState)newValue);
+				return;
+			case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
+				setSourceText((String)newValue);
+				return;
+			case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
+				setDefaultNamespace((Namespace)newValue);
+				return;
+			case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
+				getAdditionalNamespaces().clear();
+				getAdditionalNamespaces().addAll((Collection<? extends Namespace>)newValue);
+				return;
+			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
+				setCurrentEsbVersion((EsbVersion)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
-                setObjectState(OBJECT_STATE_EDEFAULT);
-                return;
-            case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
-                setSourceText(SOURCE_TEXT_EDEFAULT);
-                return;
-            case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
-                setDefaultNamespace((Namespace)null);
-                return;
-            case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
-                getAdditionalNamespaces().clear();
-                return;
-            case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
-                setCurrentEsbVersion(CURRENT_ESB_VERSION_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
+				setObjectState(OBJECT_STATE_EDEFAULT);
+				return;
+			case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
+				setSourceText(SOURCE_TEXT_EDEFAULT);
+				return;
+			case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
+				setDefaultNamespace((Namespace)null);
+				return;
+			case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
+				getAdditionalNamespaces().clear();
+				return;
+			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
+				setCurrentEsbVersion(CURRENT_ESB_VERSION_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
-                return objectState != OBJECT_STATE_EDEFAULT;
-            case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
-                return SOURCE_TEXT_EDEFAULT == null ? sourceText != null : !SOURCE_TEXT_EDEFAULT.equals(sourceText);
-            case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
-                return defaultNamespace != null;
-            case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
-                return additionalNamespaces != null && !additionalNamespaces.isEmpty();
-            case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
-                return currentEsbVersion != CURRENT_ESB_VERSION_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.MODEL_OBJECT__OBJECT_STATE:
+				return objectState != OBJECT_STATE_EDEFAULT;
+			case EsbPackage.MODEL_OBJECT__SOURCE_TEXT:
+				return SOURCE_TEXT_EDEFAULT == null ? sourceText != null : !SOURCE_TEXT_EDEFAULT.equals(sourceText);
+			case EsbPackage.MODEL_OBJECT__DEFAULT_NAMESPACE:
+				return defaultNamespace != null;
+			case EsbPackage.MODEL_OBJECT__ADDITIONAL_NAMESPACES:
+				return additionalNamespaces != null && !additionalNamespaces.isEmpty();
+			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
+				return currentEsbVersion != CURRENT_ESB_VERSION_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (objectState: ");
-        result.append(objectState);
-        result.append(", sourceText: ");
-        result.append(sourceText);
-        result.append(", currentEsbVersion: ");
-        result.append(currentEsbVersion);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (objectState: ");
+		result.append(objectState);
+		result.append(", sourceText: ");
+		result.append(sourceText);
+		result.append(", currentEsbVersion: ");
+		result.append(currentEsbVersion);
+		result.append(')');
+		return result.toString();
+	}
 
 } // ModelObjectImpl

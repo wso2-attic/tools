@@ -39,106 +39,106 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface LogMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Log Category</b></em>' attribute.
-     * The default value is <code>"INFO"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.LogCategory}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Log Category</b></em>' attribute.
+	 * The default value is <code>"INFO"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.LogCategory}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Log Category</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Log Category</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.LogCategory
-     * @see #setLogCategory(LogCategory)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogCategory()
-     * @model default="INFO"
-     * @generated
-     */
+	 * @return the value of the '<em>Log Category</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.LogCategory
+	 * @see #setLogCategory(LogCategory)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogCategory()
+	 * @model default="INFO"
+	 * @generated
+	 */
 	LogCategory getLogCategory();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogCategory <em>Log Category</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogCategory <em>Log Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Log Category</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.LogCategory
-     * @see #getLogCategory()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Log Category</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.LogCategory
+	 * @see #getLogCategory()
+	 * @generated
+	 */
 	void setLogCategory(LogCategory value);
 
 	/**
-     * Returns the value of the '<em><b>Log Level</b></em>' attribute.
-     * The default value is <code>"FULL"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.LogLevel}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Log Level</b></em>' attribute.
+	 * The default value is <code>"FULL"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.LogLevel}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Log Level</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Log Level</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.LogLevel
-     * @see #setLogLevel(LogLevel)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogLevel()
-     * @model default="FULL"
-     * @generated
-     */
+	 * @return the value of the '<em>Log Level</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.LogLevel
+	 * @see #setLogLevel(LogLevel)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogLevel()
+	 * @model default="FULL"
+	 * @generated
+	 */
 	LogLevel getLogLevel();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogLevel <em>Log Level</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogLevel <em>Log Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Log Level</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.LogLevel
-     * @see #getLogLevel()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Log Level</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.LogLevel
+	 * @see #getLogLevel()
+	 * @generated
+	 */
 	void setLogLevel(LogLevel value);
 
 	/**
-     * Returns the value of the '<em><b>Log Separator</b></em>' attribute.
-     * The default value is <code>","</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Log Separator</b></em>' attribute.
+	 * The default value is <code>","</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Log Separator</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Log Separator</em>' attribute.
-     * @see #setLogSeparator(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogSeparator()
-     * @model default=","
-     * @generated
-     */
+	 * @return the value of the '<em>Log Separator</em>' attribute.
+	 * @see #setLogSeparator(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_LogSeparator()
+	 * @model default=","
+	 * @generated
+	 */
 	String getLogSeparator();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogSeparator <em>Log Separator</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator#getLogSeparator <em>Log Separator</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Log Separator</em>' attribute.
-     * @see #getLogSeparator()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Log Separator</em>' attribute.
+	 * @see #getLogSeparator()
+	 * @generated
+	 */
 	void setLogSeparator(String value);
 
 	/**
-     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Properties</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_Properties()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getLogMediator_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<LogProperty> getProperties();
 
 } // LogMediator

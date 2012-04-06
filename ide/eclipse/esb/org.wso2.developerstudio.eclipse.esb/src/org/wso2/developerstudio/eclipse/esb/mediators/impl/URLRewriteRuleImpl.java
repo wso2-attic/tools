@@ -56,13 +56,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 public class URLRewriteRuleImpl extends ModelObjectImpl implements
 		URLRewriteRule {
 	/**
-     * The cached value of the '{@link #getUrlRewriteRuleCondition() <em>Url Rewrite Rule Condition</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUrlRewriteRuleCondition() <em>Url Rewrite Rule Condition</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getUrlRewriteRuleCondition()
-     * @generated
-     * @ordered
-     */
+	 * @see #getUrlRewriteRuleCondition()
+	 * @generated
+	 * @ordered
+	 */
 	protected EvaluatorExpressionProperty urlRewriteRuleCondition;
 	protected static final String URL_REWRITE_RULE_CONDITION = "<condition/>";
 	/**
@@ -162,141 +162,147 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.URL_REWRITE_RULE;
-    }
+		return MediatorsPackage.Literals.URL_REWRITE_RULE;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EvaluatorExpressionProperty getUrlRewriteRuleCondition() {
-        if (urlRewriteRuleCondition != null && urlRewriteRuleCondition.eIsProxy()) {
-            InternalEObject oldUrlRewriteRuleCondition = (InternalEObject)urlRewriteRuleCondition;
-            urlRewriteRuleCondition = (EvaluatorExpressionProperty)eResolveProxy(oldUrlRewriteRuleCondition);
-            if (urlRewriteRuleCondition != oldUrlRewriteRuleCondition) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION, oldUrlRewriteRuleCondition, urlRewriteRuleCondition));
-            }
-        }
-        return urlRewriteRuleCondition;
-    }
+		if (urlRewriteRuleCondition != null && urlRewriteRuleCondition.eIsProxy()) {
+			InternalEObject oldUrlRewriteRuleCondition = (InternalEObject)urlRewriteRuleCondition;
+			urlRewriteRuleCondition = (EvaluatorExpressionProperty)eResolveProxy(oldUrlRewriteRuleCondition);
+			if (urlRewriteRuleCondition != oldUrlRewriteRuleCondition) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION, oldUrlRewriteRuleCondition, urlRewriteRuleCondition));
+			}
+		}
+		return urlRewriteRuleCondition;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EvaluatorExpressionProperty basicGetUrlRewriteRuleCondition() {
-        return urlRewriteRuleCondition;
-    }
+		return urlRewriteRuleCondition;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setUrlRewriteRuleCondition(
 			EvaluatorExpressionProperty newUrlRewriteRuleCondition) {
-        EvaluatorExpressionProperty oldUrlRewriteRuleCondition = urlRewriteRuleCondition;
-        urlRewriteRuleCondition = newUrlRewriteRuleCondition;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION, oldUrlRewriteRuleCondition, urlRewriteRuleCondition));
-    }
+		EvaluatorExpressionProperty oldUrlRewriteRuleCondition = urlRewriteRuleCondition;
+		urlRewriteRuleCondition = newUrlRewriteRuleCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION, oldUrlRewriteRuleCondition, urlRewriteRuleCondition));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<URLRewriteRuleAction> getRewriteRuleAction() {
-        if (rewriteRuleAction == null) {
-            rewriteRuleAction = new EObjectContainmentEList<URLRewriteRuleAction>(URLRewriteRuleAction.class, this, MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION);
-        }
-        return rewriteRuleAction;
-    }
+		if (rewriteRuleAction == null) {
+			rewriteRuleAction = new EObjectContainmentEList<URLRewriteRuleAction>(URLRewriteRuleAction.class, this, MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION);
+		}
+		return rewriteRuleAction;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
-                return ((InternalEList<?>)getRewriteRuleAction()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
+				return ((InternalEList<?>)getRewriteRuleAction()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
-                if (resolve) return getUrlRewriteRuleCondition();
-                return basicGetUrlRewriteRuleCondition();
-            case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
-                return getRewriteRuleAction();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
+				if (resolve) return getUrlRewriteRuleCondition();
+				return basicGetUrlRewriteRuleCondition();
+			case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
+				return getRewriteRuleAction();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
-                setUrlRewriteRuleCondition((EvaluatorExpressionProperty)newValue);
-                return;
-            case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
-                getRewriteRuleAction().clear();
-                getRewriteRuleAction().addAll((Collection<? extends URLRewriteRuleAction>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
+				setUrlRewriteRuleCondition((EvaluatorExpressionProperty)newValue);
+				return;
+			case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
+				getRewriteRuleAction().clear();
+				getRewriteRuleAction().addAll((Collection<? extends URLRewriteRuleAction>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
-                setUrlRewriteRuleCondition((EvaluatorExpressionProperty)null);
-                return;
-            case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
-                getRewriteRuleAction().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
+				setUrlRewriteRuleCondition((EvaluatorExpressionProperty)null);
+				return;
+			case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
+				getRewriteRuleAction().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
-                return urlRewriteRuleCondition != null;
-            case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
-                return rewriteRuleAction != null && !rewriteRuleAction.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION:
+				return urlRewriteRuleCondition != null;
+			case MediatorsPackage.URL_REWRITE_RULE__REWRITE_RULE_ACTION:
+				return rewriteRuleAction != null && !rewriteRuleAction.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

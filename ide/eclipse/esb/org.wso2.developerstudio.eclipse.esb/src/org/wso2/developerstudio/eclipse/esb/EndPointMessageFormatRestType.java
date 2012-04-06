@@ -32,190 +32,191 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EndPointMessageFormatRestType implements Enumerator {
     /**
-     * The '<em><b>GET</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>GET</b></em>' literal object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #GET_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #GET_VALUE
+	 * @generated
+	 * @ordered
+	 */
     GET(0, "GET", "get"),
 
     /**
-     * The '<em><b>POST</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>POST</b></em>' literal object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #POST_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #POST_VALUE
+	 * @generated
+	 * @ordered
+	 */
     POST(1, "POST", "rest");
 
     /**
-     * The '<em><b>GET</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>GET</b></em>' literal value.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of '<em><b>GET</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #GET
-     * @model literal="get"
-     * @generated
-     * @ordered
-     */
+	 * @see #GET
+	 * @model literal="get"
+	 * @generated
+	 * @ordered
+	 */
     public static final int GET_VALUE = 0;
 
     /**
-     * The '<em><b>POST</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>POST</b></em>' literal value.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of '<em><b>POST</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #POST
-     * @model literal="rest"
-     * @generated
-     * @ordered
-     */
+	 * @see #POST
+	 * @model literal="rest"
+	 * @generated
+	 * @ordered
+	 */
     public static final int POST_VALUE = 1;
 
     /**
-     * An array of all the '<em><b>End Point Message Format Rest Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>End Point Message Format Rest Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     private static final EndPointMessageFormatRestType[] VALUES_ARRAY =
         new EndPointMessageFormatRestType[] {
-            GET,
-            POST,
-        };
+			GET,
+			POST,
+		};
 
     /**
-     * A public read-only list of all the '<em><b>End Point Message Format Rest Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>End Point Message Format Rest Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public static final List<EndPointMessageFormatRestType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
-     * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public static EndPointMessageFormatRestType get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            EndPointMessageFormatRestType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			EndPointMessageFormatRestType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
     /**
-     * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public static EndPointMessageFormatRestType getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            EndPointMessageFormatRestType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			EndPointMessageFormatRestType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
     /**
-     * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>End Point Message Format Rest Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public static EndPointMessageFormatRestType get(int value) {
-        switch (value) {
-            case GET_VALUE: return GET;
-            case POST_VALUE: return POST;
-        }
-        return null;
-    }
+		switch (value) {
+			case GET_VALUE: return GET;
+			case POST_VALUE: return POST;
+		}
+		return null;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     private final int value;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     private final String name;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     private final String literal;
 
     /**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     private EndPointMessageFormatRestType(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
     /**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        return literal;
-    }
+    @Override
+				public String toString() {
+		return literal;
+	}
     
 } //EndPointMessageFormatRestType

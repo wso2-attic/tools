@@ -46,68 +46,68 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public abstract class AbstractProxySequenceConfigurationImpl extends ModelObjectImpl implements AbstractProxySequenceConfiguration {
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ProxySequenceType SEQUENCE_TYPE_EDEFAULT = ProxySequenceType.ANONYMOUS;
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected ProxySequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getInlineSequence() <em>Inline Sequence</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInlineSequence() <em>Inline Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getInlineSequence()
-     * @generated
-     * @ordered
-     */
+	 * @see #getInlineSequence()
+	 * @generated
+	 * @ordered
+	 */
 	protected MediatorSequence inlineSequence;
 	/**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 	/**
-     * The default value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SEQUENCE_NAME_EDEFAULT = "sequence_name";
 	/**
-     * The cached value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String sequenceName = SEQUENCE_NAME_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AbstractProxySequenceConfigurationImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * Utility method for loading a generic proxy sequence configuration.
@@ -205,263 +205,270 @@ public abstract class AbstractProxySequenceConfigurationImpl extends ModelObject
 	}	
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION;
-    }
+		return EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ProxySequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(ProxySequenceType newSequenceType) {
-        ProxySequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		ProxySequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MediatorSequence getInlineSequence() {
-        return inlineSequence;
-    }
+		return inlineSequence;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetInlineSequence(MediatorSequence newInlineSequence, NotificationChain msgs) {
-        MediatorSequence oldInlineSequence = inlineSequence;
-        inlineSequence = newInlineSequence;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, oldInlineSequence, newInlineSequence);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		MediatorSequence oldInlineSequence = inlineSequence;
+		inlineSequence = newInlineSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, oldInlineSequence, newInlineSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setInlineSequence(MediatorSequence newInlineSequence) {
-        if (newInlineSequence != inlineSequence) {
-            NotificationChain msgs = null;
-            if (inlineSequence != null)
-                msgs = ((InternalEObject)inlineSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, null, msgs);
-            if (newInlineSequence != null)
-                msgs = ((InternalEObject)newInlineSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, null, msgs);
-            msgs = basicSetInlineSequence(newInlineSequence, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, newInlineSequence, newInlineSequence));
-    }
+		if (newInlineSequence != inlineSequence) {
+			NotificationChain msgs = null;
+			if (inlineSequence != null)
+				msgs = ((InternalEObject)inlineSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, null, msgs);
+			if (newInlineSequence != null)
+				msgs = ((InternalEObject)newInlineSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, null, msgs);
+			msgs = basicSetInlineSequence(newInlineSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE, newInlineSequence, newInlineSequence));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        if (newSequenceKey != sequenceKey) {
-            NotificationChain msgs = null;
-            if (sequenceKey != null)
-                msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, null, msgs);
-            if (newSequenceKey != null)
-                msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, null, msgs);
-            msgs = basicSetSequenceKey(newSequenceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
-    }
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getSequenceName() {
-        return sequenceName;
-    }
+		return sequenceName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceName(String newSequenceName) {
-        String oldSequenceName = sequenceName;
-        sequenceName = newSequenceName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME, oldSequenceName, sequenceName));
-    }
+		String oldSequenceName = sequenceName;
+		sequenceName = newSequenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME, oldSequenceName, sequenceName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
-                return basicSetInlineSequence(null, msgs);
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
-                return basicSetSequenceKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
+				return basicSetInlineSequence(null, msgs);
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
-                return getSequenceType();
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
-                return getInlineSequence();
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
-                return getSequenceKey();
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
-                return getSequenceName();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
+				return getSequenceType();
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
+				return getInlineSequence();
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
+				return getSequenceKey();
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
+				return getSequenceName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
-                setSequenceType((ProxySequenceType)newValue);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
-                setInlineSequence((MediatorSequence)newValue);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
-                setSequenceName((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
+				setSequenceType((ProxySequenceType)newValue);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
+				setInlineSequence((MediatorSequence)newValue);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
+				setSequenceName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
-                setInlineSequence((MediatorSequence)null);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
-                setSequenceName(SEQUENCE_NAME_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
+				setInlineSequence((MediatorSequence)null);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
+				setSequenceName(SEQUENCE_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
-                return inlineSequence != null;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
-                return sequenceKey != null;
-            case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
-                return SEQUENCE_NAME_EDEFAULT == null ? sequenceName != null : !SEQUENCE_NAME_EDEFAULT.equals(sequenceName);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE:
+				return inlineSequence != null;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY:
+				return sequenceKey != null;
+			case EsbPackage.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME:
+				return SEQUENCE_NAME_EDEFAULT == null ? sequenceName != null : !SEQUENCE_NAME_EDEFAULT.equals(sequenceName);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sequenceType: ");
-        result.append(sequenceType);
-        result.append(", sequenceName: ");
-        result.append(sequenceName);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sequenceType: ");
+		result.append(sequenceType);
+		result.append(", sequenceName: ");
+		result.append(sequenceName);
+		result.append(')');
+		return result.toString();
+	}
 
 } //AbstractProxySequenceConfigurationImpl

@@ -4,7 +4,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esb"
     nsURI="http:///org/wso2/developerstudio/eclipse/esb" nsPrefix="esb">
   <eClassifiers xsi:type="ecore:EClass" name="ModelObject" abstract="true">
-    <eOperations name="validate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectState" eType="#//ModelObjectState"
         defaultValueLiteral="NORMAL"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,7 +30,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationElement" abstract="true"
       eSuperTypes="#//ModelObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//ConfigurationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//ConfigurationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//Description"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Description" eSuperTypes="#//ModelObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndPointReference" abstract="true" eSuperTypes="#//ModelObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="EndPoint" abstract="true" eSuperTypes="#//ConfigurationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="anonymous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -48,8 +53,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediators" upperBound="-1"
         eType="#//Mediator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onError" eType="#//RegistryKeyProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//Description"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MediatorBranch" abstract="true" eSuperTypes="#//ModelObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"

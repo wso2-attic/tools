@@ -38,103 +38,103 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DynamicLoadBalanceEndPoint extends EndPoint {
 	/**
-     * Returns the value of the '<em><b>Algorithm</b></em>' attribute.
-     * The default value is <code>"ROUND_ROBIN"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Algorithm</b></em>' attribute.
+	 * The default value is <code>"ROUND_ROBIN"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Algorithm</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Algorithm</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm
-     * @see #setAlgorithm(LoadBalanceAlgorithm)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_Algorithm()
-     * @model default="ROUND_ROBIN"
-     * @generated
-     */
+	 * @return the value of the '<em>Algorithm</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm
+	 * @see #setAlgorithm(LoadBalanceAlgorithm)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_Algorithm()
+	 * @model default="ROUND_ROBIN"
+	 * @generated
+	 */
 	LoadBalanceAlgorithm getAlgorithm();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#getAlgorithm <em>Algorithm</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#getAlgorithm <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Algorithm</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm
-     * @see #getAlgorithm()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Algorithm</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm
+	 * @see #getAlgorithm()
+	 * @generated
+	 */
 	void setAlgorithm(LoadBalanceAlgorithm value);
 
 	/**
-     * Returns the value of the '<em><b>Failover Enabled</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Failover Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Failover Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Failover Enabled</em>' attribute.
-     * @see #setFailoverEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_FailoverEnabled()
-     * @model default="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Failover Enabled</em>' attribute.
+	 * @see #setFailoverEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_FailoverEnabled()
+	 * @model default="true"
+	 * @generated
+	 */
 	boolean isFailoverEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#isFailoverEnabled <em>Failover Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#isFailoverEnabled <em>Failover Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Failover Enabled</em>' attribute.
-     * @see #isFailoverEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Failover Enabled</em>' attribute.
+	 * @see #isFailoverEnabled()
+	 * @generated
+	 */
 	void setFailoverEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Membership Handler Class</b></em>' attribute.
-     * The default value is <code>"class_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Membership Handler Class</b></em>' attribute.
+	 * The default value is <code>"class_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Membership Handler Class</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Membership Handler Class</em>' attribute.
-     * @see #setMembershipHandlerClass(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_MembershipHandlerClass()
-     * @model default="class_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Membership Handler Class</em>' attribute.
+	 * @see #setMembershipHandlerClass(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_MembershipHandlerClass()
+	 * @model default="class_name"
+	 * @generated
+	 */
 	String getMembershipHandlerClass();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#getMembershipHandlerClass <em>Membership Handler Class</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint#getMembershipHandlerClass <em>Membership Handler Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Membership Handler Class</em>' attribute.
-     * @see #getMembershipHandlerClass()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Membership Handler Class</em>' attribute.
+	 * @see #getMembershipHandlerClass()
+	 * @generated
+	 */
 	void setMembershipHandlerClass(String value);
 
 	/**
-     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Properties</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_Properties()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getDynamicLoadBalanceEndPoint_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<DynamicLoadBalanceProperty> getProperties();
 
 } // DynamicLoadBalanceEndPoint

@@ -42,53 +42,53 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public abstract class AbstractNameValuePropertyImpl extends ModelObjectImpl implements AbstractNameValueProperty {
 	/**
-     * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_NAME_EDEFAULT = "property_name";
 
 	/**
-     * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_VALUE_EDEFAULT = "property_value";
 
 	/**
-     * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyValue = PROPERTY_VALUE_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AbstractNameValuePropertyImpl() {
-        super();
-    }
+		super();
+	}
 	
 	/**
 	 * {@inheritDoc}
@@ -117,142 +117,148 @@ public abstract class AbstractNameValuePropertyImpl extends ModelObjectImpl impl
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.ABSTRACT_NAME_VALUE_PROPERTY;
-    }
+		return EsbPackage.Literals.ABSTRACT_NAME_VALUE_PROPERTY;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyName() {
-        return propertyName;
-    }
+		return propertyName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyName(String newPropertyName) {
-        String oldPropertyName = propertyName;
-        propertyName = newPropertyName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME, oldPropertyName, propertyName));
-    }
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME, oldPropertyName, propertyName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyValue() {
-        return propertyValue;
-    }
+		return propertyValue;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyValue(String newPropertyValue) {
-        String oldPropertyValue = propertyValue;
-        propertyValue = newPropertyValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE, oldPropertyValue, propertyValue));
-    }
+		String oldPropertyValue = propertyValue;
+		propertyValue = newPropertyValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE, oldPropertyValue, propertyValue));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
-                return getPropertyName();
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
-                return getPropertyValue();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
+				return getPropertyName();
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
+				return getPropertyValue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
-                setPropertyName((String)newValue);
-                return;
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
-                setPropertyValue((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
+				setPropertyName((String)newValue);
+				return;
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
+				setPropertyValue((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
-                setPropertyName(PROPERTY_NAME_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
-                setPropertyValue(PROPERTY_VALUE_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
+				setPropertyName(PROPERTY_NAME_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
+				setPropertyValue(PROPERTY_VALUE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
-            case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
-                return PROPERTY_VALUE_EDEFAULT == null ? propertyValue != null : !PROPERTY_VALUE_EDEFAULT.equals(propertyValue);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_NAME:
+				return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
+			case EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE:
+				return PROPERTY_VALUE_EDEFAULT == null ? propertyValue != null : !PROPERTY_VALUE_EDEFAULT.equals(propertyValue);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (propertyName: ");
-        result.append(propertyName);
-        result.append(", propertyValue: ");
-        result.append(propertyValue);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (propertyName: ");
+		result.append(propertyName);
+		result.append(", propertyValue: ");
+		result.append(propertyValue);
+		result.append(')');
+		return result.toString();
+	}
 	
 	@Override
     public Map<String, ObjectValidator> validate() {

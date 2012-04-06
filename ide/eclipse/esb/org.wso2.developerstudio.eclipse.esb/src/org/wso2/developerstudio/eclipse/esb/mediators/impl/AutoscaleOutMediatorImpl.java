@@ -37,19 +37,20 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleOutMediator {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AutoscaleOutMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc} 
 	 */
 	protected void doLoad(Element self) throws Exception {
 		// TODO Auto-generated method stub
+		super.doLoad(self);
 		
 	}
 
@@ -57,18 +58,22 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 	 * {@inheritDoc} 
 	 */
 	protected Element doSave(Element parent) throws Exception {
-		return createChildElement(parent,"autoscaleOut");
+		Element self=createChildElement(parent,"autoscaleOut");
+		if(description!=null)
+			description.save(self);
+		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.AUTOSCALE_OUT_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.AUTOSCALE_OUT_MEDIATOR;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

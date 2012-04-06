@@ -38,53 +38,53 @@ import org.wso2.developerstudio.eclipse.esb.EsbPackage;
  */
 public abstract class EndPointImpl extends ConfigurationElementImpl implements EndPoint {
     /**
-     * The default value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isAnonymous()
-     * @generated
-     * @ordered
-     */
+	 * @see #isAnonymous()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean ANONYMOUS_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isAnonymous()
-     * @generated
-     * @ordered
-     */
+	 * @see #isAnonymous()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean anonymous = ANONYMOUS_EDEFAULT;
 
 				/**
-     * The default value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String ENDPOINT_NAME_EDEFAULT = "endpoint_name";
 
 	/**
-     * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String endpointName = ENDPOINT_NAME_EDEFAULT;
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected EndPointImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
      * {@inheritDoc}
@@ -109,141 +109,147 @@ public abstract class EndPointImpl extends ConfigurationElementImpl implements E
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isAnonymous() {
-        return anonymous;
-    }
+		return anonymous;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setAnonymous(boolean newAnonymous) {
-        boolean oldAnonymous = anonymous;
-        anonymous = newAnonymous;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__ANONYMOUS, oldAnonymous, anonymous));
-    }
+		boolean oldAnonymous = anonymous;
+		anonymous = newAnonymous;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__ANONYMOUS, oldAnonymous, anonymous));
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getEndpointName() {
-        return endpointName;
-    }
+		return endpointName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointName(String newEndpointName) {
-        String oldEndpointName = endpointName;
-        endpointName = newEndpointName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__ENDPOINT_NAME, oldEndpointName, endpointName));
-    }
+		String oldEndpointName = endpointName;
+		endpointName = newEndpointName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__ENDPOINT_NAME, oldEndpointName, endpointName));
+	}
 
 				/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.END_POINT__ANONYMOUS:
-                return isAnonymous();
-            case EsbPackage.END_POINT__ENDPOINT_NAME:
-                return getEndpointName();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.END_POINT__ANONYMOUS:
+				return isAnonymous();
+			case EsbPackage.END_POINT__ENDPOINT_NAME:
+				return getEndpointName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.END_POINT__ANONYMOUS:
-                setAnonymous((Boolean)newValue);
-                return;
-            case EsbPackage.END_POINT__ENDPOINT_NAME:
-                setEndpointName((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EsbPackage.END_POINT__ANONYMOUS:
+				setAnonymous((Boolean)newValue);
+				return;
+			case EsbPackage.END_POINT__ENDPOINT_NAME:
+				setEndpointName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.END_POINT__ANONYMOUS:
-                setAnonymous(ANONYMOUS_EDEFAULT);
-                return;
-            case EsbPackage.END_POINT__ENDPOINT_NAME:
-                setEndpointName(ENDPOINT_NAME_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.END_POINT__ANONYMOUS:
+				setAnonymous(ANONYMOUS_EDEFAULT);
+				return;
+			case EsbPackage.END_POINT__ENDPOINT_NAME:
+				setEndpointName(ENDPOINT_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.END_POINT__ANONYMOUS:
-                return anonymous != ANONYMOUS_EDEFAULT;
-            case EsbPackage.END_POINT__ENDPOINT_NAME:
-                return ENDPOINT_NAME_EDEFAULT == null ? endpointName != null : !ENDPOINT_NAME_EDEFAULT.equals(endpointName);
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.END_POINT__ANONYMOUS:
+				return anonymous != ANONYMOUS_EDEFAULT;
+			case EsbPackage.END_POINT__ENDPOINT_NAME:
+				return ENDPOINT_NAME_EDEFAULT == null ? endpointName != null : !ENDPOINT_NAME_EDEFAULT.equals(endpointName);
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (anonymous: ");
-        result.append(anonymous);
-        result.append(", endpointName: ");
-        result.append(endpointName);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (anonymous: ");
+		result.append(anonymous);
+		result.append(", endpointName: ");
+		result.append(endpointName);
+		result.append(')');
+		return result.toString();
+	}
 
 } //EndPointImpl

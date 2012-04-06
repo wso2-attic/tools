@@ -50,43 +50,43 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	/**
-     * The default value of the '{@link #isContinueAfterRouting() <em>Continue After Routing</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isContinueAfterRouting() <em>Continue After Routing</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isContinueAfterRouting()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueAfterRouting()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean CONTINUE_AFTER_ROUTING_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isContinueAfterRouting() <em>Continue After Routing</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isContinueAfterRouting() <em>Continue After Routing</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isContinueAfterRouting()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueAfterRouting()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean continueAfterRouting = CONTINUE_AFTER_ROUTING_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getRoutes() <em>Routes</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRoutes() <em>Routes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRoutes()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRoutes()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<RouterRoute> routes;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RouterMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -103,7 +103,8 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 			public void handle(RouterRoute object) {
 				getRoutes().add(object);
 			}			
-		});						
+		});	
+		super.doLoad(self);
 	}
 
 	/**
@@ -120,152 +121,160 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		if (isContinueAfterRouting()) {
 			self.setAttribute("continueAfter","true");
 		}
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.ROUTER_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.ROUTER_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isContinueAfterRouting() {
-        return continueAfterRouting;
-    }
+		return continueAfterRouting;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setContinueAfterRouting(boolean newContinueAfterRouting) {
-        boolean oldContinueAfterRouting = continueAfterRouting;
-        continueAfterRouting = newContinueAfterRouting;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING, oldContinueAfterRouting, continueAfterRouting));
-    }
+		boolean oldContinueAfterRouting = continueAfterRouting;
+		continueAfterRouting = newContinueAfterRouting;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING, oldContinueAfterRouting, continueAfterRouting));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<RouterRoute> getRoutes() {
-        if (routes == null) {
-            routes = new EObjectContainmentEList<RouterRoute>(RouterRoute.class, this, MediatorsPackage.ROUTER_MEDIATOR__ROUTES);
-        }
-        return routes;
-    }
+		if (routes == null) {
+			routes = new EObjectContainmentEList<RouterRoute>(RouterRoute.class, this, MediatorsPackage.ROUTER_MEDIATOR__ROUTES);
+		}
+		return routes;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
-                return ((InternalEList<?>)getRoutes()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
+				return ((InternalEList<?>)getRoutes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
-                return isContinueAfterRouting();
-            case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
-                return getRoutes();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
+				return isContinueAfterRouting();
+			case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
+				return getRoutes();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
-                setContinueAfterRouting((Boolean)newValue);
-                return;
-            case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
-                getRoutes().clear();
-                getRoutes().addAll((Collection<? extends RouterRoute>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
+				setContinueAfterRouting((Boolean)newValue);
+				return;
+			case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
+				getRoutes().clear();
+				getRoutes().addAll((Collection<? extends RouterRoute>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
-                setContinueAfterRouting(CONTINUE_AFTER_ROUTING_EDEFAULT);
-                return;
-            case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
-                getRoutes().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
+				setContinueAfterRouting(CONTINUE_AFTER_ROUTING_EDEFAULT);
+				return;
+			case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
+				getRoutes().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
-                return continueAfterRouting != CONTINUE_AFTER_ROUTING_EDEFAULT;
-            case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
-                return routes != null && !routes.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
+				return continueAfterRouting != CONTINUE_AFTER_ROUTING_EDEFAULT;
+			case MediatorsPackage.ROUTER_MEDIATOR__ROUTES:
+				return routes != null && !routes.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (continueAfterRouting: ");
-        result.append(continueAfterRouting);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (continueAfterRouting: ");
+		result.append(continueAfterRouting);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

@@ -39,71 +39,71 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface URLRewriteMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Url Rewrite Rules</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Url Rewrite Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Url Rewrite Rules</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Url Rewrite Rules</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_UrlRewriteRules()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Url Rewrite Rules</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_UrlRewriteRules()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<URLRewriteRule> getUrlRewriteRules();
 
 	/**
-     * Returns the value of the '<em><b>In Property</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>In Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In Property</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>In Property</em>' attribute.
-     * @see #setInProperty(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_InProperty()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>In Property</em>' attribute.
+	 * @see #setInProperty(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_InProperty()
+	 * @model
+	 * @generated
+	 */
 	String getInProperty();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator#getInProperty <em>In Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator#getInProperty <em>In Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>In Property</em>' attribute.
-     * @see #getInProperty()
-     * @generated
-     */
+	 * @param value the new value of the '<em>In Property</em>' attribute.
+	 * @see #getInProperty()
+	 * @generated
+	 */
 	void setInProperty(String value);
 
 	/**
-     * Returns the value of the '<em><b>Out Property</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Out Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out Property</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Out Property</em>' attribute.
-     * @see #setOutProperty(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_OutProperty()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Out Property</em>' attribute.
+	 * @see #setOutProperty(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteMediator_OutProperty()
+	 * @model
+	 * @generated
+	 */
 	String getOutProperty();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator#getOutProperty <em>Out Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator#getOutProperty <em>Out Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Out Property</em>' attribute.
-     * @see #getOutProperty()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Out Property</em>' attribute.
+	 * @see #getOutProperty()
+	 * @generated
+	 */
 	void setOutProperty(String value);
 
 } // URLRewriteMediator

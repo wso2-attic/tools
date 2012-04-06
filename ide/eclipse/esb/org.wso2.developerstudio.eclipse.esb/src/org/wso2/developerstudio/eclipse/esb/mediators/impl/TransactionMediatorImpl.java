@@ -42,33 +42,33 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class TransactionMediatorImpl extends MediatorImpl implements TransactionMediator {
 	/**
-     * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final TransactionAction ACTION_EDEFAULT = TransactionAction.COMMIT;
 
 	/**
-     * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected TransactionAction action = ACTION_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected TransactionMediatorImpl() {
-        super();
-    }
+		super();
+	}
 	
 	/**
 	 * {@inheritDoc}
@@ -80,6 +80,7 @@ public class TransactionMediatorImpl extends MediatorImpl implements Transaction
 		} else {
 			throw new Exception("Unknown transaction action.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -88,113 +89,121 @@ public class TransactionMediatorImpl extends MediatorImpl implements Transaction
 	protected Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "transaction");
 		self.setAttribute("action", getAction().getLiteral());
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.TRANSACTION_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.TRANSACTION_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TransactionAction getAction() {
-        return action;
-    }
+		return action;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setAction(TransactionAction newAction) {
-        TransactionAction oldAction = action;
-        action = newAction == null ? ACTION_EDEFAULT : newAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.TRANSACTION_MEDIATOR__ACTION, oldAction, action));
-    }
+		TransactionAction oldAction = action;
+		action = newAction == null ? ACTION_EDEFAULT : newAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.TRANSACTION_MEDIATOR__ACTION, oldAction, action));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
-                return getAction();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
+				return getAction();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
-                setAction((TransactionAction)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
+				setAction((TransactionAction)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
-                setAction(ACTION_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
+				setAction(ACTION_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
-                return action != ACTION_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.TRANSACTION_MEDIATOR__ACTION:
+				return action != ACTION_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (action: ");
-        result.append(action);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (action: ");
+		result.append(action);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

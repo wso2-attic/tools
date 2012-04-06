@@ -36,30 +36,30 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface OAuthMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Remote Service Url</b></em>' attribute.
-     * The default value is <code>"service_url"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Remote Service Url</b></em>' attribute.
+	 * The default value is <code>"service_url"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Remote Service Url</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Remote Service Url</em>' attribute.
-     * @see #setRemoteServiceUrl(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getOAuthMediator_RemoteServiceUrl()
-     * @model default="service_url"
-     * @generated
-     */
+	 * @return the value of the '<em>Remote Service Url</em>' attribute.
+	 * @see #setRemoteServiceUrl(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getOAuthMediator_RemoteServiceUrl()
+	 * @model default="service_url"
+	 * @generated
+	 */
 	String getRemoteServiceUrl();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator#getRemoteServiceUrl <em>Remote Service Url</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator#getRemoteServiceUrl <em>Remote Service Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Remote Service Url</em>' attribute.
-     * @see #getRemoteServiceUrl()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Remote Service Url</em>' attribute.
+	 * @see #getRemoteServiceUrl()
+	 * @generated
+	 */
 	void setRemoteServiceUrl(String value);
 
 } // OAuthMediator

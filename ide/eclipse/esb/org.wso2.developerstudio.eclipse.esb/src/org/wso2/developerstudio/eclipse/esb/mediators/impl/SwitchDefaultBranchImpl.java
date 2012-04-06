@@ -36,13 +36,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SwitchDefaultBranchImpl extends MediatorBranchImpl implements SwitchDefaultBranch {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SwitchDefaultBranchImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -63,14 +63,15 @@ public class SwitchDefaultBranchImpl extends MediatorBranchImpl implements Switc
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SWITCH_DEFAULT_BRANCH;
-    }
+		return MediatorsPackage.Literals.SWITCH_DEFAULT_BRANCH;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

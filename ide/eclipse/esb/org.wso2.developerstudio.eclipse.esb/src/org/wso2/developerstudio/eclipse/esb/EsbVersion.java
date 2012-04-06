@@ -32,190 +32,191 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EsbVersion implements Enumerator {
 	/**
-     * The '<em><b>ESB301</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>ESB301</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #ESB301_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #ESB301_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	ESB301(0, "ESB301", "ESB301"),
 
 	/**
-     * The '<em><b>ESB400</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>ESB400</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #ESB400_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #ESB400_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	ESB400(1, "ESB400", "ESB400");
 
 	/**
-     * The '<em><b>ESB301</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>ESB301</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>ESB301</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #ESB301
-     * @model
-     * @generated
-     * @ordered
-     */
+	 * @see #ESB301
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int ESB301_VALUE = 0;
 
 	/**
-     * The '<em><b>ESB400</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>ESB400</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>ESB400</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #ESB400
-     * @model
-     * @generated
-     * @ordered
-     */
+	 * @see #ESB400
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int ESB400_VALUE = 1;
 
 	/**
-     * An array of all the '<em><b>Version</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Version</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private static final EsbVersion[] VALUES_ARRAY =
 		new EsbVersion[] {
-            ESB301,
-            ESB400,
-        };
+			ESB301,
+			ESB400,
+		};
 
 	/**
-     * A public read-only list of all the '<em><b>Version</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Version</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<EsbVersion> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-     * Returns the '<em><b>Version</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Version</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static EsbVersion get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            EsbVersion result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			EsbVersion result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Version</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Version</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static EsbVersion getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            EsbVersion result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			EsbVersion result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Version</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Version</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static EsbVersion get(int value) {
-        switch (value) {
-            case ESB301_VALUE: return ESB301;
-            case ESB400_VALUE: return ESB400;
-        }
-        return null;
-    }
+		switch (value) {
+			case ESB301_VALUE: return ESB301;
+			case ESB400_VALUE: return ESB400;
+		}
+		return null;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private EsbVersion(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
 	/**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        return literal;
-    }
+		return literal;
+	}
 	
 } //EsbVersion

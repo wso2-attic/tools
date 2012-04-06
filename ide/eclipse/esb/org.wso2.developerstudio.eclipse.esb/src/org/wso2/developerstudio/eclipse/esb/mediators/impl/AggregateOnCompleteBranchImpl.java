@@ -54,43 +54,43 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements AggregateOnCompleteBranch {
 	/**
-     * The cached value of the '{@link #getAggregationExpression() <em>Aggregation Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAggregationExpression() <em>Aggregation Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getAggregationExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAggregationExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty aggregationExpression;
 
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final AggregateSequenceType SEQUENCE_TYPE_EDEFAULT = AggregateSequenceType.ANONYMOUS;
 
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected AggregateSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 
 	/**
@@ -154,231 +154,238 @@ public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements
 
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.AGGREGATE_ON_COMPLETE_BRANCH;
-    }
+		return MediatorsPackage.Literals.AGGREGATE_ON_COMPLETE_BRANCH;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getAggregationExpression() {
-        return aggregationExpression;
-    }
+		return aggregationExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetAggregationExpression(NamespacedProperty newAggregationExpression, NotificationChain msgs) {
-        NamespacedProperty oldAggregationExpression = aggregationExpression;
-        aggregationExpression = newAggregationExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, oldAggregationExpression, newAggregationExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldAggregationExpression = aggregationExpression;
+		aggregationExpression = newAggregationExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, oldAggregationExpression, newAggregationExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setAggregationExpression(NamespacedProperty newAggregationExpression) {
-        if (newAggregationExpression != aggregationExpression) {
-            NotificationChain msgs = null;
-            if (aggregationExpression != null)
-                msgs = ((InternalEObject)aggregationExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, null, msgs);
-            if (newAggregationExpression != null)
-                msgs = ((InternalEObject)newAggregationExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, null, msgs);
-            msgs = basicSetAggregationExpression(newAggregationExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, newAggregationExpression, newAggregationExpression));
-    }
+		if (newAggregationExpression != aggregationExpression) {
+			NotificationChain msgs = null;
+			if (aggregationExpression != null)
+				msgs = ((InternalEObject)aggregationExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, null, msgs);
+			if (newAggregationExpression != null)
+				msgs = ((InternalEObject)newAggregationExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, null, msgs);
+			msgs = basicSetAggregationExpression(newAggregationExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION, newAggregationExpression, newAggregationExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AggregateSequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(AggregateSequenceType newSequenceType) {
-        AggregateSequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		AggregateSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        if (newSequenceKey != sequenceKey) {
-            NotificationChain msgs = null;
-            if (sequenceKey != null)
-                msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, null, msgs);
-            if (newSequenceKey != null)
-                msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, null, msgs);
-            msgs = basicSetSequenceKey(newSequenceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
-    }
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
-                return basicSetAggregationExpression(null, msgs);
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
-                return basicSetSequenceKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
+				return basicSetAggregationExpression(null, msgs);
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
-                return getAggregationExpression();
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
-                return getSequenceType();
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
-                return getSequenceKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
+				return getAggregationExpression();
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
+				return getSequenceType();
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
+				return getSequenceKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
-                setAggregationExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
-                setSequenceType((AggregateSequenceType)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
+				setAggregationExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
+				setSequenceType((AggregateSequenceType)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
-                setAggregationExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
+				setAggregationExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
-                return aggregationExpression != null;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
-                return sequenceKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION:
+				return aggregationExpression != null;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY:
+				return sequenceKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sequenceType: ");
-        result.append(sequenceType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sequenceType: ");
+		result.append(sequenceType);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

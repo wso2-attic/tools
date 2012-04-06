@@ -54,13 +54,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 	/**
-     * The cached value of the '{@link #getSourceXpath() <em>Source Xpath</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceXpath() <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceXpath()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceXpath()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty sourceXpath;
 
 	/**
@@ -73,23 +73,23 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 	protected static final String SOURCE_XPATH_EDEFAULT = "";
 
 	/**
-     * The cached value of the '{@link #getCaseBranches() <em>Case Branches</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCaseBranches() <em>Case Branches</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCaseBranches()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCaseBranches()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<SwitchCaseBranch> caseBranches;
 
 	/**
-     * The cached value of the '{@link #getDefaultBranch() <em>Default Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDefaultBranch() <em>Default Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getDefaultBranch()
-     * @generated
-     * @ordered
-     */
+	 * @see #getDefaultBranch()
+	 * @generated
+	 * @ordered
+	 */
 	protected SwitchDefaultBranch defaultBranch;
 
 	/**
@@ -127,6 +127,7 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 				setDefaultBranch(object);
 			}			
 		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -140,215 +141,223 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 		}
 		if (null != getDefaultBranch()) {
 			getDefaultBranch().save(self);
-		}		
+		}	
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SWITCH_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.SWITCH_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getSourceXpath() {
-        return sourceXpath;
-    }
+		return sourceXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSourceXpath(NamespacedProperty newSourceXpath, NotificationChain msgs) {
-        NamespacedProperty oldSourceXpath = sourceXpath;
-        sourceXpath = newSourceXpath;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, oldSourceXpath, newSourceXpath);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldSourceXpath = sourceXpath;
+		sourceXpath = newSourceXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, oldSourceXpath, newSourceXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSourceXpath(NamespacedProperty newSourceXpath) {
-        if (newSourceXpath != sourceXpath) {
-            NotificationChain msgs = null;
-            if (sourceXpath != null)
-                msgs = ((InternalEObject)sourceXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, null, msgs);
-            if (newSourceXpath != null)
-                msgs = ((InternalEObject)newSourceXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, null, msgs);
-            msgs = basicSetSourceXpath(newSourceXpath, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, newSourceXpath, newSourceXpath));
-    }
+		if (newSourceXpath != sourceXpath) {
+			NotificationChain msgs = null;
+			if (sourceXpath != null)
+				msgs = ((InternalEObject)sourceXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, null, msgs);
+			if (newSourceXpath != null)
+				msgs = ((InternalEObject)newSourceXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, null, msgs);
+			msgs = basicSetSourceXpath(newSourceXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH, newSourceXpath, newSourceXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<SwitchCaseBranch> getCaseBranches() {
-        if (caseBranches == null) {
-            caseBranches = new EObjectContainmentEList<SwitchCaseBranch>(SwitchCaseBranch.class, this, MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES);
-        }
-        return caseBranches;
-    }
+		if (caseBranches == null) {
+			caseBranches = new EObjectContainmentEList<SwitchCaseBranch>(SwitchCaseBranch.class, this, MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES);
+		}
+		return caseBranches;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SwitchDefaultBranch getDefaultBranch() {
-        return defaultBranch;
-    }
+		return defaultBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetDefaultBranch(SwitchDefaultBranch newDefaultBranch, NotificationChain msgs) {
-        SwitchDefaultBranch oldDefaultBranch = defaultBranch;
-        defaultBranch = newDefaultBranch;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, oldDefaultBranch, newDefaultBranch);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		SwitchDefaultBranch oldDefaultBranch = defaultBranch;
+		defaultBranch = newDefaultBranch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, oldDefaultBranch, newDefaultBranch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setDefaultBranch(SwitchDefaultBranch newDefaultBranch) {
-        if (newDefaultBranch != defaultBranch) {
-            NotificationChain msgs = null;
-            if (defaultBranch != null)
-                msgs = ((InternalEObject)defaultBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, null, msgs);
-            if (newDefaultBranch != null)
-                msgs = ((InternalEObject)newDefaultBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, null, msgs);
-            msgs = basicSetDefaultBranch(newDefaultBranch, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, newDefaultBranch, newDefaultBranch));
-    }
+		if (newDefaultBranch != defaultBranch) {
+			NotificationChain msgs = null;
+			if (defaultBranch != null)
+				msgs = ((InternalEObject)defaultBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, null, msgs);
+			if (newDefaultBranch != null)
+				msgs = ((InternalEObject)newDefaultBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, null, msgs);
+			msgs = basicSetDefaultBranch(newDefaultBranch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH, newDefaultBranch, newDefaultBranch));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
-                return basicSetSourceXpath(null, msgs);
-            case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
-                return ((InternalEList<?>)getCaseBranches()).basicRemove(otherEnd, msgs);
-            case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
-                return basicSetDefaultBranch(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
+				return basicSetSourceXpath(null, msgs);
+			case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
+				return ((InternalEList<?>)getCaseBranches()).basicRemove(otherEnd, msgs);
+			case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
+				return basicSetDefaultBranch(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
-                return getSourceXpath();
-            case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
-                return getCaseBranches();
-            case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
-                return getDefaultBranch();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
+				return getSourceXpath();
+			case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
+				return getCaseBranches();
+			case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
+				return getDefaultBranch();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
-                setSourceXpath((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
-                getCaseBranches().clear();
-                getCaseBranches().addAll((Collection<? extends SwitchCaseBranch>)newValue);
-                return;
-            case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
-                setDefaultBranch((SwitchDefaultBranch)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
+				getCaseBranches().clear();
+				getCaseBranches().addAll((Collection<? extends SwitchCaseBranch>)newValue);
+				return;
+			case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
+				setDefaultBranch((SwitchDefaultBranch)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
-                setSourceXpath((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
-                getCaseBranches().clear();
-                return;
-            case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
-                setDefaultBranch((SwitchDefaultBranch)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
+				getCaseBranches().clear();
+				return;
+			case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
+				setDefaultBranch((SwitchDefaultBranch)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
-                return sourceXpath != null;
-            case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
-                return caseBranches != null && !caseBranches.isEmpty();
-            case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
-                return defaultBranch != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_MEDIATOR__SOURCE_XPATH:
+				return sourceXpath != null;
+			case MediatorsPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
+				return caseBranches != null && !caseBranches.isEmpty();
+			case MediatorsPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
+				return defaultBranch != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

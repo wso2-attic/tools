@@ -77,14 +77,15 @@ public class ProxyFaultSequenceConfigurationImpl extends AbstractProxySequenceCo
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.PROXY_FAULT_SEQUENCE_CONFIGURATION;
-    }
+		return EsbPackage.Literals.PROXY_FAULT_SEQUENCE_CONFIGURATION;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

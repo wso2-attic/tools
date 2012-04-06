@@ -33,23 +33,24 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class DynamicLoadBalancePropertyImpl extends AbstractNameValuePropertyImpl implements DynamicLoadBalanceProperty {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DynamicLoadBalancePropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.DYNAMIC_LOAD_BALANCE_PROPERTY;
-    }
+		return EsbPackage.Literals.DYNAMIC_LOAD_BALANCE_PROPERTY;
+	}
 
 
 } //DynamicLoadBalancePropertyImpl

@@ -37,45 +37,45 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface ConditionalRouterMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Continue After Route</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Continue After Route</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Continue After Route</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Continue After Route</em>' attribute.
-     * @see #setContinueAfterRoute(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouterMediator_ContinueAfterRoute()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Continue After Route</em>' attribute.
+	 * @see #setContinueAfterRoute(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouterMediator_ContinueAfterRoute()
+	 * @model
+	 * @generated
+	 */
 	boolean isContinueAfterRoute();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator#isContinueAfterRoute <em>Continue After Route</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator#isContinueAfterRoute <em>Continue After Route</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Continue After Route</em>' attribute.
-     * @see #isContinueAfterRoute()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Continue After Route</em>' attribute.
+	 * @see #isContinueAfterRoute()
+	 * @generated
+	 */
 	void setContinueAfterRoute(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Conditional Route Braches</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Conditional Route Braches</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Conditional Route Braches</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Conditional Route Braches</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouterMediator_ConditionalRouteBraches()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Conditional Route Braches</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getConditionalRouterMediator_ConditionalRouteBraches()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<ConditionalRouteBranch> getConditionalRouteBraches();
 
 } // ConditionalRouterMediator

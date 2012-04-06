@@ -36,30 +36,30 @@ import org.wso2.developerstudio.eclipse.esb.MediatorBranch;
  */
 public interface SwitchCaseBranch extends MediatorBranch {
 	/**
-     * Returns the value of the '<em><b>Case Regex</b></em>' attribute.
-     * The default value is <code>".*+"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Case Regex</b></em>' attribute.
+	 * The default value is <code>".*+"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Case Regex</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Case Regex</em>' attribute.
-     * @see #setCaseRegex(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchCaseBranch_CaseRegex()
-     * @model default=".*+"
-     * @generated
-     */
+	 * @return the value of the '<em>Case Regex</em>' attribute.
+	 * @see #setCaseRegex(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchCaseBranch_CaseRegex()
+	 * @model default=".*+"
+	 * @generated
+	 */
 	String getCaseRegex();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch#getCaseRegex <em>Case Regex</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch#getCaseRegex <em>Case Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Case Regex</em>' attribute.
-     * @see #getCaseRegex()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Case Regex</em>' attribute.
+	 * @see #getCaseRegex()
+	 * @generated
+	 */
 	void setCaseRegex(String value);
 
 } // CaseBranch

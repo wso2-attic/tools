@@ -43,23 +43,23 @@ import org.wso2.developerstudio.eclipse.esb.ParentEndPoint;
  */
 public abstract class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
     /**
-     * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getChildren()
-     * @generated
-     * @ordered
-     */
+	 * @see #getChildren()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<EndPoint> children;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected ParentEndPointImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
      * Utility method for loading all the child endpoints.
@@ -88,99 +88,105 @@ public abstract class ParentEndPointImpl extends EndPointImpl implements ParentE
     }
     
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.PARENT_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.PARENT_END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<EndPoint> getChildren() {
-        if (children == null) {
-            children = new EObjectContainmentEList<EndPoint>(EndPoint.class, this, EsbPackage.PARENT_END_POINT__CHILDREN);
-        }
-        return children;
-    }
+		if (children == null) {
+			children = new EObjectContainmentEList<EndPoint>(EndPoint.class, this, EsbPackage.PARENT_END_POINT__CHILDREN);
+		}
+		return children;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.PARENT_END_POINT__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+    @Override
+				public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.PARENT_END_POINT__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.PARENT_END_POINT__CHILDREN:
-                return getChildren();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.PARENT_END_POINT__CHILDREN:
+				return getChildren();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
+				@Override
     
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.PARENT_END_POINT__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends EndPoint>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.PARENT_END_POINT__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends EndPoint>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PARENT_END_POINT__CHILDREN:
-                getChildren().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.PARENT_END_POINT__CHILDREN:
+				getChildren().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PARENT_END_POINT__CHILDREN:
-                return children != null && !children.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.PARENT_END_POINT__CHILDREN:
+				return children != null && !children.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ParentEndPointImpl

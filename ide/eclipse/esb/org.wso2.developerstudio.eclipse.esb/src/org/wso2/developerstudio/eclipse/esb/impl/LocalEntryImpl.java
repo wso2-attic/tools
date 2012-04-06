@@ -48,113 +48,113 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEntry {
 	/**
-     * The default value of the '{@link #getEntryName() <em>Entry Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEntryName() <em>Entry Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEntryName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEntryName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String ENTRY_NAME_EDEFAULT = "entry_name";
 
 	/**
-     * The cached value of the '{@link #getEntryName() <em>Entry Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEntryName() <em>Entry Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEntryName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEntryName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String entryName = ENTRY_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final LocalEntryValueType VALUE_TYPE_EDEFAULT = LocalEntryValueType.LITERAL;
 
 	/**
-     * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected LocalEntryValueType valueType = VALUE_TYPE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_LITERAL_EDEFAULT = "entry_value";
 
 	/**
-     * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueLiteral = VALUE_LITERAL_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueXML() <em>Value XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueXML() <em>Value XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueXML()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_XML_EDEFAULT = "<value/>";
 
 	/**
-     * The cached value of the '{@link #getValueXML() <em>Value XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueXML() <em>Value XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueXML()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueXML = VALUE_XML_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueURL() <em>Value URL</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueURL() <em>Value URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueURL()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_URL_EDEFAULT = "file:/path/to/resource.ext";
 
 	/**
-     * The cached value of the '{@link #getValueURL() <em>Value URL</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueURL() <em>Value URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueURL()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueURL = VALUE_URL_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected LocalEntryImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -219,241 +219,247 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.LOCAL_ENTRY;
-    }
+		return EsbPackage.Literals.LOCAL_ENTRY;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getEntryName() {
-        return entryName;
-    }
+		return entryName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEntryName(String newEntryName) {
-        String oldEntryName = entryName;
-        entryName = newEntryName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__ENTRY_NAME, oldEntryName, entryName));
-    }
+		String oldEntryName = entryName;
+		entryName = newEntryName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__ENTRY_NAME, oldEntryName, entryName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LocalEntryValueType getValueType() {
-        return valueType;
-    }
+		return valueType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueType(LocalEntryValueType newValueType) {
-        LocalEntryValueType oldValueType = valueType;
-        valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_TYPE, oldValueType, valueType));
-    }
+		LocalEntryValueType oldValueType = valueType;
+		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_TYPE, oldValueType, valueType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueLiteral() {
-        return valueLiteral;
-    }
+		return valueLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueLiteral(String newValueLiteral) {
-        String oldValueLiteral = valueLiteral;
-        valueLiteral = newValueLiteral;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_LITERAL, oldValueLiteral, valueLiteral));
-    }
+		String oldValueLiteral = valueLiteral;
+		valueLiteral = newValueLiteral;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_LITERAL, oldValueLiteral, valueLiteral));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueXML() {
-        return valueXML;
-    }
+		return valueXML;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueXML(String newValueXML) {
-        String oldValueXML = valueXML;
-        valueXML = newValueXML;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_XML, oldValueXML, valueXML));
-    }
+		String oldValueXML = valueXML;
+		valueXML = newValueXML;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_XML, oldValueXML, valueXML));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueURL() {
-        return valueURL;
-    }
+		return valueURL;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueURL(String newValueURL) {
-        String oldValueURL = valueURL;
-        valueURL = newValueURL;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_URL, oldValueURL, valueURL));
-    }
+		String oldValueURL = valueURL;
+		valueURL = newValueURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOCAL_ENTRY__VALUE_URL, oldValueURL, valueURL));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
-                return getEntryName();
-            case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
-                return getValueType();
-            case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
-                return getValueLiteral();
-            case EsbPackage.LOCAL_ENTRY__VALUE_XML:
-                return getValueXML();
-            case EsbPackage.LOCAL_ENTRY__VALUE_URL:
-                return getValueURL();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
+				return getEntryName();
+			case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
+				return getValueType();
+			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
+				return getValueLiteral();
+			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
+				return getValueXML();
+			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+				return getValueURL();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
-                setEntryName((String)newValue);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
-                setValueType((LocalEntryValueType)newValue);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
-                setValueLiteral((String)newValue);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_XML:
-                setValueXML((String)newValue);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_URL:
-                setValueURL((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
+				setEntryName((String)newValue);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
+				setValueType((LocalEntryValueType)newValue);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
+				setValueLiteral((String)newValue);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
+				setValueXML((String)newValue);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+				setValueURL((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
-                setEntryName(ENTRY_NAME_EDEFAULT);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
-                setValueType(VALUE_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
-                setValueLiteral(VALUE_LITERAL_EDEFAULT);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_XML:
-                setValueXML(VALUE_XML_EDEFAULT);
-                return;
-            case EsbPackage.LOCAL_ENTRY__VALUE_URL:
-                setValueURL(VALUE_URL_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
+				setEntryName(ENTRY_NAME_EDEFAULT);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
+				setValueType(VALUE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
+				setValueLiteral(VALUE_LITERAL_EDEFAULT);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
+				setValueXML(VALUE_XML_EDEFAULT);
+				return;
+			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+				setValueURL(VALUE_URL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
-                return ENTRY_NAME_EDEFAULT == null ? entryName != null : !ENTRY_NAME_EDEFAULT.equals(entryName);
-            case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
-                return valueType != VALUE_TYPE_EDEFAULT;
-            case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
-                return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
-            case EsbPackage.LOCAL_ENTRY__VALUE_XML:
-                return VALUE_XML_EDEFAULT == null ? valueXML != null : !VALUE_XML_EDEFAULT.equals(valueXML);
-            case EsbPackage.LOCAL_ENTRY__VALUE_URL:
-                return VALUE_URL_EDEFAULT == null ? valueURL != null : !VALUE_URL_EDEFAULT.equals(valueURL);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
+				return ENTRY_NAME_EDEFAULT == null ? entryName != null : !ENTRY_NAME_EDEFAULT.equals(entryName);
+			case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
+				return valueType != VALUE_TYPE_EDEFAULT;
+			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
+				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
+			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
+				return VALUE_XML_EDEFAULT == null ? valueXML != null : !VALUE_XML_EDEFAULT.equals(valueXML);
+			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+				return VALUE_URL_EDEFAULT == null ? valueURL != null : !VALUE_URL_EDEFAULT.equals(valueURL);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (entryName: ");
-        result.append(entryName);
-        result.append(", valueType: ");
-        result.append(valueType);
-        result.append(", valueLiteral: ");
-        result.append(valueLiteral);
-        result.append(", valueXML: ");
-        result.append(valueXML);
-        result.append(", valueURL: ");
-        result.append(valueURL);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (entryName: ");
+		result.append(entryName);
+		result.append(", valueType: ");
+		result.append(valueType);
+		result.append(", valueLiteral: ");
+		result.append(valueLiteral);
+		result.append(", valueXML: ");
+		result.append(valueXML);
+		result.append(", valueURL: ");
+		result.append(valueURL);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

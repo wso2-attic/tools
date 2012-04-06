@@ -51,21 +51,21 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 public class AggregateMediatorImpl extends MediatorImpl implements
 		AggregateMediator {
 	/**
-     * The default value of the '{@link #getAggregateID() <em>Aggregate ID</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getAggregateID()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getAggregateID() <em>Aggregate ID</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getAggregateID()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String AGGREGATE_ID_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getAggregateID() <em>Aggregate ID</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getAggregateID()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getAggregateID() <em>Aggregate ID</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getAggregateID()
+	 * @generated
+	 * @ordered
+	 */
 	protected String aggregateID = AGGREGATE_ID_EDEFAULT;
 
 	/**
@@ -80,73 +80,73 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 	protected NamespacedProperty correlationExpression;
 
 	/**
-     * The default value of the '{@link #getCompletionTimeout() <em>Completion Timeout</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getCompletionTimeout() <em>Completion Timeout</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getCompletionTimeout()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionTimeout()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int COMPLETION_TIMEOUT_EDEFAULT = 0;
 
 	/**
-     * The cached value of the '{@link #getCompletionTimeout() <em>Completion Timeout</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getCompletionTimeout() <em>Completion Timeout</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getCompletionTimeout()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionTimeout()
+	 * @generated
+	 * @ordered
+	 */
 	protected int completionTimeout = COMPLETION_TIMEOUT_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCompletionMinMessages()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionMinMessages()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int COMPLETION_MIN_MESSAGES_EDEFAULT = 0;
 
 	/**
-     * The cached value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCompletionMinMessages()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionMinMessages()
+	 * @generated
+	 * @ordered
+	 */
 	protected int completionMinMessages = COMPLETION_MIN_MESSAGES_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCompletionMaxMessages()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionMaxMessages()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int COMPLETION_MAX_MESSAGES_EDEFAULT = 0;
 
 	/**
-     * The cached value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCompletionMaxMessages()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCompletionMaxMessages()
+	 * @generated
+	 * @ordered
+	 */
 	protected int completionMaxMessages = COMPLETION_MAX_MESSAGES_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getOnCompleteBranch() <em>On Complete Branch</em>}' containment reference.
-     * <!-- begin-user-doc
+	 * The cached value of the '{@link #getOnCompleteBranch() <em>On Complete Branch</em>}' containment reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-     * @see #getOnCompleteBranch()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOnCompleteBranch()
+	 * @generated
+	 * @ordered
+	 */
 	protected AggregateOnCompleteBranch onCompleteBranch;
 
 	/**
@@ -207,6 +207,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 						setOnCompleteBranch(object);
 					}
 				});
+		super.doLoad(self);
 	}
 
 	/**
@@ -246,6 +247,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 		if (getOnCompleteBranch() != null) {
 			getOnCompleteBranch().save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		
 		break;
 		
@@ -283,6 +286,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 			if (getOnCompleteBranch() != null) {
 				getOnCompleteBranch().save(self);
 			}
+			if(description!=null)
+				description.save(self);
 			break;
 		}
 
@@ -290,315 +295,322 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.AGGREGATE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.AGGREGATE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getCompletionTimeout() {
-        return completionTimeout;
-    }
+		return completionTimeout;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCompletionTimeout(int newCompletionTimeout) {
-        int oldCompletionTimeout = completionTimeout;
-        completionTimeout = newCompletionTimeout;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT, oldCompletionTimeout, completionTimeout));
-    }
+		int oldCompletionTimeout = completionTimeout;
+		completionTimeout = newCompletionTimeout;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT, oldCompletionTimeout, completionTimeout));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getCompletionMinMessages() {
-        return completionMinMessages;
-    }
+		return completionMinMessages;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCompletionMinMessages(int newCompletionMinMessages) {
-        int oldCompletionMinMessages = completionMinMessages;
-        completionMinMessages = newCompletionMinMessages;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES, oldCompletionMinMessages, completionMinMessages));
-    }
+		int oldCompletionMinMessages = completionMinMessages;
+		completionMinMessages = newCompletionMinMessages;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES, oldCompletionMinMessages, completionMinMessages));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getCompletionMaxMessages() {
-        return completionMaxMessages;
-    }
+		return completionMaxMessages;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCompletionMaxMessages(int newCompletionMaxMessages) {
-        int oldCompletionMaxMessages = completionMaxMessages;
-        completionMaxMessages = newCompletionMaxMessages;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES, oldCompletionMaxMessages, completionMaxMessages));
-    }
+		int oldCompletionMaxMessages = completionMaxMessages;
+		completionMaxMessages = newCompletionMaxMessages;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES, oldCompletionMaxMessages, completionMaxMessages));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty getCorrelationExpression() {
-        return correlationExpression;
-    }
+		return correlationExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain basicSetCorrelationExpression(
 			NamespacedProperty newCorrelationExpression, NotificationChain msgs) {
-        NamespacedProperty oldCorrelationExpression = correlationExpression;
-        correlationExpression = newCorrelationExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, oldCorrelationExpression, newCorrelationExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldCorrelationExpression = correlationExpression;
+		correlationExpression = newCorrelationExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, oldCorrelationExpression, newCorrelationExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCorrelationExpression(
 			NamespacedProperty newCorrelationExpression) {
-        if (newCorrelationExpression != correlationExpression) {
-            NotificationChain msgs = null;
-            if (correlationExpression != null)
-                msgs = ((InternalEObject)correlationExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, null, msgs);
-            if (newCorrelationExpression != null)
-                msgs = ((InternalEObject)newCorrelationExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, null, msgs);
-            msgs = basicSetCorrelationExpression(newCorrelationExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, newCorrelationExpression, newCorrelationExpression));
-    }
+		if (newCorrelationExpression != correlationExpression) {
+			NotificationChain msgs = null;
+			if (correlationExpression != null)
+				msgs = ((InternalEObject)correlationExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, null, msgs);
+			if (newCorrelationExpression != null)
+				msgs = ((InternalEObject)newCorrelationExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, null, msgs);
+			msgs = basicSetCorrelationExpression(newCorrelationExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, newCorrelationExpression, newCorrelationExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AggregateOnCompleteBranch getOnCompleteBranch() {
-        return onCompleteBranch;
-    }
+		return onCompleteBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain basicSetOnCompleteBranch(
 			AggregateOnCompleteBranch newOnCompleteBranch,
 			NotificationChain msgs) {
-        AggregateOnCompleteBranch oldOnCompleteBranch = onCompleteBranch;
-        onCompleteBranch = newOnCompleteBranch;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, oldOnCompleteBranch, newOnCompleteBranch);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		AggregateOnCompleteBranch oldOnCompleteBranch = onCompleteBranch;
+		onCompleteBranch = newOnCompleteBranch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, oldOnCompleteBranch, newOnCompleteBranch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setOnCompleteBranch(
 			AggregateOnCompleteBranch newOnCompleteBranch) {
-        if (newOnCompleteBranch != onCompleteBranch) {
-            NotificationChain msgs = null;
-            if (onCompleteBranch != null)
-                msgs = ((InternalEObject)onCompleteBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
-            if (newOnCompleteBranch != null)
-                msgs = ((InternalEObject)newOnCompleteBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
-            msgs = basicSetOnCompleteBranch(newOnCompleteBranch, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, newOnCompleteBranch, newOnCompleteBranch));
-    }
+		if (newOnCompleteBranch != onCompleteBranch) {
+			NotificationChain msgs = null;
+			if (onCompleteBranch != null)
+				msgs = ((InternalEObject)onCompleteBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
+			if (newOnCompleteBranch != null)
+				msgs = ((InternalEObject)newOnCompleteBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
+			msgs = basicSetOnCompleteBranch(newOnCompleteBranch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, newOnCompleteBranch, newOnCompleteBranch));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getAggregateID() {
-        return aggregateID;
-    }
+		return aggregateID;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setAggregateID(String newAggregateID) {
-        String oldAggregateID = aggregateID;
-        aggregateID = newAggregateID;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID, oldAggregateID, aggregateID));
-    }
+		String oldAggregateID = aggregateID;
+		aggregateID = newAggregateID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID, oldAggregateID, aggregateID));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-                return basicSetCorrelationExpression(null, msgs);
-            case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-                return basicSetOnCompleteBranch(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+				return basicSetCorrelationExpression(null, msgs);
+			case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
+				return basicSetOnCompleteBranch(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
-                return getAggregateID();
-            case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-                return getCorrelationExpression();
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-                return getCompletionTimeout();
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-                return getCompletionMinMessages();
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-                return getCompletionMaxMessages();
-            case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-                return getOnCompleteBranch();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
+				return getAggregateID();
+			case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+				return getCorrelationExpression();
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
+				return getCompletionTimeout();
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
+				return getCompletionMinMessages();
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+				return getCompletionMaxMessages();
+			case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
+				return getOnCompleteBranch();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
-                setAggregateID((String)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-                setCorrelationExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-                setCompletionTimeout((Integer)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-                setCompletionMinMessages((Integer)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-                setCompletionMaxMessages((Integer)newValue);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-                setOnCompleteBranch((AggregateOnCompleteBranch)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
+				setAggregateID((String)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+				setCorrelationExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
+				setCompletionTimeout((Integer)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
+				setCompletionMinMessages((Integer)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+				setCompletionMaxMessages((Integer)newValue);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
+				setOnCompleteBranch((AggregateOnCompleteBranch)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
-                setAggregateID(AGGREGATE_ID_EDEFAULT);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-                setCorrelationExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-                setCompletionTimeout(COMPLETION_TIMEOUT_EDEFAULT);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-                setCompletionMinMessages(COMPLETION_MIN_MESSAGES_EDEFAULT);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-                setCompletionMaxMessages(COMPLETION_MAX_MESSAGES_EDEFAULT);
-                return;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-                setOnCompleteBranch((AggregateOnCompleteBranch)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
+				setAggregateID(AGGREGATE_ID_EDEFAULT);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+				setCorrelationExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
+				setCompletionTimeout(COMPLETION_TIMEOUT_EDEFAULT);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
+				setCompletionMinMessages(COMPLETION_MIN_MESSAGES_EDEFAULT);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+				setCompletionMaxMessages(COMPLETION_MAX_MESSAGES_EDEFAULT);
+				return;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
+				setOnCompleteBranch((AggregateOnCompleteBranch)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
-                return AGGREGATE_ID_EDEFAULT == null ? aggregateID != null : !AGGREGATE_ID_EDEFAULT.equals(aggregateID);
-            case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-                return correlationExpression != null;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-                return completionTimeout != COMPLETION_TIMEOUT_EDEFAULT;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-                return completionMinMessages != COMPLETION_MIN_MESSAGES_EDEFAULT;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-                return completionMaxMessages != COMPLETION_MAX_MESSAGES_EDEFAULT;
-            case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-                return onCompleteBranch != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
+				return AGGREGATE_ID_EDEFAULT == null ? aggregateID != null : !AGGREGATE_ID_EDEFAULT.equals(aggregateID);
+			case MediatorsPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+				return correlationExpression != null;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
+				return completionTimeout != COMPLETION_TIMEOUT_EDEFAULT;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
+				return completionMinMessages != COMPLETION_MIN_MESSAGES_EDEFAULT;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+				return completionMaxMessages != COMPLETION_MAX_MESSAGES_EDEFAULT;
+			case MediatorsPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
+				return onCompleteBranch != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (aggregateID: ");
-        result.append(aggregateID);
-        result.append(", completionTimeout: ");
-        result.append(completionTimeout);
-        result.append(", completionMinMessages: ");
-        result.append(completionMinMessages);
-        result.append(", completionMaxMessages: ");
-        result.append(completionMaxMessages);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (aggregateID: ");
+		result.append(aggregateID);
+		result.append(", completionTimeout: ");
+		result.append(completionTimeout);
+		result.append(", completionMinMessages: ");
+		result.append(completionMinMessages);
+		result.append(", completionMaxMessages: ");
+		result.append(completionMaxMessages);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

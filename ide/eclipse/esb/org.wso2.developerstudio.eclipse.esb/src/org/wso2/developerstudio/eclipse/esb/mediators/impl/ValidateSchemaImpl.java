@@ -52,49 +52,49 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchema {
 	/**
-     * The cached value of the '{@link #getValidateStaticSchemaKey() <em>Validate Static Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValidateStaticSchemaKey() <em>Validate Static Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValidateStaticSchemaKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValidateStaticSchemaKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty validateStaticSchemaKey;
 	/**
-     * The cached value of the '{@link #getValidateDynamicSchemaKey() <em>Validate Dynamic Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValidateDynamicSchemaKey() <em>Validate Dynamic Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValidateDynamicSchemaKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValidateDynamicSchemaKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty validateDynamicSchemaKey;
 	/**
-     * The default value of the '{@link #getValidateSchemaKeyType() <em>Validate Schema Key Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValidateSchemaKeyType() <em>Validate Schema Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValidateSchemaKeyType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValidateSchemaKeyType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final KeyType VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT = KeyType.STATIC;
 	/**
-     * The cached value of the '{@link #getValidateSchemaKeyType() <em>Validate Schema Key Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValidateSchemaKeyType() <em>Validate Schema Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValidateSchemaKeyType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValidateSchemaKeyType()
+	 * @generated
+	 * @ordered
+	 */
 	protected KeyType validateSchemaKeyType = VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getSchemaKey() <em>Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSchemaKey() <em>Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSchemaKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSchemaKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty schemaKey;
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,256 +195,262 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.VALIDATE_SCHEMA;
-    }
+		return MediatorsPackage.Literals.VALIDATE_SCHEMA;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getValidateStaticSchemaKey() {
-        if (validateStaticSchemaKey != null && validateStaticSchemaKey.eIsProxy()) {
-            InternalEObject oldValidateStaticSchemaKey = (InternalEObject)validateStaticSchemaKey;
-            validateStaticSchemaKey = (RegistryKeyProperty)eResolveProxy(oldValidateStaticSchemaKey);
-            if (validateStaticSchemaKey != oldValidateStaticSchemaKey) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY, oldValidateStaticSchemaKey, validateStaticSchemaKey));
-            }
-        }
-        return validateStaticSchemaKey;
-    }
+		if (validateStaticSchemaKey != null && validateStaticSchemaKey.eIsProxy()) {
+			InternalEObject oldValidateStaticSchemaKey = (InternalEObject)validateStaticSchemaKey;
+			validateStaticSchemaKey = (RegistryKeyProperty)eResolveProxy(oldValidateStaticSchemaKey);
+			if (validateStaticSchemaKey != oldValidateStaticSchemaKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY, oldValidateStaticSchemaKey, validateStaticSchemaKey));
+			}
+		}
+		return validateStaticSchemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty basicGetValidateStaticSchemaKey() {
-        return validateStaticSchemaKey;
-    }
+		return validateStaticSchemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValidateStaticSchemaKey(RegistryKeyProperty newValidateStaticSchemaKey) {
-        RegistryKeyProperty oldValidateStaticSchemaKey = validateStaticSchemaKey;
-        validateStaticSchemaKey = newValidateStaticSchemaKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY, oldValidateStaticSchemaKey, validateStaticSchemaKey));
-    }
+		RegistryKeyProperty oldValidateStaticSchemaKey = validateStaticSchemaKey;
+		validateStaticSchemaKey = newValidateStaticSchemaKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY, oldValidateStaticSchemaKey, validateStaticSchemaKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getValidateDynamicSchemaKey() {
-        if (validateDynamicSchemaKey != null && validateDynamicSchemaKey.eIsProxy()) {
-            InternalEObject oldValidateDynamicSchemaKey = (InternalEObject)validateDynamicSchemaKey;
-            validateDynamicSchemaKey = (NamespacedProperty)eResolveProxy(oldValidateDynamicSchemaKey);
-            if (validateDynamicSchemaKey != oldValidateDynamicSchemaKey) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY, oldValidateDynamicSchemaKey, validateDynamicSchemaKey));
-            }
-        }
-        return validateDynamicSchemaKey;
-    }
+		if (validateDynamicSchemaKey != null && validateDynamicSchemaKey.eIsProxy()) {
+			InternalEObject oldValidateDynamicSchemaKey = (InternalEObject)validateDynamicSchemaKey;
+			validateDynamicSchemaKey = (NamespacedProperty)eResolveProxy(oldValidateDynamicSchemaKey);
+			if (validateDynamicSchemaKey != oldValidateDynamicSchemaKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY, oldValidateDynamicSchemaKey, validateDynamicSchemaKey));
+			}
+		}
+		return validateDynamicSchemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty basicGetValidateDynamicSchemaKey() {
-        return validateDynamicSchemaKey;
-    }
+		return validateDynamicSchemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValidateDynamicSchemaKey(NamespacedProperty newValidateDynamicSchemaKey) {
-        NamespacedProperty oldValidateDynamicSchemaKey = validateDynamicSchemaKey;
-        validateDynamicSchemaKey = newValidateDynamicSchemaKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY, oldValidateDynamicSchemaKey, validateDynamicSchemaKey));
-    }
+		NamespacedProperty oldValidateDynamicSchemaKey = validateDynamicSchemaKey;
+		validateDynamicSchemaKey = newValidateDynamicSchemaKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY, oldValidateDynamicSchemaKey, validateDynamicSchemaKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public KeyType getValidateSchemaKeyType() {
-        return validateSchemaKeyType;
-    }
+		return validateSchemaKeyType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValidateSchemaKeyType(KeyType newValidateSchemaKeyType) {
-        KeyType oldValidateSchemaKeyType = validateSchemaKeyType;
-        validateSchemaKeyType = newValidateSchemaKeyType == null ? VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT : newValidateSchemaKeyType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE, oldValidateSchemaKeyType, validateSchemaKeyType));
-    }
+		KeyType oldValidateSchemaKeyType = validateSchemaKeyType;
+		validateSchemaKeyType = newValidateSchemaKeyType == null ? VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT : newValidateSchemaKeyType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE, oldValidateSchemaKeyType, validateSchemaKeyType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSchemaKey() {
-        if (schemaKey != null && schemaKey.eIsProxy()) {
-            InternalEObject oldSchemaKey = (InternalEObject)schemaKey;
-            schemaKey = (RegistryKeyProperty)eResolveProxy(oldSchemaKey);
-            if (schemaKey != oldSchemaKey) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
-            }
-        }
-        return schemaKey;
-    }
+		if (schemaKey != null && schemaKey.eIsProxy()) {
+			InternalEObject oldSchemaKey = (InternalEObject)schemaKey;
+			schemaKey = (RegistryKeyProperty)eResolveProxy(oldSchemaKey);
+			if (schemaKey != oldSchemaKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
+			}
+		}
+		return schemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty basicGetSchemaKey() {
-        return schemaKey;
-    }
+		return schemaKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSchemaKey(RegistryKeyProperty newSchemaKey) {
-        RegistryKeyProperty oldSchemaKey = schemaKey;
-        schemaKey = newSchemaKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
-    }
+		RegistryKeyProperty oldSchemaKey = schemaKey;
+		schemaKey = newSchemaKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
-                if (resolve) return getValidateStaticSchemaKey();
-                return basicGetValidateStaticSchemaKey();
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
-                if (resolve) return getValidateDynamicSchemaKey();
-                return basicGetValidateDynamicSchemaKey();
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
-                return getValidateSchemaKeyType();
-            case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
-                if (resolve) return getSchemaKey();
-                return basicGetSchemaKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
+				if (resolve) return getValidateStaticSchemaKey();
+				return basicGetValidateStaticSchemaKey();
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
+				if (resolve) return getValidateDynamicSchemaKey();
+				return basicGetValidateDynamicSchemaKey();
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
+				return getValidateSchemaKeyType();
+			case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				if (resolve) return getSchemaKey();
+				return basicGetSchemaKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
-                setValidateStaticSchemaKey((RegistryKeyProperty)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
-                setValidateDynamicSchemaKey((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
-                setValidateSchemaKeyType((KeyType)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
-                setSchemaKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
+				setValidateStaticSchemaKey((RegistryKeyProperty)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
+				setValidateDynamicSchemaKey((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
+				setValidateSchemaKeyType((KeyType)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				setSchemaKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
-                setValidateStaticSchemaKey((RegistryKeyProperty)null);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
-                setValidateDynamicSchemaKey((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
-                setValidateSchemaKeyType(VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
-                setSchemaKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
+				setValidateStaticSchemaKey((RegistryKeyProperty)null);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
+				setValidateDynamicSchemaKey((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
+				setValidateSchemaKeyType(VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				setSchemaKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
-                return validateStaticSchemaKey != null;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
-                return validateDynamicSchemaKey != null;
-            case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
-                return validateSchemaKeyType != VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT;
-            case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
-                return schemaKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY:
+				return validateStaticSchemaKey != null;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY:
+				return validateDynamicSchemaKey != null;
+			case MediatorsPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
+				return validateSchemaKeyType != VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT;
+			case MediatorsPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				return schemaKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (validateSchemaKeyType: ");
-        result.append(validateSchemaKeyType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (validateSchemaKeyType: ");
+		result.append(validateSchemaKeyType);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

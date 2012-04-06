@@ -38,13 +38,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class DBLookupMediatorImpl extends AbstractSqlExecutorMediatorImpl implements DBLookupMediator {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DBLookupMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -64,7 +64,8 @@ public class DBLookupMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 				object.setResultsEnabled(true);
 				getSqlStatements().add(object);
 			}			
-		});		
+		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -81,19 +82,21 @@ public class DBLookupMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 		for (SqlStatement statement : getSqlStatements()) {
 			statement.save(self);
 		}
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.DB_LOOKUP_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.DB_LOOKUP_MEDIATOR;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

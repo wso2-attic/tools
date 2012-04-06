@@ -51,377 +51,377 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProxyService extends ConfigurationElement {
 	/**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * The default value is <code>"service_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"service_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_Name()
-     * @model default="service_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_Name()
+	 * @model default="service_name"
+	 * @generated
+	 */
 	String getName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
 	void setName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Service Group</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Service Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service Group</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Group</em>' attribute.
-     * @see #setServiceGroup(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServiceGroup()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Service Group</em>' attribute.
+	 * @see #setServiceGroup(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServiceGroup()
+	 * @model
+	 * @generated
+	 */
 	String getServiceGroup();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getServiceGroup <em>Service Group</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getServiceGroup <em>Service Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Service Group</em>' attribute.
-     * @see #getServiceGroup()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Service Group</em>' attribute.
+	 * @see #getServiceGroup()
+	 * @generated
+	 */
 	void setServiceGroup(String value);
 
 	/**
-     * Returns the value of the '<em><b>Pinned Servers</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Pinned Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Pinned Servers</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Pinned Servers</em>' attribute.
-     * @see #setPinnedServers(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_PinnedServers()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Pinned Servers</em>' attribute.
+	 * @see #setPinnedServers(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_PinnedServers()
+	 * @model
+	 * @generated
+	 */
 	String getPinnedServers();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getPinnedServers <em>Pinned Servers</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getPinnedServers <em>Pinned Servers</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Pinned Servers</em>' attribute.
-     * @see #getPinnedServers()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Pinned Servers</em>' attribute.
+	 * @see #getPinnedServers()
+	 * @generated
+	 */
 	void setPinnedServers(String value);
 
 	/**
-     * Returns the value of the '<em><b>Trace Enabled</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Trace Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Trace Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Trace Enabled</em>' attribute.
-     * @see #setTraceEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_TraceEnabled()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Trace Enabled</em>' attribute.
+	 * @see #setTraceEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_TraceEnabled()
+	 * @model
+	 * @generated
+	 */
 	boolean isTraceEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isTraceEnabled <em>Trace Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isTraceEnabled <em>Trace Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Trace Enabled</em>' attribute.
-     * @see #isTraceEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Trace Enabled</em>' attribute.
+	 * @see #isTraceEnabled()
+	 * @generated
+	 */
 	void setTraceEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Statistics Enabled</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Statistics Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Statistics Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Statistics Enabled</em>' attribute.
-     * @see #setStatisticsEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_StatisticsEnabled()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Statistics Enabled</em>' attribute.
+	 * @see #setStatisticsEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_StatisticsEnabled()
+	 * @model
+	 * @generated
+	 */
 	boolean isStatisticsEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isStatisticsEnabled <em>Statistics Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isStatisticsEnabled <em>Statistics Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Statistics Enabled</em>' attribute.
-     * @see #isStatisticsEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Statistics Enabled</em>' attribute.
+	 * @see #isStatisticsEnabled()
+	 * @generated
+	 */
 	void setStatisticsEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Transports</b></em>' attribute.
-     * The default value is <code>"https,http"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Transports</b></em>' attribute.
+	 * The default value is <code>"https,http"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transports</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Transports</em>' attribute.
-     * @see #setTransports(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_Transports()
-     * @model default="https,http"
-     * @generated
-     */
+	 * @return the value of the '<em>Transports</em>' attribute.
+	 * @see #setTransports(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_Transports()
+	 * @model default="https,http"
+	 * @generated
+	 */
 	String getTransports();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getTransports <em>Transports</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getTransports <em>Transports</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Transports</em>' attribute.
-     * @see #getTransports()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Transports</em>' attribute.
+	 * @see #getTransports()
+	 * @generated
+	 */
 	void setTransports(String value);
 
 	/**
-     * Returns the value of the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reliable Messaging Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Reliable Messaging Enabled</em>' attribute.
-     * @see #setReliableMessagingEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ReliableMessagingEnabled()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Reliable Messaging Enabled</em>' attribute.
+	 * @see #setReliableMessagingEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ReliableMessagingEnabled()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isReliableMessagingEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Reliable Messaging Enabled</em>' attribute.
-     * @see #isReliableMessagingEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Reliable Messaging Enabled</em>' attribute.
+	 * @see #isReliableMessagingEnabled()
+	 * @generated
+	 */
 	void setReliableMessagingEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Security Enabled</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Security Enabled</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Security Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Security Enabled</em>' attribute.
-     * @see #setSecurityEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_SecurityEnabled()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Security Enabled</em>' attribute.
+	 * @see #setSecurityEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_SecurityEnabled()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isSecurityEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isSecurityEnabled <em>Security Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#isSecurityEnabled <em>Security Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Security Enabled</em>' attribute.
-     * @see #isSecurityEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Security Enabled</em>' attribute.
+	 * @see #isSecurityEnabled()
+	 * @generated
+	 */
 	void setSecurityEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Wsdl Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Wsdl Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Wsdl Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Wsdl Configuration</em>' containment reference.
-     * @see #setWsdlConfiguration(ProxyWsdlConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_WsdlConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Wsdl Configuration</em>' containment reference.
+	 * @see #setWsdlConfiguration(ProxyWsdlConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_WsdlConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ProxyWsdlConfiguration getWsdlConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getWsdlConfiguration <em>Wsdl Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getWsdlConfiguration <em>Wsdl Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Wsdl Configuration</em>' containment reference.
-     * @see #getWsdlConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Wsdl Configuration</em>' containment reference.
+	 * @see #getWsdlConfiguration()
+	 * @generated
+	 */
 	void setWsdlConfiguration(ProxyWsdlConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>In Sequence Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>In Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In Sequence Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>In Sequence Configuration</em>' containment reference.
-     * @see #setInSequenceConfiguration(ProxyInSequenceConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_InSequenceConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>In Sequence Configuration</em>' containment reference.
+	 * @see #setInSequenceConfiguration(ProxyInSequenceConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_InSequenceConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ProxyInSequenceConfiguration getInSequenceConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getInSequenceConfiguration <em>In Sequence Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getInSequenceConfiguration <em>In Sequence Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>In Sequence Configuration</em>' containment reference.
-     * @see #getInSequenceConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>In Sequence Configuration</em>' containment reference.
+	 * @see #getInSequenceConfiguration()
+	 * @generated
+	 */
 	void setInSequenceConfiguration(ProxyInSequenceConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>Endpoint Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Configuration</em>' containment reference.
-     * @see #setEndpointConfiguration(ProxyEndpointConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_EndpointConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Configuration</em>' containment reference.
+	 * @see #setEndpointConfiguration(ProxyEndpointConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_EndpointConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ProxyEndpointConfiguration getEndpointConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getEndpointConfiguration <em>Endpoint Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getEndpointConfiguration <em>Endpoint Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Configuration</em>' containment reference.
-     * @see #getEndpointConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Configuration</em>' containment reference.
+	 * @see #getEndpointConfiguration()
+	 * @generated
+	 */
 	void setEndpointConfiguration(ProxyEndpointConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>Out Sequence Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Out Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out Sequence Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Out Sequence Configuration</em>' containment reference.
-     * @see #setOutSequenceConfiguration(ProxyOutSequenceConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_OutSequenceConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Out Sequence Configuration</em>' containment reference.
+	 * @see #setOutSequenceConfiguration(ProxyOutSequenceConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_OutSequenceConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ProxyOutSequenceConfiguration getOutSequenceConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getOutSequenceConfiguration <em>Out Sequence Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getOutSequenceConfiguration <em>Out Sequence Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Out Sequence Configuration</em>' containment reference.
-     * @see #getOutSequenceConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Out Sequence Configuration</em>' containment reference.
+	 * @see #getOutSequenceConfiguration()
+	 * @generated
+	 */
 	void setOutSequenceConfiguration(ProxyOutSequenceConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>Fault Sequence Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Fault Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fault Sequence Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Fault Sequence Configuration</em>' containment reference.
-     * @see #setFaultSequenceConfiguration(ProxyFaultSequenceConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_FaultSequenceConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Fault Sequence Configuration</em>' containment reference.
+	 * @see #setFaultSequenceConfiguration(ProxyFaultSequenceConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_FaultSequenceConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ProxyFaultSequenceConfiguration getFaultSequenceConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getFaultSequenceConfiguration <em>Fault Sequence Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyService#getFaultSequenceConfiguration <em>Fault Sequence Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Fault Sequence Configuration</em>' containment reference.
-     * @see #getFaultSequenceConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Fault Sequence Configuration</em>' containment reference.
+	 * @see #getFaultSequenceConfiguration()
+	 * @generated
+	 */
 	void setFaultSequenceConfiguration(ProxyFaultSequenceConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>Service Parameters</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Service Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service Parameters</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Parameters</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServiceParameters()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Service Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServiceParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<ProxyServiceParameter> getServiceParameters();
 
 	/**
-     * Returns the value of the '<em><b>Service Policies</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Service Policies</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service Policies</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Service Policies</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServicePolicies()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Service Policies</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyService_ServicePolicies()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<ProxyServicePolicy> getServicePolicies();
 
 } // ProxyService

@@ -42,53 +42,53 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SqlResultMappingImpl extends ModelObjectImpl implements SqlResultMapping {
 	/**
-     * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_NAME_EDEFAULT = "message_context_property_name";
 
 	/**
-     * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getColumnId() <em>Column Id</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getColumnId() <em>Column Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getColumnId()
-     * @generated
-     * @ordered
-     */
+	 * @see #getColumnId()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String COLUMN_ID_EDEFAULT = "column_name_or_index";
 
 	/**
-     * The cached value of the '{@link #getColumnId() <em>Column Id</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getColumnId() <em>Column Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getColumnId()
-     * @generated
-     * @ordered
-     */
+	 * @see #getColumnId()
+	 * @generated
+	 * @ordered
+	 */
 	protected String columnId = COLUMN_ID_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SqlResultMappingImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -120,142 +120,148 @@ public class SqlResultMappingImpl extends ModelObjectImpl implements SqlResultMa
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SQL_RESULT_MAPPING;
-    }
+		return MediatorsPackage.Literals.SQL_RESULT_MAPPING;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyName() {
-        return propertyName;
-    }
+		return propertyName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyName(String newPropertyName) {
-        String oldPropertyName = propertyName;
-        propertyName = newPropertyName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME, oldPropertyName, propertyName));
-    }
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME, oldPropertyName, propertyName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getColumnId() {
-        return columnId;
-    }
+		return columnId;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setColumnId(String newColumnId) {
-        String oldColumnId = columnId;
-        columnId = newColumnId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID, oldColumnId, columnId));
-    }
+		String oldColumnId = columnId;
+		columnId = newColumnId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID, oldColumnId, columnId));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
-                return getPropertyName();
-            case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
-                return getColumnId();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
+				return getPropertyName();
+			case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
+				return getColumnId();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
-                setPropertyName((String)newValue);
-                return;
-            case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
-                setColumnId((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
+				setPropertyName((String)newValue);
+				return;
+			case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
+				setColumnId((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
-                setPropertyName(PROPERTY_NAME_EDEFAULT);
-                return;
-            case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
-                setColumnId(COLUMN_ID_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
+				setPropertyName(PROPERTY_NAME_EDEFAULT);
+				return;
+			case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
+				setColumnId(COLUMN_ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
-            case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
-                return COLUMN_ID_EDEFAULT == null ? columnId != null : !COLUMN_ID_EDEFAULT.equals(columnId);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SQL_RESULT_MAPPING__PROPERTY_NAME:
+				return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
+			case MediatorsPackage.SQL_RESULT_MAPPING__COLUMN_ID:
+				return COLUMN_ID_EDEFAULT == null ? columnId != null : !COLUMN_ID_EDEFAULT.equals(columnId);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (propertyName: ");
-        result.append(propertyName);
-        result.append(", columnId: ");
-        result.append(columnId);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (propertyName: ");
+		result.append(propertyName);
+		result.append(", columnId: ");
+		result.append(columnId);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

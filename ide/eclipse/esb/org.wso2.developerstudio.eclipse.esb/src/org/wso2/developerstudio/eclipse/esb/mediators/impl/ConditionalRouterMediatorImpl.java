@@ -53,23 +53,23 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 public class ConditionalRouterMediatorImpl extends MediatorImpl implements
 		ConditionalRouterMediator {
 	/**
-     * The default value of the '{@link #isContinueAfterRoute() <em>Continue After Route</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isContinueAfterRoute() <em>Continue After Route</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isContinueAfterRoute()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueAfterRoute()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean CONTINUE_AFTER_ROUTE_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isContinueAfterRoute() <em>Continue After Route</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isContinueAfterRoute() <em>Continue After Route</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isContinueAfterRoute()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueAfterRoute()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean continueAfterRoute = CONTINUE_AFTER_ROUTE_EDEFAULT;
 
 	/**
@@ -112,7 +112,7 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
 
 					}
 				});
-
+		super.doLoad(self);
 	}
 
 	/**
@@ -131,142 +131,151 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
 		for (ConditionalRouteBranch conditionalRouteBranch : getConditionalRouteBraches()) {
 			conditionalRouteBranch.save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isContinueAfterRoute() {
-        return continueAfterRoute;
-    }
+		return continueAfterRoute;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setContinueAfterRoute(boolean newContinueAfterRoute) {
-        boolean oldContinueAfterRoute = continueAfterRoute;
-        continueAfterRoute = newContinueAfterRoute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE, oldContinueAfterRoute, continueAfterRoute));
-    }
+		boolean oldContinueAfterRoute = continueAfterRoute;
+		continueAfterRoute = newContinueAfterRoute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE, oldContinueAfterRoute, continueAfterRoute));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ConditionalRouteBranch> getConditionalRouteBraches() {
-        if (conditionalRouteBraches == null) {
-            conditionalRouteBraches = new EObjectContainmentEList<ConditionalRouteBranch>(ConditionalRouteBranch.class, this, MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES);
-        }
-        return conditionalRouteBraches;
-    }
+		if (conditionalRouteBraches == null) {
+			conditionalRouteBraches = new EObjectContainmentEList<ConditionalRouteBranch>(ConditionalRouteBranch.class, this, MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES);
+		}
+		return conditionalRouteBraches;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
-                return ((InternalEList<?>)getConditionalRouteBraches()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
+				return ((InternalEList<?>)getConditionalRouteBraches()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
-                return isContinueAfterRoute();
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
-                return getConditionalRouteBraches();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
+				return isContinueAfterRoute();
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
+				return getConditionalRouteBraches();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
-                setContinueAfterRoute((Boolean)newValue);
-                return;
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
-                getConditionalRouteBraches().clear();
-                getConditionalRouteBraches().addAll((Collection<? extends ConditionalRouteBranch>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
+				setContinueAfterRoute((Boolean)newValue);
+				return;
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
+				getConditionalRouteBraches().clear();
+				getConditionalRouteBraches().addAll((Collection<? extends ConditionalRouteBranch>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
-                setContinueAfterRoute(CONTINUE_AFTER_ROUTE_EDEFAULT);
-                return;
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
-                getConditionalRouteBraches().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
+				setContinueAfterRoute(CONTINUE_AFTER_ROUTE_EDEFAULT);
+				return;
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
+				getConditionalRouteBraches().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
-                return continueAfterRoute != CONTINUE_AFTER_ROUTE_EDEFAULT;
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
-                return conditionalRouteBraches != null && !conditionalRouteBraches.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTE:
+				return continueAfterRoute != CONTINUE_AFTER_ROUTE_EDEFAULT;
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRACHES:
+				return conditionalRouteBraches != null && !conditionalRouteBraches.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (continueAfterRoute: ");
-        result.append(continueAfterRoute);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (continueAfterRoute: ");
+		result.append(continueAfterRoute);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

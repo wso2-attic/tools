@@ -46,23 +46,23 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleFactsConfigurationImpl extends ModelObjectImpl implements RuleFactsConfiguration {
 	/**
-     * The cached value of the '{@link #getFacts() <em>Facts</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFacts() <em>Facts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFacts()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFacts()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<RuleFact> facts;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleFactsConfigurationImpl() {
-        super();
-    }
+		super();
+	}
 	
 	/**
 	 * {@inheritDoc}
@@ -87,100 +87,106 @@ public class RuleFactsConfigurationImpl extends ModelObjectImpl implements RuleF
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_FACTS_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.RULE_FACTS_CONFIGURATION;
+	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<RuleFact> getFacts() {
-        if (facts == null) {
-            facts = new EObjectContainmentEList<RuleFact>(RuleFact.class, this, MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS);
-        }
-        return facts;
-    }
+		if (facts == null) {
+			facts = new EObjectContainmentEList<RuleFact>(RuleFact.class, this, MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS);
+		}
+		return facts;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
-                return ((InternalEList<?>)getFacts()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
+				return ((InternalEList<?>)getFacts()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
-                return getFacts();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
+				return getFacts();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
-                getFacts().clear();
-                getFacts().addAll((Collection<? extends RuleFact>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
+				getFacts().clear();
+				getFacts().addAll((Collection<? extends RuleFact>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
-                getFacts().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
+				getFacts().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
-                return facts != null && !facts.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION__FACTS:
+				return facts != null && !facts.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

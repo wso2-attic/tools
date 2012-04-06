@@ -49,93 +49,93 @@ import org.wso2.developerstudio.eclipse.esb.TargetSequenceType;
  */
 public abstract class AbstractCommonTargetImpl extends ModelObjectImpl implements AbstractCommonTarget {
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final TargetSequenceType SEQUENCE_TYPE_EDEFAULT = TargetSequenceType.NONE;
 
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected TargetSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequence()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequence()
+	 * @generated
+	 * @ordered
+	 */
 	protected MediatorSequence sequence;
 
 	/**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 
 	/**
-     * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final TargetEndpointType ENDPOINT_TYPE_EDEFAULT = TargetEndpointType.NONE;
 
 	/**
-     * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
 	protected TargetEndpointType endpointType = ENDPOINT_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpoint()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpoint()
+	 * @generated
+	 * @ordered
+	 */
 	protected EndPoint endpoint;
 
 	/**
-     * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getEndpointKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEndpointKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty endpointKey;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AbstractCommonTargetImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -218,373 +218,380 @@ public abstract class AbstractCommonTargetImpl extends ModelObjectImpl implement
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.ABSTRACT_COMMON_TARGET;
-    }
+		return EsbPackage.Literals.ABSTRACT_COMMON_TARGET;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TargetSequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(TargetSequenceType newSequenceType) {
-        TargetSequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		TargetSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MediatorSequence getSequence() {
-        return sequence;
-    }
+		return sequence;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequence(MediatorSequence newSequence, NotificationChain msgs) {
-        MediatorSequence oldSequence = sequence;
-        sequence = newSequence;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, oldSequence, newSequence);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		MediatorSequence oldSequence = sequence;
+		sequence = newSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, oldSequence, newSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequence(MediatorSequence newSequence) {
-        if (newSequence != sequence) {
-            NotificationChain msgs = null;
-            if (sequence != null)
-                msgs = ((InternalEObject)sequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, null, msgs);
-            if (newSequence != null)
-                msgs = ((InternalEObject)newSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, null, msgs);
-            msgs = basicSetSequence(newSequence, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, newSequence, newSequence));
-    }
+		if (newSequence != sequence) {
+			NotificationChain msgs = null;
+			if (sequence != null)
+				msgs = ((InternalEObject)sequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, null, msgs);
+			if (newSequence != null)
+				msgs = ((InternalEObject)newSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, null, msgs);
+			msgs = basicSetSequence(newSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE, newSequence, newSequence));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        if (newSequenceKey != sequenceKey) {
-            NotificationChain msgs = null;
-            if (sequenceKey != null)
-                msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, null, msgs);
-            if (newSequenceKey != null)
-                msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, null, msgs);
-            msgs = basicSetSequenceKey(newSequenceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
-    }
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TargetEndpointType getEndpointType() {
-        return endpointType;
-    }
+		return endpointType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointType(TargetEndpointType newEndpointType) {
-        TargetEndpointType oldEndpointType = endpointType;
-        endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE, oldEndpointType, endpointType));
-    }
+		TargetEndpointType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EndPoint getEndpoint() {
-        return endpoint;
-    }
+		return endpoint;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEndpoint(EndPoint newEndpoint, NotificationChain msgs) {
-        EndPoint oldEndpoint = endpoint;
-        endpoint = newEndpoint;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, oldEndpoint, newEndpoint);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		EndPoint oldEndpoint = endpoint;
+		endpoint = newEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, oldEndpoint, newEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpoint(EndPoint newEndpoint) {
-        if (newEndpoint != endpoint) {
-            NotificationChain msgs = null;
-            if (endpoint != null)
-                msgs = ((InternalEObject)endpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, null, msgs);
-            if (newEndpoint != null)
-                msgs = ((InternalEObject)newEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, null, msgs);
-            msgs = basicSetEndpoint(newEndpoint, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, newEndpoint, newEndpoint));
-    }
+		if (newEndpoint != endpoint) {
+			NotificationChain msgs = null;
+			if (endpoint != null)
+				msgs = ((InternalEObject)endpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, null, msgs);
+			if (newEndpoint != null)
+				msgs = ((InternalEObject)newEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, null, msgs);
+			msgs = basicSetEndpoint(newEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT, newEndpoint, newEndpoint));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getEndpointKey() {
-        return endpointKey;
-    }
+		return endpointKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetEndpointKey(RegistryKeyProperty newEndpointKey, NotificationChain msgs) {
-        RegistryKeyProperty oldEndpointKey = endpointKey;
-        endpointKey = newEndpointKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldEndpointKey = endpointKey;
+		endpointKey = newEndpointKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setEndpointKey(RegistryKeyProperty newEndpointKey) {
-        if (newEndpointKey != endpointKey) {
-            NotificationChain msgs = null;
-            if (endpointKey != null)
-                msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, null, msgs);
-            if (newEndpointKey != null)
-                msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, null, msgs);
-            msgs = basicSetEndpointKey(newEndpointKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
-    }
+		if (newEndpointKey != endpointKey) {
+			NotificationChain msgs = null;
+			if (endpointKey != null)
+				msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, null, msgs);
+			if (newEndpointKey != null)
+				msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, null, msgs);
+			msgs = basicSetEndpointKey(newEndpointKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
-                return basicSetSequence(null, msgs);
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
-                return basicSetSequenceKey(null, msgs);
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
-                return basicSetEndpoint(null, msgs);
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
-                return basicSetEndpointKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
+				return basicSetSequence(null, msgs);
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
+				return basicSetEndpoint(null, msgs);
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
+				return basicSetEndpointKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
-                return getSequenceType();
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
-                return getSequence();
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
-                return getSequenceKey();
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
-                return getEndpointType();
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
-                return getEndpoint();
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
-                return getEndpointKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
+				return getSequenceType();
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
+				return getSequence();
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
+				return getSequenceKey();
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
+				return getEndpointType();
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
+				return getEndpoint();
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
+				return getEndpointKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
-                setSequenceType((TargetSequenceType)newValue);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
-                setSequence((MediatorSequence)newValue);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
-                setEndpointType((TargetEndpointType)newValue);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
-                setEndpoint((EndPoint)newValue);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
+				setSequenceType((TargetSequenceType)newValue);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
+				setSequence((MediatorSequence)newValue);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
+				setEndpointType((TargetEndpointType)newValue);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
+				setEndpoint((EndPoint)newValue);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
-                setSequence((MediatorSequence)null);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
-                setEndpointType(ENDPOINT_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
-                setEndpoint((EndPoint)null);
-                return;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
-                setEndpointKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
+				setSequence((MediatorSequence)null);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
+				setEndpoint((EndPoint)null);
+				return;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
-                return sequence != null;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
-                return sequenceKey != null;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
-                return endpointType != ENDPOINT_TYPE_EDEFAULT;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
-                return endpoint != null;
-            case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
-                return endpointKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE:
+				return sequence != null;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY:
+				return sequenceKey != null;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT:
+				return endpoint != null;
+			case EsbPackage.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY:
+				return endpointKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sequenceType: ");
-        result.append(sequenceType);
-        result.append(", endpointType: ");
-        result.append(endpointType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sequenceType: ");
+		result.append(sequenceType);
+		result.append(", endpointType: ");
+		result.append(endpointType);
+		result.append(')');
+		return result.toString();
+	}
 
 } //AbstractCommonTargetImpl

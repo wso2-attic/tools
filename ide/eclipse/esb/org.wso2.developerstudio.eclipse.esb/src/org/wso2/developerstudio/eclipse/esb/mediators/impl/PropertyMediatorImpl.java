@@ -61,175 +61,175 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediator {
 	/**
-     * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_NAME_EDEFAULT = "property_name";
 	/**
-     * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 	/**
-     * The default value of the '{@link #getPropertyDataType() <em>Property Data Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyDataType() <em>Property Data Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyDataType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyDataType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final PropertyDataType PROPERTY_DATA_TYPE_EDEFAULT = PropertyDataType.STRING;
 	/**
-     * The cached value of the '{@link #getPropertyDataType() <em>Property Data Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyDataType() <em>Property Data Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyDataType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyDataType()
+	 * @generated
+	 * @ordered
+	 */
 	protected PropertyDataType propertyDataType = PROPERTY_DATA_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getPropertyAction() <em>Property Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyAction() <em>Property Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final PropertyAction PROPERTY_ACTION_EDEFAULT = PropertyAction.SET;
 	/**
-     * The cached value of the '{@link #getPropertyAction() <em>Property Action</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyAction() <em>Property Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyAction()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected PropertyAction propertyAction = PROPERTY_ACTION_EDEFAULT;
 	/**
-     * The default value of the '{@link #getPropertyScope() <em>Property Scope</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyScope() <em>Property Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyScope()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyScope()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final PropertyScope PROPERTY_SCOPE_EDEFAULT = PropertyScope.SYNAPSE;
 	/**
-     * The cached value of the '{@link #getPropertyScope() <em>Property Scope</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyScope() <em>Property Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyScope()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyScope()
+	 * @generated
+	 * @ordered
+	 */
 	protected PropertyScope propertyScope = PROPERTY_SCOPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final PropertyValueType VALUE_TYPE_EDEFAULT = PropertyValueType.LITERAL;
 	/**
-     * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected PropertyValueType valueType = VALUE_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_LITERAL_EDEFAULT = "value";
 	/**
-     * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueLiteral = VALUE_LITERAL_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty valueExpression;
 	/**
-     * The default value of the '{@link #getValueOM() <em>Value OM</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueOM() <em>Value OM</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueOM()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueOM()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_OM_EDEFAULT = "<value/>";
 	/**
-     * The cached value of the '{@link #getValueOM() <em>Value OM</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueOM() <em>Value OM</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueOM()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueOM()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueOM = VALUE_OM_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueStringPattern() <em>Value String Pattern</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueStringPattern() <em>Value String Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueStringPattern()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueStringPattern()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_STRING_PATTERN_EDEFAULT = "";
 	/**
-     * The cached value of the '{@link #getValueStringPattern() <em>Value String Pattern</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueStringPattern() <em>Value String Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueStringPattern()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueStringPattern()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueStringPattern = VALUE_STRING_PATTERN_EDEFAULT;
 	/**
-     * The default value of the '{@link #getValueStringCapturingGroup() <em>Value String Capturing Group</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueStringCapturingGroup() <em>Value String Capturing Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueStringCapturingGroup()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueStringCapturingGroup()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final int VALUE_STRING_CAPTURING_GROUP_EDEFAULT = 0;
 	/**
-     * The cached value of the '{@link #getValueStringCapturingGroup() <em>Value String Capturing Group</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueStringCapturingGroup() <em>Value String Capturing Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueStringCapturingGroup()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueStringCapturingGroup()
+	 * @generated
+	 * @ordered
+	 */
 	protected int valueStringCapturingGroup = VALUE_STRING_CAPTURING_GROUP_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
@@ -311,6 +311,7 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
 		if (null != scope) {
 			setPropertyScope(scope);
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -361,444 +362,452 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
 		
 		// Scope.
 		self.setAttribute("scope", getPropertyScope().getLiteral());
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.PROPERTY_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.PROPERTY_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyName() {
-        return propertyName;
-    }
+		return propertyName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyName(String newPropertyName) {
-        String oldPropertyName = propertyName;
-        propertyName = newPropertyName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME, oldPropertyName, propertyName));
-    }
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME, oldPropertyName, propertyName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyDataType getPropertyDataType() {
-        return propertyDataType;
-    }
+		return propertyDataType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyDataType(PropertyDataType newPropertyDataType) {
-        PropertyDataType oldPropertyDataType = propertyDataType;
-        propertyDataType = newPropertyDataType == null ? PROPERTY_DATA_TYPE_EDEFAULT : newPropertyDataType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, oldPropertyDataType, propertyDataType));
-    }
+		PropertyDataType oldPropertyDataType = propertyDataType;
+		propertyDataType = newPropertyDataType == null ? PROPERTY_DATA_TYPE_EDEFAULT : newPropertyDataType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, oldPropertyDataType, propertyDataType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyAction getPropertyAction() {
-        return propertyAction;
-    }
+		return propertyAction;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyAction(PropertyAction newPropertyAction) {
-        PropertyAction oldPropertyAction = propertyAction;
-        propertyAction = newPropertyAction == null ? PROPERTY_ACTION_EDEFAULT : newPropertyAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION, oldPropertyAction, propertyAction));
-    }
+		PropertyAction oldPropertyAction = propertyAction;
+		propertyAction = newPropertyAction == null ? PROPERTY_ACTION_EDEFAULT : newPropertyAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION, oldPropertyAction, propertyAction));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyValueType getValueType() {
-        return valueType;
-    }
+		return valueType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueType(PropertyValueType newValueType) {
-        PropertyValueType oldValueType = valueType;
-        valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE, oldValueType, valueType));
-    }
+		PropertyValueType oldValueType = valueType;
+		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE, oldValueType, valueType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueLiteral() {
-        return valueLiteral;
-    }
+		return valueLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueLiteral(String newValueLiteral) {
-        String oldValueLiteral = valueLiteral;
-        valueLiteral = newValueLiteral;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL, oldValueLiteral, valueLiteral));
-    }
+		String oldValueLiteral = valueLiteral;
+		valueLiteral = newValueLiteral;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL, oldValueLiteral, valueLiteral));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getValueExpression() {
-        return valueExpression;
-    }
+		return valueExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueExpression(NamespacedProperty newValueExpression, NotificationChain msgs) {
-        NamespacedProperty oldValueExpression = valueExpression;
-        valueExpression = newValueExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldValueExpression = valueExpression;
+		valueExpression = newValueExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueExpression(NamespacedProperty newValueExpression) {
-        if (newValueExpression != valueExpression) {
-            NotificationChain msgs = null;
-            if (valueExpression != null)
-                msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, null, msgs);
-            if (newValueExpression != null)
-                msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, null, msgs);
-            msgs = basicSetValueExpression(newValueExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, newValueExpression, newValueExpression));
-    }
+		if (newValueExpression != valueExpression) {
+			NotificationChain msgs = null;
+			if (valueExpression != null)
+				msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, null, msgs);
+			if (newValueExpression != null)
+				msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, null, msgs);
+			msgs = basicSetValueExpression(newValueExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION, newValueExpression, newValueExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueOM() {
-        return valueOM;
-    }
+		return valueOM;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueOM(String newValueOM) {
-        String oldValueOM = valueOM;
-        valueOM = newValueOM;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM, oldValueOM, valueOM));
-    }
+		String oldValueOM = valueOM;
+		valueOM = newValueOM;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM, oldValueOM, valueOM));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueStringPattern() {
-        return valueStringPattern;
-    }
+		return valueStringPattern;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueStringPattern(String newValueStringPattern) {
-        String oldValueStringPattern = valueStringPattern;
-        valueStringPattern = newValueStringPattern;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN, oldValueStringPattern, valueStringPattern));
-    }
+		String oldValueStringPattern = valueStringPattern;
+		valueStringPattern = newValueStringPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN, oldValueStringPattern, valueStringPattern));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValueStringCapturingGroup() {
-        return valueStringCapturingGroup;
-    }
+		return valueStringCapturingGroup;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueStringCapturingGroup(int newValueStringCapturingGroup) {
-        int oldValueStringCapturingGroup = valueStringCapturingGroup;
-        valueStringCapturingGroup = newValueStringCapturingGroup;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP, oldValueStringCapturingGroup, valueStringCapturingGroup));
-    }
+		int oldValueStringCapturingGroup = valueStringCapturingGroup;
+		valueStringCapturingGroup = newValueStringCapturingGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP, oldValueStringCapturingGroup, valueStringCapturingGroup));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyScope getPropertyScope() {
-        return propertyScope;
-    }
+		return propertyScope;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyScope(PropertyScope newPropertyScope) {
-        PropertyScope oldPropertyScope = propertyScope;
-        propertyScope = newPropertyScope == null ? PROPERTY_SCOPE_EDEFAULT : newPropertyScope;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE, oldPropertyScope, propertyScope));
-    }
+		PropertyScope oldPropertyScope = propertyScope;
+		propertyScope = newPropertyScope == null ? PROPERTY_SCOPE_EDEFAULT : newPropertyScope;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE, oldPropertyScope, propertyScope));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-                return basicSetValueExpression(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+				return basicSetValueExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
-                return getPropertyName();
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
-                return getPropertyDataType();
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
-                return getPropertyAction();
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
-                return getPropertyScope();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
-                return getValueType();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
-                return getValueLiteral();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-                return getValueExpression();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
-                return getValueOM();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
-                return getValueStringPattern();
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
-                return getValueStringCapturingGroup();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
+				return getPropertyName();
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
+				return getPropertyDataType();
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
+				return getPropertyAction();
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
+				return getPropertyScope();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
+				return getValueType();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
+				return getValueLiteral();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+				return getValueExpression();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
+				return getValueOM();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
+				return getValueStringPattern();
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
+				return getValueStringCapturingGroup();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
-                setPropertyName((String)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
-                setPropertyDataType((PropertyDataType)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
-                setPropertyAction((PropertyAction)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
-                setPropertyScope((PropertyScope)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
-                setValueType((PropertyValueType)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
-                setValueLiteral((String)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
-                setValueOM((String)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
-                setValueStringPattern((String)newValue);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
-                setValueStringCapturingGroup((Integer)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
+				setPropertyName((String)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
+				setPropertyDataType((PropertyDataType)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
+				setPropertyAction((PropertyAction)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
+				setPropertyScope((PropertyScope)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
+				setValueType((PropertyValueType)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
+				setValueLiteral((String)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
+				setValueOM((String)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
+				setValueStringPattern((String)newValue);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
+				setValueStringCapturingGroup((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
-                setPropertyName(PROPERTY_NAME_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
-                setPropertyDataType(PROPERTY_DATA_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
-                setPropertyAction(PROPERTY_ACTION_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
-                setPropertyScope(PROPERTY_SCOPE_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
-                setValueType(VALUE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
-                setValueLiteral(VALUE_LITERAL_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
-                setValueOM(VALUE_OM_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
-                setValueStringPattern(VALUE_STRING_PATTERN_EDEFAULT);
-                return;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
-                setValueStringCapturingGroup(VALUE_STRING_CAPTURING_GROUP_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
+				setPropertyName(PROPERTY_NAME_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
+				setPropertyDataType(PROPERTY_DATA_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
+				setPropertyAction(PROPERTY_ACTION_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
+				setPropertyScope(PROPERTY_SCOPE_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
+				setValueType(VALUE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
+				setValueLiteral(VALUE_LITERAL_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
+				setValueOM(VALUE_OM_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
+				setValueStringPattern(VALUE_STRING_PATTERN_EDEFAULT);
+				return;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
+				setValueStringCapturingGroup(VALUE_STRING_CAPTURING_GROUP_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
-                return propertyDataType != PROPERTY_DATA_TYPE_EDEFAULT;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
-                return propertyAction != PROPERTY_ACTION_EDEFAULT;
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
-                return propertyScope != PROPERTY_SCOPE_EDEFAULT;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
-                return valueType != VALUE_TYPE_EDEFAULT;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
-                return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-                return valueExpression != null;
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
-                return VALUE_OM_EDEFAULT == null ? valueOM != null : !VALUE_OM_EDEFAULT.equals(valueOM);
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
-                return VALUE_STRING_PATTERN_EDEFAULT == null ? valueStringPattern != null : !VALUE_STRING_PATTERN_EDEFAULT.equals(valueStringPattern);
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
-                return valueStringCapturingGroup != VALUE_STRING_CAPTURING_GROUP_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
+				return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
+				return propertyDataType != PROPERTY_DATA_TYPE_EDEFAULT;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
+				return propertyAction != PROPERTY_ACTION_EDEFAULT;
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
+				return propertyScope != PROPERTY_SCOPE_EDEFAULT;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
+				return valueType != VALUE_TYPE_EDEFAULT;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
+				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+				return valueExpression != null;
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
+				return VALUE_OM_EDEFAULT == null ? valueOM != null : !VALUE_OM_EDEFAULT.equals(valueOM);
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
+				return VALUE_STRING_PATTERN_EDEFAULT == null ? valueStringPattern != null : !VALUE_STRING_PATTERN_EDEFAULT.equals(valueStringPattern);
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
+				return valueStringCapturingGroup != VALUE_STRING_CAPTURING_GROUP_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (propertyName: ");
-        result.append(propertyName);
-        result.append(", propertyDataType: ");
-        result.append(propertyDataType);
-        result.append(", propertyAction: ");
-        result.append(propertyAction);
-        result.append(", propertyScope: ");
-        result.append(propertyScope);
-        result.append(", valueType: ");
-        result.append(valueType);
-        result.append(", valueLiteral: ");
-        result.append(valueLiteral);
-        result.append(", valueOM: ");
-        result.append(valueOM);
-        result.append(", valueStringPattern: ");
-        result.append(valueStringPattern);
-        result.append(", valueStringCapturingGroup: ");
-        result.append(valueStringCapturingGroup);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (propertyName: ");
+		result.append(propertyName);
+		result.append(", propertyDataType: ");
+		result.append(propertyDataType);
+		result.append(", propertyAction: ");
+		result.append(propertyAction);
+		result.append(", propertyScope: ");
+		result.append(propertyScope);
+		result.append(", valueType: ");
+		result.append(valueType);
+		result.append(", valueLiteral: ");
+		result.append(valueLiteral);
+		result.append(", valueOM: ");
+		result.append(valueOM);
+		result.append(", valueStringPattern: ");
+		result.append(valueStringPattern);
+		result.append(", valueStringCapturingGroup: ");
+		result.append(valueStringCapturingGroup);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

@@ -35,57 +35,57 @@ package org.wso2.developerstudio.eclipse.esb;
  */
 public interface AbstractNameValueProperty extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Property Name</b></em>' attribute.
-     * The default value is <code>"property_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Property Name</b></em>' attribute.
+	 * The default value is <code>"property_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Property Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Property Name</em>' attribute.
-     * @see #setPropertyName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractNameValueProperty_PropertyName()
-     * @model default="property_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Property Name</em>' attribute.
+	 * @see #setPropertyName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractNameValueProperty_PropertyName()
+	 * @model default="property_name"
+	 * @generated
+	 */
 	String getPropertyName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty#getPropertyName <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty#getPropertyName <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Property Name</em>' attribute.
-     * @see #getPropertyName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Property Name</em>' attribute.
+	 * @see #getPropertyName()
+	 * @generated
+	 */
 	void setPropertyName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Property Value</b></em>' attribute.
-     * The default value is <code>"property_value"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Property Value</b></em>' attribute.
+	 * The default value is <code>"property_value"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Property Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Property Value</em>' attribute.
-     * @see #setPropertyValue(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractNameValueProperty_PropertyValue()
-     * @model default="property_value"
-     * @generated
-     */
+	 * @return the value of the '<em>Property Value</em>' attribute.
+	 * @see #setPropertyValue(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getAbstractNameValueProperty_PropertyValue()
+	 * @model default="property_value"
+	 * @generated
+	 */
 	String getPropertyValue();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty#getPropertyValue <em>Property Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty#getPropertyValue <em>Property Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Property Value</em>' attribute.
-     * @see #getPropertyValue()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Property Value</em>' attribute.
+	 * @see #getPropertyValue()
+	 * @generated
+	 */
 	void setPropertyValue(String value);
 
 } // AbstractNameValueProperty

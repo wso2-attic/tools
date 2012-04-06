@@ -52,79 +52,79 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	/**
-     * The default value of the '{@link #getCloneID() <em>Clone ID</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getCloneID()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getCloneID() <em>Clone ID</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getCloneID()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String CLONE_ID_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getCloneID() <em>Clone ID</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getCloneID()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getCloneID() <em>Clone ID</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getCloneID()
+	 * @generated
+	 * @ordered
+	 */
 	protected String cloneID = CLONE_ID_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #isSequentialMediation() <em>Sequential Mediation</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isSequentialMediation() <em>Sequential Mediation</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isSequentialMediation()
-     * @generated
-     * @ordered
-     */
+	 * @see #isSequentialMediation()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean SEQUENTIAL_MEDIATION_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isSequentialMediation() <em>Sequential Mediation</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isSequentialMediation() <em>Sequential Mediation</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isSequentialMediation()
-     * @generated
-     * @ordered
-     */
+	 * @see #isSequentialMediation()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean sequentialMediation = SEQUENTIAL_MEDIATION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #isContinueParent() <em>Continue Parent</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isContinueParent() <em>Continue Parent</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isContinueParent()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueParent()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean CONTINUE_PARENT_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isContinueParent() <em>Continue Parent</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isContinueParent() <em>Continue Parent</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #isContinueParent()
-     * @generated
-     * @ordered
-     */
+	 * @see #isContinueParent()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean continueParent = CONTINUE_PARENT_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getTargets()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getTargets()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<CloneTarget> targets;
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected CloneMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -154,6 +154,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 						getTargets().add(object);
 					}
 				});
+		super.doLoad(self);
 	}
 
 	/**
@@ -170,6 +171,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			for (CloneTarget target : getTargets()) {
 				target.save(self);
 			}
+			if(description!=null)
+				description.save(self);
 			break;
 
 		case ESB400:
@@ -187,6 +190,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			if (getCloneID() != "") {
 				self.setAttribute("id", getCloneID());
 			}
+			if(description!=null)
+				description.save(self);
 			break;
 		}
 
@@ -194,200 +199,207 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CLONE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.CLONE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getCloneID() {
-        return cloneID;
-    }
+		return cloneID;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setCloneID(String newCloneID) {
-        String oldCloneID = cloneID;
-        cloneID = newCloneID;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__CLONE_ID, oldCloneID, cloneID));
-    }
+		String oldCloneID = cloneID;
+		cloneID = newCloneID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__CLONE_ID, oldCloneID, cloneID));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isSequentialMediation() {
-        return sequentialMediation;
-    }
+		return sequentialMediation;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setSequentialMediation(boolean newSequentialMediation) {
-        boolean oldSequentialMediation = sequentialMediation;
-        sequentialMediation = newSequentialMediation;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION, oldSequentialMediation, sequentialMediation));
-    }
+		boolean oldSequentialMediation = sequentialMediation;
+		sequentialMediation = newSequentialMediation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION, oldSequentialMediation, sequentialMediation));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isContinueParent() {
-        return continueParent;
-    }
+		return continueParent;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setContinueParent(boolean newContinueParent) {
-        boolean oldContinueParent = continueParent;
-        continueParent = newContinueParent;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT, oldContinueParent, continueParent));
-    }
+		boolean oldContinueParent = continueParent;
+		continueParent = newContinueParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT, oldContinueParent, continueParent));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CloneTarget> getTargets() {
-        if (targets == null) {
-            targets = new EObjectContainmentEList<CloneTarget>(CloneTarget.class, this, MediatorsPackage.CLONE_MEDIATOR__TARGETS);
-        }
-        return targets;
-    }
+		if (targets == null) {
+			targets = new EObjectContainmentEList<CloneTarget>(CloneTarget.class, this, MediatorsPackage.CLONE_MEDIATOR__TARGETS);
+		}
+		return targets;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
-                return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
+				return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
-                return getCloneID();
-            case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
-                return isSequentialMediation();
-            case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
-                return isContinueParent();
-            case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
-                return getTargets();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
+				return getCloneID();
+			case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
+				return isSequentialMediation();
+			case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
+				return isContinueParent();
+			case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
+				return getTargets();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
-                setCloneID((String)newValue);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
-                setSequentialMediation((Boolean)newValue);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
-                setContinueParent((Boolean)newValue);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
-                getTargets().clear();
-                getTargets().addAll((Collection<? extends CloneTarget>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
+				setCloneID((String)newValue);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
+				setSequentialMediation((Boolean)newValue);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
+				setContinueParent((Boolean)newValue);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
+				getTargets().clear();
+				getTargets().addAll((Collection<? extends CloneTarget>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
-                setCloneID(CLONE_ID_EDEFAULT);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
-                setSequentialMediation(SEQUENTIAL_MEDIATION_EDEFAULT);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
-                setContinueParent(CONTINUE_PARENT_EDEFAULT);
-                return;
-            case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
-                getTargets().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
+				setCloneID(CLONE_ID_EDEFAULT);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
+				setSequentialMediation(SEQUENTIAL_MEDIATION_EDEFAULT);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
+				setContinueParent(CONTINUE_PARENT_EDEFAULT);
+				return;
+			case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
+				getTargets().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
-                return CLONE_ID_EDEFAULT == null ? cloneID != null : !CLONE_ID_EDEFAULT.equals(cloneID);
-            case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
-                return sequentialMediation != SEQUENTIAL_MEDIATION_EDEFAULT;
-            case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
-                return continueParent != CONTINUE_PARENT_EDEFAULT;
-            case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
-                return targets != null && !targets.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CLONE_MEDIATOR__CLONE_ID:
+				return CLONE_ID_EDEFAULT == null ? cloneID != null : !CLONE_ID_EDEFAULT.equals(cloneID);
+			case MediatorsPackage.CLONE_MEDIATOR__SEQUENTIAL_MEDIATION:
+				return sequentialMediation != SEQUENTIAL_MEDIATION_EDEFAULT;
+			case MediatorsPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
+				return continueParent != CONTINUE_PARENT_EDEFAULT;
+			case MediatorsPackage.CLONE_MEDIATOR__TARGETS:
+				return targets != null && !targets.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (cloneID: ");
-        result.append(cloneID);
-        result.append(", sequentialMediation: ");
-        result.append(sequentialMediation);
-        result.append(", continueParent: ");
-        result.append(continueParent);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (cloneID: ");
+		result.append(cloneID);
+		result.append(", sequentialMediation: ");
+		result.append(sequentialMediation);
+		result.append(", continueParent: ");
+		result.append(continueParent);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

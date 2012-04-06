@@ -35,29 +35,29 @@ package org.wso2.developerstudio.eclipse.esb.mediators;
 public interface DBReportMediator extends AbstractSqlExecutorMediator {
 
 	/**
-     * Returns the value of the '<em><b>Connection Use Transaction</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Connection Use Transaction</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Connection Use Transaction</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Connection Use Transaction</em>' attribute.
-     * @see #setConnectionUseTransaction(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getDBReportMediator_ConnectionUseTransaction()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Connection Use Transaction</em>' attribute.
+	 * @see #setConnectionUseTransaction(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getDBReportMediator_ConnectionUseTransaction()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isConnectionUseTransaction();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator#isConnectionUseTransaction <em>Connection Use Transaction</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator#isConnectionUseTransaction <em>Connection Use Transaction</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Connection Use Transaction</em>' attribute.
-     * @see #isConnectionUseTransaction()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Connection Use Transaction</em>' attribute.
+	 * @see #isConnectionUseTransaction()
+	 * @generated
+	 */
 	void setConnectionUseTransaction(boolean value);
 } // DBReportMediator

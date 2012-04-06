@@ -49,63 +49,63 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMediator {
 	/**
-     * The default value of the '{@link #getRmSpecVersion() <em>Rm Spec Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRmSpecVersion() <em>Rm Spec Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRmSpecVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRmSpecVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final RMSpecVersion RM_SPEC_VERSION_EDEFAULT = RMSpecVersion.VERSION_10;
 
 	/**
-     * The cached value of the '{@link #getRmSpecVersion() <em>Rm Spec Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRmSpecVersion() <em>Rm Spec Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRmSpecVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRmSpecVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected RMSpecVersion rmSpecVersion = RM_SPEC_VERSION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final RMSequenceType SEQUENCE_TYPE_EDEFAULT = RMSequenceType.SINGLE_MESSAGE;
 
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected RMSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getCorrelationXpath() <em>Correlation Xpath</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCorrelationXpath() <em>Correlation Xpath</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCorrelationXpath()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCorrelationXpath()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty correlationXpath;
 
 	/**
-     * The cached value of the '{@link #getLastMessageXpath() <em>Last Message Xpath</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLastMessageXpath() <em>Last Message Xpath</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getLastMessageXpath()
-     * @generated
-     * @ordered
-     */
+	 * @see #getLastMessageXpath()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty lastMessageXpath;
 
 	/**
@@ -148,7 +148,8 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 			setSequenceType(RMSequenceType.CORRELATED_SEQUENCE);
 			getLastMessageXpath().load(self);
 			getCorrelationXpath().load(self);
-		}		
+		}
+		super.doLoad(self);
 	}
 	
 	/**
@@ -167,245 +168,252 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 			getLastMessageXpath().save(self);
 			getCorrelationXpath().save(self);
 		}
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RM_SEQUENCE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.RM_SEQUENCE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RMSpecVersion getRmSpecVersion() {
-        return rmSpecVersion;
-    }
+		return rmSpecVersion;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setRmSpecVersion(RMSpecVersion newRmSpecVersion) {
-        RMSpecVersion oldRmSpecVersion = rmSpecVersion;
-        rmSpecVersion = newRmSpecVersion == null ? RM_SPEC_VERSION_EDEFAULT : newRmSpecVersion;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION, oldRmSpecVersion, rmSpecVersion));
-    }
+		RMSpecVersion oldRmSpecVersion = rmSpecVersion;
+		rmSpecVersion = newRmSpecVersion == null ? RM_SPEC_VERSION_EDEFAULT : newRmSpecVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION, oldRmSpecVersion, rmSpecVersion));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RMSequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(RMSequenceType newSequenceType) {
-        RMSequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		RMSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getCorrelationXpath() {
-        if (correlationXpath != null && correlationXpath.eIsProxy()) {
-            InternalEObject oldCorrelationXpath = (InternalEObject)correlationXpath;
-            correlationXpath = (NamespacedProperty)eResolveProxy(oldCorrelationXpath);
-            if (correlationXpath != oldCorrelationXpath) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
-            }
-        }
-        return correlationXpath;
-    }
+		if (correlationXpath != null && correlationXpath.eIsProxy()) {
+			InternalEObject oldCorrelationXpath = (InternalEObject)correlationXpath;
+			correlationXpath = (NamespacedProperty)eResolveProxy(oldCorrelationXpath);
+			if (correlationXpath != oldCorrelationXpath) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
+			}
+		}
+		return correlationXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty basicGetCorrelationXpath() {
-        return correlationXpath;
-    }
+		return correlationXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setCorrelationXpath(NamespacedProperty newCorrelationXpath) {
-        NamespacedProperty oldCorrelationXpath = correlationXpath;
-        correlationXpath = newCorrelationXpath;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
-    }
+		NamespacedProperty oldCorrelationXpath = correlationXpath;
+		correlationXpath = newCorrelationXpath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getLastMessageXpath() {
-        if (lastMessageXpath != null && lastMessageXpath.eIsProxy()) {
-            InternalEObject oldLastMessageXpath = (InternalEObject)lastMessageXpath;
-            lastMessageXpath = (NamespacedProperty)eResolveProxy(oldLastMessageXpath);
-            if (lastMessageXpath != oldLastMessageXpath) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
-            }
-        }
-        return lastMessageXpath;
-    }
+		if (lastMessageXpath != null && lastMessageXpath.eIsProxy()) {
+			InternalEObject oldLastMessageXpath = (InternalEObject)lastMessageXpath;
+			lastMessageXpath = (NamespacedProperty)eResolveProxy(oldLastMessageXpath);
+			if (lastMessageXpath != oldLastMessageXpath) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
+			}
+		}
+		return lastMessageXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty basicGetLastMessageXpath() {
-        return lastMessageXpath;
-    }
+		return lastMessageXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setLastMessageXpath(NamespacedProperty newLastMessageXpath) {
-        NamespacedProperty oldLastMessageXpath = lastMessageXpath;
-        lastMessageXpath = newLastMessageXpath;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
-    }
+		NamespacedProperty oldLastMessageXpath = lastMessageXpath;
+		lastMessageXpath = newLastMessageXpath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
-                return getRmSpecVersion();
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
-                return getSequenceType();
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
-                if (resolve) return getCorrelationXpath();
-                return basicGetCorrelationXpath();
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
-                if (resolve) return getLastMessageXpath();
-                return basicGetLastMessageXpath();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
+				return getRmSpecVersion();
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
+				return getSequenceType();
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
+				if (resolve) return getCorrelationXpath();
+				return basicGetCorrelationXpath();
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
+				if (resolve) return getLastMessageXpath();
+				return basicGetLastMessageXpath();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
-                setRmSpecVersion((RMSpecVersion)newValue);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
-                setSequenceType((RMSequenceType)newValue);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
-                setCorrelationXpath((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
-                setLastMessageXpath((NamespacedProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
+				setRmSpecVersion((RMSpecVersion)newValue);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType((RMSequenceType)newValue);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
+				setCorrelationXpath((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
+				setLastMessageXpath((NamespacedProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
-                setRmSpecVersion(RM_SPEC_VERSION_EDEFAULT);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
-                setCorrelationXpath((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
-                setLastMessageXpath((NamespacedProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
+				setRmSpecVersion(RM_SPEC_VERSION_EDEFAULT);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
+				setCorrelationXpath((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
+				setLastMessageXpath((NamespacedProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
-                return rmSpecVersion != RM_SPEC_VERSION_EDEFAULT;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
-                return correlationXpath != null;
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
-                return lastMessageXpath != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION:
+				return rmSpecVersion != RM_SPEC_VERSION_EDEFAULT;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
+				return correlationXpath != null;
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
+				return lastMessageXpath != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (rmSpecVersion: ");
-        result.append(rmSpecVersion);
-        result.append(", sequenceType: ");
-        result.append(sequenceType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (rmSpecVersion: ");
+		result.append(rmSpecVersion);
+		result.append(", sequenceType: ");
+		result.append(sequenceType);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

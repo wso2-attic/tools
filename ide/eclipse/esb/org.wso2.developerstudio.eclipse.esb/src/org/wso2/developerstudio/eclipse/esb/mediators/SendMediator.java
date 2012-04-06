@@ -44,136 +44,136 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface SendMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Anonymous End Point</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Anonymous End Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Anonymous End Point</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Anonymous End Point</em>' containment reference.
-     * @see #setAnonymousEndPoint(EndPoint)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_AnonymousEndPoint()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Anonymous End Point</em>' containment reference.
+	 * @see #setAnonymousEndPoint(EndPoint)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_AnonymousEndPoint()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EndPoint getAnonymousEndPoint();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getAnonymousEndPoint <em>Anonymous End Point</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getAnonymousEndPoint <em>Anonymous End Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Anonymous End Point</em>' containment reference.
-     * @see #getAnonymousEndPoint()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Anonymous End Point</em>' containment reference.
+	 * @see #getAnonymousEndPoint()
+	 * @generated
+	 */
 	void setAnonymousEndPoint(EndPoint value);
 
 	/**
-     * Returns the value of the '<em><b>End Point Reference</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>End Point Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>End Point Reference</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>End Point Reference</em>' containment reference.
-     * @see #setEndPointReference(EndPointReference)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_EndPointReference()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>End Point Reference</em>' containment reference.
+	 * @see #setEndPointReference(EndPointReference)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_EndPointReference()
+	 * @model containment="true"
+	 * @generated
+	 */
     EndPointReference getEndPointReference();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getEndPointReference <em>End Point Reference</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getEndPointReference <em>End Point Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>End Point Reference</em>' containment reference.
-     * @see #getEndPointReference()
-     * @generated
-     */
+	 * @param value the new value of the '<em>End Point Reference</em>' containment reference.
+	 * @see #getEndPointReference()
+	 * @generated
+	 */
     void setEndPointReference(EndPointReference value);
 
 				/**
-     * Returns the value of the '<em><b>Receiving Sequence Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Receiving Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Receiving Sequence Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Receiving Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType
-     * @see #setReceivingSequenceType(ReceivingSequenceType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_ReceivingSequenceType()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Receiving Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType
+	 * @see #setReceivingSequenceType(ReceivingSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_ReceivingSequenceType()
+	 * @model
+	 * @generated
+	 */
 	ReceivingSequenceType getReceivingSequenceType();
 
 				/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getReceivingSequenceType <em>Receiving Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getReceivingSequenceType <em>Receiving Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Receiving Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType
-     * @see #getReceivingSequenceType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Receiving Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType
+	 * @see #getReceivingSequenceType()
+	 * @generated
+	 */
 	void setReceivingSequenceType(ReceivingSequenceType value);
 
 				/**
-     * Returns the value of the '<em><b>Static Receiving Sequence</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Static Receiving Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Static Receiving Sequence</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Static Receiving Sequence</em>' containment reference.
-     * @see #setStaticReceivingSequence(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_StaticReceivingSequence()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Static Receiving Sequence</em>' containment reference.
+	 * @see #setStaticReceivingSequence(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_StaticReceivingSequence()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getStaticReceivingSequence();
 
 				/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getStaticReceivingSequence <em>Static Receiving Sequence</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getStaticReceivingSequence <em>Static Receiving Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Static Receiving Sequence</em>' containment reference.
-     * @see #getStaticReceivingSequence()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Static Receiving Sequence</em>' containment reference.
+	 * @see #getStaticReceivingSequence()
+	 * @generated
+	 */
 	void setStaticReceivingSequence(RegistryKeyProperty value);
 
 				/**
-     * Returns the value of the '<em><b>Dynamic Receiving Sequence</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Dynamic Receiving Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dynamic Receiving Sequence</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Dynamic Receiving Sequence</em>' containment reference.
-     * @see #setDynamicReceivingSequence(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_DynamicReceivingSequence()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Dynamic Receiving Sequence</em>' containment reference.
+	 * @see #setDynamicReceivingSequence(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSendMediator_DynamicReceivingSequence()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getDynamicReceivingSequence();
 
 				/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Dynamic Receiving Sequence</em>' containment reference.
-     * @see #getDynamicReceivingSequence()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Dynamic Receiving Sequence</em>' containment reference.
+	 * @see #getDynamicReceivingSequence()
+	 * @generated
+	 */
 	void setDynamicReceivingSequence(NamespacedProperty value);
 
 } // SendMediator

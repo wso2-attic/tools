@@ -53,23 +53,23 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements PayloadFactoryArgument {
     /**
-     * The default value of the '{@link #getArgumentType() <em>Argument Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getArgumentType() <em>Argument Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArgumentType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getArgumentType()
+	 * @generated
+	 * @ordered
+	 */
     protected static final PayloadFactoryArgumentType ARGUMENT_TYPE_EDEFAULT = PayloadFactoryArgumentType.VALUE;
 
     /**
-     * The cached value of the '{@link #getArgumentType() <em>Argument Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArgumentType() <em>Argument Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArgumentType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getArgumentType()
+	 * @generated
+	 * @ordered
+	 */
     protected PayloadFactoryArgumentType argumentType = ARGUMENT_TYPE_EDEFAULT;
 
     /**
@@ -83,23 +83,23 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
     protected static final String ARGUMENT_VALUE_EDEFAULT  = "Value";
 
     /**
-     * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArgumentValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getArgumentValue()
+	 * @generated
+	 * @ordered
+	 */
     protected String argumentValue = ARGUMENT_VALUE_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getArgumentExpression() <em>Argument Expression</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArgumentExpression() <em>Argument Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getArgumentExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getArgumentExpression()
+	 * @generated
+	 * @ordered
+	 */
     protected NamespacedProperty argumentExpression;
 
     /**
@@ -119,191 +119,197 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
     }
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public PayloadFactoryArgumentType getArgumentType() {
-        return argumentType;
-    }
+		return argumentType;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setArgumentType(PayloadFactoryArgumentType newArgumentType) {
-        PayloadFactoryArgumentType oldArgumentType = argumentType;
-        argumentType = newArgumentType == null ? ARGUMENT_TYPE_EDEFAULT : newArgumentType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE, oldArgumentType, argumentType));
-    }
+		PayloadFactoryArgumentType oldArgumentType = argumentType;
+		argumentType = newArgumentType == null ? ARGUMENT_TYPE_EDEFAULT : newArgumentType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE, oldArgumentType, argumentType));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getArgumentValue() {
-        return argumentValue;
-    }
+		return argumentValue;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setArgumentValue(String newArgumentValue) {
-        String oldArgumentValue = argumentValue;
-        argumentValue = newArgumentValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE, oldArgumentValue, argumentValue));
-    }
+		String oldArgumentValue = argumentValue;
+		argumentValue = newArgumentValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE, oldArgumentValue, argumentValue));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public NamespacedProperty getArgumentExpression() {
-        if (argumentExpression != null && argumentExpression.eIsProxy()) {
-            InternalEObject oldArgumentExpression = (InternalEObject)argumentExpression;
-            argumentExpression = (NamespacedProperty)eResolveProxy(oldArgumentExpression);
-            if (argumentExpression != oldArgumentExpression) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, oldArgumentExpression, argumentExpression));
-            }
-        }
-        return argumentExpression;
-    }
+		if (argumentExpression != null && argumentExpression.eIsProxy()) {
+			InternalEObject oldArgumentExpression = (InternalEObject)argumentExpression;
+			argumentExpression = (NamespacedProperty)eResolveProxy(oldArgumentExpression);
+			if (argumentExpression != oldArgumentExpression) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, oldArgumentExpression, argumentExpression));
+			}
+		}
+		return argumentExpression;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public NamespacedProperty basicGetArgumentExpression() {
-        return argumentExpression;
-    }
+		return argumentExpression;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setArgumentExpression(NamespacedProperty newArgumentExpression) {
-        NamespacedProperty oldArgumentExpression = argumentExpression;
-        argumentExpression = newArgumentExpression;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, oldArgumentExpression, argumentExpression));
-    }
+		NamespacedProperty oldArgumentExpression = argumentExpression;
+		argumentExpression = newArgumentExpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, oldArgumentExpression, argumentExpression));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
-                return getArgumentType();
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
-                return getArgumentValue();
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
-                if (resolve) return getArgumentExpression();
-                return basicGetArgumentExpression();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
+				return getArgumentType();
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+				return getArgumentValue();
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
+				if (resolve) return getArgumentExpression();
+				return basicGetArgumentExpression();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
-                setArgumentType((PayloadFactoryArgumentType)newValue);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
-                setArgumentValue((String)newValue);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
-                setArgumentExpression((NamespacedProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
+				setArgumentType((PayloadFactoryArgumentType)newValue);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+				setArgumentValue((String)newValue);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
+				setArgumentExpression((NamespacedProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
-                setArgumentType(ARGUMENT_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
-                setArgumentValue(ARGUMENT_VALUE_EDEFAULT);
-                return;
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
-                setArgumentExpression((NamespacedProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
+				setArgumentType(ARGUMENT_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+				setArgumentValue(ARGUMENT_VALUE_EDEFAULT);
+				return;
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
+				setArgumentExpression((NamespacedProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
-                return argumentType != ARGUMENT_TYPE_EDEFAULT;
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
-                return ARGUMENT_VALUE_EDEFAULT == null ? argumentValue != null : !ARGUMENT_VALUE_EDEFAULT.equals(argumentValue);
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
-                return argumentExpression != null;
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
+				return argumentType != ARGUMENT_TYPE_EDEFAULT;
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+				return ARGUMENT_VALUE_EDEFAULT == null ? argumentValue != null : !ARGUMENT_VALUE_EDEFAULT.equals(argumentValue);
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
+				return argumentExpression != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (argumentType: ");
-        result.append(argumentType);
-        result.append(", argumentValue: ");
-        result.append(argumentValue);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (argumentType: ");
+		result.append(argumentType);
+		result.append(", argumentValue: ");
+		result.append(argumentValue);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     protected void doLoad(Element self) throws Exception {

@@ -43,23 +43,23 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCaseBranch {
 	/**
-     * The default value of the '{@link #getCaseRegex() <em>Case Regex</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCaseRegex() <em>Case Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCaseRegex()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCaseRegex()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String CASE_REGEX_EDEFAULT = ".*+";
 
 	/**
-     * The cached value of the '{@link #getCaseRegex() <em>Case Regex</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCaseRegex() <em>Case Regex</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getCaseRegex()
-     * @generated
-     * @ordered
-     */
+	 * @see #getCaseRegex()
+	 * @generated
+	 * @ordered
+	 */
 	protected String caseRegex = CASE_REGEX_EDEFAULT;
 
 	/**
@@ -72,13 +72,13 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	protected static final String CASE_VALUE_REGULAR_EXPRESSION_EDEFAULT = "";
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SwitchCaseBranchImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -101,109 +101,115 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.SWITCH_CASE_BRANCH;
-    }
+		return MediatorsPackage.Literals.SWITCH_CASE_BRANCH;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getCaseRegex() {
-        return caseRegex;
-    }
+		return caseRegex;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setCaseRegex(String newCaseRegex) {
-        String oldCaseRegex = caseRegex;
-        caseRegex = newCaseRegex;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX, oldCaseRegex, caseRegex));
-    }
+		String oldCaseRegex = caseRegex;
+		caseRegex = newCaseRegex;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX, oldCaseRegex, caseRegex));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
-                return getCaseRegex();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
+				return getCaseRegex();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
-                setCaseRegex((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
+				setCaseRegex((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
-                setCaseRegex(CASE_REGEX_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
+				setCaseRegex(CASE_REGEX_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
-                return CASE_REGEX_EDEFAULT == null ? caseRegex != null : !CASE_REGEX_EDEFAULT.equals(caseRegex);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.SWITCH_CASE_BRANCH__CASE_REGEX:
+				return CASE_REGEX_EDEFAULT == null ? caseRegex != null : !CASE_REGEX_EDEFAULT.equals(caseRegex);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (caseRegex: ");
-        result.append(caseRegex);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (caseRegex: ");
+		result.append(caseRegex);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

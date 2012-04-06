@@ -32,217 +32,218 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum LocalEntryValueType implements Enumerator {
 	/**
-     * The '<em><b>LITERAL</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>LITERAL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #LITERAL_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #LITERAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	LITERAL(0, "LITERAL", "LITERAL"),
 
 	/**
-     * The '<em><b>XML</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>XML</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #XML_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #XML_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	XML(1, "XML", "XML"),
 
 	/**
-     * The '<em><b>URL</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>URL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #URL_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #URL_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	URL(2, "URL", "URL");
 
 	/**
-     * The '<em><b>LITERAL</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>LITERAL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>LITERAL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #LITERAL
-     * @model
-     * @generated
-     * @ordered
-     */
+	 * @see #LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int LITERAL_VALUE = 0;
 
 	/**
-     * The '<em><b>XML</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>XML</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>XML</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #XML
-     * @model
-     * @generated
-     * @ordered
-     */
+	 * @see #XML
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int XML_VALUE = 1;
 
 	/**
-     * The '<em><b>URL</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>URL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>URL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #URL
-     * @model
-     * @generated
-     * @ordered
-     */
+	 * @see #URL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int URL_VALUE = 2;
 
 	/**
-     * An array of all the '<em><b>Local Entry Value Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Local Entry Value Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private static final LocalEntryValueType[] VALUES_ARRAY =
 		new LocalEntryValueType[] {
-            LITERAL,
-            XML,
-            URL,
-        };
+			LITERAL,
+			XML,
+			URL,
+		};
 
 	/**
-     * A public read-only list of all the '<em><b>Local Entry Value Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Local Entry Value Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<LocalEntryValueType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-     * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LocalEntryValueType get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            LocalEntryValueType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			LocalEntryValueType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LocalEntryValueType getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            LocalEntryValueType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			LocalEntryValueType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Local Entry Value Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static LocalEntryValueType get(int value) {
-        switch (value) {
-            case LITERAL_VALUE: return LITERAL;
-            case XML_VALUE: return XML;
-            case URL_VALUE: return URL;
-        }
-        return null;
-    }
+		switch (value) {
+			case LITERAL_VALUE: return LITERAL;
+			case XML_VALUE: return XML;
+			case URL_VALUE: return URL;
+		}
+		return null;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private LocalEntryValueType(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
 	/**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        return literal;
-    }
+		return literal;
+	}
 	
 } //LocalEntryValueType

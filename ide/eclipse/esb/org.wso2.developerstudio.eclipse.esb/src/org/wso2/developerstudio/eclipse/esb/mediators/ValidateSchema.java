@@ -40,110 +40,110 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface ValidateSchema extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Validate Static Schema Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validate Static Schema Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validate Static Schema Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Validate Static Schema Key</em>' reference.
-     * @see #setValidateStaticSchemaKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateStaticSchemaKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Validate Static Schema Key</em>' reference.
+	 * @see #setValidateStaticSchemaKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateStaticSchemaKey()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getValidateStaticSchemaKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Validate Static Schema Key</em>' reference.
-     * @see #getValidateStaticSchemaKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Validate Static Schema Key</em>' reference.
+	 * @see #getValidateStaticSchemaKey()
+	 * @generated
+	 */
 	void setValidateStaticSchemaKey(RegistryKeyProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Validate Dynamic Schema Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validate Dynamic Schema Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validate Dynamic Schema Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Validate Dynamic Schema Key</em>' reference.
-     * @see #setValidateDynamicSchemaKey(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateDynamicSchemaKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Validate Dynamic Schema Key</em>' reference.
+	 * @see #setValidateDynamicSchemaKey(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateDynamicSchemaKey()
+	 * @model
+	 * @generated
+	 */
 	NamespacedProperty getValidateDynamicSchemaKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Validate Dynamic Schema Key</em>' reference.
-     * @see #getValidateDynamicSchemaKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Validate Dynamic Schema Key</em>' reference.
+	 * @see #getValidateDynamicSchemaKey()
+	 * @generated
+	 */
 	void setValidateDynamicSchemaKey(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Validate Schema Key Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.KeyType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validate Schema Key Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.KeyType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validate Schema Key Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Validate Schema Key Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
-     * @see #setValidateSchemaKeyType(KeyType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateSchemaKeyType()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Validate Schema Key Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
+	 * @see #setValidateSchemaKeyType(KeyType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_ValidateSchemaKeyType()
+	 * @model
+	 * @generated
+	 */
 	KeyType getValidateSchemaKeyType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateSchemaKeyType <em>Validate Schema Key Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getValidateSchemaKeyType <em>Validate Schema Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Validate Schema Key Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
-     * @see #getValidateSchemaKeyType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Validate Schema Key Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.KeyType
+	 * @see #getValidateSchemaKeyType()
+	 * @generated
+	 */
 	void setValidateSchemaKeyType(KeyType value);
 
 	/**
-     * Returns the value of the '<em><b>Schema Key</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Schema Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schema Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Schema Key</em>' reference.
-     * @see #setSchemaKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_SchemaKey()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Schema Key</em>' reference.
+	 * @see #setSchemaKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateSchema_SchemaKey()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getSchemaKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getSchemaKey <em>Schema Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema#getSchemaKey <em>Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Schema Key</em>' reference.
-     * @see #getSchemaKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Schema Key</em>' reference.
+	 * @see #getSchemaKey()
+	 * @generated
+	 */
 	void setSchemaKey(RegistryKeyProperty value);
 
 } // ValidateSchema

@@ -59,97 +59,97 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 public class CalloutMediatorImpl extends MediatorImpl implements
 		CalloutMediator {
 	/**
-     * The default value of the '{@link #getServiceURL() <em>Service URL</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getServiceURL()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getServiceURL() <em>Service URL</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getServiceURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SERVICE_URL_EDEFAULT = "service_url";
 
 	/**
-     * The cached value of the '{@link #getServiceURL() <em>Service URL</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getServiceURL()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getServiceURL() <em>Service URL</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getServiceURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected String serviceURL = SERVICE_URL_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getSoapAction()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getSoapAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SOAP_ACTION_EDEFAULT = "soap_action";
 
 	/**
-     * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getSoapAction()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getSoapAction()
+	 * @generated
+	 * @ordered
+	 */
 	protected String soapAction = SOAP_ACTION_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPathToAxis2xml() <em>Path To Axis2xml</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getPathToAxis2xml() <em>Path To Axis2xml</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getPathToAxis2xml()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPathToAxis2xml()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PATH_TO_AXIS2XML_EDEFAULT = "";
 
 	/**
-     * The cached value of the '{@link #getPathToAxis2xml() <em>Path To Axis2xml</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getPathToAxis2xml() <em>Path To Axis2xml</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getPathToAxis2xml()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPathToAxis2xml()
+	 * @generated
+	 * @ordered
+	 */
 	protected String pathToAxis2xml = PATH_TO_AXIS2XML_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPathToAxis2Repository() <em>Path To Axis2 Repository</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPathToAxis2Repository() <em>Path To Axis2 Repository</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPathToAxis2Repository()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPathToAxis2Repository()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PATH_TO_AXIS2_REPOSITORY_EDEFAULT = "";
 
 	/**
-     * The cached value of the '{@link #getPathToAxis2Repository() <em>Path To Axis2 Repository</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPathToAxis2Repository() <em>Path To Axis2 Repository</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPathToAxis2Repository()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPathToAxis2Repository()
+	 * @generated
+	 * @ordered
+	 */
 	protected String pathToAxis2Repository = PATH_TO_AXIS2_REPOSITORY_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPayloadType() <em>Payload Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getPayloadType()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getPayloadType() <em>Payload Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getPayloadType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final CalloutPayloadType PAYLOAD_TYPE_EDEFAULT = CalloutPayloadType.MESSAGE_ELEMENT;
 
 	/**
-     * The cached value of the '{@link #getPayloadType() <em>Payload Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getPayloadType()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getPayloadType() <em>Payload Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getPayloadType()
+	 * @generated
+	 * @ordered
+	 */
 	protected CalloutPayloadType payloadType = PAYLOAD_TYPE_EDEFAULT;
 
 	/**
@@ -175,21 +175,21 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	protected RegistryKeyProperty payloadRegistryKey;
 
 	/**
-     * The default value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getResultType()
-     * @generated
-     * @ordered
-     */
+	 * The default value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getResultType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final CalloutResultType RESULT_TYPE_EDEFAULT = CalloutResultType.MESSAGE_ELEMENT;
 
 	/**
-     * The cached value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getResultType()
-     * @generated
-     * @ordered
-     */
+	 * The cached value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getResultType()
+	 * @generated
+	 * @ordered
+	 */
 	protected CalloutResultType resultType = RESULT_TYPE_EDEFAULT;
 
 	/**
@@ -204,43 +204,43 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	protected NamespacedProperty resultMessageXpath;
 
 	/**
-     * The default value of the '{@link #getResultContextProperty() <em>Result Context Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getResultContextProperty() <em>Result Context Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getResultContextProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResultContextProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String RESULT_CONTEXT_PROPERTY_EDEFAULT = "context_property_name";
 
 	/**
-     * The cached value of the '{@link #getResultContextProperty() <em>Result Context Property</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getResultContextProperty() <em>Result Context Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getResultContextProperty()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResultContextProperty()
+	 * @generated
+	 * @ordered
+	 */
 	protected String resultContextProperty = RESULT_CONTEXT_PROPERTY_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isPassHeaders()
-     * @generated
-     * @ordered
-     */
+	 * @see #isPassHeaders()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean PASS_HEADERS_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isPassHeaders() <em>Pass Headers</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isPassHeaders()
-     * @generated
-     * @ordered
-     */
+	 * @see #isPassHeaders()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean passHeaders = PASS_HEADERS_EDEFAULT;
 
 	/**
@@ -336,6 +336,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		} else {
 			throw new Exception("Expected result configuration.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -386,496 +387,504 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		} else {
 			targetElem.setAttribute("key", getResultContextProperty());
 		}
-
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CALLOUT_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.CALLOUT_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getServiceURL() {
-        return serviceURL;
-    }
+		return serviceURL;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setServiceURL(String newServiceURL) {
-        String oldServiceURL = serviceURL;
-        serviceURL = newServiceURL;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL, oldServiceURL, serviceURL));
-    }
+		String oldServiceURL = serviceURL;
+		serviceURL = newServiceURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL, oldServiceURL, serviceURL));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getSoapAction() {
-        return soapAction;
-    }
+		return soapAction;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setSoapAction(String newSoapAction) {
-        String oldSoapAction = soapAction;
-        soapAction = newSoapAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION, oldSoapAction, soapAction));
-    }
+		String oldSoapAction = soapAction;
+		soapAction = newSoapAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION, oldSoapAction, soapAction));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getPathToAxis2xml() {
-        return pathToAxis2xml;
-    }
+		return pathToAxis2xml;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setPathToAxis2xml(String newPathToAxis2xml) {
-        String oldPathToAxis2xml = pathToAxis2xml;
-        pathToAxis2xml = newPathToAxis2xml;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML, oldPathToAxis2xml, pathToAxis2xml));
-    }
+		String oldPathToAxis2xml = pathToAxis2xml;
+		pathToAxis2xml = newPathToAxis2xml;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML, oldPathToAxis2xml, pathToAxis2xml));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getPathToAxis2Repository() {
-        return pathToAxis2Repository;
-    }
+		return pathToAxis2Repository;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setPathToAxis2Repository(String newPathToAxis2Repository) {
-        String oldPathToAxis2Repository = pathToAxis2Repository;
-        pathToAxis2Repository = newPathToAxis2Repository;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY, oldPathToAxis2Repository, pathToAxis2Repository));
-    }
+		String oldPathToAxis2Repository = pathToAxis2Repository;
+		pathToAxis2Repository = newPathToAxis2Repository;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY, oldPathToAxis2Repository, pathToAxis2Repository));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CalloutPayloadType getPayloadType() {
-        return payloadType;
-    }
+		return payloadType;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setPayloadType(CalloutPayloadType newPayloadType) {
-        CalloutPayloadType oldPayloadType = payloadType;
-        payloadType = newPayloadType == null ? PAYLOAD_TYPE_EDEFAULT : newPayloadType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE, oldPayloadType, payloadType));
-    }
+		CalloutPayloadType oldPayloadType = payloadType;
+		payloadType = newPayloadType == null ? PAYLOAD_TYPE_EDEFAULT : newPayloadType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE, oldPayloadType, payloadType));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty getPayloadMessageXpath() {
-        return payloadMessageXpath;
-    }
+		return payloadMessageXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain basicSetPayloadMessageXpath(
 			NamespacedProperty newPayloadMessageXpath, NotificationChain msgs) {
-        NamespacedProperty oldPayloadMessageXpath = payloadMessageXpath;
-        payloadMessageXpath = newPayloadMessageXpath;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, oldPayloadMessageXpath, newPayloadMessageXpath);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldPayloadMessageXpath = payloadMessageXpath;
+		payloadMessageXpath = newPayloadMessageXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, oldPayloadMessageXpath, newPayloadMessageXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setPayloadMessageXpath(NamespacedProperty newPayloadMessageXpath) {
-        if (newPayloadMessageXpath != payloadMessageXpath) {
-            NotificationChain msgs = null;
-            if (payloadMessageXpath != null)
-                msgs = ((InternalEObject)payloadMessageXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, null, msgs);
-            if (newPayloadMessageXpath != null)
-                msgs = ((InternalEObject)newPayloadMessageXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, null, msgs);
-            msgs = basicSetPayloadMessageXpath(newPayloadMessageXpath, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, newPayloadMessageXpath, newPayloadMessageXpath));
-    }
+		if (newPayloadMessageXpath != payloadMessageXpath) {
+			NotificationChain msgs = null;
+			if (payloadMessageXpath != null)
+				msgs = ((InternalEObject)payloadMessageXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, null, msgs);
+			if (newPayloadMessageXpath != null)
+				msgs = ((InternalEObject)newPayloadMessageXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, null, msgs);
+			msgs = basicSetPayloadMessageXpath(newPayloadMessageXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, newPayloadMessageXpath, newPayloadMessageXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyProperty getPayloadRegistryKey() {
-        return payloadRegistryKey;
-    }
+		return payloadRegistryKey;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain basicSetPayloadRegistryKey(
 			RegistryKeyProperty newPayloadRegistryKey, NotificationChain msgs) {
-        RegistryKeyProperty oldPayloadRegistryKey = payloadRegistryKey;
-        payloadRegistryKey = newPayloadRegistryKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, oldPayloadRegistryKey, newPayloadRegistryKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldPayloadRegistryKey = payloadRegistryKey;
+		payloadRegistryKey = newPayloadRegistryKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, oldPayloadRegistryKey, newPayloadRegistryKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setPayloadRegistryKey(RegistryKeyProperty newPayloadRegistryKey) {
-        if (newPayloadRegistryKey != payloadRegistryKey) {
-            NotificationChain msgs = null;
-            if (payloadRegistryKey != null)
-                msgs = ((InternalEObject)payloadRegistryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
-            if (newPayloadRegistryKey != null)
-                msgs = ((InternalEObject)newPayloadRegistryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
-            msgs = basicSetPayloadRegistryKey(newPayloadRegistryKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, newPayloadRegistryKey, newPayloadRegistryKey));
-    }
+		if (newPayloadRegistryKey != payloadRegistryKey) {
+			NotificationChain msgs = null;
+			if (payloadRegistryKey != null)
+				msgs = ((InternalEObject)payloadRegistryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
+			if (newPayloadRegistryKey != null)
+				msgs = ((InternalEObject)newPayloadRegistryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
+			msgs = basicSetPayloadRegistryKey(newPayloadRegistryKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, newPayloadRegistryKey, newPayloadRegistryKey));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CalloutResultType getResultType() {
-        return resultType;
-    }
+		return resultType;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setResultType(CalloutResultType newResultType) {
-        CalloutResultType oldResultType = resultType;
-        resultType = newResultType == null ? RESULT_TYPE_EDEFAULT : newResultType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE, oldResultType, resultType));
-    }
+		CalloutResultType oldResultType = resultType;
+		resultType = newResultType == null ? RESULT_TYPE_EDEFAULT : newResultType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE, oldResultType, resultType));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NamespacedProperty getResultMessageXpath() {
-        return resultMessageXpath;
-    }
+		return resultMessageXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain basicSetResultMessageXpath(
 			NamespacedProperty newResultMessageXpath, NotificationChain msgs) {
-        NamespacedProperty oldResultMessageXpath = resultMessageXpath;
-        resultMessageXpath = newResultMessageXpath;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, oldResultMessageXpath, newResultMessageXpath);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldResultMessageXpath = resultMessageXpath;
+		resultMessageXpath = newResultMessageXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, oldResultMessageXpath, newResultMessageXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setResultMessageXpath(NamespacedProperty newResultMessageXpath) {
-        if (newResultMessageXpath != resultMessageXpath) {
-            NotificationChain msgs = null;
-            if (resultMessageXpath != null)
-                msgs = ((InternalEObject)resultMessageXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, null, msgs);
-            if (newResultMessageXpath != null)
-                msgs = ((InternalEObject)newResultMessageXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, null, msgs);
-            msgs = basicSetResultMessageXpath(newResultMessageXpath, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, newResultMessageXpath, newResultMessageXpath));
-    }
+		if (newResultMessageXpath != resultMessageXpath) {
+			NotificationChain msgs = null;
+			if (resultMessageXpath != null)
+				msgs = ((InternalEObject)resultMessageXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, null, msgs);
+			if (newResultMessageXpath != null)
+				msgs = ((InternalEObject)newResultMessageXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, null, msgs);
+			msgs = basicSetResultMessageXpath(newResultMessageXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, newResultMessageXpath, newResultMessageXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getResultContextProperty() {
-        return resultContextProperty;
-    }
+		return resultContextProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setResultContextProperty(String newResultContextProperty) {
-        String oldResultContextProperty = resultContextProperty;
-        resultContextProperty = newResultContextProperty;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY, oldResultContextProperty, resultContextProperty));
-    }
+		String oldResultContextProperty = resultContextProperty;
+		resultContextProperty = newResultContextProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY, oldResultContextProperty, resultContextProperty));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isPassHeaders() {
-        return passHeaders;
-    }
+		return passHeaders;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPassHeaders(boolean newPassHeaders) {
-        boolean oldPassHeaders = passHeaders;
-        passHeaders = newPassHeaders;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS, oldPassHeaders, passHeaders));
-    }
+		boolean oldPassHeaders = passHeaders;
+		passHeaders = newPassHeaders;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS, oldPassHeaders, passHeaders));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-                return basicSetPayloadMessageXpath(null, msgs);
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-                return basicSetPayloadRegistryKey(null, msgs);
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-                return basicSetResultMessageXpath(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+				return basicSetPayloadMessageXpath(null, msgs);
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+				return basicSetPayloadRegistryKey(null, msgs);
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+				return basicSetResultMessageXpath(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
-                return getServiceURL();
-            case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
-                return getSoapAction();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
-                return getPathToAxis2xml();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
-                return getPathToAxis2Repository();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
-                return getPayloadType();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-                return getPayloadMessageXpath();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-                return getPayloadRegistryKey();
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
-                return getResultType();
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-                return getResultMessageXpath();
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
-                return getResultContextProperty();
-            case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
-                return isPassHeaders();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
+				return getServiceURL();
+			case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
+				return getSoapAction();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
+				return getPathToAxis2xml();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
+				return getPathToAxis2Repository();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
+				return getPayloadType();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+				return getPayloadMessageXpath();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+				return getPayloadRegistryKey();
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
+				return getResultType();
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+				return getResultMessageXpath();
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+				return getResultContextProperty();
+			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				return isPassHeaders();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
-                setServiceURL((String)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
-                setSoapAction((String)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
-                setPathToAxis2xml((String)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
-                setPathToAxis2Repository((String)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
-                setPayloadType((CalloutPayloadType)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-                setPayloadMessageXpath((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-                setPayloadRegistryKey((RegistryKeyProperty)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
-                setResultType((CalloutResultType)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-                setResultMessageXpath((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
-                setResultContextProperty((String)newValue);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
-                setPassHeaders((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
+				setServiceURL((String)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
+				setSoapAction((String)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
+				setPathToAxis2xml((String)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
+				setPathToAxis2Repository((String)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
+				setPayloadType((CalloutPayloadType)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+				setPayloadMessageXpath((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+				setPayloadRegistryKey((RegistryKeyProperty)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
+				setResultType((CalloutResultType)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+				setResultMessageXpath((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+				setResultContextProperty((String)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				setPassHeaders((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
-                setServiceURL(SERVICE_URL_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
-                setSoapAction(SOAP_ACTION_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
-                setPathToAxis2xml(PATH_TO_AXIS2XML_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
-                setPathToAxis2Repository(PATH_TO_AXIS2_REPOSITORY_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
-                setPayloadType(PAYLOAD_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-                setPayloadMessageXpath((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-                setPayloadRegistryKey((RegistryKeyProperty)null);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
-                setResultType(RESULT_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-                setResultMessageXpath((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
-                setResultContextProperty(RESULT_CONTEXT_PROPERTY_EDEFAULT);
-                return;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
-                setPassHeaders(PASS_HEADERS_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
+				setServiceURL(SERVICE_URL_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
+				setSoapAction(SOAP_ACTION_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
+				setPathToAxis2xml(PATH_TO_AXIS2XML_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
+				setPathToAxis2Repository(PATH_TO_AXIS2_REPOSITORY_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
+				setPayloadType(PAYLOAD_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+				setPayloadMessageXpath((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+				setPayloadRegistryKey((RegistryKeyProperty)null);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
+				setResultType(RESULT_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+				setResultMessageXpath((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+				setResultContextProperty(RESULT_CONTEXT_PROPERTY_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				setPassHeaders(PASS_HEADERS_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
-                return SERVICE_URL_EDEFAULT == null ? serviceURL != null : !SERVICE_URL_EDEFAULT.equals(serviceURL);
-            case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
-                return SOAP_ACTION_EDEFAULT == null ? soapAction != null : !SOAP_ACTION_EDEFAULT.equals(soapAction);
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
-                return PATH_TO_AXIS2XML_EDEFAULT == null ? pathToAxis2xml != null : !PATH_TO_AXIS2XML_EDEFAULT.equals(pathToAxis2xml);
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
-                return PATH_TO_AXIS2_REPOSITORY_EDEFAULT == null ? pathToAxis2Repository != null : !PATH_TO_AXIS2_REPOSITORY_EDEFAULT.equals(pathToAxis2Repository);
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
-                return payloadType != PAYLOAD_TYPE_EDEFAULT;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-                return payloadMessageXpath != null;
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-                return payloadRegistryKey != null;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
-                return resultType != RESULT_TYPE_EDEFAULT;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-                return resultMessageXpath != null;
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
-                return RESULT_CONTEXT_PROPERTY_EDEFAULT == null ? resultContextProperty != null : !RESULT_CONTEXT_PROPERTY_EDEFAULT.equals(resultContextProperty);
-            case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
-                return passHeaders != PASS_HEADERS_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
+				return SERVICE_URL_EDEFAULT == null ? serviceURL != null : !SERVICE_URL_EDEFAULT.equals(serviceURL);
+			case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
+				return SOAP_ACTION_EDEFAULT == null ? soapAction != null : !SOAP_ACTION_EDEFAULT.equals(soapAction);
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
+				return PATH_TO_AXIS2XML_EDEFAULT == null ? pathToAxis2xml != null : !PATH_TO_AXIS2XML_EDEFAULT.equals(pathToAxis2xml);
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
+				return PATH_TO_AXIS2_REPOSITORY_EDEFAULT == null ? pathToAxis2Repository != null : !PATH_TO_AXIS2_REPOSITORY_EDEFAULT.equals(pathToAxis2Repository);
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
+				return payloadType != PAYLOAD_TYPE_EDEFAULT;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+				return payloadMessageXpath != null;
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+				return payloadRegistryKey != null;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
+				return resultType != RESULT_TYPE_EDEFAULT;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+				return resultMessageXpath != null;
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+				return RESULT_CONTEXT_PROPERTY_EDEFAULT == null ? resultContextProperty != null : !RESULT_CONTEXT_PROPERTY_EDEFAULT.equals(resultContextProperty);
+			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				return passHeaders != PASS_HEADERS_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (serviceURL: ");
-        result.append(serviceURL);
-        result.append(", soapAction: ");
-        result.append(soapAction);
-        result.append(", pathToAxis2xml: ");
-        result.append(pathToAxis2xml);
-        result.append(", pathToAxis2Repository: ");
-        result.append(pathToAxis2Repository);
-        result.append(", payloadType: ");
-        result.append(payloadType);
-        result.append(", resultType: ");
-        result.append(resultType);
-        result.append(", resultContextProperty: ");
-        result.append(resultContextProperty);
-        result.append(", passHeaders: ");
-        result.append(passHeaders);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (serviceURL: ");
+		result.append(serviceURL);
+		result.append(", soapAction: ");
+		result.append(soapAction);
+		result.append(", pathToAxis2xml: ");
+		result.append(pathToAxis2xml);
+		result.append(", pathToAxis2Repository: ");
+		result.append(pathToAxis2Repository);
+		result.append(", payloadType: ");
+		result.append(payloadType);
+		result.append(", resultType: ");
+		result.append(resultType);
+		result.append(", resultContextProperty: ");
+		result.append(resultContextProperty);
+		result.append(", passHeaders: ");
+		result.append(passHeaders);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

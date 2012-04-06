@@ -35,57 +35,57 @@ package org.wso2.developerstudio.eclipse.esb;
  */
 public interface EndPoint extends ConfigurationElement {
     /**
-     * Returns the value of the '<em><b>Anonymous</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Anonymous</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Anonymous</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Anonymous</em>' attribute.
-     * @see #setAnonymous(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getEndPoint_Anonymous()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Anonymous</em>' attribute.
+	 * @see #setAnonymous(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getEndPoint_Anonymous()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isAnonymous();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.EndPoint#isAnonymous <em>Anonymous</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.EndPoint#isAnonymous <em>Anonymous</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Anonymous</em>' attribute.
-     * @see #isAnonymous()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Anonymous</em>' attribute.
+	 * @see #isAnonymous()
+	 * @generated
+	 */
 	void setAnonymous(boolean value);
 
 				/**
-     * Returns the value of the '<em><b>Endpoint Name</b></em>' attribute.
-     * The default value is <code>"endpoint_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Name</b></em>' attribute.
+	 * The default value is <code>"endpoint_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Name</em>' attribute.
-     * @see #setEndpointName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getEndPoint_EndpointName()
-     * @model default="endpoint_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Name</em>' attribute.
+	 * @see #setEndpointName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getEndPoint_EndpointName()
+	 * @model default="endpoint_name"
+	 * @generated
+	 */
 	String getEndpointName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.EndPoint#getEndpointName <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.EndPoint#getEndpointName <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Name</em>' attribute.
-     * @see #getEndpointName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Name</em>' attribute.
+	 * @see #getEndpointName()
+	 * @generated
+	 */
 	void setEndpointName(String value);
 
 } // EndPoint

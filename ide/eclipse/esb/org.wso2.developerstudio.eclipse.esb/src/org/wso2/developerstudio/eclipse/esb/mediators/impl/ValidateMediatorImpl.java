@@ -55,43 +55,43 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediator {
 	/**
-     * The cached value of the '{@link #getSourceXpath() <em>Source Xpath</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceXpath() <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceXpath()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceXpath()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty sourceXpath;
 
 	/**
-     * The cached value of the '{@link #getOnFailBranch() <em>On Fail Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOnFailBranch() <em>On Fail Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOnFailBranch()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOnFailBranch()
+	 * @generated
+	 * @ordered
+	 */
 	protected ValidateOnFailBranch onFailBranch;
 
 	/**
-     * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFeatures()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFeatures()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<ValidateFeature> features;
 
 	/**
-     * The cached value of the '{@link #getSchemas() <em>Schemas</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSchemas() <em>Schemas</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSchemas()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSchemas()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<ValidateSchema> schemas;
 
 	/**
@@ -136,7 +136,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			public void handle(ValidateSchema object) {
 				getSchemas().add(object);				
 			}			
-		});			
+		});	
+		super.doLoad(self);
 	}
 
 	/**
@@ -158,241 +159,248 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 		for (ValidateSchema schema : getSchemas()) {
 			schema.save(self);
 		}						
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.VALIDATE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.VALIDATE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getSourceXpath() {
-        return sourceXpath;
-    }
+		return sourceXpath;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSourceXpath(NamespacedProperty newSourceXpath, NotificationChain msgs) {
-        NamespacedProperty oldSourceXpath = sourceXpath;
-        sourceXpath = newSourceXpath;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, oldSourceXpath, newSourceXpath);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldSourceXpath = sourceXpath;
+		sourceXpath = newSourceXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, oldSourceXpath, newSourceXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSourceXpath(NamespacedProperty newSourceXpath) {
-        if (newSourceXpath != sourceXpath) {
-            NotificationChain msgs = null;
-            if (sourceXpath != null)
-                msgs = ((InternalEObject)sourceXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, null, msgs);
-            if (newSourceXpath != null)
-                msgs = ((InternalEObject)newSourceXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, null, msgs);
-            msgs = basicSetSourceXpath(newSourceXpath, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, newSourceXpath, newSourceXpath));
-    }
+		if (newSourceXpath != sourceXpath) {
+			NotificationChain msgs = null;
+			if (sourceXpath != null)
+				msgs = ((InternalEObject)sourceXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, null, msgs);
+			if (newSourceXpath != null)
+				msgs = ((InternalEObject)newSourceXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, null, msgs);
+			msgs = basicSetSourceXpath(newSourceXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH, newSourceXpath, newSourceXpath));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ValidateOnFailBranch getOnFailBranch() {
-        return onFailBranch;
-    }
+		return onFailBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetOnFailBranch(ValidateOnFailBranch newOnFailBranch, NotificationChain msgs) {
-        ValidateOnFailBranch oldOnFailBranch = onFailBranch;
-        onFailBranch = newOnFailBranch;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, oldOnFailBranch, newOnFailBranch);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		ValidateOnFailBranch oldOnFailBranch = onFailBranch;
+		onFailBranch = newOnFailBranch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, oldOnFailBranch, newOnFailBranch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOnFailBranch(ValidateOnFailBranch newOnFailBranch) {
-        if (newOnFailBranch != onFailBranch) {
-            NotificationChain msgs = null;
-            if (onFailBranch != null)
-                msgs = ((InternalEObject)onFailBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
-            if (newOnFailBranch != null)
-                msgs = ((InternalEObject)newOnFailBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
-            msgs = basicSetOnFailBranch(newOnFailBranch, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, newOnFailBranch, newOnFailBranch));
-    }
+		if (newOnFailBranch != onFailBranch) {
+			NotificationChain msgs = null;
+			if (onFailBranch != null)
+				msgs = ((InternalEObject)onFailBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
+			if (newOnFailBranch != null)
+				msgs = ((InternalEObject)newOnFailBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
+			msgs = basicSetOnFailBranch(newOnFailBranch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, newOnFailBranch, newOnFailBranch));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<ValidateFeature> getFeatures() {
-        if (features == null) {
-            features = new EObjectContainmentEList<ValidateFeature>(ValidateFeature.class, this, MediatorsPackage.VALIDATE_MEDIATOR__FEATURES);
-        }
-        return features;
-    }
+		if (features == null) {
+			features = new EObjectContainmentEList<ValidateFeature>(ValidateFeature.class, this, MediatorsPackage.VALIDATE_MEDIATOR__FEATURES);
+		}
+		return features;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<ValidateSchema> getSchemas() {
-        if (schemas == null) {
-            schemas = new EObjectContainmentEList<ValidateSchema>(ValidateSchema.class, this, MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS);
-        }
-        return schemas;
-    }
+		if (schemas == null) {
+			schemas = new EObjectContainmentEList<ValidateSchema>(ValidateSchema.class, this, MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS);
+		}
+		return schemas;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
 	                                        NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-                return basicSetSourceXpath(null, msgs);
-            case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-                return basicSetOnFailBranch(null, msgs);
-            case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
-                return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
-            case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
-                return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
+				return basicSetSourceXpath(null, msgs);
+			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
+				return basicSetOnFailBranch(null, msgs);
+			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
+				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
+			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+				return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-                return getSourceXpath();
-            case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-                return getOnFailBranch();
-            case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
-                return getFeatures();
-            case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
-                return getSchemas();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
+				return getSourceXpath();
+			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
+				return getOnFailBranch();
+			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
+				return getFeatures();
+			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+				return getSchemas();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-                setSourceXpath((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-                setOnFailBranch((ValidateOnFailBranch)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
-                getFeatures().clear();
-                getFeatures().addAll((Collection<? extends ValidateFeature>)newValue);
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
-                getSchemas().clear();
-                getSchemas().addAll((Collection<? extends ValidateSchema>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
+				setOnFailBranch((ValidateOnFailBranch)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends ValidateFeature>)newValue);
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+				getSchemas().clear();
+				getSchemas().addAll((Collection<? extends ValidateSchema>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-                setSourceXpath((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-                setOnFailBranch((ValidateOnFailBranch)null);
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
-                getFeatures().clear();
-                return;
-            case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
-                getSchemas().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
+				setOnFailBranch((ValidateOnFailBranch)null);
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
+				getFeatures().clear();
+				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+				getSchemas().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-                return sourceXpath != null;
-            case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-                return onFailBranch != null;
-            case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
-                return features != null && !features.isEmpty();
-            case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
-                return schemas != null && !schemas.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
+				return sourceXpath != null;
+			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
+				return onFailBranch != null;
+			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
+				return features != null && !features.isEmpty();
+			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+				return schemas != null && !schemas.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

@@ -51,33 +51,33 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class CacheOnHitBranchImpl extends MediatorBranchImpl implements CacheOnHitBranch {
 	/**
-     * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final CacheSequenceType SEQUENCE_TYPE_EDEFAULT = CacheSequenceType.REGISTRY_REFERENCE;
 
 	/**
-     * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected CacheSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSequenceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sequenceKey;
 
 	/**
@@ -127,158 +127,164 @@ public class CacheOnHitBranchImpl extends MediatorBranchImpl implements CacheOnH
 	}	
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH;
-    }
+		return MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheSequenceType getSequenceType() {
-        return sequenceType;
-    }
+		return sequenceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceType(CacheSequenceType newSequenceType) {
-        CacheSequenceType oldSequenceType = sequenceType;
-        sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
-    }
+		CacheSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequenceKey() {
-        if (sequenceKey != null && sequenceKey.eIsProxy()) {
-            InternalEObject oldSequenceKey = (InternalEObject)sequenceKey;
-            sequenceKey = (RegistryKeyProperty)eResolveProxy(oldSequenceKey);
-            if (sequenceKey != oldSequenceKey) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY, oldSequenceKey, sequenceKey));
-            }
-        }
-        return sequenceKey;
-    }
+		if (sequenceKey != null && sequenceKey.eIsProxy()) {
+			InternalEObject oldSequenceKey = (InternalEObject)sequenceKey;
+			sequenceKey = (RegistryKeyProperty)eResolveProxy(oldSequenceKey);
+			if (sequenceKey != oldSequenceKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY, oldSequenceKey, sequenceKey));
+			}
+		}
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty basicGetSequenceKey() {
-        return sequenceKey;
-    }
+		return sequenceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
-        RegistryKeyProperty oldSequenceKey = sequenceKey;
-        sequenceKey = newSequenceKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY, oldSequenceKey, sequenceKey));
-    }
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY, oldSequenceKey, sequenceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
-                return getSequenceType();
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
-                if (resolve) return getSequenceKey();
-                return basicGetSequenceKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
+				return getSequenceType();
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
+				if (resolve) return getSequenceKey();
+				return basicGetSequenceKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
-                setSequenceType((CacheSequenceType)newValue);
-                return;
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
+				setSequenceType((CacheSequenceType)newValue);
+				return;
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
-                setSequenceType(SEQUENCE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
-                setSequenceKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
-                return sequenceType != SEQUENCE_TYPE_EDEFAULT;
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
-                return sequenceKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY:
+				return sequenceKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sequenceType: ");
-        result.append(sequenceType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sequenceType: ");
+		result.append(sequenceType);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

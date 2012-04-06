@@ -53,53 +53,53 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	/**
-     * The cached value of the '{@link #getRuleSetConfiguration() <em>Rule Set Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRuleSetConfiguration() <em>Rule Set Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRuleSetConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRuleSetConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleSetConfiguration ruleSetConfiguration;
 
 	/**
-     * The cached value of the '{@link #getRuleSessionConfiguration() <em>Rule Session Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRuleSessionConfiguration() <em>Rule Session Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRuleSessionConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRuleSessionConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleSessionConfiguration ruleSessionConfiguration;
 
 	/**
-     * The cached value of the '{@link #getFactsConfiguration() <em>Facts Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFactsConfiguration() <em>Facts Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFactsConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFactsConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleFactsConfiguration factsConfiguration;
 
 	/**
-     * The cached value of the '{@link #getResultsConfiguration() <em>Results Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getResultsConfiguration() <em>Results Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getResultsConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getResultsConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleResultsConfiguration resultsConfiguration;
 
 	/**
-     * The cached value of the '{@link #getChildMediatorsConfiguration() <em>Child Mediators Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getChildMediatorsConfiguration() <em>Child Mediators Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getChildMediatorsConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getChildMediatorsConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleChildMediatorsConfiguration childMediatorsConfiguration;
 
 	/**
@@ -159,6 +159,7 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 						setChildMediatorsConfiguration(object);
 					}
 				});
+		super.doLoad(self);
 	}
 
 	/**
@@ -171,353 +172,361 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		getFactsConfiguration().save(self);
 		getResultsConfiguration().save(self);
 		getChildMediatorsConfiguration().save(self);
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.RULE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSetConfiguration getRuleSetConfiguration() {
-        return ruleSetConfiguration;
-    }
+		return ruleSetConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetRuleSetConfiguration(RuleSetConfiguration newRuleSetConfiguration, NotificationChain msgs) {
-        RuleSetConfiguration oldRuleSetConfiguration = ruleSetConfiguration;
-        ruleSetConfiguration = newRuleSetConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, oldRuleSetConfiguration, newRuleSetConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RuleSetConfiguration oldRuleSetConfiguration = ruleSetConfiguration;
+		ruleSetConfiguration = newRuleSetConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, oldRuleSetConfiguration, newRuleSetConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setRuleSetConfiguration(RuleSetConfiguration newRuleSetConfiguration) {
-        if (newRuleSetConfiguration != ruleSetConfiguration) {
-            NotificationChain msgs = null;
-            if (ruleSetConfiguration != null)
-                msgs = ((InternalEObject)ruleSetConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
-            if (newRuleSetConfiguration != null)
-                msgs = ((InternalEObject)newRuleSetConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
-            msgs = basicSetRuleSetConfiguration(newRuleSetConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, newRuleSetConfiguration, newRuleSetConfiguration));
-    }
+		if (newRuleSetConfiguration != ruleSetConfiguration) {
+			NotificationChain msgs = null;
+			if (ruleSetConfiguration != null)
+				msgs = ((InternalEObject)ruleSetConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
+			if (newRuleSetConfiguration != null)
+				msgs = ((InternalEObject)newRuleSetConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
+			msgs = basicSetRuleSetConfiguration(newRuleSetConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, newRuleSetConfiguration, newRuleSetConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSessionConfiguration getRuleSessionConfiguration() {
-        return ruleSessionConfiguration;
-    }
+		return ruleSessionConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetRuleSessionConfiguration(RuleSessionConfiguration newRuleSessionConfiguration, NotificationChain msgs) {
-        RuleSessionConfiguration oldRuleSessionConfiguration = ruleSessionConfiguration;
-        ruleSessionConfiguration = newRuleSessionConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, oldRuleSessionConfiguration, newRuleSessionConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RuleSessionConfiguration oldRuleSessionConfiguration = ruleSessionConfiguration;
+		ruleSessionConfiguration = newRuleSessionConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, oldRuleSessionConfiguration, newRuleSessionConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setRuleSessionConfiguration(RuleSessionConfiguration newRuleSessionConfiguration) {
-        if (newRuleSessionConfiguration != ruleSessionConfiguration) {
-            NotificationChain msgs = null;
-            if (ruleSessionConfiguration != null)
-                msgs = ((InternalEObject)ruleSessionConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
-            if (newRuleSessionConfiguration != null)
-                msgs = ((InternalEObject)newRuleSessionConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
-            msgs = basicSetRuleSessionConfiguration(newRuleSessionConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, newRuleSessionConfiguration, newRuleSessionConfiguration));
-    }
+		if (newRuleSessionConfiguration != ruleSessionConfiguration) {
+			NotificationChain msgs = null;
+			if (ruleSessionConfiguration != null)
+				msgs = ((InternalEObject)ruleSessionConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
+			if (newRuleSessionConfiguration != null)
+				msgs = ((InternalEObject)newRuleSessionConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
+			msgs = basicSetRuleSessionConfiguration(newRuleSessionConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, newRuleSessionConfiguration, newRuleSessionConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactsConfiguration getFactsConfiguration() {
-        return factsConfiguration;
-    }
+		return factsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetFactsConfiguration(RuleFactsConfiguration newFactsConfiguration, NotificationChain msgs) {
-        RuleFactsConfiguration oldFactsConfiguration = factsConfiguration;
-        factsConfiguration = newFactsConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, oldFactsConfiguration, newFactsConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RuleFactsConfiguration oldFactsConfiguration = factsConfiguration;
+		factsConfiguration = newFactsConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, oldFactsConfiguration, newFactsConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setFactsConfiguration(RuleFactsConfiguration newFactsConfiguration) {
-        if (newFactsConfiguration != factsConfiguration) {
-            NotificationChain msgs = null;
-            if (factsConfiguration != null)
-                msgs = ((InternalEObject)factsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, null, msgs);
-            if (newFactsConfiguration != null)
-                msgs = ((InternalEObject)newFactsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, null, msgs);
-            msgs = basicSetFactsConfiguration(newFactsConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, newFactsConfiguration, newFactsConfiguration));
-    }
+		if (newFactsConfiguration != factsConfiguration) {
+			NotificationChain msgs = null;
+			if (factsConfiguration != null)
+				msgs = ((InternalEObject)factsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, null, msgs);
+			if (newFactsConfiguration != null)
+				msgs = ((InternalEObject)newFactsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, null, msgs);
+			msgs = basicSetFactsConfiguration(newFactsConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION, newFactsConfiguration, newFactsConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleResultsConfiguration getResultsConfiguration() {
-        return resultsConfiguration;
-    }
+		return resultsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetResultsConfiguration(RuleResultsConfiguration newResultsConfiguration, NotificationChain msgs) {
-        RuleResultsConfiguration oldResultsConfiguration = resultsConfiguration;
-        resultsConfiguration = newResultsConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, oldResultsConfiguration, newResultsConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RuleResultsConfiguration oldResultsConfiguration = resultsConfiguration;
+		resultsConfiguration = newResultsConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, oldResultsConfiguration, newResultsConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setResultsConfiguration(RuleResultsConfiguration newResultsConfiguration) {
-        if (newResultsConfiguration != resultsConfiguration) {
-            NotificationChain msgs = null;
-            if (resultsConfiguration != null)
-                msgs = ((InternalEObject)resultsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, null, msgs);
-            if (newResultsConfiguration != null)
-                msgs = ((InternalEObject)newResultsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, null, msgs);
-            msgs = basicSetResultsConfiguration(newResultsConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, newResultsConfiguration, newResultsConfiguration));
-    }
+		if (newResultsConfiguration != resultsConfiguration) {
+			NotificationChain msgs = null;
+			if (resultsConfiguration != null)
+				msgs = ((InternalEObject)resultsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, null, msgs);
+			if (newResultsConfiguration != null)
+				msgs = ((InternalEObject)newResultsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, null, msgs);
+			msgs = basicSetResultsConfiguration(newResultsConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION, newResultsConfiguration, newResultsConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleChildMediatorsConfiguration getChildMediatorsConfiguration() {
-        return childMediatorsConfiguration;
-    }
+		return childMediatorsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetChildMediatorsConfiguration(RuleChildMediatorsConfiguration newChildMediatorsConfiguration, NotificationChain msgs) {
-        RuleChildMediatorsConfiguration oldChildMediatorsConfiguration = childMediatorsConfiguration;
-        childMediatorsConfiguration = newChildMediatorsConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, oldChildMediatorsConfiguration, newChildMediatorsConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RuleChildMediatorsConfiguration oldChildMediatorsConfiguration = childMediatorsConfiguration;
+		childMediatorsConfiguration = newChildMediatorsConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, oldChildMediatorsConfiguration, newChildMediatorsConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setChildMediatorsConfiguration(RuleChildMediatorsConfiguration newChildMediatorsConfiguration) {
-        if (newChildMediatorsConfiguration != childMediatorsConfiguration) {
-            NotificationChain msgs = null;
-            if (childMediatorsConfiguration != null)
-                msgs = ((InternalEObject)childMediatorsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, null, msgs);
-            if (newChildMediatorsConfiguration != null)
-                msgs = ((InternalEObject)newChildMediatorsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, null, msgs);
-            msgs = basicSetChildMediatorsConfiguration(newChildMediatorsConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, newChildMediatorsConfiguration, newChildMediatorsConfiguration));
-    }
+		if (newChildMediatorsConfiguration != childMediatorsConfiguration) {
+			NotificationChain msgs = null;
+			if (childMediatorsConfiguration != null)
+				msgs = ((InternalEObject)childMediatorsConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, null, msgs);
+			if (newChildMediatorsConfiguration != null)
+				msgs = ((InternalEObject)newChildMediatorsConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, null, msgs);
+			msgs = basicSetChildMediatorsConfiguration(newChildMediatorsConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION, newChildMediatorsConfiguration, newChildMediatorsConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-                return basicSetRuleSetConfiguration(null, msgs);
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-                return basicSetRuleSessionConfiguration(null, msgs);
-            case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
-                return basicSetFactsConfiguration(null, msgs);
-            case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
-                return basicSetResultsConfiguration(null, msgs);
-            case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
-                return basicSetChildMediatorsConfiguration(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
+				return basicSetRuleSetConfiguration(null, msgs);
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+				return basicSetRuleSessionConfiguration(null, msgs);
+			case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
+				return basicSetFactsConfiguration(null, msgs);
+			case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
+				return basicSetResultsConfiguration(null, msgs);
+			case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
+				return basicSetChildMediatorsConfiguration(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-                return getRuleSetConfiguration();
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-                return getRuleSessionConfiguration();
-            case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
-                return getFactsConfiguration();
-            case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
-                return getResultsConfiguration();
-            case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
-                return getChildMediatorsConfiguration();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
+				return getRuleSetConfiguration();
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+				return getRuleSessionConfiguration();
+			case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
+				return getFactsConfiguration();
+			case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
+				return getResultsConfiguration();
+			case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
+				return getChildMediatorsConfiguration();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-                setRuleSetConfiguration((RuleSetConfiguration)newValue);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-                setRuleSessionConfiguration((RuleSessionConfiguration)newValue);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
-                setFactsConfiguration((RuleFactsConfiguration)newValue);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
-                setResultsConfiguration((RuleResultsConfiguration)newValue);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
-                setChildMediatorsConfiguration((RuleChildMediatorsConfiguration)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
+				setRuleSetConfiguration((RuleSetConfiguration)newValue);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+				setRuleSessionConfiguration((RuleSessionConfiguration)newValue);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
+				setFactsConfiguration((RuleFactsConfiguration)newValue);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
+				setResultsConfiguration((RuleResultsConfiguration)newValue);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
+				setChildMediatorsConfiguration((RuleChildMediatorsConfiguration)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-                setRuleSetConfiguration((RuleSetConfiguration)null);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-                setRuleSessionConfiguration((RuleSessionConfiguration)null);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
-                setFactsConfiguration((RuleFactsConfiguration)null);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
-                setResultsConfiguration((RuleResultsConfiguration)null);
-                return;
-            case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
-                setChildMediatorsConfiguration((RuleChildMediatorsConfiguration)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
+				setRuleSetConfiguration((RuleSetConfiguration)null);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+				setRuleSessionConfiguration((RuleSessionConfiguration)null);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
+				setFactsConfiguration((RuleFactsConfiguration)null);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
+				setResultsConfiguration((RuleResultsConfiguration)null);
+				return;
+			case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
+				setChildMediatorsConfiguration((RuleChildMediatorsConfiguration)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-                return ruleSetConfiguration != null;
-            case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-                return ruleSessionConfiguration != null;
-            case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
-                return factsConfiguration != null;
-            case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
-                return resultsConfiguration != null;
-            case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
-                return childMediatorsConfiguration != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
+				return ruleSetConfiguration != null;
+			case MediatorsPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+				return ruleSessionConfiguration != null;
+			case MediatorsPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
+				return factsConfiguration != null;
+			case MediatorsPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
+				return resultsConfiguration != null;
+			case MediatorsPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
+				return childMediatorsConfiguration != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

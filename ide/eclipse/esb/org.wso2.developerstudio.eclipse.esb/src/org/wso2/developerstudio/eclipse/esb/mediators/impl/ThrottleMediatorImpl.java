@@ -50,53 +50,53 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediator {
 	/**
-     * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getGroupId()
-     * @generated
-     * @ordered
-     */
+	 * @see #getGroupId()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String GROUP_ID_EDEFAULT = "group_id";
 
 	/**
-     * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getGroupId()
-     * @generated
-     * @ordered
-     */
+	 * @see #getGroupId()
+	 * @generated
+	 * @ordered
+	 */
 	protected String groupId = GROUP_ID_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getPolicyConfiguration() <em>Policy Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPolicyConfiguration() <em>Policy Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPolicyConfiguration()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPolicyConfiguration()
+	 * @generated
+	 * @ordered
+	 */
 	protected ThrottlePolicyConfiguration policyConfiguration;
 
 	/**
-     * The cached value of the '{@link #getOnAcceptBranch() <em>On Accept Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOnAcceptBranch() <em>On Accept Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOnAcceptBranch()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOnAcceptBranch()
+	 * @generated
+	 * @ordered
+	 */
 	protected ThrottleOnAcceptBranch onAcceptBranch;
 
 	/**
-     * The cached value of the '{@link #getOnRejectBranch() <em>On Reject Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOnRejectBranch() <em>On Reject Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getOnRejectBranch()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOnRejectBranch()
+	 * @generated
+	 * @ordered
+	 */
 	protected ThrottleOnRejectBranch onRejectBranch;
 
 	/**
@@ -128,6 +128,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		
 		getOnAcceptBranch().load(self);				
 		getOnRejectBranch().load(self);
+		super.doLoad(self);
 	}
 
 	/**
@@ -142,292 +143,300 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		}
 		getOnAcceptBranch().save(self);				
 		getOnRejectBranch().save(self);
-		
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.THROTTLE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.THROTTLE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleOnAcceptBranch getOnAcceptBranch() {
-        return onAcceptBranch;
-    }
+		return onAcceptBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetOnAcceptBranch(ThrottleOnAcceptBranch newOnAcceptBranch, NotificationChain msgs) {
-        ThrottleOnAcceptBranch oldOnAcceptBranch = onAcceptBranch;
-        onAcceptBranch = newOnAcceptBranch;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, oldOnAcceptBranch, newOnAcceptBranch);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		ThrottleOnAcceptBranch oldOnAcceptBranch = onAcceptBranch;
+		onAcceptBranch = newOnAcceptBranch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, oldOnAcceptBranch, newOnAcceptBranch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOnAcceptBranch(ThrottleOnAcceptBranch newOnAcceptBranch) {
-        if (newOnAcceptBranch != onAcceptBranch) {
-            NotificationChain msgs = null;
-            if (onAcceptBranch != null)
-                msgs = ((InternalEObject)onAcceptBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, null, msgs);
-            if (newOnAcceptBranch != null)
-                msgs = ((InternalEObject)newOnAcceptBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, null, msgs);
-            msgs = basicSetOnAcceptBranch(newOnAcceptBranch, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, newOnAcceptBranch, newOnAcceptBranch));
-    }
+		if (newOnAcceptBranch != onAcceptBranch) {
+			NotificationChain msgs = null;
+			if (onAcceptBranch != null)
+				msgs = ((InternalEObject)onAcceptBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, null, msgs);
+			if (newOnAcceptBranch != null)
+				msgs = ((InternalEObject)newOnAcceptBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, null, msgs);
+			msgs = basicSetOnAcceptBranch(newOnAcceptBranch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH, newOnAcceptBranch, newOnAcceptBranch));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleOnRejectBranch getOnRejectBranch() {
-        return onRejectBranch;
-    }
+		return onRejectBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetOnRejectBranch(ThrottleOnRejectBranch newOnRejectBranch, NotificationChain msgs) {
-        ThrottleOnRejectBranch oldOnRejectBranch = onRejectBranch;
-        onRejectBranch = newOnRejectBranch;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, oldOnRejectBranch, newOnRejectBranch);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		ThrottleOnRejectBranch oldOnRejectBranch = onRejectBranch;
+		onRejectBranch = newOnRejectBranch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, oldOnRejectBranch, newOnRejectBranch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOnRejectBranch(ThrottleOnRejectBranch newOnRejectBranch) {
-        if (newOnRejectBranch != onRejectBranch) {
-            NotificationChain msgs = null;
-            if (onRejectBranch != null)
-                msgs = ((InternalEObject)onRejectBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, null, msgs);
-            if (newOnRejectBranch != null)
-                msgs = ((InternalEObject)newOnRejectBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, null, msgs);
-            msgs = basicSetOnRejectBranch(newOnRejectBranch, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, newOnRejectBranch, newOnRejectBranch));
-    }
+		if (newOnRejectBranch != onRejectBranch) {
+			NotificationChain msgs = null;
+			if (onRejectBranch != null)
+				msgs = ((InternalEObject)onRejectBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, null, msgs);
+			if (newOnRejectBranch != null)
+				msgs = ((InternalEObject)newOnRejectBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, null, msgs);
+			msgs = basicSetOnRejectBranch(newOnRejectBranch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH, newOnRejectBranch, newOnRejectBranch));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getGroupId() {
-        return groupId;
-    }
+		return groupId;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setGroupId(String newGroupId) {
-        String oldGroupId = groupId;
-        groupId = newGroupId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID, oldGroupId, groupId));
-    }
+		String oldGroupId = groupId;
+		groupId = newGroupId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID, oldGroupId, groupId));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyConfiguration getPolicyConfiguration() {
-        return policyConfiguration;
-    }
+		return policyConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetPolicyConfiguration(ThrottlePolicyConfiguration newPolicyConfiguration, NotificationChain msgs) {
-        ThrottlePolicyConfiguration oldPolicyConfiguration = policyConfiguration;
-        policyConfiguration = newPolicyConfiguration;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, oldPolicyConfiguration, newPolicyConfiguration);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		ThrottlePolicyConfiguration oldPolicyConfiguration = policyConfiguration;
+		policyConfiguration = newPolicyConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, oldPolicyConfiguration, newPolicyConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPolicyConfiguration(ThrottlePolicyConfiguration newPolicyConfiguration) {
-        if (newPolicyConfiguration != policyConfiguration) {
-            NotificationChain msgs = null;
-            if (policyConfiguration != null)
-                msgs = ((InternalEObject)policyConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, null, msgs);
-            if (newPolicyConfiguration != null)
-                msgs = ((InternalEObject)newPolicyConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, null, msgs);
-            msgs = basicSetPolicyConfiguration(newPolicyConfiguration, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, newPolicyConfiguration, newPolicyConfiguration));
-    }
+		if (newPolicyConfiguration != policyConfiguration) {
+			NotificationChain msgs = null;
+			if (policyConfiguration != null)
+				msgs = ((InternalEObject)policyConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, null, msgs);
+			if (newPolicyConfiguration != null)
+				msgs = ((InternalEObject)newPolicyConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, null, msgs);
+			msgs = basicSetPolicyConfiguration(newPolicyConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION, newPolicyConfiguration, newPolicyConfiguration));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
-                return basicSetPolicyConfiguration(null, msgs);
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
-                return basicSetOnAcceptBranch(null, msgs);
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
-                return basicSetOnRejectBranch(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
+				return basicSetPolicyConfiguration(null, msgs);
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
+				return basicSetOnAcceptBranch(null, msgs);
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
+				return basicSetOnRejectBranch(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
-                return getGroupId();
-            case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
-                return getPolicyConfiguration();
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
-                return getOnAcceptBranch();
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
-                return getOnRejectBranch();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
+				return getGroupId();
+			case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
+				return getPolicyConfiguration();
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
+				return getOnAcceptBranch();
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
+				return getOnRejectBranch();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
-                setGroupId((String)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
-                setPolicyConfiguration((ThrottlePolicyConfiguration)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
-                setOnAcceptBranch((ThrottleOnAcceptBranch)newValue);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
-                setOnRejectBranch((ThrottleOnRejectBranch)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
+				setGroupId((String)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
+				setPolicyConfiguration((ThrottlePolicyConfiguration)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
+				setOnAcceptBranch((ThrottleOnAcceptBranch)newValue);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
+				setOnRejectBranch((ThrottleOnRejectBranch)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
-                setGroupId(GROUP_ID_EDEFAULT);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
-                setPolicyConfiguration((ThrottlePolicyConfiguration)null);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
-                setOnAcceptBranch((ThrottleOnAcceptBranch)null);
-                return;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
-                setOnRejectBranch((ThrottleOnRejectBranch)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
+				setPolicyConfiguration((ThrottlePolicyConfiguration)null);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
+				setOnAcceptBranch((ThrottleOnAcceptBranch)null);
+				return;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
+				setOnRejectBranch((ThrottleOnRejectBranch)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
-                return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
-            case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
-                return policyConfiguration != null;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
-                return onAcceptBranch != null;
-            case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
-                return onRejectBranch != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.THROTTLE_MEDIATOR__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+			case MediatorsPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
+				return policyConfiguration != null;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
+				return onAcceptBranch != null;
+			case MediatorsPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
+				return onRejectBranch != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (groupId: ");
-        result.append(groupId);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (groupId: ");
+		result.append(groupId);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

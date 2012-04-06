@@ -39,44 +39,44 @@ import org.wso2.developerstudio.eclipse.esb.ModelObject;
 public interface URLRewriteRule extends ModelObject {
 
 	/**
-     * Returns the value of the '<em><b>Url Rewrite Rule Condition</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Url Rewrite Rule Condition</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Url Rewrite Rule Condition</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Url Rewrite Rule Condition</em>' reference.
-     * @see #setUrlRewriteRuleCondition(EvaluatorExpressionProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteRule_UrlRewriteRuleCondition()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Url Rewrite Rule Condition</em>' reference.
+	 * @see #setUrlRewriteRuleCondition(EvaluatorExpressionProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteRule_UrlRewriteRuleCondition()
+	 * @model
+	 * @generated
+	 */
 	EvaluatorExpressionProperty getUrlRewriteRuleCondition();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule#getUrlRewriteRuleCondition <em>Url Rewrite Rule Condition</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule#getUrlRewriteRuleCondition <em>Url Rewrite Rule Condition</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Url Rewrite Rule Condition</em>' reference.
-     * @see #getUrlRewriteRuleCondition()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Url Rewrite Rule Condition</em>' reference.
+	 * @see #getUrlRewriteRuleCondition()
+	 * @generated
+	 */
 	void setUrlRewriteRuleCondition(EvaluatorExpressionProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Rewrite Rule Action</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Rewrite Rule Action</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rewrite Rule Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Rewrite Rule Action</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteRule_RewriteRuleAction()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Rewrite Rule Action</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getURLRewriteRule_RewriteRuleAction()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<URLRewriteRuleAction> getRewriteRuleAction();
 } // URLRewriteRule

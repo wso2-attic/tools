@@ -59,22 +59,22 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
      */
 	protected static final String MESSAGE_STORE_EDEFAULT = "messageStore";
 	/**
-     * The cached value of the '{@link #getMessageStore() <em>Message Store</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getMessageStore() <em>Message Store</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getMessageStore()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMessageStore()
+	 * @generated
+	 * @ordered
+	 */
 	protected String messageStore = MESSAGE_STORE_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getOnStoreSequence() <em>On Store Sequence</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getOnStoreSequence() <em>On Store Sequence</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @see #getOnStoreSequence()
-     * @generated
-     * @ordered
-     */
+	 * @see #getOnStoreSequence()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty onStoreSequence;
 
 	/**
@@ -123,6 +123,7 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 			sequenceValue = sequenceValue.trim();
 			getOnStoreSequence().setKeyValue(sequenceValue);
 		}
+		super.doLoad(self);
 
 	}
 
@@ -140,152 +141,160 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 				DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY)) {
 			getOnStoreSequence().save(self);
 		}
+		if(description!=null)
+			description.save(self);
 		return self;
 
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.STORE_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.STORE_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getMessageStore() {
-        return messageStore;
-    }
+		return messageStore;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setMessageStore(String newMessageStore) {
-        String oldMessageStore = messageStore;
-        messageStore = newMessageStore;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE, oldMessageStore, messageStore));
-    }
+		String oldMessageStore = messageStore;
+		messageStore = newMessageStore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE, oldMessageStore, messageStore));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyProperty getOnStoreSequence() {
-        if (onStoreSequence != null && onStoreSequence.eIsProxy()) {
-            InternalEObject oldOnStoreSequence = (InternalEObject)onStoreSequence;
-            onStoreSequence = (RegistryKeyProperty)eResolveProxy(oldOnStoreSequence);
-            if (onStoreSequence != oldOnStoreSequence) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
-            }
-        }
-        return onStoreSequence;
-    }
+		if (onStoreSequence != null && onStoreSequence.eIsProxy()) {
+			InternalEObject oldOnStoreSequence = (InternalEObject)onStoreSequence;
+			onStoreSequence = (RegistryKeyProperty)eResolveProxy(oldOnStoreSequence);
+			if (onStoreSequence != oldOnStoreSequence) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
+			}
+		}
+		return onStoreSequence;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyProperty basicGetOnStoreSequence() {
-        return onStoreSequence;
-    }
+		return onStoreSequence;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setOnStoreSequence(RegistryKeyProperty newOnStoreSequence) {
-        RegistryKeyProperty oldOnStoreSequence = onStoreSequence;
-        onStoreSequence = newOnStoreSequence;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
-    }
+		RegistryKeyProperty oldOnStoreSequence = onStoreSequence;
+		onStoreSequence = newOnStoreSequence;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
-                return getMessageStore();
-            case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
-                if (resolve) return getOnStoreSequence();
-                return basicGetOnStoreSequence();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
+				return getMessageStore();
+			case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
+				if (resolve) return getOnStoreSequence();
+				return basicGetOnStoreSequence();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
-                setMessageStore((String)newValue);
-                return;
-            case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
-                setOnStoreSequence((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
+				setMessageStore((String)newValue);
+				return;
+			case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
+				setOnStoreSequence((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
-                setMessageStore(MESSAGE_STORE_EDEFAULT);
-                return;
-            case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
-                setOnStoreSequence((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
+				setMessageStore(MESSAGE_STORE_EDEFAULT);
+				return;
+			case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
+				setOnStoreSequence((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
-                return MESSAGE_STORE_EDEFAULT == null ? messageStore != null : !MESSAGE_STORE_EDEFAULT.equals(messageStore);
-            case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
-                return onStoreSequence != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.STORE_MEDIATOR__MESSAGE_STORE:
+				return MESSAGE_STORE_EDEFAULT == null ? messageStore != null : !MESSAGE_STORE_EDEFAULT.equals(messageStore);
+			case MediatorsPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
+				return onStoreSequence != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (messageStore: ");
-        result.append(messageStore);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (messageStore: ");
+		result.append(messageStore);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

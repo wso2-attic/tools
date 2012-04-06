@@ -36,13 +36,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class ValidateOnFailBranchImpl extends MediatorBranchImpl implements ValidateOnFailBranch {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateOnFailBranchImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -65,14 +65,15 @@ public class ValidateOnFailBranchImpl extends MediatorBranchImpl implements Vali
 	
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.VALIDATE_ON_FAIL_BRANCH;
-    }
+		return MediatorsPackage.Literals.VALIDATE_ON_FAIL_BRANCH;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

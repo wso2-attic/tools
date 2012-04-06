@@ -29,20 +29,20 @@ import org.w3c.dom.Element;
  */
 public interface EsbFactory extends EFactory {
 	/**
-     * The singleton instance of the factory.
-     * <!-- begin-user-doc --> <!--
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	EsbFactory eINSTANCE = org.wso2.developerstudio.eclipse.esb.impl.EsbFactoryImpl.init();
 
 	/**
-     * Returns a new object of class '<em>Namespace</em>'.
-     * <!-- begin-user-doc
+	 * Returns a new object of class '<em>Namespace</em>'.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Namespace</em>'.
-     * @generated
-     */
+	 * @return a new object of class '<em>Namespace</em>'.
+	 * @generated
+	 */
 	Namespace createNamespace();
 
 	/**
@@ -53,6 +53,15 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	SynapseConfiguration createSynapseConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Description</em>'.
+	 * @generated
+	 */
+	Description createDescription();
 
 	/**
 	 * Returns a new object of class '<em>Mediator Sequence</em>'. <!--
@@ -158,54 +167,54 @@ public interface EsbFactory extends EFactory {
 	ProxyServicePolicy createProxyServicePolicy();
 
 	/**
-     * Returns a new object of class '<em>Proxy In Sequence Configuration</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Proxy In Sequence Configuration</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Proxy In Sequence Configuration</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy In Sequence Configuration</em>'.
+	 * @generated
+	 */
 	ProxyInSequenceConfiguration createProxyInSequenceConfiguration();
 
 	/**
-     * Returns a new object of class '<em>Proxy Endpoint Configuration</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Proxy Endpoint Configuration</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Proxy Endpoint Configuration</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Endpoint Configuration</em>'.
+	 * @generated
+	 */
 	ProxyEndpointConfiguration createProxyEndpointConfiguration();
 
 	/**
-     * Returns a new object of class '<em>Proxy Out Sequence Configuration</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Proxy Out Sequence Configuration</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Proxy Out Sequence Configuration</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Out Sequence Configuration</em>'.
+	 * @generated
+	 */
 	ProxyOutSequenceConfiguration createProxyOutSequenceConfiguration();
 
 	/**
-     * Returns a new object of class '<em>Proxy Fault Sequence Configuration</em>'.
-     * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Proxy Fault Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Proxy Fault Sequence Configuration</em>'.
-     * @generated
-     */
+	 * @return a new object of class '<em>Proxy Fault Sequence Configuration</em>'.
+	 * @generated
+	 */
 	ProxyFaultSequenceConfiguration createProxyFaultSequenceConfiguration();
 
 	/**
-     * Returns a new object of class '<em>Local Entry</em>'.
-     * <!-- begin-user-doc
+	 * Returns a new object of class '<em>Local Entry</em>'.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Local Entry</em>'.
-     * @generated
-     */
+	 * @return a new object of class '<em>Local Entry</em>'.
+	 * @generated
+	 */
 	LocalEntry createLocalEntry();
 
 
 	/**
-     * Returns a new object of class '<em>Evaluator Expression Property</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Evaluator Expression Property</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Evaluator Expression Property</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evaluator Expression Property</em>'.
+	 * @generated
+	 */
 	EvaluatorExpressionProperty createEvaluatorExpressionProperty();
 
 	/**
@@ -221,12 +230,12 @@ public interface EsbFactory extends EFactory {
 			EvaluatorExpressionProperty evaluatorExpressionProperty);
 
 	/**
-     * Returns the package supported by this factory.
-     * <!-- begin-user-doc -->
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @return the package supported by this factory.
-     * @generated
-     */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
 	EsbPackage getEsbPackage();
 
 	/**
@@ -275,19 +284,19 @@ public interface EsbFactory extends EFactory {
 	LoadBalanceEndPoint createLoadBalanceEndPoint();
 
 	/**
-     * Returns a new object of class '<em>Dynamic Load Balance End Point</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Dynamic Load Balance End Point</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Dynamic Load Balance End Point</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dynamic Load Balance End Point</em>'.
+	 * @generated
+	 */
 	DynamicLoadBalanceEndPoint createDynamicLoadBalanceEndPoint();
 
 	/**
-     * Returns a new object of class '<em>Dynamic Load Balance Property</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Dynamic Load Balance Property</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Dynamic Load Balance Property</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dynamic Load Balance Property</em>'.
+	 * @generated
+	 */
 	DynamicLoadBalanceProperty createDynamicLoadBalanceProperty();
 
 	/**
@@ -300,11 +309,11 @@ public interface EsbFactory extends EFactory {
 	XPathEndPointReference createXPathEndPointReference();
 
 	/**
-     * Returns a new object of class '<em>Registry Key End Point Reference</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @return a new object of class '<em>Registry Key End Point Reference</em>'.
-     * @generated
-     */
+	 * Returns a new object of class '<em>Registry Key End Point Reference</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return a new object of class '<em>Registry Key End Point Reference</em>'.
+	 * @generated
+	 */
 
 	RegistryKeyEndPointReference createRegistryKeyEndPointReference();
 

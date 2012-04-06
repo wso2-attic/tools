@@ -12,80 +12,61 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id$
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
+
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.w3c.dom.Element;
+import org.wso2.developerstudio.eclipse.esb.Description;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.esb.Namespace;
+import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Namespace</b></em>'.
+ * An implementation of the model object '<em><b>Description</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.NamespaceImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.NamespaceImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.DescriptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NamespaceImpl extends EObjectImpl implements Namespace {
+public class DescriptionImpl extends ModelObjectImpl implements Description {
 	/**
-	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrefix()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PREFIX_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrefix()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String prefix = PREFIX_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uri = URI_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NamespaceImpl() {
+	protected DescriptionImpl() {
 		super();
+		setValue("");
 	}
 
 	/**
@@ -93,10 +74,9 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EClass eStaticClass() {
-		return EsbPackage.Literals.NAMESPACE;
+		return EsbPackage.Literals.DESCRIPTION;
 	}
 
 	/**
@@ -104,8 +84,8 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPrefix() {
-		return prefix;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -113,11 +93,11 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrefix(String newPrefix) {
-		String oldPrefix = prefix;
-		prefix = newPrefix;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACE__PREFIX, oldPrefix, prefix));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DESCRIPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -125,35 +105,11 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUri() {
-		return uri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUri(String newUri) {
-		String oldUri = uri;
-		uri = newUri;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACE__URI, oldUri, uri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.NAMESPACE__PREFIX:
-				return getPrefix();
-			case EsbPackage.NAMESPACE__URI:
-				return getUri();
+			case EsbPackage.DESCRIPTION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,15 +119,11 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.NAMESPACE__PREFIX:
-				setPrefix((String)newValue);
-				return;
-			case EsbPackage.NAMESPACE__URI:
-				setUri((String)newValue);
+			case EsbPackage.DESCRIPTION__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,15 +134,11 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.NAMESPACE__PREFIX:
-				setPrefix(PREFIX_EDEFAULT);
-				return;
-			case EsbPackage.NAMESPACE__URI:
-				setUri(URI_EDEFAULT);
+			case EsbPackage.DESCRIPTION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -201,14 +149,11 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.NAMESPACE__PREFIX:
-				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
-			case EsbPackage.NAMESPACE__URI:
-				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+			case EsbPackage.DESCRIPTION__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,18 +163,39 @@ public class NamespaceImpl extends EObjectImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (prefix: ");
-		result.append(prefix);
-		result.append(", uri: ");
-		result.append(uri);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //NamespaceImpl
+	
+	public Map<String, ObjectValidator> validate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	protected void doLoad(Element self) throws Exception {
+		if (self.hasAttribute("value")) {
+			setValue(self.getAttribute("value"));
+		}
+		
+	}
+	
+	protected Element doSave(Element parent) throws Exception {
+		Element self=getChildElement(parent, "description");
+		if(self==null){
+		self = createChildElement(parent, "description");
+		}
+		self.setTextContent(getValue());
+		return self;
+	}
+
+
+} //DescriptionImpl

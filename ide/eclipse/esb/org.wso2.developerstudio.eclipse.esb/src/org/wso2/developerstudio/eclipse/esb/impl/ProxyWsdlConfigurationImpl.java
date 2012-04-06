@@ -58,76 +58,76 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  */
 public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements ProxyWsdlConfiguration {
 	/**
-     * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final ProxyWsdlType WSDL_TYPE_EDEFAULT = ProxyWsdlType.NONE;
 	/**
-     * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
 	protected ProxyWsdlType wsdlType = WSDL_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String WSDL_XML_EDEFAULT = "<definitions/>";
 	/**
-     * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
 	protected String wsdlXML = WSDL_XML_EDEFAULT;
 	/**
-     * The default value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlURL()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String WSDL_URL_EDEFAULT = "http://default/wsdl/url";
 	/**
-     * The cached value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlURL()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlURL()
+	 * @generated
+	 * @ordered
+	 */
 	protected String wsdlURL = WSDL_URL_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getWsdlKey() <em>Wsdl Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlKey() <em>Wsdl Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty wsdlKey;
 	/**
-     * The cached value of the '{@link #getWsdlResources() <em>Wsdl Resources</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlResources() <em>Wsdl Resources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getWsdlResources()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlResources()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<ProxyWsdlResource> wsdlResources;
 
 	/**
@@ -229,268 +229,275 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.PROXY_WSDL_CONFIGURATION;
-    }
+		return EsbPackage.Literals.PROXY_WSDL_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ProxyWsdlType getWsdlType() {
-        return wsdlType;
-    }
+		return wsdlType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setWsdlType(ProxyWsdlType newWsdlType) {
-        ProxyWsdlType oldWsdlType = wsdlType;
-        wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE, oldWsdlType, wsdlType));
-    }
+		ProxyWsdlType oldWsdlType = wsdlType;
+		wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE, oldWsdlType, wsdlType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getWsdlXML() {
-        return wsdlXML;
-    }
+		return wsdlXML;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setWsdlXML(String newWsdlXML) {
-        String oldWsdlXML = wsdlXML;
-        wsdlXML = newWsdlXML;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML, oldWsdlXML, wsdlXML));
-    }
+		String oldWsdlXML = wsdlXML;
+		wsdlXML = newWsdlXML;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML, oldWsdlXML, wsdlXML));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getWsdlURL() {
-        return wsdlURL;
-    }
+		return wsdlURL;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setWsdlURL(String newWsdlURL) {
-        String oldWsdlURL = wsdlURL;
-        wsdlURL = newWsdlURL;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL, oldWsdlURL, wsdlURL));
-    }
+		String oldWsdlURL = wsdlURL;
+		wsdlURL = newWsdlURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL, oldWsdlURL, wsdlURL));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getWsdlKey() {
-        return wsdlKey;
-    }
+		return wsdlKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetWsdlKey(RegistryKeyProperty newWsdlKey, NotificationChain msgs) {
-        RegistryKeyProperty oldWsdlKey = wsdlKey;
-        wsdlKey = newWsdlKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, oldWsdlKey, newWsdlKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldWsdlKey = wsdlKey;
+		wsdlKey = newWsdlKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, oldWsdlKey, newWsdlKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setWsdlKey(RegistryKeyProperty newWsdlKey) {
-        if (newWsdlKey != wsdlKey) {
-            NotificationChain msgs = null;
-            if (wsdlKey != null)
-                msgs = ((InternalEObject)wsdlKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, null, msgs);
-            if (newWsdlKey != null)
-                msgs = ((InternalEObject)newWsdlKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, null, msgs);
-            msgs = basicSetWsdlKey(newWsdlKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, newWsdlKey, newWsdlKey));
-    }
+		if (newWsdlKey != wsdlKey) {
+			NotificationChain msgs = null;
+			if (wsdlKey != null)
+				msgs = ((InternalEObject)wsdlKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, null, msgs);
+			if (newWsdlKey != null)
+				msgs = ((InternalEObject)newWsdlKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, null, msgs);
+			msgs = basicSetWsdlKey(newWsdlKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY, newWsdlKey, newWsdlKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<ProxyWsdlResource> getWsdlResources() {
-        if (wsdlResources == null) {
-            wsdlResources = new EObjectContainmentEList<ProxyWsdlResource>(ProxyWsdlResource.class, this, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES);
-        }
-        return wsdlResources;
-    }
+		if (wsdlResources == null) {
+			wsdlResources = new EObjectContainmentEList<ProxyWsdlResource>(ProxyWsdlResource.class, this, EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES);
+		}
+		return wsdlResources;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
-                return basicSetWsdlKey(null, msgs);
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
-                return ((InternalEList<?>)getWsdlResources()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
+				return basicSetWsdlKey(null, msgs);
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
+				return ((InternalEList<?>)getWsdlResources()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
-                return getWsdlType();
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
-                return getWsdlXML();
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
-                return getWsdlURL();
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
-                return getWsdlKey();
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
-                return getWsdlResources();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
+				return getWsdlType();
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
+				return getWsdlXML();
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
+				return getWsdlURL();
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
+				return getWsdlKey();
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
+				return getWsdlResources();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
-                setWsdlType((ProxyWsdlType)newValue);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
-                setWsdlXML((String)newValue);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
-                setWsdlURL((String)newValue);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
-                setWsdlKey((RegistryKeyProperty)newValue);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
-                getWsdlResources().clear();
-                getWsdlResources().addAll((Collection<? extends ProxyWsdlResource>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
+				setWsdlType((ProxyWsdlType)newValue);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
+				setWsdlXML((String)newValue);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
+				setWsdlURL((String)newValue);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
+				setWsdlKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
+				getWsdlResources().clear();
+				getWsdlResources().addAll((Collection<? extends ProxyWsdlResource>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
-                setWsdlType(WSDL_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
-                setWsdlXML(WSDL_XML_EDEFAULT);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
-                setWsdlURL(WSDL_URL_EDEFAULT);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
-                setWsdlKey((RegistryKeyProperty)null);
-                return;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
-                getWsdlResources().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
+				setWsdlType(WSDL_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
+				setWsdlXML(WSDL_XML_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
+				setWsdlURL(WSDL_URL_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
+				setWsdlKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
+				getWsdlResources().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
-                return wsdlType != WSDL_TYPE_EDEFAULT;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
-                return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
-                return WSDL_URL_EDEFAULT == null ? wsdlURL != null : !WSDL_URL_EDEFAULT.equals(wsdlURL);
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
-                return wsdlKey != null;
-            case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
-                return wsdlResources != null && !wsdlResources.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_TYPE:
+				return wsdlType != WSDL_TYPE_EDEFAULT;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_XML:
+				return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_URL:
+				return WSDL_URL_EDEFAULT == null ? wsdlURL != null : !WSDL_URL_EDEFAULT.equals(wsdlURL);
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_KEY:
+				return wsdlKey != null;
+			case EsbPackage.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES:
+				return wsdlResources != null && !wsdlResources.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (wsdlType: ");
-        result.append(wsdlType);
-        result.append(", wsdlXML: ");
-        result.append(wsdlXML);
-        result.append(", wsdlURL: ");
-        result.append(wsdlURL);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (wsdlType: ");
+		result.append(wsdlType);
+		result.append(", wsdlXML: ");
+		result.append(wsdlXML);
+		result.append(", wsdlURL: ");
+		result.append(wsdlURL);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

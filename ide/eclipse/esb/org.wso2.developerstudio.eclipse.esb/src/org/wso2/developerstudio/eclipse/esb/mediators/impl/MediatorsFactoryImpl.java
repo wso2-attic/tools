@@ -31,2499 +31,2502 @@ import org.wso2.developerstudio.eclipse.esb.mediators.*;
  */
 public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFactory {
 	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static MediatorsFactory init() {
-        try {
-            MediatorsFactory theMediatorsFactory = (MediatorsFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/wso2/developerstudio/eclipse/esb/mediators"); 
-            if (theMediatorsFactory != null) {
-                return theMediatorsFactory;
-            }
-        }
-        catch (Exception exception) {
-            EcorePlugin.INSTANCE.log(exception);
-        }
-        return new MediatorsFactoryImpl();
-    }
+		try {
+			MediatorsFactory theMediatorsFactory = (MediatorsFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/wso2/developerstudio/eclipse/esb/mediators"); 
+			if (theMediatorsFactory != null) {
+				return theMediatorsFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new MediatorsFactoryImpl();
+	}
 
 	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MediatorsFactoryImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public EObject create(EClass eClass) {
-        switch (eClass.getClassifierID()) {
-            case MediatorsPackage.IN_MEDIATOR: return createInMediator();
-            case MediatorsPackage.OUT_MEDIATOR: return createOutMediator();
-            case MediatorsPackage.DROP_MEDIATOR: return createDropMediator();
-            case MediatorsPackage.SEND_MEDIATOR: return createSendMediator();
-            case MediatorsPackage.LOG_MEDIATOR: return createLogMediator();
-            case MediatorsPackage.LOG_PROPERTY: return createLogProperty();
-            case MediatorsPackage.FILTER_MEDIATOR: return createFilterMediator();
-            case MediatorsPackage.FILTER_THEN_BRANCH: return createFilterThenBranch();
-            case MediatorsPackage.FILTER_ELSE_BRANCH: return createFilterElseBranch();
-            case MediatorsPackage.SWITCH_MEDIATOR: return createSwitchMediator();
-            case MediatorsPackage.SWITCH_CASE_BRANCH: return createSwitchCaseBranch();
-            case MediatorsPackage.SWITCH_DEFAULT_BRANCH: return createSwitchDefaultBranch();
-            case MediatorsPackage.ENTITLEMENT_MEDIATOR: return createEntitlementMediator();
-            case MediatorsPackage.ENQUEUE_MEDIATOR: return createEnqueueMediator();
-            case MediatorsPackage.CLASS_MEDIATOR: return createClassMediator();
-            case MediatorsPackage.CLASS_PROPERTY: return createClassProperty();
-            case MediatorsPackage.SPRING_MEDIATOR: return createSpringMediator();
-            case MediatorsPackage.VALIDATE_MEDIATOR: return createValidateMediator();
-            case MediatorsPackage.VALIDATE_ON_FAIL_BRANCH: return createValidateOnFailBranch();
-            case MediatorsPackage.VALIDATE_FEATURE: return createValidateFeature();
-            case MediatorsPackage.VALIDATE_SCHEMA: return createValidateSchema();
-            case MediatorsPackage.SCRIPT_MEDIATOR: return createScriptMediator();
-            case MediatorsPackage.ENRICH_MEDIATOR: return createEnrichMediator();
-            case MediatorsPackage.FAULT_MEDIATOR: return createFaultMediator();
-            case MediatorsPackage.AGGREGATE_MEDIATOR: return createAggregateMediator();
-            case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH: return createAggregateOnCompleteBranch();
-            case MediatorsPackage.ROUTER_MEDIATOR: return createRouterMediator();
-            case MediatorsPackage.ROUTER_ROUTE: return createRouterRoute();
-            case MediatorsPackage.ROUTE_TARGET: return createRouteTarget();
-            case MediatorsPackage.CLONE_MEDIATOR: return createCloneMediator();
-            case MediatorsPackage.CLONE_TARGET: return createCloneTarget();
-            case MediatorsPackage.ITERATE_MEDIATOR: return createIterateMediator();
-            case MediatorsPackage.ITERATE_TARGET: return createIterateTarget();
-            case MediatorsPackage.CACHE_MEDIATOR: return createCacheMediator();
-            case MediatorsPackage.CACHE_ON_HIT_BRANCH: return createCacheOnHitBranch();
-            case MediatorsPackage.XSLT_MEDIATOR: return createXSLTMediator();
-            case MediatorsPackage.XSLT_PROPERTY: return createXSLTProperty();
-            case MediatorsPackage.XSLT_FEATURE: return createXSLTFeature();
-            case MediatorsPackage.XSLT_RESOURCE: return createXSLTResource();
-            case MediatorsPackage.XQUERY_MEDIATOR: return createXQueryMediator();
-            case MediatorsPackage.XQUERY_VARIABLE: return createXQueryVariable();
-            case MediatorsPackage.CALLOUT_MEDIATOR: return createCalloutMediator();
-            case MediatorsPackage.RM_SEQUENCE_MEDIATOR: return createRMSequenceMediator();
-            case MediatorsPackage.TRANSACTION_MEDIATOR: return createTransactionMediator();
-            case MediatorsPackage.PROPERTY_MEDIATOR: return createPropertyMediator();
-            case MediatorsPackage.OAUTH_MEDIATOR: return createOAuthMediator();
-            case MediatorsPackage.AUTOSCALE_IN_MEDIATOR: return createAutoscaleInMediator();
-            case MediatorsPackage.AUTOSCALE_OUT_MEDIATOR: return createAutoscaleOutMediator();
-            case MediatorsPackage.HEADER_MEDIATOR: return createHeaderMediator();
-            case MediatorsPackage.THROTTLE_MEDIATOR: return createThrottleMediator();
-            case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION: return createThrottlePolicyConfiguration();
-            case MediatorsPackage.THROTTLE_POLICY_ENTRY: return createThrottlePolicyEntry();
-            case MediatorsPackage.THROTTLE_ON_ACCEPT_BRANCH: return createThrottleOnAcceptBranch();
-            case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH: return createThrottleOnRejectBranch();
-            case MediatorsPackage.COMMAND_MEDIATOR: return createCommandMediator();
-            case MediatorsPackage.COMMAND_PROPERTY: return createCommandProperty();
-            case MediatorsPackage.EVENT_MEDIATOR: return createEventMediator();
-            case MediatorsPackage.SQL_STATEMENT: return createSqlStatement();
-            case MediatorsPackage.SQL_PARAMETER_DEFINITION: return createSqlParameterDefinition();
-            case MediatorsPackage.SQL_RESULT_MAPPING: return createSqlResultMapping();
-            case MediatorsPackage.DB_LOOKUP_MEDIATOR: return createDBLookupMediator();
-            case MediatorsPackage.DB_REPORT_MEDIATOR: return createDBReportMediator();
-            case MediatorsPackage.RULE_MEDIATOR: return createRuleMediator();
-            case MediatorsPackage.RULE_SET_CONFIGURATION: return createRuleSetConfiguration();
-            case MediatorsPackage.RULE_SET_CREATION_PROPERTY: return createRuleSetCreationProperty();
-            case MediatorsPackage.RULE_SESSION_CONFIGURATION: return createRuleSessionConfiguration();
-            case MediatorsPackage.RULE_SESSION_PROPERTY: return createRuleSessionProperty();
-            case MediatorsPackage.RULE_FACTS_CONFIGURATION: return createRuleFactsConfiguration();
-            case MediatorsPackage.RULE_FACT: return createRuleFact();
-            case MediatorsPackage.RULE_RESULTS_CONFIGURATION: return createRuleResultsConfiguration();
-            case MediatorsPackage.RULE_RESULT: return createRuleResult();
-            case MediatorsPackage.RULE_CHILD_MEDIATORS_CONFIGURATION: return createRuleChildMediatorsConfiguration();
-            case MediatorsPackage.SEQUENCE_MEDIATOR: return createSequenceMediator();
-            case MediatorsPackage.BUILDER_MEDIATOR: return createBuilderMediator();
-            case MediatorsPackage.MESSAGE_BUILDER: return createMessageBuilder();
-            case MediatorsPackage.SMOOKS_MEDIATOR: return createSmooksMediator();
-            case MediatorsPackage.SMOOKS_IN_CONFIGURATION: return createSmooksInConfiguration();
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION: return createSmooksOutConfiguration();
-            case MediatorsPackage.STORE_MEDIATOR: return createStoreMediator();
-            case MediatorsPackage.CONDITIONAL_ROUTE_BRANCH: return createConditionalRouteBranch();
-            case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR: return createConditionalRouterMediator();
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION: return createURLRewriteRuleAction();
-            case MediatorsPackage.URL_REWRITE_RULE: return createURLRewriteRule();
-            case MediatorsPackage.URL_REWRITE_MEDIATOR: return createURLRewriteMediator();
-            case MediatorsPackage.CALL_TEMPLATE_MEDIATOR: return createCallTemplateMediator();
-            case MediatorsPackage.CALL_TEMPLATE_PARAMETER: return createCallTemplateParameter();
-            case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR: return createPayloadFactoryMediator();
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT: return createPayloadFactoryArgument();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eClass.getClassifierID()) {
+			case MediatorsPackage.IN_MEDIATOR: return createInMediator();
+			case MediatorsPackage.OUT_MEDIATOR: return createOutMediator();
+			case MediatorsPackage.DROP_MEDIATOR: return createDropMediator();
+			case MediatorsPackage.SEND_MEDIATOR: return createSendMediator();
+			case MediatorsPackage.LOG_MEDIATOR: return createLogMediator();
+			case MediatorsPackage.LOG_PROPERTY: return createLogProperty();
+			case MediatorsPackage.FILTER_MEDIATOR: return createFilterMediator();
+			case MediatorsPackage.FILTER_THEN_BRANCH: return createFilterThenBranch();
+			case MediatorsPackage.FILTER_ELSE_BRANCH: return createFilterElseBranch();
+			case MediatorsPackage.SWITCH_MEDIATOR: return createSwitchMediator();
+			case MediatorsPackage.SWITCH_CASE_BRANCH: return createSwitchCaseBranch();
+			case MediatorsPackage.SWITCH_DEFAULT_BRANCH: return createSwitchDefaultBranch();
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR: return createEntitlementMediator();
+			case MediatorsPackage.ENQUEUE_MEDIATOR: return createEnqueueMediator();
+			case MediatorsPackage.CLASS_MEDIATOR: return createClassMediator();
+			case MediatorsPackage.CLASS_PROPERTY: return createClassProperty();
+			case MediatorsPackage.SPRING_MEDIATOR: return createSpringMediator();
+			case MediatorsPackage.VALIDATE_MEDIATOR: return createValidateMediator();
+			case MediatorsPackage.VALIDATE_ON_FAIL_BRANCH: return createValidateOnFailBranch();
+			case MediatorsPackage.VALIDATE_FEATURE: return createValidateFeature();
+			case MediatorsPackage.VALIDATE_SCHEMA: return createValidateSchema();
+			case MediatorsPackage.SCRIPT_MEDIATOR: return createScriptMediator();
+			case MediatorsPackage.ENRICH_MEDIATOR: return createEnrichMediator();
+			case MediatorsPackage.FAULT_MEDIATOR: return createFaultMediator();
+			case MediatorsPackage.AGGREGATE_MEDIATOR: return createAggregateMediator();
+			case MediatorsPackage.AGGREGATE_ON_COMPLETE_BRANCH: return createAggregateOnCompleteBranch();
+			case MediatorsPackage.ROUTER_MEDIATOR: return createRouterMediator();
+			case MediatorsPackage.ROUTER_ROUTE: return createRouterRoute();
+			case MediatorsPackage.ROUTE_TARGET: return createRouteTarget();
+			case MediatorsPackage.CLONE_MEDIATOR: return createCloneMediator();
+			case MediatorsPackage.CLONE_TARGET: return createCloneTarget();
+			case MediatorsPackage.ITERATE_MEDIATOR: return createIterateMediator();
+			case MediatorsPackage.ITERATE_TARGET: return createIterateTarget();
+			case MediatorsPackage.CACHE_MEDIATOR: return createCacheMediator();
+			case MediatorsPackage.CACHE_ON_HIT_BRANCH: return createCacheOnHitBranch();
+			case MediatorsPackage.XSLT_MEDIATOR: return createXSLTMediator();
+			case MediatorsPackage.XSLT_PROPERTY: return createXSLTProperty();
+			case MediatorsPackage.XSLT_FEATURE: return createXSLTFeature();
+			case MediatorsPackage.XSLT_RESOURCE: return createXSLTResource();
+			case MediatorsPackage.XQUERY_MEDIATOR: return createXQueryMediator();
+			case MediatorsPackage.XQUERY_VARIABLE: return createXQueryVariable();
+			case MediatorsPackage.CALLOUT_MEDIATOR: return createCalloutMediator();
+			case MediatorsPackage.RM_SEQUENCE_MEDIATOR: return createRMSequenceMediator();
+			case MediatorsPackage.TRANSACTION_MEDIATOR: return createTransactionMediator();
+			case MediatorsPackage.PROPERTY_MEDIATOR: return createPropertyMediator();
+			case MediatorsPackage.OAUTH_MEDIATOR: return createOAuthMediator();
+			case MediatorsPackage.AUTOSCALE_IN_MEDIATOR: return createAutoscaleInMediator();
+			case MediatorsPackage.AUTOSCALE_OUT_MEDIATOR: return createAutoscaleOutMediator();
+			case MediatorsPackage.HEADER_MEDIATOR: return createHeaderMediator();
+			case MediatorsPackage.THROTTLE_MEDIATOR: return createThrottleMediator();
+			case MediatorsPackage.THROTTLE_POLICY_CONFIGURATION: return createThrottlePolicyConfiguration();
+			case MediatorsPackage.THROTTLE_POLICY_ENTRY: return createThrottlePolicyEntry();
+			case MediatorsPackage.THROTTLE_ON_ACCEPT_BRANCH: return createThrottleOnAcceptBranch();
+			case MediatorsPackage.THROTTLE_ON_REJECT_BRANCH: return createThrottleOnRejectBranch();
+			case MediatorsPackage.COMMAND_MEDIATOR: return createCommandMediator();
+			case MediatorsPackage.COMMAND_PROPERTY: return createCommandProperty();
+			case MediatorsPackage.EVENT_MEDIATOR: return createEventMediator();
+			case MediatorsPackage.SQL_STATEMENT: return createSqlStatement();
+			case MediatorsPackage.SQL_PARAMETER_DEFINITION: return createSqlParameterDefinition();
+			case MediatorsPackage.SQL_RESULT_MAPPING: return createSqlResultMapping();
+			case MediatorsPackage.DB_LOOKUP_MEDIATOR: return createDBLookupMediator();
+			case MediatorsPackage.DB_REPORT_MEDIATOR: return createDBReportMediator();
+			case MediatorsPackage.RULE_MEDIATOR: return createRuleMediator();
+			case MediatorsPackage.RULE_SET_CONFIGURATION: return createRuleSetConfiguration();
+			case MediatorsPackage.RULE_SET_CREATION_PROPERTY: return createRuleSetCreationProperty();
+			case MediatorsPackage.RULE_SESSION_CONFIGURATION: return createRuleSessionConfiguration();
+			case MediatorsPackage.RULE_SESSION_PROPERTY: return createRuleSessionProperty();
+			case MediatorsPackage.RULE_FACTS_CONFIGURATION: return createRuleFactsConfiguration();
+			case MediatorsPackage.RULE_FACT: return createRuleFact();
+			case MediatorsPackage.RULE_RESULTS_CONFIGURATION: return createRuleResultsConfiguration();
+			case MediatorsPackage.RULE_RESULT: return createRuleResult();
+			case MediatorsPackage.RULE_CHILD_MEDIATORS_CONFIGURATION: return createRuleChildMediatorsConfiguration();
+			case MediatorsPackage.SEQUENCE_MEDIATOR: return createSequenceMediator();
+			case MediatorsPackage.BUILDER_MEDIATOR: return createBuilderMediator();
+			case MediatorsPackage.MESSAGE_BUILDER: return createMessageBuilder();
+			case MediatorsPackage.SMOOKS_MEDIATOR: return createSmooksMediator();
+			case MediatorsPackage.SMOOKS_IN_CONFIGURATION: return createSmooksInConfiguration();
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION: return createSmooksOutConfiguration();
+			case MediatorsPackage.STORE_MEDIATOR: return createStoreMediator();
+			case MediatorsPackage.CONDITIONAL_ROUTE_BRANCH: return createConditionalRouteBranch();
+			case MediatorsPackage.CONDITIONAL_ROUTER_MEDIATOR: return createConditionalRouterMediator();
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION: return createURLRewriteRuleAction();
+			case MediatorsPackage.URL_REWRITE_RULE: return createURLRewriteRule();
+			case MediatorsPackage.URL_REWRITE_MEDIATOR: return createURLRewriteMediator();
+			case MediatorsPackage.CALL_TEMPLATE_MEDIATOR: return createCallTemplateMediator();
+			case MediatorsPackage.CALL_TEMPLATE_PARAMETER: return createCallTemplateParameter();
+			case MediatorsPackage.PAYLOAD_FACTORY_MEDIATOR: return createPayloadFactoryMediator();
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT: return createPayloadFactoryArgument();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-        switch (eDataType.getClassifierID()) {
-            case MediatorsPackage.LOG_CATEGORY:
-                return createLogCategoryFromString(eDataType, initialValue);
-            case MediatorsPackage.LOG_LEVEL:
-                return createLogLevelFromString(eDataType, initialValue);
-            case MediatorsPackage.FILTER_CONDITION_TYPE:
-                return createFilterConditionTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SCRIPT_TYPE:
-                return createScriptTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SCRIPT_LANGUAGE:
-                return createScriptLanguageFromString(eDataType, initialValue);
-            case MediatorsPackage.ENRICH_SOURCE_TYPE:
-                return createEnrichSourceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.ENRICH_TARGET_ACTION:
-                return createEnrichTargetActionFromString(eDataType, initialValue);
-            case MediatorsPackage.ENRICH_TARGET_TYPE:
-                return createEnrichTargetTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_SOAP_VERSION:
-                return createFaultSoapVersionFromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_CODE_SOAP11:
-                return createFaultCodeSoap11FromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_CODE_SOAP12:
-                return createFaultCodeSoap12FromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_STRING_TYPE:
-                return createFaultStringTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_REASON_TYPE:
-                return createFaultReasonTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.FAULT_DETAIL_TYPE:
-                return createFaultDetailTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.AGGREGATE_SEQUENCE_TYPE:
-                return createAggregateSequenceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.CACHE_SEQUENCE_TYPE:
-                return createCacheSequenceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.CACHE_IMPLEMENTATION_TYPE:
-                return createCacheImplementationTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.CACHE_ACTION:
-                return createCacheActionFromString(eDataType, initialValue);
-            case MediatorsPackage.CACHE_SCOPE:
-                return createCacheScopeFromString(eDataType, initialValue);
-            case MediatorsPackage.XQUERY_VARIABLE_TYPE:
-                return createXQueryVariableTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.XQUERY_VARIABLE_VALUE_TYPE:
-                return createXQueryVariableValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.CALLOUT_PAYLOAD_TYPE:
-                return createCalloutPayloadTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.CALLOUT_RESULT_TYPE:
-                return createCalloutResultTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RM_SPEC_VERSION:
-                return createRMSpecVersionFromString(eDataType, initialValue);
-            case MediatorsPackage.RM_SEQUENCE_TYPE:
-                return createRMSequenceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.TRANSACTION_ACTION:
-                return createTransactionActionFromString(eDataType, initialValue);
-            case MediatorsPackage.PROPERTY_DATA_TYPE:
-                return createPropertyDataTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.PROPERTY_ACTION:
-                return createPropertyActionFromString(eDataType, initialValue);
-            case MediatorsPackage.PROPERTY_SCOPE:
-                return createPropertyScopeFromString(eDataType, initialValue);
-            case MediatorsPackage.PROPERTY_VALUE_TYPE:
-                return createPropertyValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.HEADER_ACTION:
-                return createHeaderActionFromString(eDataType, initialValue);
-            case MediatorsPackage.HEADER_VALUE_TYPE:
-                return createHeaderValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.THROTTLE_POLICY_TYPE:
-                return createThrottlePolicyTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.THROTTLE_CONDITION_TYPE:
-                return createThrottleConditionTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.THROTTLE_ACCESS_TYPE:
-                return createThrottleAccessTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.THROTTLE_SEQUENCE_TYPE:
-                return createThrottleSequenceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.COMMAND_PROPERTY_VALUE_TYPE:
-                return createCommandPropertyValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.COMMAND_PROPERTY_MESSAGE_ACTION:
-                return createCommandPropertyMessageActionFromString(eDataType, initialValue);
-            case MediatorsPackage.COMMAND_PROPERTY_CONTEXT_ACTION:
-                return createCommandPropertyContextActionFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_EXECUTOR_CONNECTION_TYPE:
-                return createSqlExecutorConnectionTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_EXECUTOR_DATASOURCE_TYPE:
-                return createSqlExecutorDatasourceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_EXECUTOR_BOOLEAN_VALUE:
-                return createSqlExecutorBooleanValueFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_EXECUTOR_ISOLATION_LEVEL:
-                return createSqlExecutorIsolationLevelFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_PARAMETER_VALUE_TYPE:
-                return createSqlParameterValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SQL_PARAMETER_DATA_TYPE:
-                return createSqlParameterDataTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_SOURCE_TYPE:
-                return createRuleSourceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_FACT_TYPE:
-                return createRuleFactTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_FACT_VALUE_TYPE:
-                return createRuleFactValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_RESULT_TYPE:
-                return createRuleResultTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_RESULT_VALUE_TYPE:
-                return createRuleResultValueTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.SMOOKS_IO_DATA_TYPE:
-                return createSmooksIODataTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.EXPRESSION_ACTION:
-                return createExpressionActionFromString(eDataType, initialValue);
-            case MediatorsPackage.OUTPUT_METHOD:
-                return createOutputMethodFromString(eDataType, initialValue);
-            case MediatorsPackage.RECEIVING_SEQUENCE_TYPE:
-                return createReceivingSequenceTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.KEY_TYPE:
-                return createKeyTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_ACTION_TYPE:
-                return createRuleActionTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_FRAGMENT_TYPE:
-                return createRuleFragmentTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.RULE_OPTION_TYPE:
-                return createRuleOptionTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.ENRICH_SOURCE_INLINE_TYPE:
-                return createEnrichSourceInlineTypeFromString(eDataType, initialValue);
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
-                return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case MediatorsPackage.LOG_CATEGORY:
+				return createLogCategoryFromString(eDataType, initialValue);
+			case MediatorsPackage.LOG_LEVEL:
+				return createLogLevelFromString(eDataType, initialValue);
+			case MediatorsPackage.FILTER_CONDITION_TYPE:
+				return createFilterConditionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SCRIPT_TYPE:
+				return createScriptTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SCRIPT_LANGUAGE:
+				return createScriptLanguageFromString(eDataType, initialValue);
+			case MediatorsPackage.ENRICH_SOURCE_TYPE:
+				return createEnrichSourceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.ENRICH_TARGET_ACTION:
+				return createEnrichTargetActionFromString(eDataType, initialValue);
+			case MediatorsPackage.ENRICH_TARGET_TYPE:
+				return createEnrichTargetTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_SOAP_VERSION:
+				return createFaultSoapVersionFromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_CODE_SOAP11:
+				return createFaultCodeSoap11FromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_CODE_SOAP12:
+				return createFaultCodeSoap12FromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_STRING_TYPE:
+				return createFaultStringTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_REASON_TYPE:
+				return createFaultReasonTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.FAULT_DETAIL_TYPE:
+				return createFaultDetailTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.AGGREGATE_SEQUENCE_TYPE:
+				return createAggregateSequenceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CACHE_SEQUENCE_TYPE:
+				return createCacheSequenceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CACHE_IMPLEMENTATION_TYPE:
+				return createCacheImplementationTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CACHE_ACTION:
+				return createCacheActionFromString(eDataType, initialValue);
+			case MediatorsPackage.CACHE_SCOPE:
+				return createCacheScopeFromString(eDataType, initialValue);
+			case MediatorsPackage.XQUERY_VARIABLE_TYPE:
+				return createXQueryVariableTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.XQUERY_VARIABLE_VALUE_TYPE:
+				return createXQueryVariableValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CALLOUT_PAYLOAD_TYPE:
+				return createCalloutPayloadTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CALLOUT_RESULT_TYPE:
+				return createCalloutResultTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RM_SPEC_VERSION:
+				return createRMSpecVersionFromString(eDataType, initialValue);
+			case MediatorsPackage.RM_SEQUENCE_TYPE:
+				return createRMSequenceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.TRANSACTION_ACTION:
+				return createTransactionActionFromString(eDataType, initialValue);
+			case MediatorsPackage.PROPERTY_DATA_TYPE:
+				return createPropertyDataTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.PROPERTY_ACTION:
+				return createPropertyActionFromString(eDataType, initialValue);
+			case MediatorsPackage.PROPERTY_SCOPE:
+				return createPropertyScopeFromString(eDataType, initialValue);
+			case MediatorsPackage.PROPERTY_VALUE_TYPE:
+				return createPropertyValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.HEADER_ACTION:
+				return createHeaderActionFromString(eDataType, initialValue);
+			case MediatorsPackage.HEADER_VALUE_TYPE:
+				return createHeaderValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.THROTTLE_POLICY_TYPE:
+				return createThrottlePolicyTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.THROTTLE_CONDITION_TYPE:
+				return createThrottleConditionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.THROTTLE_ACCESS_TYPE:
+				return createThrottleAccessTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.THROTTLE_SEQUENCE_TYPE:
+				return createThrottleSequenceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.COMMAND_PROPERTY_VALUE_TYPE:
+				return createCommandPropertyValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.COMMAND_PROPERTY_MESSAGE_ACTION:
+				return createCommandPropertyMessageActionFromString(eDataType, initialValue);
+			case MediatorsPackage.COMMAND_PROPERTY_CONTEXT_ACTION:
+				return createCommandPropertyContextActionFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_EXECUTOR_CONNECTION_TYPE:
+				return createSqlExecutorConnectionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_EXECUTOR_DATASOURCE_TYPE:
+				return createSqlExecutorDatasourceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_EXECUTOR_BOOLEAN_VALUE:
+				return createSqlExecutorBooleanValueFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_EXECUTOR_ISOLATION_LEVEL:
+				return createSqlExecutorIsolationLevelFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_PARAMETER_VALUE_TYPE:
+				return createSqlParameterValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SQL_PARAMETER_DATA_TYPE:
+				return createSqlParameterDataTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_SOURCE_TYPE:
+				return createRuleSourceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_FACT_TYPE:
+				return createRuleFactTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_FACT_VALUE_TYPE:
+				return createRuleFactValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_RESULT_TYPE:
+				return createRuleResultTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_RESULT_VALUE_TYPE:
+				return createRuleResultValueTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.SMOOKS_IO_DATA_TYPE:
+				return createSmooksIODataTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.EXPRESSION_ACTION:
+				return createExpressionActionFromString(eDataType, initialValue);
+			case MediatorsPackage.OUTPUT_METHOD:
+				return createOutputMethodFromString(eDataType, initialValue);
+			case MediatorsPackage.RECEIVING_SEQUENCE_TYPE:
+				return createReceivingSequenceTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.KEY_TYPE:
+				return createKeyTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_ACTION_TYPE:
+				return createRuleActionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_FRAGMENT_TYPE:
+				return createRuleFragmentTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.RULE_OPTION_TYPE:
+				return createRuleOptionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.ENRICH_SOURCE_INLINE_TYPE:
+				return createEnrichSourceInlineTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
+				return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
-            case MediatorsPackage.LOG_CATEGORY:
-                return convertLogCategoryToString(eDataType, instanceValue);
-            case MediatorsPackage.LOG_LEVEL:
-                return convertLogLevelToString(eDataType, instanceValue);
-            case MediatorsPackage.FILTER_CONDITION_TYPE:
-                return convertFilterConditionTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SCRIPT_TYPE:
-                return convertScriptTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SCRIPT_LANGUAGE:
-                return convertScriptLanguageToString(eDataType, instanceValue);
-            case MediatorsPackage.ENRICH_SOURCE_TYPE:
-                return convertEnrichSourceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.ENRICH_TARGET_ACTION:
-                return convertEnrichTargetActionToString(eDataType, instanceValue);
-            case MediatorsPackage.ENRICH_TARGET_TYPE:
-                return convertEnrichTargetTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_SOAP_VERSION:
-                return convertFaultSoapVersionToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_CODE_SOAP11:
-                return convertFaultCodeSoap11ToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_CODE_SOAP12:
-                return convertFaultCodeSoap12ToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_STRING_TYPE:
-                return convertFaultStringTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_REASON_TYPE:
-                return convertFaultReasonTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.FAULT_DETAIL_TYPE:
-                return convertFaultDetailTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.AGGREGATE_SEQUENCE_TYPE:
-                return convertAggregateSequenceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.CACHE_SEQUENCE_TYPE:
-                return convertCacheSequenceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.CACHE_IMPLEMENTATION_TYPE:
-                return convertCacheImplementationTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.CACHE_ACTION:
-                return convertCacheActionToString(eDataType, instanceValue);
-            case MediatorsPackage.CACHE_SCOPE:
-                return convertCacheScopeToString(eDataType, instanceValue);
-            case MediatorsPackage.XQUERY_VARIABLE_TYPE:
-                return convertXQueryVariableTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.XQUERY_VARIABLE_VALUE_TYPE:
-                return convertXQueryVariableValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.CALLOUT_PAYLOAD_TYPE:
-                return convertCalloutPayloadTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.CALLOUT_RESULT_TYPE:
-                return convertCalloutResultTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RM_SPEC_VERSION:
-                return convertRMSpecVersionToString(eDataType, instanceValue);
-            case MediatorsPackage.RM_SEQUENCE_TYPE:
-                return convertRMSequenceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.TRANSACTION_ACTION:
-                return convertTransactionActionToString(eDataType, instanceValue);
-            case MediatorsPackage.PROPERTY_DATA_TYPE:
-                return convertPropertyDataTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.PROPERTY_ACTION:
-                return convertPropertyActionToString(eDataType, instanceValue);
-            case MediatorsPackage.PROPERTY_SCOPE:
-                return convertPropertyScopeToString(eDataType, instanceValue);
-            case MediatorsPackage.PROPERTY_VALUE_TYPE:
-                return convertPropertyValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.HEADER_ACTION:
-                return convertHeaderActionToString(eDataType, instanceValue);
-            case MediatorsPackage.HEADER_VALUE_TYPE:
-                return convertHeaderValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.THROTTLE_POLICY_TYPE:
-                return convertThrottlePolicyTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.THROTTLE_CONDITION_TYPE:
-                return convertThrottleConditionTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.THROTTLE_ACCESS_TYPE:
-                return convertThrottleAccessTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.THROTTLE_SEQUENCE_TYPE:
-                return convertThrottleSequenceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.COMMAND_PROPERTY_VALUE_TYPE:
-                return convertCommandPropertyValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.COMMAND_PROPERTY_MESSAGE_ACTION:
-                return convertCommandPropertyMessageActionToString(eDataType, instanceValue);
-            case MediatorsPackage.COMMAND_PROPERTY_CONTEXT_ACTION:
-                return convertCommandPropertyContextActionToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_EXECUTOR_CONNECTION_TYPE:
-                return convertSqlExecutorConnectionTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_EXECUTOR_DATASOURCE_TYPE:
-                return convertSqlExecutorDatasourceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_EXECUTOR_BOOLEAN_VALUE:
-                return convertSqlExecutorBooleanValueToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_EXECUTOR_ISOLATION_LEVEL:
-                return convertSqlExecutorIsolationLevelToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_PARAMETER_VALUE_TYPE:
-                return convertSqlParameterValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SQL_PARAMETER_DATA_TYPE:
-                return convertSqlParameterDataTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_SOURCE_TYPE:
-                return convertRuleSourceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_FACT_TYPE:
-                return convertRuleFactTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_FACT_VALUE_TYPE:
-                return convertRuleFactValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_RESULT_TYPE:
-                return convertRuleResultTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_RESULT_VALUE_TYPE:
-                return convertRuleResultValueTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.SMOOKS_IO_DATA_TYPE:
-                return convertSmooksIODataTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.EXPRESSION_ACTION:
-                return convertExpressionActionToString(eDataType, instanceValue);
-            case MediatorsPackage.OUTPUT_METHOD:
-                return convertOutputMethodToString(eDataType, instanceValue);
-            case MediatorsPackage.RECEIVING_SEQUENCE_TYPE:
-                return convertReceivingSequenceTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.KEY_TYPE:
-                return convertKeyTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_ACTION_TYPE:
-                return convertRuleActionTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_FRAGMENT_TYPE:
-                return convertRuleFragmentTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.RULE_OPTION_TYPE:
-                return convertRuleOptionTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.ENRICH_SOURCE_INLINE_TYPE:
-                return convertEnrichSourceInlineTypeToString(eDataType, instanceValue);
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
-                return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case MediatorsPackage.LOG_CATEGORY:
+				return convertLogCategoryToString(eDataType, instanceValue);
+			case MediatorsPackage.LOG_LEVEL:
+				return convertLogLevelToString(eDataType, instanceValue);
+			case MediatorsPackage.FILTER_CONDITION_TYPE:
+				return convertFilterConditionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SCRIPT_TYPE:
+				return convertScriptTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SCRIPT_LANGUAGE:
+				return convertScriptLanguageToString(eDataType, instanceValue);
+			case MediatorsPackage.ENRICH_SOURCE_TYPE:
+				return convertEnrichSourceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.ENRICH_TARGET_ACTION:
+				return convertEnrichTargetActionToString(eDataType, instanceValue);
+			case MediatorsPackage.ENRICH_TARGET_TYPE:
+				return convertEnrichTargetTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_SOAP_VERSION:
+				return convertFaultSoapVersionToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_CODE_SOAP11:
+				return convertFaultCodeSoap11ToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_CODE_SOAP12:
+				return convertFaultCodeSoap12ToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_STRING_TYPE:
+				return convertFaultStringTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_REASON_TYPE:
+				return convertFaultReasonTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.FAULT_DETAIL_TYPE:
+				return convertFaultDetailTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.AGGREGATE_SEQUENCE_TYPE:
+				return convertAggregateSequenceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CACHE_SEQUENCE_TYPE:
+				return convertCacheSequenceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CACHE_IMPLEMENTATION_TYPE:
+				return convertCacheImplementationTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CACHE_ACTION:
+				return convertCacheActionToString(eDataType, instanceValue);
+			case MediatorsPackage.CACHE_SCOPE:
+				return convertCacheScopeToString(eDataType, instanceValue);
+			case MediatorsPackage.XQUERY_VARIABLE_TYPE:
+				return convertXQueryVariableTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.XQUERY_VARIABLE_VALUE_TYPE:
+				return convertXQueryVariableValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CALLOUT_PAYLOAD_TYPE:
+				return convertCalloutPayloadTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CALLOUT_RESULT_TYPE:
+				return convertCalloutResultTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RM_SPEC_VERSION:
+				return convertRMSpecVersionToString(eDataType, instanceValue);
+			case MediatorsPackage.RM_SEQUENCE_TYPE:
+				return convertRMSequenceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.TRANSACTION_ACTION:
+				return convertTransactionActionToString(eDataType, instanceValue);
+			case MediatorsPackage.PROPERTY_DATA_TYPE:
+				return convertPropertyDataTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.PROPERTY_ACTION:
+				return convertPropertyActionToString(eDataType, instanceValue);
+			case MediatorsPackage.PROPERTY_SCOPE:
+				return convertPropertyScopeToString(eDataType, instanceValue);
+			case MediatorsPackage.PROPERTY_VALUE_TYPE:
+				return convertPropertyValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.HEADER_ACTION:
+				return convertHeaderActionToString(eDataType, instanceValue);
+			case MediatorsPackage.HEADER_VALUE_TYPE:
+				return convertHeaderValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.THROTTLE_POLICY_TYPE:
+				return convertThrottlePolicyTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.THROTTLE_CONDITION_TYPE:
+				return convertThrottleConditionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.THROTTLE_ACCESS_TYPE:
+				return convertThrottleAccessTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.THROTTLE_SEQUENCE_TYPE:
+				return convertThrottleSequenceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.COMMAND_PROPERTY_VALUE_TYPE:
+				return convertCommandPropertyValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.COMMAND_PROPERTY_MESSAGE_ACTION:
+				return convertCommandPropertyMessageActionToString(eDataType, instanceValue);
+			case MediatorsPackage.COMMAND_PROPERTY_CONTEXT_ACTION:
+				return convertCommandPropertyContextActionToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_EXECUTOR_CONNECTION_TYPE:
+				return convertSqlExecutorConnectionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_EXECUTOR_DATASOURCE_TYPE:
+				return convertSqlExecutorDatasourceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_EXECUTOR_BOOLEAN_VALUE:
+				return convertSqlExecutorBooleanValueToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_EXECUTOR_ISOLATION_LEVEL:
+				return convertSqlExecutorIsolationLevelToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_PARAMETER_VALUE_TYPE:
+				return convertSqlParameterValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SQL_PARAMETER_DATA_TYPE:
+				return convertSqlParameterDataTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_SOURCE_TYPE:
+				return convertRuleSourceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_FACT_TYPE:
+				return convertRuleFactTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_FACT_VALUE_TYPE:
+				return convertRuleFactValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_RESULT_TYPE:
+				return convertRuleResultTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_RESULT_VALUE_TYPE:
+				return convertRuleResultValueTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.SMOOKS_IO_DATA_TYPE:
+				return convertSmooksIODataTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.EXPRESSION_ACTION:
+				return convertExpressionActionToString(eDataType, instanceValue);
+			case MediatorsPackage.OUTPUT_METHOD:
+				return convertOutputMethodToString(eDataType, instanceValue);
+			case MediatorsPackage.RECEIVING_SEQUENCE_TYPE:
+				return convertReceivingSequenceTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.KEY_TYPE:
+				return convertKeyTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_ACTION_TYPE:
+				return convertRuleActionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_FRAGMENT_TYPE:
+				return convertRuleFragmentTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.RULE_OPTION_TYPE:
+				return convertRuleOptionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.ENRICH_SOURCE_INLINE_TYPE:
+				return convertEnrichSourceInlineTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
+				return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public InMediator createInMediator() {
-        InMediatorImpl inMediator = new InMediatorImpl();
-        return inMediator;
-    }
+		InMediatorImpl inMediator = new InMediatorImpl();
+		return inMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OutMediator createOutMediator() {
-        OutMediatorImpl outMediator = new OutMediatorImpl();
-        return outMediator;
-    }
+		OutMediatorImpl outMediator = new OutMediatorImpl();
+		return outMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DropMediator createDropMediator() {
-        DropMediatorImpl dropMediator = new DropMediatorImpl();
-        return dropMediator;
-    }
+		DropMediatorImpl dropMediator = new DropMediatorImpl();
+		return dropMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SendMediator createSendMediator() {
-        SendMediatorImpl sendMediator = new SendMediatorImpl();
-        return sendMediator;
-    }
+		SendMediatorImpl sendMediator = new SendMediatorImpl();
+		return sendMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LogMediator createLogMediator() {
-        LogMediatorImpl logMediator = new LogMediatorImpl();
-        return logMediator;
-    }
+		LogMediatorImpl logMediator = new LogMediatorImpl();
+		return logMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LogProperty createLogProperty() {
-        LogPropertyImpl logProperty = new LogPropertyImpl();
-        return logProperty;
-    }
+		LogPropertyImpl logProperty = new LogPropertyImpl();
+		return logProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FilterMediator createFilterMediator() {
-        FilterMediatorImpl filterMediator = new FilterMediatorImpl();
-        return filterMediator;
-    }
+		FilterMediatorImpl filterMediator = new FilterMediatorImpl();
+		return filterMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FilterThenBranch createFilterThenBranch() {
-        FilterThenBranchImpl filterThenBranch = new FilterThenBranchImpl();
-        return filterThenBranch;
-    }
+		FilterThenBranchImpl filterThenBranch = new FilterThenBranchImpl();
+		return filterThenBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FilterElseBranch createFilterElseBranch() {
-        FilterElseBranchImpl filterElseBranch = new FilterElseBranchImpl();
-        return filterElseBranch;
-    }
+		FilterElseBranchImpl filterElseBranch = new FilterElseBranchImpl();
+		return filterElseBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SwitchMediator createSwitchMediator() {
-        SwitchMediatorImpl switchMediator = new SwitchMediatorImpl();
-        return switchMediator;
-    }
+		SwitchMediatorImpl switchMediator = new SwitchMediatorImpl();
+		return switchMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SwitchCaseBranch createSwitchCaseBranch() {
-        SwitchCaseBranchImpl switchCaseBranch = new SwitchCaseBranchImpl();
-        return switchCaseBranch;
-    }
+		SwitchCaseBranchImpl switchCaseBranch = new SwitchCaseBranchImpl();
+		return switchCaseBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SwitchDefaultBranch createSwitchDefaultBranch() {
-        SwitchDefaultBranchImpl switchDefaultBranch = new SwitchDefaultBranchImpl();
-        return switchDefaultBranch;
-    }
+		SwitchDefaultBranchImpl switchDefaultBranch = new SwitchDefaultBranchImpl();
+		return switchDefaultBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EntitlementMediator createEntitlementMediator() {
-        EntitlementMediatorImpl entitlementMediator = new EntitlementMediatorImpl();
-        return entitlementMediator;
-    }
+		EntitlementMediatorImpl entitlementMediator = new EntitlementMediatorImpl();
+		return entitlementMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnqueueMediator createEnqueueMediator() {
-        EnqueueMediatorImpl enqueueMediator = new EnqueueMediatorImpl();
-        return enqueueMediator;
-    }
+		EnqueueMediatorImpl enqueueMediator = new EnqueueMediatorImpl();
+		return enqueueMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ClassMediator createClassMediator() {
-        ClassMediatorImpl classMediator = new ClassMediatorImpl();
-        return classMediator;
-    }
+		ClassMediatorImpl classMediator = new ClassMediatorImpl();
+		return classMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ClassProperty createClassProperty() {
-        ClassPropertyImpl classProperty = new ClassPropertyImpl();
-        return classProperty;
-    }
+		ClassPropertyImpl classProperty = new ClassPropertyImpl();
+		return classProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SpringMediator createSpringMediator() {
-        SpringMediatorImpl springMediator = new SpringMediatorImpl();
-        return springMediator;
-    }
+		SpringMediatorImpl springMediator = new SpringMediatorImpl();
+		return springMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ValidateMediator createValidateMediator() {
-        ValidateMediatorImpl validateMediator = new ValidateMediatorImpl();
-        return validateMediator;
-    }
+		ValidateMediatorImpl validateMediator = new ValidateMediatorImpl();
+		return validateMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ValidateOnFailBranch createValidateOnFailBranch() {
-        ValidateOnFailBranchImpl validateOnFailBranch = new ValidateOnFailBranchImpl();
-        return validateOnFailBranch;
-    }
+		ValidateOnFailBranchImpl validateOnFailBranch = new ValidateOnFailBranchImpl();
+		return validateOnFailBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ValidateFeature createValidateFeature() {
-        ValidateFeatureImpl validateFeature = new ValidateFeatureImpl();
-        return validateFeature;
-    }
+		ValidateFeatureImpl validateFeature = new ValidateFeatureImpl();
+		return validateFeature;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ValidateSchema createValidateSchema() {
-        ValidateSchemaImpl validateSchema = new ValidateSchemaImpl();
-        return validateSchema;
-    }
+		ValidateSchemaImpl validateSchema = new ValidateSchemaImpl();
+		return validateSchema;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ScriptMediator createScriptMediator() {
-        ScriptMediatorImpl scriptMediator = new ScriptMediatorImpl();
-        return scriptMediator;
-    }
+		ScriptMediatorImpl scriptMediator = new ScriptMediatorImpl();
+		return scriptMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichMediator createEnrichMediator() {
-        EnrichMediatorImpl enrichMediator = new EnrichMediatorImpl();
-        return enrichMediator;
-    }
+		EnrichMediatorImpl enrichMediator = new EnrichMediatorImpl();
+		return enrichMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultMediator createFaultMediator() {
-        FaultMediatorImpl faultMediator = new FaultMediatorImpl();
-        return faultMediator;
-    }
+		FaultMediatorImpl faultMediator = new FaultMediatorImpl();
+		return faultMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AggregateMediator createAggregateMediator() {
-        AggregateMediatorImpl aggregateMediator = new AggregateMediatorImpl();
-        return aggregateMediator;
-    }
+		AggregateMediatorImpl aggregateMediator = new AggregateMediatorImpl();
+		return aggregateMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AggregateOnCompleteBranch createAggregateOnCompleteBranch() {
-        AggregateOnCompleteBranchImpl aggregateOnCompleteBranch = new AggregateOnCompleteBranchImpl();
-        return aggregateOnCompleteBranch;
-    }
+		AggregateOnCompleteBranchImpl aggregateOnCompleteBranch = new AggregateOnCompleteBranchImpl();
+		return aggregateOnCompleteBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RouterMediator createRouterMediator() {
-        RouterMediatorImpl routerMediator = new RouterMediatorImpl();
-        return routerMediator;
-    }
+		RouterMediatorImpl routerMediator = new RouterMediatorImpl();
+		return routerMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RouterRoute createRouterRoute() {
-        RouterRouteImpl routerRoute = new RouterRouteImpl();
-        return routerRoute;
-    }
+		RouterRouteImpl routerRoute = new RouterRouteImpl();
+		return routerRoute;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RouteTarget createRouteTarget() {
-        RouteTargetImpl routeTarget = new RouteTargetImpl();
-        return routeTarget;
-    }
+		RouteTargetImpl routeTarget = new RouteTargetImpl();
+		return routeTarget;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CloneMediator createCloneMediator() {
-        CloneMediatorImpl cloneMediator = new CloneMediatorImpl();
-        return cloneMediator;
-    }
+		CloneMediatorImpl cloneMediator = new CloneMediatorImpl();
+		return cloneMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CloneTarget createCloneTarget() {
-        CloneTargetImpl cloneTarget = new CloneTargetImpl();
-        return cloneTarget;
-    }
+		CloneTargetImpl cloneTarget = new CloneTargetImpl();
+		return cloneTarget;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IterateMediator createIterateMediator() {
-        IterateMediatorImpl iterateMediator = new IterateMediatorImpl();
-        return iterateMediator;
-    }
+		IterateMediatorImpl iterateMediator = new IterateMediatorImpl();
+		return iterateMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IterateTarget createIterateTarget() {
-        IterateTargetImpl iterateTarget = new IterateTargetImpl();
-        return iterateTarget;
-    }
+		IterateTargetImpl iterateTarget = new IterateTargetImpl();
+		return iterateTarget;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheMediator createCacheMediator() {
-        CacheMediatorImpl cacheMediator = new CacheMediatorImpl();
-        return cacheMediator;
-    }
+		CacheMediatorImpl cacheMediator = new CacheMediatorImpl();
+		return cacheMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheOnHitBranch createCacheOnHitBranch() {
-        CacheOnHitBranchImpl cacheOnHitBranch = new CacheOnHitBranchImpl();
-        return cacheOnHitBranch;
-    }
+		CacheOnHitBranchImpl cacheOnHitBranch = new CacheOnHitBranchImpl();
+		return cacheOnHitBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XSLTMediator createXSLTMediator() {
-        XSLTMediatorImpl xsltMediator = new XSLTMediatorImpl();
-        return xsltMediator;
-    }
+		XSLTMediatorImpl xsltMediator = new XSLTMediatorImpl();
+		return xsltMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XSLTProperty createXSLTProperty() {
-        XSLTPropertyImpl xsltProperty = new XSLTPropertyImpl();
-        return xsltProperty;
-    }
+		XSLTPropertyImpl xsltProperty = new XSLTPropertyImpl();
+		return xsltProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XSLTFeature createXSLTFeature() {
-        XSLTFeatureImpl xsltFeature = new XSLTFeatureImpl();
-        return xsltFeature;
-    }
+		XSLTFeatureImpl xsltFeature = new XSLTFeatureImpl();
+		return xsltFeature;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XSLTResource createXSLTResource() {
-        XSLTResourceImpl xsltResource = new XSLTResourceImpl();
-        return xsltResource;
-    }
+		XSLTResourceImpl xsltResource = new XSLTResourceImpl();
+		return xsltResource;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryMediator createXQueryMediator() {
-        XQueryMediatorImpl xQueryMediator = new XQueryMediatorImpl();
-        return xQueryMediator;
-    }
+		XQueryMediatorImpl xQueryMediator = new XQueryMediatorImpl();
+		return xQueryMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryVariable createXQueryVariable() {
-        XQueryVariableImpl xQueryVariable = new XQueryVariableImpl();
-        return xQueryVariable;
-    }
+		XQueryVariableImpl xQueryVariable = new XQueryVariableImpl();
+		return xQueryVariable;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CalloutMediator createCalloutMediator() {
-        CalloutMediatorImpl calloutMediator = new CalloutMediatorImpl();
-        return calloutMediator;
-    }
+		CalloutMediatorImpl calloutMediator = new CalloutMediatorImpl();
+		return calloutMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RMSequenceMediator createRMSequenceMediator() {
-        RMSequenceMediatorImpl rmSequenceMediator = new RMSequenceMediatorImpl();
-        return rmSequenceMediator;
-    }
+		RMSequenceMediatorImpl rmSequenceMediator = new RMSequenceMediatorImpl();
+		return rmSequenceMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TransactionMediator createTransactionMediator() {
-        TransactionMediatorImpl transactionMediator = new TransactionMediatorImpl();
-        return transactionMediator;
-    }
+		TransactionMediatorImpl transactionMediator = new TransactionMediatorImpl();
+		return transactionMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyMediator createPropertyMediator() {
-        PropertyMediatorImpl propertyMediator = new PropertyMediatorImpl();
-        return propertyMediator;
-    }
+		PropertyMediatorImpl propertyMediator = new PropertyMediatorImpl();
+		return propertyMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OAuthMediator createOAuthMediator() {
-        OAuthMediatorImpl oAuthMediator = new OAuthMediatorImpl();
-        return oAuthMediator;
-    }
+		OAuthMediatorImpl oAuthMediator = new OAuthMediatorImpl();
+		return oAuthMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AutoscaleInMediator createAutoscaleInMediator() {
-        AutoscaleInMediatorImpl autoscaleInMediator = new AutoscaleInMediatorImpl();
-        return autoscaleInMediator;
-    }
+		AutoscaleInMediatorImpl autoscaleInMediator = new AutoscaleInMediatorImpl();
+		return autoscaleInMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AutoscaleOutMediator createAutoscaleOutMediator() {
-        AutoscaleOutMediatorImpl autoscaleOutMediator = new AutoscaleOutMediatorImpl();
-        return autoscaleOutMediator;
-    }
+		AutoscaleOutMediatorImpl autoscaleOutMediator = new AutoscaleOutMediatorImpl();
+		return autoscaleOutMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public HeaderMediator createHeaderMediator() {
-        HeaderMediatorImpl headerMediator = new HeaderMediatorImpl();
-        return headerMediator;
-    }
+		HeaderMediatorImpl headerMediator = new HeaderMediatorImpl();
+		return headerMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleMediator createThrottleMediator() {
-        ThrottleMediatorImpl throttleMediator = new ThrottleMediatorImpl();
-        return throttleMediator;
-    }
+		ThrottleMediatorImpl throttleMediator = new ThrottleMediatorImpl();
+		return throttleMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyConfiguration createThrottlePolicyConfiguration() {
-        ThrottlePolicyConfigurationImpl throttlePolicyConfiguration = new ThrottlePolicyConfigurationImpl();
-        return throttlePolicyConfiguration;
-    }
+		ThrottlePolicyConfigurationImpl throttlePolicyConfiguration = new ThrottlePolicyConfigurationImpl();
+		return throttlePolicyConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyEntry createThrottlePolicyEntry() {
-        ThrottlePolicyEntryImpl throttlePolicyEntry = new ThrottlePolicyEntryImpl();
-        return throttlePolicyEntry;
-    }
+		ThrottlePolicyEntryImpl throttlePolicyEntry = new ThrottlePolicyEntryImpl();
+		return throttlePolicyEntry;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleOnAcceptBranch createThrottleOnAcceptBranch() {
-        ThrottleOnAcceptBranchImpl throttleOnAcceptBranch = new ThrottleOnAcceptBranchImpl();
-        return throttleOnAcceptBranch;
-    }
+		ThrottleOnAcceptBranchImpl throttleOnAcceptBranch = new ThrottleOnAcceptBranchImpl();
+		return throttleOnAcceptBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleOnRejectBranch createThrottleOnRejectBranch() {
-        ThrottleOnRejectBranchImpl throttleOnRejectBranch = new ThrottleOnRejectBranchImpl();
-        return throttleOnRejectBranch;
-    }
+		ThrottleOnRejectBranchImpl throttleOnRejectBranch = new ThrottleOnRejectBranchImpl();
+		return throttleOnRejectBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandMediator createCommandMediator() {
-        CommandMediatorImpl commandMediator = new CommandMediatorImpl();
-        return commandMediator;
-    }
+		CommandMediatorImpl commandMediator = new CommandMediatorImpl();
+		return commandMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandProperty createCommandProperty() {
-        CommandPropertyImpl commandProperty = new CommandPropertyImpl();
-        return commandProperty;
-    }
+		CommandPropertyImpl commandProperty = new CommandPropertyImpl();
+		return commandProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EventMediator createEventMediator() {
-        EventMediatorImpl eventMediator = new EventMediatorImpl();
-        return eventMediator;
-    }
+		EventMediatorImpl eventMediator = new EventMediatorImpl();
+		return eventMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlStatement createSqlStatement() {
-        SqlStatementImpl sqlStatement = new SqlStatementImpl();
-        return sqlStatement;
-    }
+		SqlStatementImpl sqlStatement = new SqlStatementImpl();
+		return sqlStatement;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlParameterDefinition createSqlParameterDefinition() {
-        SqlParameterDefinitionImpl sqlParameterDefinition = new SqlParameterDefinitionImpl();
-        return sqlParameterDefinition;
-    }
+		SqlParameterDefinitionImpl sqlParameterDefinition = new SqlParameterDefinitionImpl();
+		return sqlParameterDefinition;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlResultMapping createSqlResultMapping() {
-        SqlResultMappingImpl sqlResultMapping = new SqlResultMappingImpl();
-        return sqlResultMapping;
-    }
+		SqlResultMappingImpl sqlResultMapping = new SqlResultMappingImpl();
+		return sqlResultMapping;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DBLookupMediator createDBLookupMediator() {
-        DBLookupMediatorImpl dbLookupMediator = new DBLookupMediatorImpl();
-        return dbLookupMediator;
-    }
+		DBLookupMediatorImpl dbLookupMediator = new DBLookupMediatorImpl();
+		return dbLookupMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public DBReportMediator createDBReportMediator() {
-        DBReportMediatorImpl dbReportMediator = new DBReportMediatorImpl();
-        return dbReportMediator;
-    }
+		DBReportMediatorImpl dbReportMediator = new DBReportMediatorImpl();
+		return dbReportMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleMediator createRuleMediator() {
-        RuleMediatorImpl ruleMediator = new RuleMediatorImpl();
-        return ruleMediator;
-    }
+		RuleMediatorImpl ruleMediator = new RuleMediatorImpl();
+		return ruleMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSetConfiguration createRuleSetConfiguration() {
-        RuleSetConfigurationImpl ruleSetConfiguration = new RuleSetConfigurationImpl();
-        return ruleSetConfiguration;
-    }
+		RuleSetConfigurationImpl ruleSetConfiguration = new RuleSetConfigurationImpl();
+		return ruleSetConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSetCreationProperty createRuleSetCreationProperty() {
-        RuleSetCreationPropertyImpl ruleSetCreationProperty = new RuleSetCreationPropertyImpl();
-        return ruleSetCreationProperty;
-    }
+		RuleSetCreationPropertyImpl ruleSetCreationProperty = new RuleSetCreationPropertyImpl();
+		return ruleSetCreationProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSessionConfiguration createRuleSessionConfiguration() {
-        RuleSessionConfigurationImpl ruleSessionConfiguration = new RuleSessionConfigurationImpl();
-        return ruleSessionConfiguration;
-    }
+		RuleSessionConfigurationImpl ruleSessionConfiguration = new RuleSessionConfigurationImpl();
+		return ruleSessionConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSessionProperty createRuleSessionProperty() {
-        RuleSessionPropertyImpl ruleSessionProperty = new RuleSessionPropertyImpl();
-        return ruleSessionProperty;
-    }
+		RuleSessionPropertyImpl ruleSessionProperty = new RuleSessionPropertyImpl();
+		return ruleSessionProperty;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactsConfiguration createRuleFactsConfiguration() {
-        RuleFactsConfigurationImpl ruleFactsConfiguration = new RuleFactsConfigurationImpl();
-        return ruleFactsConfiguration;
-    }
+		RuleFactsConfigurationImpl ruleFactsConfiguration = new RuleFactsConfigurationImpl();
+		return ruleFactsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFact createRuleFact() {
-        RuleFactImpl ruleFact = new RuleFactImpl();
-        return ruleFact;
-    }
+		RuleFactImpl ruleFact = new RuleFactImpl();
+		return ruleFact;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleResultsConfiguration createRuleResultsConfiguration() {
-        RuleResultsConfigurationImpl ruleResultsConfiguration = new RuleResultsConfigurationImpl();
-        return ruleResultsConfiguration;
-    }
+		RuleResultsConfigurationImpl ruleResultsConfiguration = new RuleResultsConfigurationImpl();
+		return ruleResultsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleResult createRuleResult() {
-        RuleResultImpl ruleResult = new RuleResultImpl();
-        return ruleResult;
-    }
+		RuleResultImpl ruleResult = new RuleResultImpl();
+		return ruleResult;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleChildMediatorsConfiguration createRuleChildMediatorsConfiguration() {
-        RuleChildMediatorsConfigurationImpl ruleChildMediatorsConfiguration = new RuleChildMediatorsConfigurationImpl();
-        return ruleChildMediatorsConfiguration;
-    }
+		RuleChildMediatorsConfigurationImpl ruleChildMediatorsConfiguration = new RuleChildMediatorsConfigurationImpl();
+		return ruleChildMediatorsConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SequenceMediator createSequenceMediator() {
-        SequenceMediatorImpl sequenceMediator = new SequenceMediatorImpl();
-        return sequenceMediator;
-    }
+		SequenceMediatorImpl sequenceMediator = new SequenceMediatorImpl();
+		return sequenceMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BuilderMediator createBuilderMediator() {
-        BuilderMediatorImpl builderMediator = new BuilderMediatorImpl();
-        return builderMediator;
-    }
+		BuilderMediatorImpl builderMediator = new BuilderMediatorImpl();
+		return builderMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MessageBuilder createMessageBuilder() {
-        MessageBuilderImpl messageBuilder = new MessageBuilderImpl();
-        return messageBuilder;
-    }
+		MessageBuilderImpl messageBuilder = new MessageBuilderImpl();
+		return messageBuilder;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksMediator createSmooksMediator() {
-        SmooksMediatorImpl smooksMediator = new SmooksMediatorImpl();
-        return smooksMediator;
-    }
+		SmooksMediatorImpl smooksMediator = new SmooksMediatorImpl();
+		return smooksMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksInConfiguration createSmooksInConfiguration() {
-        SmooksInConfigurationImpl smooksInConfiguration = new SmooksInConfigurationImpl();
-        return smooksInConfiguration;
-    }
+		SmooksInConfigurationImpl smooksInConfiguration = new SmooksInConfigurationImpl();
+		return smooksInConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksOutConfiguration createSmooksOutConfiguration() {
-        SmooksOutConfigurationImpl smooksOutConfiguration = new SmooksOutConfigurationImpl();
-        return smooksOutConfiguration;
-    }
+		SmooksOutConfigurationImpl smooksOutConfiguration = new SmooksOutConfigurationImpl();
+		return smooksOutConfiguration;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public StoreMediator createStoreMediator() {
-        StoreMediatorImpl storeMediator = new StoreMediatorImpl();
-        return storeMediator;
-    }
+		StoreMediatorImpl storeMediator = new StoreMediatorImpl();
+		return storeMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ConditionalRouteBranch createConditionalRouteBranch() {
-        ConditionalRouteBranchImpl conditionalRouteBranch = new ConditionalRouteBranchImpl();
-        return conditionalRouteBranch;
-    }
+		ConditionalRouteBranchImpl conditionalRouteBranch = new ConditionalRouteBranchImpl();
+		return conditionalRouteBranch;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ConditionalRouterMediator createConditionalRouterMediator() {
-        ConditionalRouterMediatorImpl conditionalRouterMediator = new ConditionalRouterMediatorImpl();
-        return conditionalRouterMediator;
-    }
+		ConditionalRouterMediatorImpl conditionalRouterMediator = new ConditionalRouterMediatorImpl();
+		return conditionalRouterMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public URLRewriteRuleAction createURLRewriteRuleAction() {
-        URLRewriteRuleActionImpl urlRewriteRuleAction = new URLRewriteRuleActionImpl();
-        return urlRewriteRuleAction;
-    }
+		URLRewriteRuleActionImpl urlRewriteRuleAction = new URLRewriteRuleActionImpl();
+		return urlRewriteRuleAction;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public URLRewriteRule createURLRewriteRule() {
-        URLRewriteRuleImpl urlRewriteRule = new URLRewriteRuleImpl();
-        return urlRewriteRule;
-    }
+		URLRewriteRuleImpl urlRewriteRule = new URLRewriteRuleImpl();
+		return urlRewriteRule;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public URLRewriteMediator createURLRewriteMediator() {
-        URLRewriteMediatorImpl urlRewriteMediator = new URLRewriteMediatorImpl();
-        return urlRewriteMediator;
-    }
+		URLRewriteMediatorImpl urlRewriteMediator = new URLRewriteMediatorImpl();
+		return urlRewriteMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CallTemplateMediator createCallTemplateMediator() {
-        CallTemplateMediatorImpl callTemplateMediator = new CallTemplateMediatorImpl();
-        return callTemplateMediator;
-    }
+		CallTemplateMediatorImpl callTemplateMediator = new CallTemplateMediatorImpl();
+		return callTemplateMediator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CallTemplateParameter createCallTemplateParameter() {
-        CallTemplateParameterImpl callTemplateParameter = new CallTemplateParameterImpl();
-        return callTemplateParameter;
-    }
+		CallTemplateParameterImpl callTemplateParameter = new CallTemplateParameterImpl();
+		return callTemplateParameter;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public PayloadFactoryMediator createPayloadFactoryMediator() {
-        PayloadFactoryMediatorImpl payloadFactoryMediator = new PayloadFactoryMediatorImpl();
-        return payloadFactoryMediator;
-    }
+		PayloadFactoryMediatorImpl payloadFactoryMediator = new PayloadFactoryMediatorImpl();
+		return payloadFactoryMediator;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public PayloadFactoryArgument createPayloadFactoryArgument() {
-        PayloadFactoryArgumentImpl payloadFactoryArgument = new PayloadFactoryArgumentImpl();
-        return payloadFactoryArgument;
-    }
+		PayloadFactoryArgumentImpl payloadFactoryArgument = new PayloadFactoryArgumentImpl();
+		return payloadFactoryArgument;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LogCategory createLogCategoryFromString(EDataType eDataType, String initialValue) {
-        LogCategory result = LogCategory.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		LogCategory result = LogCategory.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertLogCategoryToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LogLevel createLogLevelFromString(EDataType eDataType, String initialValue) {
-        LogLevel result = LogLevel.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		LogLevel result = LogLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertLogLevelToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FilterConditionType createFilterConditionTypeFromString(EDataType eDataType, String initialValue) {
-        FilterConditionType result = FilterConditionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FilterConditionType result = FilterConditionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFilterConditionTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ScriptType createScriptTypeFromString(EDataType eDataType, String initialValue) {
-        ScriptType result = ScriptType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ScriptType result = ScriptType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertScriptTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ScriptLanguage createScriptLanguageFromString(EDataType eDataType, String initialValue) {
-        ScriptLanguage result = ScriptLanguage.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ScriptLanguage result = ScriptLanguage.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertScriptLanguageToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichSourceType createEnrichSourceTypeFromString(EDataType eDataType, String initialValue) {
-        EnrichSourceType result = EnrichSourceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EnrichSourceType result = EnrichSourceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEnrichSourceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichTargetAction createEnrichTargetActionFromString(EDataType eDataType, String initialValue) {
-        EnrichTargetAction result = EnrichTargetAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EnrichTargetAction result = EnrichTargetAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEnrichTargetActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichTargetType createEnrichTargetTypeFromString(EDataType eDataType, String initialValue) {
-        EnrichTargetType result = EnrichTargetType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EnrichTargetType result = EnrichTargetType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEnrichTargetTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultSoapVersion createFaultSoapVersionFromString(EDataType eDataType, String initialValue) {
-        FaultSoapVersion result = FaultSoapVersion.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultSoapVersion result = FaultSoapVersion.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultSoapVersionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultCodeSoap11 createFaultCodeSoap11FromString(EDataType eDataType, String initialValue) {
-        FaultCodeSoap11 result = FaultCodeSoap11.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultCodeSoap11 result = FaultCodeSoap11.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultCodeSoap11ToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultCodeSoap12 createFaultCodeSoap12FromString(EDataType eDataType, String initialValue) {
-        FaultCodeSoap12 result = FaultCodeSoap12.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultCodeSoap12 result = FaultCodeSoap12.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultCodeSoap12ToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultStringType createFaultStringTypeFromString(EDataType eDataType, String initialValue) {
-        FaultStringType result = FaultStringType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultStringType result = FaultStringType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultStringTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultReasonType createFaultReasonTypeFromString(EDataType eDataType, String initialValue) {
-        FaultReasonType result = FaultReasonType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultReasonType result = FaultReasonType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultReasonTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultDetailType createFaultDetailTypeFromString(EDataType eDataType, String initialValue) {
-        FaultDetailType result = FaultDetailType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		FaultDetailType result = FaultDetailType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertFaultDetailTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AggregateSequenceType createAggregateSequenceTypeFromString(EDataType eDataType, String initialValue) {
-        AggregateSequenceType result = AggregateSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		AggregateSequenceType result = AggregateSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertAggregateSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheSequenceType createCacheSequenceTypeFromString(EDataType eDataType, String initialValue) {
-        CacheSequenceType result = CacheSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CacheSequenceType result = CacheSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCacheSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheImplementationType createCacheImplementationTypeFromString(EDataType eDataType, String initialValue) {
-        CacheImplementationType result = CacheImplementationType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CacheImplementationType result = CacheImplementationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCacheImplementationTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheAction createCacheActionFromString(EDataType eDataType, String initialValue) {
-        CacheAction result = CacheAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CacheAction result = CacheAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCacheActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheScope createCacheScopeFromString(EDataType eDataType, String initialValue) {
-        CacheScope result = CacheScope.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CacheScope result = CacheScope.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCacheScopeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryVariableType createXQueryVariableTypeFromString(EDataType eDataType, String initialValue) {
-        XQueryVariableType result = XQueryVariableType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		XQueryVariableType result = XQueryVariableType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertXQueryVariableTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryVariableValueType createXQueryVariableValueTypeFromString(EDataType eDataType, String initialValue) {
-        XQueryVariableValueType result = XQueryVariableValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		XQueryVariableValueType result = XQueryVariableValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertXQueryVariableValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CalloutPayloadType createCalloutPayloadTypeFromString(EDataType eDataType, String initialValue) {
-        CalloutPayloadType result = CalloutPayloadType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CalloutPayloadType result = CalloutPayloadType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCalloutPayloadTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CalloutResultType createCalloutResultTypeFromString(EDataType eDataType, String initialValue) {
-        CalloutResultType result = CalloutResultType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CalloutResultType result = CalloutResultType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCalloutResultTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RMSpecVersion createRMSpecVersionFromString(EDataType eDataType, String initialValue) {
-        RMSpecVersion result = RMSpecVersion.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RMSpecVersion result = RMSpecVersion.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRMSpecVersionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RMSequenceType createRMSequenceTypeFromString(EDataType eDataType, String initialValue) {
-        RMSequenceType result = RMSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RMSequenceType result = RMSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRMSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TransactionAction createTransactionActionFromString(EDataType eDataType, String initialValue) {
-        TransactionAction result = TransactionAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		TransactionAction result = TransactionAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertTransactionActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyDataType createPropertyDataTypeFromString(EDataType eDataType, String initialValue) {
-        PropertyDataType result = PropertyDataType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyDataType result = PropertyDataType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertyDataTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyAction createPropertyActionFromString(EDataType eDataType, String initialValue) {
-        PropertyAction result = PropertyAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyAction result = PropertyAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertyActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyScope createPropertyScopeFromString(EDataType eDataType, String initialValue) {
-        PropertyScope result = PropertyScope.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyScope result = PropertyScope.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertyScopeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyValueType createPropertyValueTypeFromString(EDataType eDataType, String initialValue) {
-        PropertyValueType result = PropertyValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyValueType result = PropertyValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertyValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public HeaderAction createHeaderActionFromString(EDataType eDataType, String initialValue) {
-        HeaderAction result = HeaderAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		HeaderAction result = HeaderAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertHeaderActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public HeaderValueType createHeaderValueTypeFromString(EDataType eDataType, String initialValue) {
-        HeaderValueType result = HeaderValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		HeaderValueType result = HeaderValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertHeaderValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyType createThrottlePolicyTypeFromString(EDataType eDataType, String initialValue) {
-        ThrottlePolicyType result = ThrottlePolicyType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ThrottlePolicyType result = ThrottlePolicyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertThrottlePolicyTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleConditionType createThrottleConditionTypeFromString(EDataType eDataType, String initialValue) {
-        ThrottleConditionType result = ThrottleConditionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ThrottleConditionType result = ThrottleConditionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertThrottleConditionTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleAccessType createThrottleAccessTypeFromString(EDataType eDataType, String initialValue) {
-        ThrottleAccessType result = ThrottleAccessType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ThrottleAccessType result = ThrottleAccessType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertThrottleAccessTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottleSequenceType createThrottleSequenceTypeFromString(EDataType eDataType, String initialValue) {
-        ThrottleSequenceType result = ThrottleSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ThrottleSequenceType result = ThrottleSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertThrottleSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandPropertyValueType createCommandPropertyValueTypeFromString(EDataType eDataType, String initialValue) {
-        CommandPropertyValueType result = CommandPropertyValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CommandPropertyValueType result = CommandPropertyValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCommandPropertyValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandPropertyMessageAction createCommandPropertyMessageActionFromString(EDataType eDataType, String initialValue) {
-        CommandPropertyMessageAction result = CommandPropertyMessageAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CommandPropertyMessageAction result = CommandPropertyMessageAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCommandPropertyMessageActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandPropertyContextAction createCommandPropertyContextActionFromString(EDataType eDataType, String initialValue) {
-        CommandPropertyContextAction result = CommandPropertyContextAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		CommandPropertyContextAction result = CommandPropertyContextAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertCommandPropertyContextActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlExecutorConnectionType createSqlExecutorConnectionTypeFromString(EDataType eDataType, String initialValue) {
-        SqlExecutorConnectionType result = SqlExecutorConnectionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlExecutorConnectionType result = SqlExecutorConnectionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlExecutorConnectionTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlExecutorDatasourceType createSqlExecutorDatasourceTypeFromString(EDataType eDataType, String initialValue) {
-        SqlExecutorDatasourceType result = SqlExecutorDatasourceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlExecutorDatasourceType result = SqlExecutorDatasourceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlExecutorDatasourceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlExecutorBooleanValue createSqlExecutorBooleanValueFromString(EDataType eDataType, String initialValue) {
-        SqlExecutorBooleanValue result = SqlExecutorBooleanValue.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlExecutorBooleanValue result = SqlExecutorBooleanValue.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlExecutorBooleanValueToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlExecutorIsolationLevel createSqlExecutorIsolationLevelFromString(EDataType eDataType, String initialValue) {
-        SqlExecutorIsolationLevel result = SqlExecutorIsolationLevel.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlExecutorIsolationLevel result = SqlExecutorIsolationLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlExecutorIsolationLevelToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlParameterValueType createSqlParameterValueTypeFromString(EDataType eDataType, String initialValue) {
-        SqlParameterValueType result = SqlParameterValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlParameterValueType result = SqlParameterValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlParameterValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SqlParameterDataType createSqlParameterDataTypeFromString(EDataType eDataType, String initialValue) {
-        SqlParameterDataType result = SqlParameterDataType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SqlParameterDataType result = SqlParameterDataType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSqlParameterDataTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSourceType createRuleSourceTypeFromString(EDataType eDataType, String initialValue) {
-        RuleSourceType result = RuleSourceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleSourceType result = RuleSourceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleSourceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactType createRuleFactTypeFromString(EDataType eDataType, String initialValue) {
-        RuleFactType result = RuleFactType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleFactType result = RuleFactType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleFactTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactValueType createRuleFactValueTypeFromString(EDataType eDataType, String initialValue) {
-        RuleFactValueType result = RuleFactValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleFactValueType result = RuleFactValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleFactValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleResultType createRuleResultTypeFromString(EDataType eDataType, String initialValue) {
-        RuleResultType result = RuleResultType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleResultType result = RuleResultType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleResultTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleResultValueType createRuleResultValueTypeFromString(EDataType eDataType, String initialValue) {
-        RuleResultValueType result = RuleResultValueType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleResultValueType result = RuleResultValueType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleResultValueTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksIODataType createSmooksIODataTypeFromString(EDataType eDataType, String initialValue) {
-        SmooksIODataType result = SmooksIODataType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		SmooksIODataType result = SmooksIODataType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertSmooksIODataTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ExpressionAction createExpressionActionFromString(EDataType eDataType, String initialValue) {
-        ExpressionAction result = ExpressionAction.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ExpressionAction result = ExpressionAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertExpressionActionToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OutputMethod createOutputMethodFromString(EDataType eDataType, String initialValue) {
-        OutputMethod result = OutputMethod.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		OutputMethod result = OutputMethod.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertOutputMethodToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ReceivingSequenceType createReceivingSequenceTypeFromString(EDataType eDataType, String initialValue) {
-        ReceivingSequenceType result = ReceivingSequenceType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		ReceivingSequenceType result = ReceivingSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertReceivingSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public KeyType createKeyTypeFromString(EDataType eDataType, String initialValue) {
-        KeyType result = KeyType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		KeyType result = KeyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertKeyTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleActionType createRuleActionTypeFromString(EDataType eDataType, String initialValue) {
-        RuleActionType result = RuleActionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleActionType result = RuleActionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleActionTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFragmentType createRuleFragmentTypeFromString(EDataType eDataType, String initialValue) {
-        RuleFragmentType result = RuleFragmentType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleFragmentType result = RuleFragmentType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleFragmentTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleOptionType createRuleOptionTypeFromString(EDataType eDataType, String initialValue) {
-        RuleOptionType result = RuleOptionType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		RuleOptionType result = RuleOptionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertRuleOptionTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichSourceInlineType createEnrichSourceInlineTypeFromString(EDataType eDataType, String initialValue) {
-        EnrichSourceInlineType result = EnrichSourceInlineType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EnrichSourceInlineType result = EnrichSourceInlineType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEnrichSourceInlineTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public PayloadFactoryArgumentType createPayloadFactoryArgumentTypeFromString(EDataType eDataType, String initialValue) {
-        PayloadFactoryArgumentType result = PayloadFactoryArgumentType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PayloadFactoryArgumentType result = PayloadFactoryArgumentType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String convertPayloadFactoryArgumentTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MediatorsPackage getMediatorsPackage() {
-        return (MediatorsPackage)getEPackage();
-    }
+		return (MediatorsPackage)getEPackage();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @deprecated
-     * @generated
-     */
+	 * @deprecated
+	 * @generated
+	 */
 	@Deprecated
 	public static MediatorsPackage getPackage() {
-        return MediatorsPackage.eINSTANCE;
-    }
+		return MediatorsPackage.eINSTANCE;
+	}
 
 } //MediatorsFactoryImpl

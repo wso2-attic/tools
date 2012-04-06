@@ -42,23 +42,23 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class AddressEndPointImpl extends AbstractDefaultEndPointImpl implements AddressEndPoint {
     /**
-     * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getUri()
-     * @generated
-     * @ordered
-     */
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String URI_EDEFAULT = "http://default/address/endpoint/uri";
 
     /**
-     * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getUri()
-     * @generated
-     * @ordered
-     */
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
     protected String uri = URI_EDEFAULT;
 
     /**
@@ -118,109 +118,115 @@ public class AddressEndPointImpl extends AbstractDefaultEndPointImpl implements 
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.ADDRESS_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.ADDRESS_END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getUri() {
-        return uri;
-    }
+		return uri;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setUri(String newUri) {
-        String oldUri = uri;
-        uri = newUri;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ADDRESS_END_POINT__URI, oldUri, uri));
-    }
+		String oldUri = uri;
+		uri = newUri;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ADDRESS_END_POINT__URI, oldUri, uri));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.ADDRESS_END_POINT__URI:
-                return getUri();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.ADDRESS_END_POINT__URI:
+				return getUri();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.ADDRESS_END_POINT__URI:
-                setUri((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EsbPackage.ADDRESS_END_POINT__URI:
+				setUri((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ADDRESS_END_POINT__URI:
-                setUri(URI_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.ADDRESS_END_POINT__URI:
+				setUri(URI_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ADDRESS_END_POINT__URI:
-                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.ADDRESS_END_POINT__URI:
+				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (uri: ");
-        result.append(uri);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (uri: ");
+		result.append(uri);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

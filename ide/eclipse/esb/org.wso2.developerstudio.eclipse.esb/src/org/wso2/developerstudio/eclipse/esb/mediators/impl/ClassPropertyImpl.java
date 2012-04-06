@@ -32,23 +32,24 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
  */
 public class ClassPropertyImpl extends AbstractNameValuePropertyImpl implements ClassProperty {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ClassPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.CLASS_PROPERTY;
-    }
+		return MediatorsPackage.Literals.CLASS_PROPERTY;
+	}
 
 	
 

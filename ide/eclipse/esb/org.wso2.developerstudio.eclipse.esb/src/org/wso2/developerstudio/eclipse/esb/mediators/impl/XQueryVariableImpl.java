@@ -54,103 +54,103 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariable {
 	/**
-     * The default value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVariableName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVariableName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VARIABLE_NAME_EDEFAULT = "variable_name";
 
 	/**
-     * The cached value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVariableName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVariableName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String variableName = VARIABLE_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getVariableType() <em>Variable Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getVariableType() <em>Variable Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVariableType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVariableType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final XQueryVariableType VARIABLE_TYPE_EDEFAULT = XQueryVariableType.STRING;
 
 	/**
-     * The cached value of the '{@link #getVariableType() <em>Variable Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVariableType() <em>Variable Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVariableType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVariableType()
+	 * @generated
+	 * @ordered
+	 */
 	protected XQueryVariableType variableType = VARIABLE_TYPE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final XQueryVariableValueType VALUE_TYPE_EDEFAULT = XQueryVariableValueType.LITERAL;
 
 	/**
-     * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueType()
+	 * @generated
+	 * @ordered
+	 */
 	protected XQueryVariableValueType valueType = VALUE_TYPE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VALUE_LITERAL_EDEFAULT = "literal_value";
 
 	/**
-     * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueLiteral()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueLiteral()
+	 * @generated
+	 * @ordered
+	 */
 	protected String valueLiteral = VALUE_LITERAL_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueExpression() <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueExpression()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueExpression()
+	 * @generated
+	 * @ordered
+	 */
 	protected NamespacedProperty valueExpression;
 
 	/**
-     * The cached value of the '{@link #getValueKey() <em>Value Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueKey() <em>Value Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getValueKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getValueKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty valueKey;
 
 	/**
@@ -242,330 +242,337 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.XQUERY_VARIABLE;
-    }
+		return MediatorsPackage.Literals.XQUERY_VARIABLE;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getVariableName() {
-        return variableName;
-    }
+		return variableName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setVariableName(String newVariableName) {
-        String oldVariableName = variableName;
-        variableName = newVariableName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME, oldVariableName, variableName));
-    }
+		String oldVariableName = variableName;
+		variableName = newVariableName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME, oldVariableName, variableName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryVariableType getVariableType() {
-        return variableType;
-    }
+		return variableType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setVariableType(XQueryVariableType newVariableType) {
-        XQueryVariableType oldVariableType = variableType;
-        variableType = newVariableType == null ? VARIABLE_TYPE_EDEFAULT : newVariableType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE, oldVariableType, variableType));
-    }
+		XQueryVariableType oldVariableType = variableType;
+		variableType = newVariableType == null ? VARIABLE_TYPE_EDEFAULT : newVariableType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE, oldVariableType, variableType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public XQueryVariableValueType getValueType() {
-        return valueType;
-    }
+		return valueType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueType(XQueryVariableValueType newValueType) {
-        XQueryVariableValueType oldValueType = valueType;
-        valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE, oldValueType, valueType));
-    }
+		XQueryVariableValueType oldValueType = valueType;
+		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE, oldValueType, valueType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getValueLiteral() {
-        return valueLiteral;
-    }
+		return valueLiteral;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueLiteral(String newValueLiteral) {
-        String oldValueLiteral = valueLiteral;
-        valueLiteral = newValueLiteral;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL, oldValueLiteral, valueLiteral));
-    }
+		String oldValueLiteral = valueLiteral;
+		valueLiteral = newValueLiteral;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL, oldValueLiteral, valueLiteral));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NamespacedProperty getValueExpression() {
-        return valueExpression;
-    }
+		return valueExpression;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueExpression(NamespacedProperty newValueExpression, NotificationChain msgs) {
-        NamespacedProperty oldValueExpression = valueExpression;
-        valueExpression = newValueExpression;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		NamespacedProperty oldValueExpression = valueExpression;
+		valueExpression = newValueExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, oldValueExpression, newValueExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueExpression(NamespacedProperty newValueExpression) {
-        if (newValueExpression != valueExpression) {
-            NotificationChain msgs = null;
-            if (valueExpression != null)
-                msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, null, msgs);
-            if (newValueExpression != null)
-                msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, null, msgs);
-            msgs = basicSetValueExpression(newValueExpression, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, newValueExpression, newValueExpression));
-    }
+		if (newValueExpression != valueExpression) {
+			NotificationChain msgs = null;
+			if (valueExpression != null)
+				msgs = ((InternalEObject)valueExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, null, msgs);
+			if (newValueExpression != null)
+				msgs = ((InternalEObject)newValueExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, null, msgs);
+			msgs = basicSetValueExpression(newValueExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION, newValueExpression, newValueExpression));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getValueKey() {
-        return valueKey;
-    }
+		return valueKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetValueKey(RegistryKeyProperty newValueKey, NotificationChain msgs) {
-        RegistryKeyProperty oldValueKey = valueKey;
-        valueKey = newValueKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, oldValueKey, newValueKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldValueKey = valueKey;
+		valueKey = newValueKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, oldValueKey, newValueKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setValueKey(RegistryKeyProperty newValueKey) {
-        if (newValueKey != valueKey) {
-            NotificationChain msgs = null;
-            if (valueKey != null)
-                msgs = ((InternalEObject)valueKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, null, msgs);
-            if (newValueKey != null)
-                msgs = ((InternalEObject)newValueKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, null, msgs);
-            msgs = basicSetValueKey(newValueKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, newValueKey, newValueKey));
-    }
+		if (newValueKey != valueKey) {
+			NotificationChain msgs = null;
+			if (valueKey != null)
+				msgs = ((InternalEObject)valueKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, null, msgs);
+			if (newValueKey != null)
+				msgs = ((InternalEObject)newValueKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, null, msgs);
+			msgs = basicSetValueKey(newValueKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY, newValueKey, newValueKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
-                return basicSetValueExpression(null, msgs);
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
-                return basicSetValueKey(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
+				return basicSetValueExpression(null, msgs);
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
+				return basicSetValueKey(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
-                return getVariableName();
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
-                return getVariableType();
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
-                return getValueType();
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
-                return getValueLiteral();
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
-                return getValueExpression();
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
-                return getValueKey();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
+				return getVariableName();
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
+				return getVariableType();
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
+				return getValueType();
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
+				return getValueLiteral();
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
+				return getValueExpression();
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
+				return getValueKey();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
-                setVariableName((String)newValue);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
-                setVariableType((XQueryVariableType)newValue);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
-                setValueType((XQueryVariableValueType)newValue);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
-                setValueLiteral((String)newValue);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)newValue);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
-                setValueKey((RegistryKeyProperty)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
+				setVariableName((String)newValue);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
+				setVariableType((XQueryVariableType)newValue);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
+				setValueType((XQueryVariableValueType)newValue);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
+				setValueLiteral((String)newValue);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)newValue);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
+				setValueKey((RegistryKeyProperty)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
-                setVariableName(VARIABLE_NAME_EDEFAULT);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
-                setVariableType(VARIABLE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
-                setValueType(VALUE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
-                setValueLiteral(VALUE_LITERAL_EDEFAULT);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
-                setValueExpression((NamespacedProperty)null);
-                return;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
-                setValueKey((RegistryKeyProperty)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
+				setVariableName(VARIABLE_NAME_EDEFAULT);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
+				setVariableType(VARIABLE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
+				setValueType(VALUE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
+				setValueLiteral(VALUE_LITERAL_EDEFAULT);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
+				setValueExpression((NamespacedProperty)null);
+				return;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
+				setValueKey((RegistryKeyProperty)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
-                return VARIABLE_NAME_EDEFAULT == null ? variableName != null : !VARIABLE_NAME_EDEFAULT.equals(variableName);
-            case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
-                return variableType != VARIABLE_TYPE_EDEFAULT;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
-                return valueType != VALUE_TYPE_EDEFAULT;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
-                return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
-                return valueExpression != null;
-            case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
-                return valueKey != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_NAME:
+				return VARIABLE_NAME_EDEFAULT == null ? variableName != null : !VARIABLE_NAME_EDEFAULT.equals(variableName);
+			case MediatorsPackage.XQUERY_VARIABLE__VARIABLE_TYPE:
+				return variableType != VARIABLE_TYPE_EDEFAULT;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_TYPE:
+				return valueType != VALUE_TYPE_EDEFAULT;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_LITERAL:
+				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_EXPRESSION:
+				return valueExpression != null;
+			case MediatorsPackage.XQUERY_VARIABLE__VALUE_KEY:
+				return valueKey != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (variableName: ");
-        result.append(variableName);
-        result.append(", variableType: ");
-        result.append(variableType);
-        result.append(", valueType: ");
-        result.append(valueType);
-        result.append(", valueLiteral: ");
-        result.append(valueLiteral);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (variableName: ");
+		result.append(variableName);
+		result.append(", variableType: ");
+		result.append(variableType);
+		result.append(", valueType: ");
+		result.append(valueType);
+		result.append(", valueLiteral: ");
+		result.append(valueLiteral);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

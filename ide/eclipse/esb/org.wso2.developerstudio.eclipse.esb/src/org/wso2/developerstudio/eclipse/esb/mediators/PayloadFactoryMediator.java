@@ -38,45 +38,45 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface PayloadFactoryMediator extends Mediator {
     /**
-     * Returns the value of the '<em><b>Format</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Format</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Format</em>' attribute.
-     * @see #setFormat(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryMediator_Format()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see #setFormat(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryMediator_Format()
+	 * @model
+	 * @generated
+	 */
     String getFormat();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator#getFormat <em>Format</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Format</em>' attribute.
-     * @see #getFormat()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see #getFormat()
+	 * @generated
+	 */
     void setFormat(String value);
 
     /**
-     * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Args</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument}.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Args</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryMediator_Args()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Args</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryMediator_Args()
+	 * @model containment="true"
+	 * @generated
+	 */
     EList<PayloadFactoryArgument> getArgs();
 
 } // PayloadFactoryMediator

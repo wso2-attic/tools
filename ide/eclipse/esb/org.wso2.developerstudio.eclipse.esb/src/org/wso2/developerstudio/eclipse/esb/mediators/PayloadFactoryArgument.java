@@ -38,84 +38,84 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface PayloadFactoryArgument extends ModelObject {
     /**
-     * Returns the value of the '<em><b>Argument Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Argument Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType}.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Argument Type</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Argument Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType
-     * @see #setArgumentType(PayloadFactoryArgumentType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentType()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Argument Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType
+	 * @see #setArgumentType(PayloadFactoryArgumentType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentType()
+	 * @model
+	 * @generated
+	 */
     PayloadFactoryArgumentType getArgumentType();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentType <em>Argument Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentType <em>Argument Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Argument Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType
-     * @see #getArgumentType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Argument Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgumentType
+	 * @see #getArgumentType()
+	 * @generated
+	 */
     void setArgumentType(PayloadFactoryArgumentType value);
 
     /**
-     * Returns the value of the '<em><b>Argument Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Argument Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Argument Value</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Argument Value</em>' attribute.
-     * @see #setArgumentValue(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentValue()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Argument Value</em>' attribute.
+	 * @see #setArgumentValue(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentValue()
+	 * @model
+	 * @generated
+	 */
     String getArgumentValue();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentValue <em>Argument Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentValue <em>Argument Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Argument Value</em>' attribute.
-     * @see #getArgumentValue()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Argument Value</em>' attribute.
+	 * @see #getArgumentValue()
+	 * @generated
+	 */
     void setArgumentValue(String value);
 
     /**
-     * Returns the value of the '<em><b>Argument Expression</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Argument Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Argument Expression</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Argument Expression</em>' reference.
-     * @see #setArgumentExpression(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentExpression()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Argument Expression</em>' reference.
+	 * @see #setArgumentExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getPayloadFactoryArgument_ArgumentExpression()
+	 * @model
+	 * @generated
+	 */
     NamespacedProperty getArgumentExpression();
 
     /**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentExpression <em>Argument Expression</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument#getArgumentExpression <em>Argument Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Argument Expression</em>' reference.
-     * @see #getArgumentExpression()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Argument Expression</em>' reference.
+	 * @see #getArgumentExpression()
+	 * @generated
+	 */
     void setArgumentExpression(NamespacedProperty value);
 
 } // PayloadFactoryArgument

@@ -34,23 +34,24 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleSetCreationPropertyImpl extends AbstractNameValuePropertyImpl implements RuleSetCreationProperty {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSetCreationPropertyImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_SET_CREATION_PROPERTY;
-    }
+		return MediatorsPackage.Literals.RULE_SET_CREATION_PROPERTY;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

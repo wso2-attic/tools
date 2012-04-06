@@ -38,111 +38,111 @@ package org.wso2.developerstudio.eclipse.esb;
 public interface ProxyEndpointConfiguration extends ModelObject {
 
 	/**
-     * Returns the value of the '<em><b>Endpoint Type</b></em>' attribute.
-     * The default value is <code>"ANONYMOUS"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Type</b></em>' attribute.
+	 * The default value is <code>"ANONYMOUS"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.ProxyEndpointType
-     * @see #setEndpointType(ProxyEndpointType)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointType()
-     * @model default="ANONYMOUS"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.ProxyEndpointType
+	 * @see #setEndpointType(ProxyEndpointType)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointType()
+	 * @model default="ANONYMOUS"
+	 * @generated
+	 */
 	ProxyEndpointType getEndpointType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointType <em>Endpoint Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointType <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.ProxyEndpointType
-     * @see #getEndpointType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.ProxyEndpointType
+	 * @see #getEndpointType()
+	 * @generated
+	 */
 	void setEndpointType(ProxyEndpointType value);
 
 	/**
-     * Returns the value of the '<em><b>Inline Endpoint</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Inline Endpoint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Inline Endpoint</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Inline Endpoint</em>' containment reference.
-     * @see #setInlineEndpoint(EndPoint)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_InlineEndpoint()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Inline Endpoint</em>' containment reference.
+	 * @see #setInlineEndpoint(EndPoint)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_InlineEndpoint()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EndPoint getInlineEndpoint();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getInlineEndpoint <em>Inline Endpoint</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getInlineEndpoint <em>Inline Endpoint</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Inline Endpoint</em>' containment reference.
-     * @see #getInlineEndpoint()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Inline Endpoint</em>' containment reference.
+	 * @see #getInlineEndpoint()
+	 * @generated
+	 */
 	void setInlineEndpoint(EndPoint value);
 
 	/**
-     * Returns the value of the '<em><b>Endpoint Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Key</em>' containment reference.
-     * @see #setEndpointKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointKey()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Key</em>' containment reference.
+	 * @see #setEndpointKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointKey()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getEndpointKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointKey <em>Endpoint Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointKey <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Key</em>' containment reference.
-     * @see #getEndpointKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Key</em>' containment reference.
+	 * @see #getEndpointKey()
+	 * @generated
+	 */
 	void setEndpointKey(RegistryKeyProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Endpoint Name</b></em>' attribute.
-     * The default value is <code>"endpoint_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Endpoint Name</b></em>' attribute.
+	 * The default value is <code>"endpoint_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Endpoint Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint Name</em>' attribute.
-     * @see #setEndpointName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointName()
-     * @model default="endpoint_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Endpoint Name</em>' attribute.
+	 * @see #setEndpointName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getProxyEndpointConfiguration_EndpointName()
+	 * @model default="endpoint_name"
+	 * @generated
+	 */
 	String getEndpointName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointName <em>Endpoint Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration#getEndpointName <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint Name</em>' attribute.
-     * @see #getEndpointName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Endpoint Name</em>' attribute.
+	 * @see #getEndpointName()
+	 * @generated
+	 */
 	void setEndpointName(String value);
 } // ProxyEndpoint

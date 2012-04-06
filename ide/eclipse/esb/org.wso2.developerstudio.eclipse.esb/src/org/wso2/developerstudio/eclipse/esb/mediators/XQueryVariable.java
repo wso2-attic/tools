@@ -43,169 +43,169 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface XQueryVariable extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Variable Name</b></em>' attribute.
-     * The default value is <code>"variable_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Variable Name</b></em>' attribute.
+	 * The default value is <code>"variable_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Variable Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Variable Name</em>' attribute.
-     * @see #setVariableName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_VariableName()
-     * @model default="variable_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Variable Name</em>' attribute.
+	 * @see #setVariableName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_VariableName()
+	 * @model default="variable_name"
+	 * @generated
+	 */
 	String getVariableName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getVariableName <em>Variable Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getVariableName <em>Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Variable Name</em>' attribute.
-     * @see #getVariableName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Variable Name</em>' attribute.
+	 * @see #getVariableName()
+	 * @generated
+	 */
 	void setVariableName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Variable Type</b></em>' attribute.
-     * The default value is <code>"STRING"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Variable Type</b></em>' attribute.
+	 * The default value is <code>"STRING"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Variable Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Variable Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType
-     * @see #setVariableType(XQueryVariableType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_VariableType()
-     * @model default="STRING"
-     * @generated
-     */
+	 * @return the value of the '<em>Variable Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType
+	 * @see #setVariableType(XQueryVariableType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_VariableType()
+	 * @model default="STRING"
+	 * @generated
+	 */
 	XQueryVariableType getVariableType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getVariableType <em>Variable Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getVariableType <em>Variable Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Variable Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType
-     * @see #getVariableType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Variable Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType
+	 * @see #getVariableType()
+	 * @generated
+	 */
 	void setVariableType(XQueryVariableType value);
 
 	/**
-     * Returns the value of the '<em><b>Value Type</b></em>' attribute.
-     * The default value is <code>"LITERAL"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value Type</b></em>' attribute.
+	 * The default value is <code>"LITERAL"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Value Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType
-     * @see #setValueType(XQueryVariableValueType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueType()
-     * @model default="LITERAL"
-     * @generated
-     */
+	 * @return the value of the '<em>Value Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType
+	 * @see #setValueType(XQueryVariableValueType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueType()
+	 * @model default="LITERAL"
+	 * @generated
+	 */
 	XQueryVariableValueType getValueType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueType <em>Value Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueType <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType
-     * @see #getValueType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Value Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType
+	 * @see #getValueType()
+	 * @generated
+	 */
 	void setValueType(XQueryVariableValueType value);
 
 	/**
-     * Returns the value of the '<em><b>Value Literal</b></em>' attribute.
-     * The default value is <code>"literal_value"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value Literal</b></em>' attribute.
+	 * The default value is <code>"literal_value"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Literal</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Value Literal</em>' attribute.
-     * @see #setValueLiteral(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueLiteral()
-     * @model default="literal_value"
-     * @generated
-     */
+	 * @return the value of the '<em>Value Literal</em>' attribute.
+	 * @see #setValueLiteral(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueLiteral()
+	 * @model default="literal_value"
+	 * @generated
+	 */
 	String getValueLiteral();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueLiteral <em>Value Literal</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueLiteral <em>Value Literal</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value Literal</em>' attribute.
-     * @see #getValueLiteral()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Value Literal</em>' attribute.
+	 * @see #getValueLiteral()
+	 * @generated
+	 */
 	void setValueLiteral(String value);
 
 	/**
-     * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Expression</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Value Expression</em>' containment reference.
-     * @see #setValueExpression(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueExpression()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Value Expression</em>' containment reference.
+	 * @see #setValueExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getValueExpression();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueExpression <em>Value Expression</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueExpression <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value Expression</em>' containment reference.
-     * @see #getValueExpression()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Value Expression</em>' containment reference.
+	 * @see #getValueExpression()
+	 * @generated
+	 */
 	void setValueExpression(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Value Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Value Key</em>' containment reference.
-     * @see #setValueKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueKey()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Value Key</em>' containment reference.
+	 * @see #setValueKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getXQueryVariable_ValueKey()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getValueKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueKey <em>Value Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable#getValueKey <em>Value Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value Key</em>' containment reference.
-     * @see #getValueKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Value Key</em>' containment reference.
+	 * @see #getValueKey()
+	 * @generated
+	 */
 	void setValueKey(RegistryKeyProperty value);
 
 } // XQueryVariable

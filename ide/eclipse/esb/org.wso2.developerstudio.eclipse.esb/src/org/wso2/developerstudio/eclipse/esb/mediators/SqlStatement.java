@@ -39,89 +39,89 @@ import org.wso2.developerstudio.eclipse.esb.ModelObject;
  */
 public interface SqlStatement extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Query String</b></em>' attribute.
-     * The default value is <code>"sql_query"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Query String</b></em>' attribute.
+	 * The default value is <code>"sql_query"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Query String</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Query String</em>' attribute.
-     * @see #setQueryString(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_QueryString()
-     * @model default="sql_query"
-     * @generated
-     */
+	 * @return the value of the '<em>Query String</em>' attribute.
+	 * @see #setQueryString(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_QueryString()
+	 * @model default="sql_query"
+	 * @generated
+	 */
 	String getQueryString();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement#getQueryString <em>Query String</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement#getQueryString <em>Query String</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Query String</em>' attribute.
-     * @see #getQueryString()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Query String</em>' attribute.
+	 * @see #getQueryString()
+	 * @generated
+	 */
 	void setQueryString(String value);
 
 	/**
-     * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Parameters</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_Parameters()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<SqlParameterDefinition> getParameters();
 
 	/**
-     * Returns the value of the '<em><b>Results Enabled</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Results Enabled</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Results Enabled</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Results Enabled</em>' attribute.
-     * @see #setResultsEnabled(boolean)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_ResultsEnabled()
-     * @model default="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Results Enabled</em>' attribute.
+	 * @see #setResultsEnabled(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_ResultsEnabled()
+	 * @model default="false"
+	 * @generated
+	 */
 	boolean isResultsEnabled();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement#isResultsEnabled <em>Results Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement#isResultsEnabled <em>Results Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Results Enabled</em>' attribute.
-     * @see #isResultsEnabled()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Results Enabled</em>' attribute.
+	 * @see #isResultsEnabled()
+	 * @generated
+	 */
 	void setResultsEnabled(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Results</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Results</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Results</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_Results()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Results</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSqlStatement_Results()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<SqlResultMapping> getResults();
 
 } // SqlStatement

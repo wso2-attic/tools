@@ -38,55 +38,55 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Namespace extends EObject {
 	/**
-     * Returns the value of the '<em><b>Prefix</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Prefix</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Prefix</em>' attribute.
-     * @see #setPrefix(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getNamespace_Prefix()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #setPrefix(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getNamespace_Prefix()
+	 * @model
+	 * @generated
+	 */
 	String getPrefix();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.Namespace#getPrefix <em>Prefix</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.Namespace#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Prefix</em>' attribute.
-     * @see #getPrefix()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #getPrefix()
+	 * @generated
+	 */
 	void setPrefix(String value);
 
 	/**
-     * Returns the value of the '<em><b>Uri</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Uri</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Uri</em>' attribute.
-     * @see #setUri(String)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getNamespace_Uri()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Uri</em>' attribute.
+	 * @see #setUri(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getNamespace_Uri()
+	 * @model
+	 * @generated
+	 */
 	String getUri();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.Namespace#getUri <em>Uri</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.Namespace#getUri <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Uri</em>' attribute.
-     * @see #getUri()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Uri</em>' attribute.
+	 * @see #getUri()
+	 * @generated
+	 */
 	void setUri(String value);
 
 } // Namespace

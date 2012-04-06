@@ -36,19 +36,19 @@ import org.wso2.developerstudio.eclipse.esb.ModelObject;
  */
 public interface RuleResultsConfiguration extends ModelObject {
 	/**
-     * Returns the value of the '<em><b>Results</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Results</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Results</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRuleResultsConfiguration_Results()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Results</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRuleResultsConfiguration_Results()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<RuleResult> getResults();
 
 } // RuleResultsConfiguration

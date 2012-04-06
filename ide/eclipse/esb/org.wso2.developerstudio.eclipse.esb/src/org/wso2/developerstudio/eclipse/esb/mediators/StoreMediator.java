@@ -38,55 +38,55 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
 public interface StoreMediator extends Mediator {
 
 	/**
-     * Returns the value of the '<em><b>Message Store</b></em>' attribute.
-     * The default value is <code>"<test/>"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Message Store</b></em>' attribute.
+	 * The default value is <code>"<test/>"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message Store</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Message Store</em>' attribute.
-     * @see #setMessageStore(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getStoreMediator_MessageStore()
-     * @model default="<test/>"
-     * @generated
-     */
+	 * @return the value of the '<em>Message Store</em>' attribute.
+	 * @see #setMessageStore(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getStoreMediator_MessageStore()
+	 * @model default="<test/>"
+	 * @generated
+	 */
 	String getMessageStore();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator#getMessageStore <em>Message Store</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator#getMessageStore <em>Message Store</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Message Store</em>' attribute.
-     * @see #getMessageStore()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Message Store</em>' attribute.
+	 * @see #getMessageStore()
+	 * @generated
+	 */
 	void setMessageStore(String value);
 
 	/**
-     * Returns the value of the '<em><b>On Store Sequence</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Store Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Store Sequence</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Store Sequence</em>' reference.
-     * @see #setOnStoreSequence(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getStoreMediator_OnStoreSequence()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>On Store Sequence</em>' reference.
+	 * @see #setOnStoreSequence(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getStoreMediator_OnStoreSequence()
+	 * @model
+	 * @generated
+	 */
 	RegistryKeyProperty getOnStoreSequence();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Store Sequence</em>' reference.
-     * @see #getOnStoreSequence()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Store Sequence</em>' reference.
+	 * @see #getOnStoreSequence()
+	 * @generated
+	 */
 	void setOnStoreSequence(RegistryKeyProperty value);
 } // StoreMediator

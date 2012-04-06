@@ -44,73 +44,73 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadBalanceEndPoint {
     /**
-     * The default value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAlgorithm()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAlgorithm()
+	 * @generated
+	 * @ordered
+	 */
     protected static final LoadBalanceAlgorithm ALGORITHM_EDEFAULT = LoadBalanceAlgorithm.ROUND_ROBIN;
 
     /**
-     * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAlgorithm()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAlgorithm()
+	 * @generated
+	 * @ordered
+	 */
     protected LoadBalanceAlgorithm algorithm = ALGORITHM_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSessionType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSessionType()
+	 * @generated
+	 * @ordered
+	 */
     protected static final LoadBalanceSessionType SESSION_TYPE_EDEFAULT = LoadBalanceSessionType.NONE;
 
     /**
-     * The cached value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSessionType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSessionType()
+	 * @generated
+	 * @ordered
+	 */
     protected LoadBalanceSessionType sessionType = SESSION_TYPE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSessionTimeout()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSessionTimeout()
+	 * @generated
+	 * @ordered
+	 */
     protected static final long SESSION_TIMEOUT_EDEFAULT = 0L;
 
     /**
-     * The cached value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSessionTimeout()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSessionTimeout()
+	 * @generated
+	 * @ordered
+	 */
     protected long sessionTimeout = SESSION_TIMEOUT_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected LoadBalanceEndPointImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
      * {@inheritDoc}
@@ -181,175 +181,181 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.LOAD_BALANCE_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.LOAD_BALANCE_END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public LoadBalanceAlgorithm getAlgorithm() {
-        return algorithm;
-    }
+		return algorithm;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setAlgorithm(LoadBalanceAlgorithm newAlgorithm) {
-        LoadBalanceAlgorithm oldAlgorithm = algorithm;
-        algorithm = newAlgorithm == null ? ALGORITHM_EDEFAULT : newAlgorithm;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM, oldAlgorithm, algorithm));
-    }
+		LoadBalanceAlgorithm oldAlgorithm = algorithm;
+		algorithm = newAlgorithm == null ? ALGORITHM_EDEFAULT : newAlgorithm;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM, oldAlgorithm, algorithm));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public LoadBalanceSessionType getSessionType() {
-        return sessionType;
-    }
+		return sessionType;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setSessionType(LoadBalanceSessionType newSessionType) {
-        LoadBalanceSessionType oldSessionType = sessionType;
-        sessionType = newSessionType == null ? SESSION_TYPE_EDEFAULT : newSessionType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE, oldSessionType, sessionType));
-    }
+		LoadBalanceSessionType oldSessionType = sessionType;
+		sessionType = newSessionType == null ? SESSION_TYPE_EDEFAULT : newSessionType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE, oldSessionType, sessionType));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public long getSessionTimeout() {
-        return sessionTimeout;
-    }
+		return sessionTimeout;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setSessionTimeout(long newSessionTimeout) {
-        long oldSessionTimeout = sessionTimeout;
-        sessionTimeout = newSessionTimeout;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT, oldSessionTimeout, sessionTimeout));
-    }
+		long oldSessionTimeout = sessionTimeout;
+		sessionTimeout = newSessionTimeout;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT, oldSessionTimeout, sessionTimeout));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-                return getAlgorithm();
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
-                return getSessionType();
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
-                return getSessionTimeout();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				return getAlgorithm();
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				return getSessionType();
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				return getSessionTimeout();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-                setAlgorithm((LoadBalanceAlgorithm)newValue);
-                return;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
-                setSessionType((LoadBalanceSessionType)newValue);
-                return;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
-                setSessionTimeout((Long)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				setAlgorithm((LoadBalanceAlgorithm)newValue);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				setSessionType((LoadBalanceSessionType)newValue);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				setSessionTimeout((Long)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-                setAlgorithm(ALGORITHM_EDEFAULT);
-                return;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
-                setSessionType(SESSION_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
-                setSessionTimeout(SESSION_TIMEOUT_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				setAlgorithm(ALGORITHM_EDEFAULT);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				setSessionType(SESSION_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				setSessionTimeout(SESSION_TIMEOUT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-                return algorithm != ALGORITHM_EDEFAULT;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
-                return sessionType != SESSION_TYPE_EDEFAULT;
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
-                return sessionTimeout != SESSION_TIMEOUT_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				return algorithm != ALGORITHM_EDEFAULT;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				return sessionType != SESSION_TYPE_EDEFAULT;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				return sessionTimeout != SESSION_TIMEOUT_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (algorithm: ");
-        result.append(algorithm);
-        result.append(", sessionType: ");
-        result.append(sessionType);
-        result.append(", sessionTimeout: ");
-        result.append(sessionTimeout);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (algorithm: ");
+		result.append(algorithm);
+		result.append(", sessionType: ");
+		result.append(sessionType);
+		result.append(", sessionTimeout: ");
+		result.append(sessionTimeout);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

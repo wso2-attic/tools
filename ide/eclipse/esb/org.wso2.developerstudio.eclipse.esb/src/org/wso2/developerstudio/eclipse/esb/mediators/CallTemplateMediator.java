@@ -38,45 +38,45 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface CallTemplateMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Target Template</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Target Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target Template</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Target Template</em>' attribute.
-     * @see #setTargetTemplate(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCallTemplateMediator_TargetTemplate()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Target Template</em>' attribute.
+	 * @see #setTargetTemplate(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCallTemplateMediator_TargetTemplate()
+	 * @model
+	 * @generated
+	 */
 	String getTargetTemplate();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator#getTargetTemplate <em>Target Template</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator#getTargetTemplate <em>Target Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Target Template</em>' attribute.
-     * @see #getTargetTemplate()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Target Template</em>' attribute.
+	 * @see #getTargetTemplate()
+	 * @generated
+	 */
 	void setTargetTemplate(String value);
 
 	/**
-     * Returns the value of the '<em><b>Template Parameters</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Template Parameters</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Template Parameters</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCallTemplateMediator_TemplateParameters()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Template Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCallTemplateMediator_TemplateParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<CallTemplateParameter> getTemplateParameters();
 
 } // CallTemplateMediator

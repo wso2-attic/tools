@@ -45,73 +45,73 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class NamespacedPropertyImpl extends ModelObjectImpl implements NamespacedProperty {
 	/**
-     * The default value of the '{@link #getPrettyName() <em>Pretty Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPrettyName() <em>Pretty Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPrettyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPrettyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PRETTY_NAME_EDEFAULT = "Namespaced Property";
 
 	/**
-     * The cached value of the '{@link #getPrettyName() <em>Pretty Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPrettyName() <em>Pretty Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPrettyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPrettyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String prettyName = PRETTY_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_NAME_EDEFAULT = "propertyName";
 
 	/**
-     * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String PROPERTY_VALUE_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPropertyValue()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPropertyValue()
+	 * @generated
+	 * @ordered
+	 */
 	protected String propertyValue = PROPERTY_VALUE_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getNamespaces()
-     * @generated
-     * @ordered
-     */
+	 * @see #getNamespaces()
+	 * @generated
+	 * @ordered
+	 */
 	protected Map<String, String> namespaces;
 
 	/**
@@ -156,187 +156,192 @@ public class NamespacedPropertyImpl extends ModelObjectImpl implements Namespace
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.NAMESPACED_PROPERTY;
-    }
+		return EsbPackage.Literals.NAMESPACED_PROPERTY;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPrettyName() {
-        return prettyName;
-    }
+		return prettyName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPrettyName(String newPrettyName) {
-        String oldPrettyName = prettyName;
-        prettyName = newPrettyName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME, oldPrettyName, prettyName));
-    }
+		String oldPrettyName = prettyName;
+		prettyName = newPrettyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME, oldPrettyName, prettyName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyName() {
-        return propertyName;
-    }
+		return propertyName;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyName(String newPropertyName) {
-        String oldPropertyName = propertyName;
-        propertyName = newPropertyName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME, oldPropertyName, propertyName));
-    }
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME, oldPropertyName, propertyName));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getPropertyValue() {
-        return propertyValue;
-    }
+		return propertyValue;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPropertyValue(String newPropertyValue) {
-        String oldPropertyValue = propertyValue;
-        propertyValue = newPropertyValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE, oldPropertyValue, propertyValue));
-    }
+		String oldPropertyValue = propertyValue;
+		propertyValue = newPropertyValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE, oldPropertyValue, propertyValue));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Map<String, String> getNamespaces() {
-        return namespaces;
-    }
+		return namespaces;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setNamespaces(Map<String, String> newNamespaces) {
-        Map<String, String> oldNamespaces = namespaces;
-        namespaces = newNamespaces;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__NAMESPACES, oldNamespaces, namespaces));
-    }
+		Map<String, String> oldNamespaces = namespaces;
+		namespaces = newNamespaces;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__NAMESPACES, oldNamespaces, namespaces));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
-                return getPrettyName();
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
-                return getPropertyName();
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
-                return getPropertyValue();
-            case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
-                return getNamespaces();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
+				return getPrettyName();
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
+				return getPropertyName();
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
+				return getPropertyValue();
+			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
+				return getNamespaces();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
-                setPrettyName((String)newValue);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
-                setPropertyName((String)newValue);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
-                setPropertyValue((String)newValue);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
-                setNamespaces((Map<String, String>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
+				setPrettyName((String)newValue);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
+				setPropertyName((String)newValue);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
+				setPropertyValue((String)newValue);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
+				setNamespaces((Map<String, String>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
-                setPrettyName(PRETTY_NAME_EDEFAULT);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
-                setPropertyName(PROPERTY_NAME_EDEFAULT);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
-                setPropertyValue(PROPERTY_VALUE_EDEFAULT);
-                return;
-            case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
-                setNamespaces((Map<String, String>)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
+				setPrettyName(PRETTY_NAME_EDEFAULT);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
+				setPropertyName(PROPERTY_NAME_EDEFAULT);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
+				setPropertyValue(PROPERTY_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
+				setNamespaces((Map<String, String>)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
-                return PRETTY_NAME_EDEFAULT == null ? prettyName != null : !PRETTY_NAME_EDEFAULT.equals(prettyName);
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
-                return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
-            case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
-                return PROPERTY_VALUE_EDEFAULT == null ? propertyValue != null : !PROPERTY_VALUE_EDEFAULT.equals(propertyValue);
-            case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
-                return namespaces != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case EsbPackage.NAMESPACED_PROPERTY__PRETTY_NAME:
+				return PRETTY_NAME_EDEFAULT == null ? prettyName != null : !PRETTY_NAME_EDEFAULT.equals(prettyName);
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
+				return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
+			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
+				return PROPERTY_VALUE_EDEFAULT == null ? propertyValue != null : !PROPERTY_VALUE_EDEFAULT.equals(propertyValue);
+			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
+				return namespaces != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

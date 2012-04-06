@@ -36,13 +36,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleChildMediatorsConfigurationImpl extends MediatorBranchImpl implements RuleChildMediatorsConfiguration {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleChildMediatorsConfigurationImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -56,14 +56,15 @@ public class RuleChildMediatorsConfigurationImpl extends MediatorBranchImpl impl
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_CHILD_MEDIATORS_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.RULE_CHILD_MEDIATORS_CONFIGURATION;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

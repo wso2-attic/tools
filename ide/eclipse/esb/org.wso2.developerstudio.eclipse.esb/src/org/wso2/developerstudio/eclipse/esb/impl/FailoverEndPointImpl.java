@@ -34,13 +34,13 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class FailoverEndPointImpl extends ParentEndPointImpl implements FailoverEndPoint {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected FailoverEndPointImpl() {
-        super();
-    }
+		super();
+	}
     
     /**
      * {@inheritDoc}
@@ -72,14 +72,15 @@ public class FailoverEndPointImpl extends ParentEndPointImpl implements Failover
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.FAILOVER_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.FAILOVER_END_POINT;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

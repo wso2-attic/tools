@@ -46,133 +46,133 @@ import org.wso2.developerstudio.eclipse.esb.EsbPackage;
  */
 public abstract class AbstractDefaultEndPointImpl extends AbstractEndPointImpl implements AbstractDefaultEndPoint {
     /**
-     * The default value of the '{@link #getMessageFormat() <em>Message Format</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getMessageFormat() <em>Message Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMessageFormat()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMessageFormat()
+	 * @generated
+	 * @ordered
+	 */
     protected static final EndPointMessageFormat MESSAGE_FORMAT_EDEFAULT = EndPointMessageFormat.LEAVE_AS_IS;
 
     /**
-     * The cached value of the '{@link #getMessageFormat() <em>Message Format</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMessageFormat() <em>Message Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMessageFormat()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMessageFormat()
+	 * @generated
+	 * @ordered
+	 */
     protected EndPointMessageFormat messageFormat = MESSAGE_FORMAT_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getAttachmentOptimization() <em>Attachment Optimization</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAttachmentOptimization() <em>Attachment Optimization</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAttachmentOptimization()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAttachmentOptimization()
+	 * @generated
+	 * @ordered
+	 */
     protected static final EndPointAttachmentOptimization ATTACHMENT_OPTIMIZATION_EDEFAULT = EndPointAttachmentOptimization.LEAVE_AS_IS;
 
     /**
-     * The cached value of the '{@link #getAttachmentOptimization() <em>Attachment Optimization</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAttachmentOptimization() <em>Attachment Optimization</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAttachmentOptimization()
-     * @generated
-     * @ordered
-     */
+	 * @see #getAttachmentOptimization()
+	 * @generated
+	 * @ordered
+	 */
     protected EndPointAttachmentOptimization attachmentOptimization = ATTACHMENT_OPTIMIZATION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getEncoding()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEncoding()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String ENCODING_EDEFAULT = "UTF-8";
 
     /**
-     * The cached value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getEncoding()
-     * @generated
-     * @ordered
-     */
+	 * @see #getEncoding()
+	 * @generated
+	 * @ordered
+	 */
     protected String encoding = ENCODING_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isStatisticsEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isStatisticsEnabled()
+	 * @generated
+	 * @ordered
+	 */
     protected static final boolean STATISTICS_ENABLED_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isStatisticsEnabled() <em>Statistics Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isStatisticsEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isStatisticsEnabled()
+	 * @generated
+	 * @ordered
+	 */
     protected boolean statisticsEnabled = STATISTICS_ENABLED_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isTraceEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isTraceEnabled()
+	 * @generated
+	 * @ordered
+	 */
     protected static final boolean TRACE_ENABLED_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isTraceEnabled() <em>Trace Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isTraceEnabled()
-     * @generated
-     * @ordered
-     */
+	 * @see #isTraceEnabled()
+	 * @generated
+	 * @ordered
+	 */
     protected boolean traceEnabled = TRACE_ENABLED_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getRestType() <em>Rest Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRestType() <em>Rest Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRestType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRestType()
+	 * @generated
+	 * @ordered
+	 */
     protected static final EndPointMessageFormatRestType REST_TYPE_EDEFAULT = EndPointMessageFormatRestType.GET;
 
     /**
-     * The cached value of the '{@link #getRestType() <em>Rest Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRestType() <em>Rest Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRestType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRestType()
+	 * @generated
+	 * @ordered
+	 */
     protected EndPointMessageFormatRestType restType = REST_TYPE_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected AbstractDefaultEndPointImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
      * {@inheritDoc}
@@ -251,273 +251,279 @@ public abstract class AbstractDefaultEndPointImpl extends AbstractEndPointImpl i
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.ABSTRACT_DEFAULT_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.ABSTRACT_DEFAULT_END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EndPointMessageFormat getMessageFormat() {
-        return messageFormat;
-    }
+		return messageFormat;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setMessageFormat(EndPointMessageFormat newMessageFormat) {
-        EndPointMessageFormat oldMessageFormat = messageFormat;
-        messageFormat = newMessageFormat == null ? MESSAGE_FORMAT_EDEFAULT : newMessageFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT, oldMessageFormat, messageFormat));
-    }
+		EndPointMessageFormat oldMessageFormat = messageFormat;
+		messageFormat = newMessageFormat == null ? MESSAGE_FORMAT_EDEFAULT : newMessageFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT, oldMessageFormat, messageFormat));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EndPointAttachmentOptimization getAttachmentOptimization() {
-        return attachmentOptimization;
-    }
+		return attachmentOptimization;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setAttachmentOptimization(EndPointAttachmentOptimization newAttachmentOptimization) {
-        EndPointAttachmentOptimization oldAttachmentOptimization = attachmentOptimization;
-        attachmentOptimization = newAttachmentOptimization == null ? ATTACHMENT_OPTIMIZATION_EDEFAULT : newAttachmentOptimization;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION, oldAttachmentOptimization, attachmentOptimization));
-    }
+		EndPointAttachmentOptimization oldAttachmentOptimization = attachmentOptimization;
+		attachmentOptimization = newAttachmentOptimization == null ? ATTACHMENT_OPTIMIZATION_EDEFAULT : newAttachmentOptimization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION, oldAttachmentOptimization, attachmentOptimization));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getEncoding() {
-        return encoding;
-    }
+		return encoding;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setEncoding(String newEncoding) {
-        String oldEncoding = encoding;
-        encoding = newEncoding;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING, oldEncoding, encoding));
-    }
+		String oldEncoding = encoding;
+		encoding = newEncoding;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING, oldEncoding, encoding));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public boolean isStatisticsEnabled() {
-        return statisticsEnabled;
-    }
+		return statisticsEnabled;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setStatisticsEnabled(boolean newStatisticsEnabled) {
-        boolean oldStatisticsEnabled = statisticsEnabled;
-        statisticsEnabled = newStatisticsEnabled;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED, oldStatisticsEnabled, statisticsEnabled));
-    }
+		boolean oldStatisticsEnabled = statisticsEnabled;
+		statisticsEnabled = newStatisticsEnabled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED, oldStatisticsEnabled, statisticsEnabled));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public boolean isTraceEnabled() {
-        return traceEnabled;
-    }
+		return traceEnabled;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setTraceEnabled(boolean newTraceEnabled) {
-        boolean oldTraceEnabled = traceEnabled;
-        traceEnabled = newTraceEnabled;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED, oldTraceEnabled, traceEnabled));
-    }
+		boolean oldTraceEnabled = traceEnabled;
+		traceEnabled = newTraceEnabled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED, oldTraceEnabled, traceEnabled));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EndPointMessageFormatRestType getRestType() {
-        return restType;
-    }
+		return restType;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setRestType(EndPointMessageFormatRestType newRestType) {
-        EndPointMessageFormatRestType oldRestType = restType;
-        restType = newRestType == null ? REST_TYPE_EDEFAULT : newRestType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE, oldRestType, restType));
-    }
+		EndPointMessageFormatRestType oldRestType = restType;
+		restType = newRestType == null ? REST_TYPE_EDEFAULT : newRestType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE, oldRestType, restType));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
-                return getMessageFormat();
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
-                return getAttachmentOptimization();
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
-                return getEncoding();
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
-                return isStatisticsEnabled();
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
-                return isTraceEnabled();
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
-                return getRestType();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
+				return getMessageFormat();
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
+				return getAttachmentOptimization();
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
+				return getEncoding();
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
+				return isStatisticsEnabled();
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
+				return isTraceEnabled();
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
+				return getRestType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
-                setMessageFormat((EndPointMessageFormat)newValue);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
-                setAttachmentOptimization((EndPointAttachmentOptimization)newValue);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
-                setEncoding((String)newValue);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
-                setStatisticsEnabled((Boolean)newValue);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
-                setTraceEnabled((Boolean)newValue);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
-                setRestType((EndPointMessageFormatRestType)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
+				setMessageFormat((EndPointMessageFormat)newValue);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
+				setAttachmentOptimization((EndPointAttachmentOptimization)newValue);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
+				setEncoding((String)newValue);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
+				setStatisticsEnabled((Boolean)newValue);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
+				setTraceEnabled((Boolean)newValue);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
+				setRestType((EndPointMessageFormatRestType)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
-                setMessageFormat(MESSAGE_FORMAT_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
-                setAttachmentOptimization(ATTACHMENT_OPTIMIZATION_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
-                setEncoding(ENCODING_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
-                setStatisticsEnabled(STATISTICS_ENABLED_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
-                setTraceEnabled(TRACE_ENABLED_EDEFAULT);
-                return;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
-                setRestType(REST_TYPE_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
+				setMessageFormat(MESSAGE_FORMAT_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
+				setAttachmentOptimization(ATTACHMENT_OPTIMIZATION_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
+				setEncoding(ENCODING_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
+				setStatisticsEnabled(STATISTICS_ENABLED_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
+				setTraceEnabled(TRACE_ENABLED_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
+				setRestType(REST_TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
-                return messageFormat != MESSAGE_FORMAT_EDEFAULT;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
-                return attachmentOptimization != ATTACHMENT_OPTIMIZATION_EDEFAULT;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
-                return ENCODING_EDEFAULT == null ? encoding != null : !ENCODING_EDEFAULT.equals(encoding);
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
-                return statisticsEnabled != STATISTICS_ENABLED_EDEFAULT;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
-                return traceEnabled != TRACE_ENABLED_EDEFAULT;
-            case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
-                return restType != REST_TYPE_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__MESSAGE_FORMAT:
+				return messageFormat != MESSAGE_FORMAT_EDEFAULT;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ATTACHMENT_OPTIMIZATION:
+				return attachmentOptimization != ATTACHMENT_OPTIMIZATION_EDEFAULT;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__ENCODING:
+				return ENCODING_EDEFAULT == null ? encoding != null : !ENCODING_EDEFAULT.equals(encoding);
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__STATISTICS_ENABLED:
+				return statisticsEnabled != STATISTICS_ENABLED_EDEFAULT;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__TRACE_ENABLED:
+				return traceEnabled != TRACE_ENABLED_EDEFAULT;
+			case EsbPackage.ABSTRACT_DEFAULT_END_POINT__REST_TYPE:
+				return restType != REST_TYPE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (messageFormat: ");
-        result.append(messageFormat);
-        result.append(", attachmentOptimization: ");
-        result.append(attachmentOptimization);
-        result.append(", encoding: ");
-        result.append(encoding);
-        result.append(", statisticsEnabled: ");
-        result.append(statisticsEnabled);
-        result.append(", traceEnabled: ");
-        result.append(traceEnabled);
-        result.append(", restType: ");
-        result.append(restType);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (messageFormat: ");
+		result.append(messageFormat);
+		result.append(", attachmentOptimization: ");
+		result.append(attachmentOptimization);
+		result.append(", encoding: ");
+		result.append(encoding);
+		result.append(", statisticsEnabled: ");
+		result.append(statisticsEnabled);
+		result.append(", traceEnabled: ");
+		result.append(traceEnabled);
+		result.append(", restType: ");
+		result.append(restType);
+		result.append(')');
+		return result.toString();
+	}
 
 } //AddressEndPointImpl

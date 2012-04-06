@@ -39,71 +39,71 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface SwitchMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Source Xpath</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Source Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Xpath</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Source Xpath</em>' containment reference.
-     * @see #setSourceXpath(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_SourceXpath()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #setSourceXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_SourceXpath()
+	 * @model containment="true"
+	 * @generated
+	 */
 	NamespacedProperty getSourceXpath();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator#getSourceXpath <em>Source Xpath</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator#getSourceXpath <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Source Xpath</em>' containment reference.
-     * @see #getSourceXpath()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #getSourceXpath()
+	 * @generated
+	 */
 	void setSourceXpath(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Case Branches</b></em>' containment reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Case Branches</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Case Branches</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Case Branches</em>' containment reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_CaseBranches()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Case Branches</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_CaseBranches()
+	 * @model containment="true"
+	 * @generated
+	 */
 	EList<SwitchCaseBranch> getCaseBranches();
 
 	/**
-     * Returns the value of the '<em><b>Default Branch</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Default Branch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Branch</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Default Branch</em>' containment reference.
-     * @see #setDefaultBranch(SwitchDefaultBranch)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_DefaultBranch()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Default Branch</em>' containment reference.
+	 * @see #setDefaultBranch(SwitchDefaultBranch)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSwitchMediator_DefaultBranch()
+	 * @model containment="true"
+	 * @generated
+	 */
 	SwitchDefaultBranch getDefaultBranch();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator#getDefaultBranch <em>Default Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator#getDefaultBranch <em>Default Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Default Branch</em>' containment reference.
-     * @see #getDefaultBranch()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Default Branch</em>' containment reference.
+	 * @see #getDefaultBranch()
+	 * @generated
+	 */
 	void setDefaultBranch(SwitchDefaultBranch value);
 
 } // SwitchMediator

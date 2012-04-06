@@ -48,103 +48,103 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class WsdlEndPointImpl extends AbstractEndPointImpl implements WsdlEndPoint {
     /**
-     * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
     protected static final EndPointWsdlType WSDL_TYPE_EDEFAULT = EndPointWsdlType.URI;
 
     /**
-     * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
     protected EndPointWsdlType wsdlType = WSDL_TYPE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getWsdlURI() <em>Wsdl URI</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlURI() <em>Wsdl URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlURI()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlURI()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String WSDL_URI_EDEFAULT = "http://default/wsdl/uri";
 
     /**
-     * The cached value of the '{@link #getWsdlURI() <em>Wsdl URI</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlURI() <em>Wsdl URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlURI()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlURI()
+	 * @generated
+	 * @ordered
+	 */
     protected String wsdlURI = WSDL_URI_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String WSDL_XML_EDEFAULT = "<definitions/>";
 
     /**
-     * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getWsdlXML()
-     * @generated
-     * @ordered
-     */
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
     protected String wsdlXML = WSDL_XML_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getService() <em>Service</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getService() <em>Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getService()
-     * @generated
-     * @ordered
-     */
+	 * @see #getService()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String SERVICE_EDEFAULT = "Service";
 
     /**
-     * The cached value of the '{@link #getService() <em>Service</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getService() <em>Service</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getService()
-     * @generated
-     * @ordered
-     */
+	 * @see #getService()
+	 * @generated
+	 * @ordered
+	 */
     protected String service = SERVICE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPort()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String PORT_EDEFAULT = "Port";
 
     /**
-     * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPort()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
     protected String port = PORT_EDEFAULT;
 
     /**
@@ -242,241 +242,247 @@ public class WsdlEndPointImpl extends AbstractEndPointImpl implements WsdlEndPoi
     }
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected EClass eStaticClass() {
-        return EsbPackage.Literals.WSDL_END_POINT;
-    }
+    @Override
+				protected EClass eStaticClass() {
+		return EsbPackage.Literals.WSDL_END_POINT;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EndPointWsdlType getWsdlType() {
-        return wsdlType;
-    }
+		return wsdlType;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setWsdlType(EndPointWsdlType newWsdlType) {
-        EndPointWsdlType oldWsdlType = wsdlType;
-        wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_TYPE, oldWsdlType, wsdlType));
-    }
+		EndPointWsdlType oldWsdlType = wsdlType;
+		wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_TYPE, oldWsdlType, wsdlType));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getWsdlURI() {
-        return wsdlURI;
-    }
+		return wsdlURI;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setWsdlURI(String newWsdlURI) {
-        String oldWsdlURI = wsdlURI;
-        wsdlURI = newWsdlURI;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_URI, oldWsdlURI, wsdlURI));
-    }
+		String oldWsdlURI = wsdlURI;
+		wsdlURI = newWsdlURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_URI, oldWsdlURI, wsdlURI));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getWsdlXML() {
-        return wsdlXML;
-    }
+		return wsdlXML;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setWsdlXML(String newWsdlXML) {
-        String oldWsdlXML = wsdlXML;
-        wsdlXML = newWsdlXML;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_XML, oldWsdlXML, wsdlXML));
-    }
+		String oldWsdlXML = wsdlXML;
+		wsdlXML = newWsdlXML;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__WSDL_XML, oldWsdlXML, wsdlXML));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getService() {
-        return service;
-    }
+		return service;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setService(String newService) {
-        String oldService = service;
-        service = newService;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__SERVICE, oldService, service));
-    }
+		String oldService = service;
+		service = newService;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__SERVICE, oldService, service));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getPort() {
-        return port;
-    }
+		return port;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setPort(String newPort) {
-        String oldPort = port;
-        port = newPort;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__PORT, oldPort, port));
-    }
+		String oldPort = port;
+		port = newPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.WSDL_END_POINT__PORT, oldPort, port));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
-                return getWsdlType();
-            case EsbPackage.WSDL_END_POINT__WSDL_URI:
-                return getWsdlURI();
-            case EsbPackage.WSDL_END_POINT__WSDL_XML:
-                return getWsdlXML();
-            case EsbPackage.WSDL_END_POINT__SERVICE:
-                return getService();
-            case EsbPackage.WSDL_END_POINT__PORT:
-                return getPort();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+    @Override
+				public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
+				return getWsdlType();
+			case EsbPackage.WSDL_END_POINT__WSDL_URI:
+				return getWsdlURI();
+			case EsbPackage.WSDL_END_POINT__WSDL_XML:
+				return getWsdlXML();
+			case EsbPackage.WSDL_END_POINT__SERVICE:
+				return getService();
+			case EsbPackage.WSDL_END_POINT__PORT:
+				return getPort();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
-                setWsdlType((EndPointWsdlType)newValue);
-                return;
-            case EsbPackage.WSDL_END_POINT__WSDL_URI:
-                setWsdlURI((String)newValue);
-                return;
-            case EsbPackage.WSDL_END_POINT__WSDL_XML:
-                setWsdlXML((String)newValue);
-                return;
-            case EsbPackage.WSDL_END_POINT__SERVICE:
-                setService((String)newValue);
-                return;
-            case EsbPackage.WSDL_END_POINT__PORT:
-                setPort((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+    @Override
+				public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
+				setWsdlType((EndPointWsdlType)newValue);
+				return;
+			case EsbPackage.WSDL_END_POINT__WSDL_URI:
+				setWsdlURI((String)newValue);
+				return;
+			case EsbPackage.WSDL_END_POINT__WSDL_XML:
+				setWsdlXML((String)newValue);
+				return;
+			case EsbPackage.WSDL_END_POINT__SERVICE:
+				setService((String)newValue);
+				return;
+			case EsbPackage.WSDL_END_POINT__PORT:
+				setPort((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void eUnset(int featureID) {
-        switch (featureID) {
-            case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
-                setWsdlType(WSDL_TYPE_EDEFAULT);
-                return;
-            case EsbPackage.WSDL_END_POINT__WSDL_URI:
-                setWsdlURI(WSDL_URI_EDEFAULT);
-                return;
-            case EsbPackage.WSDL_END_POINT__WSDL_XML:
-                setWsdlXML(WSDL_XML_EDEFAULT);
-                return;
-            case EsbPackage.WSDL_END_POINT__SERVICE:
-                setService(SERVICE_EDEFAULT);
-                return;
-            case EsbPackage.WSDL_END_POINT__PORT:
-                setPort(PORT_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+    @Override
+				public void eUnset(int featureID) {
+		switch (featureID) {
+			case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
+				setWsdlType(WSDL_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.WSDL_END_POINT__WSDL_URI:
+				setWsdlURI(WSDL_URI_EDEFAULT);
+				return;
+			case EsbPackage.WSDL_END_POINT__WSDL_XML:
+				setWsdlXML(WSDL_XML_EDEFAULT);
+				return;
+			case EsbPackage.WSDL_END_POINT__SERVICE:
+				setService(SERVICE_EDEFAULT);
+				return;
+			case EsbPackage.WSDL_END_POINT__PORT:
+				setPort(PORT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
-                return wsdlType != WSDL_TYPE_EDEFAULT;
-            case EsbPackage.WSDL_END_POINT__WSDL_URI:
-                return WSDL_URI_EDEFAULT == null ? wsdlURI != null : !WSDL_URI_EDEFAULT.equals(wsdlURI);
-            case EsbPackage.WSDL_END_POINT__WSDL_XML:
-                return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
-            case EsbPackage.WSDL_END_POINT__SERVICE:
-                return SERVICE_EDEFAULT == null ? service != null : !SERVICE_EDEFAULT.equals(service);
-            case EsbPackage.WSDL_END_POINT__PORT:
-                return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
-        }
-        return super.eIsSet(featureID);
-    }
+    @Override
+				public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
+				return wsdlType != WSDL_TYPE_EDEFAULT;
+			case EsbPackage.WSDL_END_POINT__WSDL_URI:
+				return WSDL_URI_EDEFAULT == null ? wsdlURI != null : !WSDL_URI_EDEFAULT.equals(wsdlURI);
+			case EsbPackage.WSDL_END_POINT__WSDL_XML:
+				return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
+			case EsbPackage.WSDL_END_POINT__SERVICE:
+				return SERVICE_EDEFAULT == null ? service != null : !SERVICE_EDEFAULT.equals(service);
+			case EsbPackage.WSDL_END_POINT__PORT:
+				return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+				public String toString() {
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (wsdlType: ");
-        result.append(wsdlType);
-        result.append(", wsdlURI: ");
-        result.append(wsdlURI);
-        result.append(", wsdlXML: ");
-        result.append(wsdlXML);
-        result.append(", service: ");
-        result.append(service);
-        result.append(", port: ");
-        result.append(port);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (wsdlType: ");
+		result.append(wsdlType);
+		result.append(", wsdlURI: ");
+		result.append(wsdlURI);
+		result.append(", wsdlXML: ");
+		result.append(wsdlXML);
+		result.append(", service: ");
+		result.append(service);
+		result.append(", port: ");
+		result.append(port);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

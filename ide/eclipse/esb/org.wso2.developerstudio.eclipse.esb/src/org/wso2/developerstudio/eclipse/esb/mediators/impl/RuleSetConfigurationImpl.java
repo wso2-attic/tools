@@ -55,58 +55,58 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSetConfiguration {
 	/**
-     * The default value of the '{@link #getSourceType() <em>Source Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSourceType() <em>Source Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final RuleSourceType SOURCE_TYPE_EDEFAULT = RuleSourceType.INLINE;
 	/**
-     * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceType()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceType()
+	 * @generated
+	 * @ordered
+	 */
 	protected RuleSourceType sourceType = SOURCE_TYPE_EDEFAULT;
 	/**
-     * The default value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceCode()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceCode()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String SOURCE_CODE_EDEFAULT = "<code/>";
 	/**
-     * The cached value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceCode()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceCode()
+	 * @generated
+	 * @ordered
+	 */
 	protected String sourceCode = SOURCE_CODE_EDEFAULT;
 	/**
-     * The cached value of the '{@link #getSourceKey() <em>Source Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceKey() <em>Source Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSourceKey()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSourceKey()
+	 * @generated
+	 * @ordered
+	 */
 	protected RegistryKeyProperty sourceKey;
 	/**
-     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getProperties()
-     * @generated
-     * @ordered
-     */
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<RuleSetCreationProperty> properties;
 
 	/**
@@ -185,235 +185,242 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.RULE_SET_CONFIGURATION;
-    }
+		return MediatorsPackage.Literals.RULE_SET_CONFIGURATION;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleSourceType getSourceType() {
-        return sourceType;
-    }
+		return sourceType;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSourceType(RuleSourceType newSourceType) {
-        RuleSourceType oldSourceType = sourceType;
-        sourceType = newSourceType == null ? SOURCE_TYPE_EDEFAULT : newSourceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE, oldSourceType, sourceType));
-    }
+		RuleSourceType oldSourceType = sourceType;
+		sourceType = newSourceType == null ? SOURCE_TYPE_EDEFAULT : newSourceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE, oldSourceType, sourceType));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getSourceCode() {
-        return sourceCode;
-    }
+		return sourceCode;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSourceCode(String newSourceCode) {
-        String oldSourceCode = sourceCode;
-        sourceCode = newSourceCode;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE, oldSourceCode, sourceCode));
-    }
+		String oldSourceCode = sourceCode;
+		sourceCode = newSourceCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE, oldSourceCode, sourceCode));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RegistryKeyProperty getSourceKey() {
-        return sourceKey;
-    }
+		return sourceKey;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSourceKey(RegistryKeyProperty newSourceKey, NotificationChain msgs) {
-        RegistryKeyProperty oldSourceKey = sourceKey;
-        sourceKey = newSourceKey;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, oldSourceKey, newSourceKey);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		RegistryKeyProperty oldSourceKey = sourceKey;
+		sourceKey = newSourceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, oldSourceKey, newSourceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSourceKey(RegistryKeyProperty newSourceKey) {
-        if (newSourceKey != sourceKey) {
-            NotificationChain msgs = null;
-            if (sourceKey != null)
-                msgs = ((InternalEObject)sourceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, null, msgs);
-            if (newSourceKey != null)
-                msgs = ((InternalEObject)newSourceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, null, msgs);
-            msgs = basicSetSourceKey(newSourceKey, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, newSourceKey, newSourceKey));
-    }
+		if (newSourceKey != sourceKey) {
+			NotificationChain msgs = null;
+			if (sourceKey != null)
+				msgs = ((InternalEObject)sourceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, null, msgs);
+			if (newSourceKey != null)
+				msgs = ((InternalEObject)newSourceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, null, msgs);
+			msgs = basicSetSourceKey(newSourceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY, newSourceKey, newSourceKey));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<RuleSetCreationProperty> getProperties() {
-        if (properties == null) {
-            properties = new EObjectContainmentEList<RuleSetCreationProperty>(RuleSetCreationProperty.class, this, MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES);
-        }
-        return properties;
-    }
+		if (properties == null) {
+			properties = new EObjectContainmentEList<RuleSetCreationProperty>(RuleSetCreationProperty.class, this, MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES);
+		}
+		return properties;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
-                return basicSetSourceKey(null, msgs);
-            case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
+				return basicSetSourceKey(null, msgs);
+			case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
-                return getSourceType();
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
-                return getSourceCode();
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
-                return getSourceKey();
-            case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
-                return getProperties();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
+				return getSourceType();
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
+				return getSourceCode();
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
+				return getSourceKey();
+			case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
+				return getProperties();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
-                setSourceType((RuleSourceType)newValue);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
-                setSourceCode((String)newValue);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
-                setSourceKey((RegistryKeyProperty)newValue);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
-                getProperties().clear();
-                getProperties().addAll((Collection<? extends RuleSetCreationProperty>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
+				setSourceType((RuleSourceType)newValue);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
+				setSourceCode((String)newValue);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
+				setSourceKey((RegistryKeyProperty)newValue);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends RuleSetCreationProperty>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
-                setSourceType(SOURCE_TYPE_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
-                setSourceCode(SOURCE_CODE_EDEFAULT);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
-                setSourceKey((RegistryKeyProperty)null);
-                return;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
-                getProperties().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
+				setSourceType(SOURCE_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
+				setSourceCode(SOURCE_CODE_EDEFAULT);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
+				setSourceKey((RegistryKeyProperty)null);
+				return;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
+				getProperties().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
-                return sourceType != SOURCE_TYPE_EDEFAULT;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
-                return SOURCE_CODE_EDEFAULT == null ? sourceCode != null : !SOURCE_CODE_EDEFAULT.equals(sourceCode);
-            case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
-                return sourceKey != null;
-            case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
-                return properties != null && !properties.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_TYPE:
+				return sourceType != SOURCE_TYPE_EDEFAULT;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_CODE:
+				return SOURCE_CODE_EDEFAULT == null ? sourceCode != null : !SOURCE_CODE_EDEFAULT.equals(sourceCode);
+			case MediatorsPackage.RULE_SET_CONFIGURATION__SOURCE_KEY:
+				return sourceKey != null;
+			case MediatorsPackage.RULE_SET_CONFIGURATION__PROPERTIES:
+				return properties != null && !properties.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (sourceType: ");
-        result.append(sourceType);
-        result.append(", sourceCode: ");
-        result.append(sourceCode);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (sourceType: ");
+		result.append(sourceType);
+		result.append(", sourceCode: ");
+		result.append(sourceCode);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

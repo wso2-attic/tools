@@ -37,56 +37,56 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface SpringMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Bean Name</b></em>' attribute.
-     * The default value is <code>"bean_name"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bean Name</b></em>' attribute.
+	 * The default value is <code>"bean_name"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bean Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Bean Name</em>' attribute.
-     * @see #setBeanName(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSpringMediator_BeanName()
-     * @model default="bean_name"
-     * @generated
-     */
+	 * @return the value of the '<em>Bean Name</em>' attribute.
+	 * @see #setBeanName(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSpringMediator_BeanName()
+	 * @model default="bean_name"
+	 * @generated
+	 */
 	String getBeanName();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator#getBeanName <em>Bean Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator#getBeanName <em>Bean Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Bean Name</em>' attribute.
-     * @see #getBeanName()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Bean Name</em>' attribute.
+	 * @see #getBeanName()
+	 * @generated
+	 */
 	void setBeanName(String value);
 
 	/**
-     * Returns the value of the '<em><b>Configuration Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Configuration Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Configuration Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Configuration Key</em>' containment reference.
-     * @see #setConfigurationKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSpringMediator_ConfigurationKey()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Configuration Key</em>' containment reference.
+	 * @see #setConfigurationKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSpringMediator_ConfigurationKey()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getConfigurationKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator#getConfigurationKey <em>Configuration Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator#getConfigurationKey <em>Configuration Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Configuration Key</em>' containment reference.
-     * @see #getConfigurationKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Configuration Key</em>' containment reference.
+	 * @see #getConfigurationKey()
+	 * @generated
+	 */
 	void setConfigurationKey(RegistryKeyProperty value);
 
 } // SpringMediator

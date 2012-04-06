@@ -30,22 +30,23 @@ import org.wso2.developerstudio.eclipse.esb.EsbPackage;
  */
 public abstract class ConfigurationElementImpl extends ModelObjectImpl implements ConfigurationElement {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ConfigurationElementImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return EsbPackage.Literals.CONFIGURATION_ELEMENT;
-    }
+		return EsbPackage.Literals.CONFIGURATION_ELEMENT;
+	}
 
 } //ConfigurationElementImpl

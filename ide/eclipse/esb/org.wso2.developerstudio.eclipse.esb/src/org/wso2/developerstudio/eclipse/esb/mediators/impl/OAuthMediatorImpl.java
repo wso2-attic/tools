@@ -42,33 +42,33 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 	/**
-     * The default value of the '{@link #getRemoteServiceUrl() <em>Remote Service Url</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRemoteServiceUrl() <em>Remote Service Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRemoteServiceUrl()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRemoteServiceUrl()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String REMOTE_SERVICE_URL_EDEFAULT = "service_url";
 
 	/**
-     * The cached value of the '{@link #getRemoteServiceUrl() <em>Remote Service Url</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRemoteServiceUrl() <em>Remote Service Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getRemoteServiceUrl()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRemoteServiceUrl()
+	 * @generated
+	 * @ordered
+	 */
 	protected String remoteServiceUrl = REMOTE_SERVICE_URL_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected OAuthMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -76,7 +76,8 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 	protected void doLoad(Element self) throws Exception {
 		if (self.hasAttribute("remoteServiceUrl")) {
 			setRemoteServiceUrl(self.getAttribute("remoteServiceUrl"));
-		}		
+		}
+		super.doLoad(self);
 	}
 
 
@@ -86,113 +87,121 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 	protected Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent,"oauthService");
 		self.setAttribute("remoteServiceUrl", getRemoteServiceUrl());
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 	
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.OAUTH_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.OAUTH_MEDIATOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getRemoteServiceUrl() {
-        return remoteServiceUrl;
-    }
+		return remoteServiceUrl;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setRemoteServiceUrl(String newRemoteServiceUrl) {
-        String oldRemoteServiceUrl = remoteServiceUrl;
-        remoteServiceUrl = newRemoteServiceUrl;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oldRemoteServiceUrl, remoteServiceUrl));
-    }
+		String oldRemoteServiceUrl = remoteServiceUrl;
+		remoteServiceUrl = newRemoteServiceUrl;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oldRemoteServiceUrl, remoteServiceUrl));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
-                return getRemoteServiceUrl();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
+				return getRemoteServiceUrl();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
-                setRemoteServiceUrl((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
+				setRemoteServiceUrl((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
-                setRemoteServiceUrl(REMOTE_SERVICE_URL_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
+				setRemoteServiceUrl(REMOTE_SERVICE_URL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
-                return REMOTE_SERVICE_URL_EDEFAULT == null ? remoteServiceUrl != null : !REMOTE_SERVICE_URL_EDEFAULT.equals(remoteServiceUrl);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case MediatorsPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
+				return REMOTE_SERVICE_URL_EDEFAULT == null ? remoteServiceUrl != null : !REMOTE_SERVICE_URL_EDEFAULT.equals(remoteServiceUrl);
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (remoteServiceUrl: ");
-        result.append(remoteServiceUrl);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (remoteServiceUrl: ");
+		result.append(remoteServiceUrl);
+		result.append(')');
+		return result.toString();
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

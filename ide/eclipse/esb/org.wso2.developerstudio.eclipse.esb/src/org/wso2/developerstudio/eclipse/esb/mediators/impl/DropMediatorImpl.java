@@ -35,19 +35,20 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  */
 public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DropMediatorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public void doLoad(Element self) throws Exception {
-		// Nothing to be loaded.		
+		// Nothing to be loaded.
+		super.doLoad(self);
 	}
 
 	/**
@@ -55,18 +56,21 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 	 */
 	public Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "drop");
+		if(description!=null)
+			description.save(self);
 		return self;
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EClass eStaticClass() {
-        return MediatorsPackage.Literals.DROP_MEDIATOR;
-    }
+		return MediatorsPackage.Literals.DROP_MEDIATOR;
+	}
 
 	
     public Map<String, ObjectValidator> validate() {

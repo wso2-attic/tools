@@ -40,115 +40,115 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  */
 public interface RMSequenceMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Rm Spec Version</b></em>' attribute.
-     * The default value is <code>"VERSION_1_0"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Rm Spec Version</b></em>' attribute.
+	 * The default value is <code>"VERSION_1_0"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rm Spec Version</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Rm Spec Version</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion
-     * @see #setRmSpecVersion(RMSpecVersion)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_RmSpecVersion()
-     * @model default="VERSION_1_0"
-     * @generated
-     */
+	 * @return the value of the '<em>Rm Spec Version</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion
+	 * @see #setRmSpecVersion(RMSpecVersion)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_RmSpecVersion()
+	 * @model default="VERSION_1_0"
+	 * @generated
+	 */
 	RMSpecVersion getRmSpecVersion();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getRmSpecVersion <em>Rm Spec Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getRmSpecVersion <em>Rm Spec Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Rm Spec Version</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion
-     * @see #getRmSpecVersion()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Rm Spec Version</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion
+	 * @see #getRmSpecVersion()
+	 * @generated
+	 */
 	void setRmSpecVersion(RMSpecVersion value);
 
 	/**
-     * Returns the value of the '<em><b>Sequence Type</b></em>' attribute.
-     * The default value is <code>"SINGLE_MESSAGE"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sequence Type</b></em>' attribute.
+	 * The default value is <code>"SINGLE_MESSAGE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequence Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType
-     * @see #setSequenceType(RMSequenceType)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_SequenceType()
-     * @model default="SINGLE_MESSAGE"
-     * @generated
-     */
+	 * @return the value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType
+	 * @see #setSequenceType(RMSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_SequenceType()
+	 * @model default="SINGLE_MESSAGE"
+	 * @generated
+	 */
 	RMSequenceType getSequenceType();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getSequenceType <em>Sequence Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getSequenceType <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Sequence Type</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType
-     * @see #getSequenceType()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType
+	 * @see #getSequenceType()
+	 * @generated
+	 */
 	void setSequenceType(RMSequenceType value);
 
 	/**
-     * Returns the value of the '<em><b>Correlation Xpath</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Correlation Xpath</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Correlation Xpath</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Correlation Xpath</em>' reference.
-     * @see #setCorrelationXpath(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_CorrelationXpath()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Correlation Xpath</em>' reference.
+	 * @see #setCorrelationXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_CorrelationXpath()
+	 * @model
+	 * @generated
+	 */
 	NamespacedProperty getCorrelationXpath();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Correlation Xpath</em>' reference.
-     * @see #getCorrelationXpath()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Correlation Xpath</em>' reference.
+	 * @see #getCorrelationXpath()
+	 * @generated
+	 */
 	void setCorrelationXpath(NamespacedProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Last Message Xpath</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Last Message Xpath</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Last Message Xpath</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Last Message Xpath</em>' reference.
-     * @see #setLastMessageXpath(NamespacedProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_LastMessageXpath()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Last Message Xpath</em>' reference.
+	 * @see #setLastMessageXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getRMSequenceMediator_LastMessageXpath()
+	 * @model
+	 * @generated
+	 */
 	NamespacedProperty getLastMessageXpath();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Last Message Xpath</em>' reference.
-     * @see #getLastMessageXpath()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Last Message Xpath</em>' reference.
+	 * @see #getLastMessageXpath()
+	 * @generated
+	 */
 	void setLastMessageXpath(NamespacedProperty value);
 
 } // RMSequenceMediator

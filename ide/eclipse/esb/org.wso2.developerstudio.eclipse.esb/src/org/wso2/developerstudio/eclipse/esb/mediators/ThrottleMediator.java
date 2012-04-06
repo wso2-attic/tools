@@ -38,108 +38,108 @@ import org.wso2.developerstudio.eclipse.esb.Mediator;
  */
 public interface ThrottleMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>On Accept Branch</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Accept Branch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Accept Branch</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Accept Branch</em>' containment reference.
-     * @see #setOnAcceptBranch(ThrottleOnAcceptBranch)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_OnAcceptBranch()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>On Accept Branch</em>' containment reference.
+	 * @see #setOnAcceptBranch(ThrottleOnAcceptBranch)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_OnAcceptBranch()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ThrottleOnAcceptBranch getOnAcceptBranch();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getOnAcceptBranch <em>On Accept Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getOnAcceptBranch <em>On Accept Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Accept Branch</em>' containment reference.
-     * @see #getOnAcceptBranch()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Accept Branch</em>' containment reference.
+	 * @see #getOnAcceptBranch()
+	 * @generated
+	 */
 	void setOnAcceptBranch(ThrottleOnAcceptBranch value);
 
 	/**
-     * Returns the value of the '<em><b>On Reject Branch</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>On Reject Branch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Reject Branch</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>On Reject Branch</em>' containment reference.
-     * @see #setOnRejectBranch(ThrottleOnRejectBranch)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_OnRejectBranch()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>On Reject Branch</em>' containment reference.
+	 * @see #setOnRejectBranch(ThrottleOnRejectBranch)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_OnRejectBranch()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ThrottleOnRejectBranch getOnRejectBranch();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getOnRejectBranch <em>On Reject Branch</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getOnRejectBranch <em>On Reject Branch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>On Reject Branch</em>' containment reference.
-     * @see #getOnRejectBranch()
-     * @generated
-     */
+	 * @param value the new value of the '<em>On Reject Branch</em>' containment reference.
+	 * @see #getOnRejectBranch()
+	 * @generated
+	 */
 	void setOnRejectBranch(ThrottleOnRejectBranch value);
 
 	/**
-     * Returns the value of the '<em><b>Group Id</b></em>' attribute.
-     * The default value is <code>"group_id"</code>.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Group Id</b></em>' attribute.
+	 * The default value is <code>"group_id"</code>.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Group Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Group Id</em>' attribute.
-     * @see #setGroupId(String)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_GroupId()
-     * @model default="group_id"
-     * @generated
-     */
+	 * @return the value of the '<em>Group Id</em>' attribute.
+	 * @see #setGroupId(String)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_GroupId()
+	 * @model default="group_id"
+	 * @generated
+	 */
 	String getGroupId();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getGroupId <em>Group Id</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getGroupId <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Group Id</em>' attribute.
-     * @see #getGroupId()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
+	 * @see #getGroupId()
+	 * @generated
+	 */
 	void setGroupId(String value);
 
 	/**
-     * Returns the value of the '<em><b>Policy Configuration</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Policy Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Policy Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Policy Configuration</em>' containment reference.
-     * @see #setPolicyConfiguration(ThrottlePolicyConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_PolicyConfiguration()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Policy Configuration</em>' containment reference.
+	 * @see #setPolicyConfiguration(ThrottlePolicyConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getThrottleMediator_PolicyConfiguration()
+	 * @model containment="true"
+	 * @generated
+	 */
 	ThrottlePolicyConfiguration getPolicyConfiguration();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getPolicyConfiguration <em>Policy Configuration</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator#getPolicyConfiguration <em>Policy Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Policy Configuration</em>' containment reference.
-     * @see #getPolicyConfiguration()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Policy Configuration</em>' containment reference.
+	 * @see #getPolicyConfiguration()
+	 * @generated
+	 */
 	void setPolicyConfiguration(ThrottlePolicyConfiguration value);
 
 } // ThrottleMediator

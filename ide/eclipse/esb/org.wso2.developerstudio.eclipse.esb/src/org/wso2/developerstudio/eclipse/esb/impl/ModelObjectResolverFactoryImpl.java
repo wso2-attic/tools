@@ -971,6 +971,15 @@ public class ModelObjectResolverFactoryImpl implements
 			}
 		});
 		
+		/**
+		 * Resolver corresponding to <description/> tag.
+		 */
+		localNameToResolverMap.put("description", new ModelObjectResolver() {			
+			public ModelObject resolve(Element elem, ModelObject parent) {
+			return getEsbFactory().createDescription();
+			}
+		});
+		
 		
 	}
 }

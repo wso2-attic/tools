@@ -119,7 +119,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseConfiguration/schemaLocation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//ConfigurationElement"/>
-    <genClasses image="false" ecoreClass="esb.ecore#//Mediator"/>
+    <genClasses image="false" ecoreClass="esb.ecore#//Mediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Mediator/description"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Description/value"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//EndPointReference"/>
     <genClasses image="false" ecoreClass="esb.ecore#//EndPoint">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/anonymous"/>
@@ -131,7 +136,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MediatorSequence/sequenceName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MediatorSequence/mediators"/>
       <genFeatures createChild="false" propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//MediatorSequence/onError"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MediatorSequence/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MediatorSequence/description"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//MediatorBranch">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MediatorBranch/children"/>

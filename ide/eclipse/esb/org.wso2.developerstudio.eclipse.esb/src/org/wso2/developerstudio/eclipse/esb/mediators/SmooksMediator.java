@@ -39,81 +39,81 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  */
 public interface SmooksMediator extends Mediator {
 	/**
-     * Returns the value of the '<em><b>Configuration Key</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Configuration Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Configuration Key</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Configuration Key</em>' containment reference.
-     * @see #setConfigurationKey(RegistryKeyProperty)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_ConfigurationKey()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Configuration Key</em>' containment reference.
+	 * @see #setConfigurationKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_ConfigurationKey()
+	 * @model containment="true"
+	 * @generated
+	 */
 	RegistryKeyProperty getConfigurationKey();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getConfigurationKey <em>Configuration Key</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getConfigurationKey <em>Configuration Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Configuration Key</em>' containment reference.
-     * @see #getConfigurationKey()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Configuration Key</em>' containment reference.
+	 * @see #getConfigurationKey()
+	 * @generated
+	 */
 	void setConfigurationKey(RegistryKeyProperty value);
 
 	/**
-     * Returns the value of the '<em><b>Input</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Input</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Input</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Input</em>' containment reference.
-     * @see #setInput(SmooksInConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_Input()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Input</em>' containment reference.
+	 * @see #setInput(SmooksInConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_Input()
+	 * @model containment="true"
+	 * @generated
+	 */
 	SmooksInConfiguration getInput();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getInput <em>Input</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getInput <em>Input</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Input</em>' containment reference.
-     * @see #getInput()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Input</em>' containment reference.
+	 * @see #getInput()
+	 * @generated
+	 */
 	void setInput(SmooksInConfiguration value);
 
 	/**
-     * Returns the value of the '<em><b>Output</b></em>' containment reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Output</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Output</em>' containment reference.
-     * @see #setOutput(SmooksOutConfiguration)
-     * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_Output()
-     * @model containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Output</em>' containment reference.
+	 * @see #setOutput(SmooksOutConfiguration)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getSmooksMediator_Output()
+	 * @model containment="true"
+	 * @generated
+	 */
 	SmooksOutConfiguration getOutput();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getOutput <em>Output</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator#getOutput <em>Output</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Output</em>' containment reference.
-     * @see #getOutput()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Output</em>' containment reference.
+	 * @see #getOutput()
+	 * @generated
+	 */
 	void setOutput(SmooksOutConfiguration value);
 
 } // SmooksMediator

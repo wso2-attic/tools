@@ -149,33 +149,33 @@ public interface ModelObject extends EObject {
 	String DEFAULT_RESOURCE_REFERENCE_REGISTRY_KEY = "/default/resource";
 
 	/**
-     * Returns the value of the '<em><b>Object State</b></em>' attribute.
-     * The default value is <code>"NORMAL"</code>.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.ModelObjectState}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Object State</b></em>' attribute.
+	 * The default value is <code>"NORMAL"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.ModelObjectState}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Object State</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Object State</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.ModelObjectState
-     * @see #setObjectState(ModelObjectState)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_ObjectState()
-     * @model default="NORMAL"
-     * @generated
-     */
+	 * @return the value of the '<em>Object State</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.ModelObjectState
+	 * @see #setObjectState(ModelObjectState)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_ObjectState()
+	 * @model default="NORMAL"
+	 * @generated
+	 */
 	ModelObjectState getObjectState();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getObjectState <em>Object State</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getObjectState <em>Object State</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @param value the new value of the '<em>Object State</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.ModelObjectState
-     * @see #getObjectState()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Object State</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.ModelObjectState
+	 * @see #getObjectState()
+	 * @generated
+	 */
 	void setObjectState(ModelObjectState value);
 
 	/**
@@ -196,85 +196,85 @@ public interface ModelObject extends EObject {
 	String getSourceText();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getSourceText <em>Source Text</em>}' attribute.
-     * <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getSourceText <em>Source Text</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @param value the new value of the '<em>Source Text</em>' attribute.
-     * @see #getSourceText()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Source Text</em>' attribute.
+	 * @see #getSourceText()
+	 * @generated
+	 */
 	void setSourceText(String value);
 
 	/**
-     * Returns the value of the '<em><b>Default Namespace</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Namespace</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Default Namespace</em>' reference.
-     * @see #setDefaultNamespace(Namespace)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_DefaultNamespace()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Default Namespace</em>' reference.
+	 * @see #setDefaultNamespace(Namespace)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_DefaultNamespace()
+	 * @model
+	 * @generated
+	 */
 	Namespace getDefaultNamespace();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getDefaultNamespace <em>Default Namespace</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getDefaultNamespace <em>Default Namespace</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @param value the new value of the '<em>Default Namespace</em>' reference.
-     * @see #getDefaultNamespace()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Default Namespace</em>' reference.
+	 * @see #getDefaultNamespace()
+	 * @generated
+	 */
 	void setDefaultNamespace(Namespace value);
 
 	/**
-     * Returns the value of the '<em><b>Additional Namespaces</b></em>' reference list.
-     * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.Namespace}.
-     * <!-- begin-user-doc
+	 * Returns the value of the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.Namespace}.
+	 * <!-- begin-user-doc
 	 * -->
 	 * <p>
 	 * If the meaning of the '<em>Additional Namespaces</em>' reference isn't
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Additional Namespaces</em>' reference list.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_AdditionalNamespaces()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Additional Namespaces</em>' reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_AdditionalNamespaces()
+	 * @model
+	 * @generated
+	 */
 	EList<Namespace> getAdditionalNamespaces();
 
 	/**
-     * Returns the value of the '<em><b>Current Esb Version</b></em>' attribute.
-     * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.EsbVersion}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Current Esb Version</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.esb.EsbVersion}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Current Esb Version</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Current Esb Version</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbVersion
-     * @see #setCurrentEsbVersion(EsbVersion)
-     * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_CurrentEsbVersion()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Current Esb Version</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbVersion
+	 * @see #setCurrentEsbVersion(EsbVersion)
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_CurrentEsbVersion()
+	 * @model
+	 * @generated
+	 */
 	EsbVersion getCurrentEsbVersion();
 
 	/**
-     * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getCurrentEsbVersion <em>Current Esb Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getCurrentEsbVersion <em>Current Esb Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Current Esb Version</em>' attribute.
-     * @see org.wso2.developerstudio.eclipse.esb.EsbVersion
-     * @see #getCurrentEsbVersion()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Current Esb Version</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbVersion
+	 * @see #getCurrentEsbVersion()
+	 * @generated
+	 */
 	void setCurrentEsbVersion(EsbVersion value);
 
 	/**

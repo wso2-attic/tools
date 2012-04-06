@@ -34,189 +34,190 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SmooksIODataType implements Enumerator {
 	/**
-     * The '<em><b>XML</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>XML</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #XML_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #XML_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	XML(0, "XML", "xml"),
 
 	/**
-     * The '<em><b>TEXT</b></em>' literal object.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>TEXT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #TEXT_VALUE
-     * @generated
-     * @ordered
-     */
+	 * @see #TEXT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	TEXT(0, "TEXT", "text");
 
 	/**
-     * The '<em><b>XML</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>XML</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>XML</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #XML
-     * @model literal="xml"
-     * @generated
-     * @ordered
-     */
+	 * @see #XML
+	 * @model literal="xml"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int XML_VALUE = 0;
 
 	/**
-     * The '<em><b>TEXT</b></em>' literal value.
-     * <!-- begin-user-doc -->
+	 * The '<em><b>TEXT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>TEXT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @see #TEXT
-     * @model literal="text"
-     * @generated
-     * @ordered
-     */
+	 * @see #TEXT
+	 * @model literal="text"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int TEXT_VALUE = 0;
 
 	/**
-     * An array of all the '<em><b>Smooks IO Data Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Smooks IO Data Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private static final SmooksIODataType[] VALUES_ARRAY =
 		new SmooksIODataType[] {
-            XML,
-            TEXT,
-        };
+			XML,
+			TEXT,
+		};
 
 	/**
-     * A public read-only list of all the '<em><b>Smooks IO Data Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Smooks IO Data Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<SmooksIODataType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-     * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static SmooksIODataType get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            SmooksIODataType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			SmooksIODataType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified name.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static SmooksIODataType getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            SmooksIODataType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name)) {
-                return result;
-            }
-        }
-        return null;
-    }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			SmooksIODataType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-     * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Smooks IO Data Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static SmooksIODataType get(int value) {
-        switch (value) {
-            case XML_VALUE: return XML;
-        }
-        return null;
-    }
+		switch (value) {
+			case XML_VALUE: return XML;
+		}
+		return null;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	private SmooksIODataType(int value, String name, String literal) {
-        this.value = value;
-        this.name = name;
-        this.literal = literal;
-    }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public int getValue() {
-      return value;
-    }
+	  return value;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-      return name;
-    }
+	  return name;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getLiteral() {
-      return literal;
-    }
+	  return literal;
+	}
 
 	/**
-     * Returns the literal value of the enumerator, which is its string representation.
-     * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String toString() {
-        return literal;
-    }
+		return literal;
+	}
 	
 } //SmooksIODataType
