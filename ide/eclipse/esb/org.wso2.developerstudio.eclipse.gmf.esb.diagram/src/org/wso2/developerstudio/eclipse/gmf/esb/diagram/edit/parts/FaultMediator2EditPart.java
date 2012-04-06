@@ -149,7 +149,7 @@ public class FaultMediator2EditPart extends AbstractMediator {
 			return true;
 		}
 		if (childEditPart instanceof FaultMediatorOutputConnector2EditPart) {
-			IFigure borderItemFigure = ((FaultMediatorOutputConnector3EditPart) childEditPart)
+			IFigure borderItemFigure = ((FaultMediatorOutputConnector2EditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					getMainFigure(), borderItemFigure, PositionConstants.EAST,

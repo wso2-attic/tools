@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.pag
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
@@ -229,9 +230,9 @@ public class NewFilterClassWizardPage extends WizardPage{
 			filterMap = new HashMap<String, PropertyData>();
 			loadData();
 
-			ArrayList results = new ArrayList();
+			List results = new ArrayList();
 			if (parent instanceof FilterData) {
-				results = (ArrayList) parent;
+				results.add((FilterData)parent);
 			}
 			return results.toArray();
 		}

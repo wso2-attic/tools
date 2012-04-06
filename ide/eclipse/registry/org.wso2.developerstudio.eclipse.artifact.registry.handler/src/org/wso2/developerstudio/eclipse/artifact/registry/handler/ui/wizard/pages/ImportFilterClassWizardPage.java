@@ -391,9 +391,9 @@ public class ImportFilterClassWizardPage extends WizardPage{
 			filterMap = new HashMap<String, PropertyData>();
 			loadData();
 
-			ArrayList results = new ArrayList();
+		    List results = new ArrayList();
 			if (parent instanceof FilterData) {
-				results = (ArrayList) parent;
+				results.add((FilterData) parent);
 			}
 			return results.toArray();
 		}

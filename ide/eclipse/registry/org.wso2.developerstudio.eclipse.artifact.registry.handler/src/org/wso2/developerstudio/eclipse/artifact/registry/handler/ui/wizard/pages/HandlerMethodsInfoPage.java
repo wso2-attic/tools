@@ -291,7 +291,7 @@ public class HandlerMethodsInfoPage extends WizardPage{
 			
 			ArrayList results = new ArrayList();
 			if (parent instanceof HandlerPropertyData) {
-				results = (ArrayList) parent;
+				results.add((HandlerPropertyData) parent);
 			}
 			return results.toArray();
 		}
