@@ -56,14 +56,14 @@ public class AbstractProxySequenceConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public AbstractProxySequenceConfigurationItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -96,70 +96,70 @@ public class AbstractProxySequenceConfigurationItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Sequence Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AbstractProxySequenceConfiguration_sequenceType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceType_feature", "_UI_AbstractProxySequenceConfiguration_type"),
-                 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractProxySequenceConfiguration_sequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceType_feature", "_UI_AbstractProxySequenceConfiguration_type"),
+				 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Sequence Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AbstractProxySequenceConfiguration_sequenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceKey_feature", "_UI_AbstractProxySequenceConfiguration_type"),
-                 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractProxySequenceConfiguration_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceKey_feature", "_UI_AbstractProxySequenceConfiguration_type"),
+				 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Sequence Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_AbstractProxySequenceConfiguration_sequenceName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceName_feature", "_UI_AbstractProxySequenceConfiguration_type"),
-                 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractProxySequenceConfiguration_sequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractProxySequenceConfiguration_sequenceName_feature", "_UI_AbstractProxySequenceConfiguration_type"),
+				 EsbPackage.Literals.ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -184,31 +184,33 @@ public class AbstractProxySequenceConfigurationItemProvider
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public String getText(Object object) {
-        String label = ((AbstractProxySequenceConfiguration)object).getSequenceName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_AbstractProxySequenceConfiguration_type") :
-            getString("_UI_AbstractProxySequenceConfiguration_type") + " " + label;
-    }
+		String label = ((AbstractProxySequenceConfiguration)object).getSequenceName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractProxySequenceConfiguration_type") :
+			getString("_UI_AbstractProxySequenceConfiguration_type") + " " + label;
+	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -52,14 +52,14 @@ public class EnrichMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnrichMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -163,257 +163,258 @@ public class EnrichMediatorItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Clone Source feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Clone Source feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addCloneSourcePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_cloneSource_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_cloneSource_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__CLONE_SOURCE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 getString("_UI_SourcePropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_cloneSource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_cloneSource_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__CLONE_SOURCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Source Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Source Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSourceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_sourceType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceType_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_SourcePropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_sourceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceType_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Source Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Source Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSourceXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_sourceXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceXpath_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 getString("_UI_SourcePropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_sourceXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceXpath_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Source Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Source Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSourcePropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_sourceProperty_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceProperty_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_SourcePropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_sourceProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceProperty_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Source XML feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Source XML feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSourceXMLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_sourceXML_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceXML_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_XML,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_SourcePropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_sourceXML_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceXML_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__SOURCE_XML,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Target Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Target Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTargetActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_targetAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetAction_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_TargetPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_targetAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetAction_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Target Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Target Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTargetTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_targetType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetType_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_TargetPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_targetType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetType_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Target Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Target Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTargetXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_targetXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetXpath_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 getString("_UI_TargetPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_targetXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetXpath_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Target Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Target Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTargetPropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_targetProperty_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetProperty_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_TargetPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_targetProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_targetProperty_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__TARGET_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Inline Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Inline Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addInlineTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_inlineType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineType_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__INLINE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_inlineType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineType_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__INLINE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Inline Registry Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Inline Registry Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addInlineRegistryKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnrichMediator_inlineRegistryKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineRegistryKey_feature", "_UI_EnrichMediator_type"),
-                 MediatorsPackage.Literals.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_inlineRegistryKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineRegistryKey_feature", "_UI_EnrichMediator_type"),
+				 MediatorsPackage.Literals.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns EnrichMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns EnrichMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/EnrichMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnrichMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -426,54 +427,57 @@ public class EnrichMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(EnrichMediator.class)) {
-            case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
-            case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_TYPE:
-            case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_XPATH:
-            case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_PROPERTY:
-            case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_XML:
-            case MediatorsPackage.ENRICH_MEDIATOR__TARGET_ACTION:
-            case MediatorsPackage.ENRICH_MEDIATOR__TARGET_TYPE:
-            case MediatorsPackage.ENRICH_MEDIATOR__TARGET_XPATH:
-            case MediatorsPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
-            case MediatorsPackage.ENRICH_MEDIATOR__INLINE_TYPE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(EnrichMediator.class)) {
+			case MediatorsPackage.ENRICH_MEDIATOR__CLONE_SOURCE:
+			case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_TYPE:
+			case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_XPATH:
+			case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_PROPERTY:
+			case MediatorsPackage.ENRICH_MEDIATOR__SOURCE_XML:
+			case MediatorsPackage.ENRICH_MEDIATOR__TARGET_ACTION:
+			case MediatorsPackage.ENRICH_MEDIATOR__TARGET_TYPE:
+			case MediatorsPackage.ENRICH_MEDIATOR__TARGET_XPATH:
+			case MediatorsPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
+			case MediatorsPackage.ENRICH_MEDIATOR__INLINE_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

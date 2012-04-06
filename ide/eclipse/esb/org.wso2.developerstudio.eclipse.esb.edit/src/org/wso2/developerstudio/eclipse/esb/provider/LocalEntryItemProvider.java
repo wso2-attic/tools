@@ -48,14 +48,14 @@ public class LocalEntryItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LocalEntryItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -94,125 +94,126 @@ public class LocalEntryItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Entry Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Entry Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addEntryNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LocalEntry_entryName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_entryName_feature", "_UI_LocalEntry_type"),
-                 EsbPackage.Literals.LOCAL_ENTRY__ENTRY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_entryName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_entryName_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__ENTRY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LocalEntry_valueType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueType_feature", "_UI_LocalEntry_type"),
-                 EsbPackage.Literals.LOCAL_ENTRY__VALUE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_valueType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueType_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Literal feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Literal feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueLiteralPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LocalEntry_valueLiteral_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueLiteral_feature", "_UI_LocalEntry_type"),
-                 EsbPackage.Literals.LOCAL_ENTRY__VALUE_LITERAL,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_valueLiteral_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueLiteral_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_LITERAL,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value XML feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value XML feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueXMLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LocalEntry_valueXML_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueXML_feature", "_UI_LocalEntry_type"),
-                 EsbPackage.Literals.LOCAL_ENTRY__VALUE_XML,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_valueXML_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueXML_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_XML,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value URL feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value URL feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueURLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LocalEntry_valueURL_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueURL_feature", "_UI_LocalEntry_type"),
-                 EsbPackage.Literals.LOCAL_ENTRY__VALUE_URL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocalEntry_valueURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueURL_feature", "_UI_LocalEntry_type"),
+				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns LocalEntry.gif.
-     * <!-- begin-user-doc -->
+	 * This returns LocalEntry.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalEntry"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalEntry"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -226,38 +227,40 @@ public class LocalEntryItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(LocalEntry.class)) {
-            case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
-            case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
-            case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
-            case EsbPackage.LOCAL_ENTRY__VALUE_XML:
-            case EsbPackage.LOCAL_ENTRY__VALUE_URL:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(LocalEntry.class)) {
+			case EsbPackage.LOCAL_ENTRY__ENTRY_NAME:
+			case EsbPackage.LOCAL_ENTRY__VALUE_TYPE:
+			case EsbPackage.LOCAL_ENTRY__VALUE_LITERAL:
+			case EsbPackage.LOCAL_ENTRY__VALUE_XML:
+			case EsbPackage.LOCAL_ENTRY__VALUE_URL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

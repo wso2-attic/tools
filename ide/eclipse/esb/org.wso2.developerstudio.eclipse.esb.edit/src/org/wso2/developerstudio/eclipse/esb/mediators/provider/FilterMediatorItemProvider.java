@@ -55,14 +55,14 @@ public class FilterMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FilterMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
      * This returns the property descriptors for the adapted class.
@@ -89,134 +89,137 @@ public class FilterMediatorItemProvider
     }
 
 	/**
-     * This adds a property descriptor for the Condition Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Condition Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addConditionTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FilterMediator_conditionType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_conditionType_feature", "_UI_FilterMediator_type"),
-                 MediatorsPackage.Literals.FILTER_MEDIATOR__CONDITION_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FilterMediator_conditionType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_conditionType_feature", "_UI_FilterMediator_type"),
+				 MediatorsPackage.Literals.FILTER_MEDIATOR__CONDITION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Filter Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Filter Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFilterXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FilterMediator_filterXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterXpath_feature", "_UI_FilterMediator_type"),
-                 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FilterMediator_filterXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterXpath_feature", "_UI_FilterMediator_type"),
+				 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Filter Source feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Filter Source feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFilterSourcePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FilterMediator_filterSource_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterSource_feature", "_UI_FilterMediator_type"),
-                 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_SOURCE,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FilterMediator_filterSource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterSource_feature", "_UI_FilterMediator_type"),
+				 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_SOURCE,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Filter Regex feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Filter Regex feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFilterRegexPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FilterMediator_filterRegex_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterRegex_feature", "_UI_FilterMediator_type"),
-                 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_REGEX,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FilterMediator_filterRegex_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FilterMediator_filterRegex_feature", "_UI_FilterMediator_type"),
+				 MediatorsPackage.Literals.FILTER_MEDIATOR__FILTER_REGEX,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 				/**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(MediatorsPackage.Literals.FILTER_MEDIATOR__THEN_BRANCH);
-            childrenFeatures.add(MediatorsPackage.Literals.FILTER_MEDIATOR__ELSE_BRANCH);
-        }
-        return childrenFeatures;
-    }
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(MediatorsPackage.Literals.FILTER_MEDIATOR__THEN_BRANCH);
+			childrenFeatures.add(MediatorsPackage.Literals.FILTER_MEDIATOR__ELSE_BRANCH);
+		}
+		return childrenFeatures;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns FilterMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns FilterMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/FilterMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FilterMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -229,62 +232,65 @@ public class FilterMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(FilterMediator.class)) {
-            case MediatorsPackage.FILTER_MEDIATOR__CONDITION_TYPE:
-            case MediatorsPackage.FILTER_MEDIATOR__FILTER_XPATH:
-            case MediatorsPackage.FILTER_MEDIATOR__FILTER_SOURCE:
-            case MediatorsPackage.FILTER_MEDIATOR__FILTER_REGEX:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-            case MediatorsPackage.FILTER_MEDIATOR__THEN_BRANCH:
-            case MediatorsPackage.FILTER_MEDIATOR__ELSE_BRANCH:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(FilterMediator.class)) {
+			case MediatorsPackage.FILTER_MEDIATOR__CONDITION_TYPE:
+			case MediatorsPackage.FILTER_MEDIATOR__FILTER_XPATH:
+			case MediatorsPackage.FILTER_MEDIATOR__FILTER_SOURCE:
+			case MediatorsPackage.FILTER_MEDIATOR__FILTER_REGEX:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MediatorsPackage.FILTER_MEDIATOR__THEN_BRANCH:
+			case MediatorsPackage.FILTER_MEDIATOR__ELSE_BRANCH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add
-            (createChildParameter
-                (MediatorsPackage.Literals.FILTER_MEDIATOR__THEN_BRANCH,
-                 MediatorsFactory.eINSTANCE.createFilterThenBranch()));
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.FILTER_MEDIATOR__THEN_BRANCH,
+				 MediatorsFactory.eINSTANCE.createFilterThenBranch()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (MediatorsPackage.Literals.FILTER_MEDIATOR__ELSE_BRANCH,
-                 MediatorsFactory.eINSTANCE.createFilterElseBranch()));
-    }
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.FILTER_MEDIATOR__ELSE_BRANCH,
+				 MediatorsFactory.eINSTANCE.createFilterElseBranch()));
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

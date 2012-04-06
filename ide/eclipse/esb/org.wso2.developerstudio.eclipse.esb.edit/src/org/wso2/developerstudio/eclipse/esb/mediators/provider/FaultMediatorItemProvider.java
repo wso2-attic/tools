@@ -55,14 +55,14 @@ public class FaultMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public FaultMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class. 
@@ -114,345 +114,346 @@ public class FaultMediatorItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Soap Version feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Soap Version feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSoapVersionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_soapVersion_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_soapVersion_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__SOAP_VERSION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_soapVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_soapVersion_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__SOAP_VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Code Soap11 feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Code Soap11 feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultCodeSoap11PropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultCodeSoap11_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeSoap11_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_SOAP11,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultCodeSoap11_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeSoap11_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_SOAP11,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Code Soap12 feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Code Soap12 feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultCodeSoap12PropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultCodeSoap12_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeSoap12_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_SOAP12,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultCodeSoap12_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeSoap12_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_SOAP12,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Reason Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Reason Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultReasonTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultReasonType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonType_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultReasonType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonType_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Reason Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Reason Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultReasonValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultReasonValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonValue_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultReasonValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonValue_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Reason Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Reason Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultReasonExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultReasonExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonExpression_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultReasonExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultReasonExpression_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Role Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Role Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addRoleNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_roleName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_roleName_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__ROLE_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_roleName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_roleName_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__ROLE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Node Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Node Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addNodeNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_nodeName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_nodeName_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__NODE_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_nodeName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_nodeName_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__NODE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Detail Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Detail Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultDetailTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultDetailType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailType_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultDetailType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailType_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Detail Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Detail Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultDetailValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultDetailValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailValue_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultDetailValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailValue_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Detail Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Detail Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultDetailExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultDetailExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailExpression_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultDetailExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultDetailExpression_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault String Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault String Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultStringTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultStringType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringType_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultStringType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringType_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault String Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault String Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultStringValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultStringValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringValue_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultStringValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringValue_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault String Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault String Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultStringExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultStringExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringExpression_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultStringExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultStringExpression_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fault Actor feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fault Actor feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFaultActorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_FaultMediator_faultActor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultActor_feature", "_UI_FaultMediator_type"),
-                 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_ACTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultActor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultActor_feature", "_UI_FaultMediator_type"),
+				 MediatorsPackage.Literals.FAULT_MEDIATOR__FAULT_ACTOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns FaultMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns FaultMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/FaultMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FaultMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -465,59 +466,62 @@ public class FaultMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(FaultMediator.class)) {
-            case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_VALUE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_ACTOR:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP12:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_TYPE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_VALUE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION:
-            case MediatorsPackage.FAULT_MEDIATOR__ROLE_NAME:
-            case MediatorsPackage.FAULT_MEDIATOR__NODE_NAME:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_TYPE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_VALUE:
-            case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(FaultMediator.class)) {
+			case MediatorsPackage.FAULT_MEDIATOR__SOAP_VERSION:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_VALUE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_ACTOR:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP12:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_TYPE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_VALUE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION:
+			case MediatorsPackage.FAULT_MEDIATOR__ROLE_NAME:
+			case MediatorsPackage.FAULT_MEDIATOR__NODE_NAME:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_TYPE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_VALUE:
+			case MediatorsPackage.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

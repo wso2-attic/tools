@@ -60,14 +60,14 @@ public class URLRewriteRuleActionItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public URLRewriteRuleActionItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -103,147 +103,148 @@ public class URLRewriteRuleActionItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Rule Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Rule Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addRuleActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_ruleAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleAction_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_ruleAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleAction_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Rule Fragment feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Rule Fragment feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addRuleFragmentPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_ruleFragment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleFragment_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_FRAGMENT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_ruleFragment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleFragment_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_FRAGMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Rule Option feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Rule Option feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addRuleOptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_ruleOption_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleOption_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_OPTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_ruleOption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_ruleOption_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_OPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Action Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Action Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addActionExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_actionExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionExpression_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_actionExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionExpression_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Action Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Action Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addActionValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_actionValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionValue_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_actionValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionValue_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Action Regex feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Action Regex feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addActionRegexPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteRuleAction_actionRegex_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionRegex_feature", "_UI_URLRewriteRuleAction_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_REGEX,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteRuleAction_actionRegex_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteRuleAction_actionRegex_feature", "_UI_URLRewriteRuleAction_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_REGEX,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns URLRewriteRuleAction.gif.
-     * <!-- begin-user-doc -->
+	 * This returns URLRewriteRuleAction.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/URLRewriteRuleAction"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/URLRewriteRuleAction"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -258,49 +259,52 @@ public class URLRewriteRuleActionItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(URLRewriteRuleAction.class)) {
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_ACTION:
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_FRAGMENT:
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_OPTION:
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION__ACTION_VALUE:
-            case MediatorsPackage.URL_REWRITE_RULE_ACTION__ACTION_REGEX:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(URLRewriteRuleAction.class)) {
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_ACTION:
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_FRAGMENT:
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION__RULE_OPTION:
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION__ACTION_VALUE:
+			case MediatorsPackage.URL_REWRITE_RULE_ACTION__ACTION_REGEX:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

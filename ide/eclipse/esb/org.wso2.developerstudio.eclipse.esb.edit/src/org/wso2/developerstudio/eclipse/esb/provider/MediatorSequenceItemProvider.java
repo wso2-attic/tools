@@ -34,6 +34,9 @@ import org.wso2.developerstudio.eclipse.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.EsbVersion;
 import org.wso2.developerstudio.eclipse.esb.MediatorSequence;
+import org.wso2.developerstudio.eclipse.esb.ProxyFaultSequenceConfiguration;
+import org.wso2.developerstudio.eclipse.esb.ProxyInSequenceConfiguration;
+import org.wso2.developerstudio.eclipse.esb.ProxyOutSequenceConfiguration;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsFactory;
 
 /**
@@ -75,7 +78,7 @@ public class MediatorSequenceItemProvider extends
 
 		addOnErrorPropertyDescriptor(object);
 		// Description
-		// addDescriptionPropertyDescriptor(object);
+		//addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -87,20 +90,20 @@ public class MediatorSequenceItemProvider extends
 	 * @generated
 	 */
 	protected void addAnonymousPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_MediatorSequence_anonymous_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_anonymous_feature", "_UI_MediatorSequence_type"),
-                 EsbPackage.Literals.MEDIATOR_SEQUENCE__ANONYMOUS,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MediatorSequence_anonymous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_anonymous_feature", "_UI_MediatorSequence_type"),
+				 EsbPackage.Literals.MEDIATOR_SEQUENCE__ANONYMOUS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This adds a property descriptor for the Sequence Name feature. <!--
@@ -109,20 +112,20 @@ public class MediatorSequenceItemProvider extends
 	 * @generated
 	 */
 	protected void addSequenceNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_MediatorSequence_sequenceName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_sequenceName_feature", "_UI_MediatorSequence_type"),
-                 EsbPackage.Literals.MEDIATOR_SEQUENCE__SEQUENCE_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MediatorSequence_sequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_sequenceName_feature", "_UI_MediatorSequence_type"),
+				 EsbPackage.Literals.MEDIATOR_SEQUENCE__SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This adds a property descriptor for the On Error feature. <!--
@@ -131,82 +134,64 @@ public class MediatorSequenceItemProvider extends
 	 * @generated
 	 */
 	protected void addOnErrorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_MediatorSequence_onError_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_onError_feature", "_UI_MediatorSequence_type"),
-                 EsbPackage.Literals.MEDIATOR_SEQUENCE__ON_ERROR,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MediatorSequence_onError_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_onError_feature", "_UI_MediatorSequence_type"),
+				 EsbPackage.Literals.MEDIATOR_SEQUENCE__ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-	 * This adds a property descriptor for the Description feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_MediatorSequence_description_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_MediatorSequence_description_feature", "_UI_MediatorSequence_type"),
-                 EsbPackage.Literals.MEDIATOR_SEQUENCE__DESCRIPTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-	/**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
 	
+	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
-        if (childrenFeatures == null) {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(EsbPackage.Literals.MEDIATOR_SEQUENCE__MEDIATORS);
-        }
-        return childrenFeatures;
-    }
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.MEDIATOR_SEQUENCE__MEDIATORS);
+			childrenFeatures.add(EsbPackage.Literals.MEDIATOR_SEQUENCE__DESCRIPTION);
+		}
+		return childrenFeatures;
+	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns MediatorSequence.gif.
-     * <!-- begin-user-doc --> <!--
+	 * This returns MediatorSequence.gif.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/MediatorSequence"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MediatorSequence"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
@@ -222,29 +207,30 @@ public class MediatorSequenceItemProvider extends
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(MediatorSequence.class)) {
-            case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
-            case EsbPackage.MEDIATOR_SEQUENCE__SEQUENCE_NAME:
-            case EsbPackage.MEDIATOR_SEQUENCE__ON_ERROR:
-            case EsbPackage.MEDIATOR_SEQUENCE__DESCRIPTION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-            case EsbPackage.MEDIATOR_SEQUENCE__MEDIATORS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(MediatorSequence.class)) {
+			case EsbPackage.MEDIATOR_SEQUENCE__ANONYMOUS:
+			case EsbPackage.MEDIATOR_SEQUENCE__SEQUENCE_NAME:
+			case EsbPackage.MEDIATOR_SEQUENCE__ON_ERROR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EsbPackage.MEDIATOR_SEQUENCE__MEDIATORS:
+			case EsbPackage.MEDIATOR_SEQUENCE__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
@@ -255,8 +241,14 @@ public class MediatorSequenceItemProvider extends
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		MediatorSequence sequence = (MediatorSequence) object;
+		if(!(((MediatorSequence)object).eContainer() instanceof ProxyInSequenceConfiguration) && !(((MediatorSequence)object).eContainer() instanceof ProxyOutSequenceConfiguration)
+				&& !(((MediatorSequence)object).eContainer() instanceof ProxyFaultSequenceConfiguration)){
+		newChildDescriptors.add(createChildParameter(
+		        EsbPackage.Literals.MEDIATOR_SEQUENCE__DESCRIPTION,
+		        EsbFactory.eINSTANCE.createDescription()));
+		}
+		
+		MediatorSequence sequence = (MediatorSequence) object;		
 
 		switch (sequence.getCurrentEsbVersion()) {
 		case ESB400:

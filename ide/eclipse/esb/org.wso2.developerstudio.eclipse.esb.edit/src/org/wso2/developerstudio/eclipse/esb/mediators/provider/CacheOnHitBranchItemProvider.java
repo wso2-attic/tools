@@ -60,14 +60,14 @@ public class CacheOnHitBranchItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CacheOnHitBranchItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -91,59 +91,60 @@ public class CacheOnHitBranchItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Sequence Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CacheOnHitBranch_sequenceType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceType_feature", "_UI_CacheOnHitBranch_type"),
-                 MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CacheOnHitBranch_sequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceType_feature", "_UI_CacheOnHitBranch_type"),
+				 MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Sequence Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CacheOnHitBranch_sequenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceKey_feature", "_UI_CacheOnHitBranch_type"),
-                 MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CacheOnHitBranch_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceKey_feature", "_UI_CacheOnHitBranch_type"),
+				 MediatorsPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns CacheOnHitBranch.gif.
-     * <!-- begin-user-doc -->
+	 * This returns CacheOnHitBranch.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CacheOnHitBranch"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CacheOnHitBranch"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -175,27 +176,29 @@ public class CacheOnHitBranchItemProvider
 	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 	
 	/**
 	 *{@inheritDoc}

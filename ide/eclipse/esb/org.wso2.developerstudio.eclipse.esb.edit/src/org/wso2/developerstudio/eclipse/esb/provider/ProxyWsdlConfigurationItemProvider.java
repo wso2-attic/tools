@@ -57,14 +57,14 @@ public class ProxyWsdlConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ProxyWsdlConfigurationItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -105,92 +105,92 @@ public class ProxyWsdlConfigurationItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Wsdl Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addWsdlTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyWsdlConfiguration_wsdlType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlType_feature", "_UI_ProxyWsdlConfiguration_type"),
-                 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyWsdlConfiguration_wsdlType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlType_feature", "_UI_ProxyWsdlConfiguration_type"),
+				 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Wsdl XML feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl XML feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addWsdlXMLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyWsdlConfiguration_wsdlXML_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlXML_feature", "_UI_ProxyWsdlConfiguration_type"),
-                 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_XML,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyWsdlConfiguration_wsdlXML_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlXML_feature", "_UI_ProxyWsdlConfiguration_type"),
+				 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_XML,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Wsdl URL feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl URL feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addWsdlURLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyWsdlConfiguration_wsdlURL_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlURL_feature", "_UI_ProxyWsdlConfiguration_type"),
-                 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_URL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyWsdlConfiguration_wsdlURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlURL_feature", "_UI_ProxyWsdlConfiguration_type"),
+				 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Wsdl Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addWsdlKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyWsdlConfiguration_wsdlKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlKey_feature", "_UI_ProxyWsdlConfiguration_type"),
-                 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyWsdlConfiguration_wsdlKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyWsdlConfiguration_wsdlKey_feature", "_UI_ProxyWsdlConfiguration_type"),
+				 EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -215,28 +215,30 @@ public class ProxyWsdlConfigurationItemProvider
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }		
+		return super.getChildFeature(object, child);
+	}		
 
 	/**
-     * This returns ProxyWsdlConfiguration.gif.
-     * <!-- begin-user-doc -->
+	 * This returns ProxyWsdlConfiguration.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyWsdlConfiguration"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyWsdlConfiguration"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -275,21 +277,22 @@ public class ProxyWsdlConfigurationItemProvider
 	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add
-            (createChildParameter
-                (EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES,
-                 EsbFactory.eINSTANCE.createProxyWsdlResource()));
-    }
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_WSDL_CONFIGURATION__WSDL_RESOURCES,
+				 EsbFactory.eINSTANCE.createProxyWsdlResource()));
+	}
 	
 	/**
 	 * {@inheritDoc}

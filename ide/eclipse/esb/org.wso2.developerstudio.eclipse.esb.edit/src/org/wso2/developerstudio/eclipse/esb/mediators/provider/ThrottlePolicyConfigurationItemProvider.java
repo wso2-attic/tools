@@ -60,14 +60,14 @@ public class ThrottlePolicyConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ThrottlePolicyConfigurationItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -94,70 +94,70 @@ public class ThrottlePolicyConfigurationItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Policy Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Policy Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPolicyTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ThrottlePolicyConfiguration_policyType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyType_feature", "_UI_ThrottlePolicyConfiguration_type"),
-                 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_policyType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyType_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Policy Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Policy Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPolicyKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ThrottlePolicyConfiguration_policyKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyKey_feature", "_UI_ThrottlePolicyConfiguration_type"),
-                 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_policyKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyKey_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Max Concurrent Access Count feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Max Concurrent Access Count feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addMaxConcurrentAccessCountPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature", "_UI_ThrottlePolicyConfiguration_type"),
-                 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -182,28 +182,30 @@ public class ThrottlePolicyConfigurationItemProvider
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns ThrottlePolicyConfiguration.gif.
-     * <!-- begin-user-doc -->
+	 * This returns ThrottlePolicyConfiguration.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ThrottlePolicyConfiguration"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ThrottlePolicyConfiguration"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -239,21 +241,22 @@ public class ThrottlePolicyConfigurationItemProvider
 	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add
-            (createChildParameter
-                (MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES,
-                 MediatorsFactory.eINSTANCE.createThrottlePolicyEntry()));
-    }
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES,
+				 MediatorsFactory.eINSTANCE.createThrottlePolicyEntry()));
+	}
 	
 	/**
 	 * {@inheritDoc}
@@ -272,14 +275,15 @@ public class ThrottlePolicyConfigurationItemProvider
 	
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

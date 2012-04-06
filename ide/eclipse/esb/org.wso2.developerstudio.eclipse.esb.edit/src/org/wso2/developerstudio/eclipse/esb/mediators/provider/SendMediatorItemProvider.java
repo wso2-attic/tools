@@ -61,8 +61,8 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	public SendMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
@@ -98,67 +98,67 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	}
 
 	/**
-     * This adds a property descriptor for the Receiving Sequence Type feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Receiving Sequence Type feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addReceivingSequenceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SendMediator_receivingSequenceType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_receivingSequenceType_feature", "_UI_SendMediator_type"),
-                 MediatorsPackage.Literals.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendMediator_receivingSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_receivingSequenceType_feature", "_UI_SendMediator_type"),
+				 MediatorsPackage.Literals.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Static Receiving Sequence feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Static Receiving Sequence feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addStaticReceivingSequencePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SendMediator_StaticReceivingSequence_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_StaticReceivingSequence_feature", "_UI_SendMediator_type"),
-                 MediatorsPackage.Literals.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendMediator_StaticReceivingSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_StaticReceivingSequence_feature", "_UI_SendMediator_type"),
+				 MediatorsPackage.Literals.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Dynamic Receiving Sequence feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Dynamic Receiving Sequence feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addDynamicReceivingSequencePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SendMediator_DynamicReceivingSequence_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_DynamicReceivingSequence_feature", "_UI_SendMediator_type"),
-                 MediatorsPackage.Literals.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendMediator_DynamicReceivingSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_DynamicReceivingSequence_feature", "_UI_SendMediator_type"),
+				 MediatorsPackage.Literals.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to
@@ -189,16 +189,17 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	}
 
 	/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
 	 * This returns SendMediator.gif. <!-- begin-user-doc --> <!-- end-user-doc
@@ -207,9 +208,10 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SendMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SendMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
@@ -221,29 +223,30 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(SendMediator.class)) {
-            case MediatorsPackage.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE:
-            case MediatorsPackage.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE:
-            case MediatorsPackage.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-            case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
-            case MediatorsPackage.SEND_MEDIATOR__END_POINT_REFERENCE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(SendMediator.class)) {
+			case MediatorsPackage.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE:
+			case MediatorsPackage.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE:
+			case MediatorsPackage.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MediatorsPackage.SEND_MEDIATOR__ANONYMOUS_END_POINT:
+			case MediatorsPackage.SEND_MEDIATOR__END_POINT_REFERENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
@@ -307,9 +310,10 @@ public class SendMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 	/**
 	 * {@inheritDoc}

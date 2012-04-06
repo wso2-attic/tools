@@ -52,14 +52,14 @@ public class RuleFactItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public RuleFactItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -103,169 +103,170 @@ public class RuleFactItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Fact Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fact Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFactTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_factType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factType_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__FACT_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_factType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factType_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__FACT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fact Custom Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fact Custom Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFactCustomTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_factCustomType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factCustomType_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__FACT_CUSTOM_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_factCustomType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factCustomType_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__FACT_CUSTOM_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Fact Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Fact Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFactNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_factName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factName_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__FACT_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_factName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_factName_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__FACT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_valueType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueType_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__VALUE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_valueType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueType_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__VALUE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Literal feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Literal feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueLiteralPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_valueLiteral_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueLiteral_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__VALUE_LITERAL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_valueLiteral_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueLiteral_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__VALUE_LITERAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_valueExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueExpression_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__VALUE_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_valueExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueExpression_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__VALUE_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RuleFact_valueKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueKey_feature", "_UI_RuleFact_type"),
-                 MediatorsPackage.Literals.RULE_FACT__VALUE_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleFact_valueKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleFact_valueKey_feature", "_UI_RuleFact_type"),
+				 MediatorsPackage.Literals.RULE_FACT__VALUE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns RuleFact.gif.
-     * <!-- begin-user-doc -->
+	 * This returns RuleFact.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RuleFact"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RuleFact"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -278,51 +279,54 @@ public class RuleFactItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(RuleFact.class)) {
-            case MediatorsPackage.RULE_FACT__FACT_TYPE:
-            case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
-            case MediatorsPackage.RULE_FACT__FACT_NAME:
-            case MediatorsPackage.RULE_FACT__VALUE_TYPE:
-            case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
-            case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
-            case MediatorsPackage.RULE_FACT__VALUE_KEY:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(RuleFact.class)) {
+			case MediatorsPackage.RULE_FACT__FACT_TYPE:
+			case MediatorsPackage.RULE_FACT__FACT_CUSTOM_TYPE:
+			case MediatorsPackage.RULE_FACT__FACT_NAME:
+			case MediatorsPackage.RULE_FACT__VALUE_TYPE:
+			case MediatorsPackage.RULE_FACT__VALUE_LITERAL:
+			case MediatorsPackage.RULE_FACT__VALUE_EXPRESSION:
+			case MediatorsPackage.RULE_FACT__VALUE_KEY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

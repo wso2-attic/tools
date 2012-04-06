@@ -48,132 +48,134 @@ public class RegistryKeyPropertyItemProvider
         IItemLabelProvider,
         IItemPropertySource {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public RegistryKeyPropertyItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
     /**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
-            super.getPropertyDescriptors(object);
+    @Override
+				public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addPrettyNamePropertyDescriptor(object);
-            addKeyNamePropertyDescriptor(object);
-            addKeyValuePropertyDescriptor(object);
-            addFiltersPropertyDescriptor(object);
-        }
-        return itemPropertyDescriptors;
-    }
+			addPrettyNamePropertyDescriptor(object);
+			addKeyNamePropertyDescriptor(object);
+			addKeyValuePropertyDescriptor(object);
+			addFiltersPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
     /**
-     * This adds a property descriptor for the Pretty Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Pretty Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPrettyNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RegistryKeyProperty_prettyName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_prettyName_feature", "_UI_RegistryKeyProperty_type"),
-                 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__PRETTY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RegistryKeyProperty_prettyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_prettyName_feature", "_UI_RegistryKeyProperty_type"),
+				 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__PRETTY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 				/**
-     * This adds a property descriptor for the Key Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Key Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addKeyNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RegistryKeyProperty_keyName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_keyName_feature", "_UI_RegistryKeyProperty_type"),
-                 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__KEY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RegistryKeyProperty_keyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_keyName_feature", "_UI_RegistryKeyProperty_type"),
+				 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__KEY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 				/**
-     * This adds a property descriptor for the Key Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Key Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addKeyValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RegistryKeyProperty_keyValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_keyValue_feature", "_UI_RegistryKeyProperty_type"),
-                 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__KEY_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RegistryKeyProperty_keyValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_keyValue_feature", "_UI_RegistryKeyProperty_type"),
+				 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__KEY_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 				/**
-     * This adds a property descriptor for the Filters feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Filters feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addFiltersPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RegistryKeyProperty_filters_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_filters_feature", "_UI_RegistryKeyProperty_type"),
-                 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__FILTERS,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RegistryKeyProperty_filters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RegistryKeyProperty_filters_feature", "_UI_RegistryKeyProperty_type"),
+				 EsbPackage.Literals.REGISTRY_KEY_PROPERTY__FILTERS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 				/**
-     * This returns RegistryKeyProperty.gif.
-     * <!-- begin-user-doc -->
+	 * This returns RegistryKeyProperty.gif.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RegistryKeyProperty"));
-    }
+    @Override
+				public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RegistryKeyProperty"));
+	}
 
     /**
      * This returns the label text for the adapted class.
@@ -186,37 +188,39 @@ public class RegistryKeyPropertyItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+				public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(RegistryKeyProperty.class)) {
-            case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
-            case EsbPackage.REGISTRY_KEY_PROPERTY__KEY_NAME:
-            case EsbPackage.REGISTRY_KEY_PROPERTY__KEY_VALUE:
-            case EsbPackage.REGISTRY_KEY_PROPERTY__FILTERS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(RegistryKeyProperty.class)) {
+			case EsbPackage.REGISTRY_KEY_PROPERTY__PRETTY_NAME:
+			case EsbPackage.REGISTRY_KEY_PROPERTY__KEY_NAME:
+			case EsbPackage.REGISTRY_KEY_PROPERTY__KEY_VALUE:
+			case EsbPackage.REGISTRY_KEY_PROPERTY__FILTERS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+    @Override
+				protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

@@ -51,14 +51,14 @@ public class CommandPropertyItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CommandPropertyItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -98,169 +98,170 @@ public class CommandPropertyItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Property Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_propertyName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_propertyName_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__PROPERTY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_propertyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_propertyName_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__PROPERTY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_valueType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueType_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_valueType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueType_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Literal feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Literal feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueLiteralPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_valueLiteral_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueLiteral_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_LITERAL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_valueLiteral_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueLiteral_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_LITERAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Context Property Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Context Property Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueContextPropertyNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_valueContextPropertyName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueContextPropertyName_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_valueContextPropertyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueContextPropertyName_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Message Element Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Message Element Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueMessageElementXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_valueMessageElementXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueMessageElementXpath_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_valueMessageElementXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_valueMessageElementXpath_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Context Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Context Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addContextActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_contextAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_contextAction_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__CONTEXT_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_contextAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_contextAction_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__CONTEXT_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Message Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Message Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addMessageActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CommandProperty_messageAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_messageAction_feature", "_UI_CommandProperty_type"),
-                 MediatorsPackage.Literals.COMMAND_PROPERTY__MESSAGE_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandProperty_messageAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandProperty_messageAction_feature", "_UI_CommandProperty_type"),
+				 MediatorsPackage.Literals.COMMAND_PROPERTY__MESSAGE_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns CommandProperty.gif.
-     * <!-- begin-user-doc -->
+	 * This returns CommandProperty.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandProperty"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandProperty"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -274,51 +275,54 @@ public class CommandPropertyItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(CommandProperty.class)) {
-            case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
-            case MediatorsPackage.COMMAND_PROPERTY__VALUE_TYPE:
-            case MediatorsPackage.COMMAND_PROPERTY__VALUE_LITERAL:
-            case MediatorsPackage.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME:
-            case MediatorsPackage.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH:
-            case MediatorsPackage.COMMAND_PROPERTY__CONTEXT_ACTION:
-            case MediatorsPackage.COMMAND_PROPERTY__MESSAGE_ACTION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(CommandProperty.class)) {
+			case MediatorsPackage.COMMAND_PROPERTY__PROPERTY_NAME:
+			case MediatorsPackage.COMMAND_PROPERTY__VALUE_TYPE:
+			case MediatorsPackage.COMMAND_PROPERTY__VALUE_LITERAL:
+			case MediatorsPackage.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME:
+			case MediatorsPackage.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH:
+			case MediatorsPackage.COMMAND_PROPERTY__CONTEXT_ACTION:
+			case MediatorsPackage.COMMAND_PROPERTY__MESSAGE_ACTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

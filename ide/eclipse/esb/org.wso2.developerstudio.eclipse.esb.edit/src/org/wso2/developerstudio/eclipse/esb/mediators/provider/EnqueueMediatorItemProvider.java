@@ -52,109 +52,111 @@ public class EnqueueMediatorItemProvider
         IItemLabelProvider,
         IItemPropertySource {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EnqueueMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
     /**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
-            super.getPropertyDescriptors(object);
+    @Override
+				public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addExecutorPropertyDescriptor(object);
-            addPriorityPropertyDescriptor(object);
-            addSequenceKeyPropertyDescriptor(object);
-        }
-        return itemPropertyDescriptors;
-    }
+			addExecutorPropertyDescriptor(object);
+			addPriorityPropertyDescriptor(object);
+			addSequenceKeyPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
     /**
-     * This adds a property descriptor for the Executor feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Executor feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addExecutorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnqueueMediator_executor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_executor_feature", "_UI_EnqueueMediator_type"),
-                 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__EXECUTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnqueueMediator_executor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_executor_feature", "_UI_EnqueueMediator_type"),
+				 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__EXECUTOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Priority feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Priority feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addPriorityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnqueueMediator_priority_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_priority_feature", "_UI_EnqueueMediator_type"),
-                 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__PRIORITY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnqueueMediator_priority_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_priority_feature", "_UI_EnqueueMediator_type"),
+				 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__PRIORITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Sequence Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EnqueueMediator_sequenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_sequenceKey_feature", "_UI_EnqueueMediator_type"),
-                 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__SEQUENCE_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnqueueMediator_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_sequenceKey_feature", "_UI_EnqueueMediator_type"),
+				 MediatorsPackage.Literals.ENQUEUE_MEDIATOR__SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 				/**
-     * This returns EnqueueMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns EnqueueMediator.gif.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/EnqueueMediator"));
-    }
+    @Override
+				public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnqueueMediator"));
+	}
 
     /**
      * This returns the label text for the adapted class.
@@ -167,47 +169,50 @@ public class EnqueueMediatorItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+				public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(EnqueueMediator.class)) {
-            case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-            case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
-            case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(EnqueueMediator.class)) {
+			case MediatorsPackage.ENQUEUE_MEDIATOR__EXECUTOR:
+			case MediatorsPackage.ENQUEUE_MEDIATOR__PRIORITY:
+			case MediatorsPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+    @Override
+				protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 				/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

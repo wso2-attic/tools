@@ -51,8 +51,8 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * @generated
 	 */
 	public SequenceMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
@@ -87,100 +87,101 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Referring Sequence Type feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Referring Sequence Type feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addReferringSequenceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SequenceMediator_referringSequenceType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_referringSequenceType_feature", "_UI_SequenceMediator_type"),
-                 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SequenceMediator_referringSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_referringSequenceType_feature", "_UI_SequenceMediator_type"),
+				 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Dynamic Reference Key feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Dynamic Reference Key feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addDynamicReferenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SequenceMediator_dynamicReferenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_dynamicReferenceKey_feature", "_UI_SequenceMediator_type"),
-                 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__DYNAMIC_REFERENCE_KEY,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SequenceMediator_dynamicReferenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_dynamicReferenceKey_feature", "_UI_SequenceMediator_type"),
+				 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__DYNAMIC_REFERENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Static Reference Key feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
+	 * This adds a property descriptor for the Static Reference Key feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addStaticReferenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SequenceMediator_staticReferenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_staticReferenceKey_feature", "_UI_SequenceMediator_type"),
-                 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__STATIC_REFERENCE_KEY,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SequenceMediator_staticReferenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_staticReferenceKey_feature", "_UI_SequenceMediator_type"),
+				 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__STATIC_REFERENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Sequence Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SequenceMediator_sequenceKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_sequenceKey_feature", "_UI_SequenceMediator_type"),
-                 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__SEQUENCE_KEY,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SequenceMediator_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SequenceMediator_sequenceKey_feature", "_UI_SequenceMediator_type"),
+				 MediatorsPackage.Literals.SEQUENCE_MEDIATOR__SEQUENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns SequenceMediator.gif.
-     * <!-- begin-user-doc --> <!--
+	 * This returns SequenceMediator.gif.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SequenceMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SequenceMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
@@ -192,23 +193,24 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(SequenceMediator.class)) {
-            case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(SequenceMediator.class)) {
+			case MediatorsPackage.SEQUENCE_MEDIATOR__REFERRING_SEQUENCE_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
@@ -218,10 +220,11 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
 	 * Return the resource locator for this item provider's resources. <!--
@@ -230,8 +233,9 @@ public class SequenceMediatorItemProvider extends MediatorItemProvider
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

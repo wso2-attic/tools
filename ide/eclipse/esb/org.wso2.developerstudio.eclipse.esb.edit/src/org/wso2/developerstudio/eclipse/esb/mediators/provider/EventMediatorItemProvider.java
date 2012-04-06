@@ -51,8 +51,8 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	public EventMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
@@ -99,20 +99,20 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	protected void addTopicTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EventMediator_topicType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_topicType_feature", "_UI_EventMediator_type"),
-                 MediatorsPackage.Literals.EVENT_MEDIATOR__TOPIC_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventMediator_topicType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_topicType_feature", "_UI_EventMediator_type"),
+				 MediatorsPackage.Literals.EVENT_MEDIATOR__TOPIC_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This adds a property descriptor for the Static Topic feature. <!--
@@ -121,20 +121,20 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	protected void addStaticTopicPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EventMediator_staticTopic_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_staticTopic_feature", "_UI_EventMediator_type"),
-                 MediatorsPackage.Literals.EVENT_MEDIATOR__STATIC_TOPIC,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventMediator_staticTopic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_staticTopic_feature", "_UI_EventMediator_type"),
+				 MediatorsPackage.Literals.EVENT_MEDIATOR__STATIC_TOPIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This adds a property descriptor for the Dynamic Topic feature. <!--
@@ -143,20 +143,20 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	protected void addDynamicTopicPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EventMediator_dynamicTopic_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_dynamicTopic_feature", "_UI_EventMediator_type"),
-                 MediatorsPackage.Literals.EVENT_MEDIATOR__DYNAMIC_TOPIC,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventMediator_dynamicTopic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_dynamicTopic_feature", "_UI_EventMediator_type"),
+				 MediatorsPackage.Literals.EVENT_MEDIATOR__DYNAMIC_TOPIC,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This adds a property descriptor for the Event Expression feature. <!--
@@ -165,42 +165,42 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	protected void addEventExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EventMediator_eventExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_eventExpression_feature", "_UI_EventMediator_type"),
-                 MediatorsPackage.Literals.EVENT_MEDIATOR__EVENT_EXPRESSION,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventMediator_eventExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_eventExpression_feature", "_UI_EventMediator_type"),
+				 MediatorsPackage.Literals.EVENT_MEDIATOR__EVENT_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Event Source feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Event Source feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addEventSourcePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_EventMediator_eventSource_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_eventSource_feature", "_UI_EventMediator_type"),
-                 MediatorsPackage.Literals.EVENT_MEDIATOR__EVENT_SOURCE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventMediator_eventSource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventMediator_eventSource_feature", "_UI_EventMediator_type"),
+				 MediatorsPackage.Literals.EVENT_MEDIATOR__EVENT_SOURCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This returns EventMediator.gif. <!-- begin-user-doc --> <!-- end-user-doc
@@ -209,9 +209,10 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/EventMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EventMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
@@ -223,25 +224,26 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(EventMediator.class)) {
-            case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
-            case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
-            case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(EventMediator.class)) {
+			case MediatorsPackage.EVENT_MEDIATOR__TOPIC_TYPE:
+			case MediatorsPackage.EVENT_MEDIATOR__STATIC_TOPIC:
+			case MediatorsPackage.EVENT_MEDIATOR__EVENT_SOURCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
@@ -251,10 +253,11 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
 	 * Return the resource locator for this item provider's resources. <!--
@@ -263,8 +266,9 @@ public class EventMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

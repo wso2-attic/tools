@@ -58,14 +58,14 @@ public class CallTemplateParameterItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CallTemplateParameterItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -96,103 +96,104 @@ public class CallTemplateParameterItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Parameter Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Parameter Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addParameterNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CallTemplateParameter_parameterName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterName_feature", "_UI_CallTemplateParameter_type"),
-                 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallTemplateParameter_parameterName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterName_feature", "_UI_CallTemplateParameter_type"),
+				 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Template Parameter Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Template Parameter Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTemplateParameterTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CallTemplateParameter_templateParameterType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_templateParameterType_feature", "_UI_CallTemplateParameter_type"),
-                 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallTemplateParameter_templateParameterType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_templateParameterType_feature", "_UI_CallTemplateParameter_type"),
+				 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Parameter Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Parameter Value feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addParameterValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CallTemplateParameter_parameterValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterValue_feature", "_UI_CallTemplateParameter_type"),
-                 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallTemplateParameter_parameterValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterValue_feature", "_UI_CallTemplateParameter_type"),
+				 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Parameter Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Parameter Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addParameterExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CallTemplateParameter_parameterExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterExpression_feature", "_UI_CallTemplateParameter_type"),
-                 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallTemplateParameter_parameterExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterExpression_feature", "_UI_CallTemplateParameter_type"),
+				 MediatorsPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns CallTemplateParameter.gif.
-     * <!-- begin-user-doc -->
+	 * This returns CallTemplateParameter.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CallTemplateParameter"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallTemplateParameter"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -207,47 +208,50 @@ public class CallTemplateParameterItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(CallTemplateParameter.class)) {
-            case MediatorsPackage.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME:
-            case MediatorsPackage.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE:
-            case MediatorsPackage.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(CallTemplateParameter.class)) {
+			case MediatorsPackage.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME:
+			case MediatorsPackage.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE:
+			case MediatorsPackage.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

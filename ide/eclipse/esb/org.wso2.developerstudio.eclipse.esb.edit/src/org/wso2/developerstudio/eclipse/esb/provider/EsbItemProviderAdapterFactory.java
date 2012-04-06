@@ -46,42 +46,42 @@ import org.wso2.developerstudio.eclipse.esb.util.EsbAdapterFactory;
  */
 public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-     * This keeps track of the root adapter factory that delegates to this adapter factory.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-     * <!-- begin-user-doc -->
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-     * <!-- begin-user-doc -->
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-     * This constructs an instance.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EsbItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
-    }
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -95,704 +95,756 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
     }
 	
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SynapseConfigurationItemProvider synapseConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSynapseConfigurationAdapter() {
-        if (synapseConfigurationItemProvider == null) {
-            synapseConfigurationItemProvider = new SynapseConfigurationItemProvider(this);
-        }
+		if (synapseConfigurationItemProvider == null) {
+			synapseConfigurationItemProvider = new SynapseConfigurationItemProvider(this);
+		}
 
-        return synapseConfigurationItemProvider;
-    }
+		return synapseConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.MediatorSequence} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.Description} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
+	protected DescriptionItemProvider descriptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.Description}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDescriptionAdapter() {
+		if (descriptionItemProvider == null) {
+			descriptionItemProvider = new DescriptionItemProvider(this);
+		}
+
+		return descriptionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.MediatorSequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected MediatorSequenceItemProvider mediatorSequenceItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.MediatorSequence}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.MediatorSequence}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createMediatorSequenceAdapter() {
-        if (mediatorSequenceItemProvider == null) {
-            mediatorSequenceItemProvider = new MediatorSequenceItemProvider(this);
-        }
+		if (mediatorSequenceItemProvider == null) {
+			mediatorSequenceItemProvider = new MediatorSequenceItemProvider(this);
+		}
 
-        return mediatorSequenceItemProvider;
-    }
+		return mediatorSequenceItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.UnknownObject} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.UnknownObject} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected UnknownObjectItemProvider unknownObjectItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.UnknownObject}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.UnknownObject}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createUnknownObjectAdapter() {
-        if (unknownObjectItemProvider == null) {
-            unknownObjectItemProvider = new UnknownObjectItemProvider(this);
-        }
+    @Override
+				public Adapter createUnknownObjectAdapter() {
+		if (unknownObjectItemProvider == null) {
+			unknownObjectItemProvider = new UnknownObjectItemProvider(this);
+		}
 
-        return unknownObjectItemProvider;
-    }
+		return unknownObjectItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.NamespacedProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.NamespacedProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected NamespacedPropertyItemProvider namespacedPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.NamespacedProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.NamespacedProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createNamespacedPropertyAdapter() {
-        if (namespacedPropertyItemProvider == null) {
-            namespacedPropertyItemProvider = new NamespacedPropertyItemProvider(this);
-        }
+		if (namespacedPropertyItemProvider == null) {
+			namespacedPropertyItemProvider = new NamespacedPropertyItemProvider(this);
+		}
 
-        return namespacedPropertyItemProvider;
-    }
+		return namespacedPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RegistryKeyPropertyItemProvider registryKeyPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRegistryKeyPropertyAdapter() {
-        if (registryKeyPropertyItemProvider == null) {
-            registryKeyPropertyItemProvider = new RegistryKeyPropertyItemProvider(this);
-        }
+		if (registryKeyPropertyItemProvider == null) {
+			registryKeyPropertyItemProvider = new RegistryKeyPropertyItemProvider(this);
+		}
 
-        return registryKeyPropertyItemProvider;
-    }
+		return registryKeyPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyService} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyService} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyServiceItemProvider proxyServiceItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyService}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyService}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyServiceAdapter() {
-        if (proxyServiceItemProvider == null) {
-            proxyServiceItemProvider = new ProxyServiceItemProvider(this);
-        }
+		if (proxyServiceItemProvider == null) {
+			proxyServiceItemProvider = new ProxyServiceItemProvider(this);
+		}
 
-        return proxyServiceItemProvider;
-    }
+		return proxyServiceItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyWsdlConfigurationItemProvider proxyWsdlConfigurationItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyWsdlConfigurationAdapter() {
-        if (proxyWsdlConfigurationItemProvider == null) {
-            proxyWsdlConfigurationItemProvider = new ProxyWsdlConfigurationItemProvider(this);
-        }
+		if (proxyWsdlConfigurationItemProvider == null) {
+			proxyWsdlConfigurationItemProvider = new ProxyWsdlConfigurationItemProvider(this);
+		}
 
-        return proxyWsdlConfigurationItemProvider;
-    }
+		return proxyWsdlConfigurationItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlResource} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlResource} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyWsdlResourceItemProvider proxyWsdlResourceItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlResource}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlResource}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyWsdlResourceAdapter() {
-        if (proxyWsdlResourceItemProvider == null) {
-            proxyWsdlResourceItemProvider = new ProxyWsdlResourceItemProvider(this);
-        }
+		if (proxyWsdlResourceItemProvider == null) {
+			proxyWsdlResourceItemProvider = new ProxyWsdlResourceItemProvider(this);
+		}
 
-        return proxyWsdlResourceItemProvider;
-    }
+		return proxyWsdlResourceItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyServiceParameterItemProvider proxyServiceParameterItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyServiceParameter}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyServiceParameterAdapter() {
-        if (proxyServiceParameterItemProvider == null) {
-            proxyServiceParameterItemProvider = new ProxyServiceParameterItemProvider(this);
-        }
+		if (proxyServiceParameterItemProvider == null) {
+			proxyServiceParameterItemProvider = new ProxyServiceParameterItemProvider(this);
+		}
 
-        return proxyServiceParameterItemProvider;
-    }
+		return proxyServiceParameterItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyServicePolicyItemProvider proxyServicePolicyItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyServicePolicy}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyServicePolicyAdapter() {
-        if (proxyServicePolicyItemProvider == null) {
-            proxyServicePolicyItemProvider = new ProxyServicePolicyItemProvider(this);
-        }
+		if (proxyServicePolicyItemProvider == null) {
+			proxyServicePolicyItemProvider = new ProxyServicePolicyItemProvider(this);
+		}
 
-        return proxyServicePolicyItemProvider;
-    }
+		return proxyServicePolicyItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyInSequenceConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyInSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyInSequenceConfigurationItemProvider proxyInSequenceConfigurationItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyInSequenceConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyInSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyInSequenceConfigurationAdapter() {
-        if (proxyInSequenceConfigurationItemProvider == null) {
-            proxyInSequenceConfigurationItemProvider = new ProxyInSequenceConfigurationItemProvider(this);
-        }
+		if (proxyInSequenceConfigurationItemProvider == null) {
+			proxyInSequenceConfigurationItemProvider = new ProxyInSequenceConfigurationItemProvider(this);
+		}
 
-        return proxyInSequenceConfigurationItemProvider;
-    }
+		return proxyInSequenceConfigurationItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyEndpointConfigurationItemProvider proxyEndpointConfigurationItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyEndpointConfigurationAdapter() {
-        if (proxyEndpointConfigurationItemProvider == null) {
-            proxyEndpointConfigurationItemProvider = new ProxyEndpointConfigurationItemProvider(this);
-        }
+		if (proxyEndpointConfigurationItemProvider == null) {
+			proxyEndpointConfigurationItemProvider = new ProxyEndpointConfigurationItemProvider(this);
+		}
 
-        return proxyEndpointConfigurationItemProvider;
-    }
+		return proxyEndpointConfigurationItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyOutSequenceConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyOutSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyOutSequenceConfigurationItemProvider proxyOutSequenceConfigurationItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyOutSequenceConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyOutSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyOutSequenceConfigurationAdapter() {
-        if (proxyOutSequenceConfigurationItemProvider == null) {
-            proxyOutSequenceConfigurationItemProvider = new ProxyOutSequenceConfigurationItemProvider(this);
-        }
+		if (proxyOutSequenceConfigurationItemProvider == null) {
+			proxyOutSequenceConfigurationItemProvider = new ProxyOutSequenceConfigurationItemProvider(this);
+		}
 
-        return proxyOutSequenceConfigurationItemProvider;
-    }
+		return proxyOutSequenceConfigurationItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyFaultSequenceConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyFaultSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ProxyFaultSequenceConfigurationItemProvider proxyFaultSequenceConfigurationItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyFaultSequenceConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ProxyFaultSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createProxyFaultSequenceConfigurationAdapter() {
-        if (proxyFaultSequenceConfigurationItemProvider == null) {
-            proxyFaultSequenceConfigurationItemProvider = new ProxyFaultSequenceConfigurationItemProvider(this);
-        }
+		if (proxyFaultSequenceConfigurationItemProvider == null) {
+			proxyFaultSequenceConfigurationItemProvider = new ProxyFaultSequenceConfigurationItemProvider(this);
+		}
 
-        return proxyFaultSequenceConfigurationItemProvider;
-    }
+		return proxyFaultSequenceConfigurationItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.LocalEntry} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.LocalEntry} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected LocalEntryItemProvider localEntryItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.LocalEntry}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.LocalEntry}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createLocalEntryAdapter() {
-        if (localEntryItemProvider == null) {
-            localEntryItemProvider = new LocalEntryItemProvider(this);
-        }
+		if (localEntryItemProvider == null) {
+			localEntryItemProvider = new LocalEntryItemProvider(this);
+		}
 
-        return localEntryItemProvider;
-    }
+		return localEntryItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.EvaluatorExpressionProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.EvaluatorExpressionProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EvaluatorExpressionPropertyItemProvider evaluatorExpressionPropertyItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.EvaluatorExpressionProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.EvaluatorExpressionProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createEvaluatorExpressionPropertyAdapter() {
-        if (evaluatorExpressionPropertyItemProvider == null) {
-            evaluatorExpressionPropertyItemProvider = new EvaluatorExpressionPropertyItemProvider(this);
-        }
+		if (evaluatorExpressionPropertyItemProvider == null) {
+			evaluatorExpressionPropertyItemProvider = new EvaluatorExpressionPropertyItemProvider(this);
+		}
 
-        return evaluatorExpressionPropertyItemProvider;
-    }
+		return evaluatorExpressionPropertyItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DefaultEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DefaultEndPoint} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected DefaultEndPointItemProvider defaultEndPointItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DefaultEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DefaultEndPoint}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createDefaultEndPointAdapter() {
-        if (defaultEndPointItemProvider == null) {
-            defaultEndPointItemProvider = new DefaultEndPointItemProvider(this);
-        }
+    @Override
+				public Adapter createDefaultEndPointAdapter() {
+		if (defaultEndPointItemProvider == null) {
+			defaultEndPointItemProvider = new DefaultEndPointItemProvider(this);
+		}
 
-        return defaultEndPointItemProvider;
-    }
+		return defaultEndPointItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected AddressEndPointItemProvider addressEndPointItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.AddressEndPoint}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createAddressEndPointAdapter() {
-        if (addressEndPointItemProvider == null) {
-            addressEndPointItemProvider = new AddressEndPointItemProvider(this);
-        }
+    @Override
+				public Adapter createAddressEndPointAdapter() {
+		if (addressEndPointItemProvider == null) {
+			addressEndPointItemProvider = new AddressEndPointItemProvider(this);
+		}
 
-        return addressEndPointItemProvider;
-    }
+		return addressEndPointItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.WsdlEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.WsdlEndPoint} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected WsdlEndPointItemProvider wsdlEndPointItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.WsdlEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.WsdlEndPoint}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createWsdlEndPointAdapter() {
-        if (wsdlEndPointItemProvider == null) {
-            wsdlEndPointItemProvider = new WsdlEndPointItemProvider(this);
-        }
+    @Override
+				public Adapter createWsdlEndPointAdapter() {
+		if (wsdlEndPointItemProvider == null) {
+			wsdlEndPointItemProvider = new WsdlEndPointItemProvider(this);
+		}
 
-        return wsdlEndPointItemProvider;
-    }
+		return wsdlEndPointItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.FailoverEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.FailoverEndPoint} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected FailoverEndPointItemProvider failoverEndPointItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.FailoverEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.FailoverEndPoint}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createFailoverEndPointAdapter() {
-        if (failoverEndPointItemProvider == null) {
-            failoverEndPointItemProvider = new FailoverEndPointItemProvider(this);
-        }
+    @Override
+				public Adapter createFailoverEndPointAdapter() {
+		if (failoverEndPointItemProvider == null) {
+			failoverEndPointItemProvider = new FailoverEndPointItemProvider(this);
+		}
 
-        return failoverEndPointItemProvider;
-    }
+		return failoverEndPointItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceEndPoint} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected LoadBalanceEndPointItemProvider loadBalanceEndPointItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.LoadBalanceEndPoint}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createLoadBalanceEndPointAdapter() {
-        if (loadBalanceEndPointItemProvider == null) {
-            loadBalanceEndPointItemProvider = new LoadBalanceEndPointItemProvider(this);
-        }
+    @Override
+				public Adapter createLoadBalanceEndPointAdapter() {
+		if (loadBalanceEndPointItemProvider == null) {
+			loadBalanceEndPointItemProvider = new LoadBalanceEndPointItemProvider(this);
+		}
 
-        return loadBalanceEndPointItemProvider;
-    }
+		return loadBalanceEndPointItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DynamicLoadBalanceEndPointItemProvider dynamicLoadBalanceEndPointItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceEndPoint}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createDynamicLoadBalanceEndPointAdapter() {
-        if (dynamicLoadBalanceEndPointItemProvider == null) {
-            dynamicLoadBalanceEndPointItemProvider = new DynamicLoadBalanceEndPointItemProvider(this);
-        }
+		if (dynamicLoadBalanceEndPointItemProvider == null) {
+			dynamicLoadBalanceEndPointItemProvider = new DynamicLoadBalanceEndPointItemProvider(this);
+		}
 
-        return dynamicLoadBalanceEndPointItemProvider;
-    }
+		return dynamicLoadBalanceEndPointItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DynamicLoadBalancePropertyItemProvider dynamicLoadBalancePropertyItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.DynamicLoadBalanceProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createDynamicLoadBalancePropertyAdapter() {
-        if (dynamicLoadBalancePropertyItemProvider == null) {
-            dynamicLoadBalancePropertyItemProvider = new DynamicLoadBalancePropertyItemProvider(this);
-        }
+		if (dynamicLoadBalancePropertyItemProvider == null) {
+			dynamicLoadBalancePropertyItemProvider = new DynamicLoadBalancePropertyItemProvider(this);
+		}
 
-        return dynamicLoadBalancePropertyItemProvider;
-    }
+		return dynamicLoadBalancePropertyItemProvider;
+	}
 
 				/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.XPathEndPointReference} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.XPathEndPointReference} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected XPathEndPointReferenceItemProvider xPathEndPointReferenceItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.XPathEndPointReference}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.XPathEndPointReference}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createXPathEndPointReferenceAdapter() {
-        if (xPathEndPointReferenceItemProvider == null) {
-            xPathEndPointReferenceItemProvider = new XPathEndPointReferenceItemProvider(this);
-        }
+    @Override
+				public Adapter createXPathEndPointReferenceAdapter() {
+		if (xPathEndPointReferenceItemProvider == null) {
+			xPathEndPointReferenceItemProvider = new XPathEndPointReferenceItemProvider(this);
+		}
 
-        return xPathEndPointReferenceItemProvider;
-    }
+		return xPathEndPointReferenceItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RegistryKeyEndPointReferenceItemProvider registryKeyEndPointReferenceItemProvider;
 
 				/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRegistryKeyEndPointReferenceAdapter() {
-        if (registryKeyEndPointReferenceItemProvider == null) {
-            registryKeyEndPointReferenceItemProvider = new RegistryKeyEndPointReferenceItemProvider(this);
-        }
+		if (registryKeyEndPointReferenceItemProvider == null) {
+			registryKeyEndPointReferenceItemProvider = new RegistryKeyEndPointReferenceItemProvider(this);
+		}
 
-        return registryKeyEndPointReferenceItemProvider;
-    }
+		return registryKeyEndPointReferenceItemProvider;
+	}
 
 				/**
-     * This returns the root adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-    }
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
 	/**
-     * This sets the composed adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-        this.parentAdapterFactory = parentAdapterFactory;
-    }
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
-    }
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
 	/**
-     * This implementation substitutes the factory itself as the key for the adapter.
-     * <!-- begin-user-doc -->
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-        return super.adapt(notifier, this);
-    }
+		return super.adapt(notifier, this);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-                return adapter;
-            }
-        }
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 
 	/**
-     * This adds a listener.
-     * <!-- begin-user-doc -->
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
-    }
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
 	/**
-     * This removes a listener.
-     * <!-- begin-user-doc -->
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
-    }
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
 	/**
-     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-     * <!-- begin-user-doc -->
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+		changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
-        }
-    }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
 	/**
-     * This disposes all of the item providers created by this factory. 
-     * <!-- begin-user-doc -->
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void dispose() {
-        if (synapseConfigurationItemProvider != null) synapseConfigurationItemProvider.dispose();
-        if (unknownObjectItemProvider != null) unknownObjectItemProvider.dispose();
-        if (mediatorSequenceItemProvider != null) mediatorSequenceItemProvider.dispose();
-        if (namespacedPropertyItemProvider != null) namespacedPropertyItemProvider.dispose();
-        if (registryKeyPropertyItemProvider != null) registryKeyPropertyItemProvider.dispose();
-        if (defaultEndPointItemProvider != null) defaultEndPointItemProvider.dispose();
-        if (addressEndPointItemProvider != null) addressEndPointItemProvider.dispose();
-        if (wsdlEndPointItemProvider != null) wsdlEndPointItemProvider.dispose();
-        if (failoverEndPointItemProvider != null) failoverEndPointItemProvider.dispose();
-        if (loadBalanceEndPointItemProvider != null) loadBalanceEndPointItemProvider.dispose();
-        if (dynamicLoadBalanceEndPointItemProvider != null) dynamicLoadBalanceEndPointItemProvider.dispose();
-        if (dynamicLoadBalancePropertyItemProvider != null) dynamicLoadBalancePropertyItemProvider.dispose();
-        if (xPathEndPointReferenceItemProvider != null) xPathEndPointReferenceItemProvider.dispose();
-        if (registryKeyEndPointReferenceItemProvider != null) registryKeyEndPointReferenceItemProvider.dispose();
-        if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
-        if (proxyWsdlConfigurationItemProvider != null) proxyWsdlConfigurationItemProvider.dispose();
-        if (proxyWsdlResourceItemProvider != null) proxyWsdlResourceItemProvider.dispose();
-        if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
-        if (proxyServicePolicyItemProvider != null) proxyServicePolicyItemProvider.dispose();
-        if (proxyInSequenceConfigurationItemProvider != null) proxyInSequenceConfigurationItemProvider.dispose();
-        if (proxyEndpointConfigurationItemProvider != null) proxyEndpointConfigurationItemProvider.dispose();
-        if (proxyOutSequenceConfigurationItemProvider != null) proxyOutSequenceConfigurationItemProvider.dispose();
-        if (proxyFaultSequenceConfigurationItemProvider != null) proxyFaultSequenceConfigurationItemProvider.dispose();
-        if (localEntryItemProvider != null) localEntryItemProvider.dispose();
-        if (evaluatorExpressionPropertyItemProvider != null) evaluatorExpressionPropertyItemProvider.dispose();
-    }
+		if (synapseConfigurationItemProvider != null) synapseConfigurationItemProvider.dispose();
+		if (descriptionItemProvider != null) descriptionItemProvider.dispose();
+		if (unknownObjectItemProvider != null) unknownObjectItemProvider.dispose();
+		if (mediatorSequenceItemProvider != null) mediatorSequenceItemProvider.dispose();
+		if (namespacedPropertyItemProvider != null) namespacedPropertyItemProvider.dispose();
+		if (registryKeyPropertyItemProvider != null) registryKeyPropertyItemProvider.dispose();
+		if (defaultEndPointItemProvider != null) defaultEndPointItemProvider.dispose();
+		if (addressEndPointItemProvider != null) addressEndPointItemProvider.dispose();
+		if (wsdlEndPointItemProvider != null) wsdlEndPointItemProvider.dispose();
+		if (failoverEndPointItemProvider != null) failoverEndPointItemProvider.dispose();
+		if (loadBalanceEndPointItemProvider != null) loadBalanceEndPointItemProvider.dispose();
+		if (dynamicLoadBalanceEndPointItemProvider != null) dynamicLoadBalanceEndPointItemProvider.dispose();
+		if (dynamicLoadBalancePropertyItemProvider != null) dynamicLoadBalancePropertyItemProvider.dispose();
+		if (xPathEndPointReferenceItemProvider != null) xPathEndPointReferenceItemProvider.dispose();
+		if (registryKeyEndPointReferenceItemProvider != null) registryKeyEndPointReferenceItemProvider.dispose();
+		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
+		if (proxyWsdlConfigurationItemProvider != null) proxyWsdlConfigurationItemProvider.dispose();
+		if (proxyWsdlResourceItemProvider != null) proxyWsdlResourceItemProvider.dispose();
+		if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
+		if (proxyServicePolicyItemProvider != null) proxyServicePolicyItemProvider.dispose();
+		if (proxyInSequenceConfigurationItemProvider != null) proxyInSequenceConfigurationItemProvider.dispose();
+		if (proxyEndpointConfigurationItemProvider != null) proxyEndpointConfigurationItemProvider.dispose();
+		if (proxyOutSequenceConfigurationItemProvider != null) proxyOutSequenceConfigurationItemProvider.dispose();
+		if (proxyFaultSequenceConfigurationItemProvider != null) proxyFaultSequenceConfigurationItemProvider.dispose();
+		if (localEntryItemProvider != null) localEntryItemProvider.dispose();
+		if (evaluatorExpressionPropertyItemProvider != null) evaluatorExpressionPropertyItemProvider.dispose();
+	}
 
 }

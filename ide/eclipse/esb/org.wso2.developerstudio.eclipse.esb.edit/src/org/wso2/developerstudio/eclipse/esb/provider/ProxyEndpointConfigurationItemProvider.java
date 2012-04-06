@@ -56,14 +56,14 @@ public class ProxyEndpointConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ProxyEndpointConfigurationItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -100,70 +100,70 @@ public class ProxyEndpointConfigurationItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Endpoint Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Endpoint Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addEndpointTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyEndpointConfiguration_endpointType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointType_feature", "_UI_ProxyEndpointConfiguration_type"),
-                 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyEndpointConfiguration_endpointType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointType_feature", "_UI_ProxyEndpointConfiguration_type"),
+				 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Endpoint Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Endpoint Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addEndpointKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyEndpointConfiguration_endpointKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointKey_feature", "_UI_ProxyEndpointConfiguration_type"),
-                 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyEndpointConfiguration_endpointKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointKey_feature", "_UI_ProxyEndpointConfiguration_type"),
+				 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Endpoint Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Endpoint Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addEndpointNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProxyEndpointConfiguration_endpointName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointName_feature", "_UI_ProxyEndpointConfiguration_type"),
-                 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyEndpointConfiguration_endpointName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyEndpointConfiguration_endpointName_feature", "_UI_ProxyEndpointConfiguration_type"),
+				 EsbPackage.Literals.PROXY_ENDPOINT_CONFIGURATION__ENDPOINT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -188,28 +188,30 @@ public class ProxyEndpointConfigurationItemProvider
 	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns ProxyEndpointConfiguration.gif.
-     * <!-- begin-user-doc -->
+	 * This returns ProxyEndpointConfiguration.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyEndpointConfiguration"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyEndpointConfiguration"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.

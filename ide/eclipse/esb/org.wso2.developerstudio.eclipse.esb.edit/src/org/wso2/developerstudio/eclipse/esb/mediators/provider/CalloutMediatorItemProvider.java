@@ -54,14 +54,14 @@ public class CalloutMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public CalloutMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -101,257 +101,258 @@ public class CalloutMediatorItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Service URL feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Service URL feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addServiceURLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_serviceURL_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_serviceURL_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__SERVICE_URL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_serviceURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_serviceURL_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__SERVICE_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Soap Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Soap Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addSoapActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_soapAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_soapAction_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__SOAP_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_soapAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_soapAction_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__SOAP_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Path To Axis2xml feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Path To Axis2xml feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPathToAxis2xmlPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_pathToAxis2xml_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_pathToAxis2xml_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_pathToAxis2xml_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_pathToAxis2xml_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Path To Axis2 Repository feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Path To Axis2 Repository feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPathToAxis2RepositoryPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_pathToAxis2Repository_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_pathToAxis2Repository_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_pathToAxis2Repository_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_pathToAxis2Repository_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Payload Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Payload Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPayloadTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_payloadType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadType_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_PayloadPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_payloadType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadType_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_PayloadPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Payload Message Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Payload Message Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPayloadMessageXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_payloadMessageXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadMessageXpath_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 getString("_UI_PayloadPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_payloadMessageXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadMessageXpath_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_PayloadPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Payload Registry Key feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Payload Registry Key feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPayloadRegistryKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_payloadRegistryKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadRegistryKey_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 getString("_UI_PayloadPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_payloadRegistryKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadRegistryKey_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_PayloadPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Result Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Result Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addResultTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_resultType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultType_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_ResultPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_resultType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultType_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_ResultPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Result Message Xpath feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Result Message Xpath feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addResultMessageXpathPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_resultMessageXpath_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultMessageXpath_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH,
-                 true,
-                 false,
-                 false,
-                 null,
-                 getString("_UI_ResultPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_resultMessageXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultMessageXpath_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_ResultPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Result Context Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Result Context Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addResultContextPropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_resultContextProperty_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultContextProperty_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_ResultPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_resultContextProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_resultContextProperty_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_ResultPropertyCategory"),
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Pass Headers feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Pass Headers feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPassHeadersPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_CalloutMediator_passHeaders_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_passHeaders_feature", "_UI_CalloutMediator_type"),
-                 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PASS_HEADERS,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_passHeaders_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_passHeaders_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__PASS_HEADERS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns CalloutMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns CalloutMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CalloutMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalloutMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -364,55 +365,58 @@ public class CalloutMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(CalloutMediator.class)) {
-            case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
-            case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
-            case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
-            case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(CalloutMediator.class)) {
+			case MediatorsPackage.CALLOUT_MEDIATOR__SERVICE_URL:
+			case MediatorsPackage.CALLOUT_MEDIATOR__SOAP_ACTION:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2XML:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_TYPE:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
+			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
+			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

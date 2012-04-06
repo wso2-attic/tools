@@ -50,14 +50,14 @@ public class WsdlEndPointItemProvider
         IItemLabelProvider,
         IItemPropertySource {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public WsdlEndPointItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
     /**
      * This returns the property descriptors for the adapted class.
@@ -85,125 +85,126 @@ public class WsdlEndPointItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Wsdl Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl Type feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addWsdlTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WsdlEndPoint_wsdlType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlType_feature", "_UI_WsdlEndPoint_type"),
-                 EsbPackage.Literals.WSDL_END_POINT__WSDL_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WsdlEndPoint_wsdlType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlType_feature", "_UI_WsdlEndPoint_type"),
+				 EsbPackage.Literals.WSDL_END_POINT__WSDL_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Wsdl URI feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl URI feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addWsdlURIPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WsdlEndPoint_wsdlURI_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlURI_feature", "_UI_WsdlEndPoint_type"),
-                 EsbPackage.Literals.WSDL_END_POINT__WSDL_URI,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WsdlEndPoint_wsdlURI_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlURI_feature", "_UI_WsdlEndPoint_type"),
+				 EsbPackage.Literals.WSDL_END_POINT__WSDL_URI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Wsdl XML feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Wsdl XML feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addWsdlXMLPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WsdlEndPoint_wsdlXML_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlXML_feature", "_UI_WsdlEndPoint_type"),
-                 EsbPackage.Literals.WSDL_END_POINT__WSDL_XML,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WsdlEndPoint_wsdlXML_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_wsdlXML_feature", "_UI_WsdlEndPoint_type"),
+				 EsbPackage.Literals.WSDL_END_POINT__WSDL_XML,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Service feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Service feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addServicePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WsdlEndPoint_service_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_service_feature", "_UI_WsdlEndPoint_type"),
-                 EsbPackage.Literals.WSDL_END_POINT__SERVICE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WsdlEndPoint_service_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_service_feature", "_UI_WsdlEndPoint_type"),
+				 EsbPackage.Literals.WSDL_END_POINT__SERVICE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Port feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addPortPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WsdlEndPoint_port_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_port_feature", "_UI_WsdlEndPoint_type"),
-                 EsbPackage.Literals.WSDL_END_POINT__PORT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WsdlEndPoint_port_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WsdlEndPoint_port_feature", "_UI_WsdlEndPoint_type"),
+				 EsbPackage.Literals.WSDL_END_POINT__PORT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This returns WsdlEndPoint.gif.
-     * <!-- begin-user-doc -->
+	 * This returns WsdlEndPoint.gif.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/WsdlEndPoint"));
-    }
+    @Override
+				public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/WsdlEndPoint"));
+	}
 
     /**
      * This returns the label text for the adapted class.
@@ -218,38 +219,40 @@ public class WsdlEndPointItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+				public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(WsdlEndPoint.class)) {
-            case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
-            case EsbPackage.WSDL_END_POINT__WSDL_URI:
-            case EsbPackage.WSDL_END_POINT__WSDL_XML:
-            case EsbPackage.WSDL_END_POINT__SERVICE:
-            case EsbPackage.WSDL_END_POINT__PORT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(WsdlEndPoint.class)) {
+			case EsbPackage.WSDL_END_POINT__WSDL_TYPE:
+			case EsbPackage.WSDL_END_POINT__WSDL_URI:
+			case EsbPackage.WSDL_END_POINT__WSDL_XML:
+			case EsbPackage.WSDL_END_POINT__SERVICE:
+			case EsbPackage.WSDL_END_POINT__PORT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+    @Override
+				protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

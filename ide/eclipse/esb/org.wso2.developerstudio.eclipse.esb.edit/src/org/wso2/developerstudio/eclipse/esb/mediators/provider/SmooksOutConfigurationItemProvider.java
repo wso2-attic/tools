@@ -54,14 +54,14 @@ public class SmooksOutConfigurationItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SmooksOutConfigurationItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -91,125 +91,126 @@ public class SmooksOutConfigurationItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SmooksOutConfiguration_type_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_type_feature", "_UI_SmooksOutConfiguration_type"),
-                 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_type_feature", "_UI_SmooksOutConfiguration_type"),
+				 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SmooksOutConfiguration_expression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_expression_feature", "_UI_SmooksOutConfiguration_type"),
-                 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__EXPRESSION,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_expression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_expression_feature", "_UI_SmooksOutConfiguration_type"),
+				 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SmooksOutConfiguration_property_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_property_feature", "_UI_SmooksOutConfiguration_type"),
-                 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_property_feature", "_UI_SmooksOutConfiguration_type"),
+				 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SmooksOutConfiguration_action_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_action_feature", "_UI_SmooksOutConfiguration_type"),
-                 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_action_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_action_feature", "_UI_SmooksOutConfiguration_type"),
+				 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Output Method feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Output Method feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addOutputMethodPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SmooksOutConfiguration_outputMethod_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_outputMethod_feature", "_UI_SmooksOutConfiguration_type"),
-                 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SmooksOutConfiguration_outputMethod_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SmooksOutConfiguration_outputMethod_feature", "_UI_SmooksOutConfiguration_type"),
+				 MediatorsPackage.Literals.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns SmooksOutConfiguration.gif.
-     * <!-- begin-user-doc -->
+	 * This returns SmooksOutConfiguration.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SmooksOutConfiguration"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SmooksOutConfiguration"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -230,49 +231,52 @@ public class SmooksOutConfigurationItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(SmooksOutConfiguration.class)) {
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
-            case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(SmooksOutConfiguration.class)) {
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__TYPE:
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__EXPRESSION:
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__PROPERTY:
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__ACTION:
+			case MediatorsPackage.SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

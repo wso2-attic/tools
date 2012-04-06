@@ -47,42 +47,42 @@ import org.wso2.developerstudio.eclipse.esb.provider.ModelObjectItemProvider;
  */
 public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-     * This keeps track of the root adapter factory that delegates to this adapter factory.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-     * <!-- begin-user-doc -->
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-     * <!-- begin-user-doc -->
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-     * This constructs an instance.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MediatorsItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
-    }
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -96,2216 +96,2307 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
     }
 	
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.InMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.InMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected InMediatorItemProvider inMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.InMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.InMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createInMediatorAdapter() {
-        if (inMediatorItemProvider == null) {
-            inMediatorItemProvider = new InMediatorItemProvider(this);
-        }
+		if (inMediatorItemProvider == null) {
+			inMediatorItemProvider = new InMediatorItemProvider(this);
+		}
 
-        return inMediatorItemProvider;
-    }
+		return inMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.OutMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.OutMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected OutMediatorItemProvider outMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.OutMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.OutMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createOutMediatorAdapter() {
-        if (outMediatorItemProvider == null) {
-            outMediatorItemProvider = new OutMediatorItemProvider(this);
-        }
+		if (outMediatorItemProvider == null) {
+			outMediatorItemProvider = new OutMediatorItemProvider(this);
+		}
 
-        return outMediatorItemProvider;
-    }
+		return outMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DropMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DropMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DropMediatorItemProvider dropMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DropMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DropMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createDropMediatorAdapter() {
-        if (dropMediatorItemProvider == null) {
-            dropMediatorItemProvider = new DropMediatorItemProvider(this);
-        }
+		if (dropMediatorItemProvider == null) {
+			dropMediatorItemProvider = new DropMediatorItemProvider(this);
+		}
 
-        return dropMediatorItemProvider;
-    }
+		return dropMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SendMediatorItemProvider sendMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SendMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSendMediatorAdapter() {
-        if (sendMediatorItemProvider == null) {
-            sendMediatorItemProvider = new SendMediatorItemProvider(this);
-        }
+		if (sendMediatorItemProvider == null) {
+			sendMediatorItemProvider = new SendMediatorItemProvider(this);
+		}
 
-        return sendMediatorItemProvider;
-    }
+		return sendMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected LogMediatorItemProvider logMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.LogMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createLogMediatorAdapter() {
-        if (logMediatorItemProvider == null) {
-            logMediatorItemProvider = new LogMediatorItemProvider(this);
-        }
+		if (logMediatorItemProvider == null) {
+			logMediatorItemProvider = new LogMediatorItemProvider(this);
+		}
 
-        return logMediatorItemProvider;
-    }
+		return logMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected LogPropertyItemProvider logPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.LogProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createLogPropertyAdapter() {
-        if (logPropertyItemProvider == null) {
-            logPropertyItemProvider = new LogPropertyItemProvider(this);
-        }
+		if (logPropertyItemProvider == null) {
+			logPropertyItemProvider = new LogPropertyItemProvider(this);
+		}
 
-        return logPropertyItemProvider;
-    }
+		return logPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected FilterMediatorItemProvider filterMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createFilterMediatorAdapter() {
-        if (filterMediatorItemProvider == null) {
-            filterMediatorItemProvider = new FilterMediatorItemProvider(this);
-        }
+		if (filterMediatorItemProvider == null) {
+			filterMediatorItemProvider = new FilterMediatorItemProvider(this);
+		}
 
-        return filterMediatorItemProvider;
-    }
+		return filterMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterThenBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterThenBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected FilterThenBranchItemProvider filterThenBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterThenBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterThenBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createFilterThenBranchAdapter() {
-        if (filterThenBranchItemProvider == null) {
-            filterThenBranchItemProvider = new FilterThenBranchItemProvider(this);
-        }
+		if (filterThenBranchItemProvider == null) {
+			filterThenBranchItemProvider = new FilterThenBranchItemProvider(this);
+		}
 
-        return filterThenBranchItemProvider;
-    }
+		return filterThenBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterElseBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterElseBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected FilterElseBranchItemProvider filterElseBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterElseBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FilterElseBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createFilterElseBranchAdapter() {
-        if (filterElseBranchItemProvider == null) {
-            filterElseBranchItemProvider = new FilterElseBranchItemProvider(this);
-        }
+		if (filterElseBranchItemProvider == null) {
+			filterElseBranchItemProvider = new FilterElseBranchItemProvider(this);
+		}
 
-        return filterElseBranchItemProvider;
-    }
+		return filterElseBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SwitchMediatorItemProvider switchMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSwitchMediatorAdapter() {
-        if (switchMediatorItemProvider == null) {
-            switchMediatorItemProvider = new SwitchMediatorItemProvider(this);
-        }
+		if (switchMediatorItemProvider == null) {
+			switchMediatorItemProvider = new SwitchMediatorItemProvider(this);
+		}
 
-        return switchMediatorItemProvider;
-    }
+		return switchMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SwitchCaseBranchItemProvider switchCaseBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchCaseBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSwitchCaseBranchAdapter() {
-        if (switchCaseBranchItemProvider == null) {
-            switchCaseBranchItemProvider = new SwitchCaseBranchItemProvider(this);
-        }
+		if (switchCaseBranchItemProvider == null) {
+			switchCaseBranchItemProvider = new SwitchCaseBranchItemProvider(this);
+		}
 
-        return switchCaseBranchItemProvider;
-    }
+		return switchCaseBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchDefaultBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchDefaultBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SwitchDefaultBranchItemProvider switchDefaultBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchDefaultBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SwitchDefaultBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSwitchDefaultBranchAdapter() {
-        if (switchDefaultBranchItemProvider == null) {
-            switchDefaultBranchItemProvider = new SwitchDefaultBranchItemProvider(this);
-        }
+		if (switchDefaultBranchItemProvider == null) {
+			switchDefaultBranchItemProvider = new SwitchDefaultBranchItemProvider(this);
+		}
 
-        return switchDefaultBranchItemProvider;
-    }
+		return switchDefaultBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EntitlementMediatorItemProvider entitlementMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createEntitlementMediatorAdapter() {
-        if (entitlementMediatorItemProvider == null) {
-            entitlementMediatorItemProvider = new EntitlementMediatorItemProvider(this);
-        }
+		if (entitlementMediatorItemProvider == null) {
+			entitlementMediatorItemProvider = new EntitlementMediatorItemProvider(this);
+		}
 
-        return entitlementMediatorItemProvider;
-    }
+		return entitlementMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EnqueueMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EnqueueMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EnqueueMediatorItemProvider enqueueMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EnqueueMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EnqueueMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createEnqueueMediatorAdapter() {
-        if (enqueueMediatorItemProvider == null) {
-            enqueueMediatorItemProvider = new EnqueueMediatorItemProvider(this);
-        }
+		if (enqueueMediatorItemProvider == null) {
+			enqueueMediatorItemProvider = new EnqueueMediatorItemProvider(this);
+		}
 
-        return enqueueMediatorItemProvider;
-    }
+		return enqueueMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ClassMediatorItemProvider classMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createClassMediatorAdapter() {
-        if (classMediatorItemProvider == null) {
-            classMediatorItemProvider = new ClassMediatorItemProvider(this);
-        }
+		if (classMediatorItemProvider == null) {
+			classMediatorItemProvider = new ClassMediatorItemProvider(this);
+		}
 
-        return classMediatorItemProvider;
-    }
+		return classMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ClassPropertyItemProvider classPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ClassProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createClassPropertyAdapter() {
-        if (classPropertyItemProvider == null) {
-            classPropertyItemProvider = new ClassPropertyItemProvider(this);
-        }
+		if (classPropertyItemProvider == null) {
+			classPropertyItemProvider = new ClassPropertyItemProvider(this);
+		}
 
-        return classPropertyItemProvider;
-    }
+		return classPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SpringMediatorItemProvider springMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SpringMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSpringMediatorAdapter() {
-        if (springMediatorItemProvider == null) {
-            springMediatorItemProvider = new SpringMediatorItemProvider(this);
-        }
+		if (springMediatorItemProvider == null) {
+			springMediatorItemProvider = new SpringMediatorItemProvider(this);
+		}
 
-        return springMediatorItemProvider;
-    }
+		return springMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateMediatorItemProvider validateMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createValidateMediatorAdapter() {
-        if (validateMediatorItemProvider == null) {
-            validateMediatorItemProvider = new ValidateMediatorItemProvider(this);
-        }
+		if (validateMediatorItemProvider == null) {
+			validateMediatorItemProvider = new ValidateMediatorItemProvider(this);
+		}
 
-        return validateMediatorItemProvider;
-    }
+		return validateMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateOnFailBranchItemProvider validateOnFailBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createValidateOnFailBranchAdapter() {
-        if (validateOnFailBranchItemProvider == null) {
-            validateOnFailBranchItemProvider = new ValidateOnFailBranchItemProvider(this);
-        }
+		if (validateOnFailBranchItemProvider == null) {
+			validateOnFailBranchItemProvider = new ValidateOnFailBranchItemProvider(this);
+		}
 
-        return validateOnFailBranchItemProvider;
-    }
+		return validateOnFailBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateFeatureItemProvider validateFeatureItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createValidateFeatureAdapter() {
-        if (validateFeatureItemProvider == null) {
-            validateFeatureItemProvider = new ValidateFeatureItemProvider(this);
-        }
+		if (validateFeatureItemProvider == null) {
+			validateFeatureItemProvider = new ValidateFeatureItemProvider(this);
+		}
 
-        return validateFeatureItemProvider;
-    }
+		return validateFeatureItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ValidateSchemaItemProvider validateSchemaItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createValidateSchemaAdapter() {
-        if (validateSchemaItemProvider == null) {
-            validateSchemaItemProvider = new ValidateSchemaItemProvider(this);
-        }
+		if (validateSchemaItemProvider == null) {
+			validateSchemaItemProvider = new ValidateSchemaItemProvider(this);
+		}
 
-        return validateSchemaItemProvider;
-    }
+		return validateSchemaItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ScriptMediatorItemProvider scriptMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createScriptMediatorAdapter() {
-        if (scriptMediatorItemProvider == null) {
-            scriptMediatorItemProvider = new ScriptMediatorItemProvider(this);
-        }
+		if (scriptMediatorItemProvider == null) {
+			scriptMediatorItemProvider = new ScriptMediatorItemProvider(this);
+		}
 
-        return scriptMediatorItemProvider;
-    }
+		return scriptMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SmooksMediatorItemProvider smooksMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSmooksMediatorAdapter() {
-        if (smooksMediatorItemProvider == null) {
-            smooksMediatorItemProvider = new SmooksMediatorItemProvider(this);
-        }
+		if (smooksMediatorItemProvider == null) {
+			smooksMediatorItemProvider = new SmooksMediatorItemProvider(this);
+		}
 
-        return smooksMediatorItemProvider;
-    }
+		return smooksMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksInConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksInConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SmooksInConfigurationItemProvider smooksInConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksInConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksInConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSmooksInConfigurationAdapter() {
-        if (smooksInConfigurationItemProvider == null) {
-            smooksInConfigurationItemProvider = new SmooksInConfigurationItemProvider(this);
-        }
+		if (smooksInConfigurationItemProvider == null) {
+			smooksInConfigurationItemProvider = new SmooksInConfigurationItemProvider(this);
+		}
 
-        return smooksInConfigurationItemProvider;
-    }
+		return smooksInConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksOutConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksOutConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SmooksOutConfigurationItemProvider smooksOutConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksOutConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksOutConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSmooksOutConfigurationAdapter() {
-        if (smooksOutConfigurationItemProvider == null) {
-            smooksOutConfigurationItemProvider = new SmooksOutConfigurationItemProvider(this);
-        }
+		if (smooksOutConfigurationItemProvider == null) {
+			smooksOutConfigurationItemProvider = new SmooksOutConfigurationItemProvider(this);
+		}
 
-        return smooksOutConfigurationItemProvider;
-    }
+		return smooksOutConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected StoreMediatorItemProvider storeMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.StoreMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createStoreMediatorAdapter() {
-        if (storeMediatorItemProvider == null) {
-            storeMediatorItemProvider = new StoreMediatorItemProvider(this);
-        }
+		if (storeMediatorItemProvider == null) {
+			storeMediatorItemProvider = new StoreMediatorItemProvider(this);
+		}
 
-        return storeMediatorItemProvider;
-    }
+		return storeMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ConditionalRouteBranchItemProvider conditionalRouteBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouteBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createConditionalRouteBranchAdapter() {
-        if (conditionalRouteBranchItemProvider == null) {
-            conditionalRouteBranchItemProvider = new ConditionalRouteBranchItemProvider(this);
-        }
+		if (conditionalRouteBranchItemProvider == null) {
+			conditionalRouteBranchItemProvider = new ConditionalRouteBranchItemProvider(this);
+		}
 
-        return conditionalRouteBranchItemProvider;
-    }
+		return conditionalRouteBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ConditionalRouterMediatorItemProvider conditionalRouterMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ConditionalRouterMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createConditionalRouterMediatorAdapter() {
-        if (conditionalRouterMediatorItemProvider == null) {
-            conditionalRouterMediatorItemProvider = new ConditionalRouterMediatorItemProvider(this);
-        }
+		if (conditionalRouterMediatorItemProvider == null) {
+			conditionalRouterMediatorItemProvider = new ConditionalRouterMediatorItemProvider(this);
+		}
 
-        return conditionalRouterMediatorItemProvider;
-    }
+		return conditionalRouterMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected URLRewriteRuleActionItemProvider urlRewriteRuleActionItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createURLRewriteRuleActionAdapter() {
-        if (urlRewriteRuleActionItemProvider == null) {
-            urlRewriteRuleActionItemProvider = new URLRewriteRuleActionItemProvider(this);
-        }
+		if (urlRewriteRuleActionItemProvider == null) {
+			urlRewriteRuleActionItemProvider = new URLRewriteRuleActionItemProvider(this);
+		}
 
-        return urlRewriteRuleActionItemProvider;
-    }
+		return urlRewriteRuleActionItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected URLRewriteRuleItemProvider urlRewriteRuleItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRule}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createURLRewriteRuleAdapter() {
-        if (urlRewriteRuleItemProvider == null) {
-            urlRewriteRuleItemProvider = new URLRewriteRuleItemProvider(this);
-        }
+		if (urlRewriteRuleItemProvider == null) {
+			urlRewriteRuleItemProvider = new URLRewriteRuleItemProvider(this);
+		}
 
-        return urlRewriteRuleItemProvider;
-    }
+		return urlRewriteRuleItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected URLRewriteMediatorItemProvider urlRewriteMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createURLRewriteMediatorAdapter() {
-        if (urlRewriteMediatorItemProvider == null) {
-            urlRewriteMediatorItemProvider = new URLRewriteMediatorItemProvider(this);
-        }
+		if (urlRewriteMediatorItemProvider == null) {
+			urlRewriteMediatorItemProvider = new URLRewriteMediatorItemProvider(this);
+		}
 
-        return urlRewriteMediatorItemProvider;
-    }
+		return urlRewriteMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CallTemplateMediatorItemProvider callTemplateMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCallTemplateMediatorAdapter() {
-        if (callTemplateMediatorItemProvider == null) {
-            callTemplateMediatorItemProvider = new CallTemplateMediatorItemProvider(this);
-        }
+		if (callTemplateMediatorItemProvider == null) {
+			callTemplateMediatorItemProvider = new CallTemplateMediatorItemProvider(this);
+		}
 
-        return callTemplateMediatorItemProvider;
-    }
+		return callTemplateMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CallTemplateParameterItemProvider callTemplateParameterItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCallTemplateParameterAdapter() {
-        if (callTemplateParameterItemProvider == null) {
-            callTemplateParameterItemProvider = new CallTemplateParameterItemProvider(this);
-        }
+		if (callTemplateParameterItemProvider == null) {
+			callTemplateParameterItemProvider = new CallTemplateParameterItemProvider(this);
+		}
 
-        return callTemplateParameterItemProvider;
-    }
+		return callTemplateParameterItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected PayloadFactoryMediatorItemProvider payloadFactoryMediatorItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryMediator}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createPayloadFactoryMediatorAdapter() {
-        if (payloadFactoryMediatorItemProvider == null) {
-            payloadFactoryMediatorItemProvider = new PayloadFactoryMediatorItemProvider(this);
-        }
+    @Override
+				public Adapter createPayloadFactoryMediatorAdapter() {
+		if (payloadFactoryMediatorItemProvider == null) {
+			payloadFactoryMediatorItemProvider = new PayloadFactoryMediatorItemProvider(this);
+		}
 
-        return payloadFactoryMediatorItemProvider;
-    }
+		return payloadFactoryMediatorItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument} instances.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected PayloadFactoryArgumentItemProvider payloadFactoryArgumentItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PayloadFactoryArgument}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Adapter createPayloadFactoryArgumentAdapter() {
-        if (payloadFactoryArgumentItemProvider == null) {
-            payloadFactoryArgumentItemProvider = new PayloadFactoryArgumentItemProvider(this);
-        }
+    @Override
+				public Adapter createPayloadFactoryArgumentAdapter() {
+		if (payloadFactoryArgumentItemProvider == null) {
+			payloadFactoryArgumentItemProvider = new PayloadFactoryArgumentItemProvider(this);
+		}
 
-        return payloadFactoryArgumentItemProvider;
-    }
+		return payloadFactoryArgumentItemProvider;
+	}
 
     /**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EnrichMediatorItemProvider enrichMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createEnrichMediatorAdapter() {
-        if (enrichMediatorItemProvider == null) {
-            enrichMediatorItemProvider = new EnrichMediatorItemProvider(this);
-        }
+		if (enrichMediatorItemProvider == null) {
+			enrichMediatorItemProvider = new EnrichMediatorItemProvider(this);
+		}
 
-        return enrichMediatorItemProvider;
-    }
+		return enrichMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FaultMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.FaultMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected FaultMediatorItemProvider faultMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FaultMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.FaultMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createFaultMediatorAdapter() {
-        if (faultMediatorItemProvider == null) {
-            faultMediatorItemProvider = new FaultMediatorItemProvider(this);
-        }
+		if (faultMediatorItemProvider == null) {
+			faultMediatorItemProvider = new FaultMediatorItemProvider(this);
+		}
 
-        return faultMediatorItemProvider;
-    }
+		return faultMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AggregateMediatorItemProvider aggregateMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createAggregateMediatorAdapter() {
-        if (aggregateMediatorItemProvider == null) {
-            aggregateMediatorItemProvider = new AggregateMediatorItemProvider(this);
-        }
+		if (aggregateMediatorItemProvider == null) {
+			aggregateMediatorItemProvider = new AggregateMediatorItemProvider(this);
+		}
 
-        return aggregateMediatorItemProvider;
-    }
+		return aggregateMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateOnCompleteBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateOnCompleteBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AggregateOnCompleteBranchItemProvider aggregateOnCompleteBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateOnCompleteBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateOnCompleteBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createAggregateOnCompleteBranchAdapter() {
-        if (aggregateOnCompleteBranchItemProvider == null) {
-            aggregateOnCompleteBranchItemProvider = new AggregateOnCompleteBranchItemProvider(this);
-        }
+		if (aggregateOnCompleteBranchItemProvider == null) {
+			aggregateOnCompleteBranchItemProvider = new AggregateOnCompleteBranchItemProvider(this);
+		}
 
-        return aggregateOnCompleteBranchItemProvider;
-    }
+		return aggregateOnCompleteBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RouterMediatorItemProvider routerMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRouterMediatorAdapter() {
-        if (routerMediatorItemProvider == null) {
-            routerMediatorItemProvider = new RouterMediatorItemProvider(this);
-        }
+		if (routerMediatorItemProvider == null) {
+			routerMediatorItemProvider = new RouterMediatorItemProvider(this);
+		}
 
-        return routerMediatorItemProvider;
-    }
+		return routerMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RouterRouteItemProvider routerRouteItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouterRoute}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRouterRouteAdapter() {
-        if (routerRouteItemProvider == null) {
-            routerRouteItemProvider = new RouterRouteItemProvider(this);
-        }
+		if (routerRouteItemProvider == null) {
+			routerRouteItemProvider = new RouterRouteItemProvider(this);
+		}
 
-        return routerRouteItemProvider;
-    }
+		return routerRouteItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouteTarget} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RouteTarget} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RouteTargetItemProvider routeTargetItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouteTarget}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RouteTarget}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRouteTargetAdapter() {
-        if (routeTargetItemProvider == null) {
-            routeTargetItemProvider = new RouteTargetItemProvider(this);
-        }
+		if (routeTargetItemProvider == null) {
+			routeTargetItemProvider = new RouteTargetItemProvider(this);
+		}
 
-        return routeTargetItemProvider;
-    }
+		return routeTargetItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CloneMediatorItemProvider cloneMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCloneMediatorAdapter() {
-        if (cloneMediatorItemProvider == null) {
-            cloneMediatorItemProvider = new CloneMediatorItemProvider(this);
-        }
+		if (cloneMediatorItemProvider == null) {
+			cloneMediatorItemProvider = new CloneMediatorItemProvider(this);
+		}
 
-        return cloneMediatorItemProvider;
-    }
+		return cloneMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneTarget} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneTarget} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CloneTargetItemProvider cloneTargetItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneTarget}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CloneTarget}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCloneTargetAdapter() {
-        if (cloneTargetItemProvider == null) {
-            cloneTargetItemProvider = new CloneTargetItemProvider(this);
-        }
+		if (cloneTargetItemProvider == null) {
+			cloneTargetItemProvider = new CloneTargetItemProvider(this);
+		}
 
-        return cloneTargetItemProvider;
-    }
+		return cloneTargetItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IterateMediatorItemProvider iterateMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createIterateMediatorAdapter() {
-        if (iterateMediatorItemProvider == null) {
-            iterateMediatorItemProvider = new IterateMediatorItemProvider(this);
-        }
+		if (iterateMediatorItemProvider == null) {
+			iterateMediatorItemProvider = new IterateMediatorItemProvider(this);
+		}
 
-        return iterateMediatorItemProvider;
-    }
+		return iterateMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IterateTargetItemProvider iterateTargetItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.IterateTarget}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createIterateTargetAdapter() {
-        if (iterateTargetItemProvider == null) {
-            iterateTargetItemProvider = new IterateTargetItemProvider(this);
-        }
+		if (iterateTargetItemProvider == null) {
+			iterateTargetItemProvider = new IterateTargetItemProvider(this);
+		}
 
-        return iterateTargetItemProvider;
-    }
+		return iterateTargetItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CacheMediatorItemProvider cacheMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCacheMediatorAdapter() {
-        if (cacheMediatorItemProvider == null) {
-            cacheMediatorItemProvider = new CacheMediatorItemProvider(this);
-        }
+		if (cacheMediatorItemProvider == null) {
+			cacheMediatorItemProvider = new CacheMediatorItemProvider(this);
+		}
 
-        return cacheMediatorItemProvider;
-    }
+		return cacheMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheOnHitBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheOnHitBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CacheOnHitBranchItemProvider cacheOnHitBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheOnHitBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CacheOnHitBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCacheOnHitBranchAdapter() {
-        if (cacheOnHitBranchItemProvider == null) {
-            cacheOnHitBranchItemProvider = new CacheOnHitBranchItemProvider(this);
-        }
+		if (cacheOnHitBranchItemProvider == null) {
+			cacheOnHitBranchItemProvider = new CacheOnHitBranchItemProvider(this);
+		}
 
-        return cacheOnHitBranchItemProvider;
-    }
+		return cacheOnHitBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XSLTMediatorItemProvider xsltMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXSLTMediatorAdapter() {
-        if (xsltMediatorItemProvider == null) {
-            xsltMediatorItemProvider = new XSLTMediatorItemProvider(this);
-        }
+		if (xsltMediatorItemProvider == null) {
+			xsltMediatorItemProvider = new XSLTMediatorItemProvider(this);
+		}
 
-        return xsltMediatorItemProvider;
-    }
+		return xsltMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XSLTPropertyItemProvider xsltPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXSLTPropertyAdapter() {
-        if (xsltPropertyItemProvider == null) {
-            xsltPropertyItemProvider = new XSLTPropertyItemProvider(this);
-        }
+		if (xsltPropertyItemProvider == null) {
+			xsltPropertyItemProvider = new XSLTPropertyItemProvider(this);
+		}
 
-        return xsltPropertyItemProvider;
-    }
+		return xsltPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTFeature} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTFeature} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XSLTFeatureItemProvider xsltFeatureItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTFeature}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTFeature}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXSLTFeatureAdapter() {
-        if (xsltFeatureItemProvider == null) {
-            xsltFeatureItemProvider = new XSLTFeatureItemProvider(this);
-        }
+		if (xsltFeatureItemProvider == null) {
+			xsltFeatureItemProvider = new XSLTFeatureItemProvider(this);
+		}
 
-        return xsltFeatureItemProvider;
-    }
+		return xsltFeatureItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTResource} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTResource} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XSLTResourceItemProvider xsltResourceItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTResource}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XSLTResource}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXSLTResourceAdapter() {
-        if (xsltResourceItemProvider == null) {
-            xsltResourceItemProvider = new XSLTResourceItemProvider(this);
-        }
+		if (xsltResourceItemProvider == null) {
+			xsltResourceItemProvider = new XSLTResourceItemProvider(this);
+		}
 
-        return xsltResourceItemProvider;
-    }
+		return xsltResourceItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XQueryMediatorItemProvider xQueryMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXQueryMediatorAdapter() {
-        if (xQueryMediatorItemProvider == null) {
-            xQueryMediatorItemProvider = new XQueryMediatorItemProvider(this);
-        }
+		if (xQueryMediatorItemProvider == null) {
+			xQueryMediatorItemProvider = new XQueryMediatorItemProvider(this);
+		}
 
-        return xQueryMediatorItemProvider;
-    }
+		return xQueryMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected XQueryVariableItemProvider xQueryVariableItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createXQueryVariableAdapter() {
-        if (xQueryVariableItemProvider == null) {
-            xQueryVariableItemProvider = new XQueryVariableItemProvider(this);
-        }
+		if (xQueryVariableItemProvider == null) {
+			xQueryVariableItemProvider = new XQueryVariableItemProvider(this);
+		}
 
-        return xQueryVariableItemProvider;
-    }
+		return xQueryVariableItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CalloutMediatorItemProvider calloutMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCalloutMediatorAdapter() {
-        if (calloutMediatorItemProvider == null) {
-            calloutMediatorItemProvider = new CalloutMediatorItemProvider(this);
-        }
+		if (calloutMediatorItemProvider == null) {
+			calloutMediatorItemProvider = new CalloutMediatorItemProvider(this);
+		}
 
-        return calloutMediatorItemProvider;
-    }
+		return calloutMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RMSequenceMediatorItemProvider rmSequenceMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRMSequenceMediatorAdapter() {
-        if (rmSequenceMediatorItemProvider == null) {
-            rmSequenceMediatorItemProvider = new RMSequenceMediatorItemProvider(this);
-        }
+		if (rmSequenceMediatorItemProvider == null) {
+			rmSequenceMediatorItemProvider = new RMSequenceMediatorItemProvider(this);
+		}
 
-        return rmSequenceMediatorItemProvider;
-    }
+		return rmSequenceMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected TransactionMediatorItemProvider transactionMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createTransactionMediatorAdapter() {
-        if (transactionMediatorItemProvider == null) {
-            transactionMediatorItemProvider = new TransactionMediatorItemProvider(this);
-        }
+		if (transactionMediatorItemProvider == null) {
+			transactionMediatorItemProvider = new TransactionMediatorItemProvider(this);
+		}
 
-        return transactionMediatorItemProvider;
-    }
+		return transactionMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected PropertyMediatorItemProvider propertyMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createPropertyMediatorAdapter() {
-        if (propertyMediatorItemProvider == null) {
-            propertyMediatorItemProvider = new PropertyMediatorItemProvider(this);
-        }
+		if (propertyMediatorItemProvider == null) {
+			propertyMediatorItemProvider = new PropertyMediatorItemProvider(this);
+		}
 
-        return propertyMediatorItemProvider;
-    }
+		return propertyMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected OAuthMediatorItemProvider oAuthMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.OAuthMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createOAuthMediatorAdapter() {
-        if (oAuthMediatorItemProvider == null) {
-            oAuthMediatorItemProvider = new OAuthMediatorItemProvider(this);
-        }
+		if (oAuthMediatorItemProvider == null) {
+			oAuthMediatorItemProvider = new OAuthMediatorItemProvider(this);
+		}
 
-        return oAuthMediatorItemProvider;
-    }
+		return oAuthMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleInMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleInMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AutoscaleInMediatorItemProvider autoscaleInMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleInMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleInMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createAutoscaleInMediatorAdapter() {
-        if (autoscaleInMediatorItemProvider == null) {
-            autoscaleInMediatorItemProvider = new AutoscaleInMediatorItemProvider(this);
-        }
+		if (autoscaleInMediatorItemProvider == null) {
+			autoscaleInMediatorItemProvider = new AutoscaleInMediatorItemProvider(this);
+		}
 
-        return autoscaleInMediatorItemProvider;
-    }
+		return autoscaleInMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleOutMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleOutMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected AutoscaleOutMediatorItemProvider autoscaleOutMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleOutMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.AutoscaleOutMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createAutoscaleOutMediatorAdapter() {
-        if (autoscaleOutMediatorItemProvider == null) {
-            autoscaleOutMediatorItemProvider = new AutoscaleOutMediatorItemProvider(this);
-        }
+		if (autoscaleOutMediatorItemProvider == null) {
+			autoscaleOutMediatorItemProvider = new AutoscaleOutMediatorItemProvider(this);
+		}
 
-        return autoscaleOutMediatorItemProvider;
-    }
+		return autoscaleOutMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected HeaderMediatorItemProvider headerMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createHeaderMediatorAdapter() {
-        if (headerMediatorItemProvider == null) {
-            headerMediatorItemProvider = new HeaderMediatorItemProvider(this);
-        }
+		if (headerMediatorItemProvider == null) {
+			headerMediatorItemProvider = new HeaderMediatorItemProvider(this);
+		}
 
-        return headerMediatorItemProvider;
-    }
+		return headerMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ThrottleMediatorItemProvider throttleMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createThrottleMediatorAdapter() {
-        if (throttleMediatorItemProvider == null) {
-            throttleMediatorItemProvider = new ThrottleMediatorItemProvider(this);
-        }
+		if (throttleMediatorItemProvider == null) {
+			throttleMediatorItemProvider = new ThrottleMediatorItemProvider(this);
+		}
 
-        return throttleMediatorItemProvider;
-    }
+		return throttleMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ThrottlePolicyConfigurationItemProvider throttlePolicyConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createThrottlePolicyConfigurationAdapter() {
-        if (throttlePolicyConfigurationItemProvider == null) {
-            throttlePolicyConfigurationItemProvider = new ThrottlePolicyConfigurationItemProvider(this);
-        }
+		if (throttlePolicyConfigurationItemProvider == null) {
+			throttlePolicyConfigurationItemProvider = new ThrottlePolicyConfigurationItemProvider(this);
+		}
 
-        return throttlePolicyConfigurationItemProvider;
-    }
+		return throttlePolicyConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnAcceptBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnAcceptBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ThrottleOnAcceptBranchItemProvider throttleOnAcceptBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnAcceptBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnAcceptBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createThrottleOnAcceptBranchAdapter() {
-        if (throttleOnAcceptBranchItemProvider == null) {
-            throttleOnAcceptBranchItemProvider = new ThrottleOnAcceptBranchItemProvider(this);
-        }
+		if (throttleOnAcceptBranchItemProvider == null) {
+			throttleOnAcceptBranchItemProvider = new ThrottleOnAcceptBranchItemProvider(this);
+		}
 
-        return throttleOnAcceptBranchItemProvider;
-    }
+		return throttleOnAcceptBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnRejectBranch} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnRejectBranch} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ThrottleOnRejectBranchItemProvider throttleOnRejectBranchItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnRejectBranch}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleOnRejectBranch}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createThrottleOnRejectBranchAdapter() {
-        if (throttleOnRejectBranchItemProvider == null) {
-            throttleOnRejectBranchItemProvider = new ThrottleOnRejectBranchItemProvider(this);
-        }
+		if (throttleOnRejectBranchItemProvider == null) {
+			throttleOnRejectBranchItemProvider = new ThrottleOnRejectBranchItemProvider(this);
+		}
 
-        return throttleOnRejectBranchItemProvider;
-    }
+		return throttleOnRejectBranchItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyEntry} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyEntry} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected ThrottlePolicyEntryItemProvider throttlePolicyEntryItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyEntry}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyEntry}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createThrottlePolicyEntryAdapter() {
-        if (throttlePolicyEntryItemProvider == null) {
-            throttlePolicyEntryItemProvider = new ThrottlePolicyEntryItemProvider(this);
-        }
+		if (throttlePolicyEntryItemProvider == null) {
+			throttlePolicyEntryItemProvider = new ThrottlePolicyEntryItemProvider(this);
+		}
 
-        return throttlePolicyEntryItemProvider;
-    }
+		return throttlePolicyEntryItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CommandMediatorItemProvider commandMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCommandMediatorAdapter() {
-        if (commandMediatorItemProvider == null) {
-            commandMediatorItemProvider = new CommandMediatorItemProvider(this);
-        }
+		if (commandMediatorItemProvider == null) {
+			commandMediatorItemProvider = new CommandMediatorItemProvider(this);
+		}
 
-        return commandMediatorItemProvider;
-    }
+		return commandMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected CommandPropertyItemProvider commandPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.CommandProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createCommandPropertyAdapter() {
-        if (commandPropertyItemProvider == null) {
-            commandPropertyItemProvider = new CommandPropertyItemProvider(this);
-        }
+		if (commandPropertyItemProvider == null) {
+			commandPropertyItemProvider = new CommandPropertyItemProvider(this);
+		}
 
-        return commandPropertyItemProvider;
-    }
+		return commandPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EventMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EventMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EventMediatorItemProvider eventMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EventMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EventMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createEventMediatorAdapter() {
-        if (eventMediatorItemProvider == null) {
-            eventMediatorItemProvider = new EventMediatorItemProvider(this);
-        }
+		if (eventMediatorItemProvider == null) {
+			eventMediatorItemProvider = new EventMediatorItemProvider(this);
+		}
 
-        return eventMediatorItemProvider;
-    }
+		return eventMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SqlStatementItemProvider sqlStatementItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlStatement}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSqlStatementAdapter() {
-        if (sqlStatementItemProvider == null) {
-            sqlStatementItemProvider = new SqlStatementItemProvider(this);
-        }
+		if (sqlStatementItemProvider == null) {
+			sqlStatementItemProvider = new SqlStatementItemProvider(this);
+		}
 
-        return sqlStatementItemProvider;
-    }
+		return sqlStatementItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SqlParameterDefinitionItemProvider sqlParameterDefinitionItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDefinition}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSqlParameterDefinitionAdapter() {
-        if (sqlParameterDefinitionItemProvider == null) {
-            sqlParameterDefinitionItemProvider = new SqlParameterDefinitionItemProvider(this);
-        }
+		if (sqlParameterDefinitionItemProvider == null) {
+			sqlParameterDefinitionItemProvider = new SqlParameterDefinitionItemProvider(this);
+		}
 
-        return sqlParameterDefinitionItemProvider;
-    }
+		return sqlParameterDefinitionItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SqlResultMappingItemProvider sqlResultMappingItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SqlResultMapping}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSqlResultMappingAdapter() {
-        if (sqlResultMappingItemProvider == null) {
-            sqlResultMappingItemProvider = new SqlResultMappingItemProvider(this);
-        }
+		if (sqlResultMappingItemProvider == null) {
+			sqlResultMappingItemProvider = new SqlResultMappingItemProvider(this);
+		}
 
-        return sqlResultMappingItemProvider;
-    }
+		return sqlResultMappingItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DBLookupMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DBLookupMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DBLookupMediatorItemProvider dbLookupMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DBLookupMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DBLookupMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createDBLookupMediatorAdapter() {
-        if (dbLookupMediatorItemProvider == null) {
-            dbLookupMediatorItemProvider = new DBLookupMediatorItemProvider(this);
-        }
+		if (dbLookupMediatorItemProvider == null) {
+			dbLookupMediatorItemProvider = new DBLookupMediatorItemProvider(this);
+		}
 
-        return dbLookupMediatorItemProvider;
-    }
+		return dbLookupMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected DBReportMediatorItemProvider dbReportMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.DBReportMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createDBReportMediatorAdapter() {
-        if (dbReportMediatorItemProvider == null) {
-            dbReportMediatorItemProvider = new DBReportMediatorItemProvider(this);
-        }
+		if (dbReportMediatorItemProvider == null) {
+			dbReportMediatorItemProvider = new DBReportMediatorItemProvider(this);
+		}
 
-        return dbReportMediatorItemProvider;
-    }
+		return dbReportMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleMediatorItemProvider ruleMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleMediatorAdapter() {
-        if (ruleMediatorItemProvider == null) {
-            ruleMediatorItemProvider = new RuleMediatorItemProvider(this);
-        }
+		if (ruleMediatorItemProvider == null) {
+			ruleMediatorItemProvider = new RuleMediatorItemProvider(this);
+		}
 
-        return ruleMediatorItemProvider;
-    }
+		return ruleMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSetConfigurationItemProvider ruleSetConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleSetConfigurationAdapter() {
-        if (ruleSetConfigurationItemProvider == null) {
-            ruleSetConfigurationItemProvider = new RuleSetConfigurationItemProvider(this);
-        }
+		if (ruleSetConfigurationItemProvider == null) {
+			ruleSetConfigurationItemProvider = new RuleSetConfigurationItemProvider(this);
+		}
 
-        return ruleSetConfigurationItemProvider;
-    }
+		return ruleSetConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetCreationProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetCreationProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSetCreationPropertyItemProvider ruleSetCreationPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetCreationProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSetCreationProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleSetCreationPropertyAdapter() {
-        if (ruleSetCreationPropertyItemProvider == null) {
-            ruleSetCreationPropertyItemProvider = new RuleSetCreationPropertyItemProvider(this);
-        }
+		if (ruleSetCreationPropertyItemProvider == null) {
+			ruleSetCreationPropertyItemProvider = new RuleSetCreationPropertyItemProvider(this);
+		}
 
-        return ruleSetCreationPropertyItemProvider;
-    }
+		return ruleSetCreationPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSessionConfigurationItemProvider ruleSessionConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleSessionConfigurationAdapter() {
-        if (ruleSessionConfigurationItemProvider == null) {
-            ruleSessionConfigurationItemProvider = new RuleSessionConfigurationItemProvider(this);
-        }
+		if (ruleSessionConfigurationItemProvider == null) {
+			ruleSessionConfigurationItemProvider = new RuleSessionConfigurationItemProvider(this);
+		}
 
-        return ruleSessionConfigurationItemProvider;
-    }
+		return ruleSessionConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionProperty} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionProperty} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleSessionPropertyItemProvider ruleSessionPropertyItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionProperty}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSessionProperty}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleSessionPropertyAdapter() {
-        if (ruleSessionPropertyItemProvider == null) {
-            ruleSessionPropertyItemProvider = new RuleSessionPropertyItemProvider(this);
-        }
+		if (ruleSessionPropertyItemProvider == null) {
+			ruleSessionPropertyItemProvider = new RuleSessionPropertyItemProvider(this);
+		}
 
-        return ruleSessionPropertyItemProvider;
-    }
+		return ruleSessionPropertyItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactsConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactsConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleFactsConfigurationItemProvider ruleFactsConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactsConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactsConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleFactsConfigurationAdapter() {
-        if (ruleFactsConfigurationItemProvider == null) {
-            ruleFactsConfigurationItemProvider = new RuleFactsConfigurationItemProvider(this);
-        }
+		if (ruleFactsConfigurationItemProvider == null) {
+			ruleFactsConfigurationItemProvider = new RuleFactsConfigurationItemProvider(this);
+		}
 
-        return ruleFactsConfigurationItemProvider;
-    }
+		return ruleFactsConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleFactItemProvider ruleFactItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFact}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleFactAdapter() {
-        if (ruleFactItemProvider == null) {
-            ruleFactItemProvider = new RuleFactItemProvider(this);
-        }
+		if (ruleFactItemProvider == null) {
+			ruleFactItemProvider = new RuleFactItemProvider(this);
+		}
 
-        return ruleFactItemProvider;
-    }
+		return ruleFactItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultsConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultsConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleResultsConfigurationItemProvider ruleResultsConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultsConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultsConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleResultsConfigurationAdapter() {
-        if (ruleResultsConfigurationItemProvider == null) {
-            ruleResultsConfigurationItemProvider = new RuleResultsConfigurationItemProvider(this);
-        }
+		if (ruleResultsConfigurationItemProvider == null) {
+			ruleResultsConfigurationItemProvider = new RuleResultsConfigurationItemProvider(this);
+		}
 
-        return ruleResultsConfigurationItemProvider;
-    }
+		return ruleResultsConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleResultItemProvider ruleResultItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResult}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleResultAdapter() {
-        if (ruleResultItemProvider == null) {
-            ruleResultItemProvider = new RuleResultItemProvider(this);
-        }
+		if (ruleResultItemProvider == null) {
+			ruleResultItemProvider = new RuleResultItemProvider(this);
+		}
 
-        return ruleResultItemProvider;
-    }
+		return ruleResultItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleChildMediatorsConfiguration} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleChildMediatorsConfiguration} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected RuleChildMediatorsConfigurationItemProvider ruleChildMediatorsConfigurationItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleChildMediatorsConfiguration}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.RuleChildMediatorsConfiguration}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createRuleChildMediatorsConfigurationAdapter() {
-        if (ruleChildMediatorsConfigurationItemProvider == null) {
-            ruleChildMediatorsConfigurationItemProvider = new RuleChildMediatorsConfigurationItemProvider(this);
-        }
+		if (ruleChildMediatorsConfigurationItemProvider == null) {
+			ruleChildMediatorsConfigurationItemProvider = new RuleChildMediatorsConfigurationItemProvider(this);
+		}
 
-        return ruleChildMediatorsConfigurationItemProvider;
-    }
+		return ruleChildMediatorsConfigurationItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SequenceMediatorItemProvider sequenceMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.SequenceMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createSequenceMediatorAdapter() {
-        if (sequenceMediatorItemProvider == null) {
-            sequenceMediatorItemProvider = new SequenceMediatorItemProvider(this);
-        }
+		if (sequenceMediatorItemProvider == null) {
+			sequenceMediatorItemProvider = new SequenceMediatorItemProvider(this);
+		}
 
-        return sequenceMediatorItemProvider;
-    }
+		return sequenceMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.BuilderMediator} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.BuilderMediator} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected BuilderMediatorItemProvider builderMediatorItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.BuilderMediator}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.BuilderMediator}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createBuilderMediatorAdapter() {
-        if (builderMediatorItemProvider == null) {
-            builderMediatorItemProvider = new BuilderMediatorItemProvider(this);
-        }
+		if (builderMediatorItemProvider == null) {
+			builderMediatorItemProvider = new BuilderMediatorItemProvider(this);
+		}
 
-        return builderMediatorItemProvider;
-    }
+		return builderMediatorItemProvider;
+	}
 
 	/**
-     * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder} instances.
-     * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder} instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected MessageBuilderItemProvider messageBuilderItemProvider;
 
 	/**
-     * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder}.
-     * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.MessageBuilder}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter createMessageBuilderAdapter() {
-        if (messageBuilderItemProvider == null) {
-            messageBuilderItemProvider = new MessageBuilderItemProvider(this);
-        }
+		if (messageBuilderItemProvider == null) {
+			messageBuilderItemProvider = new MessageBuilderItemProvider(this);
+		}
 
-        return messageBuilderItemProvider;
-    }
+		return messageBuilderItemProvider;
+	}
 
 	/**
-     * This returns the root adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-    }
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
 	/**
-     * This sets the composed adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-        this.parentAdapterFactory = parentAdapterFactory;
-    }
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
-    }
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
 	/**
-     * This implementation substitutes the factory itself as the key for the adapter.
-     * <!-- begin-user-doc -->
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-        return super.adapt(notifier, this);
-    }
+		return super.adapt(notifier, this);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-                return adapter;
-            }
-        }
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 
 	/**
-     * This adds a listener.
-     * <!-- begin-user-doc -->
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
-    }
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
 	/**
-     * This removes a listener.
-     * <!-- begin-user-doc -->
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
-    }
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
 	/**
-     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-     * <!-- begin-user-doc -->
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+		changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
-        }
-    }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
 	/**
-     * This disposes all of the item providers created by this factory. 
-     * <!-- begin-user-doc -->
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void dispose() {
-        if (inMediatorItemProvider != null) inMediatorItemProvider.dispose();
-        if (outMediatorItemProvider != null) outMediatorItemProvider.dispose();
-        if (dropMediatorItemProvider != null) dropMediatorItemProvider.dispose();
-        if (sendMediatorItemProvider != null) sendMediatorItemProvider.dispose();
-        if (logMediatorItemProvider != null) logMediatorItemProvider.dispose();
-        if (logPropertyItemProvider != null) logPropertyItemProvider.dispose();
-        if (filterMediatorItemProvider != null) filterMediatorItemProvider.dispose();
-        if (filterThenBranchItemProvider != null) filterThenBranchItemProvider.dispose();
-        if (filterElseBranchItemProvider != null) filterElseBranchItemProvider.dispose();
-        if (switchMediatorItemProvider != null) switchMediatorItemProvider.dispose();
-        if (switchCaseBranchItemProvider != null) switchCaseBranchItemProvider.dispose();
-        if (switchDefaultBranchItemProvider != null) switchDefaultBranchItemProvider.dispose();
-        if (entitlementMediatorItemProvider != null) entitlementMediatorItemProvider.dispose();
-        if (enqueueMediatorItemProvider != null) enqueueMediatorItemProvider.dispose();
-        if (classMediatorItemProvider != null) classMediatorItemProvider.dispose();
-        if (classPropertyItemProvider != null) classPropertyItemProvider.dispose();
-        if (springMediatorItemProvider != null) springMediatorItemProvider.dispose();
-        if (validateMediatorItemProvider != null) validateMediatorItemProvider.dispose();
-        if (validateOnFailBranchItemProvider != null) validateOnFailBranchItemProvider.dispose();
-        if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
-        if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
-        if (scriptMediatorItemProvider != null) scriptMediatorItemProvider.dispose();
-        if (enrichMediatorItemProvider != null) enrichMediatorItemProvider.dispose();
-        if (faultMediatorItemProvider != null) faultMediatorItemProvider.dispose();
-        if (aggregateMediatorItemProvider != null) aggregateMediatorItemProvider.dispose();
-        if (aggregateOnCompleteBranchItemProvider != null) aggregateOnCompleteBranchItemProvider.dispose();
-        if (routerMediatorItemProvider != null) routerMediatorItemProvider.dispose();
-        if (routerRouteItemProvider != null) routerRouteItemProvider.dispose();
-        if (routeTargetItemProvider != null) routeTargetItemProvider.dispose();
-        if (cloneMediatorItemProvider != null) cloneMediatorItemProvider.dispose();
-        if (cloneTargetItemProvider != null) cloneTargetItemProvider.dispose();
-        if (iterateMediatorItemProvider != null) iterateMediatorItemProvider.dispose();
-        if (iterateTargetItemProvider != null) iterateTargetItemProvider.dispose();
-        if (cacheMediatorItemProvider != null) cacheMediatorItemProvider.dispose();
-        if (cacheOnHitBranchItemProvider != null) cacheOnHitBranchItemProvider.dispose();
-        if (xsltMediatorItemProvider != null) xsltMediatorItemProvider.dispose();
-        if (xsltPropertyItemProvider != null) xsltPropertyItemProvider.dispose();
-        if (xsltFeatureItemProvider != null) xsltFeatureItemProvider.dispose();
-        if (xsltResourceItemProvider != null) xsltResourceItemProvider.dispose();
-        if (xQueryMediatorItemProvider != null) xQueryMediatorItemProvider.dispose();
-        if (xQueryVariableItemProvider != null) xQueryVariableItemProvider.dispose();
-        if (calloutMediatorItemProvider != null) calloutMediatorItemProvider.dispose();
-        if (rmSequenceMediatorItemProvider != null) rmSequenceMediatorItemProvider.dispose();
-        if (transactionMediatorItemProvider != null) transactionMediatorItemProvider.dispose();
-        if (propertyMediatorItemProvider != null) propertyMediatorItemProvider.dispose();
-        if (oAuthMediatorItemProvider != null) oAuthMediatorItemProvider.dispose();
-        if (autoscaleInMediatorItemProvider != null) autoscaleInMediatorItemProvider.dispose();
-        if (autoscaleOutMediatorItemProvider != null) autoscaleOutMediatorItemProvider.dispose();
-        if (headerMediatorItemProvider != null) headerMediatorItemProvider.dispose();
-        if (throttleMediatorItemProvider != null) throttleMediatorItemProvider.dispose();
-        if (throttlePolicyConfigurationItemProvider != null) throttlePolicyConfigurationItemProvider.dispose();
-        if (throttlePolicyEntryItemProvider != null) throttlePolicyEntryItemProvider.dispose();
-        if (throttleOnAcceptBranchItemProvider != null) throttleOnAcceptBranchItemProvider.dispose();
-        if (throttleOnRejectBranchItemProvider != null) throttleOnRejectBranchItemProvider.dispose();
-        if (commandMediatorItemProvider != null) commandMediatorItemProvider.dispose();
-        if (commandPropertyItemProvider != null) commandPropertyItemProvider.dispose();
-        if (eventMediatorItemProvider != null) eventMediatorItemProvider.dispose();
-        if (sqlStatementItemProvider != null) sqlStatementItemProvider.dispose();
-        if (sqlParameterDefinitionItemProvider != null) sqlParameterDefinitionItemProvider.dispose();
-        if (sqlResultMappingItemProvider != null) sqlResultMappingItemProvider.dispose();
-        if (dbLookupMediatorItemProvider != null) dbLookupMediatorItemProvider.dispose();
-        if (dbReportMediatorItemProvider != null) dbReportMediatorItemProvider.dispose();
-        if (ruleMediatorItemProvider != null) ruleMediatorItemProvider.dispose();
-        if (ruleSetConfigurationItemProvider != null) ruleSetConfigurationItemProvider.dispose();
-        if (ruleSetCreationPropertyItemProvider != null) ruleSetCreationPropertyItemProvider.dispose();
-        if (ruleSessionConfigurationItemProvider != null) ruleSessionConfigurationItemProvider.dispose();
-        if (ruleSessionPropertyItemProvider != null) ruleSessionPropertyItemProvider.dispose();
-        if (ruleFactsConfigurationItemProvider != null) ruleFactsConfigurationItemProvider.dispose();
-        if (ruleFactItemProvider != null) ruleFactItemProvider.dispose();
-        if (ruleResultsConfigurationItemProvider != null) ruleResultsConfigurationItemProvider.dispose();
-        if (ruleResultItemProvider != null) ruleResultItemProvider.dispose();
-        if (ruleChildMediatorsConfigurationItemProvider != null) ruleChildMediatorsConfigurationItemProvider.dispose();
-        if (sequenceMediatorItemProvider != null) sequenceMediatorItemProvider.dispose();
-        if (builderMediatorItemProvider != null) builderMediatorItemProvider.dispose();
-        if (messageBuilderItemProvider != null) messageBuilderItemProvider.dispose();
-        if (smooksMediatorItemProvider != null) smooksMediatorItemProvider.dispose();
-        if (smooksInConfigurationItemProvider != null) smooksInConfigurationItemProvider.dispose();
-        if (smooksOutConfigurationItemProvider != null) smooksOutConfigurationItemProvider.dispose();
-        if (storeMediatorItemProvider != null) storeMediatorItemProvider.dispose();
-        if (conditionalRouteBranchItemProvider != null) conditionalRouteBranchItemProvider.dispose();
-        if (conditionalRouterMediatorItemProvider != null) conditionalRouterMediatorItemProvider.dispose();
-        if (urlRewriteRuleActionItemProvider != null) urlRewriteRuleActionItemProvider.dispose();
-        if (urlRewriteRuleItemProvider != null) urlRewriteRuleItemProvider.dispose();
-        if (urlRewriteMediatorItemProvider != null) urlRewriteMediatorItemProvider.dispose();
-        if (callTemplateMediatorItemProvider != null) callTemplateMediatorItemProvider.dispose();
-        if (callTemplateParameterItemProvider != null) callTemplateParameterItemProvider.dispose();
-        if (payloadFactoryMediatorItemProvider != null) payloadFactoryMediatorItemProvider.dispose();
-        if (payloadFactoryArgumentItemProvider != null) payloadFactoryArgumentItemProvider.dispose();
-    }
+		if (inMediatorItemProvider != null) inMediatorItemProvider.dispose();
+		if (outMediatorItemProvider != null) outMediatorItemProvider.dispose();
+		if (dropMediatorItemProvider != null) dropMediatorItemProvider.dispose();
+		if (sendMediatorItemProvider != null) sendMediatorItemProvider.dispose();
+		if (logMediatorItemProvider != null) logMediatorItemProvider.dispose();
+		if (logPropertyItemProvider != null) logPropertyItemProvider.dispose();
+		if (filterMediatorItemProvider != null) filterMediatorItemProvider.dispose();
+		if (filterThenBranchItemProvider != null) filterThenBranchItemProvider.dispose();
+		if (filterElseBranchItemProvider != null) filterElseBranchItemProvider.dispose();
+		if (switchMediatorItemProvider != null) switchMediatorItemProvider.dispose();
+		if (switchCaseBranchItemProvider != null) switchCaseBranchItemProvider.dispose();
+		if (switchDefaultBranchItemProvider != null) switchDefaultBranchItemProvider.dispose();
+		if (entitlementMediatorItemProvider != null) entitlementMediatorItemProvider.dispose();
+		if (enqueueMediatorItemProvider != null) enqueueMediatorItemProvider.dispose();
+		if (classMediatorItemProvider != null) classMediatorItemProvider.dispose();
+		if (classPropertyItemProvider != null) classPropertyItemProvider.dispose();
+		if (springMediatorItemProvider != null) springMediatorItemProvider.dispose();
+		if (validateMediatorItemProvider != null) validateMediatorItemProvider.dispose();
+		if (validateOnFailBranchItemProvider != null) validateOnFailBranchItemProvider.dispose();
+		if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
+		if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
+		if (scriptMediatorItemProvider != null) scriptMediatorItemProvider.dispose();
+		if (enrichMediatorItemProvider != null) enrichMediatorItemProvider.dispose();
+		if (faultMediatorItemProvider != null) faultMediatorItemProvider.dispose();
+		if (aggregateMediatorItemProvider != null) aggregateMediatorItemProvider.dispose();
+		if (aggregateOnCompleteBranchItemProvider != null) aggregateOnCompleteBranchItemProvider.dispose();
+		if (routerMediatorItemProvider != null) routerMediatorItemProvider.dispose();
+		if (routerRouteItemProvider != null) routerRouteItemProvider.dispose();
+		if (routeTargetItemProvider != null) routeTargetItemProvider.dispose();
+		if (cloneMediatorItemProvider != null) cloneMediatorItemProvider.dispose();
+		if (cloneTargetItemProvider != null) cloneTargetItemProvider.dispose();
+		if (iterateMediatorItemProvider != null) iterateMediatorItemProvider.dispose();
+		if (iterateTargetItemProvider != null) iterateTargetItemProvider.dispose();
+		if (cacheMediatorItemProvider != null) cacheMediatorItemProvider.dispose();
+		if (cacheOnHitBranchItemProvider != null) cacheOnHitBranchItemProvider.dispose();
+		if (xsltMediatorItemProvider != null) xsltMediatorItemProvider.dispose();
+		if (xsltPropertyItemProvider != null) xsltPropertyItemProvider.dispose();
+		if (xsltFeatureItemProvider != null) xsltFeatureItemProvider.dispose();
+		if (xsltResourceItemProvider != null) xsltResourceItemProvider.dispose();
+		if (xQueryMediatorItemProvider != null) xQueryMediatorItemProvider.dispose();
+		if (xQueryVariableItemProvider != null) xQueryVariableItemProvider.dispose();
+		if (calloutMediatorItemProvider != null) calloutMediatorItemProvider.dispose();
+		if (rmSequenceMediatorItemProvider != null) rmSequenceMediatorItemProvider.dispose();
+		if (transactionMediatorItemProvider != null) transactionMediatorItemProvider.dispose();
+		if (propertyMediatorItemProvider != null) propertyMediatorItemProvider.dispose();
+		if (oAuthMediatorItemProvider != null) oAuthMediatorItemProvider.dispose();
+		if (autoscaleInMediatorItemProvider != null) autoscaleInMediatorItemProvider.dispose();
+		if (autoscaleOutMediatorItemProvider != null) autoscaleOutMediatorItemProvider.dispose();
+		if (headerMediatorItemProvider != null) headerMediatorItemProvider.dispose();
+		if (throttleMediatorItemProvider != null) throttleMediatorItemProvider.dispose();
+		if (throttlePolicyConfigurationItemProvider != null) throttlePolicyConfigurationItemProvider.dispose();
+		if (throttlePolicyEntryItemProvider != null) throttlePolicyEntryItemProvider.dispose();
+		if (throttleOnAcceptBranchItemProvider != null) throttleOnAcceptBranchItemProvider.dispose();
+		if (throttleOnRejectBranchItemProvider != null) throttleOnRejectBranchItemProvider.dispose();
+		if (commandMediatorItemProvider != null) commandMediatorItemProvider.dispose();
+		if (commandPropertyItemProvider != null) commandPropertyItemProvider.dispose();
+		if (eventMediatorItemProvider != null) eventMediatorItemProvider.dispose();
+		if (sqlStatementItemProvider != null) sqlStatementItemProvider.dispose();
+		if (sqlParameterDefinitionItemProvider != null) sqlParameterDefinitionItemProvider.dispose();
+		if (sqlResultMappingItemProvider != null) sqlResultMappingItemProvider.dispose();
+		if (dbLookupMediatorItemProvider != null) dbLookupMediatorItemProvider.dispose();
+		if (dbReportMediatorItemProvider != null) dbReportMediatorItemProvider.dispose();
+		if (ruleMediatorItemProvider != null) ruleMediatorItemProvider.dispose();
+		if (ruleSetConfigurationItemProvider != null) ruleSetConfigurationItemProvider.dispose();
+		if (ruleSetCreationPropertyItemProvider != null) ruleSetCreationPropertyItemProvider.dispose();
+		if (ruleSessionConfigurationItemProvider != null) ruleSessionConfigurationItemProvider.dispose();
+		if (ruleSessionPropertyItemProvider != null) ruleSessionPropertyItemProvider.dispose();
+		if (ruleFactsConfigurationItemProvider != null) ruleFactsConfigurationItemProvider.dispose();
+		if (ruleFactItemProvider != null) ruleFactItemProvider.dispose();
+		if (ruleResultsConfigurationItemProvider != null) ruleResultsConfigurationItemProvider.dispose();
+		if (ruleResultItemProvider != null) ruleResultItemProvider.dispose();
+		if (ruleChildMediatorsConfigurationItemProvider != null) ruleChildMediatorsConfigurationItemProvider.dispose();
+		if (sequenceMediatorItemProvider != null) sequenceMediatorItemProvider.dispose();
+		if (builderMediatorItemProvider != null) builderMediatorItemProvider.dispose();
+		if (messageBuilderItemProvider != null) messageBuilderItemProvider.dispose();
+		if (smooksMediatorItemProvider != null) smooksMediatorItemProvider.dispose();
+		if (smooksInConfigurationItemProvider != null) smooksInConfigurationItemProvider.dispose();
+		if (smooksOutConfigurationItemProvider != null) smooksOutConfigurationItemProvider.dispose();
+		if (storeMediatorItemProvider != null) storeMediatorItemProvider.dispose();
+		if (conditionalRouteBranchItemProvider != null) conditionalRouteBranchItemProvider.dispose();
+		if (conditionalRouterMediatorItemProvider != null) conditionalRouterMediatorItemProvider.dispose();
+		if (urlRewriteRuleActionItemProvider != null) urlRewriteRuleActionItemProvider.dispose();
+		if (urlRewriteRuleItemProvider != null) urlRewriteRuleItemProvider.dispose();
+		if (urlRewriteMediatorItemProvider != null) urlRewriteMediatorItemProvider.dispose();
+		if (callTemplateMediatorItemProvider != null) callTemplateMediatorItemProvider.dispose();
+		if (callTemplateParameterItemProvider != null) callTemplateParameterItemProvider.dispose();
+		if (payloadFactoryMediatorItemProvider != null) payloadFactoryMediatorItemProvider.dispose();
+		if (payloadFactoryArgumentItemProvider != null) payloadFactoryArgumentItemProvider.dispose();
+	}
 
 }

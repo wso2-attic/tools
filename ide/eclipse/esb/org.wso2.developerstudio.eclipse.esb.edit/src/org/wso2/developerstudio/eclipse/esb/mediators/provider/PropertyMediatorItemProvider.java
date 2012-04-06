@@ -53,14 +53,14 @@ public class PropertyMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -110,235 +110,236 @@ public class PropertyMediatorItemProvider
 	}
 
 	/**
-     * This adds a property descriptor for the Property Name feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property Name feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_propertyName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyName_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_propertyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyName_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Property Data Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property Data Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyDataTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_propertyDataType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyDataType_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_propertyDataType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyDataType_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Property Action feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property Action feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_propertyAction_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyAction_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_ACTION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_propertyAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyAction_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Type feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueType_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueType_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Literal feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Literal feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueLiteralPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueLiteral_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueLiteral_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_LITERAL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueLiteral_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueLiteral_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_LITERAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value Expression feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueExpression_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueExpression_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value OM feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value OM feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueOMPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueOM_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueOM_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_OM,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueOM_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueOM_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_OM,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value String Pattern feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value String Pattern feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueStringPatternPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueStringPattern_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueStringPattern_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueStringPattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueStringPattern_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Value String Capturing Group feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Value String Capturing Group feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addValueStringCapturingGroupPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_valueStringCapturingGroup_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueStringCapturingGroup_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_valueStringCapturingGroup_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_valueStringCapturingGroup_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Property Scope feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Property Scope feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addPropertyScopePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PropertyMediator_propertyScope_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyScope_feature", "_UI_PropertyMediator_type"),
-                 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_SCOPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMediator_propertyScope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMediator_propertyScope_feature", "_UI_PropertyMediator_type"),
+				 MediatorsPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_SCOPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This returns PropertyMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns PropertyMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -351,54 +352,57 @@ public class PropertyMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(PropertyMediator.class)) {
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
-            case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
-            case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(PropertyMediator.class)) {
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_NAME:
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE:
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_ACTION:
+			case MediatorsPackage.PROPERTY_MEDIATOR__PROPERTY_SCOPE:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_TYPE:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_LITERAL:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_EXPRESSION:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_OM:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN:
+			case MediatorsPackage.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

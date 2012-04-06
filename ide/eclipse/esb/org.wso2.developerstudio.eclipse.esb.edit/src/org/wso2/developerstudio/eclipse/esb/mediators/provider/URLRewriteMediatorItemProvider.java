@@ -60,116 +60,120 @@ public class URLRewriteMediatorItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public URLRewriteMediatorItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
 	/**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
-            super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addInPropertyPropertyDescriptor(object);
-            addOutPropertyPropertyDescriptor(object);
-        }
-        return itemPropertyDescriptors;
-    }
+			addInPropertyPropertyDescriptor(object);
+			addOutPropertyPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
 	/**
-     * This adds a property descriptor for the In Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the In Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addInPropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteMediator_InProperty_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_InProperty_feature", "_UI_URLRewriteMediator_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__IN_PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteMediator_InProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_InProperty_feature", "_UI_URLRewriteMediator_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__IN_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This adds a property descriptor for the Out Property feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Out Property feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected void addOutPropertyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLRewriteMediator_outProperty_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_outProperty_feature", "_UI_URLRewriteMediator_type"),
-                 MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__OUT_PROPERTY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteMediator_outProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_outProperty_feature", "_UI_URLRewriteMediator_type"),
+				 MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__OUT_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
 	/**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
-        }
-        return childrenFeatures;
-    }
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
+		}
+		return childrenFeatures;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
-    }
+		return super.getChildFeature(object, child);
+	}
 
 	/**
-     * This returns URLRewriteMediator.gif.
-     * <!-- begin-user-doc -->
+	 * This returns URLRewriteMediator.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/URLRewriteMediator"));
-    }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/URLRewriteMediator"));
+	}
 
 	/**
 	 * This returns the label text for the adapted class.
@@ -184,54 +188,57 @@ public class URLRewriteMediatorItemProvider
 	}
 
 	/**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(URLRewriteMediator.class)) {
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-            case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(URLRewriteMediator.class)) {
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MediatorsPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
 	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add
-            (createChildParameter
-                (MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,
-                 MediatorsFactory.eINSTANCE.createURLRewriteRule()));
-    }
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,
+				 MediatorsFactory.eINSTANCE.createURLRewriteRule()));
+	}
 
 	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	
+	@Override
 	public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

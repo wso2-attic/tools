@@ -58,14 +58,14 @@ public class PayloadFactoryArgumentItemProvider
         IItemLabelProvider,
         IItemPropertySource {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public PayloadFactoryArgumentItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
     /**
      * This returns the property descriptors for the adapted class.
@@ -91,81 +91,82 @@ public class PayloadFactoryArgumentItemProvider
 	}
 
     /**
-     * This adds a property descriptor for the Argument Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Argument Type feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addArgumentTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PayloadFactoryArgument_argumentType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentType_feature", "_UI_PayloadFactoryArgument_type"),
-                 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryArgument_argumentType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentType_feature", "_UI_PayloadFactoryArgument_type"),
+				 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Argument Value feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Argument Value feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addArgumentValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PayloadFactoryArgument_argumentValue_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentValue_feature", "_UI_PayloadFactoryArgument_type"),
-                 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryArgument_argumentValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentValue_feature", "_UI_PayloadFactoryArgument_type"),
+				 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Argument Expression feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Argument Expression feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addArgumentExpressionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_PayloadFactoryArgument_argumentExpression_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentExpression_feature", "_UI_PayloadFactoryArgument_type"),
-                 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryArgument_argumentExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentExpression_feature", "_UI_PayloadFactoryArgument_type"),
+				 MediatorsPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
     /**
-     * This returns PayloadFactoryArgument.gif.
-     * <!-- begin-user-doc -->
+	 * This returns PayloadFactoryArgument.gif.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/PayloadFactoryArgument"));
-    }
+    @Override
+				public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PayloadFactoryArgument"));
+	}
 
     /**
      * This returns the label text for the adapted class.
@@ -179,47 +180,50 @@ public class PayloadFactoryArgumentItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+				public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(PayloadFactoryArgument.class)) {
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
-            case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
-
-    /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
+		switch (notification.getFeatureID(PayloadFactoryArgument.class)) {
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
     /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public ResourceLocator getResourceLocator() {
-        return EsbEditPlugin.INSTANCE;
-    }
+    @Override
+				protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+    /**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    
+    @Override
+				public ResourceLocator getResourceLocator() {
+		return EsbEditPlugin.INSTANCE;
+	}
 
 }

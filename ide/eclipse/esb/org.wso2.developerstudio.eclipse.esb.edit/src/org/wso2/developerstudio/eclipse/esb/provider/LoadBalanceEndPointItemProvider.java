@@ -51,14 +51,14 @@ public class LoadBalanceEndPointItemProvider
         IItemLabelProvider,
         IItemPropertySource {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public LoadBalanceEndPointItemProvider(AdapterFactory adapterFactory) {
-        super(adapterFactory);
-    }
+		super(adapterFactory);
+	}
 
     /**
      * This returns the property descriptors for the adapted class.
@@ -86,81 +86,82 @@ public class LoadBalanceEndPointItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Algorithm feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Algorithm feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addAlgorithmPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LoadBalanceEndPoint_algorithm_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_algorithm_feature", "_UI_LoadBalanceEndPoint_type"),
-                 EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_algorithm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_algorithm_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Session Type feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Session Type feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addSessionTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LoadBalanceEndPoint_sessionType_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionType_feature", "_UI_LoadBalanceEndPoint_type"),
-                 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_sessionType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionType_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This adds a property descriptor for the Session Timeout feature.
-     * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Session Timeout feature.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected void addSessionTimeoutPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_LoadBalanceEndPoint_sessionTimeout_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionTimeout_feature", "_UI_LoadBalanceEndPoint_type"),
-                 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 getString("_UI_BasicPropertyCategory"),
-                 null));
-    }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_sessionTimeout_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionTimeout_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
 
     /**
-     * This returns LoadBalanceEndPoint.gif.
-     * <!-- begin-user-doc -->
+	 * This returns LoadBalanceEndPoint.gif.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/LoadBalanceEndPoint"));
-    }
+    @Override
+				public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoadBalanceEndPoint"));
+	}
 
     /**
      * This returns the label text for the adapted class.
@@ -175,25 +176,26 @@ public class LoadBalanceEndPointItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+				public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch (notification.getFeatureID(LoadBalanceEndPoint.class)) {
-            case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
-            case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
-        }
-        super.notifyChanged(notification);
-    }
+		switch (notification.getFeatureID(LoadBalanceEndPoint.class)) {
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
