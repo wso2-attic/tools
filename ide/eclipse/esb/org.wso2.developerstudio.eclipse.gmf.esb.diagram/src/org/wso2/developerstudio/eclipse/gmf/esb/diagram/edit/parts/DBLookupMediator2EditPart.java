@@ -149,7 +149,7 @@ public class DBLookupMediator2EditPart extends AbstractMediator {
 			return true;
 		}
 		if (childEditPart instanceof DBLookupMediatorOutputConnector2EditPart) {
-			IFigure borderItemFigure = ((DBLookupMediatorOutputConnectorEditPart) childEditPart)
+			IFigure borderItemFigure = ((DBLookupMediatorOutputConnector2EditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					getMainFigure(), borderItemFigure, PositionConstants.EAST,
