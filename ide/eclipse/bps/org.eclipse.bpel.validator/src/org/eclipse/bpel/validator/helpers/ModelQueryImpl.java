@@ -999,6 +999,8 @@ public class ModelQueryImpl  implements IModelQuery {
 			imports = emfModelQuery.scanAllImports(process, qname, XSDUtil.XSD_ELEMENT_DECLARATION);
 		}
 
+		
+		//TODO: Fix this logic!! This is completely WRONG!!
 		if (imports != null && imports.size() > 1) {
 			EObject o2 = null;
 			o1 = null;
