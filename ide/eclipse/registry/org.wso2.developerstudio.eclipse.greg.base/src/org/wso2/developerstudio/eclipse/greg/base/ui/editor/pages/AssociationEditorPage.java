@@ -20,7 +20,9 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Properties;
 
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -612,9 +614,9 @@ public class AssociationEditorPage extends FormPage implements
 						}
 					}
 				}
-				ArrayList results = new ArrayList();
+				Collection results = new ArrayList();
 				if (parent instanceof Association) {
-					results = (ArrayList) parent;
+					results = ((Properties) parent).values();
 				}
 				return results.toArray();
 			} catch (Exception e) {

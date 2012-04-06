@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.greg.base.ui.editor.pages;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -362,12 +363,12 @@ public class TagsEditorPage extends FormPage implements
 			try {
 				tags = regResourcePathData.getConnectionInfo().getRegistry().getTags(
 								regResourcePathData.getRegistryResourcePath());
-				ArrayList<String> results = new ArrayList();
+				List<String> results = new ArrayList();
 				for (int i = 0; i < tags.length; i++) {
 					results.add(tags[i].getTagName());
 				}
 				if (parent instanceof Tag) {
-					results = (ArrayList) parent;
+					results.add(((Tag) parent).getTagName());
 				}
 				return results.toArray();
 			} catch (Exception e) {

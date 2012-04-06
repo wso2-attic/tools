@@ -20,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -399,12 +400,12 @@ public class DependencyEditorPage extends FormPage implements
 						.getRegistry().getAssociations(
 								(regResourcePathData.getRegistryResourcePath()),
 								DEPENDENCY_ASSOCIATION_TYPE);
-				ArrayList<String> results = new ArrayList();
+				List<String> results = new ArrayList();
 				for (RegistryAssociation association : associations) {
 					results.add(association.getDestinationPath());
 				}
 				if (parent instanceof Association) {
-					results = (ArrayList) parent;
+					results.add(((Association)parent).getDestinationPath());
 				}
 				return results.toArray();
 			} catch (Exception e) {

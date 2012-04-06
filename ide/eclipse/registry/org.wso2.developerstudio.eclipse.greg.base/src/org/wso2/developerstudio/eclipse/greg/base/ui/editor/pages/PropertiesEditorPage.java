@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.greg.base.ui.editor.pages;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Properties;
@@ -537,9 +538,9 @@ public class PropertiesEditorPage extends FormPage implements
 							: resource.getPropertyValues(key).get(0).toString();
 					propertyMap.put(key, value);
 				}
-				ArrayList results = new ArrayList();
+				Collection results = new ArrayList();
 				if (parent instanceof Properties) {
-					results = (ArrayList) parent;
+					results = ((Properties) parent).values();
 				}
 				return results.toArray();
 			} catch (Exception e) {

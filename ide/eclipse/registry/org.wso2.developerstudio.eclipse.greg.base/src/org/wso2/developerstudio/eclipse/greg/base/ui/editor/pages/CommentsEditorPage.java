@@ -17,7 +17,9 @@
 package org.wso2.developerstudio.eclipse.greg.base.ui.editor.pages;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -433,14 +435,16 @@ public class CommentsEditorPage extends FormPage implements
 				comments = regResourcePathData.getConnectionInfo()
 						.getRegistry().getComments(
 								regResourcePathData.getRegistryResourcePath());
-				ArrayList<String> results = new ArrayList<String>();
+				List<String> results = new ArrayList<String>();
 				for (Comment comment : comments) {
 					results.add(comment.getCreatedTime() + " by "
 							+ comment.getAuthorUserName() + "\n"
 							+ comment.getDescription());
 				}
 				if (parent instanceof Comment) {
-					results = (ArrayList) parent;
+					Comment comment = (Comment) parent;
+					results.add(comment.getCreatedTime() + " by " + comment.getAuthorUserName() +
+					            "\n" + comment.getDescription());
 				}
 				return results.toArray();
 			} catch (Exception e) {
