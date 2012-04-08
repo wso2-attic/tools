@@ -373,11 +373,11 @@ public class ProxyServiceItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SEQUENCE_CONTAINER);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -451,11 +451,11 @@ public class ProxyServiceItemProvider
 				return;
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__INPUT_CONNECTOR:
+			case EsbPackage.PROXY_SERVICE__FAULT_INPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
-			case EsbPackage.PROXY_SERVICE__SEQUENCE_CONTAINER:
-			case EsbPackage.PROXY_SERVICE__ENDPOINT_CONTAINER:
+			case EsbPackage.PROXY_SERVICE__CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -486,6 +486,11 @@ public class ProxyServiceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__FAULT_INPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createProxyFaultInputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
@@ -501,13 +506,8 @@ public class ProxyServiceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE__SEQUENCE_CONTAINER,
-				 EsbFactory.eINSTANCE.createProxyServiceSequenceContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_CONTAINER,
-				 EsbFactory.eINSTANCE.createProxyServiceEndpointContainer()));
+				(EsbPackage.Literals.PROXY_SERVICE__CONTAINER,
+				 EsbFactory.eINSTANCE.createProxyServiceContainer()));
 	}
 
 }

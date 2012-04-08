@@ -218,6 +218,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyFaultInputConnectorItemProvider proxyFaultInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyFaultInputConnectorAdapter() {
+		if (proxyFaultInputConnectorItemProvider == null) {
+			proxyFaultInputConnectorItemProvider = new ProxyFaultInputConnectorItemProvider(this);
+		}
+
+		return proxyFaultInputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,6 +376,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return proxyServiceEndpointContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceSequenceAndEndpointContainerItemProvider proxyServiceSequenceAndEndpointContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceSequenceAndEndpointContainerAdapter() {
+		if (proxyServiceSequenceAndEndpointContainerItemProvider == null) {
+			proxyServiceSequenceAndEndpointContainerItemProvider = new ProxyServiceSequenceAndEndpointContainerItemProvider(this);
+		}
+
+		return proxyServiceSequenceAndEndpointContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceFaultContainerItemProvider proxyServiceFaultContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceFaultContainerAdapter() {
+		if (proxyServiceFaultContainerItemProvider == null) {
+			proxyServiceFaultContainerItemProvider = new ProxyServiceFaultContainerItemProvider(this);
+		}
+
+		return proxyServiceFaultContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyServiceContainerItemProvider proxyServiceContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyServiceContainerAdapter() {
+		if (proxyServiceContainerItemProvider == null) {
+			proxyServiceContainerItemProvider = new ProxyServiceContainerItemProvider(this);
+		}
+
+		return proxyServiceContainerItemProvider;
 	}
 
 	/**
@@ -4645,12 +4737,16 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
 		if (proxyOutputConnectorItemProvider != null) proxyOutputConnectorItemProvider.dispose();
 		if (proxyInputConnectorItemProvider != null) proxyInputConnectorItemProvider.dispose();
+		if (proxyFaultInputConnectorItemProvider != null) proxyFaultInputConnectorItemProvider.dispose();
 		if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
 		if (proxyServicePolicyItemProvider != null) proxyServicePolicyItemProvider.dispose();
 		if (proxyServiceInSequenceItemProvider != null) proxyServiceInSequenceItemProvider.dispose();
 		if (proxyServiceOutSequenceItemProvider != null) proxyServiceOutSequenceItemProvider.dispose();
 		if (proxyServiceSequenceContainerItemProvider != null) proxyServiceSequenceContainerItemProvider.dispose();
 		if (proxyServiceEndpointContainerItemProvider != null) proxyServiceEndpointContainerItemProvider.dispose();
+		if (proxyServiceSequenceAndEndpointContainerItemProvider != null) proxyServiceSequenceAndEndpointContainerItemProvider.dispose();
+		if (proxyServiceFaultContainerItemProvider != null) proxyServiceFaultContainerItemProvider.dispose();
+		if (proxyServiceContainerItemProvider != null) proxyServiceContainerItemProvider.dispose();
 		if (messageMediatorItemProvider != null) messageMediatorItemProvider.dispose();
 		if (messageInputConnectorItemProvider != null) messageInputConnectorItemProvider.dispose();
 		if (messageOutputConnectorItemProvider != null) messageOutputConnectorItemProvider.dispose();
