@@ -59,6 +59,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//ProxyInputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultInputConnector" eType="#//ProxyFaultInputConnector"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="proxy1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pinnedServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -83,9 +85,7 @@
         eType="#//ProxyServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servicePolicies" upperBound="-1"
         eType="#//ProxyServicePolicy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceContainer" eType="#//ProxyServiceSequenceContainer"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointContainer" eType="#//ProxyServiceEndpointContainer"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ProxyServiceContainer"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProxyWsdlType">
@@ -96,6 +96,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyFaultInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="parameter_name"/>
@@ -123,6 +124,23 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceEndpointContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//EsbElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceAndEndpointContainer"
+      eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceContainer" eType="#//ProxyServiceSequenceContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointContainer" eType="#//ProxyServiceEndpointContainer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceFaultContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceAndEndpointContainer"
+        eType="#//ProxyServiceSequenceAndEndpointContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultContainer" eType="#//ProxyServiceFaultContainer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractEndPoint" abstract="true" eSuperTypes="#//EndPoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reliableMessagingEnabled"

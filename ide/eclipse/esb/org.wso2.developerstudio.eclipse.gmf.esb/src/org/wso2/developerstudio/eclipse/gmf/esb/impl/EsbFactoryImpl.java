@@ -67,12 +67,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_SERVICE: return createProxyService();
 			case EsbPackage.PROXY_OUTPUT_CONNECTOR: return createProxyOutputConnector();
 			case EsbPackage.PROXY_INPUT_CONNECTOR: return createProxyInputConnector();
+			case EsbPackage.PROXY_FAULT_INPUT_CONNECTOR: return createProxyFaultInputConnector();
 			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
 			case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
 			case EsbPackage.PROXY_SERVICE_IN_SEQUENCE: return createProxyServiceInSequence();
 			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE: return createProxyServiceOutSequence();
 			case EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER: return createProxyServiceSequenceContainer();
 			case EsbPackage.PROXY_SERVICE_ENDPOINT_CONTAINER: return createProxyServiceEndpointContainer();
+			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER: return createProxyServiceSequenceAndEndpointContainer();
+			case EsbPackage.PROXY_SERVICE_FAULT_CONTAINER: return createProxyServiceFaultContainer();
+			case EsbPackage.PROXY_SERVICE_CONTAINER: return createProxyServiceContainer();
 			case EsbPackage.MESSAGE_MEDIATOR: return createMessageMediator();
 			case EsbPackage.MESSAGE_INPUT_CONNECTOR: return createMessageInputConnector();
 			case EsbPackage.MESSAGE_OUTPUT_CONNECTOR: return createMessageOutputConnector();
@@ -588,8 +592,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		ProxyServiceImpl proxyService = new ProxyServiceImpl();
 		proxyService.setOutputConnector(createProxyOutputConnector());
 		proxyService.setInputConnector(createProxyInputConnector());
-		proxyService.setSequenceContainer(createProxyServiceSequenceContainer());
-		proxyService.setEndpointContainer(createProxyServiceEndpointContainer());
+		proxyService.setFaultInputConnector(createProxyFaultInputConnector());
+		proxyService.setContainer(createProxyServiceContainer());
 		proxyService.setName("proxy" +proxyservicecount);
 		return proxyService;
 	}
@@ -612,6 +616,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ProxyInputConnector createProxyInputConnector() {
 		ProxyInputConnectorImpl proxyInputConnector = new ProxyInputConnectorImpl();
 		return proxyInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyFaultInputConnector createProxyFaultInputConnector() {
+		ProxyFaultInputConnectorImpl proxyFaultInputConnector = new ProxyFaultInputConnectorImpl();
+		return proxyFaultInputConnector;
 	}
 
 	/**
@@ -674,6 +688,40 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ProxyServiceEndpointContainer createProxyServiceEndpointContainer() {
 		ProxyServiceEndpointContainerImpl proxyServiceEndpointContainer = new ProxyServiceEndpointContainerImpl();
 		return proxyServiceEndpointContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ProxyServiceSequenceAndEndpointContainer createProxyServiceSequenceAndEndpointContainer() {
+		ProxyServiceSequenceAndEndpointContainerImpl proxyServiceSequenceAndEndpointContainer = new ProxyServiceSequenceAndEndpointContainerImpl();
+		proxyServiceSequenceAndEndpointContainer.setSequenceContainer(createProxyServiceSequenceContainer());
+		proxyServiceSequenceAndEndpointContainer.setEndpointContainer(createProxyServiceEndpointContainer());
+		return proxyServiceSequenceAndEndpointContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyServiceFaultContainer createProxyServiceFaultContainer() {
+		ProxyServiceFaultContainerImpl proxyServiceFaultContainer = new ProxyServiceFaultContainerImpl();
+		return proxyServiceFaultContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ProxyServiceContainer createProxyServiceContainer() {
+		ProxyServiceContainerImpl proxyServiceContainer = new ProxyServiceContainerImpl();
+		proxyServiceContainer.setSequenceAndEndpointContainer(createProxyServiceSequenceAndEndpointContainer());
+		proxyServiceContainer.setFaultContainer(createProxyServiceFaultContainer());
+		return proxyServiceContainer;
 	}
 
 	/**

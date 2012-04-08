@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultInputConnector <em>Fault Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getPinnedServers <em>Pinned Servers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceGroup <em>Service Group</em>}</li>
@@ -33,8 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceParameters <em>Service Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServicePolicies <em>Service Policies</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer <em>Sequence Container</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer <em>Endpoint Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +94,32 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setInputConnector(ProxyInputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Input Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Input Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Input Connector</em>' containment reference.
+	 * @see #setFaultInputConnector(ProxyFaultInputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_FaultInputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ProxyFaultInputConnector getFaultInputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultInputConnector <em>Fault Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Input Connector</em>' containment reference.
+	 * @see #getFaultInputConnector()
+	 * @generated
+	 */
+	void setFaultInputConnector(ProxyFaultInputConnector value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -450,55 +476,29 @@ public interface ProxyService extends EsbElement {
 	EList<ProxyServicePolicy> getServicePolicies();
 
 	/**
-	 * Returns the value of the '<em><b>Sequence Container</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sequence Container</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Container</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sequence Container</em>' containment reference.
-	 * @see #setSequenceContainer(ProxyServiceSequenceContainer)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_SequenceContainer()
+	 * @return the value of the '<em>Container</em>' containment reference.
+	 * @see #setContainer(ProxyServiceContainer)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_Container()
 	 * @model containment="true"
 	 * @generated
 	 */
-	ProxyServiceSequenceContainer getSequenceContainer();
+	ProxyServiceContainer getContainer();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getSequenceContainer <em>Sequence Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getContainer <em>Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequence Container</em>' containment reference.
-	 * @see #getSequenceContainer()
+	 * @param value the new value of the '<em>Container</em>' containment reference.
+	 * @see #getContainer()
 	 * @generated
 	 */
-	void setSequenceContainer(ProxyServiceSequenceContainer value);
-
-	/**
-	 * Returns the value of the '<em><b>Endpoint Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Endpoint Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Endpoint Container</em>' containment reference.
-	 * @see #setEndpointContainer(ProxyServiceEndpointContainer)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_EndpointContainer()
-	 * @model containment="true"
-	 * @generated
-	 */
-	ProxyServiceEndpointContainer getEndpointContainer();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointContainer <em>Endpoint Container</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Endpoint Container</em>' containment reference.
-	 * @see #getEndpointContainer()
-	 * @generated
-	 */
-	void setEndpointContainer(ProxyServiceEndpointContainer value);
+	void setContainer(ProxyServiceContainer value);
 
 } // ProxyService

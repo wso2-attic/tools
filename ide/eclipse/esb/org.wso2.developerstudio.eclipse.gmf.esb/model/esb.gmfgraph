@@ -936,6 +936,51 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="ProxyServiceSequenceAndEndpointContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceSequenceAndEndpointContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProxyServiceFaultContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceFaultContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ProxyServiceContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ProxyServiceContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -1445,6 +1490,18 @@
   <nodes
       name="ProxyServiceEndpointContainer"
       figure="ProxyServiceEndpointContainerFigure"/>
+  <nodes
+      name="ProxyServiceSequenceAndEndpointContainer"
+      figure="ProxyServiceSequenceAndEndpointContainerFigure"/>
+  <nodes
+      name="ProxyServiceFaultContainer"
+      figure="ProxyServiceFaultContainerFigure"/>
+  <nodes
+      name="ProxyServiceContainer"
+      figure="ProxyServiceContainerFigure"/>
+  <nodes
+      name="ProxyFaultInputConnector"
+      figure="WestPointerFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -1478,6 +1535,9 @@
       name="ProxyServiceOutSequenceCompartment"
       figure="CompartmentFigure"
       collapsible="true"/>
+  <compartments
+      name="ProxyServiceFaultSequenceCompartment"
+      figure="CompartmentFigure"/>
   <labels
       name="FailoverEndPointName"
       figure="FailoverEndPointFigure"

@@ -400,6 +400,7 @@
     <genClasses ecoreClass="esb.ecore#//ProxyService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultInputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/pinnedServers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/serviceGroup"/>
@@ -414,11 +415,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/serviceParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/servicePolicies"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/sequenceContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/endpointContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/container"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ProxyFaultInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyServiceParameter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyServiceParameter/value"/>
@@ -438,6 +439,17 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceEndpointContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceEndpointContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ProxyServiceSequenceAndEndpointContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/sequenceContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/endpointContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ProxyServiceFaultContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceFaultContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ProxyServiceContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceContainer/sequenceAndEndpointContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceContainer/faultContainer"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//AbstractEndPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/reliableMessagingEnabled"/>

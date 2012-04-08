@@ -129,6 +129,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createProxyInputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseProxyFaultInputConnector(ProxyFaultInputConnector object) {
+				return createProxyFaultInputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseProxyServiceParameter(ProxyServiceParameter object) {
 				return createProxyServiceParameterAdapter();
 			}
@@ -151,6 +155,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProxyServiceEndpointContainer(ProxyServiceEndpointContainer object) {
 				return createProxyServiceEndpointContainerAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceSequenceAndEndpointContainer(ProxyServiceSequenceAndEndpointContainer object) {
+				return createProxyServiceSequenceAndEndpointContainerAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceFaultContainer(ProxyServiceFaultContainer object) {
+				return createProxyServiceFaultContainerAdapter();
+			}
+			@Override
+			public Adapter caseProxyServiceContainer(ProxyServiceContainer object) {
+				return createProxyServiceContainerAdapter();
 			}
 			@Override
 			public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
@@ -1098,6 +1114,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector <em>Proxy Fault Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector
+	 * @generated
+	 */
+	public Adapter createProxyFaultInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter <em>Proxy Service Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1178,6 +1208,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProxyServiceEndpointContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer <em>Proxy Service Sequence And Endpoint Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer
+	 * @generated
+	 */
+	public Adapter createProxyServiceSequenceAndEndpointContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer <em>Proxy Service Fault Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer
+	 * @generated
+	 */
+	public Adapter createProxyServiceFaultContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer <em>Proxy Service Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer
+	 * @generated
+	 */
+	public Adapter createProxyServiceContainerAdapter() {
 		return null;
 	}
 

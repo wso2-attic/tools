@@ -80,6 +80,15 @@ public interface EsbFactory extends EFactory {
 	ProxyInputConnector createProxyInputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Proxy Fault Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Fault Input Connector</em>'.
+	 * @generated
+	 */
+	ProxyFaultInputConnector createProxyFaultInputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Proxy Service Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +141,33 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	ProxyServiceEndpointContainer createProxyServiceEndpointContainer();
+
+	/**
+	 * Returns a new object of class '<em>Proxy Service Sequence And Endpoint Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Service Sequence And Endpoint Container</em>'.
+	 * @generated
+	 */
+	ProxyServiceSequenceAndEndpointContainer createProxyServiceSequenceAndEndpointContainer();
+
+	/**
+	 * Returns a new object of class '<em>Proxy Service Fault Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Service Fault Container</em>'.
+	 * @generated
+	 */
+	ProxyServiceFaultContainer createProxyServiceFaultContainer();
+
+	/**
+	 * Returns a new object of class '<em>Proxy Service Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Service Container</em>'.
+	 * @generated
+	 */
+	ProxyServiceContainer createProxyServiceContainer();
 
 	/**
 	 * Returns a new object of class '<em>Message Mediator</em>'.
