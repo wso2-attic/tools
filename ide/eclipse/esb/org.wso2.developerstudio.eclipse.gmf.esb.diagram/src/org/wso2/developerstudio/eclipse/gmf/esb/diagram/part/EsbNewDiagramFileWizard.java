@@ -107,7 +107,7 @@ public class EsbNewDiagramFileWizard extends Wizard {
 	 * @generated
 	 */
 	public boolean performFinish() {
-		LinkedList/*[org.eclipse.core.resources.IFile]*/affectedFiles = new LinkedList/*[org.eclipse.core.resources.IFile]*/();
+		LinkedList<IFile> affectedFiles = new LinkedList<IFile>();
 		IFile diagramFile = myFileCreationPage.createNewFile();
 		EsbDiagramEditorUtil.setCharset(diagramFile);
 		affectedFiles.add(diagramFile);

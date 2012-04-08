@@ -39,8 +39,7 @@ public class CacheMediatorInputConnectorItemSemanticEditPolicy extends
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
-		for (Iterator/*[?]*/it = view.getTargetEdges().iterator(); it
-				.hasNext();) {
+		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(

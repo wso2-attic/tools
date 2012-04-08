@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer;
 
 /**
  * @generated
@@ -56,7 +57,7 @@ public class PropertyMediatorCreateCommand extends EditElementCommand {
 		PropertyMediator newElement = EsbFactory.eINSTANCE
 				.createPropertyMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceFaultContainer owner = (ProxyServiceFaultContainer) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

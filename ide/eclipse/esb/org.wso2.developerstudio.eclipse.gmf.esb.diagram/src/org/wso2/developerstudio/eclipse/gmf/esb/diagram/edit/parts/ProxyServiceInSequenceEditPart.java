@@ -1,17 +1,14 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.PointList;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,15 +20,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.FontMetrics;
-import org.eclipse.swt.graphics.Image;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceInSequenceItemSemanticEditPolicy;
 
 /**
@@ -61,6 +57,7 @@ public class ProxyServiceInSequenceEditPart extends ShapeNodeEditPart {
 		super(view);
 	}
 
+	
 	/**
 	 * @generated
 	 */
@@ -119,6 +116,28 @@ public class ProxyServiceInSequenceEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
+	}
+	
+	
+	public void refreshOutputConnector(EditPart childEditPart) {
+		if(childEditPart instanceof ProxyServiceEditPart){
+			ProxyServiceEditPart proxyServiceEditPart=(ProxyServiceEditPart)childEditPart;
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					this.getFigure(), proxyServiceEditPart.outputConnectorFigure, PositionConstants.WEST,
+					0.5);
+			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer().add(proxyServiceEditPart.outputConnectorFigure,
+					locator);
+		}
+		else{
+			//Should handle properly.
+			throw new ClassCastException();
+		}
+	}
+	
+	
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		refreshOutputConnector(((ProxyServiceEditPart)childEditPart.getParent().getParent().getParent().getParent().getParent()));
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**

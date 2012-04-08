@@ -195,9 +195,8 @@ public class SwitchMediatorInputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public List/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/getMARelTypesOnTarget() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				1);
+	public List<IElementType> getMARelTypesOnTarget() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(EsbElementTypes.EsbLink_4001);
 		return types;
 	}
@@ -205,9 +204,8 @@ public class SwitchMediatorInputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public List/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/getMATypesForSource(
-			IElementType relationshipType) {
-		LinkedList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new LinkedList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/();
+	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == EsbElementTypes.EsbLink_4001) {
 			types.add(EsbElementTypes.ProxyOutputConnector_3002);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3034);
@@ -325,6 +323,38 @@ public class SwitchMediatorInputConnectorEditPart extends
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3093);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
+			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3398);
+			types.add(EsbElementTypes.ThrottleMediatorOutputConnector_3401);
+			types.add(EsbElementTypes.FilterMediatorPassOutputConnector_3404);
+			types.add(EsbElementTypes.FilterMediatorFailOutputConnector_3405);
+			types.add(EsbElementTypes.LogMediatorOutputConnector_3408);
+			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3411);
+			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3414);
+			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3417);
+			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3418);
+			types.add(EsbElementTypes.SequenceOutputConnector_3421);
+			types.add(EsbElementTypes.EventMediatorOutputConnector_3424);
+			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3427);
+			types.add(EsbElementTypes.ClassMediatorOutputConnector_3430);
+			types.add(EsbElementTypes.SpringMediatorOutputConnector_3433);
+			types.add(EsbElementTypes.ScriptMediatorOutputConnector_3436);
+			types.add(EsbElementTypes.FaultMediatorOutputConnector_3439);
+			types.add(EsbElementTypes.XQueryMediatorOutputConnector_3442);
+			types.add(EsbElementTypes.CommandMediatorOutputConnector_3445);
+			types.add(EsbElementTypes.DBLookupMediatorOutputConnector_3448);
+			types.add(EsbElementTypes.DBReportMediatorOutputConnector_3451);
+			types.add(EsbElementTypes.SmooksMediatorOutputConnector_3454);
+			types.add(EsbElementTypes.SendMediatorOutputConnector_3457);
+			types.add(EsbElementTypes.HeaderMediatorOutputConnector_3460);
+			types.add(EsbElementTypes.CloneMediatorOutputConnector_3463);
+			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3464);
+			types.add(EsbElementTypes.CacheMediatorOutputConnector_3467);
+			types.add(EsbElementTypes.IterateMediatorOutputConnector_3470);
+			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3473);
+			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3476);
+			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3479);
+			types.add(EsbElementTypes.RuleMediatorOutputConnector_3482);
+			types.add(EsbElementTypes.OAuthMediatorOutputConnector_3485);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 		}

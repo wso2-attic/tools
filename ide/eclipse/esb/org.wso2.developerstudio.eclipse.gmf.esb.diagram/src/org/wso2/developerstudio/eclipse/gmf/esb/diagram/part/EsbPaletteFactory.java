@@ -212,12 +212,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSequence4CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.Sequence_3214);
 		types.add(EsbElementTypes.Sequence_3187);
 		types.add(EsbElementTypes.Sequence_3254);
 		types.add(EsbElementTypes.Sequence_3375);
+		types.add(EsbElementTypes.Sequence_3419);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Sequence4CreationTool_title,
 				Messages.Sequence4CreationTool_desc, types);
@@ -232,12 +232,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDropMediator1CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.DropMediator_3191);
 		types.add(EsbElementTypes.DropMediator_3137);
 		types.add(EsbElementTypes.DropMediator_3194);
 		types.add(EsbElementTypes.DropMediator_3328);
+		types.add(EsbElementTypes.DropMediator_3394);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DropMediator1CreationTool_title,
 				Messages.DropMediator1CreationTool_desc, types);
@@ -252,12 +252,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFilterMediator2CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.FilterMediator_3209);
 		types.add(EsbElementTypes.FilterMediator_3139);
 		types.add(EsbElementTypes.FilterMediator_3237);
 		types.add(EsbElementTypes.FilterMediator_3329);
+		types.add(EsbElementTypes.FilterMediator_3402);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.FilterMediator2CreationTool_title,
 				Messages.FilterMediator2CreationTool_desc, types);
@@ -272,12 +272,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLogMediator3CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.LogMediator_3210);
 		types.add(EsbElementTypes.LogMediator_3134);
 		types.add(EsbElementTypes.LogMediator_3241);
 		types.add(EsbElementTypes.LogMediator_3325);
+		types.add(EsbElementTypes.LogMediator_3406);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LogMediator3CreationTool_title,
 				Messages.LogMediator3CreationTool_desc, types);
@@ -292,12 +292,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPropertyMediator4CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.PropertyMediator_3199);
 		types.add(EsbElementTypes.PropertyMediator_3143);
 		types.add(EsbElementTypes.PropertyMediator_3200);
 		types.add(EsbElementTypes.PropertyMediator_3333);
+		types.add(EsbElementTypes.PropertyMediator_3396);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.PropertyMediator4CreationTool_title,
 				Messages.PropertyMediator4CreationTool_desc, types);
@@ -312,12 +312,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createEnrichMediator5CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.EnrichMediator_3387);
 		types.add(EsbElementTypes.EnrichMediator_3146);
 		types.add(EsbElementTypes.EnrichMediator_3244);
 		types.add(EsbElementTypes.EnrichMediator_3334);
+		types.add(EsbElementTypes.EnrichMediator_3409);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.EnrichMediator5CreationTool_title,
 				Messages.EnrichMediator5CreationTool_desc, types);
@@ -332,12 +332,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXSLTMediator6CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.XSLTMediator_3212);
 		types.add(EsbElementTypes.XSLTMediator_3149);
 		types.add(EsbElementTypes.XSLTMediator_3247);
 		types.add(EsbElementTypes.XSLTMediator_3337);
+		types.add(EsbElementTypes.XSLTMediator_3412);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.XSLTMediator6CreationTool_title,
 				Messages.XSLTMediator6CreationTool_desc, types);
@@ -352,12 +352,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSwitchMediator7CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.SwitchMediator_3213);
 		types.add(EsbElementTypes.SwitchMediator_3152);
 		types.add(EsbElementTypes.SwitchMediator_3250);
 		types.add(EsbElementTypes.SwitchMediator_3340);
+		types.add(EsbElementTypes.SwitchMediator_3415);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SwitchMediator7CreationTool_title,
 				Messages.SwitchMediator7CreationTool_desc, types);
@@ -372,10 +372,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createEventMediator8CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.EventMediator_3215);
 		types.add(EsbElementTypes.EventMediator_3257);
+		types.add(EsbElementTypes.EventMediator_3422);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.EventMediator8CreationTool_title,
 				Messages.EventMediator8CreationTool_desc, types);
@@ -390,10 +390,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createEntitlementMediator9CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.EntitlementMediator_3216);
 		types.add(EsbElementTypes.EntitlementMediator_3260);
+		types.add(EsbElementTypes.EntitlementMediator_3425);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.EntitlementMediator9CreationTool_title,
 				Messages.EntitlementMediator9CreationTool_desc, types);
@@ -408,10 +408,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createClassMediator10CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.ClassMediator_3217);
 		types.add(EsbElementTypes.ClassMediator_3263);
+		types.add(EsbElementTypes.ClassMediator_3428);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ClassMediator10CreationTool_title,
 				Messages.ClassMediator10CreationTool_desc, types);
@@ -426,10 +426,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSpringMediator11CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.SpringMediator_3218);
 		types.add(EsbElementTypes.SpringMediator_3266);
+		types.add(EsbElementTypes.SpringMediator_3431);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SpringMediator11CreationTool_title,
 				Messages.SpringMediator11CreationTool_desc, types);
@@ -444,10 +444,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createScriptMediator12CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.ScriptMediator_3219);
 		types.add(EsbElementTypes.ScriptMediator_3269);
+		types.add(EsbElementTypes.ScriptMediator_3434);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ScriptMediator12CreationTool_title,
 				Messages.ScriptMediator12CreationTool_desc, types);
@@ -462,12 +462,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFaultMediator13CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.FaultMediator_3220);
 		types.add(EsbElementTypes.FaultMediator_3156);
 		types.add(EsbElementTypes.FaultMediator_3272);
 		types.add(EsbElementTypes.FaultMediator_3344);
+		types.add(EsbElementTypes.FaultMediator_3437);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.FaultMediator13CreationTool_title,
 				Messages.FaultMediator13CreationTool_desc, types);
@@ -482,10 +482,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXQueryMediator14CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.XQueryMediator_3221);
 		types.add(EsbElementTypes.XQueryMediator_3275);
+		types.add(EsbElementTypes.XQueryMediator_3440);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.XQueryMediator14CreationTool_title,
 				Messages.XQueryMediator14CreationTool_desc, types);
@@ -500,10 +500,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCommandMediator15CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.CommandMediator_3222);
 		types.add(EsbElementTypes.CommandMediator_3278);
+		types.add(EsbElementTypes.CommandMediator_3443);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CommandMediator15CreationTool_title,
 				Messages.CommandMediator15CreationTool_desc, types);
@@ -518,12 +518,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDBLookupMediator16CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.DBLookupMediator_3223);
 		types.add(EsbElementTypes.DBLookupMediator_3159);
 		types.add(EsbElementTypes.DBLookupMediator_3281);
 		types.add(EsbElementTypes.DBLookupMediator_3347);
+		types.add(EsbElementTypes.DBLookupMediator_3446);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DBLookupMediator16CreationTool_title,
 				Messages.DBLookupMediator16CreationTool_desc, types);
@@ -538,12 +538,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDBReportMediator17CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.DBReportMediator_3224);
 		types.add(EsbElementTypes.DBReportMediator_3162);
 		types.add(EsbElementTypes.DBReportMediator_3284);
 		types.add(EsbElementTypes.DBReportMediator_3350);
+		types.add(EsbElementTypes.DBReportMediator_3449);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DBReportMediator17CreationTool_title,
 				Messages.DBReportMediator17CreationTool_desc, types);
@@ -558,10 +558,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSmooksMediator18CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.SmooksMediator_3225);
 		types.add(EsbElementTypes.SmooksMediator_3287);
+		types.add(EsbElementTypes.SmooksMediator_3452);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SmooksMediator18CreationTool_title,
 				Messages.SmooksMediator18CreationTool_desc, types);
@@ -576,12 +576,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSendMediator19CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.SendMediator_3226);
 		types.add(EsbElementTypes.SendMediator_3165);
 		types.add(EsbElementTypes.SendMediator_3290);
 		types.add(EsbElementTypes.SendMediator_3353);
+		types.add(EsbElementTypes.SendMediator_3455);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SendMediator19CreationTool_title,
 				Messages.SendMediator19CreationTool_desc, types);
@@ -596,12 +596,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createHeaderMediator20CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.HeaderMediator_3227);
 		types.add(EsbElementTypes.HeaderMediator_3168);
 		types.add(EsbElementTypes.HeaderMediator_3293);
 		types.add(EsbElementTypes.HeaderMediator_3356);
+		types.add(EsbElementTypes.HeaderMediator_3458);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.HeaderMediator20CreationTool_title,
 				Messages.HeaderMediator20CreationTool_desc, types);
@@ -616,12 +616,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCloneMediator21CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.CloneMediator_3228);
 		types.add(EsbElementTypes.CloneMediator_3171);
 		types.add(EsbElementTypes.CloneMediator_3296);
 		types.add(EsbElementTypes.CloneMediator_3359);
+		types.add(EsbElementTypes.CloneMediator_3461);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CloneMediator21CreationTool_title,
 				Messages.CloneMediator21CreationTool_desc, types);
@@ -636,12 +636,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createIterateMediator22CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.IterateMediator_3230);
 		types.add(EsbElementTypes.IterateMediator_3175);
 		types.add(EsbElementTypes.IterateMediator_3303);
 		types.add(EsbElementTypes.IterateMediator_3363);
+		types.add(EsbElementTypes.IterateMediator_3468);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.IterateMediator22CreationTool_title,
 				Messages.IterateMediator22CreationTool_desc, types);
@@ -656,10 +656,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCacheMediator23CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.CacheMediator_3229);
 		types.add(EsbElementTypes.CacheMediator_3300);
+		types.add(EsbElementTypes.CacheMediator_3465);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CacheMediator23CreationTool_title,
 				Messages.CacheMediator23CreationTool_desc, types);
@@ -674,8 +674,7 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAggregateMediator24CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(EsbElementTypes.AggregateMediator_3236);
 		types.add(EsbElementTypes.AggregateMediator_3321);
 		NodeToolEntry entry = new NodeToolEntry(
@@ -692,12 +691,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCalloutMediator25CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.CalloutMediator_3231);
 		types.add(EsbElementTypes.CalloutMediator_3178);
 		types.add(EsbElementTypes.CalloutMediator_3306);
 		types.add(EsbElementTypes.CalloutMediator_3366);
+		types.add(EsbElementTypes.CalloutMediator_3471);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CalloutMediator25CreationTool_title,
 				Messages.CalloutMediator25CreationTool_desc, types);
@@ -712,12 +711,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTransactionMediator26CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.TransactionMediator_3232);
 		types.add(EsbElementTypes.TransactionMediator_3179);
 		types.add(EsbElementTypes.TransactionMediator_3309);
 		types.add(EsbElementTypes.TransactionMediator_3369);
+		types.add(EsbElementTypes.TransactionMediator_3474);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.TransactionMediator26CreationTool_title,
 				Messages.TransactionMediator26CreationTool_desc, types);
@@ -732,10 +731,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createThrottleMediator27CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.ThrottleMediator_3205);
 		types.add(EsbElementTypes.ThrottleMediator_3206);
+		types.add(EsbElementTypes.ThrottleMediator_3399);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ThrottleMediator27CreationTool_title,
 				Messages.ThrottleMediator27CreationTool_desc, types);
@@ -750,12 +749,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRMSequenceMediator28CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				4);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 		types.add(EsbElementTypes.RMSequenceMediator_3233);
 		types.add(EsbElementTypes.RMSequenceMediator_3180);
 		types.add(EsbElementTypes.RMSequenceMediator_3312);
 		types.add(EsbElementTypes.RMSequenceMediator_3372);
+		types.add(EsbElementTypes.RMSequenceMediator_3477);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.RMSequenceMediator28CreationTool_title,
 				Messages.RMSequenceMediator28CreationTool_desc, types);
@@ -770,10 +769,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOAuthMediator29CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.OAuthMediator_3235);
 		types.add(EsbElementTypes.OAuthMediator_3318);
+		types.add(EsbElementTypes.OAuthMediator_3483);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.OAuthMediator29CreationTool_title,
 				Messages.OAuthMediator29CreationTool_desc, types);
@@ -788,10 +787,10 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRuleMediator30CreationTool() {
-		ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/types = new ArrayList/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/(
-				2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(EsbElementTypes.RuleMediator_3234);
 		types.add(EsbElementTypes.RuleMediator_3315);
+		types.add(EsbElementTypes.RuleMediator_3480);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.RuleMediator30CreationTool_title,
 				Messages.RuleMediator30CreationTool_desc, types);
@@ -991,7 +990,7 @@ public class EsbPaletteFactory {
 		/**
 		 * @generated
 		 */
-		private final List/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/elementTypes;
+		private final List<IElementType> elementTypes;
 
 		/**
 		 * @generated NOT
@@ -1022,15 +1021,13 @@ public class EsbPaletteFactory {
 		/**
 		 * @generated
 		 */
-		private final List/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/relationshipTypes;
+		private final List<IElementType> relationshipTypes;
 
 		/**
 		 * @generated
 		 */
-		private LinkToolEntry(
-				String title,
-				String description,
-				List/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/relationshipTypes) {
+		private LinkToolEntry(String title, String description,
+				List<IElementType> relationshipTypes) {
 			super(title, description, null, null);
 			this.relationshipTypes = relationshipTypes;
 		}

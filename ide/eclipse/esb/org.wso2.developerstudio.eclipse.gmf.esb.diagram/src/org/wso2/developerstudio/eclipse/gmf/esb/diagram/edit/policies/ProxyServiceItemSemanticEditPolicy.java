@@ -13,14 +13,22 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyFaultInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyOutputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceEndpointContainerCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceFaultContainerCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceSequenceAndEndpointContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceSequenceContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEndpointContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -48,15 +56,12 @@ public class ProxyServiceItemSemanticEditPolicy extends
 		if (EsbElementTypes.ProxyInputConnector_3003 == req.getElementType()) {
 			return getGEFWrapper(new ProxyInputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.ProxyServiceSequenceContainer_3196 == req
+		if (EsbElementTypes.ProxyFaultInputConnector_3489 == req
 				.getElementType()) {
-			return getGEFWrapper(new ProxyServiceSequenceContainerCreateCommand(
-					req));
+			return getGEFWrapper(new ProxyFaultInputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.ProxyServiceEndpointContainer_3381 == req
-				.getElementType()) {
-			return getGEFWrapper(new ProxyServiceEndpointContainerCreateCommand(
-					req));
+		if (EsbElementTypes.ProxyServiceContainer_3486 == req.getElementType()) {
+			return getGEFWrapper(new ProxyServiceContainerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -87,11 +92,11 @@ public class ProxyServiceItemSemanticEditPolicy extends
 	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
-		for (Iterator/*[?]*/nit = view.getChildren().iterator(); nit.hasNext();) {
+		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
 			case ProxyOutputConnectorEditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getSourceEdges().iterator(); it
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
@@ -109,7 +114,7 @@ public class ProxyServiceItemSemanticEditPolicy extends
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
 			case ProxyInputConnectorEditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getTargetEdges().iterator(); it
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
@@ -126,13 +131,25 @@ public class ProxyServiceItemSemanticEditPolicy extends
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
+			case ProxyFaultInputConnectorEditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
+						.hasNext();) {
+					Edge incomingLink = (Edge) it.next();
+					if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
+				}
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
+			case ProxyServiceContainerEditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

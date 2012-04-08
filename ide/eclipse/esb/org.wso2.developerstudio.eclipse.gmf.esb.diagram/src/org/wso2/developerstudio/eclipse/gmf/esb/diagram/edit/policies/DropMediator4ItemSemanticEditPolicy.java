@@ -70,11 +70,11 @@ public class DropMediator4ItemSemanticEditPolicy extends
 	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
-		for (Iterator/*[?]*/nit = view.getChildren().iterator(); nit.hasNext();) {
+		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
 			case DropMediatorInputConnector3EditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getTargetEdges().iterator(); it
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {

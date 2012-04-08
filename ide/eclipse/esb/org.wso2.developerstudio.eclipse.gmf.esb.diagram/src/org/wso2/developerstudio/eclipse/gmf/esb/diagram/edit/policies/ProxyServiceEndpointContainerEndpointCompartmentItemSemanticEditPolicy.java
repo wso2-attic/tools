@@ -19,7 +19,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentItemSemanticEditPol
 	 * @generated
 	 */
 	public ProxyServiceEndpointContainerEndpointCompartmentItemSemanticEditPolicy() {
-		super(EsbElementTypes.ProxyServiceEndpointContainer_3381);
+		super(EsbElementTypes.ProxyServiceEndpointContainer_3392);
 	}
 
 	/**

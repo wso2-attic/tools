@@ -130,9 +130,8 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	 * @generated
 	 */
 	void unloadAllResources() {
-		for (Iterator/*[org.eclipse.emf.ecore.resource.Resource]*/it = myEditingDomain
-				.getResourceSet().getResources().iterator(); it.hasNext();) {
-			Resource nextResource = (Resource) it.next();
+		for (Resource nextResource : myEditingDomain.getResourceSet()
+				.getResources()) {
 			nextResource.unload();
 		}
 	}
@@ -182,12 +181,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 					.toString(), true);
 			Resource resource = myEditingDomain.getResourceSet().getResource(
 					fileURI, true);
-			ArrayList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem]*/result = new ArrayList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem]*/();
-			ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/topViews = new ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/(
-					resource.getContents().size());
-			for (Iterator/*[org.eclipse.emf.ecore.EObject]*/it = resource
-					.getContents().iterator(); it.hasNext();) {
-				EObject o = (EObject) it.next();
+			ArrayList<EsbNavigatorItem> result = new ArrayList<EsbNavigatorItem>();
+			ArrayList<View> topViews = new ArrayList<View>(resource
+					.getContents().size());
+			for (EObject o : resource.getContents()) {
 				if (o instanceof View) {
 					topViews.add((View) o);
 				}
@@ -220,57 +217,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
 
-		case CloneMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ClassMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3314_outgoinglinks,
+					Messages.NavigatorGroupName_FailoverEndPointOutputConnector_3090_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -281,85 +234,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case IterateMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CommandMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SequenceEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case MessageMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MessageInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MessageOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case FaultMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3043_outgoinglinks,
+					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3068_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -370,13 +251,32 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SwitchMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SpringMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case TransactionMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3153_incominglinks,
+					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3183_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -387,49 +287,41 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case LogMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case EsbServerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorOutputConnector_3019_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ThrottleMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(ThrottleMediatorInputConnector2EditPart.VISUAL_ID));
+							.getType(EsbServerContentsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(ProxyServiceEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MessageMediatorEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(ThrottleMediatorOutputConnector2EditPart.VISUAL_ID));
+							.getType(EsbServerContentsCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(MergeNodeEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case MessageOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_MessageOutputConnector_3047_outgoinglinks,
+					Messages.NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3098_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -440,30 +332,30 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FaultMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3158_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case XSLTMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3147_incominglinks,
+					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3150_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorInputConnector_3135_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -475,12 +367,12 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case DBReportMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3352_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -491,84 +383,51 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FaultMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SendMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector4EditPart.VISUAL_ID));
+							.getType(SendMediatorInputConnector4EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector4EditPart.VISUAL_ID));
+							.getType(SendMediatorOutputConnector4EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case RMSequenceMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DefaultEndPoint2EditPart.VISUAL_ID));
+							.getType(RMSequenceMediatorInputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(AddressEndPoint2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(FailoverEndPoint2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(WSDLEndPoint2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPoint2EditPart.VISUAL_ID));
+							.getType(RMSequenceMediatorOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case EventMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case RMSequenceMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EventMediatorInputConnector_3052_incominglinks,
+					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3313_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -579,13 +438,32 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case HeaderMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case TransactionMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SmooksMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3170_outgoinglinks,
+					Messages.NavigatorGroupName_SmooksMediatorOutputConnector_3289_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -596,30 +474,319 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SwitchMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3174_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ProxyServiceInSequenceEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DropMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(PropertyMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FilterMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(LogMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(XSLTMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(SequenceEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EventMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ClassMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SpringMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FaultMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CommandMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(SendMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CloneMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CacheMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(IterateMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(RuleMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
 		case ScriptMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_ScriptMediatorOutputConnector_3065_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -630,1776 +797,198 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DBLookupMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case AggregateMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3282_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorOutputConnector_3355_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case AggregateMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorOutputConnector_3113_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CacheMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CacheMediatorInputConnector_3106_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FailoverEndPoint2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SendMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorInputConnector_3166_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DefaultEndPointInputConnector_3021_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3307_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_WSDLEndPointOutputConnector_3093_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3184_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorInputConnector_3242_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FailoverEndPointInputConnector_3088_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case ClassMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ClassMediatorOutputConnector_3059_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case HeaderMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3169_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBReportMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3164_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorOutputConnector_3292_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RuleMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ScriptMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ScriptMediatorInputConnector_3064_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorTargetOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3362_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3144_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorOutputConnector_3086_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorOutputConnector_3327_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EsbLinkEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Edge sv = (Edge) view;
-			EsbNavigatorGroup target = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EsbLink_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			EsbNavigatorGroup source = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EsbLink_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector3EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
 							.getType(AggregateMediatorInputConnector2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector4EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DefaultEndPointInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AddressEndPointInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(WSDLEndPointInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MessageInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeFirstInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeSecondInputConnectorEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
 							.getType(AggregateMediatorOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
 							.getType(AggregateMediatorOnCompleteOutputConnector2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(LogMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DropMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FilterMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(PropertyMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EnrichMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(XSLTMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SwitchMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FaultMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBLookupMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBReportMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SendMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(HeaderMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CloneMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(IterateMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CalloutMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(TransactionMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediator4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector4EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DefaultEndPointOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AddressEndPointOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(WSDLEndPointOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MessageOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeOutputConnectorEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
+							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(Sequence4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
-		case XSLTMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case EntitlementMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3338_incominglinks,
+					Messages.NavigatorGroupName_EntitlementMediatorInputConnector_3055_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -2410,64 +999,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case LogMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorInputConnector_3326_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SequenceInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceInputConnector_3188_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3039_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorPassOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case EnrichMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3331_outgoinglinks,
+					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3389_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -2478,13 +1016,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case PropertyMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SendMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3203_incominglinks,
+					Messages.NavigatorGroupName_SendMediatorInputConnector_3456_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -2495,48 +1033,133 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case EventMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case LogMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(EventMediatorInputConnectorEditPart.VISUAL_ID));
+							.getType(LogMediatorInputConnectorEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(EventMediatorOutputConnectorEditPart.VISUAL_ID));
+							.getType(LogMediatorOutputConnectorEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case EntitlementMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case ThrottleMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorOutputConnector_3401_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SmooksMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SmooksMediatorInputConnector_3288_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3283_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3388_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(EntitlementMediatorInputConnector2EditPart.VISUAL_ID));
+							.getType(EntitlementMediatorInputConnector3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(EntitlementMediatorOutputConnector2EditPart.VISUAL_ID));
+							.getType(EntitlementMediatorOutputConnector3EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case SendMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorInputConnector_3354_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
 			return result.toArray();
 		}
 
 		case ProxyServiceOutSequenceEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -2817,32 +1440,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case XQueryMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SequenceInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case PropertyMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceInputConnector_3255_incominglinks,
+					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3397_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -2853,119 +1457,125 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DBReportMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case TransactionMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector3EditPart.VISUAL_ID));
+							.getType(TransactionMediatorInputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector3EditPart.VISUAL_ID));
+							.getType(TransactionMediatorOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case TransactionMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case DefaultEndPoint2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector3EditPart.VISUAL_ID));
+							.getType(DefaultEndPointInputConnectorEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector3EditPart.VISUAL_ID));
+							.getType(DefaultEndPointOutputConnectorEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case DropMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SendMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DropMediatorInputConnector_3008_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RuleMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RuleMediatorOutputConnector_3482_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}
 
-		case DropMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case OAuthMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DropMediatorInputConnector_3192_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
-		case DropMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case CommandMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DropMediatorInputConnector_3195_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorInputConnector_3140_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 
 		case CacheMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_CacheMediatorOutputConnector_3107_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -2976,30 +1586,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SequenceOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceOutputConnector_3377_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case EntitlementMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3201_incominglinks,
+					Messages.NavigatorGroupName_EntitlementMediatorInputConnector_3426_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3010,74 +1603,32 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case TransactionMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case DBLookupMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnectorEditPart.VISUAL_ID));
+							.getType(DBLookupMediatorInputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnectorEditPart.VISUAL_ID));
+							.getType(DBLookupMediatorOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LoadBalanceEndPointInputConnector_3095_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorOnCompleteOutputConnector_3132_outgoinglinks,
+					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3155_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3088,30 +1639,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SendMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorInputConnector_3085_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3145_outgoinglinks,
+					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3154_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3122,30 +1656,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case IterateMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorInputConnector_3109_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorFailOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3142_outgoinglinks,
+					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3299_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3156,13 +1673,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case TransactionMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SendMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3371_outgoinglinks,
+					Messages.NavigatorGroupName_SendMediatorOutputConnector_3355_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3173,211 +1690,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case AggregateMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorOnCompleteOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(LogMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DropMediator5EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(FilterMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(PropertyMediator5EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(EnrichMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(XSLTMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(SwitchMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(FaultMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DBLookupMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DBReportMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(SendMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(HeaderMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CloneMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(IterateMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CalloutMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(TransactionMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediator4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorAggregateCompartment2EditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(Sequence4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DropMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EventMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case DBLookupMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EventMediatorInputConnector_3258_incominglinks,
+					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3348_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3388,47 +1707,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FaultMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorInputConnector_3067_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case CalloutMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3368_outgoinglinks,
+					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3182_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SmooksMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SmooksMediatorOutputConnector_3289_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3440,12 +1725,12 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case CalloutMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3181_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3456,13 +1741,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case TransactionMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3119_outgoinglinks,
+					Messages.NavigatorGroupName_AddressEndPointOutputConnector_3031_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -3473,545 +1758,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FilterMediatorPassOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case XQueryMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3011_outgoinglinks,
+					Messages.NavigatorGroupName_XQueryMediatorOutputConnector_3071_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3155_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3305_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case PropertyMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3202_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case HeaderMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3100_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3310_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case XQueryMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XQueryMediatorInputConnector_3276_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediatorFailOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3012_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case XSLTMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3040_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SmooksMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SmooksMediatorInputConnector_3082_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorInputConnector_3354_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3374_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ScriptMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ScriptMediatorInputConnector_3270_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBLookupMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case LogMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorOutputConnector_3243_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case OAuthMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_OAuthMediatorOutputConnector_3320_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3308_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorFailOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3332_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3286_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3151_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SequenceInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceInputConnector_3049_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EntitlementMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EntitlementMediatorInputConnector_3261_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorInputConnector_3018_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case OAuthMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case AggregateMediatorOnCompleteOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorOnCompleteOutputConnector_3324_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4023,9 +1776,9 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case LogMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -4041,13 +1794,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case XSLTMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case IterateMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3339_outgoinglinks,
+					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3470_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4058,13 +1811,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SequenceOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3154_outgoinglinks,
+					Messages.NavigatorGroupName_SequenceOutputConnector_3256_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4075,13 +1828,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SpringMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case HeaderMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SpringMediatorInputConnector_3061_incominglinks,
+					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3169_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4092,13 +1845,30 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DBLookupMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case LogMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorOutputConnector_3243_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3160_incominglinks,
+					Messages.NavigatorGroupName_LogMediatorInputConnector_3242_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4109,13 +1879,103 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case CloneMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case IterateMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3305_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case Sequence4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorFailOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3332_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ClassMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorInputConnector_3360_incominglinks,
+					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3413_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4126,121 +1986,30 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case RuleMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RuleMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3125_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CacheMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EnrichMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3389_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SequenceOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceOutputConnector_3050_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case XQueryMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3124_incominglinks,
+					Messages.NavigatorGroupName_XQueryMediatorInputConnector_3276_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3079_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4252,9 +2021,9 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case AggregateMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -4436,47 +2205,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FilterMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorInputConnector_3010_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorInputConnector_3297_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EventMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case ClassMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EventMediatorOutputConnector_3259_outgoinglinks,
+					Messages.NavigatorGroupName_ClassMediatorOutputConnector_3430_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -4487,1512 +2222,32 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case XSLTMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case FaultMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3150_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3044_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CommandMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CommandMediatorInputConnector_3073_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EnrichMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3245_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ThrottleMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBLookupMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3283_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ClassMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ClassMediatorOutputConnector_3265_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DefaultEndPoint2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DefaultEndPointInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DefaultEndPointOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case PropertyMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3034_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3161_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ScriptMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ScriptMediatorOutputConnector_3271_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XQueryMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XQueryMediatorInputConnector_3070_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SpringMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3342_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CommandMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CommandMediatorInputConnector_3279_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3346_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XQueryMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XQueryMediatorOutputConnector_3071_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3037_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EntitlementMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EntitlementMediatorInputConnector_3055_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ThrottleMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ThrottleMediatorInputConnector_3121_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_WSDLEndPointInputConnector_3092_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorPassOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3141_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3246_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3042_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3033_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3285_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case TransactionMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3311_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CalloutMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3115_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RMSequenceMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3299_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3313_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceOutSequenceEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case LogMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorOutputConnector_3136_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ProxyServiceInSequenceEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DropMediator3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(PropertyMediator3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(ThrottleMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(FilterMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(LogMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(XSLTMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(SequenceEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(EventMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(ClassMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(SpringMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(FaultMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(XQueryMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CommandMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(SendMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CloneMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CacheMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(IterateMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(RuleMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry
-							.getType(AggregateMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediatorPassOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3239_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorInputConnector_3273_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SmooksMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SmooksMediatorOutputConnector_3083_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CommandMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CommandMediatorOutputConnector_3074_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorInputConnector_3345_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case OAuthMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(OAuthMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case OAuthMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_OAuthMediatorInputConnector_3130_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBLookupMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RuleMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RuleMediatorInputConnector_3316_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3252_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3248_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SendMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorOutputConnector_3167_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3348_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3274_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CommandMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CommandMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case OAuthMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_OAuthMediatorInputConnector_3319_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case HeaderMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3101_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBReportMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EnrichMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3036_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case AddressEndPoint2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(AddressEndPointInputConnectorEditPart.VISUAL_ID));
+							.getType(FaultMediatorInputConnector4EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(AddressEndPointOutputConnectorEditPart.VISUAL_ID));
+							.getType(FaultMediatorOutputConnector4EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			return result.toArray();
-		}
-
-		case TransactionMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3370_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EntitlementMediatorOutputConnector_3056_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
 			return result.toArray();
 		}
 
 		case MessageInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_MessageInputConnector_3046_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -6003,13 +2258,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case TransactionMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3253_outgoinglinks,
+					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3476_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -6020,47 +2275,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3343_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3361_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case CacheMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3388_incominglinks,
+					Messages.NavigatorGroupName_CacheMediatorInputConnector_3106_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -6071,64 +2292,13 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case CalloutMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DropMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CacheMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CacheMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SmooksMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FailoverEndPointOutputConnector_3090_outgoinglinks,
+					Messages.NavigatorGroupName_SmooksMediatorOutputConnector_3454_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -6139,1857 +2309,35 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case XQueryMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case FilterMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XQueryMediatorOutputConnector_3277_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ClassMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ClassMediatorInputConnector_3058_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case ProxyServiceEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceSequenceContainerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ProxyServiceEndpointContainerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ProxyInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ProxyInputConnector_3003_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EsbServerEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EsbServerContentsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(ProxyServiceEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MessageMediatorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EsbServerContentsCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					EsbVisualIDRegistry.getType(MergeNodeEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3373_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3367_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EntitlementMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EntitlementMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case HeaderMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3080_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case MergeNodeFirstInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_MergeNodeFirstInputConnector_3014_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AddressEndPointInputConnector_3030_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LogMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EntitlementMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EntitlementMediatorOutputConnector_3262_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EventMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EventMediatorOutputConnector_3053_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case LogMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LogMediatorInputConnector_3135_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case Sequence4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DropMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case WSDLEndPoint2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(WSDLEndPointInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(WSDLEndPointOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3351_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case ThrottleMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ThrottleMediatorOutputConnector_3208_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case Sequence3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CalloutMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case OAuthMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_OAuthMediatorOutputConnector_3131_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SpringMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SpringMediatorOutputConnector_3062_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RuleMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RuleMediatorOutputConnector_3317_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CloneMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorInputConnector_3172_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case HeaderMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3294_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case PropertyMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorInputConnector_3330_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3177_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DropMediator5EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(DropMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LoadBalanceEndPointOutputConnector_3096_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3116_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(TransactionMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediatorFailOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3240_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediator5EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(PropertyMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RuleMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RuleMediatorInputConnector_3127_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3098_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case Sequence2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SequenceOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case IterateMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBReportMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3079_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case HeaderMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3358_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3183_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case TransactionMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3118_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3110_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3249_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3298_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SpringMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SpringMediatorInputConnector_3267_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ThrottleMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ThrottleMediatorOutputConnector_3122_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case FilterMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FilterMediatorInputConnector_3238_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SmooksMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case HeaderMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3357_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case HeaderMediatorOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3295_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(IterateMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case LoadBalanceEndPoint2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SequenceOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceOutputConnector_3189_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case MergeNodeSecondInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_MergeNodeSecondInputConnector_3015_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SequenceOutputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceOutputConnector_3256_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SwitchMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case CommandMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CommandMediatorOutputConnector_3280_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3185_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case FaultMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FaultMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case HeaderMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3186_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3182_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case MergeNodeOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_MergeNodeOutputConnector_3016_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3076_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EventMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EventMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SequenceInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SequenceInputConnector_3376_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SmooksMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SmooksMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case EsbDiagramEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Diagram sv = (Diagram) view;
-			EsbNavigatorGroup links = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EsbDiagram_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbServerEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorInputConnector_3364_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorInputConnector_3103_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CacheMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CacheMediatorOutputConnector_3302_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case EnrichMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(EnrichMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case ScriptMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ScriptMediatorOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case RuleMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_RuleMediatorOutputConnector_3128_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBLookupMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3349_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case PropertyMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3204_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case SmooksMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SmooksMediatorInputConnector_3288_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3104_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3133_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AddressEndPointOutputConnector_3031_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case HeaderMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorInputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(HeaderMediatorOutputConnector3EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FilterMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorPassOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(FilterMediatorFailOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case IterateMediatorOutputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3365_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CacheMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CacheMediatorInputConnector_3301_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DefaultEndPointOutputConnector_3022_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case DBReportMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3163_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case ClassMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(ClassMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case XSLTMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnectorEditPart.VISUAL_ID));
+							.getType(FilterMediatorInputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnectorEditPart.VISUAL_ID));
+							.getType(FilterMediatorPassOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			return result.toArray();
-		}
-
-		case EnrichMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3148_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CalloutMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(CalloutMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(CalloutMediatorOutputConnector2EditPart.VISUAL_ID));
+							.getType(FilterMediatorFailOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			return result.toArray();
-		}
-
-		case SendMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SendMediatorInputConnector_3291_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
 			return result.toArray();
 		}
 
 		case FilterMediator3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8011,13 +2359,604 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case IterateMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case DBLookupMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3448_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3253_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EntitlementMediatorOutputConnector_3056_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CommandMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorOutputConnector_3445_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case HeaderMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3170_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FaultMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorInputConnector_3304_incominglinks,
+					Messages.NavigatorGroupName_FaultMediatorInputConnector_3157_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3343_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LoadBalanceEndPointInputConnector_3095_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3294_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorInputConnector_3462_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EnrichMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3036_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorInputConnector_3403_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CacheMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CacheMediatorOutputConnector_3467_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3161_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3148_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ThrottleMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ClassMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ClassMediatorOutputConnector_3265_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CacheMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CacheMediatorInputConnector_3466_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3133_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyFaultInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ProxyFaultInputConnector_3489_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FaultMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3274_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorOutputConnector_3019_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ScriptMediatorInputConnector_3435_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8029,211 +2968,12 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case SwitchMediatorInputConnector3EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3251_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case XSLTMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorInputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(XSLTMediatorOutputConnector4EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SpringMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorInputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(SpringMediatorOutputConnector2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case DBLookupMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3077_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case CloneMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3173_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case IterateMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_IterateMediatorInputConnector_3176_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SwitchMediatorInputConnector4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3341_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SpringMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_SpringMediatorOutputConnector_3268_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ThrottleMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ThrottleMediatorInputConnector_3207_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case MergeNodeEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeFirstInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeSecondInputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					EsbVisualIDRegistry
-							.getType(MergeNodeOutputConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case FaultMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorInputConnector_3157_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case AggregateMediatorInputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
-			Node sv = (Node) view;
-			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorInputConnector_3112_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8245,9 +2985,9 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case SendMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8263,13 +3003,47 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case FaultMediatorOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case FilterMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorInputConnector_3140_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ScriptMediatorInputConnector_3270_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorPassOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3068_outgoinglinks,
+					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3239_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8280,13 +3054,510 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case AggregateMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case XSLTMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3151_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SequenceOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceOutputConnector_3050_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SendMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XQueryMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XQueryMediatorOutputConnector_3442_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorInputConnector_3322_incominglinks,
+					Messages.NavigatorGroupName_CloneMediatorInputConnector_3360_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SpringMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorFailOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3012_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ClassMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ClassMediatorOutputConnector_3059_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorOutputConnector_3136_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case HeaderMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3295_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3104_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case OAuthMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorOutputConnector_3320_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EntitlementMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EntitlementMediatorInputConnector_3261_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ClassMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ClassMediatorInputConnector_3429_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ThrottleMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorInputConnector_3121_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SendMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorOutputConnector_3086_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBReportMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SmooksMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SmooksMediatorInputConnector_3453_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3439_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SmooksMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FaultMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case MergeNodeFirstInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_MergeNodeFirstInputConnector_3014_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ScriptMediatorInputConnector_3064_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8298,12 +3569,12 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case ProxyOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_ProxyOutputConnector_3002_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8314,10 +3585,2672 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case XQueryMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case TransactionMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3311_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3144_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SpringMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorOutputConnector_3268_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case HeaderMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3100_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3124_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3173_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SequenceOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceOutputConnector_3189_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3145_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorInputConnector_3103_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3077_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3365_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case PropertyMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3125_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case AddressEndPoint2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AddressEndPointInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AddressEndPointOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ProxyServiceEndpointContainerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DefaultEndPoint2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(AddressEndPoint2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FailoverEndPoint2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(WSDLEndPoint2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPoint2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CloneMediatorTargetOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3362_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ClassMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LoadBalanceEndPointOutputConnector_3096_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchDefaultBranchOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3418_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DefaultEndPointInputConnector_3021_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case OAuthMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorOutputConnector_3485_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorOutputConnector_3074_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DropMediatorInputConnector_3395_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DropMediatorInputConnector_3008_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case IterateMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorInputConnector_3469_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ClassMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ClassMediatorInputConnector_3058_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3116_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3338_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorFailOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3240_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case OAuthMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorInputConnector_3130_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3371_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3463_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ThrottleMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorInputConnector_3400_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3358_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case OAuthMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorOutputConnector_3131_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorPassOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3011_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3473_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SequenceOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceOutputConnector_3421_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3398_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorInputConnector_3067_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case AggregateMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorOutputConnector_3323_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SendMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorInputConnector_3291_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBReportMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3080_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SmooksMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SmooksMediatorOutputConnector_3083_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case Sequence5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case AggregateMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorInputConnector_3322_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FailoverEndPoint2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FaultMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case TransactionMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3184_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3370_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorInputConnector_3238_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SmooksMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DefaultEndPointOutputConnector_3022_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SpringMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorInputConnector_3432_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorFailOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3142_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SendMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorOutputConnector_3457_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3475_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ProxyInputConnector_3003_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3479_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3076_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case AggregateMediatorOnCompleteOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorOnCompleteOutputConnector_3324_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3115_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case XQueryMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3174_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ScriptMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SpringMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CloneMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3298_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorInputConnector_3407_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3043_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorOutputConnector_3327_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CommandMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBReportMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3164_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CacheMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case OAuthMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorInputConnector_3484_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorOutputConnector_3349_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3245_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case OAuthMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchCaseBranchOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3417_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SequenceInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceInputConnector_3420_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBReportMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3286_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SequenceInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceInputConnector_3376_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBLookupMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3160_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EventMediatorInputConnector_3423_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3285_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyServiceContainerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3341_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SequenceInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceInputConnector_3255_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3186_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SequenceEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DropMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EnrichMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3246_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RuleMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RuleMediatorInputConnector_3316_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorInputConnector_3444_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3342_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyServiceFaultContainerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(DropMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ThrottleMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FilterMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(LogMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EnrichMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(XSLTMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SwitchMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry.getType(Sequence5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EventMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(EntitlementMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ClassMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SpringMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(ScriptMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(FaultMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(XQueryMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CommandMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBLookupMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(DBReportMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SmooksMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(SendMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(HeaderMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CloneMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CacheMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(IterateMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(CalloutMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(TransactionMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediator5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(RuleMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					EsbVisualIDRegistry
+							.getType(OAuthMediator3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case IterateMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3110_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3411_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3450_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3147_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EsbDiagramEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Diagram sv = (Diagram) view;
+			EsbNavigatorGroup links = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EsbDiagram_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbServerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3374_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorInputConnector_3176_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3118_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorOutputConnector_3280_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EntitlementMediatorOutputConnector_3427_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CalloutMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3307_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ScriptMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case TransactionMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorOutputConnector_3119_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XSLTMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case TransactionMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CacheMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ThrottleMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorInputConnector_3207_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3185_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3034_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XQueryMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8333,13 +6266,49 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case AggregateMediatorOutputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case TransactionMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CloneMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorInputConnector_3172_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_AggregateMediatorOutputConnector_3323_outgoinglinks,
+					Messages.NavigatorGroupName_EventMediatorOutputConnector_3259_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8350,13 +6319,493 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
+		case FilterMediatorPassOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3331_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceSequenceContainerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceEndpointContainerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case PropertyMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SpringMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorInputConnector_3061_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3478_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3346_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case MessageOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_MessageOutputConnector_3047_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3416_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
 					Messages.NavigatorGroupName_FailoverEndPointWestOutputConnector_3097_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case Sequence2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AddressEndPointInputConnector_3030_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case XSLTMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3249_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_WSDLEndPointOutputConnector_3093_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XSLTMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ThrottleMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorOutputConnector_3122_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FailoverEndPointInputConnector_3088_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CacheMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorFailOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorFailOutputConnector_3405_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ScriptMediatorOutputConnector_3436_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorInputConnector_3279_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorInputConnector_3297_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3101_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorInputConnector_3109_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FilterMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorInputConnector_3330_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EventMediatorOutputConnector_3424_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8368,9 +6817,9 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 		}
 
 		case CloneMediator4EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8392,29 +6841,2358 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case SendMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case XQueryMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XQueryMediatorOutputConnector_3277_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchCaseBranchOutputConnector_3252_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XQueryMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XQueryMediatorInputConnector_3070_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(SendMediatorInputConnector2EditPart.VISUAL_ID));
+							.getType(CalloutMediatorInputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(SendMediatorOutputConnector2EditPart.VISUAL_ID));
+							.getType(CalloutMediatorOutputConnector5EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case ScriptMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case EsbLinkEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			EsbNavigatorGroup target = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EsbLink_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			EsbNavigatorGroup source = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EsbLink_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyFaultInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorInputConnector2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector4EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DefaultEndPointInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AddressEndPointInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(WSDLEndPointInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector5EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnector3EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MessageInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeFirstInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeSecondInputConnectorEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AggregateMediatorOnCompleteOutputConnector2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector4EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DefaultEndPointOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(AddressEndPointOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(WSDLEndPointOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorPassOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FilterMediatorFailOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SpringMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ScriptMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CommandMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CloneMediatorTargetOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CacheMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(TransactionMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector5EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnector3EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MessageOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeOutputConnectorEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorInputConnector_3273_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorInputConnector_3304_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XQueryMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XQueryMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RuleMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3414_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ThrottleMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ThrottleMediatorOutputConnector_3208_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3153_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case MergeNodeEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeFirstInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeSecondInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MergeNodeOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CloneMediatorTargetOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorTargetOutputConnector_3464_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case MergeNodeOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_MergeNodeOutputConnector_3016_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XSLTMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(XSLTMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SmooksMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SmooksMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SendMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorInputConnector_3085_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case Sequence3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SequenceOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case AggregateMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorInputConnector_3112_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorInputConnector_3345_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ClassMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ClassMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3248_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case PropertyMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3202_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3367_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3282_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(LogMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case WSDLEndPoint2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(WSDLEndPointInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(WSDLEndPointOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorOnCompleteOutputConnector_3132_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case OAuthMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(OAuthMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RuleMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case PropertyMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3203_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case OAuthMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_OAuthMediatorInputConnector_3319_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8430,10 +9208,1054 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case HeaderMediator2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SequenceInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceInputConnector_3188_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EventMediatorOutputConnector_3053_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case IterateMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SendMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorOutputConnector_3292_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case MessageMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MessageInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(MessageOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DropMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DropMediatorInputConnector_3138_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DropMediatorInputConnector_3192_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3033_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorOutputConnector_3204_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case MergeNodeSecondInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_MergeNodeSecondInputConnector_3015_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorPassOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3404_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(IterateMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EventMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EventMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EnrichMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorOutputConnector_3037_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RuleMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RuleMediatorOutputConnector_3317_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorInputConnector_3018_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorOutputConnector_3451_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediator5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorInputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(HeaderMediatorOutputConnector5EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case DBLookupMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBLookupMediatorInputConnector_3447_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ThrottleMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ClassMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ClassMediatorInputConnector_3264_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DropMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EnrichMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RuleMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RuleMediatorInputConnector_3127_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EntitlementMediatorOutputConnector_3262_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SpringMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorInputConnector_3267_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_WSDLEndPointInputConnector_3092_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CloneMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CloneMediatorOutputConnector_3361_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorOutputConnector_3158_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(CalloutMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorInputConnector_3039_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ScriptMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_ScriptMediatorOutputConnector_3271_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DropMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DropMediatorInputConnector_3195_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorInputConnector_3373_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case ProxyServiceEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyFaultInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ProxyServiceContainerEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorPassOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorPassOutputConnector_3141_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchMediatorInputConnector_3042_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBLookupMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBLookupMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case FilterMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FilterMediatorInputConnector_3010_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorOutputConnector_3408_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XQueryMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XQueryMediatorInputConnector_3441_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EnrichMediatorInputConnector_3410_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case AggregateMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_AggregateMediatorOutputConnector_3113_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EventMediatorInputConnector_3052_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case LogMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_LogMediatorInputConnector_3326_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SwitchMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SmooksMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SmooksMediatorInputConnector_3082_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3351_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CommandMediatorInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CommandMediatorInputConnector_3073_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CacheMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CacheMediatorInputConnector_3301_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_PropertyMediatorInputConnector_3201_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3368_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case PropertyMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(PropertyMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SpringMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorOutputConnector_3062_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case IterateMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorOutputConnector_3177_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					EsbVisualIDRegistry
@@ -8449,32 +10271,30 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DBReportMediatorEditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case ProxyServiceSequenceContainerEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBReportMediatorInputConnectorEditPart.VISUAL_ID));
+							.getType(ProxyServiceInSequenceEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
+			connectedViews = getChildrenByType(Collections.singleton(sv),
 					EsbVisualIDRegistry
-							.getType(DBReportMediatorOutputConnectorEditPart.VISUAL_ID));
+							.getType(ProxyServiceOutSequenceEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case ClassMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case SequenceInputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_ClassMediatorInputConnector_3264_incominglinks,
+					Messages.NavigatorGroupName_SequenceInputConnector_3049_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8485,13 +10305,530 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case DropMediatorInputConnector2EditPart.VISUAL_ID: {
-			LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/result = new LinkedList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbAbstractNavigatorItem]*/();
+		case RMSequenceMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RMSequenceMediatorOutputConnector_3314_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SendMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorOutputConnector_3167_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case XSLTMediatorOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3339_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(DBReportMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SwitchDefaultBranchOutputConnector_3044_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RuleMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RuleMediatorOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RuleMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
-					Messages.NavigatorGroupName_DropMediatorInputConnector_3138_incominglinks,
+					Messages.NavigatorGroupName_RuleMediatorInputConnector_3481_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/connectedViews;
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SendMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SendMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case EventMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_EventMediatorInputConnector_3258_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorInputConnector_3472_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case TransactionMediatorInputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_TransactionMediatorInputConnector_3310_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3357_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case HeaderMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorInputConnector_3459_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EnrichMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EnrichMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CacheMediatorOutputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CacheMediatorOutputConnector_3302_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case RuleMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_RuleMediatorOutputConnector_3128_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case EntitlementMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(EntitlementMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ThrottleMediator3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorInputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(ThrottleMediatorOutputConnector3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case HeaderMediatorOutputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_HeaderMediatorOutputConnector_3460_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SendMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SendMediatorInputConnector_3166_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SpringMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SpringMediatorOutputConnector_3433_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediator2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorInputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(FaultMediatorOutputConnector2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SwitchMediatorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchMediatorInputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SequenceOutputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_SequenceOutputConnector_3377_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case FaultMediatorInputConnector5EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_FaultMediatorInputConnector_3438_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case RMSequenceMediator4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorInputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					EsbVisualIDRegistry
+							.getType(RMSequenceMediatorOutputConnector4EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case XSLTMediatorOutputConnectorEditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_XSLTMediatorOutputConnector_3040_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case IterateMediatorInputConnector4EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_IterateMediatorInputConnector_3364_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case CalloutMediatorOutputConnector3EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup outgoinglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_CalloutMediatorOutputConnector_3308_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case DBReportMediatorInputConnector2EditPart.VISUAL_ID: {
+			LinkedList<EsbAbstractNavigatorItem> result = new LinkedList<EsbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			EsbNavigatorGroup incominglinks = new EsbNavigatorGroup(
+					Messages.NavigatorGroupName_DBReportMediatorInputConnector_3163_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					EsbVisualIDRegistry.getType(EsbLinkEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
@@ -8508,13 +10845,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getLinksSourceByType(
-			Collection/*[org.eclipse.gmf.runtime.notation.Edge]*/edges,
+	private Collection<View> getLinksSourceByType(Collection<Edge> edges,
 			String type) {
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/result = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.Edge]*/it = edges
-				.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
+		LinkedList<View> result = new LinkedList<View>();
+		for (Edge nextEdge : edges) {
 			View nextEdgeSource = nextEdge.getSource();
 			if (type.equals(nextEdgeSource.getType())
 					&& isOwnView(nextEdgeSource)) {
@@ -8527,13 +10861,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getLinksTargetByType(
-			Collection/*[org.eclipse.gmf.runtime.notation.Edge]*/edges,
+	private Collection<View> getLinksTargetByType(Collection<Edge> edges,
 			String type) {
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/result = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.Edge]*/it = edges
-				.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
+		LinkedList<View> result = new LinkedList<View>();
+		for (Edge nextEdge : edges) {
 			View nextEdgeTarget = nextEdge.getTarget();
 			if (type.equals(nextEdgeTarget.getType())
 					&& isOwnView(nextEdgeTarget)) {
@@ -8546,13 +10877,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getOutgoingLinksByType(
-			Collection/*[? extends org.eclipse.gmf.runtime.notation.View]*/nodes,
-			String type) {
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/result = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = nodes
-				.iterator(); it.hasNext();) {
-			View nextNode = (View) it.next();
+	private Collection<View> getOutgoingLinksByType(
+			Collection<? extends View> nodes, String type) {
+		LinkedList<View> result = new LinkedList<View>();
+		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getSourceEdges(), type));
 		}
 		return result;
@@ -8561,13 +10889,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getIncomingLinksByType(
-			Collection/*[? extends org.eclipse.gmf.runtime.notation.View]*/nodes,
-			String type) {
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/result = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = nodes
-				.iterator(); it.hasNext();) {
-			View nextNode = (View) it.next();
+	private Collection<View> getIncomingLinksByType(
+			Collection<? extends View> nodes, String type) {
+		LinkedList<View> result = new LinkedList<View>();
+		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getTargetEdges(), type));
 		}
 		return result;
@@ -8576,13 +10901,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getChildrenByType(
-			Collection/*[? extends org.eclipse.gmf.runtime.notation.View]*/nodes,
-			String type) {
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/result = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = nodes
-				.iterator(); it.hasNext();) {
-			View nextNode = (View) it.next();
+	private Collection<View> getChildrenByType(
+			Collection<? extends View> nodes, String type) {
+		LinkedList<View> result = new LinkedList<View>();
+		for (View nextNode : nodes) {
 			result.addAll(selectViewsByType(nextNode.getChildren(), type));
 		}
 		return result;
@@ -8591,13 +10913,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/getDiagramLinksByType(
-			Collection/*[org.eclipse.gmf.runtime.notation.Diagram]*/diagrams,
-			String type) {
-		ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/result = new ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.Diagram]*/it = diagrams
-				.iterator(); it.hasNext();) {
-			Diagram nextDiagram = (Diagram) it.next();
+	private Collection<View> getDiagramLinksByType(
+			Collection<Diagram> diagrams, String type) {
+		ArrayList<View> result = new ArrayList<View>();
+		for (Diagram nextDiagram : diagrams) {
 			result.addAll(selectViewsByType(nextDiagram.getEdges(), type));
 		}
 		return result;
@@ -8606,13 +10925,10 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.eclipse.gmf.runtime.notation.View]*/selectViewsByType(
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/views,
+	private Collection<View> selectViewsByType(Collection<View> views,
 			String type) {
-		ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/result = new ArrayList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = views
-				.iterator(); it.hasNext();) {
-			View nextView = (View) it.next();
+		ArrayList<View> result = new ArrayList<View>();
+		for (View nextView : views) {
 			if (type.equals(nextView.getType()) && isOwnView(nextView)) {
 				result.add(nextView);
 			}
@@ -8631,14 +10947,11 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	/**
 	 * @generated
 	 */
-	private Collection/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem]*/createNavigatorItems(
-			Collection/*[org.eclipse.gmf.runtime.notation.View]*/views,
-			Object parent, boolean isLeafs) {
-		ArrayList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem]*/result = new ArrayList/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem]*/(
+	private Collection<EsbNavigatorItem> createNavigatorItems(
+			Collection<View> views, Object parent, boolean isLeafs) {
+		ArrayList<EsbNavigatorItem> result = new ArrayList<EsbNavigatorItem>(
 				views.size());
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = views
-				.iterator(); it.hasNext();) {
-			View nextView = (View) it.next();
+		for (View nextView : views) {
 			result.add(new EsbNavigatorItem(nextView, parent, isLeafs));
 		}
 		return result;

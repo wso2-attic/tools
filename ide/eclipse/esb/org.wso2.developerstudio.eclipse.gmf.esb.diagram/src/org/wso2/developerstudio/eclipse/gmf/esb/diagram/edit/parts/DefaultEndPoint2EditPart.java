@@ -142,15 +142,19 @@ public class DefaultEndPoint2EditPart extends AbstractEndpoint {
 							.getFigureDefaultEndPointNamePropertyLabel());
 			return true;
 		}
-		if (childEditPart instanceof DefaultEndPointInputConnectorEditPart) {			
+		if (childEditPart instanceof DefaultEndPointInputConnectorEditPart) {
 			double position;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
-			if(((DefaultEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().size()!=0){
-				EObject source=((DefaultEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().get(0).getSource().eContainer();
-				position=((source instanceof LoadBalanceEndPoint)||(source instanceof FailoverEndPoint))? 0.5: 0.25;
-			}
-			else{
-				position=0.25;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
+					.getParent()).getModel()).getElement();
+			if (((DefaultEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() != 0) {
+				EObject source = ((DefaultEndPoint) parentEndpoint)
+						.getInputConnector().getIncomingLinks().get(0)
+						.getSource().eContainer();
+				position = ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint)) ? 0.5
+						: 0.25;
+			} else {
+				position = 0.25;
 			}
 			IFigure borderItemFigure = ((DefaultEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -161,7 +165,7 @@ public class DefaultEndPoint2EditPart extends AbstractEndpoint {
 					locator);
 			return true;
 		}
-		if (childEditPart instanceof DefaultEndPointOutputConnectorEditPart) {		
+		if (childEditPart instanceof DefaultEndPointOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((DefaultEndPointOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(

@@ -17,75 +17,97 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPoi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateID2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheId2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheId3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheIdEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapActionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassName2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassName2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURL2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURL3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicType2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteralEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategoryEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrl2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrl3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrlEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguage2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguage3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguageEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceName2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanName2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupId2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupId3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupIdEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyType2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.parsers.MessageFormatParser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -1233,6 +1255,402 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser propertyMediatorPropertyName_5105Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPropertyMediatorPropertyName_5105Parser() {
+		if (propertyMediatorPropertyName_5105Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getPropertyMediator_PropertyName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			propertyMediatorPropertyName_5105Parser = parser;
+		}
+		return propertyMediatorPropertyName_5105Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser throttleMediatorGroupId_5106Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getThrottleMediatorGroupId_5106Parser() {
+		if (throttleMediatorGroupId_5106Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getThrottleMediator_GroupId() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			throttleMediatorGroupId_5106Parser = parser;
+		}
+		return throttleMediatorGroupId_5106Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser filterMediatorConditionType_5107Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFilterMediatorConditionType_5107Parser() {
+		if (filterMediatorConditionType_5107Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getFilterMediator_ConditionType() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			filterMediatorConditionType_5107Parser = parser;
+		}
+		return filterMediatorConditionType_5107Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser logMediatorLogCategory_5108Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLogMediatorLogCategory_5108Parser() {
+		if (logMediatorLogCategory_5108Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getLogMediator_LogCategory() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			logMediatorLogCategory_5108Parser = parser;
+		}
+		return logMediatorLogCategory_5108Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser enrichMediatorSourceType_5109Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEnrichMediatorSourceType_5109Parser() {
+		if (enrichMediatorSourceType_5109Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEnrichMediator_SourceType() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			enrichMediatorSourceType_5109Parser = parser;
+		}
+		return enrichMediatorSourceType_5109Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser sequenceName_5110Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSequenceName_5110Parser() {
+		if (sequenceName_5110Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getSequence_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			sequenceName_5110Parser = parser;
+		}
+		return sequenceName_5110Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser eventMediatorTopicType_5111Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEventMediatorTopicType_5111Parser() {
+		if (eventMediatorTopicType_5111Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEventMediator_TopicType() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			eventMediatorTopicType_5111Parser = parser;
+		}
+		return eventMediatorTopicType_5111Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser entitlementMediatorServerURL_5112Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEntitlementMediatorServerURL_5112Parser() {
+		if (entitlementMediatorServerURL_5112Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEntitlementMediator_ServerURL() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			entitlementMediatorServerURL_5112Parser = parser;
+		}
+		return entitlementMediatorServerURL_5112Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser classMediatorClassName_5113Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getClassMediatorClassName_5113Parser() {
+		if (classMediatorClassName_5113Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getClassMediator_ClassName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			classMediatorClassName_5113Parser = parser;
+		}
+		return classMediatorClassName_5113Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser springMediatorBeanName_5114Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSpringMediatorBeanName_5114Parser() {
+		if (springMediatorBeanName_5114Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getSpringMediator_BeanName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			springMediatorBeanName_5114Parser = parser;
+		}
+		return springMediatorBeanName_5114Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser scriptMediatorScriptLanguage_5115Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getScriptMediatorScriptLanguage_5115Parser() {
+		if (scriptMediatorScriptLanguage_5115Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getScriptMediator_ScriptLanguage() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			scriptMediatorScriptLanguage_5115Parser = parser;
+		}
+		return scriptMediatorScriptLanguage_5115Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser faultMediatorFaultStringType_5116Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFaultMediatorFaultStringType_5116Parser() {
+		if (faultMediatorFaultStringType_5116Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getFaultMediator_FaultStringType() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			faultMediatorFaultStringType_5116Parser = parser;
+		}
+		return faultMediatorFaultStringType_5116Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser xQueryMediatorScriptKeyType_5117Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getXQueryMediatorScriptKeyType_5117Parser() {
+		if (xQueryMediatorScriptKeyType_5117Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getXQueryMediator_ScriptKeyType() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			xQueryMediatorScriptKeyType_5117Parser = parser;
+		}
+		return xQueryMediatorScriptKeyType_5117Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser commandMediatorClassName_5118Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCommandMediatorClassName_5118Parser() {
+		if (commandMediatorClassName_5118Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getCommandMediator_ClassName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			commandMediatorClassName_5118Parser = parser;
+		}
+		return commandMediatorClassName_5118Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser dBLookupMediatorConnectionURL_5119Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDBLookupMediatorConnectionURL_5119Parser() {
+		if (dBLookupMediatorConnectionURL_5119Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getAbstractSqlExecutorMediator_ConnectionURL() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			dBLookupMediatorConnectionURL_5119Parser = parser;
+		}
+		return dBLookupMediatorConnectionURL_5119Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser dBReportMediatorConnectionURL_5120Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDBReportMediatorConnectionURL_5120Parser() {
+		if (dBReportMediatorConnectionURL_5120Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getAbstractSqlExecutorMediator_ConnectionURL() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			dBReportMediatorConnectionURL_5120Parser = parser;
+		}
+		return dBReportMediatorConnectionURL_5120Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser headerMediatorValueLiteral_5121Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getHeaderMediatorValueLiteral_5121Parser() {
+		if (headerMediatorValueLiteral_5121Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getHeaderMediator_ValueLiteral() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			headerMediatorValueLiteral_5121Parser = parser;
+		}
+		return headerMediatorValueLiteral_5121Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cloneMediatorCloneID_5122Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCloneMediatorCloneID_5122Parser() {
+		if (cloneMediatorCloneID_5122Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getCloneMediator_CloneID() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cloneMediatorCloneID_5122Parser = parser;
+		}
+		return cloneMediatorCloneID_5122Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cacheMediatorCacheId_5123Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCacheMediatorCacheId_5123Parser() {
+		if (cacheMediatorCacheId_5123Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getCacheMediator_CacheId() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cacheMediatorCacheId_5123Parser = parser;
+		}
+		return cacheMediatorCacheId_5123Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser iterateMediatorIterateID_5124Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getIterateMediatorIterateID_5124Parser() {
+		if (iterateMediatorIterateID_5124Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getIterateMediator_IterateID() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			iterateMediatorIterateID_5124Parser = parser;
+		}
+		return iterateMediatorIterateID_5124Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser calloutMediatorSoapAction_5125Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCalloutMediatorSoapAction_5125Parser() {
+		if (calloutMediatorSoapAction_5125Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getCalloutMediator_SoapAction() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			calloutMediatorSoapAction_5125Parser = parser;
+		}
+		return calloutMediatorSoapAction_5125Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser oAuthMediatorRemoteServiceUrl_5126Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOAuthMediatorRemoteServiceUrl_5126Parser() {
+		if (oAuthMediatorRemoteServiceUrl_5126Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getOAuthMediator_RemoteServiceUrl() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			oAuthMediatorRemoteServiceUrl_5126Parser = parser;
+		}
+		return oAuthMediatorRemoteServiceUrl_5126Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser logMediatorLogCategory_5030Parser;
 
 	/**
@@ -1581,6 +1999,50 @@ public class EsbParserProvider extends AbstractProvider implements
 			return getWSDLEndPointEndPointName_5102Parser();
 		case LoadBalanceEndPointEndPointName2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPointEndPointName_5103Parser();
+		case PropertyMediatorPropertyNameEditPart.VISUAL_ID:
+			return getPropertyMediatorPropertyName_5105Parser();
+		case ThrottleMediatorGroupId3EditPart.VISUAL_ID:
+			return getThrottleMediatorGroupId_5106Parser();
+		case FilterMediatorConditionType5EditPart.VISUAL_ID:
+			return getFilterMediatorConditionType_5107Parser();
+		case LogMediatorLogCategory5EditPart.VISUAL_ID:
+			return getLogMediatorLogCategory_5108Parser();
+		case EnrichMediatorSourceType5EditPart.VISUAL_ID:
+			return getEnrichMediatorSourceType_5109Parser();
+		case SequenceName3EditPart.VISUAL_ID:
+			return getSequenceName_5110Parser();
+		case EventMediatorTopicType3EditPart.VISUAL_ID:
+			return getEventMediatorTopicType_5111Parser();
+		case EntitlementMediatorServerURL3EditPart.VISUAL_ID:
+			return getEntitlementMediatorServerURL_5112Parser();
+		case ClassMediatorClassName3EditPart.VISUAL_ID:
+			return getClassMediatorClassName_5113Parser();
+		case SpringMediatorBeanName3EditPart.VISUAL_ID:
+			return getSpringMediatorBeanName_5114Parser();
+		case ScriptMediatorScriptLanguage3EditPart.VISUAL_ID:
+			return getScriptMediatorScriptLanguage_5115Parser();
+		case FaultMediatorFaultStringType5EditPart.VISUAL_ID:
+			return getFaultMediatorFaultStringType_5116Parser();
+		case XQueryMediatorScriptKeyType3EditPart.VISUAL_ID:
+			return getXQueryMediatorScriptKeyType_5117Parser();
+		case CommandMediatorClassName3EditPart.VISUAL_ID:
+			return getCommandMediatorClassName_5118Parser();
+		case DBLookupMediatorConnectionURL5EditPart.VISUAL_ID:
+			return getDBLookupMediatorConnectionURL_5119Parser();
+		case DBReportMediatorConnectionURL5EditPart.VISUAL_ID:
+			return getDBReportMediatorConnectionURL_5120Parser();
+		case HeaderMediatorValueLiteral5EditPart.VISUAL_ID:
+			return getHeaderMediatorValueLiteral_5121Parser();
+		case CloneMediatorCloneID5EditPart.VISUAL_ID:
+			return getCloneMediatorCloneID_5122Parser();
+		case CacheMediatorCacheId3EditPart.VISUAL_ID:
+			return getCacheMediatorCacheId_5123Parser();
+		case IterateMediatorIterateID5EditPart.VISUAL_ID:
+			return getIterateMediatorIterateID_5124Parser();
+		case CalloutMediatorSoapAction5EditPart.VISUAL_ID:
+			return getCalloutMediatorSoapAction_5125Parser();
+		case OAuthMediatorRemoteServiceUrl3EditPart.VISUAL_ID:
+			return getOAuthMediatorRemoteServiceUrl_5126Parser();
 		}
 		return null;
 	}

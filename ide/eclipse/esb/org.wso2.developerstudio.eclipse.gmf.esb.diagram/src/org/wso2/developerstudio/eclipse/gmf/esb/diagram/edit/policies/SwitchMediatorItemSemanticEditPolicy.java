@@ -84,11 +84,11 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
-		for (Iterator/*[?]*/nit = view.getChildren().iterator(); nit.hasNext();) {
+		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
 			case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getTargetEdges().iterator(); it
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
@@ -106,7 +106,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
 			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getSourceEdges().iterator(); it
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
@@ -124,7 +124,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
 			case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-				for (Iterator/*[?]*/it = node.getSourceEdges().iterator(); it
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {

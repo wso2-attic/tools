@@ -139,16 +139,20 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 							.getFigureAddressEndPointNamePropertyLabel());
 			return true;
 		}
-		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {			
+		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {
 			double position;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
-			if(((AddressEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().size()!=0){
-				EObject source=((AddressEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().get(0).getSource().eContainer();
-				position=((source instanceof LoadBalanceEndPoint)||(source instanceof FailoverEndPoint))? 0.5: 0.25;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
+					.getParent()).getModel()).getElement();
+			if (((AddressEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() != 0) {
+				EObject source = ((AddressEndPoint) parentEndpoint)
+						.getInputConnector().getIncomingLinks().get(0)
+						.getSource().eContainer();
+				position = ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint)) ? 0.5
+						: 0.25;
+			} else {
+				position = 0.25;
 			}
-			else{
-				position=0.25;
-			}			
 			IFigure borderItemFigure = ((AddressEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(

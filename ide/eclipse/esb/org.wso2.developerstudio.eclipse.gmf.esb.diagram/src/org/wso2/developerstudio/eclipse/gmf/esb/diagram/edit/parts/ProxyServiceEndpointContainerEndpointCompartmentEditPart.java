@@ -9,10 +9,12 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
@@ -39,7 +41,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7010;
+	public static final int VISUAL_ID = 7011;
 
 	/**
 	 * @generated
@@ -147,16 +149,23 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					}
 				}
 			}
-			if(((FailoverEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size()==0){
-			if(((FailoverEndPoint) parentEndpoint).getWestOutputConnector() ==null){
-				SetCommand addCmd=new SetCommand(getEditingDomain(), parentEndpoint, EsbPackage.Literals.FAILOVER_END_POINT__WEST_OUTPUT_CONNECTOR, EsbFactory.eINSTANCE.createFailoverEndPointWestOutputConnector());
-				if (addCmd.canExecute()) {
-					getEditingDomain().getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((FailoverEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.FAILOVER_END_POINT__WEST_OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createFailoverEndPointWestOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
 				}
 			}
-		}
 		} else if (child instanceof LoadBalanceEndPoint2EditPart) {
 			LoadBalanceEndPoint2EditPart endpointEditPart = (LoadBalanceEndPoint2EditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
@@ -179,56 +188,84 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					}
 				}
 			}
-			if(((LoadBalanceEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size()==0){
-			if(((LoadBalanceEndPoint) parentEndpoint).getWestOutputConnector() ==null){
-				SetCommand addCmd=new SetCommand(getEditingDomain(), parentEndpoint, EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR, EsbFactory.eINSTANCE.createLoadBalanceEndPointWestOutputConnector());
-				if (addCmd.canExecute()) {
-					getEditingDomain().getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
+			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((LoadBalanceEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createLoadBalanceEndPointWestOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
 				}
 			}
-		}
-			
-		} else if(child instanceof DefaultEndPoint2EditPart){
-			DefaultEndPoint2EditPart endpointEditPart =(DefaultEndPoint2EditPart) child;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();
-			if(((DefaultEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() ==0){
-			if(((DefaultEndPoint) parentEndpoint).getOutputConnector() ==null){
-				SetCommand addCmd=new SetCommand(getEditingDomain(), parentEndpoint, EsbPackage.Literals.DEFAULT_END_POINT__OUTPUT_CONNECTOR, EsbFactory.eINSTANCE.createDefaultEndPointOutputConnector());
-				if (addCmd.canExecute()) {
-					getEditingDomain().getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
+
+		} else if (child instanceof DefaultEndPoint2EditPart) {
+			DefaultEndPoint2EditPart endpointEditPart = (DefaultEndPoint2EditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((DefaultEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((DefaultEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.DEFAULT_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createDefaultEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
 				}
 			}
-		}
-		} else if(child instanceof AddressEndPoint2EditPart){
-			AddressEndPoint2EditPart endpointEditPart =(AddressEndPoint2EditPart) child;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();
-			if(((AddressEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size()==0){
-			if(((AddressEndPoint) parentEndpoint).getOutputConnector() ==null){
-				SetCommand addCmd=new SetCommand(getEditingDomain(), parentEndpoint, EsbPackage.Literals.ADDRESS_END_POINT__OUTPUT_CONNECTOR, EsbFactory.eINSTANCE.createAddressEndPointOutputConnector());
-				if (addCmd.canExecute()) {
-					getEditingDomain().getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
+		} else if (child instanceof AddressEndPoint2EditPart) {
+			AddressEndPoint2EditPart endpointEditPart = (AddressEndPoint2EditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((AddressEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((AddressEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.ADDRESS_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createAddressEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
 				}
 			}
-		}
-		} else if(child instanceof WSDLEndPoint2EditPart){
-			WSDLEndPoint2EditPart endpointEditPart =(WSDLEndPoint2EditPart) child;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();
-			if(((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size()==0){
-			if(((WSDLEndPoint) parentEndpoint).getOutputConnector() ==null){
-				SetCommand addCmd=new SetCommand(getEditingDomain(), parentEndpoint, EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR, EsbFactory.eINSTANCE.createWSDLEndPointOutputConnector());
-				if (addCmd.canExecute()) {
-					getEditingDomain().getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
+		} else if (child instanceof WSDLEndPoint2EditPart) {
+			WSDLEndPoint2EditPart endpointEditPart = (WSDLEndPoint2EditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((WSDLEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((WSDLEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createWSDLEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					} else {
+						System.out.println("Cannot Execute the command");
+					}
 				}
 			}
-		}
 		}
 
 	}

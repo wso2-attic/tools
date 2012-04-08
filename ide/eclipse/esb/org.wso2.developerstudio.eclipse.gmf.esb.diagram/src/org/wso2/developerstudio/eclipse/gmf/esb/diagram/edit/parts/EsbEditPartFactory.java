@@ -46,6 +46,16 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ProxyInputConnectorEditPart.VISUAL_ID:
 				return new ProxyInputConnectorEditPart(view);
 
+			case ProxyFaultInputConnectorEditPart.VISUAL_ID:
+				return new ProxyFaultInputConnectorEditPart(view);
+
+			case ProxyServiceContainerEditPart.VISUAL_ID:
+				return new ProxyServiceContainerEditPart(view);
+
+			case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
+				return new ProxyServiceSequenceAndEndpointContainerEditPart(
+						view);
+
 			case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
 				return new ProxyServiceSequenceContainerEditPart(view);
 
@@ -1242,6 +1252,351 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointWestOutputConnectorEditPart(view);
 
+			case ProxyServiceFaultContainerEditPart.VISUAL_ID:
+				return new ProxyServiceFaultContainerEditPart(view);
+
+			case DropMediatorEditPart.VISUAL_ID:
+				return new DropMediatorEditPart(view);
+
+			case DropMediatorInputConnector5EditPart.VISUAL_ID:
+				return new DropMediatorInputConnector5EditPart(view);
+
+			case PropertyMediatorEditPart.VISUAL_ID:
+				return new PropertyMediatorEditPart(view);
+
+			case PropertyMediatorPropertyNameEditPart.VISUAL_ID:
+				return new PropertyMediatorPropertyNameEditPart(view);
+
+			case PropertyMediatorInputConnector5EditPart.VISUAL_ID:
+				return new PropertyMediatorInputConnector5EditPart(view);
+
+			case PropertyMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new PropertyMediatorOutputConnector5EditPart(view);
+
+			case ThrottleMediator3EditPart.VISUAL_ID:
+				return new ThrottleMediator3EditPart(view);
+
+			case ThrottleMediatorGroupId3EditPart.VISUAL_ID:
+				return new ThrottleMediatorGroupId3EditPart(view);
+
+			case ThrottleMediatorInputConnector3EditPart.VISUAL_ID:
+				return new ThrottleMediatorInputConnector3EditPart(view);
+
+			case ThrottleMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new ThrottleMediatorOutputConnector3EditPart(view);
+
+			case FilterMediator5EditPart.VISUAL_ID:
+				return new FilterMediator5EditPart(view);
+
+			case FilterMediatorConditionType5EditPart.VISUAL_ID:
+				return new FilterMediatorConditionType5EditPart(view);
+
+			case FilterMediatorInputConnector5EditPart.VISUAL_ID:
+				return new FilterMediatorInputConnector5EditPart(view);
+
+			case FilterMediatorPassOutputConnector5EditPart.VISUAL_ID:
+				return new FilterMediatorPassOutputConnector5EditPart(view);
+
+			case FilterMediatorFailOutputConnector5EditPart.VISUAL_ID:
+				return new FilterMediatorFailOutputConnector5EditPart(view);
+
+			case LogMediator5EditPart.VISUAL_ID:
+				return new LogMediator5EditPart(view);
+
+			case LogMediatorLogCategory5EditPart.VISUAL_ID:
+				return new LogMediatorLogCategory5EditPart(view);
+
+			case LogMediatorInputConnector5EditPart.VISUAL_ID:
+				return new LogMediatorInputConnector5EditPart(view);
+
+			case LogMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new LogMediatorOutputConnector5EditPart(view);
+
+			case EnrichMediator5EditPart.VISUAL_ID:
+				return new EnrichMediator5EditPart(view);
+
+			case EnrichMediatorSourceType5EditPart.VISUAL_ID:
+				return new EnrichMediatorSourceType5EditPart(view);
+
+			case EnrichMediatorInputConnector5EditPart.VISUAL_ID:
+				return new EnrichMediatorInputConnector5EditPart(view);
+
+			case EnrichMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new EnrichMediatorOutputConnector5EditPart(view);
+
+			case XSLTMediator5EditPart.VISUAL_ID:
+				return new XSLTMediator5EditPart(view);
+
+			case XSLTMediatorInputConnector5EditPart.VISUAL_ID:
+				return new XSLTMediatorInputConnector5EditPart(view);
+
+			case XSLTMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new XSLTMediatorOutputConnector5EditPart(view);
+
+			case SwitchMediator5EditPart.VISUAL_ID:
+				return new SwitchMediator5EditPart(view);
+
+			case SwitchMediatorInputConnector5EditPart.VISUAL_ID:
+				return new SwitchMediatorInputConnector5EditPart(view);
+
+			case SwitchCaseBranchOutputConnector5EditPart.VISUAL_ID:
+				return new SwitchCaseBranchOutputConnector5EditPart(view);
+
+			case SwitchDefaultBranchOutputConnector5EditPart.VISUAL_ID:
+				return new SwitchDefaultBranchOutputConnector5EditPart(view);
+
+			case Sequence5EditPart.VISUAL_ID:
+				return new Sequence5EditPart(view);
+
+			case SequenceName3EditPart.VISUAL_ID:
+				return new SequenceName3EditPart(view);
+
+			case SequenceInputConnector5EditPart.VISUAL_ID:
+				return new SequenceInputConnector5EditPart(view);
+
+			case SequenceOutputConnector5EditPart.VISUAL_ID:
+				return new SequenceOutputConnector5EditPart(view);
+
+			case EventMediator3EditPart.VISUAL_ID:
+				return new EventMediator3EditPart(view);
+
+			case EventMediatorTopicType3EditPart.VISUAL_ID:
+				return new EventMediatorTopicType3EditPart(view);
+
+			case EventMediatorInputConnector3EditPart.VISUAL_ID:
+				return new EventMediatorInputConnector3EditPart(view);
+
+			case EventMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new EventMediatorOutputConnector3EditPart(view);
+
+			case EntitlementMediator3EditPart.VISUAL_ID:
+				return new EntitlementMediator3EditPart(view);
+
+			case EntitlementMediatorServerURL3EditPart.VISUAL_ID:
+				return new EntitlementMediatorServerURL3EditPart(view);
+
+			case EntitlementMediatorInputConnector3EditPart.VISUAL_ID:
+				return new EntitlementMediatorInputConnector3EditPart(view);
+
+			case EntitlementMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new EntitlementMediatorOutputConnector3EditPart(view);
+
+			case ClassMediator3EditPart.VISUAL_ID:
+				return new ClassMediator3EditPart(view);
+
+			case ClassMediatorClassName3EditPart.VISUAL_ID:
+				return new ClassMediatorClassName3EditPart(view);
+
+			case ClassMediatorInputConnector3EditPart.VISUAL_ID:
+				return new ClassMediatorInputConnector3EditPart(view);
+
+			case ClassMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new ClassMediatorOutputConnector3EditPart(view);
+
+			case SpringMediator3EditPart.VISUAL_ID:
+				return new SpringMediator3EditPart(view);
+
+			case SpringMediatorBeanName3EditPart.VISUAL_ID:
+				return new SpringMediatorBeanName3EditPart(view);
+
+			case SpringMediatorInputConnector3EditPart.VISUAL_ID:
+				return new SpringMediatorInputConnector3EditPart(view);
+
+			case SpringMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new SpringMediatorOutputConnector3EditPart(view);
+
+			case ScriptMediator3EditPart.VISUAL_ID:
+				return new ScriptMediator3EditPart(view);
+
+			case ScriptMediatorScriptLanguage3EditPart.VISUAL_ID:
+				return new ScriptMediatorScriptLanguage3EditPart(view);
+
+			case ScriptMediatorInputConnector3EditPart.VISUAL_ID:
+				return new ScriptMediatorInputConnector3EditPart(view);
+
+			case ScriptMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new ScriptMediatorOutputConnector3EditPart(view);
+
+			case FaultMediator5EditPart.VISUAL_ID:
+				return new FaultMediator5EditPart(view);
+
+			case FaultMediatorFaultStringType5EditPart.VISUAL_ID:
+				return new FaultMediatorFaultStringType5EditPart(view);
+
+			case FaultMediatorInputConnector5EditPart.VISUAL_ID:
+				return new FaultMediatorInputConnector5EditPart(view);
+
+			case FaultMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new FaultMediatorOutputConnector5EditPart(view);
+
+			case XQueryMediator3EditPart.VISUAL_ID:
+				return new XQueryMediator3EditPart(view);
+
+			case XQueryMediatorScriptKeyType3EditPart.VISUAL_ID:
+				return new XQueryMediatorScriptKeyType3EditPart(view);
+
+			case XQueryMediatorInputConnector3EditPart.VISUAL_ID:
+				return new XQueryMediatorInputConnector3EditPart(view);
+
+			case XQueryMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new XQueryMediatorOutputConnector3EditPart(view);
+
+			case CommandMediator3EditPart.VISUAL_ID:
+				return new CommandMediator3EditPart(view);
+
+			case CommandMediatorClassName3EditPart.VISUAL_ID:
+				return new CommandMediatorClassName3EditPart(view);
+
+			case CommandMediatorInputConnector3EditPart.VISUAL_ID:
+				return new CommandMediatorInputConnector3EditPart(view);
+
+			case CommandMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new CommandMediatorOutputConnector3EditPart(view);
+
+			case DBLookupMediator5EditPart.VISUAL_ID:
+				return new DBLookupMediator5EditPart(view);
+
+			case DBLookupMediatorConnectionURL5EditPart.VISUAL_ID:
+				return new DBLookupMediatorConnectionURL5EditPart(view);
+
+			case DBLookupMediatorInputConnector5EditPart.VISUAL_ID:
+				return new DBLookupMediatorInputConnector5EditPart(view);
+
+			case DBLookupMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new DBLookupMediatorOutputConnector5EditPart(view);
+
+			case DBReportMediator5EditPart.VISUAL_ID:
+				return new DBReportMediator5EditPart(view);
+
+			case DBReportMediatorConnectionURL5EditPart.VISUAL_ID:
+				return new DBReportMediatorConnectionURL5EditPart(view);
+
+			case DBReportMediatorInputConnector5EditPart.VISUAL_ID:
+				return new DBReportMediatorInputConnector5EditPart(view);
+
+			case DBReportMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new DBReportMediatorOutputConnector5EditPart(view);
+
+			case SmooksMediator3EditPart.VISUAL_ID:
+				return new SmooksMediator3EditPart(view);
+
+			case SmooksMediatorInputConnector3EditPart.VISUAL_ID:
+				return new SmooksMediatorInputConnector3EditPart(view);
+
+			case SmooksMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new SmooksMediatorOutputConnector3EditPart(view);
+
+			case SendMediator5EditPart.VISUAL_ID:
+				return new SendMediator5EditPart(view);
+
+			case SendMediatorInputConnector5EditPart.VISUAL_ID:
+				return new SendMediatorInputConnector5EditPart(view);
+
+			case SendMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new SendMediatorOutputConnector5EditPart(view);
+
+			case HeaderMediator5EditPart.VISUAL_ID:
+				return new HeaderMediator5EditPart(view);
+
+			case HeaderMediatorValueLiteral5EditPart.VISUAL_ID:
+				return new HeaderMediatorValueLiteral5EditPart(view);
+
+			case HeaderMediatorInputConnector5EditPart.VISUAL_ID:
+				return new HeaderMediatorInputConnector5EditPart(view);
+
+			case HeaderMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new HeaderMediatorOutputConnector5EditPart(view);
+
+			case CloneMediator5EditPart.VISUAL_ID:
+				return new CloneMediator5EditPart(view);
+
+			case CloneMediatorCloneID5EditPart.VISUAL_ID:
+				return new CloneMediatorCloneID5EditPart(view);
+
+			case CloneMediatorInputConnector5EditPart.VISUAL_ID:
+				return new CloneMediatorInputConnector5EditPart(view);
+
+			case CloneMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new CloneMediatorOutputConnector5EditPart(view);
+
+			case CloneMediatorTargetOutputConnector5EditPart.VISUAL_ID:
+				return new CloneMediatorTargetOutputConnector5EditPart(view);
+
+			case CacheMediator3EditPart.VISUAL_ID:
+				return new CacheMediator3EditPart(view);
+
+			case CacheMediatorCacheId3EditPart.VISUAL_ID:
+				return new CacheMediatorCacheId3EditPart(view);
+
+			case CacheMediatorInputConnector3EditPart.VISUAL_ID:
+				return new CacheMediatorInputConnector3EditPart(view);
+
+			case CacheMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new CacheMediatorOutputConnector3EditPart(view);
+
+			case IterateMediator5EditPart.VISUAL_ID:
+				return new IterateMediator5EditPart(view);
+
+			case IterateMediatorIterateID5EditPart.VISUAL_ID:
+				return new IterateMediatorIterateID5EditPart(view);
+
+			case IterateMediatorInputConnector5EditPart.VISUAL_ID:
+				return new IterateMediatorInputConnector5EditPart(view);
+
+			case IterateMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new IterateMediatorOutputConnector5EditPart(view);
+
+			case CalloutMediator5EditPart.VISUAL_ID:
+				return new CalloutMediator5EditPart(view);
+
+			case CalloutMediatorSoapAction5EditPart.VISUAL_ID:
+				return new CalloutMediatorSoapAction5EditPart(view);
+
+			case CalloutMediatorInputConnector5EditPart.VISUAL_ID:
+				return new CalloutMediatorInputConnector5EditPart(view);
+
+			case CalloutMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new CalloutMediatorOutputConnector5EditPart(view);
+
+			case TransactionMediator5EditPart.VISUAL_ID:
+				return new TransactionMediator5EditPart(view);
+
+			case TransactionMediatorInputConnector5EditPart.VISUAL_ID:
+				return new TransactionMediatorInputConnector5EditPart(view);
+
+			case TransactionMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new TransactionMediatorOutputConnector5EditPart(view);
+
+			case RMSequenceMediator5EditPart.VISUAL_ID:
+				return new RMSequenceMediator5EditPart(view);
+
+			case RMSequenceMediatorInputConnector5EditPart.VISUAL_ID:
+				return new RMSequenceMediatorInputConnector5EditPart(view);
+
+			case RMSequenceMediatorOutputConnector5EditPart.VISUAL_ID:
+				return new RMSequenceMediatorOutputConnector5EditPart(view);
+
+			case RuleMediator3EditPart.VISUAL_ID:
+				return new RuleMediator3EditPart(view);
+
+			case RuleMediatorInputConnector3EditPart.VISUAL_ID:
+				return new RuleMediatorInputConnector3EditPart(view);
+
+			case RuleMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new RuleMediatorOutputConnector3EditPart(view);
+
+			case OAuthMediator3EditPart.VISUAL_ID:
+				return new OAuthMediator3EditPart(view);
+
+			case OAuthMediatorRemoteServiceUrl3EditPart.VISUAL_ID:
+				return new OAuthMediatorRemoteServiceUrl3EditPart(view);
+
+			case OAuthMediatorInputConnector3EditPart.VISUAL_ID:
+				return new OAuthMediatorInputConnector3EditPart(view);
+
+			case OAuthMediatorOutputConnector3EditPart.VISUAL_ID:
+				return new OAuthMediatorOutputConnector3EditPart(view);
+
 			case MessageMediatorEditPart.VISUAL_ID:
 				return new MessageMediatorEditPart(view);
 
@@ -1282,6 +1637,10 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case ProxyServiceEndpointContainerEndpointCompartmentEditPart.VISUAL_ID:
 				return new ProxyServiceEndpointContainerEndpointCompartmentEditPart(
+						view);
+
+			case ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart.VISUAL_ID:
+				return new ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart(
 						view);
 
 			case EsbLinkEditPart.VISUAL_ID:

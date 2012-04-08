@@ -1,21 +1,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-import org.apache.commons.lang.ObjectUtils.Null;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
@@ -113,6 +109,8 @@ public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
+		//Refresh connector's position.
+		((ProxyServiceInSequenceEditPart)child.getParent().getParent()).refreshOutputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
 		AbstractInputConnector inputConnector = null;
 
 		if (child instanceof AbstractMediator) {
@@ -131,12 +129,13 @@ public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 			}
 			if (outputConnectorEditPart == null) {
 				outputConnectorEditPart = ((AbstractOutputConnector) this
-						.getParent().getParent().getParent().getChildren()
-						.get(1));
+						.getParent().getParent().getParent().getParent()
+						.getParent().getChildren().get(1));
 			}
 			if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
 				sourceEditPart = (AbstractBorderedShapeEditPart) this
-						.getParent().getParent().getParent();
+						.getParent().getParent().getParent().getParent()
+						.getParent();
 			}
 
 			//System.out.println(outputConnectorEditPart.getFigure().getClass());

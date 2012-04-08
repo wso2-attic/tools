@@ -70,8 +70,8 @@ public class EsbServerContentsCompartmentEditPart extends
 				new EsbServerContentsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
-		 installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-		 new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new EsbServerContentsCompartmentCanonicalEditPolicy());
 	}

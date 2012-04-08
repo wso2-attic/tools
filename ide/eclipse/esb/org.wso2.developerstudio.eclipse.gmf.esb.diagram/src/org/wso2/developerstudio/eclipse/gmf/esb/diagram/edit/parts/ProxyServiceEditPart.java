@@ -64,6 +64,13 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected IFigure primaryShape;
 
+	
+	public IFigure inputConnectorFigure;
+	
+	public IFigure outputConnectorFigure;
+	
+	public IFigure faultInputnputConnectorFigure;
+	
 	/**
 	 * @generated
 	 */
@@ -151,171 +158,42 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ProxyOutputConnectorEditPart) {
-			IFigure borderItemFigure = ((ProxyOutputConnectorEditPart) childEditPart)
+			outputConnectorFigure = ((ProxyOutputConnectorEditPart) childEditPart)
 					.getFigure();
-
-			BorderItemLocator locator = new FixedBorderItemLocator(
+/*			BorderItemLocator locator = new FixedBorderItemLocator(
 					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
 							.getChildren().get(0)).getChildren().get(0))
-							.getChildren().get(0), borderItemFigure,
+							.getChildren().get(0), outputConnectorFigure,
 					PositionConstants.EAST, 0.25);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			getBorderedFigure().getBorderItemContainer().add(outputConnectorFigure,
+					locator);*/
 
-			return true;
+			return false;
 		}
 		if (childEditPart instanceof ProxyInputConnectorEditPart) {
-			IFigure borderItemFigure = ((ProxyInputConnectorEditPart) childEditPart)
+			inputConnectorFigure = ((ProxyInputConnectorEditPart) childEditPart)
 					.getFigure();
-
+/*
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
 							.getChildren().get(0)).getChildren().get(0))
-							.getChildren().get(0), borderItemFigure,
+							.getChildren().get(0), inputConnectorFigure,
 					PositionConstants.EAST, 0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			getBorderedFigure().getBorderItemContainer().add(inputConnectorFigure,
+					locator);*/
 
-			return true;
+			return false;
 		}
+		
+		if (childEditPart instanceof ProxyFaultInputConnectorEditPart) {
+			faultInputnputConnectorFigure = ((ProxyFaultInputConnectorEditPart) childEditPart)
+					.getFigure();
+
+			return false;
+		}
+
 		return false;
 	}
-
-	/*
-	 *//**
-		 * @generated NOT
-		 */
-	/*
-	protected boolean addFixedChild(EditPart childEditPart, int index) {
-	if (childEditPart instanceof ProxyServiceNameEditPart) {
-		((ProxyServiceNameEditPart) childEditPart)
-				.setLabel(getPrimaryShape()
-						.getFigureProxyNamePropertyLabel());
-		return true;
-	}
-	if (childEditPart instanceof ProxyInputConnectorEditPart) {
-
-		IFigure borderItemFigure = ((ProxyInputConnectorEditPart) childEditPart)
-				.getFigure();
-		BorderItemLocator locator = new FixedBorderItemLocator(
-				getMainFigure(), borderItemFigure, PositionConstants.EAST,
-				0.75);
-		getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-				locator);
-		return true;
-
-	} else if (childEditPart instanceof ProxyOutputConnectorEditPart) {
-
-		IFigure borderItemFigure = ((ProxyOutputConnectorEditPart) childEditPart)
-				.getFigure();
-		BorderItemLocator locator = new FixedBorderItemLocator(
-				getMainFigure(), borderItemFigure, PositionConstants.EAST,
-				0.25);
-		getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-				locator);
-
-		return true;
-	}
-	 else if (childEditPart instanceof ProxyServiceInSequenceEditPart) {
-
-		IFigure childFigure = ((GraphicalEditPart) childEditPart)
-				.getFigure();
-		if (childEditPart instanceof IBorderItemEditPart) {
-			IFigure borderItemContainer = getContentPaneFor((IGraphicalEditPart) childEditPart);
-			addBorderItem(borderItemContainer,
-					(IBorderItemEditPart) childEditPart);
-		} else {
-			IFigure parent = getContentPaneFor((IGraphicalEditPart) childEditPart);
-
-			// If there are a mixture of border items and other contained
-			// figures, the index may be incorrect and could result in out of
-			// bounds exceptions.
-			index = Math.min(parent.getChildren().size(), index);
-
-			//  System.out.println("in path  parent  "+parent.getClass()+"   child  "+childFigure.getClass());
-
-			//    IFigure fig=(IFigure) parent.getChildren().get(0);
-
-			//  fig.add((IFigure) childFigure.getChildren().get(0));
-
-			System.out.println("in path  parent  "
-					+ parent.getChildren().get(1).getClass()
-					+ "   child  "
-					+ childFigure.getClass()
-					+ "   child figure     "
-					+ ((DefaultSizeNodeFigure) childFigure).getChildren()
-							.get(0).getClass());
-
-			IFigure rightBox = (IFigure) parent.getChildren().get(1);
-
-			IFigure child = (IFigure) ((DefaultSizeNodeFigure) childFigure)
-					.getChildren().get(0);
-
-			RoundedRectangle testParent = new RoundedRectangle();
-
-			RoundedRectangle testChild = new RoundedRectangle();
-
-			// testParent.add(testChild);
-
-			// parent.add(testChild, index);
-
-			parent.add(childFigure, index);
-		}
-
-		return true;
-	}
-
-	else if (childEditPart instanceof ProxyServiceOutSequenceEditPart) {
-
-		IFigure childFigure = ((GraphicalEditPart) childEditPart)
-				.getFigure();
-		if (childEditPart instanceof IBorderItemEditPart) {
-			IFigure borderItemContainer = getContentPaneFor((IGraphicalEditPart) childEditPart);
-			addBorderItem(borderItemContainer,
-					(IBorderItemEditPart) childEditPart);
-		} else {
-			IFigure parent = getContentPaneFor((IGraphicalEditPart) childEditPart);
-
-			// If there are a mixture of border items and other contained
-			// figures, the index may be incorrect and could result in out of
-			// bounds exceptions.
-			index = Math.min(parent.getChildren().size(), index);
-
-			//   System.out.println("out path  parent  "+parent.getClass()+"   child  "+childFigure.getClass());
-
-			//  IFigure fig=(IFigure) parent.getChildren().get(0);
-
-			//   fig.add(childFigure);
-
-			System.out.println("out path  parent  "
-					+ parent.getChildren().get(1).getClass()
-					+ "   child  "
-					+ childFigure.getClass()
-					+ "   child figure     "
-					+ ((DefaultSizeNodeFigure) childFigure).getChildren()
-							.get(0).getClass());
-
-			IFigure rightBox = (IFigure) parent.getChildren().get(1);
-
-			IFigure child = (IFigure) ((DefaultSizeNodeFigure) childFigure)
-					.getChildren().get(0);
-
-			RoundedRectangle testParent = new RoundedRectangle();
-
-			RoundedRectangle testChild = new RoundedRectangle();
-
-			//  testParent.add(testChild);
-
-			//parent.add(child, index);
-
-			parent.add(childFigure, index);
-		}
-
-		return true;
-	}
-
-	return false;
-	}*/
 
 	/**
 	 * @generated
@@ -500,7 +378,6 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 
 		public void addPropertyChangeListener(PropertyChangeListener listener) {
 			// TODO Auto-generated method stub
-			//System.out.println(listener.getClass());
 			super.addPropertyChangeListener(listener);
 		}
 
@@ -535,9 +412,6 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			fFigureProxyNamePropertyLabel = new WrappingLabel();
 			fFigureProxyNamePropertyLabel.setText("<...>");
 			fFigureProxyNamePropertyLabel.setAlignment(SWT.CENTER);
-			/*
-			 this.getPropertyValueRectangle1()
-			 .add(fFigureProxyNamePropertyLabel);*/
 		}
 
 		/**

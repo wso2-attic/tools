@@ -348,8 +348,8 @@ public class EsbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				if (source == null) {
 					return true;
 				} else {
-					Map/*[String, org.eclipse.emf.ecore.EClassifier]*/env = Collections
-							./*[String, org.eclipse.emf.ecore.EClassifier]*/singletonMap(
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
 									"oppositeEnd", EsbPackage.eINSTANCE.getInputConnector()); //$NON-NLS-1$
 					Object sourceVal = EsbOCLFactory.getExpression(0,
 							EsbPackage.eINSTANCE.getOutputConnector(), env)
@@ -365,8 +365,8 @@ public class EsbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				if (target == null) {
 					return true;
 				} else {
-					Map/*[String, org.eclipse.emf.ecore.EClassifier]*/env = Collections
-							./*[String, org.eclipse.emf.ecore.EClassifier]*/singletonMap(
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
 									"oppositeEnd", EsbPackage.eINSTANCE.getOutputConnector()); //$NON-NLS-1$
 					Object targetVal = EsbOCLFactory.getExpression(1,
 							EsbPackage.eINSTANCE.getInputConnector(), env)

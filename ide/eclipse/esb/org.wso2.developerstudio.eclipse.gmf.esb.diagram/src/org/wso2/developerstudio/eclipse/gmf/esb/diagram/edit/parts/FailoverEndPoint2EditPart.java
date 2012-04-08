@@ -151,14 +151,18 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnectorEditPart) {
 			double position;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
-			if(((FailoverEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().size()!=0){
-				EObject source=((FailoverEndPoint)parentEndpoint).getInputConnector().getIncomingLinks().get(0).getSource().eContainer();
-				position=((source instanceof LoadBalanceEndPoint)||(source instanceof FailoverEndPoint))? 0.5: 0.25;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
+					.getParent()).getModel()).getElement();
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() != 0) {
+				EObject source = ((FailoverEndPoint) parentEndpoint)
+						.getInputConnector().getIncomingLinks().get(0)
+						.getSource().eContainer();
+				position = ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint)) ? 0.5
+						: 0.25;
+			} else {
+				position = 0.25;
 			}
-			else{
-				position=0.25;
-			}			
 			IFigure borderItemFigure = ((FailoverEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
@@ -370,10 +374,10 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 			// .getFigure()).getId() == -1) {
 			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart
 					.getFigure()).setId(id++);
-			if(caseBranchEditpart.getBorderItemLocator() instanceof EvenlyDividedFixedBorderItemLocator){
-			 borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
-					.getBorderItemLocator();
-		}
+			if (caseBranchEditpart.getBorderItemLocator() instanceof EvenlyDividedFixedBorderItemLocator) {
+				borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
+						.getBorderItemLocator();
+			}
 			if (borderItemLocator != null) {
 				borderItemLocator.setSiblingCount(outputCount);
 			}
@@ -440,7 +444,7 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 		}
 
 	}
-	
+
 	public void refreshChildren() {
 		// TODO Auto-generated method stub
 		super.refreshChildren();

@@ -33,7 +33,7 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3381;
+	public static final int VISUAL_ID = 3392;
 
 	/**
 	 * @generated

@@ -33,7 +33,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	private static Map/*[org.eclipse.gmf.runtime.emf.type.core.IElementType, org.eclipse.emf.ecore.ENamedElement]*/elements;
+	private static Map<IElementType, ENamedElement> elements;
 
 	/**
 	 * @generated
@@ -43,7 +43,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	private static Set/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/KNOWN_ELEMENT_TYPES;
+	private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
 	/**
 	 * @generated
@@ -71,7 +71,22 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ProxyServiceSequenceContainer_3196 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3196"); //$NON-NLS-1$
+	public static final IElementType ProxyFaultInputConnector_3489 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyFaultInputConnector_3489"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProxyServiceContainer_3486 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceContainer_3486"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProxyServiceSequenceAndEndpointContainer_3487 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceAndEndpointContainer_3487"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProxyServiceSequenceContainer_3391 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3391"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -496,6 +511,471 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ProxyServiceFaultContainer_3488 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DropMediator_3394 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediator_3394"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DropMediatorInputConnector_3395 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediatorInputConnector_3395"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType PropertyMediator_3396 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediator_3396"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType PropertyMediatorInputConnector_3397 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorInputConnector_3397"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType PropertyMediatorOutputConnector_3398 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorOutputConnector_3398"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ThrottleMediator_3399 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediator_3399"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ThrottleMediatorInputConnector_3400 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorInputConnector_3400"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ThrottleMediatorOutputConnector_3401 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorOutputConnector_3401"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FilterMediator_3402 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediator_3402"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FilterMediatorInputConnector_3403 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorInputConnector_3403"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FilterMediatorPassOutputConnector_3404 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorPassOutputConnector_3404"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FilterMediatorFailOutputConnector_3405 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorFailOutputConnector_3405"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LogMediator_3406 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediator_3406"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LogMediatorInputConnector_3407 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3407"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LogMediatorOutputConnector_3408 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorOutputConnector_3408"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EnrichMediator_3409 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediator_3409"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EnrichMediatorInputConnector_3410 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorInputConnector_3410"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EnrichMediatorOutputConnector_3411 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorOutputConnector_3411"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XSLTMediator_3412 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediator_3412"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XSLTMediatorInputConnector_3413 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorInputConnector_3413"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XSLTMediatorOutputConnector_3414 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorOutputConnector_3414"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchMediator_3415 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediator_3415"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchMediatorInputConnector_3416 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediatorInputConnector_3416"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchCaseBranchOutputConnector_3417 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseBranchOutputConnector_3417"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchDefaultBranchOutputConnector_3418 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultBranchOutputConnector_3418"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Sequence_3419 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequence_3419"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SequenceInputConnector_3420 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceInputConnector_3420"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SequenceOutputConnector_3421 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceOutputConnector_3421"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EventMediator_3422 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediator_3422"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EventMediatorInputConnector_3423 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorInputConnector_3423"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EventMediatorOutputConnector_3424 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorOutputConnector_3424"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EntitlementMediator_3425 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediator_3425"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EntitlementMediatorInputConnector_3426 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorInputConnector_3426"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EntitlementMediatorOutputConnector_3427 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorOutputConnector_3427"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ClassMediator_3428 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediator_3428"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ClassMediatorInputConnector_3429 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorInputConnector_3429"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ClassMediatorOutputConnector_3430 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorOutputConnector_3430"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SpringMediator_3431 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediator_3431"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SpringMediatorInputConnector_3432 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorInputConnector_3432"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SpringMediatorOutputConnector_3433 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorOutputConnector_3433"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ScriptMediator_3434 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediator_3434"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ScriptMediatorInputConnector_3435 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorInputConnector_3435"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ScriptMediatorOutputConnector_3436 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorOutputConnector_3436"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FaultMediator_3437 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediator_3437"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FaultMediatorInputConnector_3438 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorInputConnector_3438"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FaultMediatorOutputConnector_3439 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorOutputConnector_3439"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XQueryMediator_3440 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediator_3440"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XQueryMediatorInputConnector_3441 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorInputConnector_3441"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType XQueryMediatorOutputConnector_3442 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorOutputConnector_3442"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CommandMediator_3443 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediator_3443"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CommandMediatorInputConnector_3444 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorInputConnector_3444"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CommandMediatorOutputConnector_3445 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorOutputConnector_3445"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBLookupMediator_3446 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediator_3446"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBLookupMediatorInputConnector_3447 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorInputConnector_3447"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBLookupMediatorOutputConnector_3448 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorOutputConnector_3448"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBReportMediator_3449 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediator_3449"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBReportMediatorInputConnector_3450 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorInputConnector_3450"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DBReportMediatorOutputConnector_3451 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorOutputConnector_3451"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SmooksMediator_3452 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediator_3452"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SmooksMediatorInputConnector_3453 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorInputConnector_3453"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SmooksMediatorOutputConnector_3454 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorOutputConnector_3454"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SendMediator_3455 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediator_3455"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SendMediatorInputConnector_3456 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorInputConnector_3456"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SendMediatorOutputConnector_3457 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorOutputConnector_3457"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HeaderMediator_3458 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediator_3458"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HeaderMediatorInputConnector_3459 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorInputConnector_3459"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HeaderMediatorOutputConnector_3460 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorOutputConnector_3460"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloneMediator_3461 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediator_3461"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloneMediatorInputConnector_3462 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorInputConnector_3462"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloneMediatorOutputConnector_3463 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorOutputConnector_3463"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloneMediatorTargetOutputConnector_3464 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorTargetOutputConnector_3464"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CacheMediator_3465 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediator_3465"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CacheMediatorInputConnector_3466 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorInputConnector_3466"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CacheMediatorOutputConnector_3467 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorOutputConnector_3467"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType IterateMediator_3468 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediator_3468"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType IterateMediatorInputConnector_3469 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorInputConnector_3469"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType IterateMediatorOutputConnector_3470 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorOutputConnector_3470"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CalloutMediator_3471 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediator_3471"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CalloutMediatorInputConnector_3472 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorInputConnector_3472"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CalloutMediatorOutputConnector_3473 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorOutputConnector_3473"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TransactionMediator_3474 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediator_3474"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TransactionMediatorInputConnector_3475 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorInputConnector_3475"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TransactionMediatorOutputConnector_3476 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorOutputConnector_3476"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RMSequenceMediator_3477 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediator_3477"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RMSequenceMediatorInputConnector_3478 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorInputConnector_3478"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RMSequenceMediatorOutputConnector_3479 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorOutputConnector_3479"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RuleMediator_3480 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediator_3480"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RuleMediatorInputConnector_3481 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorInputConnector_3481"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RuleMediatorOutputConnector_3482 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorOutputConnector_3482"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OAuthMediator_3483 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediator_3483"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OAuthMediatorInputConnector_3484 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorInputConnector_3484"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OAuthMediatorOutputConnector_3485 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorOutputConnector_3485"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType HeaderMediatorInputConnector_3100 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorInputConnector_3100"); //$NON-NLS-1$
 
 	/**
@@ -896,7 +1376,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ProxyServiceEndpointContainer_3381 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3381"); //$NON-NLS-1$
+	public static final IElementType ProxyServiceEndpointContainer_3392 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3392"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1842,7 +2322,7 @@ public class EsbElementTypes {
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
 		if (elements == null) {
-			elements = new IdentityHashMap/*[org.eclipse.gmf.runtime.emf.type.core.IElementType, org.eclipse.emf.ecore.ENamedElement]*/();
+			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
 			elements.put(EsbDiagram_1000, EsbPackage.eINSTANCE.getEsbDiagram());
 
@@ -1857,7 +2337,17 @@ public class EsbElementTypes {
 			elements.put(ProxyInputConnector_3003,
 					EsbPackage.eINSTANCE.getProxyInputConnector());
 
-			elements.put(ProxyServiceSequenceContainer_3196,
+			elements.put(ProxyFaultInputConnector_3489,
+					EsbPackage.eINSTANCE.getProxyFaultInputConnector());
+
+			elements.put(ProxyServiceContainer_3486,
+					EsbPackage.eINSTANCE.getProxyServiceContainer());
+
+			elements.put(ProxyServiceSequenceAndEndpointContainer_3487,
+					EsbPackage.eINSTANCE
+							.getProxyServiceSequenceAndEndpointContainer());
+
+			elements.put(ProxyServiceSequenceContainer_3391,
 					EsbPackage.eINSTANCE.getProxyServiceSequenceContainer());
 
 			elements.put(ProxyServiceInSequence_3197,
@@ -2790,7 +3280,7 @@ public class EsbElementTypes {
 			elements.put(SequenceOutputConnector_3377,
 					EsbPackage.eINSTANCE.getSequenceOutputConnector());
 
-			elements.put(ProxyServiceEndpointContainer_3381,
+			elements.put(ProxyServiceEndpointContainer_3392,
 					EsbPackage.eINSTANCE.getProxyServiceEndpointContainer());
 
 			elements.put(DefaultEndPoint_3382,
@@ -2847,6 +3337,288 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE
 							.getLoadBalanceEndPointWestOutputConnector());
 
+			elements.put(ProxyServiceFaultContainer_3488,
+					EsbPackage.eINSTANCE.getProxyServiceFaultContainer());
+
+			elements.put(DropMediator_3394,
+					EsbPackage.eINSTANCE.getDropMediator());
+
+			elements.put(DropMediatorInputConnector_3395,
+					EsbPackage.eINSTANCE.getDropMediatorInputConnector());
+
+			elements.put(PropertyMediator_3396,
+					EsbPackage.eINSTANCE.getPropertyMediator());
+
+			elements.put(PropertyMediatorInputConnector_3397,
+					EsbPackage.eINSTANCE.getPropertyMediatorInputConnector());
+
+			elements.put(PropertyMediatorOutputConnector_3398,
+					EsbPackage.eINSTANCE.getPropertyMediatorOutputConnector());
+
+			elements.put(ThrottleMediator_3399,
+					EsbPackage.eINSTANCE.getThrottleMediator());
+
+			elements.put(ThrottleMediatorInputConnector_3400,
+					EsbPackage.eINSTANCE.getThrottleMediatorInputConnector());
+
+			elements.put(ThrottleMediatorOutputConnector_3401,
+					EsbPackage.eINSTANCE.getThrottleMediatorOutputConnector());
+
+			elements.put(FilterMediator_3402,
+					EsbPackage.eINSTANCE.getFilterMediator());
+
+			elements.put(FilterMediatorInputConnector_3403,
+					EsbPackage.eINSTANCE.getFilterMediatorInputConnector());
+
+			elements.put(FilterMediatorPassOutputConnector_3404,
+					EsbPackage.eINSTANCE.getFilterMediatorPassOutputConnector());
+
+			elements.put(FilterMediatorFailOutputConnector_3405,
+					EsbPackage.eINSTANCE.getFilterMediatorFailOutputConnector());
+
+			elements.put(LogMediator_3406,
+					EsbPackage.eINSTANCE.getLogMediator());
+
+			elements.put(LogMediatorInputConnector_3407,
+					EsbPackage.eINSTANCE.getLogMediatorInputConnector());
+
+			elements.put(LogMediatorOutputConnector_3408,
+					EsbPackage.eINSTANCE.getLogMediatorOutputConnector());
+
+			elements.put(EnrichMediator_3409,
+					EsbPackage.eINSTANCE.getEnrichMediator());
+
+			elements.put(EnrichMediatorInputConnector_3410,
+					EsbPackage.eINSTANCE.getEnrichMediatorInputConnector());
+
+			elements.put(EnrichMediatorOutputConnector_3411,
+					EsbPackage.eINSTANCE.getEnrichMediatorOutputConnector());
+
+			elements.put(XSLTMediator_3412,
+					EsbPackage.eINSTANCE.getXSLTMediator());
+
+			elements.put(XSLTMediatorInputConnector_3413,
+					EsbPackage.eINSTANCE.getXSLTMediatorInputConnector());
+
+			elements.put(XSLTMediatorOutputConnector_3414,
+					EsbPackage.eINSTANCE.getXSLTMediatorOutputConnector());
+
+			elements.put(SwitchMediator_3415,
+					EsbPackage.eINSTANCE.getSwitchMediator());
+
+			elements.put(SwitchMediatorInputConnector_3416,
+					EsbPackage.eINSTANCE.getSwitchMediatorInputConnector());
+
+			elements.put(SwitchCaseBranchOutputConnector_3417,
+					EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector());
+
+			elements.put(SwitchDefaultBranchOutputConnector_3418,
+					EsbPackage.eINSTANCE
+							.getSwitchDefaultBranchOutputConnector());
+
+			elements.put(Sequence_3419, EsbPackage.eINSTANCE.getSequence());
+
+			elements.put(SequenceInputConnector_3420,
+					EsbPackage.eINSTANCE.getSequenceInputConnector());
+
+			elements.put(SequenceOutputConnector_3421,
+					EsbPackage.eINSTANCE.getSequenceOutputConnector());
+
+			elements.put(EventMediator_3422,
+					EsbPackage.eINSTANCE.getEventMediator());
+
+			elements.put(EventMediatorInputConnector_3423,
+					EsbPackage.eINSTANCE.getEventMediatorInputConnector());
+
+			elements.put(EventMediatorOutputConnector_3424,
+					EsbPackage.eINSTANCE.getEventMediatorOutputConnector());
+
+			elements.put(EntitlementMediator_3425,
+					EsbPackage.eINSTANCE.getEntitlementMediator());
+
+			elements.put(EntitlementMediatorInputConnector_3426,
+					EsbPackage.eINSTANCE.getEntitlementMediatorInputConnector());
+
+			elements.put(EntitlementMediatorOutputConnector_3427,
+					EsbPackage.eINSTANCE
+							.getEntitlementMediatorOutputConnector());
+
+			elements.put(ClassMediator_3428,
+					EsbPackage.eINSTANCE.getClassMediator());
+
+			elements.put(ClassMediatorInputConnector_3429,
+					EsbPackage.eINSTANCE.getClassMediatorInputConnector());
+
+			elements.put(ClassMediatorOutputConnector_3430,
+					EsbPackage.eINSTANCE.getClassMediatorOutputConnector());
+
+			elements.put(SpringMediator_3431,
+					EsbPackage.eINSTANCE.getSpringMediator());
+
+			elements.put(SpringMediatorInputConnector_3432,
+					EsbPackage.eINSTANCE.getSpringMediatorInputConnector());
+
+			elements.put(SpringMediatorOutputConnector_3433,
+					EsbPackage.eINSTANCE.getSpringMediatorOutputConnector());
+
+			elements.put(ScriptMediator_3434,
+					EsbPackage.eINSTANCE.getScriptMediator());
+
+			elements.put(ScriptMediatorInputConnector_3435,
+					EsbPackage.eINSTANCE.getScriptMediatorInputConnector());
+
+			elements.put(ScriptMediatorOutputConnector_3436,
+					EsbPackage.eINSTANCE.getScriptMediatorOutputConnector());
+
+			elements.put(FaultMediator_3437,
+					EsbPackage.eINSTANCE.getFaultMediator());
+
+			elements.put(FaultMediatorInputConnector_3438,
+					EsbPackage.eINSTANCE.getFaultMediatorInputConnector());
+
+			elements.put(FaultMediatorOutputConnector_3439,
+					EsbPackage.eINSTANCE.getFaultMediatorOutputConnector());
+
+			elements.put(XQueryMediator_3440,
+					EsbPackage.eINSTANCE.getXQueryMediator());
+
+			elements.put(XQueryMediatorInputConnector_3441,
+					EsbPackage.eINSTANCE.getXQueryMediatorInputConnector());
+
+			elements.put(XQueryMediatorOutputConnector_3442,
+					EsbPackage.eINSTANCE.getXQueryMediatorOutputConnector());
+
+			elements.put(CommandMediator_3443,
+					EsbPackage.eINSTANCE.getCommandMediator());
+
+			elements.put(CommandMediatorInputConnector_3444,
+					EsbPackage.eINSTANCE.getCommandMediatorInputConnector());
+
+			elements.put(CommandMediatorOutputConnector_3445,
+					EsbPackage.eINSTANCE.getCommandMediatorOutputConnector());
+
+			elements.put(DBLookupMediator_3446,
+					EsbPackage.eINSTANCE.getDBLookupMediator());
+
+			elements.put(DBLookupMediatorInputConnector_3447,
+					EsbPackage.eINSTANCE.getDBLookupMediatorInputConnector());
+
+			elements.put(DBLookupMediatorOutputConnector_3448,
+					EsbPackage.eINSTANCE.getDBLookupMediatorOutputConnector());
+
+			elements.put(DBReportMediator_3449,
+					EsbPackage.eINSTANCE.getDBReportMediator());
+
+			elements.put(DBReportMediatorInputConnector_3450,
+					EsbPackage.eINSTANCE.getDBReportMediatorInputConnector());
+
+			elements.put(DBReportMediatorOutputConnector_3451,
+					EsbPackage.eINSTANCE.getDBReportMediatorOutputConnector());
+
+			elements.put(SmooksMediator_3452,
+					EsbPackage.eINSTANCE.getSmooksMediator());
+
+			elements.put(SmooksMediatorInputConnector_3453,
+					EsbPackage.eINSTANCE.getSmooksMediatorInputConnector());
+
+			elements.put(SmooksMediatorOutputConnector_3454,
+					EsbPackage.eINSTANCE.getSmooksMediatorOutputConnector());
+
+			elements.put(SendMediator_3455,
+					EsbPackage.eINSTANCE.getSendMediator());
+
+			elements.put(SendMediatorInputConnector_3456,
+					EsbPackage.eINSTANCE.getSendMediatorInputConnector());
+
+			elements.put(SendMediatorOutputConnector_3457,
+					EsbPackage.eINSTANCE.getSendMediatorOutputConnector());
+
+			elements.put(HeaderMediator_3458,
+					EsbPackage.eINSTANCE.getHeaderMediator());
+
+			elements.put(HeaderMediatorInputConnector_3459,
+					EsbPackage.eINSTANCE.getHeaderMediatorInputConnector());
+
+			elements.put(HeaderMediatorOutputConnector_3460,
+					EsbPackage.eINSTANCE.getHeaderMediatorOutputConnector());
+
+			elements.put(CloneMediator_3461,
+					EsbPackage.eINSTANCE.getCloneMediator());
+
+			elements.put(CloneMediatorInputConnector_3462,
+					EsbPackage.eINSTANCE.getCloneMediatorInputConnector());
+
+			elements.put(CloneMediatorOutputConnector_3463,
+					EsbPackage.eINSTANCE.getCloneMediatorOutputConnector());
+
+			elements.put(CloneMediatorTargetOutputConnector_3464,
+					EsbPackage.eINSTANCE
+							.getCloneMediatorTargetOutputConnector());
+
+			elements.put(CacheMediator_3465,
+					EsbPackage.eINSTANCE.getCacheMediator());
+
+			elements.put(CacheMediatorInputConnector_3466,
+					EsbPackage.eINSTANCE.getCacheMediatorInputConnector());
+
+			elements.put(CacheMediatorOutputConnector_3467,
+					EsbPackage.eINSTANCE.getCacheMediatorOutputConnector());
+
+			elements.put(IterateMediator_3468,
+					EsbPackage.eINSTANCE.getIterateMediator());
+
+			elements.put(IterateMediatorInputConnector_3469,
+					EsbPackage.eINSTANCE.getIterateMediatorInputConnector());
+
+			elements.put(IterateMediatorOutputConnector_3470,
+					EsbPackage.eINSTANCE.getIterateMediatorOutputConnector());
+
+			elements.put(CalloutMediator_3471,
+					EsbPackage.eINSTANCE.getCalloutMediator());
+
+			elements.put(CalloutMediatorInputConnector_3472,
+					EsbPackage.eINSTANCE.getCalloutMediatorInputConnector());
+
+			elements.put(CalloutMediatorOutputConnector_3473,
+					EsbPackage.eINSTANCE.getCalloutMediatorOutputConnector());
+
+			elements.put(TransactionMediator_3474,
+					EsbPackage.eINSTANCE.getTransactionMediator());
+
+			elements.put(TransactionMediatorInputConnector_3475,
+					EsbPackage.eINSTANCE.getTransactionMediatorInputConnector());
+
+			elements.put(TransactionMediatorOutputConnector_3476,
+					EsbPackage.eINSTANCE
+							.getTransactionMediatorOutputConnector());
+
+			elements.put(RMSequenceMediator_3477,
+					EsbPackage.eINSTANCE.getRMSequenceMediator());
+
+			elements.put(RMSequenceMediatorInputConnector_3478,
+					EsbPackage.eINSTANCE.getRMSequenceMediatorInputConnector());
+
+			elements.put(RMSequenceMediatorOutputConnector_3479,
+					EsbPackage.eINSTANCE.getRMSequenceMediatorOutputConnector());
+
+			elements.put(RuleMediator_3480,
+					EsbPackage.eINSTANCE.getRuleMediator());
+
+			elements.put(RuleMediatorInputConnector_3481,
+					EsbPackage.eINSTANCE.getRuleMediatorInputConnector());
+
+			elements.put(RuleMediatorOutputConnector_3482,
+					EsbPackage.eINSTANCE.getRuleMediatorOutputConnector());
+
+			elements.put(OAuthMediator_3483,
+					EsbPackage.eINSTANCE.getOAuthMediator());
+
+			elements.put(OAuthMediatorInputConnector_3484,
+					EsbPackage.eINSTANCE.getOAuthMediatorInputConnector());
+
+			elements.put(OAuthMediatorOutputConnector_3485,
+					EsbPackage.eINSTANCE.getOAuthMediatorOutputConnector());
+
 			elements.put(MessageMediator_3045,
 					EsbPackage.eINSTANCE.getMessageMediator());
 
@@ -2884,13 +3656,17 @@ public class EsbElementTypes {
 	 */
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
-			KNOWN_ELEMENT_TYPES = new HashSet/*[org.eclipse.gmf.runtime.emf.type.core.IElementType]*/();
+			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(EsbDiagram_1000);
 			KNOWN_ELEMENT_TYPES.add(EsbServer_2001);
 			KNOWN_ELEMENT_TYPES.add(ProxyService_3001);
 			KNOWN_ELEMENT_TYPES.add(ProxyOutputConnector_3002);
 			KNOWN_ELEMENT_TYPES.add(ProxyInputConnector_3003);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceSequenceContainer_3196);
+			KNOWN_ELEMENT_TYPES.add(ProxyFaultInputConnector_3489);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3486);
+			KNOWN_ELEMENT_TYPES
+					.add(ProxyServiceSequenceAndEndpointContainer_3487);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceSequenceContainer_3391);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceInSequence_3197);
 			KNOWN_ELEMENT_TYPES.add(DropMediator_3191);
 			KNOWN_ELEMENT_TYPES.add(DropMediatorInputConnector_3008);
@@ -3199,7 +3975,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Sequence_3375);
 			KNOWN_ELEMENT_TYPES.add(SequenceInputConnector_3376);
 			KNOWN_ELEMENT_TYPES.add(SequenceOutputConnector_3377);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceEndpointContainer_3381);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceEndpointContainer_3392);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3382);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
@@ -3218,6 +3994,99 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
 			KNOWN_ELEMENT_TYPES
 					.add(LoadBalanceEndPointWestOutputConnector_3098);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceFaultContainer_3488);
+			KNOWN_ELEMENT_TYPES.add(DropMediator_3394);
+			KNOWN_ELEMENT_TYPES.add(DropMediatorInputConnector_3395);
+			KNOWN_ELEMENT_TYPES.add(PropertyMediator_3396);
+			KNOWN_ELEMENT_TYPES.add(PropertyMediatorInputConnector_3397);
+			KNOWN_ELEMENT_TYPES.add(PropertyMediatorOutputConnector_3398);
+			KNOWN_ELEMENT_TYPES.add(ThrottleMediator_3399);
+			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorInputConnector_3400);
+			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorOutputConnector_3401);
+			KNOWN_ELEMENT_TYPES.add(FilterMediator_3402);
+			KNOWN_ELEMENT_TYPES.add(FilterMediatorInputConnector_3403);
+			KNOWN_ELEMENT_TYPES.add(FilterMediatorPassOutputConnector_3404);
+			KNOWN_ELEMENT_TYPES.add(FilterMediatorFailOutputConnector_3405);
+			KNOWN_ELEMENT_TYPES.add(LogMediator_3406);
+			KNOWN_ELEMENT_TYPES.add(LogMediatorInputConnector_3407);
+			KNOWN_ELEMENT_TYPES.add(LogMediatorOutputConnector_3408);
+			KNOWN_ELEMENT_TYPES.add(EnrichMediator_3409);
+			KNOWN_ELEMENT_TYPES.add(EnrichMediatorInputConnector_3410);
+			KNOWN_ELEMENT_TYPES.add(EnrichMediatorOutputConnector_3411);
+			KNOWN_ELEMENT_TYPES.add(XSLTMediator_3412);
+			KNOWN_ELEMENT_TYPES.add(XSLTMediatorInputConnector_3413);
+			KNOWN_ELEMENT_TYPES.add(XSLTMediatorOutputConnector_3414);
+			KNOWN_ELEMENT_TYPES.add(SwitchMediator_3415);
+			KNOWN_ELEMENT_TYPES.add(SwitchMediatorInputConnector_3416);
+			KNOWN_ELEMENT_TYPES.add(SwitchCaseBranchOutputConnector_3417);
+			KNOWN_ELEMENT_TYPES.add(SwitchDefaultBranchOutputConnector_3418);
+			KNOWN_ELEMENT_TYPES.add(Sequence_3419);
+			KNOWN_ELEMENT_TYPES.add(SequenceInputConnector_3420);
+			KNOWN_ELEMENT_TYPES.add(SequenceOutputConnector_3421);
+			KNOWN_ELEMENT_TYPES.add(EventMediator_3422);
+			KNOWN_ELEMENT_TYPES.add(EventMediatorInputConnector_3423);
+			KNOWN_ELEMENT_TYPES.add(EventMediatorOutputConnector_3424);
+			KNOWN_ELEMENT_TYPES.add(EntitlementMediator_3425);
+			KNOWN_ELEMENT_TYPES.add(EntitlementMediatorInputConnector_3426);
+			KNOWN_ELEMENT_TYPES.add(EntitlementMediatorOutputConnector_3427);
+			KNOWN_ELEMENT_TYPES.add(ClassMediator_3428);
+			KNOWN_ELEMENT_TYPES.add(ClassMediatorInputConnector_3429);
+			KNOWN_ELEMENT_TYPES.add(ClassMediatorOutputConnector_3430);
+			KNOWN_ELEMENT_TYPES.add(SpringMediator_3431);
+			KNOWN_ELEMENT_TYPES.add(SpringMediatorInputConnector_3432);
+			KNOWN_ELEMENT_TYPES.add(SpringMediatorOutputConnector_3433);
+			KNOWN_ELEMENT_TYPES.add(ScriptMediator_3434);
+			KNOWN_ELEMENT_TYPES.add(ScriptMediatorInputConnector_3435);
+			KNOWN_ELEMENT_TYPES.add(ScriptMediatorOutputConnector_3436);
+			KNOWN_ELEMENT_TYPES.add(FaultMediator_3437);
+			KNOWN_ELEMENT_TYPES.add(FaultMediatorInputConnector_3438);
+			KNOWN_ELEMENT_TYPES.add(FaultMediatorOutputConnector_3439);
+			KNOWN_ELEMENT_TYPES.add(XQueryMediator_3440);
+			KNOWN_ELEMENT_TYPES.add(XQueryMediatorInputConnector_3441);
+			KNOWN_ELEMENT_TYPES.add(XQueryMediatorOutputConnector_3442);
+			KNOWN_ELEMENT_TYPES.add(CommandMediator_3443);
+			KNOWN_ELEMENT_TYPES.add(CommandMediatorInputConnector_3444);
+			KNOWN_ELEMENT_TYPES.add(CommandMediatorOutputConnector_3445);
+			KNOWN_ELEMENT_TYPES.add(DBLookupMediator_3446);
+			KNOWN_ELEMENT_TYPES.add(DBLookupMediatorInputConnector_3447);
+			KNOWN_ELEMENT_TYPES.add(DBLookupMediatorOutputConnector_3448);
+			KNOWN_ELEMENT_TYPES.add(DBReportMediator_3449);
+			KNOWN_ELEMENT_TYPES.add(DBReportMediatorInputConnector_3450);
+			KNOWN_ELEMENT_TYPES.add(DBReportMediatorOutputConnector_3451);
+			KNOWN_ELEMENT_TYPES.add(SmooksMediator_3452);
+			KNOWN_ELEMENT_TYPES.add(SmooksMediatorInputConnector_3453);
+			KNOWN_ELEMENT_TYPES.add(SmooksMediatorOutputConnector_3454);
+			KNOWN_ELEMENT_TYPES.add(SendMediator_3455);
+			KNOWN_ELEMENT_TYPES.add(SendMediatorInputConnector_3456);
+			KNOWN_ELEMENT_TYPES.add(SendMediatorOutputConnector_3457);
+			KNOWN_ELEMENT_TYPES.add(HeaderMediator_3458);
+			KNOWN_ELEMENT_TYPES.add(HeaderMediatorInputConnector_3459);
+			KNOWN_ELEMENT_TYPES.add(HeaderMediatorOutputConnector_3460);
+			KNOWN_ELEMENT_TYPES.add(CloneMediator_3461);
+			KNOWN_ELEMENT_TYPES.add(CloneMediatorInputConnector_3462);
+			KNOWN_ELEMENT_TYPES.add(CloneMediatorOutputConnector_3463);
+			KNOWN_ELEMENT_TYPES.add(CloneMediatorTargetOutputConnector_3464);
+			KNOWN_ELEMENT_TYPES.add(CacheMediator_3465);
+			KNOWN_ELEMENT_TYPES.add(CacheMediatorInputConnector_3466);
+			KNOWN_ELEMENT_TYPES.add(CacheMediatorOutputConnector_3467);
+			KNOWN_ELEMENT_TYPES.add(IterateMediator_3468);
+			KNOWN_ELEMENT_TYPES.add(IterateMediatorInputConnector_3469);
+			KNOWN_ELEMENT_TYPES.add(IterateMediatorOutputConnector_3470);
+			KNOWN_ELEMENT_TYPES.add(CalloutMediator_3471);
+			KNOWN_ELEMENT_TYPES.add(CalloutMediatorInputConnector_3472);
+			KNOWN_ELEMENT_TYPES.add(CalloutMediatorOutputConnector_3473);
+			KNOWN_ELEMENT_TYPES.add(TransactionMediator_3474);
+			KNOWN_ELEMENT_TYPES.add(TransactionMediatorInputConnector_3475);
+			KNOWN_ELEMENT_TYPES.add(TransactionMediatorOutputConnector_3476);
+			KNOWN_ELEMENT_TYPES.add(RMSequenceMediator_3477);
+			KNOWN_ELEMENT_TYPES.add(RMSequenceMediatorInputConnector_3478);
+			KNOWN_ELEMENT_TYPES.add(RMSequenceMediatorOutputConnector_3479);
+			KNOWN_ELEMENT_TYPES.add(RuleMediator_3480);
+			KNOWN_ELEMENT_TYPES.add(RuleMediatorInputConnector_3481);
+			KNOWN_ELEMENT_TYPES.add(RuleMediatorOutputConnector_3482);
+			KNOWN_ELEMENT_TYPES.add(OAuthMediator_3483);
+			KNOWN_ELEMENT_TYPES.add(OAuthMediatorInputConnector_3484);
+			KNOWN_ELEMENT_TYPES.add(OAuthMediatorOutputConnector_3485);
 			KNOWN_ELEMENT_TYPES.add(MessageMediator_3045);
 			KNOWN_ELEMENT_TYPES.add(MessageInputConnector_3046);
 			KNOWN_ELEMENT_TYPES.add(MessageOutputConnector_3047);
@@ -3245,8 +4114,14 @@ public class EsbElementTypes {
 			return ProxyOutputConnector_3002;
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return ProxyInputConnector_3003;
+		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
+			return ProxyFaultInputConnector_3489;
+		case ProxyServiceContainerEditPart.VISUAL_ID:
+			return ProxyServiceContainer_3486;
+		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
+			return ProxyServiceSequenceAndEndpointContainer_3487;
 		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return ProxyServiceSequenceContainer_3196;
+			return ProxyServiceSequenceContainer_3391;
 		case ProxyServiceInSequenceEditPart.VISUAL_ID:
 			return ProxyServiceInSequence_3197;
 		case DropMediator3EditPart.VISUAL_ID:
@@ -3860,7 +4735,7 @@ public class EsbElementTypes {
 		case SequenceOutputConnector4EditPart.VISUAL_ID:
 			return SequenceOutputConnector_3377;
 		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return ProxyServiceEndpointContainer_3381;
+			return ProxyServiceEndpointContainer_3392;
 		case DefaultEndPoint2EditPart.VISUAL_ID:
 			return DefaultEndPoint_3382;
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
@@ -3895,6 +4770,192 @@ public class EsbElementTypes {
 			return LoadBalanceEndPointOutputConnector_3096;
 		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
 			return LoadBalanceEndPointWestOutputConnector_3098;
+		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
+			return ProxyServiceFaultContainer_3488;
+		case DropMediatorEditPart.VISUAL_ID:
+			return DropMediator_3394;
+		case DropMediatorInputConnector5EditPart.VISUAL_ID:
+			return DropMediatorInputConnector_3395;
+		case PropertyMediatorEditPart.VISUAL_ID:
+			return PropertyMediator_3396;
+		case PropertyMediatorInputConnector5EditPart.VISUAL_ID:
+			return PropertyMediatorInputConnector_3397;
+		case PropertyMediatorOutputConnector5EditPart.VISUAL_ID:
+			return PropertyMediatorOutputConnector_3398;
+		case ThrottleMediator3EditPart.VISUAL_ID:
+			return ThrottleMediator_3399;
+		case ThrottleMediatorInputConnector3EditPart.VISUAL_ID:
+			return ThrottleMediatorInputConnector_3400;
+		case ThrottleMediatorOutputConnector3EditPart.VISUAL_ID:
+			return ThrottleMediatorOutputConnector_3401;
+		case FilterMediator5EditPart.VISUAL_ID:
+			return FilterMediator_3402;
+		case FilterMediatorInputConnector5EditPart.VISUAL_ID:
+			return FilterMediatorInputConnector_3403;
+		case FilterMediatorPassOutputConnector5EditPart.VISUAL_ID:
+			return FilterMediatorPassOutputConnector_3404;
+		case FilterMediatorFailOutputConnector5EditPart.VISUAL_ID:
+			return FilterMediatorFailOutputConnector_3405;
+		case LogMediator5EditPart.VISUAL_ID:
+			return LogMediator_3406;
+		case LogMediatorInputConnector5EditPart.VISUAL_ID:
+			return LogMediatorInputConnector_3407;
+		case LogMediatorOutputConnector5EditPart.VISUAL_ID:
+			return LogMediatorOutputConnector_3408;
+		case EnrichMediator5EditPart.VISUAL_ID:
+			return EnrichMediator_3409;
+		case EnrichMediatorInputConnector5EditPart.VISUAL_ID:
+			return EnrichMediatorInputConnector_3410;
+		case EnrichMediatorOutputConnector5EditPart.VISUAL_ID:
+			return EnrichMediatorOutputConnector_3411;
+		case XSLTMediator5EditPart.VISUAL_ID:
+			return XSLTMediator_3412;
+		case XSLTMediatorInputConnector5EditPart.VISUAL_ID:
+			return XSLTMediatorInputConnector_3413;
+		case XSLTMediatorOutputConnector5EditPart.VISUAL_ID:
+			return XSLTMediatorOutputConnector_3414;
+		case SwitchMediator5EditPart.VISUAL_ID:
+			return SwitchMediator_3415;
+		case SwitchMediatorInputConnector5EditPart.VISUAL_ID:
+			return SwitchMediatorInputConnector_3416;
+		case SwitchCaseBranchOutputConnector5EditPart.VISUAL_ID:
+			return SwitchCaseBranchOutputConnector_3417;
+		case SwitchDefaultBranchOutputConnector5EditPart.VISUAL_ID:
+			return SwitchDefaultBranchOutputConnector_3418;
+		case Sequence5EditPart.VISUAL_ID:
+			return Sequence_3419;
+		case SequenceInputConnector5EditPart.VISUAL_ID:
+			return SequenceInputConnector_3420;
+		case SequenceOutputConnector5EditPart.VISUAL_ID:
+			return SequenceOutputConnector_3421;
+		case EventMediator3EditPart.VISUAL_ID:
+			return EventMediator_3422;
+		case EventMediatorInputConnector3EditPart.VISUAL_ID:
+			return EventMediatorInputConnector_3423;
+		case EventMediatorOutputConnector3EditPart.VISUAL_ID:
+			return EventMediatorOutputConnector_3424;
+		case EntitlementMediator3EditPart.VISUAL_ID:
+			return EntitlementMediator_3425;
+		case EntitlementMediatorInputConnector3EditPart.VISUAL_ID:
+			return EntitlementMediatorInputConnector_3426;
+		case EntitlementMediatorOutputConnector3EditPart.VISUAL_ID:
+			return EntitlementMediatorOutputConnector_3427;
+		case ClassMediator3EditPart.VISUAL_ID:
+			return ClassMediator_3428;
+		case ClassMediatorInputConnector3EditPart.VISUAL_ID:
+			return ClassMediatorInputConnector_3429;
+		case ClassMediatorOutputConnector3EditPart.VISUAL_ID:
+			return ClassMediatorOutputConnector_3430;
+		case SpringMediator3EditPart.VISUAL_ID:
+			return SpringMediator_3431;
+		case SpringMediatorInputConnector3EditPart.VISUAL_ID:
+			return SpringMediatorInputConnector_3432;
+		case SpringMediatorOutputConnector3EditPart.VISUAL_ID:
+			return SpringMediatorOutputConnector_3433;
+		case ScriptMediator3EditPart.VISUAL_ID:
+			return ScriptMediator_3434;
+		case ScriptMediatorInputConnector3EditPart.VISUAL_ID:
+			return ScriptMediatorInputConnector_3435;
+		case ScriptMediatorOutputConnector3EditPart.VISUAL_ID:
+			return ScriptMediatorOutputConnector_3436;
+		case FaultMediator5EditPart.VISUAL_ID:
+			return FaultMediator_3437;
+		case FaultMediatorInputConnector5EditPart.VISUAL_ID:
+			return FaultMediatorInputConnector_3438;
+		case FaultMediatorOutputConnector5EditPart.VISUAL_ID:
+			return FaultMediatorOutputConnector_3439;
+		case XQueryMediator3EditPart.VISUAL_ID:
+			return XQueryMediator_3440;
+		case XQueryMediatorInputConnector3EditPart.VISUAL_ID:
+			return XQueryMediatorInputConnector_3441;
+		case XQueryMediatorOutputConnector3EditPart.VISUAL_ID:
+			return XQueryMediatorOutputConnector_3442;
+		case CommandMediator3EditPart.VISUAL_ID:
+			return CommandMediator_3443;
+		case CommandMediatorInputConnector3EditPart.VISUAL_ID:
+			return CommandMediatorInputConnector_3444;
+		case CommandMediatorOutputConnector3EditPart.VISUAL_ID:
+			return CommandMediatorOutputConnector_3445;
+		case DBLookupMediator5EditPart.VISUAL_ID:
+			return DBLookupMediator_3446;
+		case DBLookupMediatorInputConnector5EditPart.VISUAL_ID:
+			return DBLookupMediatorInputConnector_3447;
+		case DBLookupMediatorOutputConnector5EditPart.VISUAL_ID:
+			return DBLookupMediatorOutputConnector_3448;
+		case DBReportMediator5EditPart.VISUAL_ID:
+			return DBReportMediator_3449;
+		case DBReportMediatorInputConnector5EditPart.VISUAL_ID:
+			return DBReportMediatorInputConnector_3450;
+		case DBReportMediatorOutputConnector5EditPart.VISUAL_ID:
+			return DBReportMediatorOutputConnector_3451;
+		case SmooksMediator3EditPart.VISUAL_ID:
+			return SmooksMediator_3452;
+		case SmooksMediatorInputConnector3EditPart.VISUAL_ID:
+			return SmooksMediatorInputConnector_3453;
+		case SmooksMediatorOutputConnector3EditPart.VISUAL_ID:
+			return SmooksMediatorOutputConnector_3454;
+		case SendMediator5EditPart.VISUAL_ID:
+			return SendMediator_3455;
+		case SendMediatorInputConnector5EditPart.VISUAL_ID:
+			return SendMediatorInputConnector_3456;
+		case SendMediatorOutputConnector5EditPart.VISUAL_ID:
+			return SendMediatorOutputConnector_3457;
+		case HeaderMediator5EditPart.VISUAL_ID:
+			return HeaderMediator_3458;
+		case HeaderMediatorInputConnector5EditPart.VISUAL_ID:
+			return HeaderMediatorInputConnector_3459;
+		case HeaderMediatorOutputConnector5EditPart.VISUAL_ID:
+			return HeaderMediatorOutputConnector_3460;
+		case CloneMediator5EditPart.VISUAL_ID:
+			return CloneMediator_3461;
+		case CloneMediatorInputConnector5EditPart.VISUAL_ID:
+			return CloneMediatorInputConnector_3462;
+		case CloneMediatorOutputConnector5EditPart.VISUAL_ID:
+			return CloneMediatorOutputConnector_3463;
+		case CloneMediatorTargetOutputConnector5EditPart.VISUAL_ID:
+			return CloneMediatorTargetOutputConnector_3464;
+		case CacheMediator3EditPart.VISUAL_ID:
+			return CacheMediator_3465;
+		case CacheMediatorInputConnector3EditPart.VISUAL_ID:
+			return CacheMediatorInputConnector_3466;
+		case CacheMediatorOutputConnector3EditPart.VISUAL_ID:
+			return CacheMediatorOutputConnector_3467;
+		case IterateMediator5EditPart.VISUAL_ID:
+			return IterateMediator_3468;
+		case IterateMediatorInputConnector5EditPart.VISUAL_ID:
+			return IterateMediatorInputConnector_3469;
+		case IterateMediatorOutputConnector5EditPart.VISUAL_ID:
+			return IterateMediatorOutputConnector_3470;
+		case CalloutMediator5EditPart.VISUAL_ID:
+			return CalloutMediator_3471;
+		case CalloutMediatorInputConnector5EditPart.VISUAL_ID:
+			return CalloutMediatorInputConnector_3472;
+		case CalloutMediatorOutputConnector5EditPart.VISUAL_ID:
+			return CalloutMediatorOutputConnector_3473;
+		case TransactionMediator5EditPart.VISUAL_ID:
+			return TransactionMediator_3474;
+		case TransactionMediatorInputConnector5EditPart.VISUAL_ID:
+			return TransactionMediatorInputConnector_3475;
+		case TransactionMediatorOutputConnector5EditPart.VISUAL_ID:
+			return TransactionMediatorOutputConnector_3476;
+		case RMSequenceMediator5EditPart.VISUAL_ID:
+			return RMSequenceMediator_3477;
+		case RMSequenceMediatorInputConnector5EditPart.VISUAL_ID:
+			return RMSequenceMediatorInputConnector_3478;
+		case RMSequenceMediatorOutputConnector5EditPart.VISUAL_ID:
+			return RMSequenceMediatorOutputConnector_3479;
+		case RuleMediator3EditPart.VISUAL_ID:
+			return RuleMediator_3480;
+		case RuleMediatorInputConnector3EditPart.VISUAL_ID:
+			return RuleMediatorInputConnector_3481;
+		case RuleMediatorOutputConnector3EditPart.VISUAL_ID:
+			return RuleMediatorOutputConnector_3482;
+		case OAuthMediator3EditPart.VISUAL_ID:
+			return OAuthMediator_3483;
+		case OAuthMediatorInputConnector3EditPart.VISUAL_ID:
+			return OAuthMediatorInputConnector_3484;
+		case OAuthMediatorOutputConnector3EditPart.VISUAL_ID:
+			return OAuthMediatorOutputConnector_3485;
 		case MessageMediatorEditPart.VISUAL_ID:
 			return MessageMediator_3045;
 		case MessageInputConnectorEditPart.VISUAL_ID:

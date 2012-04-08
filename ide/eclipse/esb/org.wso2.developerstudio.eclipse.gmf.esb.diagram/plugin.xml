@@ -223,7 +223,7 @@
       <viewProvider class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Esb"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3196,3197,3191,3008,3199,3033,3034,3205,3121,3122,3209,3010,3011,3012,3210,3018,3019,3387,3036,3037,3212,3039,3040,3213,3042,3043,3044,3214,3049,3050,3215,3052,3053,3216,3055,3056,3217,3058,3059,3218,3061,3062,3219,3064,3065,3220,3067,3068,3221,3070,3071,3222,3073,3074,3223,3076,3077,3224,3079,3080,3225,3082,3083,3226,3085,3086,3227,3100,3101,3228,3103,3104,3133,3229,3106,3107,3230,3109,3110,3231,3115,3116,3232,3118,3119,3233,3124,3125,3234,3127,3128,3235,3130,3131,3236,3112,3113,3132,3134,3135,3136,3137,3138,3139,3140,3141,3142,3143,3144,3145,3146,3147,3148,3149,3150,3151,3152,3153,3154,3155,3156,3157,3158,3159,3160,3161,3162,3163,3164,3165,3166,3167,3168,3169,3170,3171,3172,3173,3174,3175,3176,3177,3178,3181,3182,3179,3183,3184,3180,3185,3186,3187,3188,3189,3198,3194,3192,3200,3201,3202,3206,3207,3208,3237,3238,3239,3240,3241,3242,3243,3244,3245,3246,3247,3248,3249,3250,3251,3252,3253,3254,3255,3256,3257,3258,3259,3260,3261,3262,3263,3264,3265,3266,3267,3268,3269,3270,3271,3272,3273,3274,3275,3276,3277,3278,3279,3280,3281,3282,3283,3284,3285,3286,3287,3288,3289,3290,3291,3292,3293,3294,3295,3296,3297,3298,3299,3300,3301,3302,3303,3304,3305,3306,3307,3308,3309,3310,3311,3312,3313,3314,3315,3316,3317,3318,3319,3320,3321,3322,3323,3324,3325,3326,3327,3328,3195,3329,3330,3331,3332,3333,3203,3204,3334,3388,3389,3337,3338,3339,3340,3341,3342,3343,3344,3345,3346,3347,3348,3349,3350,3351,3352,3353,3354,3355,3356,3357,3358,3359,3360,3361,3362,3363,3364,3365,3366,3367,3368,3369,3370,3371,3372,3373,3374,3375,3376,3377,3381,3382,3021,3022,3383,3030,3031,3384,3088,3090,3097,3385,3092,3093,3386,3095,3096,3098,3045,3046,3047,3013,3014,3015,3016"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3489,3486,3487,3391,3197,3191,3008,3199,3033,3034,3205,3121,3122,3209,3010,3011,3012,3210,3018,3019,3387,3036,3037,3212,3039,3040,3213,3042,3043,3044,3214,3049,3050,3215,3052,3053,3216,3055,3056,3217,3058,3059,3218,3061,3062,3219,3064,3065,3220,3067,3068,3221,3070,3071,3222,3073,3074,3223,3076,3077,3224,3079,3080,3225,3082,3083,3226,3085,3086,3227,3100,3101,3228,3103,3104,3133,3229,3106,3107,3230,3109,3110,3231,3115,3116,3232,3118,3119,3233,3124,3125,3234,3127,3128,3235,3130,3131,3236,3112,3113,3132,3134,3135,3136,3137,3138,3139,3140,3141,3142,3143,3144,3145,3146,3147,3148,3149,3150,3151,3152,3153,3154,3155,3156,3157,3158,3159,3160,3161,3162,3163,3164,3165,3166,3167,3168,3169,3170,3171,3172,3173,3174,3175,3176,3177,3178,3181,3182,3179,3183,3184,3180,3185,3186,3187,3188,3189,3198,3194,3192,3200,3201,3202,3206,3207,3208,3237,3238,3239,3240,3241,3242,3243,3244,3245,3246,3247,3248,3249,3250,3251,3252,3253,3254,3255,3256,3257,3258,3259,3260,3261,3262,3263,3264,3265,3266,3267,3268,3269,3270,3271,3272,3273,3274,3275,3276,3277,3278,3279,3280,3281,3282,3283,3284,3285,3286,3287,3288,3289,3290,3291,3292,3293,3294,3295,3296,3297,3298,3299,3300,3301,3302,3303,3304,3305,3306,3307,3308,3309,3310,3311,3312,3313,3314,3315,3316,3317,3318,3319,3320,3321,3322,3323,3324,3325,3326,3327,3328,3195,3329,3330,3331,3332,3333,3203,3204,3334,3388,3389,3337,3338,3339,3340,3341,3342,3343,3344,3345,3346,3347,3348,3349,3350,3351,3352,3353,3354,3355,3356,3357,3358,3359,3360,3361,3362,3363,3364,3365,3366,3367,3368,3369,3370,3371,3372,3373,3374,3375,3376,3377,3392,3382,3021,3022,3383,3030,3031,3384,3088,3090,3097,3385,3092,3093,3386,3095,3096,3098,3488,3394,3395,3396,3397,3398,3399,3400,3401,3402,3403,3404,3405,3406,3407,3408,3409,3410,3411,3412,3413,3414,3415,3416,3417,3418,3419,3420,3421,3422,3423,3424,3425,3426,3427,3428,3429,3430,3431,3432,3433,3434,3435,3436,3437,3438,3439,3440,3441,3442,3443,3444,3445,3446,3447,3448,3449,3450,3451,3452,3453,3454,3455,3456,3457,3458,3459,3460,3461,3462,3463,3464,3465,3466,3467,3468,3469,3470,3471,3472,3473,3474,3475,3476,3477,3478,3479,3480,3481,3482,3483,3484,3485,3045,3046,3047,3013,3014,3015,3016"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -236,16 +236,16 @@
             <method name="getType()" value="Esb"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002,3003,3196,3197,3191,3008,3199,3033,3034,3205,3121,3122,3209,3010,3011,3012,3210,3018,3019,3387,3036,3037,3212,3039,3040,3213,3042,3043,3044,3214,3049,3050,3215,3052,3053,3216,3055,3056,3217,3058,3059,3218,3061,3062,3219,3064,3065,3220,3067,3068,3221,3070,3071,3222,3073,3074,3223,3076,3077,3224,3079,3080,3225,3082,3083,3226,3085,3086,3227,3100,3101,3228,3103,3104,3133,3229,3106,3107,3230,3109,3110,3231,3115,3116,3232,3118,3119,3233,3124,3125,3234,3127,3128,3235,3130,3131,3236,3112,3113,3132,3134,3135,3136,3137,3138,3139,3140,3141,3142,3143,3144,3145,3146,3147,3148,3149,3150,3151,3152,3153,3154,3155,3156,3157,3158,3159,3160,3161,3162,3163,3164,3165,3166,3167,3168,3169,3170,3171,3172,3173,3174,3175,3176,3177,3178,3181,3182,3179,3183,3184,3180,3185,3186,3187,3188,3189,3198,3194,3192,3200,3201,3202,3206,3207,3208,3237,3238,3239,3240,3241,3242,3243,3244,3245,3246,3247,3248,3249,3250,3251,3252,3253,3254,3255,3256,3257,3258,3259,3260,3261,3262,3263,3264,3265,3266,3267,3268,3269,3270,3271,3272,3273,3274,3275,3276,3277,3278,3279,3280,3281,3282,3283,3284,3285,3286,3287,3288,3289,3290,3291,3292,3293,3294,3295,3296,3297,3298,3299,3300,3301,3302,3303,3304,3305,3306,3307,3308,3309,3310,3311,3312,3313,3314,3315,3316,3317,3318,3319,3320,3321,3322,3323,3324,3325,3326,3327,3328,3195,3329,3330,3331,3332,3333,3203,3204,3334,3388,3389,3337,3338,3339,3340,3341,3342,3343,3344,3345,3346,3347,3348,3349,3350,3351,3352,3353,3354,3355,3356,3357,3358,3359,3360,3361,3362,3363,3364,3365,3366,3367,3368,3369,3370,3371,3372,3373,3374,3375,3376,3377,3381,3382,3021,3022,3383,3030,3031,3384,3088,3090,3097,3385,3092,3093,3386,3095,3096,3098,3045,3046,3047,3013,3014,3015,3016"/>
+            <method name="getType()" value="2001,3001,3002,3003,3489,3486,3487,3391,3197,3191,3008,3199,3033,3034,3205,3121,3122,3209,3010,3011,3012,3210,3018,3019,3387,3036,3037,3212,3039,3040,3213,3042,3043,3044,3214,3049,3050,3215,3052,3053,3216,3055,3056,3217,3058,3059,3218,3061,3062,3219,3064,3065,3220,3067,3068,3221,3070,3071,3222,3073,3074,3223,3076,3077,3224,3079,3080,3225,3082,3083,3226,3085,3086,3227,3100,3101,3228,3103,3104,3133,3229,3106,3107,3230,3109,3110,3231,3115,3116,3232,3118,3119,3233,3124,3125,3234,3127,3128,3235,3130,3131,3236,3112,3113,3132,3134,3135,3136,3137,3138,3139,3140,3141,3142,3143,3144,3145,3146,3147,3148,3149,3150,3151,3152,3153,3154,3155,3156,3157,3158,3159,3160,3161,3162,3163,3164,3165,3166,3167,3168,3169,3170,3171,3172,3173,3174,3175,3176,3177,3178,3181,3182,3179,3183,3184,3180,3185,3186,3187,3188,3189,3198,3194,3192,3200,3201,3202,3206,3207,3208,3237,3238,3239,3240,3241,3242,3243,3244,3245,3246,3247,3248,3249,3250,3251,3252,3253,3254,3255,3256,3257,3258,3259,3260,3261,3262,3263,3264,3265,3266,3267,3268,3269,3270,3271,3272,3273,3274,3275,3276,3277,3278,3279,3280,3281,3282,3283,3284,3285,3286,3287,3288,3289,3290,3291,3292,3293,3294,3295,3296,3297,3298,3299,3300,3301,3302,3303,3304,3305,3306,3307,3308,3309,3310,3311,3312,3313,3314,3315,3316,3317,3318,3319,3320,3321,3322,3323,3324,3325,3326,3327,3328,3195,3329,3330,3331,3332,3333,3203,3204,3334,3388,3389,3337,3338,3339,3340,3341,3342,3343,3344,3345,3346,3347,3348,3349,3350,3351,3352,3353,3354,3355,3356,3357,3358,3359,3360,3361,3362,3363,3364,3365,3366,3367,3368,3369,3370,3371,3372,3373,3374,3375,3376,3377,3392,3382,3021,3022,3383,3030,3031,3384,3088,3090,3097,3385,3092,3093,3386,3095,3096,3098,3488,3394,3395,3396,3397,3398,3399,3400,3401,3402,3403,3404,3405,3406,3407,3408,3409,3410,3411,3412,3413,3414,3415,3416,3417,3418,3419,3420,3421,3422,3423,3424,3425,3426,3427,3428,3429,3430,3431,3432,3433,3434,3435,3436,3437,3438,3439,3440,3441,3442,3443,3444,3445,3446,3447,3448,3449,3450,3451,3452,3453,3454,3455,3456,3457,3458,3459,3460,3461,3462,3463,3464,3465,3466,3467,3468,3469,3470,3471,3472,3473,3474,3475,3476,3477,3478,3479,3480,3481,3482,3483,3484,3485,3045,3046,3047,3013,3014,3015,3016"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5003,5042,5044,5046,5047,5104,5049,5050,5051,5052,5053,5054,5055,5056,5057,5058,5059,5060,5061,5062,5063,5064,5065,5066,5030,5031,5032,5033,5034,5035,5036,5037,5038,5039,5040,5043,5045,5067,5068,5069,5070,5071,5072,5073,5074,5075,5076,5077,5078,5079,5080,5081,5082,5083,5084,5085,5086,5098,5087,5088,5089,5090,5091,5092,5093,5094,5095,5096,5097,5099,5100,5101,5102,5103"/>
+            <method name="getType()" value="5003,5042,5044,5046,5047,5104,5049,5050,5051,5052,5053,5054,5055,5056,5057,5058,5059,5060,5061,5062,5063,5064,5065,5066,5030,5031,5032,5033,5034,5035,5036,5037,5038,5039,5040,5043,5045,5067,5068,5069,5070,5071,5072,5073,5074,5075,5076,5077,5078,5079,5080,5081,5082,5083,5084,5085,5086,5098,5087,5088,5089,5090,5091,5092,5093,5094,5095,5096,5097,5099,5100,5101,5102,5103,5105,5106,5107,5108,5109,5110,5111,5112,5113,5114,5115,5116,5117,5118,5119,5120,5121,5122,5123,5124,5125,5126"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7005,7007,7006,7008,7010"/>
+            <method name="getType()" value="7001,7005,7007,7006,7008,7011,7013"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -322,12 +322,42 @@
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
          <metamodelType
-               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3196"
-               name="%metatype.name.ProxyServiceSequenceContainer_3196"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyFaultInputConnector_3489"
+               name="%metatype.name.ProxyFaultInputConnector_3489"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProxyFaultInputConnector"
+               edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyFaultInputConnectorEditHelper">
+            <param name="semanticHint" value="3489"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <metamodelType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceContainer_3486"
+               name="%metatype.name.ProxyServiceContainer_3486"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProxyServiceContainer"
+               edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyServiceContainerEditHelper">
+            <param name="semanticHint" value="3486"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <metamodelType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceAndEndpointContainer_3487"
+               name="%metatype.name.ProxyServiceSequenceAndEndpointContainer_3487"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProxyServiceSequenceAndEndpointContainer"
+               edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyServiceSequenceAndEndpointContainerEditHelper">
+            <param name="semanticHint" value="3487"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <metamodelType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3391"
+               name="%metatype.name.ProxyServiceSequenceContainer_3391"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ProxyServiceSequenceContainer"
                edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyServiceSequenceContainerEditHelper">
-            <param name="semanticHint" value="3196"/>
+            <param name="semanticHint" value="3391"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
@@ -3184,12 +3214,12 @@
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
          <metamodelType
-               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3381"
-               name="%metatype.name.ProxyServiceEndpointContainer_3381"
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3392"
+               name="%metatype.name.ProxyServiceEndpointContainer_3392"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ProxyServiceEndpointContainer"
                edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyServiceEndpointContainerEditHelper">
-            <param name="semanticHint" value="3381"/>
+            <param name="semanticHint" value="3392"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
@@ -3364,6 +3394,844 @@
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
          <metamodelType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"
+               name="%metatype.name.ProxyServiceFaultContainer_3488"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProxyServiceFaultContainer"
+               edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.ProxyServiceFaultContainerEditHelper">
+            <param name="semanticHint" value="3488"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediator_3394"
+               name="%metatype.name.DropMediator_3394"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediator_3191"/>
+            <param name="semanticHint" value="3394"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediatorInputConnector_3395"
+               name="%metatype.name.DropMediatorInputConnector_3395"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediatorInputConnector_3008"/>
+            <param name="semanticHint" value="3395"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediator_3396"
+               name="%metatype.name.PropertyMediator_3396"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediator_3199"/>
+            <param name="semanticHint" value="3396"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorInputConnector_3397"
+               name="%metatype.name.PropertyMediatorInputConnector_3397"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorInputConnector_3033"/>
+            <param name="semanticHint" value="3397"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorOutputConnector_3398"
+               name="%metatype.name.PropertyMediatorOutputConnector_3398"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorOutputConnector_3034"/>
+            <param name="semanticHint" value="3398"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediator_3399"
+               name="%metatype.name.ThrottleMediator_3399"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediator_3205"/>
+            <param name="semanticHint" value="3399"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorInputConnector_3400"
+               name="%metatype.name.ThrottleMediatorInputConnector_3400"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorInputConnector_3121"/>
+            <param name="semanticHint" value="3400"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorOutputConnector_3401"
+               name="%metatype.name.ThrottleMediatorOutputConnector_3401"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorOutputConnector_3122"/>
+            <param name="semanticHint" value="3401"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediator_3402"
+               name="%metatype.name.FilterMediator_3402"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediator_3209"/>
+            <param name="semanticHint" value="3402"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorInputConnector_3403"
+               name="%metatype.name.FilterMediatorInputConnector_3403"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorInputConnector_3010"/>
+            <param name="semanticHint" value="3403"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorPassOutputConnector_3404"
+               name="%metatype.name.FilterMediatorPassOutputConnector_3404"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorPassOutputConnector_3011"/>
+            <param name="semanticHint" value="3404"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorFailOutputConnector_3405"
+               name="%metatype.name.FilterMediatorFailOutputConnector_3405"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorFailOutputConnector_3012"/>
+            <param name="semanticHint" value="3405"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediator_3406"
+               name="%metatype.name.LogMediator_3406"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediator_3210"/>
+            <param name="semanticHint" value="3406"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3407"
+               name="%metatype.name.LogMediatorInputConnector_3407"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"/>
+            <param name="semanticHint" value="3407"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorOutputConnector_3408"
+               name="%metatype.name.LogMediatorOutputConnector_3408"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorOutputConnector_3019"/>
+            <param name="semanticHint" value="3408"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediator_3409"
+               name="%metatype.name.EnrichMediator_3409"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediator_3387"/>
+            <param name="semanticHint" value="3409"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorInputConnector_3410"
+               name="%metatype.name.EnrichMediatorInputConnector_3410"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorInputConnector_3036"/>
+            <param name="semanticHint" value="3410"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorOutputConnector_3411"
+               name="%metatype.name.EnrichMediatorOutputConnector_3411"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorOutputConnector_3037"/>
+            <param name="semanticHint" value="3411"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediator_3412"
+               name="%metatype.name.XSLTMediator_3412"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediator_3212"/>
+            <param name="semanticHint" value="3412"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorInputConnector_3413"
+               name="%metatype.name.XSLTMediatorInputConnector_3413"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorInputConnector_3039"/>
+            <param name="semanticHint" value="3413"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorOutputConnector_3414"
+               name="%metatype.name.XSLTMediatorOutputConnector_3414"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorOutputConnector_3040"/>
+            <param name="semanticHint" value="3414"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediator_3415"
+               name="%metatype.name.SwitchMediator_3415"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediator_3213"/>
+            <param name="semanticHint" value="3415"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediatorInputConnector_3416"
+               name="%metatype.name.SwitchMediatorInputConnector_3416"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediatorInputConnector_3042"/>
+            <param name="semanticHint" value="3416"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseBranchOutputConnector_3417"
+               name="%metatype.name.SwitchCaseBranchOutputConnector_3417"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseBranchOutputConnector_3043"/>
+            <param name="semanticHint" value="3417"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultBranchOutputConnector_3418"
+               name="%metatype.name.SwitchDefaultBranchOutputConnector_3418"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultBranchOutputConnector_3044"/>
+            <param name="semanticHint" value="3418"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequence_3419"
+               name="%metatype.name.Sequence_3419"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequence_3214"/>
+            <param name="semanticHint" value="3419"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceInputConnector_3420"
+               name="%metatype.name.SequenceInputConnector_3420"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceInputConnector_3049"/>
+            <param name="semanticHint" value="3420"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceOutputConnector_3421"
+               name="%metatype.name.SequenceOutputConnector_3421"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceOutputConnector_3050"/>
+            <param name="semanticHint" value="3421"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediator_3422"
+               name="%metatype.name.EventMediator_3422"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediator_3215"/>
+            <param name="semanticHint" value="3422"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorInputConnector_3423"
+               name="%metatype.name.EventMediatorInputConnector_3423"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorInputConnector_3052"/>
+            <param name="semanticHint" value="3423"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorOutputConnector_3424"
+               name="%metatype.name.EventMediatorOutputConnector_3424"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorOutputConnector_3053"/>
+            <param name="semanticHint" value="3424"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediator_3425"
+               name="%metatype.name.EntitlementMediator_3425"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediator_3216"/>
+            <param name="semanticHint" value="3425"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorInputConnector_3426"
+               name="%metatype.name.EntitlementMediatorInputConnector_3426"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorInputConnector_3055"/>
+            <param name="semanticHint" value="3426"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorOutputConnector_3427"
+               name="%metatype.name.EntitlementMediatorOutputConnector_3427"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorOutputConnector_3056"/>
+            <param name="semanticHint" value="3427"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediator_3428"
+               name="%metatype.name.ClassMediator_3428"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediator_3217"/>
+            <param name="semanticHint" value="3428"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorInputConnector_3429"
+               name="%metatype.name.ClassMediatorInputConnector_3429"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorInputConnector_3058"/>
+            <param name="semanticHint" value="3429"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorOutputConnector_3430"
+               name="%metatype.name.ClassMediatorOutputConnector_3430"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorOutputConnector_3059"/>
+            <param name="semanticHint" value="3430"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediator_3431"
+               name="%metatype.name.SpringMediator_3431"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediator_3218"/>
+            <param name="semanticHint" value="3431"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorInputConnector_3432"
+               name="%metatype.name.SpringMediatorInputConnector_3432"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorInputConnector_3061"/>
+            <param name="semanticHint" value="3432"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorOutputConnector_3433"
+               name="%metatype.name.SpringMediatorOutputConnector_3433"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorOutputConnector_3062"/>
+            <param name="semanticHint" value="3433"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediator_3434"
+               name="%metatype.name.ScriptMediator_3434"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediator_3219"/>
+            <param name="semanticHint" value="3434"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorInputConnector_3435"
+               name="%metatype.name.ScriptMediatorInputConnector_3435"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorInputConnector_3064"/>
+            <param name="semanticHint" value="3435"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorOutputConnector_3436"
+               name="%metatype.name.ScriptMediatorOutputConnector_3436"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorOutputConnector_3065"/>
+            <param name="semanticHint" value="3436"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediator_3437"
+               name="%metatype.name.FaultMediator_3437"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediator_3220"/>
+            <param name="semanticHint" value="3437"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorInputConnector_3438"
+               name="%metatype.name.FaultMediatorInputConnector_3438"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorInputConnector_3067"/>
+            <param name="semanticHint" value="3438"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorOutputConnector_3439"
+               name="%metatype.name.FaultMediatorOutputConnector_3439"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorOutputConnector_3068"/>
+            <param name="semanticHint" value="3439"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediator_3440"
+               name="%metatype.name.XQueryMediator_3440"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediator_3221"/>
+            <param name="semanticHint" value="3440"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorInputConnector_3441"
+               name="%metatype.name.XQueryMediatorInputConnector_3441"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorInputConnector_3070"/>
+            <param name="semanticHint" value="3441"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorOutputConnector_3442"
+               name="%metatype.name.XQueryMediatorOutputConnector_3442"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorOutputConnector_3071"/>
+            <param name="semanticHint" value="3442"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediator_3443"
+               name="%metatype.name.CommandMediator_3443"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediator_3222"/>
+            <param name="semanticHint" value="3443"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorInputConnector_3444"
+               name="%metatype.name.CommandMediatorInputConnector_3444"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorInputConnector_3073"/>
+            <param name="semanticHint" value="3444"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorOutputConnector_3445"
+               name="%metatype.name.CommandMediatorOutputConnector_3445"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorOutputConnector_3074"/>
+            <param name="semanticHint" value="3445"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediator_3446"
+               name="%metatype.name.DBLookupMediator_3446"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediator_3223"/>
+            <param name="semanticHint" value="3446"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorInputConnector_3447"
+               name="%metatype.name.DBLookupMediatorInputConnector_3447"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorInputConnector_3076"/>
+            <param name="semanticHint" value="3447"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorOutputConnector_3448"
+               name="%metatype.name.DBLookupMediatorOutputConnector_3448"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorOutputConnector_3077"/>
+            <param name="semanticHint" value="3448"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediator_3449"
+               name="%metatype.name.DBReportMediator_3449"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediator_3224"/>
+            <param name="semanticHint" value="3449"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorInputConnector_3450"
+               name="%metatype.name.DBReportMediatorInputConnector_3450"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorInputConnector_3079"/>
+            <param name="semanticHint" value="3450"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorOutputConnector_3451"
+               name="%metatype.name.DBReportMediatorOutputConnector_3451"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorOutputConnector_3080"/>
+            <param name="semanticHint" value="3451"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediator_3452"
+               name="%metatype.name.SmooksMediator_3452"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediator_3225"/>
+            <param name="semanticHint" value="3452"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorInputConnector_3453"
+               name="%metatype.name.SmooksMediatorInputConnector_3453"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorInputConnector_3082"/>
+            <param name="semanticHint" value="3453"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorOutputConnector_3454"
+               name="%metatype.name.SmooksMediatorOutputConnector_3454"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorOutputConnector_3083"/>
+            <param name="semanticHint" value="3454"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediator_3455"
+               name="%metatype.name.SendMediator_3455"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediator_3226"/>
+            <param name="semanticHint" value="3455"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorInputConnector_3456"
+               name="%metatype.name.SendMediatorInputConnector_3456"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorInputConnector_3085"/>
+            <param name="semanticHint" value="3456"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorOutputConnector_3457"
+               name="%metatype.name.SendMediatorOutputConnector_3457"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorOutputConnector_3086"/>
+            <param name="semanticHint" value="3457"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediator_3458"
+               name="%metatype.name.HeaderMediator_3458"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediator_3227"/>
+            <param name="semanticHint" value="3458"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorInputConnector_3459"
+               name="%metatype.name.HeaderMediatorInputConnector_3459"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorInputConnector_3100"/>
+            <param name="semanticHint" value="3459"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorOutputConnector_3460"
+               name="%metatype.name.HeaderMediatorOutputConnector_3460"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorOutputConnector_3101"/>
+            <param name="semanticHint" value="3460"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediator_3461"
+               name="%metatype.name.CloneMediator_3461"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediator_3228"/>
+            <param name="semanticHint" value="3461"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorInputConnector_3462"
+               name="%metatype.name.CloneMediatorInputConnector_3462"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorInputConnector_3103"/>
+            <param name="semanticHint" value="3462"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorOutputConnector_3463"
+               name="%metatype.name.CloneMediatorOutputConnector_3463"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorOutputConnector_3104"/>
+            <param name="semanticHint" value="3463"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorTargetOutputConnector_3464"
+               name="%metatype.name.CloneMediatorTargetOutputConnector_3464"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorTargetOutputConnector_3133"/>
+            <param name="semanticHint" value="3464"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediator_3465"
+               name="%metatype.name.CacheMediator_3465"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediator_3229"/>
+            <param name="semanticHint" value="3465"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorInputConnector_3466"
+               name="%metatype.name.CacheMediatorInputConnector_3466"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorInputConnector_3106"/>
+            <param name="semanticHint" value="3466"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorOutputConnector_3467"
+               name="%metatype.name.CacheMediatorOutputConnector_3467"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorOutputConnector_3107"/>
+            <param name="semanticHint" value="3467"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediator_3468"
+               name="%metatype.name.IterateMediator_3468"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediator_3230"/>
+            <param name="semanticHint" value="3468"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorInputConnector_3469"
+               name="%metatype.name.IterateMediatorInputConnector_3469"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorInputConnector_3109"/>
+            <param name="semanticHint" value="3469"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorOutputConnector_3470"
+               name="%metatype.name.IterateMediatorOutputConnector_3470"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorOutputConnector_3110"/>
+            <param name="semanticHint" value="3470"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediator_3471"
+               name="%metatype.name.CalloutMediator_3471"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediator_3231"/>
+            <param name="semanticHint" value="3471"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorInputConnector_3472"
+               name="%metatype.name.CalloutMediatorInputConnector_3472"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorInputConnector_3115"/>
+            <param name="semanticHint" value="3472"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorOutputConnector_3473"
+               name="%metatype.name.CalloutMediatorOutputConnector_3473"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorOutputConnector_3116"/>
+            <param name="semanticHint" value="3473"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediator_3474"
+               name="%metatype.name.TransactionMediator_3474"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediator_3232"/>
+            <param name="semanticHint" value="3474"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorInputConnector_3475"
+               name="%metatype.name.TransactionMediatorInputConnector_3475"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorInputConnector_3118"/>
+            <param name="semanticHint" value="3475"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorOutputConnector_3476"
+               name="%metatype.name.TransactionMediatorOutputConnector_3476"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorOutputConnector_3119"/>
+            <param name="semanticHint" value="3476"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediator_3477"
+               name="%metatype.name.RMSequenceMediator_3477"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediator_3233"/>
+            <param name="semanticHint" value="3477"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorInputConnector_3478"
+               name="%metatype.name.RMSequenceMediatorInputConnector_3478"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorInputConnector_3124"/>
+            <param name="semanticHint" value="3478"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorOutputConnector_3479"
+               name="%metatype.name.RMSequenceMediatorOutputConnector_3479"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorOutputConnector_3125"/>
+            <param name="semanticHint" value="3479"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediator_3480"
+               name="%metatype.name.RuleMediator_3480"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediator_3234"/>
+            <param name="semanticHint" value="3480"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorInputConnector_3481"
+               name="%metatype.name.RuleMediatorInputConnector_3481"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorInputConnector_3127"/>
+            <param name="semanticHint" value="3481"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorOutputConnector_3482"
+               name="%metatype.name.RuleMediatorOutputConnector_3482"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorOutputConnector_3128"/>
+            <param name="semanticHint" value="3482"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediator_3483"
+               name="%metatype.name.OAuthMediator_3483"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediator_3235"/>
+            <param name="semanticHint" value="3483"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorInputConnector_3484"
+               name="%metatype.name.OAuthMediatorInputConnector_3484"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorInputConnector_3130"/>
+            <param name="semanticHint" value="3484"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <specializationType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorOutputConnector_3485"
+               name="%metatype.name.OAuthMediatorOutputConnector_3485"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorOutputConnector_3131"/>
+            <param name="semanticHint" value="3485"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <metamodelType
                id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageMediator_3045"
                name="%metatype.name.MessageMediator_3045"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -3459,7 +4327,10 @@
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyService_3001"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyOutputConnector_3002"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyInputConnector_3003"/>
-         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3196"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyFaultInputConnector_3489"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceContainer_3486"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceAndEndpointContainer_3487"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3391"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceInSequence_3197"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediator_3191"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediatorInputConnector_3008"/>
@@ -3766,7 +4637,7 @@
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequence_3375"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceInputConnector_3376"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceOutputConnector_3377"/>
-         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3381"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3392"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3382"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPointInputConnector_3021"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPointOutputConnector_3022"/>
@@ -3784,6 +4655,99 @@
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointInputConnector_3095"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointOutputConnector_3096"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointWestOutputConnector_3098"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediator_3394"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DropMediatorInputConnector_3395"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediator_3396"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorInputConnector_3397"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediatorOutputConnector_3398"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediator_3399"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorInputConnector_3400"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ThrottleMediatorOutputConnector_3401"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediator_3402"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorInputConnector_3403"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorPassOutputConnector_3404"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FilterMediatorFailOutputConnector_3405"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediator_3406"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3407"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorOutputConnector_3408"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediator_3409"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorInputConnector_3410"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EnrichMediatorOutputConnector_3411"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediator_3412"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorInputConnector_3413"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XSLTMediatorOutputConnector_3414"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediator_3415"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchMediatorInputConnector_3416"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseBranchOutputConnector_3417"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultBranchOutputConnector_3418"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequence_3419"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceInputConnector_3420"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SequenceOutputConnector_3421"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediator_3422"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorInputConnector_3423"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EventMediatorOutputConnector_3424"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediator_3425"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorInputConnector_3426"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EntitlementMediatorOutputConnector_3427"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediator_3428"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorInputConnector_3429"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ClassMediatorOutputConnector_3430"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediator_3431"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorInputConnector_3432"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SpringMediatorOutputConnector_3433"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediator_3434"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorInputConnector_3435"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ScriptMediatorOutputConnector_3436"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediator_3437"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorInputConnector_3438"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.FaultMediatorOutputConnector_3439"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediator_3440"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorInputConnector_3441"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.XQueryMediatorOutputConnector_3442"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediator_3443"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorInputConnector_3444"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CommandMediatorOutputConnector_3445"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediator_3446"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorInputConnector_3447"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBLookupMediatorOutputConnector_3448"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediator_3449"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorInputConnector_3450"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.DBReportMediatorOutputConnector_3451"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediator_3452"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorInputConnector_3453"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SmooksMediatorOutputConnector_3454"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediator_3455"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorInputConnector_3456"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.SendMediatorOutputConnector_3457"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediator_3458"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorInputConnector_3459"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediatorOutputConnector_3460"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediator_3461"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorInputConnector_3462"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorOutputConnector_3463"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloneMediatorTargetOutputConnector_3464"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediator_3465"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorInputConnector_3466"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CacheMediatorOutputConnector_3467"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediator_3468"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorInputConnector_3469"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.IterateMediatorOutputConnector_3470"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediator_3471"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorInputConnector_3472"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.CalloutMediatorOutputConnector_3473"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediator_3474"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorInputConnector_3475"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.TransactionMediatorOutputConnector_3476"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediator_3477"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorInputConnector_3478"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RMSequenceMediatorOutputConnector_3479"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediator_3480"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorInputConnector_3481"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorOutputConnector_3482"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediator_3483"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorInputConnector_3484"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediatorOutputConnector_3485"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageMediator_3045"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageInputConnector_3046"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageOutputConnector_3047"/>

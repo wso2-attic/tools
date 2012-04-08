@@ -35,9 +35,7 @@ public class EsbNavigatorLinkHelper implements ILinkHelper {
 	 */
 	private static IEditorInput getEditorInput(Diagram diagram) {
 		Resource diagramResource = diagram.eResource();
-		for (Iterator/*[org.eclipse.emf.ecore.EObject]*/it = diagramResource
-				.getContents().iterator(); it.hasNext();) {
-			EObject nextEObject = (EObject) it.next();
+		for (EObject nextEObject : diagramResource.getContents()) {
 			if (nextEObject == diagram) {
 				return new FileEditorInput(
 						WorkspaceSynchronizer.getFile(diagramResource));

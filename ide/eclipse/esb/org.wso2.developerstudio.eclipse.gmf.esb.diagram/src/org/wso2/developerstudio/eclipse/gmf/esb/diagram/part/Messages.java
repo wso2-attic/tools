@@ -703,6 +703,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String AggregateMediatorAggregateCompartmentEditPart_title;
 
 	/**
@@ -733,6 +738,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_FaultMediatorOutputConnector_3439_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SendMediatorOutputConnector_3457_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_TransactionMediatorOutputConnector_3184_outgoinglinks;
 
 	/**
@@ -743,7 +758,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EntitlementMediatorInputConnector_3426_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EntitlementMediatorOutputConnector_3056_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ScriptMediatorOutputConnector_3436_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RuleMediatorOutputConnector_3482_outgoinglinks;
 
 	/**
 	 * @generated
@@ -759,6 +789,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CacheMediatorInputConnector_3301_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PropertyMediatorInputConnector_3397_incominglinks;
 
 	/**
 	 * @generated
@@ -779,6 +814,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EsbDiagram_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EnrichMediatorInputConnector_3410_incominglinks;
 
 	/**
 	 * @generated
@@ -848,6 +888,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DBLookupMediatorInputConnector_3447_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ClassMediatorOutputConnector_3430_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SwitchCaseBranchOutputConnector_3252_outgoinglinks;
 
 	/**
@@ -898,6 +948,21 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CommandMediatorInputConnector_3444_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FaultMediatorInputConnector_3438_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LogMediatorOutputConnector_3408_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SwitchCaseBranchOutputConnector_3043_outgoinglinks;
 
 	/**
@@ -919,6 +984,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ClassMediatorOutputConnector_3265_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SendMediatorInputConnector_3456_incominglinks;
 
 	/**
 	 * @generated
@@ -1008,6 +1078,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_TransactionMediatorOutputConnector_3476_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_HeaderMediatorInputConnector_3294_incominglinks;
 
 	/**
@@ -1043,6 +1118,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EnrichMediatorOutputConnector_3411_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SpringMediatorOutputConnector_3268_outgoinglinks;
 
 	/**
@@ -1058,12 +1138,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_IterateMediatorOutputConnector_3470_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_PropertyMediatorInputConnector_3203_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_WSDLEndPointOutputConnector_3093_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IterateMediatorInputConnector_3469_incominglinks;
 
 	/**
 	 * @generated
@@ -1079,6 +1169,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_HeaderMediatorInputConnector_3100_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloneMediatorOutputConnector_3463_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1108,6 +1203,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DBReportMediatorInputConnector_3450_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_XSLTMediatorInputConnector_3039_incominglinks;
 
 	/**
@@ -1128,6 +1228,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_HeaderMediatorOutputConnector_3460_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CommandMediatorInputConnector_3073_incominglinks;
 
 	/**
@@ -1139,6 +1244,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EnrichMediatorOutputConnector_3148_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SequenceInputConnector_3420_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PropertyMediatorOutputConnector_3398_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1183,7 +1298,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_OAuthMediatorInputConnector_3484_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_TransactionMediatorInputConnector_3310_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EventMediatorInputConnector_3423_incominglinks;
 
 	/**
 	 * @generated
@@ -1223,12 +1348,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_XSLTMediatorOutputConnector_3414_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EnrichMediatorInputConnector_3036_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FaultMediatorOutputConnector_3274_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SmooksMediatorInputConnector_3453_incominglinks;
 
 	/**
 	 * @generated
@@ -1268,7 +1403,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ProxyFaultInputConnector_3489_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_LogMediatorInputConnector_3135_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloneMediatorTargetOutputConnector_3464_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1283,12 +1428,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DBLookupMediatorOutputConnector_3448_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SpringMediatorOutputConnector_3433_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ClassMediatorInputConnector_3429_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CloneMediatorInputConnector_3103_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_XSLTMediatorOutputConnector_3249_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FilterMediatorPassOutputConnector_3404_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1308,6 +1473,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CacheMediatorInputConnector_3466_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CacheMediatorOutputConnector_3302_outgoinglinks;
 
 	/**
@@ -1319,6 +1489,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FaultMediatorInputConnector_3067_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DropMediatorInputConnector_3395_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OAuthMediatorOutputConnector_3485_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1358,7 +1538,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_LogMediatorInputConnector_3407_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_FaultMediatorInputConnector_3157_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloneMediatorInputConnector_3462_incominglinks;
 
 	/**
 	 * @generated
@@ -1393,7 +1583,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_RMSequenceMediatorInputConnector_3478_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_RuleMediatorOutputConnector_3317_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EntitlementMediatorOutputConnector_3427_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1438,6 +1638,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ThrottleMediatorInputConnector_3400_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_XSLTMediatorInputConnector_3413_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_OAuthMediatorOutputConnector_3131_outgoinglinks;
 
 	/**
@@ -1469,6 +1679,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FilterMediatorPassOutputConnector_3011_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EventMediatorOutputConnector_3424_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1508,7 +1723,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CacheMediatorOutputConnector_3467_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CloneMediatorOutputConnector_3104_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RuleMediatorInputConnector_3481_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ScriptMediatorInputConnector_3435_incominglinks;
 
 	/**
 	 * @generated
@@ -1523,7 +1753,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_SwitchCaseBranchOutputConnector_3417_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_MergeNodeSecondInputConnector_3015_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SwitchDefaultBranchOutputConnector_3418_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1534,6 +1774,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_LoadBalanceEndPointInputConnector_3095_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_HeaderMediatorInputConnector_3459_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ThrottleMediatorOutputConnector_3401_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1558,12 +1808,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_TransactionMediatorInputConnector_3475_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SendMediatorOutputConnector_3292_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_SendMediatorInputConnector_3085_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SwitchMediatorInputConnector_3416_incominglinks;
 
 	/**
 	 * @generated
@@ -1598,12 +1858,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_SpringMediatorInputConnector_3432_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ThrottleMediatorInputConnector_3207_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FaultMediatorOutputConnector_3158_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CalloutMediatorOutputConnector_3473_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1628,7 +1898,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_FilterMediatorFailOutputConnector_3405_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FilterMediatorInputConnector_3403_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_FilterMediatorInputConnector_3238_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_XQueryMediatorInputConnector_3441_incominglinks;
 
 	/**
 	 * @generated
@@ -1673,12 +1958,27 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_SequenceOutputConnector_3421_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ScriptMediatorOutputConnector_3065_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CalloutMediatorOutputConnector_3368_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RMSequenceMediatorOutputConnector_3479_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CommandMediatorOutputConnector_3445_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1713,6 +2013,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DBReportMediatorOutputConnector_3451_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_FilterMediatorFailOutputConnector_3332_outgoinglinks;
 
 	/**
@@ -1724,6 +2029,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CommandMediatorOutputConnector_3280_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CalloutMediatorInputConnector_3472_incominglinks;
 
 	/**
 	 * @generated
@@ -1849,6 +2159,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EnrichMediatorOutputConnector_3389_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SmooksMediatorOutputConnector_3454_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_XQueryMediatorOutputConnector_3442_outgoinglinks;
 
 	/**
 	 * @generated

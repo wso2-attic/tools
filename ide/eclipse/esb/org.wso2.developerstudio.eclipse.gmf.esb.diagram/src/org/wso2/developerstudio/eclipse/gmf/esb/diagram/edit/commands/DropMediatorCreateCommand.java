@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer;
 
 /**
  * @generated
@@ -55,7 +56,7 @@ public class DropMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		DropMediator newElement = EsbFactory.eINSTANCE.createDropMediator();
 
-		EsbServer owner = (EsbServer) getElementToEdit();
+		ProxyServiceFaultContainer owner = (ProxyServiceFaultContainer) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

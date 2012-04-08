@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 
 /**
@@ -45,7 +46,7 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 	 * @generated
 	 */
 	public boolean canExecute() {
-		ProxyService container = (ProxyService) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer container = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		if (container.getSequenceContainer() != null) {
 			return false;
 		}
@@ -61,7 +62,7 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 		ProxyServiceSequenceContainer newElement = EsbFactory.eINSTANCE
 				.createProxyServiceSequenceContainer();
 
-		ProxyService owner = (ProxyService) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer owner = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		owner.setSequenceContainer(newElement);
 
 		doConfigure(newElement, monitor, info);

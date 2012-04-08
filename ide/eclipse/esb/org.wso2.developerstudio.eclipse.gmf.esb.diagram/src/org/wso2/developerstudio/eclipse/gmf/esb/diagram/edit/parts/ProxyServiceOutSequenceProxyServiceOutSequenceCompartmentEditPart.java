@@ -106,6 +106,12 @@ public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
+		//Refresh connector's position. Hardcoded. Should be altered.
+		((ProxyServiceOutSequenceEditPart)child.getParent().getParent()).refreshInputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
+		((ProxyServiceInSequenceEditPart)child.getParent().getParent().getParent().getChildren().get(0)).refreshOutputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
+		if(((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().size()==2)		
+		((ProxyServiceFaultContainerEditPart)((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().get(1)).refreshInputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
+		
 		/*		AbstractInputConnector inputConnector=null;
 		 if (child instanceof AbstractMediator) {
 		 AbstractMediator mediator=(AbstractMediator)child;

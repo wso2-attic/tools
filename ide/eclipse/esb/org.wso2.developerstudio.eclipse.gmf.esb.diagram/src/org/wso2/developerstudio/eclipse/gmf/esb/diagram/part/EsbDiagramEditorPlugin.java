@@ -111,7 +111,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	protected ComposedAdapterFactory createAdapterFactory() {
-		ArrayList/*[org.eclipse.emf.common.notify.AdapterFactory]*/factories = new ArrayList/*[org.eclipse.emf.common.notify.AdapterFactory]*/();
+		ArrayList<AdapterFactory> factories = new ArrayList<AdapterFactory>();
 		fillItemProviderFactories(factories);
 		return new ComposedAdapterFactory(factories);
 	}
@@ -119,8 +119,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	protected void fillItemProviderFactories(
-			List/*[org.eclipse.emf.common.notify.AdapterFactory]*/factories) {
+	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new EsbItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());

@@ -23,9 +23,13 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEndpointContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
@@ -39,14 +43,14 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Set/*[org.eclipse.emf.ecore.EStructuralFeature]*/myFeaturesToSynchronize;
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
 	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
-		List/*[?]*/c = getHost().getChildren();
+		List<?> c = getHost().getChildren();
 		for (int i = 0; i < c.size(); i++) {
 			((EditPart) c.get(i)).activate();
 		}
@@ -58,15 +62,15 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet/*[org.eclipse.emf.ecore.EStructuralFeature]*/();
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getProxyService_OutputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getProxyService_InputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getProxyService_SequenceContainer());
+					.getProxyService_FaultInputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getProxyService_EndpointContainer());
+					.getProxyService_Container());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -77,12 +81,10 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
-		LinkedList/*[org.eclipse.emf.ecore.EObject]*/result = new LinkedList/*[org.eclipse.emf.ecore.EObject]*/();
-		List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/childDescriptors = EsbDiagramUpdater
+		LinkedList<EObject> result = new LinkedList<EObject>();
+		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
 				.getProxyService_3001SemanticChildren(viewObject);
-		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/it = childDescriptors
-				.iterator(); it.hasNext();) {
-			EsbNodeDescriptor d = (EsbNodeDescriptor) it.next();
+		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
 		return result;
@@ -91,8 +93,7 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected boolean isOrphaned(
-			Collection/*[org.eclipse.emf.ecore.EObject]*/semanticChildren,
+	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
@@ -106,8 +107,8 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 		switch (visualID) {
 		case ProxyOutputConnectorEditPart.VISUAL_ID:
 		case ProxyInputConnectorEditPart.VISUAL_ID:
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
+		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
+		case ProxyServiceContainerEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -120,16 +121,14 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (resolveSemanticElement() == null) {
 			return;
 		}
-		LinkedList/*[org.eclipse.core.runtime.IAdaptable]*/createdViews = new LinkedList/*[org.eclipse.core.runtime.IAdaptable]*/();
-		List/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/childDescriptors = EsbDiagramUpdater
+		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
+		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
 				.getProxyService_3001SemanticChildren((View) getHost()
 						.getModel());
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/orphaned = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
+		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
-		LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/knownViewChildren = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/();
-		for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = getViewChildren()
-				.iterator(); it.hasNext();) {
-			View v = (View) it.next();
+		LinkedList<View> knownViewChildren = new LinkedList<View>();
+		for (View v : getViewChildren()) {
 			if (isMyDiagramElement(v)) {
 				knownViewChildren.add(v);
 			}
@@ -139,15 +138,12 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/descriptorsIterator = childDescriptors
+		for (Iterator<EsbNodeDescriptor> descriptorsIterator = childDescriptors
 				.iterator(); descriptorsIterator.hasNext();) {
-			EsbNodeDescriptor next = (EsbNodeDescriptor) descriptorsIterator
-					.next();
+			EsbNodeDescriptor next = descriptorsIterator.next();
 			String hint = EsbVisualIDRegistry.getType(next.getVisualID());
-			LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/perfectMatch = new LinkedList/*[org.eclipse.gmf.runtime.notation.View]*/(); // both semanticElement and hint match that of NodeDescriptor
-			for (Iterator/*[org.eclipse.gmf.runtime.notation.View]*/it = getViewChildren()
-					.iterator(); it.hasNext();) {
-				View childView = (View) it.next();
+			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
+			for (View childView : getViewChildren()) {
 				EObject semanticElement = childView.getElement();
 				if (next.getModelElement().equals(semanticElement)) {
 					if (hint.equals(childView.getType())) {
@@ -168,11 +164,9 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 		// or those we have potential matches to, and thus need to be recreated, preserving size/location information.
 		orphaned.addAll(knownViewChildren);
 		//
-		ArrayList/*[org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor]*/viewDescriptors = new ArrayList/*[org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor]*/(
+		ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
 				childDescriptors.size());
-		for (Iterator/*[org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor]*/it = childDescriptors
-				.iterator(); it.hasNext();) {
-			EsbNodeDescriptor next = (EsbNodeDescriptor) it.next();
+		for (EsbNodeDescriptor next : childDescriptors) {
 			String hint = EsbVisualIDRegistry.getType(next.getVisualID());
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
@@ -190,9 +184,8 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 			SetViewMutabilityCommand.makeMutable(
 					new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
-
-			List/*[org.eclipse.core.runtime.IAdaptable]*/nl = (List/*[org.eclipse.core.runtime.IAdaptable]*/) request
-					.getNewObject();
+			@SuppressWarnings("unchecked")
+			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
 			createdViews.addAll(nl);
 		}
 		if (changed || createdViews.size() > 0) {
