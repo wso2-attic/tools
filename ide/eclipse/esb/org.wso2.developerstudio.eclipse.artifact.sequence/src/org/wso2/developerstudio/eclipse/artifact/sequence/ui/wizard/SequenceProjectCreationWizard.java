@@ -162,7 +162,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	}
 
 	private boolean createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
-
+        boolean isNewArtifact =true;
 		IContainer location = project.getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
 				+ "sequences");
@@ -178,8 +178,9 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
 					return false;	
 				}
+				isNewArtifact = false;
 			} 	
-			copyImportFile(location);
+			copyImportFile(location,isNewArtifact);
 		} else {
 			// Map<String,List<String>> filters=new HashMap<String,List<String>>
 			// ();
@@ -320,7 +321,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	public void copyImportFile(IContainer importLocation) throws IOException {
+	public void copyImportFile(IContainer importLocation,boolean isNewAritfact) throws IOException {
 		File importFile = getModel().getImportFile();
 		File destFile = null;
 		List<OMElement> selectedSeqList = ((SequenceModel)getModel()).getSelectedSeqList();
@@ -330,6 +331,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
+				if(isNewAritfact){
 				ESBArtifact artifact=new ESBArtifact();
 				artifact.setName(name);
 				artifact.setVersion("1.0.0");
@@ -337,6 +339,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
+				}
 			} 
 			
 		}else{
@@ -344,6 +347,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$","");
+			if(isNewAritfact){
 			ESBArtifact artifact=new ESBArtifact();
 			artifact.setName(name);
 			artifact.setVersion("1.0.0");
@@ -351,6 +355,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
+			}
 		}
 		
 		
