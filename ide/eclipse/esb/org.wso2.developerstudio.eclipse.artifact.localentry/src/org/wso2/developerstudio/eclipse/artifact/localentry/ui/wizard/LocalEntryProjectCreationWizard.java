@@ -79,6 +79,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 
 	public boolean performFinish() {
 		try {
+			boolean isNewArtifact = true;
 			leModel = (LocalEntryModel)getModel();
 			esbProject =  leModel.getLocalEntrySaveLocation().getProject();
 			IContainer location = esbProject.getFolder("src" + File.separator + "main" +
@@ -97,8 +98,9 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
 						return false;	
 					}
+					isNewArtifact = false;
 				} 	
-				copyImportFile(location);
+				copyImportFile(location,isNewArtifact);
 				
 			} else {
 				File localEntryFile = new File(location.getLocation().toFile(),leModel.getLocalENtryName() + ".xml");
@@ -226,7 +228,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		}
 	}
 	
-	public void copyImportFile(IContainer importLocation) throws IOException {
+	public void copyImportFile(IContainer importLocation,boolean isNewArtifact) throws IOException {
 		File importFile = getModel().getImportFile();
 		List<OMElement> selectedLEList = leModel.getSelectedLEList();
 		File destFile = null;
@@ -236,6 +238,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				destFile  = new File(importLocation.getLocation().toFile(), key + ".xml");
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
+				if(isNewArtifact){
 				ESBArtifact artifact=new ESBArtifact();
 				artifact.setName(key);
 				artifact.setVersion("1.0.0");
@@ -243,6 +246,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),key+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
+				}
 			}
 			
 		}else{
@@ -250,6 +254,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			String key = importFile.getName().replaceAll(".xml$", "");
+			if(isNewArtifact){
 			ESBArtifact artifact=new ESBArtifact();
 			artifact.setName(key);
 			artifact.setVersion("1.0.0");
@@ -257,6 +262,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),key+".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
+			}
 		}
 	}
 	
