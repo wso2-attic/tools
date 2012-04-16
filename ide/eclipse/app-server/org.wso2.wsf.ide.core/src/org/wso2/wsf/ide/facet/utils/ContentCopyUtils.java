@@ -172,40 +172,22 @@ public class ContentCopyUtils {
 		  }
 
 	
-	public static IContainer makeFolderPathAtLocation (
-			   ResourceContext  resourceContext,
-			   IContainer       resource,
-			   IProgressMonitor progressMonitor )
-			 
-			   throws CoreException
-			   {
-				 if (resource.exists())
-				 {
-					 if (resource instanceof IContainer)
-					 {
-						 return (IContainer) resource;
-					 }
-					 else
-					 {
-						 throw new CoreException(
-								 new Status( IStatus.ERROR, 
-										 "ResourceUtils",
-										 0, 
-										 NLS.bind("ERROR",
-												 new Object[]{ resource.getFullPath().toString() }),
-												 null ) );
-					 }
-				 }
-				 else
-				 {
-					 IContainer parent = makeFolderPathAtLocation(resourceContext, 
-							 			resource.getParent(), 
-							 			progressMonitor );
-					 String folderName = resource.getName();
-					 
-					 return makeFolder(resourceContext, parent, folderName, progressMonitor  );
-				 }
-			 }
+	public static IContainer makeFolderPathAtLocation(ResourceContext resourceContext,
+	                                                  IContainer resource,
+	                                                  IProgressMonitor progressMonitor)
+
+	throws CoreException {
+		if (resource.exists()) {
+			return (IContainer) resource;
+		} else {
+			IContainer parent =
+			                    makeFolderPathAtLocation(resourceContext, resource.getParent(),
+			                                             progressMonitor);
+			String folderName = resource.getName();
+
+			return makeFolder(resourceContext, parent, folderName, progressMonitor);
+		}
+	}
 	
 	
 	 /**

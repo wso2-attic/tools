@@ -443,8 +443,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 		}
 		boolean needRefreshToolbar = false;
 		for (IAction action : list2) {
-			if (action != null && action instanceof IAction
-					&& !list.contains(action)) {
+			if (action != null && !list.contains(action)) {
 				needRefreshToolbar = true;
 				break;
 			}

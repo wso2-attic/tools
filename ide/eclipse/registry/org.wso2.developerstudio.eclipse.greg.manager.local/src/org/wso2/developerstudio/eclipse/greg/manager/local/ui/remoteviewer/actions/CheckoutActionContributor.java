@@ -106,68 +106,67 @@ public class CheckoutActionContributor implements IRegistryAction {
 	 */
 	private void checkoutRegistryPath() throws Exception {
 		String checkoutPath = "";
-		if (getSelectedObj() instanceof RegistryResourceNode) {
-			RegistryResourceNode r = (RegistryResourceNode) getSelectedObj();
-			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-			ContainerSelectionDialog dialog = new ContainerSelectionDialog(getShell(), 
-																			root, 
-																			false, 
-																			"Select location to checkout");
-			while (true) {
-				if (dialog.open() == ContainerSelectionDialog.OK) {
-					Object[] result = dialog.getResult();
-					if (result.length == 1) {
-						IPath path = ((Path) result[0]);
-						if (root.exists(path)) {
-							String chkoutFolder;
-							if (r.getResourceType()==RegistryResourceType.RESOURCE){
-								chkoutFolder = r.getRegistryResourceNodeParent().getLastSegmentInPath();
-								checkoutPath = r.getRegistryResourceNodeParent().getRegistryResourcePath();
-							}else if(r.getResourceType()==RegistryResourceType.UNDEFINED){
-								throw new Exception("Resource not Defined");
-							}
-							else{
-								chkoutFolder = r.getLastSegmentInPath();
-								checkoutPath = r.getRegistryResourcePath();
-							}
-							if (chkoutFolder.equals("/")){
-								chkoutFolder = "ROOT";
-							}
-							path = path.append(chkoutFolder);
-							IProject project = root.getProject(path.segment(0));
-							path = root.getLocation().append(path);
-							try {
-								if (RegistryCheckInClientUtils.isCheckoutPathValid(path.toOSString())){
-									(new File(path.toOSString())).mkdirs();
-									try {
-										RegistryCheckInClientUtils.checkout(
-												r.getConnectionInfo().getUsername(), 
-												r.getConnectionInfo().getPassword(),
-												path.toOSString(),
-												r.getConnectionInfo().getUrl().toString(), 
-												checkoutPath);
-									} catch (SynchronizationException e1) {
-										e1.printStackTrace();
-									}
-									try {
-										project.refreshLocal(IResource.DEPTH_INFINITE,
-												new NullProgressMonitor());
-									} catch (CoreException e) {
-										log.error(e);
-									}
-								}
-							} catch (Exception e1) {
-								MessageDialog.openError(getShell(),
-										"Error in checkout path", e1
-												.getMessage());
-								continue;
-							}
-							
+		RegistryResourceNode r = (RegistryResourceNode) getSelectedObj();
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		ContainerSelectionDialog dialog =
+		                                  new ContainerSelectionDialog(getShell(), root, false,
+		                                                               "Select location to checkout");
+		while (true) {
+			if (dialog.open() == ContainerSelectionDialog.OK) {
+				Object[] result = dialog.getResult();
+				if (result.length == 1) {
+					IPath path = ((Path) result[0]);
+					if (root.exists(path)) {
+						String chkoutFolder;
+						if (r.getResourceType() == RegistryResourceType.RESOURCE) {
+							chkoutFolder = r.getRegistryResourceNodeParent().getLastSegmentInPath();
+							checkoutPath =
+							               r.getRegistryResourceNodeParent()
+							                .getRegistryResourcePath();
+						} else if (r.getResourceType() == RegistryResourceType.UNDEFINED) {
+							throw new Exception("Resource not Defined");
+						} else {
+							chkoutFolder = r.getLastSegmentInPath();
+							checkoutPath = r.getRegistryResourcePath();
 						}
+						if (chkoutFolder.equals("/")) {
+							chkoutFolder = "ROOT";
+						}
+						path = path.append(chkoutFolder);
+						IProject project = root.getProject(path.segment(0));
+						path = root.getLocation().append(path);
+						try {
+							if (RegistryCheckInClientUtils.isCheckoutPathValid(path.toOSString())) {
+								(new File(path.toOSString())).mkdirs();
+								try {
+									RegistryCheckInClientUtils.checkout(r.getConnectionInfo()
+									                                     .getUsername(),
+									                                    r.getConnectionInfo()
+									                                     .getPassword(),
+									                                    path.toOSString(),
+									                                    r.getConnectionInfo()
+									                                     .getUrl().toString(),
+									                                    checkoutPath);
+								} catch (SynchronizationException e1) {
+									e1.printStackTrace();
+								}
+								try {
+									project.refreshLocal(IResource.DEPTH_INFINITE,
+									                     new NullProgressMonitor());
+								} catch (CoreException e) {
+									log.error(e);
+								}
+							}
+						} catch (Exception e1) {
+							MessageDialog.openError(getShell(), "Error in checkout path",
+							                        e1.getMessage());
+							continue;
+						}
+
 					}
 				}
-				break;
 			}
+			break;
 		}
 	}
 

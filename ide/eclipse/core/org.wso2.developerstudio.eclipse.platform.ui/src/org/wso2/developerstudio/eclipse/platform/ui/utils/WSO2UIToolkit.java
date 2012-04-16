@@ -255,9 +255,10 @@ public class WSO2UIToolkit {
 		IFieldControlData fieldControl = null;
 		List<UIControl> uiControlList = RegisterUIControl.getUiControlList();
 		for (UIControl uiControl : uiControlList) {
-			if(uiControl instanceof UIControl){
+//			If check is unnecessary since the List is type sensitive. Hence removing the if check is ok
+//			if(uiControl instanceof UIControl){
 				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent, horizontalIndent, isTextReadonly, shell, label, fileButtonCaption, selectedOption,model,pathBindingProperty);
-			}
+//			}
 		}
 		return fieldControl;
 	}
