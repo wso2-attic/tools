@@ -210,6 +210,7 @@
         <carbonserver.30.version>2.0.0-SNAPSHOT</carbonserver.30.version>
         <carbonserver.31.version>2.0.0-SNAPSHOT</carbonserver.31.version>
 	<carbonserver.32.version>2.0.0-SNAPSHOT</carbonserver.32.version>
+	<carbonserver.40.version>2.0.0-SNAPSHOT</carbonserver.40.version>
 	<carbonserver.remote.version>2.0.0-SNAPSHOT</carbonserver.remote.version>
         <core.tools.version>2.0.0-SNAPSHOT</core.tools.version>
         <greg.connector.version>2.0.0-SNAPSHOT</greg.connector.version>
