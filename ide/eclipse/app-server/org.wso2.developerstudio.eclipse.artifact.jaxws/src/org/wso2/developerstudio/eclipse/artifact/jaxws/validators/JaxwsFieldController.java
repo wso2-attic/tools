@@ -17,9 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.jaxws.validators;
 
 import java.io.File;
-import java.util.List;
 
-import org.wso2.developerstudio.eclipse.artifact.jaxws.model.JaxwsModel;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
@@ -41,33 +39,27 @@ public class JaxwsFieldController extends AbstractFieldController {
 			if (!importFile.exists()) {
 				throw new FieldValidationException("Specified " + fileType +" file doesn't exist");
 			}
-		} else if (modelProperty.equals("service.class.name") && ((JaxwsModel)model).isCreateClass()) {
-			CommonFieldValidator.validateJavaClassNameField(value);
-		} else if (modelProperty.equals("service.class.package.name") && ((JaxwsModel)model).isCreateClass()) {
-			CommonFieldValidator.validateJavaPackageNameField(value);
-		}
+		} else if (modelProperty.equals("source.package") ) {
+			if (value != null && !value.toString().isEmpty()) {
+				CommonFieldValidator.validateJavaPackageNameField(value);
+			}
+			
+		}  else if (modelProperty.equals("runtime") ) {
+			if (value == null) {
+				throw new FieldValidationException("Specified CXF-Runtime location is invalid");
+			}
+			File importFile = (File) value;
+			if (importFile.exists()) {
+				String os = System.getProperty("os.name").toLowerCase();
+				File cxfBin = new File(importFile,"bin");
+				File wsdl2java  = (os.indexOf("win") >= 0)? new File(cxfBin,"wsdl2java.bat"): new File(cxfBin,"wsdl2java");
+				if(!wsdl2java.exists()){
+					throw new FieldValidationException("Cannot find CXF wsdl2java executable");
+				}
+			} else{
+				throw new FieldValidationException("Specified CXF-Runtime location doesn't exist");
+			}
+		} 
 	}
-	
-	
-	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
-		if(modelProperty.equals("service.class.name")){
-			return ((JaxwsModel)model).isCreateClass();
-		}if(modelProperty.equals("service.class.package.name")){
-			return ((JaxwsModel)model).isCreateClass();
-		}
-		return super.isEnableField(modelProperty, model);
-	}
-	
-	
-	public List<String> getUpdateFields(String modelProperty,
-			ProjectDataModel model) {
-		List<String> updateFields = super.getUpdateFields(modelProperty, model);
-		if(modelProperty.equals("create.class")){
-			updateFields.add("service.class.name");
-			updateFields.add("service.class.package.name");
-		}
-		return updateFields;
-	}
-	
 
 }

@@ -25,12 +25,14 @@ import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
-import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.artifact.jaxws.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
@@ -38,14 +40,14 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryBean;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 
 public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
-
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public void configure() throws CoreException {
 		try {
 			setupAsJaxwsService();
 			updatePom();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Cannot configure JAX-WS project",e);
 		}
 	}
 
@@ -53,31 +55,8 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		
-		if (!mavenProject.getBuild().getPlugins().contains(MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
-	                                                     "maven-jar-plugin", "2.4", true))) {
-	        Plugin plugin =
-	                        MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven",
-	                                                     "maven-jar-plugin", "2.4", true);
-	        PluginExecution pluginExecution;
-	        pluginExecution = new PluginExecution();
-	        pluginExecution.addGoal("jar");
-	        pluginExecution.setPhase("package");
-	        pluginExecution.setId("jar");
-	        plugin.addExecution(pluginExecution);
-	        
-	        Xpp3Dom createMainConfigurationNode = MavenUtils.createMainConfigurationNode(plugin);
-	        
-	        Xpp3Dom createXpp3Node = MavenUtils.createXpp3Node(createMainConfigurationNode, "includes");
-	        
-	        Xpp3Dom createXpp3Node2 = MavenUtils.createXpp3Node(createXpp3Node, "include");
-	        
-	        createXpp3Node2.setValue("**/*.class");
-	        
-	        Xpp3Dom createXpp3Node3 = MavenUtils.createXpp3Node(createMainConfigurationNode, "forceCreation");
-	        
-	        createXpp3Node3.setValue("true");
-	        
-        }
+		addMavenCompilerPlugin(mavenProject);
+		addMavenWarPlugin(mavenProject);
 		
 		Properties properties = mavenProject.getModel().getProperties();
 		
@@ -131,6 +110,44 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 	public void deconfigure() throws CoreException {
 		
 		
+	}
+	
+	private void addMavenCompilerPlugin(MavenProject mavenProject) {
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		for (Plugin plg : plugins) {
+			if (plg.getId().equals("maven-compiler-plugin")) {
+				return;
+			}
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
+				"maven-compiler-plugin", "2.3.2", false);
+		Xpp3Dom createMainConfigurationNode = MavenUtils.createMainConfigurationNode(plugin);
+		Xpp3Dom createSourceNode = MavenUtils.createXpp3Node(createMainConfigurationNode, "source");
+		createSourceNode.setValue("1.5");
+		Xpp3Dom createTargetNode = MavenUtils.createXpp3Node(createMainConfigurationNode, "target");
+		createTargetNode.setValue("1.5");
+	}
+	
+	private void addMavenWarPlugin(MavenProject mavenProject) {
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		for (Plugin plg : plugins) {
+			if (plg.getId().equals("maven-war-plugin")) {
+				return;
+			}
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
+				"maven-war-plugin", "2.2", false);
+		Xpp3Dom createMainConfigurationNode = MavenUtils.createMainConfigurationNode(plugin);
+		Xpp3Dom createWebXmlNode = MavenUtils.createXpp3Node(createMainConfigurationNode, "webXml");
+		createWebXmlNode.setValue("${basedir}/src/main/webapp/WEB-INF/web.xml");
+		Xpp3Dom createExcludesNode = MavenUtils.createXpp3Node(createMainConfigurationNode,
+				"packagingExcludes");
+		createExcludesNode.setValue("WEB-INF/lib/*.jar");
+		Xpp3Dom createWarNameNode = MavenUtils.createXpp3Node(createMainConfigurationNode,
+				"warName");
+		createWarNameNode.setValue("${project.artifactId}");
 	}
 
 }
