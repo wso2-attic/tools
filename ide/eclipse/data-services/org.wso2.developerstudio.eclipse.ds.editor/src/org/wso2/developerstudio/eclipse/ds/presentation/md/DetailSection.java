@@ -826,6 +826,16 @@ public class DetailSection {
 				
 			}
 			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE)){
+				
+				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE);
+				String [] displayValues = {"ARRAY","SCALAR"};
+				sectionUtil.getCustomComboField(detailsclient, toolkit, element, element.getExportType(), 
+						DsPackage.eINSTANCE.getElementMapping_ExportType(), displayValues);
+				labelMaker("");
+				labelMaker("");
+			}
+			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE)){
 				
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE);

@@ -650,13 +650,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__REQUIRED_ROLES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Export Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__EXPORT_TYPE = 4;
+
+	/**
 	 * The feature id for the '<em><b>Xsd Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__XSD_TYPE = 4;
+	int ELEMENT_MAPPING__XSD_TYPE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
@@ -665,7 +674,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 5;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2440,6 +2449,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_RequiredRoles();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getExportType <em>Export Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Export Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getExportType()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_ExportType();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getXsdType <em>Xsd Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4044,6 +4064,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__REQUIRED_ROLES = eINSTANCE.getElementMapping_RequiredRoles();
+
+		/**
+		 * The meta object literal for the '<em><b>Export Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__EXPORT_TYPE = eINSTANCE.getElementMapping_ExportType();
 
 		/**
 		 * The meta object literal for the '<em><b>Xsd Type</b></em>' attribute feature.
