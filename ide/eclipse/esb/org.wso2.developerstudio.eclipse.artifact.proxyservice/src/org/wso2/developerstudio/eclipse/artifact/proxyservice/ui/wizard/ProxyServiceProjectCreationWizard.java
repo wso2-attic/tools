@@ -78,6 +78,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	
 	public boolean performFinish() {
 		try {
+			boolean isNewArtifact = true;
 			String templateContent = "";
 			String template = "";
 			ProxyServiceModel proxyServiceModel = (ProxyServiceModel) getModel();
@@ -98,8 +99,9 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
 						return false;	
 					}
+					isNewArtifact = false;
 				} 
-				copyImportFile(location);
+				copyImportFile(location,isNewArtifact);
 			} else {
 				ArtifactTemplate selectedTemplate = psModel.getSelectedTemplate();
 				templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
@@ -210,7 +212,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 
 	}
 
-	public void copyImportFile(IContainer location) throws IOException {
+	public void copyImportFile(IContainer location,boolean isNewArtifact) throws IOException {
 		File destFile = null;
 		List<OMElement> availablePSList = psModel.getSelectedProxyList();
 		
@@ -220,7 +222,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 				destFile  = new File(location.getLocation().toFile(),  name + ".xml");
 				FileUtils.createFile(destFile,  proxy.toString());
 				fileLst.add(destFile);
-				
+				if(isNewArtifact){
 				ESBArtifact artifact=new ESBArtifact();
 				artifact.setName(name);
 				artifact.setVersion("1.0.0");
@@ -228,6 +230,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setFile(FileUtils.getRelativePath(location.getProject().getLocation().toFile(), new File(location.getLocation().toFile(),name+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
+				}
 			}			
 		}
 		else{
@@ -237,7 +240,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			destFile = proxyServiceFile.getLocation().toFile();
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
-			
+			if(isNewArtifact){
 			ESBArtifact artifact=new ESBArtifact();
 			artifact.setName(name);
 			artifact.setVersion("1.0.0");
@@ -245,6 +248,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setFile(FileUtils.getRelativePath(location.getProject().getLocation().toFile(), new File(location.getLocation().toFile(),name+".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
+			}
 		}
 	}
 
