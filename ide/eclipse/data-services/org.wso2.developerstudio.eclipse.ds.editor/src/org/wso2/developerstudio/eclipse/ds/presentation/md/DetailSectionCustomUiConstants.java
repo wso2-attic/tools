@@ -3,7 +3,7 @@ package org.wso2.developerstudio.eclipse.ds.presentation.md;
 public interface DetailSectionCustomUiConstants {
 
 	/**
-	 * These constants have 1-1 maping with UI_properties in org.wso2.developerstudio.eclipse.ds.edit plugin.properties 
+	 * These constants have 1-1 mapping with UI_properties in org.wso2.developerstudio.eclipse.ds.edit plugin.properties 
 	 * If change constant here please change plugin.properties also.
 	 */
 	

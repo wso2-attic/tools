@@ -838,9 +838,13 @@ public class DetailSection {
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE)){
 				
+				String [] displayValues = {"xs:string","xs:integer","xs:boolean",
+											"xs:float","xs:double","xs:decimal",
+											"xs:dateTime","xs:time","xs:date",
+											"xs:long","xs:base64Binary"};
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE);
-				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getXsdType(),
-						DsPackage.eINSTANCE.getElementMapping_XsdType(), DetailSectionCustomUiConstants.STRING);
+				sectionUtil.getCustomComboField(detailsclient, toolkit, element, element.getXsdType(),
+						DsPackage.eINSTANCE.getElementMapping_XsdType(),displayValues);
 				labelMaker("");
 				labelMaker("");
 			}
@@ -895,9 +899,13 @@ public class DetailSection {
 						
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE)){
 				
+				String [] displayValues = {"xs:string","xs:integer","xs:boolean",
+											"xs:float","xs:double","xs:decimal",
+											"xs:dateTime","xs:time","xs:date",
+											"xs:long","xs:base64Binary"};
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE);
-				sectionUtil.getAttributeField(detailsclient, toolkit, attributeMapping, attributeMapping.getXsdType(),
-						DsPackage.eINSTANCE.getAttributeMapping_XsdType(), DetailSectionCustomUiConstants.STRING);
+				sectionUtil.getCustomComboField(detailsclient, toolkit, attributeMapping, attributeMapping.getXsdType(),
+						DsPackage.eINSTANCE.getAttributeMapping_XsdType(), displayValues);
 				labelMaker("");
 				labelMaker("");
 			}
