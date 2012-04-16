@@ -427,84 +427,84 @@ public class DetailSection {
 		labelMaker("");
 		labelMaker("");
 
-		if (configProperty.getName().equals(DSActionConstants.DRIVER_PROPERTY)) {
+		if (configProperty.getName() != null && configProperty.getName().equals(DSActionConstants.DRIVER_PROPERTY)) {
 
 			labelMaker(DSActionConstants.DRIVER_DISPLAY);
 
 		}
 
-		if (configProperty.getName()
+		if (configProperty.getName() != null && configProperty.getName()
 				.equals(DSActionConstants.PROTOCOL_PROPERTY)) {
 
 			labelMaker(DSActionConstants.PROTOCOL_DISPLAY);
 
 		}
 
-		if (configProperty.getName().equals(DSActionConstants.USER_PROPERTY)) {
+		if (configProperty.getName() != null && configProperty.getName().equals(DSActionConstants.USER_PROPERTY)) {
 
 			labelMaker(DSActionConstants.USER_DISPLAY);
 
 		}
 
-		if (configProperty.getName()
+		if (configProperty.getName() != null && configProperty.getName()
 				.equals(DSActionConstants.PASSWORD_PROPERTY)) {
 
 			labelMaker(DSActionConstants.PASSWORD_DISPLAY);
 
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.MINPOOLSIZE_PROPERTY)) {
 
 			labelMaker(DSActionConstants.MINPOOLSIZE_DISPLAY);
 
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.MAXPOOLSIZE_PROPERTY)) {
 
 			labelMaker(DSActionConstants.MAXPOOLSIZE_DISPLAY);
 
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.VALIDATIONQUERY_PROPERTY)) {
 
 			labelMaker(DSActionConstants.VALIDATIONQUERY_DISPLAY);
 
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.ENABLE_AUTO_COMMIT)) {
 
 			labelMaker(DSActionConstants.ENABLE_AUTO_COMMIT_DISPLAY);
 		}
 
 		// CSV constants
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.CSV_DATASOURCE_PROPERTY)) {
 
 			labelMaker(DSActionConstants.CSV_DATASOURCE_DISPLAY);
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.COLUMN_SEPERATOR_PROPERTY)) {
 
 			labelMaker(DSActionConstants.COLUMN_SEPERATOR_DISPLAY);
 		}
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.STARTING_ROW_PROPERTY)) {
 
 			labelMaker(DSActionConstants.STARTING_ROW_DISPLAY);
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.MAX_ROW_COUNT_PROPERTY)) {
 
 			labelMaker(DSActionConstants.MAX_ROW_COUNT_DISPLAY);
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.HAS_HEADER_PROPERTY)) {
 
 			labelMaker(DSActionConstants.HAS_HEADER_DISPLAY);
@@ -512,53 +512,53 @@ public class DetailSection {
 		
 		//Excel
 		
-		if(configProperty.getName().equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)){
+		if(configProperty.getName() != null && configProperty.getName().equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)){
 			
 			labelMaker(DSActionConstants.EXCEL_DATASOURCE_DISPLAY);
 		}
 
 		// JDNI type
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.JNDI_CONTEXT_PROPERTY)) {
 
 			labelMaker(DSActionConstants.JNDI_CONTEXT_DISPLAY);
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.JNDI_PROVIDER_URL_PROPERTY)) {
 
 			labelMaker(DSActionConstants.JNDI_PROVIDER_URL_DISPLAY);
 		}
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.JNDI_RESOURCE_PROPERTY)) {
 
 			labelMaker(DSActionConstants.JNDI_RESOURCE_DISPLAY);
 		}
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.JNDI_PASSWORD_PROPERTY)) {
 
 			labelMaker(DSActionConstants.JNDI_PASSWORD_DISPLAY);
 		}
 
 		// Gspread
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)) {
 
 			labelMaker(DSActionConstants.GSPREAD_DATASOURCE_DISPLAY);
 		}
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.GSPREAD_VISIBILITY_PROPERTY)) {
 
 			labelMaker(DSActionConstants.GSPREAD_VISIBILITY_DISPLAY);
 		}
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.GSPREAD_USERNAME_PROPERTY)) {
 
 			labelMaker(DSActionConstants.GSPREAD_USERNAME_DISPLAY);
 		}
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.GSPREAD_PASSWORD_PROPERTY)) {
 
 			labelMaker(DSActionConstants.GSPREAD_PASSWORD_DISPLAY);
@@ -566,14 +566,14 @@ public class DetailSection {
 
 		// Carbon data Source
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
 
 			labelMaker(DSActionConstants.CARBON_DATASOURCE_NAME_DISPLAY);
 		}
 
 
-		if (configProperty.getName().equals(
+		if (configProperty.getName() != null && configProperty.getName().equals(
 				DSActionConstants.ENABLE_AUTO_COMMIT)) {
 
 			sectionUtil.getBooleanComboWithStringPersistance(detailsclient,
@@ -688,27 +688,27 @@ public class DetailSection {
 		labelMaker("");
 		labelMaker("");
 		
-		if(queryProperty.getName().equals(DetailSectionCustomUiConstants.QUERY_TIMEOUT)){
+		if(queryProperty.getName() != null && queryProperty.getName().equals(DetailSectionCustomUiConstants.QUERY_TIMEOUT)){
 			
 			labelMaker(DetailSectionCustomUiConstants.QUERY_TIMEOUT_DISPLAY);
 		}
 		
-		if(queryProperty.getName().equals(DetailSectionCustomUiConstants.FETCH_DIRECTION)){
+		if(queryProperty.getName() != null && queryProperty.getName().equals(DetailSectionCustomUiConstants.FETCH_DIRECTION)){
 			
 			labelMaker(DetailSectionCustomUiConstants.FETCH_DIRECTION_DISPLAY);
 		}
 		
-		if(queryProperty.getName().equals(DetailSectionCustomUiConstants.FETCH_SIZE)){
+		if(queryProperty.getName() != null && queryProperty.getName().equals(DetailSectionCustomUiConstants.FETCH_SIZE)){
 			
 			labelMaker(DetailSectionCustomUiConstants.FETCH_SIZE_DISPLAY);
 		}
 		
-		if(queryProperty.getName().equals(DetailSectionCustomUiConstants.MAX_FIELD_SIZE)){
+		if(queryProperty.getName() != null && queryProperty.getName().equals(DetailSectionCustomUiConstants.MAX_FIELD_SIZE)){
 			
 			labelMaker(DetailSectionCustomUiConstants.MAX_FIELD_SIZE_DISPLAY);
 		}
 		
-		if(queryProperty.getName().equals(DetailSectionCustomUiConstants.MAX_ROWS)){
+		if(queryProperty.getName() != null && queryProperty.getName().equals(DetailSectionCustomUiConstants.MAX_ROWS)){
 			
 			labelMaker(DetailSectionCustomUiConstants.MAX_ROWS_DISPLAY);
 		}
