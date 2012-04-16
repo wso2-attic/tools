@@ -203,6 +203,7 @@ public class RepositoryGenMojo extends AbstractMojo {
             this.getLog().info("Running Equinox P2 Publisher Application for Repository Generation");
             generateRepository();
             this.getLog().info("Running Equinox P2 Category Publisher Application for the Generated Repository");
+            updateRepositoryWithCategories();
             archiveRepo();
         } catch (Exception e) {
             this.getLog().error(e.getMessage(), e);
@@ -372,6 +373,34 @@ public class RepositoryGenMojo extends AbstractMojo {
         categoryDeinitionFile=File.createTempFile("equinox-p2", "category");
     }
 
+	private void updateRepositoryWithCategories() throws Exception {
+		if (!isCategoriesAvailable()) {
+			return;
+		} else {
+			P2Utils.createCategoryFile(getProject(), categories, categoryDeinitionFile,
+			                           getArtifactFactory(), getRemoteRepositories(),
+			                           getLocalRepository(), getResolver());
+			P2ApplicationLauncher launcher = this.launcher;
+			launcher.setWorkingDirectory(project.getBasedir());
+			launcher.setApplicationName("org.eclipse.equinox.p2.publisher.CategoryPublisher");
+			launcher.addArguments("-metadataRepository", metadataRepository.toString(),
+			                      "-categoryDefinition", categoryDeinitionFile.toURI().toString(),
+			                      "-categoryQualifier");
+
+			int result = launcher.execute(forkedProcessTimeoutInSeconds);
+			if (result != 0) {
+				throw new MojoFailureException("P2 publisher return code was " + result);
+			}
+		}
+	}
+    
+	private boolean isCategoriesAvailable() {
+		if (categories == null || categories.size() == 0) {
+			return false;
+		}
+		return true;
+	}
+    
     private void performMopUp() {
         try {
             // we want this temp file, in order to debug some errors. since this is in target, it will
