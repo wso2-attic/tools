@@ -25,7 +25,7 @@ public class ArtifactTypeMapping {
 	static {
 		type.put("bpel/workflow","zip");
 		type.put("lib/registry/filter","jar");
-		type.put("service/jaxws","jar");
+		type.put("service/jaxws","war");
 		type.put("lib/library/bundle","jar");
 		type.put("service/dataservice","dbs");
 		type.put("synapse/local-entry","xml");
