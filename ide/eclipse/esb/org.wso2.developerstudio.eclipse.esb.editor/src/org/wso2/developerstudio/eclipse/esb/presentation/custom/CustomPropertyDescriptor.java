@@ -46,7 +46,7 @@ public class CustomPropertyDescriptor extends PropertyDescriptor {
 	public CellEditor createPropertyEditor(Composite composite) {
 		CellEditor result = null;
 		
-		if (object instanceof HeaderMediator) {
+//		if (object instanceof HeaderMediator) {
 			PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
 			if(wrapper.getEditableValue(object) instanceof NamespacedProperty){
 				//PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
@@ -61,12 +61,12 @@ public class CustomPropertyDescriptor extends PropertyDescriptor {
 						composite, object, itemPropertyDescriptor);
 			}
 			return (null == result) ? super.createPropertyEditor(composite)	: result;
-			}
-		else{
-			
-			 result = CustomPropertyEditorFactory.createCustomPropertyEditor(composite, object, itemPropertyDescriptor);		
-			return (null == result) ? super.createPropertyEditor(composite) : result;	
-		}
+//			}
+//		else{
+//			
+//			 result = CustomPropertyEditorFactory.createCustomPropertyEditor(composite, object, itemPropertyDescriptor);		
+//			return (null == result) ? super.createPropertyEditor(composite) : result;	
+//		}
 			
 	}
 }
