@@ -55,10 +55,14 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 		}
 		
 		if(!pomFile.exists() || (pomFile.exists() && openQuestion)){
-//			 TODO: implement the Pom Generation Logic
+			createMavenPom(selectedUIElement);
 		}
 
 		return null;
+	}
+	
+	private void createMavenPom(IProject project){
+//			 TODO: implement the Pom Generation Logic
 	}
 
 }
