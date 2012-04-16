@@ -294,7 +294,18 @@ public class RegistryHandler implements IRegistryHandler {
 			boolean isExist = false;
 
 			for (IRegistryConnection registryCon : connectionList) {
-				if ((registryCon.getURL().equals(registryConnection.getURL())) &&
+				
+				String registryConUrl = registryCon.getURL().toString().trim();
+				if(!registryConUrl.endsWith("/")){
+					registryConUrl=registryConUrl.concat("/");
+				}
+				
+				String registryConnectionUrl = registryConnection.getURL().toString().trim();
+				if(!registryConnectionUrl.endsWith("/")){
+					registryConnectionUrl=registryConnectionUrl.concat("/");
+				}
+				
+				if ((registryConUrl.equalsIgnoreCase(registryConnectionUrl)) &&
 				    (registryCon.getPath().equals(registryConnection.getPath())) &&
 				    (registryCon.getUsername().equals(registryConnection.getUsername()))) {
 					isExist = true;

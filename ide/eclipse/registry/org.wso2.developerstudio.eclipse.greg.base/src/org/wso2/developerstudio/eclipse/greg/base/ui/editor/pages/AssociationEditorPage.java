@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -614,9 +615,9 @@ public class AssociationEditorPage extends FormPage implements
 						}
 					}
 				}
-				Collection results = new ArrayList();
+				List<String> results = new ArrayList<String>();
 				if (parent instanceof Association) {
-					results = ((Properties) parent).values();
+					results.add(((Association) parent).getAssociationType());
 				}
 				return results.toArray();
 			} catch (Exception e) {

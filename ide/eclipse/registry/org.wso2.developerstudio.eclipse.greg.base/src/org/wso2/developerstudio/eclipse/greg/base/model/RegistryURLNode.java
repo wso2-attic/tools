@@ -72,7 +72,18 @@ public class RegistryURLNode extends Observable {
 		RegistryNode regNode = new RegistryNode(registryUrlInfo, pwd, this);
 		List<RegistryNode> availableURLInfoList = getUrlInfoList();
 		for (RegistryNode registryNode : availableURLInfoList) {
-			if(registryNode.getUrl().equals(registryUrlInfo.getUrl()) &&
+			
+			String regNodeUrl = registryNode.getUrl().toString().trim();
+			if(!regNodeUrl.endsWith("/")){
+				regNodeUrl = regNodeUrl.concat("/");
+			}
+			
+			String registryUrlInfoString = registryUrlInfo.getUrl().toString().trim();
+			if(!registryUrlInfoString.endsWith("/")){
+				registryUrlInfoString=registryUrlInfoString.concat("/");
+			}
+			
+			if(regNodeUrl.equalsIgnoreCase(registryUrlInfoString) &&
 					registryNode.getRegistryStartingPath().equals(registryUrlInfo.getPath()) &&
 					registryNode.getUsername().equals(registryUrlInfo.getUsername())){
 				urlAvailable = true;
