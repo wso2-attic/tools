@@ -25,37 +25,37 @@ public class ArtifactFileUtils {
 
 	
 	//file select options
-	public static int ERROR_OPTION=0;
-	public static int OPTION_TEMPLATE=1;
-	public static int OPTION_NEW = 2;
-	public static int OPTION_IMPORT_FS = 3;
-	public static int OPTION_IMPORT_REG = 4;
-	public static int OPTION_IMPORT_RESOURCE_FROM_FS = 5;
-	public static int OPTION_IMPORT_COLLECTION_FROM_FS = 6;
-	public static int OPTION_SPLIT_SYNAPSE = 7;
-	public static int OPTION_IMPORT_WS = 8;
+	public static final int ERROR_OPTION=0;
+	public static final int OPTION_TEMPLATE=1;
+	public static final int OPTION_NEW = 2;
+	public static final int OPTION_IMPORT_FS = 3;
+	public static final int OPTION_IMPORT_REG = 4;
+	public static final int OPTION_IMPORT_RESOURCE_FROM_FS = 5;
+	public static final int OPTION_IMPORT_COLLECTION_FROM_FS = 6;
+	public static final int OPTION_SPLIT_SYNAPSE = 7;
+	public static final int OPTION_IMPORT_WS = 8;
 	
 	//endpoint types
-	public static int ADDRESS_EP = 10;
-	public static int WSDL_EP = 11;
-	public static int FO_EP = 12;
-	public static int LB_EP = 13;
-	public static int DEFAULT_EP = 14;
+	public static final int ADDRESS_EP = 10;
+	public static final int WSDL_EP = 11;
+	public static final int FO_EP = 12;
+	public static final int LB_EP = 13;
+	public static final int DEFAULT_EP = 14;
 	
 	//proxy types
-	public static int PASS_THROUGH_PROXY = 20;
-	public static int SECURE_PROXY = 21;
-	public static int WSDL_PROXY = 22;
-	public static int LOG_FORWARD_PROXY = 23;
-	public static int TRANSFORMER_PROXY = 24;
-	public static int CUSTOM_PROXY = 25;
+	public static final int PASS_THROUGH_PROXY = 20;
+	public static final int SECURE_PROXY = 21;
+	public static final int WSDL_PROXY = 22;
+	public static final int LOG_FORWARD_PROXY = 23;
+	public static final int TRANSFORMER_PROXY = 24;
+	public static final int CUSTOM_PROXY = 25;
 	
 	//new local entry types
-	public static int IN_LINE_TEXT = 30;
-	public static int IN_LINE_XML = 31;
+	public static final int IN_LINE_TEXT = 30;
+	public static final int IN_LINE_XML = 31;
 	
 	//local entry source types
-	public static int OPTION_SOURCE_URL = 32;
+	public static final int OPTION_SOURCE_URL = 32;
 	
 	
     public static boolean IsSpecialCharactersExist(String str){
