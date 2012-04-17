@@ -84,7 +84,7 @@ public class DetailSectionUiUtil {
 	 * @param input
 	 * @param initialVal
 	 * @param metaObject
-	 * @return Combo with boolean persistance feature.
+	 * @return Combo with boolean persistence feature.
 	 */
 	public Combo getBooleanComboField(Composite detailsclient,FormToolkit toolkit,Object input,boolean initialVal,EAttribute metaObject){
 		

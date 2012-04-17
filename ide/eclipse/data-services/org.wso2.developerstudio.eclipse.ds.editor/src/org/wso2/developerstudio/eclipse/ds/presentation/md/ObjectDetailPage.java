@@ -1,8 +1,5 @@
 package org.wso2.developerstudio.eclipse.ds.presentation.md;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
@@ -11,8 +8,6 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.FocusEvent;
-import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -26,6 +21,8 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
+import org.wso2.developerstudio.eclipse.ds.CallQuery;
+import org.wso2.developerstudio.eclipse.ds.Query;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
 public class ObjectDetailPage implements IDetailsPage, IPartListener,
@@ -41,7 +38,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	private Composite detailsclient;
 	private Section detailsection;
 	private DetailSection sectionHolder;
-	
+	private Composite parentComposite;
 	
 	public ObjectDetailPage(Object key, DsEditor editor) {
 
@@ -54,6 +51,8 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	}
 
 	public void createContents(Composite parent) {
+		
+		parentComposite = parent;
 		TableWrapLayout layout = new TableWrapLayout();
 		layout.topMargin = 5;
 		layout.leftMargin = 5;
@@ -156,7 +155,15 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		if (ssel.size() == 1) {
 
 			input = (EObjectImpl) ssel.getFirstElement();
-
+			
+			//Fixing TOOLS-1004
+			if (input instanceof Query || input instanceof CallQuery) {
+				detailsection.dispose();
+				Composite composite = toolkit.createComposite(parentComposite,
+						SWT.NULL);
+				createContents(composite);
+				detailsection.layout();
+			}
 		} else {
 		//	update();
 		}
