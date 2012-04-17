@@ -97,8 +97,17 @@ public class RegistryHandlerUtils {
 		
 		RegistryUrlStore regURLStore = RegistryUrlStore.getInstance();
 		List<RegistryURLInfo> allRegistryUrls = regURLStore.getAllRegistryUrls();
+		String connectionString=connection.getURL().toString().trim();
+		if(!connectionString.endsWith("/")){
+			connectionString=connectionString.concat("/");
+		}
 		for (RegistryURLInfo registryURLInfo : allRegistryUrls) {
-			if(registryURLInfo.getUrl().equals(connection.getURL()) &&
+			
+			String registryURLInfoString = registryURLInfo.getUrl().toString().trim();
+			if(!registryURLInfoString.endsWith("/")){
+				registryURLInfoString=registryURLInfoString.concat("/");
+			}
+			if(registryURLInfoString.equalsIgnoreCase(connectionString) &&
 					registryURLInfo.getPath().equals(connection.getPath())){
 				urlAvailable = true;
 				return;
