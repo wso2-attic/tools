@@ -32,10 +32,9 @@
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>
        </menu>
 
-		<!-- menu name="Samples">
-            <item name="Shopping Cart Sample" href="shopping-cart-sample.html"/>
-            <item name="ESB Proxy Service Sample" href="esb_proxy_service_sample.html"/>
-       </menu-->
+		<menu name="Samples">
+            <item name="Retail Banking Sample" href="banking_sample.html"/>
+       </menu>
        
        
        <menu name="Get Involved" href="overview.html">

@@ -1,0 +1,302 @@
+<!--
+		~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com) ~ ~ Licensed under
+		the Apache License, Version 2.0 (the "License"); ~ you may not use
+		this file except in compliance with the License. ~ You may obtain a
+		copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+		~ ~ Unless required by applicable law or agreed to in writing,
+		software ~ distributed under the License is distributed on an "AS IS"
+		BASIS, ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+		or implied. ~ See the License for the specific language governing
+		permissions and ~ limitations under the License.
+	-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<body>
+
+		<h1>Retail Banking Sample</h1>
+		<p>
+		This document explain how you can model simple scenario of a normal retail bank when a 
+		customer wants to open a bank account. 
+        </p>
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#sample">Sample Scenario</a>
+				</li>
+				<li>
+					<a href="#design">Design the Solution</a>
+				</li>
+				<li>
+					<a href="#prerequisits">Pre-requisits</a>
+				</li>
+				<li>
+					<a href="#source">Download Source</a>
+				</li>
+				<li>
+					<a href="#try">Try the Sample with WSO2 Developer Studio</a>
+				</li>
+			</ul>
+		</div>
+
+		<h2 id="sample">Sample Scenario</h2>
+		<p>
+		This sample is about account opening process of a normal retail bank. We are going to develop 
+		a simple application to model that scenario using <strong>WSO2 Developer Studio</strong>.
+		</p>
+		
+		<p>
+		Here is a simplified description of a common retail banking process.
+		</p>
+		
+		<p>
+		When a potential customer walks into a bank branch to open an account, the first thing the 
+		bank does is establish the person's identity. 
+		Once the person's identity is established, the branch staff perform a query against a 
+		customer database to see if the person is an existing customer. Legacy banking systems 
+		are based on account numbers, but banks today are focused on getting a 
+		“single view of the customer”, which requires the generation of customer numbers. 
+		It's therefore important to ensure that a customer is not 
+		assigned more than one customer number by mistake. 
+		</p>
+		
+		<p>
+		If the person is a prior customer, the customer number is retrieved from the customer database. 
+		If not, a fresh customer number is generated. This customer number is then associated with the 
+		new account number of the account that is to be opened. Accounts are still held on thirty year 
+		old mainframe systems, which alone can generate fresh account numbers.
+		</p>
+		
+		<p>
+		A debit card is normally issued with the first cheque or savings account that is opened. 
+		However, not all branches have the equipment to generate and issue them on the spot. 
+		Hence cards are issued centrally and sent to the customers. If this is an existing customer, 
+		the new account is “linked” to their existing debit card on the spot. Most branches are unable to 
+		provide secure PIN printing facilities, so this too is centralised. 
+		</p>
+		
+		<p>
+		The mainframe can only send and receive messages over a message queue, and uses a COBOL copybook 
+		format to structure its data inputs and outputs. The card system is an off-the-shelf product 
+		that supports web services, but these conform to a vendor-provided schema that is different 
+		from the rest of the bank's systems.
+		</p>
+		
+		<h2 id="design">Design the Solution</h2>
+		
+		<p>
+		There is only one process (“Open Account”) that needs to be initiated, and this consists of a 
+		number of steps, which would be natural points at which services are invoked. The functions 
+		performed at these various steps are:
+		</p>
+		<ol>
+			<li>
+			<strong>Check if existing customer</strong>: This is the first thing that needs to be done, 
+			because the subsequent processing for prior and new customers is different. 
+			This query is to be made against the customer database, which requires a 
+			<strong>Data Service</strong> in front of it to turn it into a true service.
+			</li>
+			<li>
+			<strong>Create customer</strong>: This service is only invoked if the customer is new. This is 
+			once again a function that needs to be implemented against the customer database, 
+			so another Data Service is required to turn it into a true service.
+			</li>
+			<li>
+			<strong>Create account</strong>: This needs to be done regardless of whether this is 
+			an existing or new customer. Accounts are maintained on the mainframe, and account 
+			creation can only be invoked by passing in a special message formatted as a 
+			COBOL copybook sent over MQ. A Broker is required to act as an adapter to the MQ 
+			interface as well as a transformer to present the COBOL copybook syntax as a 
+			more open XML document.
+			</li>
+			<li>
+			<strong>Link card to account</strong>: This is done for both existing and new customers, 
+			but invoked at different points in the process. 
+			</li>
+			<li>
+			<strong>Issue card</strong>: This is for new customers who don't already possess a 
+			debit card. The actual processing occurs on a card system that exposes a web service. 
+			However, the data elements of this service don't conform to the data model of the 
+			retail bank. A Broker is again required to transform the XML documents supported by 
+			the card system to equivalent ones that conform to the bank's data model.
+			</li>
+		</ol>
+		
+		<table border="2">
+			<tbody>
+				<tr>
+					<td><strong>Process</strong></td>
+					<td><strong>Service</strong></td>
+					<td><strong>Operation</strong></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>Customer</td>
+					<td>1. Check if existing customer</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>2. Create customer</td>
+				</tr>
+				<tr>
+					<td>Open Account</td>
+					<td>Account</td>
+					<td>3. Create account</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>4. Link card to account</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>Card</td>
+					<td>5. Issue card</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<p>
+		The following diagram shows how these components hang together.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking-sample1.png"></img>
+			<br></br>
+		</p>
+		
+		<h2 id="prerequisits">Pre-requisits</h2>
+		<p>
+		Now we are going to implement the solution using <strong>WSO2 Developer Studio</strong>. 
+		Before start implementing, you will need following third party tools
+		and <strong>WSO2 Products</strong>.
+		</p>
+		
+		<p>
+		<strong>Third Party Tools</strong>
+		</p>
+		<ul>
+			<li>
+				MySQL 5.x Server (download from <a href="http://www.mysql.com/">http://www.mysql.com/</a>)
+			</li>
+			<li>
+				ActiveMQ 5.x (download from <a href="http://www.apache.org/">http://www.apache.org/</a>)
+			</li>
+			<li>
+			
+			</li>
+		</ul>
+		
+		<p>
+		<strong>WSO2 Products</strong>
+		</p>
+		
+		<ul>
+			<li>
+				<a href="http://wso2.com/products/enterprise-service-bus">WSO2 Enterprise Service Bus</a>
+			</li>
+			<li>
+				<a href="http://wso2.com/products/application-server">WSO2 Application Server</a>
+			</li>
+			<li>
+				<a href="http://wso2.com/products/business-process-server">WSO2 Business Process Server</a>
+			</li>
+			<li>
+				<a href="http://wso2.com/products/data-services-server">WSO2 Data Services Server</a>
+			</li>
+			<li>
+				<a href="http://wso2.com/products/governance-registry">WSO2 Governance Registry</a>
+			</li>
+		</ul>
+		
+		<p>
+		<strong>Necessary Software Libraries and Drivers</strong>
+		</p>		
+		
+		<ul>
+			<li>
+				ActiveMQ
+					<ul>
+						<li>activemq-core-5.4.2.jar</li>
+						<li>geronimo-j2ee-management_1.1_spec-1.0.1.jar</li>
+						<li>geronimo-jms_1.1_spec-1.1.1.jar</li>
+					</ul>
+			</li>
+			<li>
+				MySQL JDBC Driver
+				<ul>
+						<li>mysql-connector-java-5.1.13-bin.jar</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<p>
+		Install and configure the third party libraries and drivers. I assume you already have 
+		<strong>WSO2 Developer Studio</strong> installed Eclipse version with you. If you have not 
+		installed <strong>WSO2 Developer Studio</strong> yet, please refer the 
+		<a href="install_guide.html">Installation Guide</a> for more information on how to install 
+		WSO2 Developer Studio in your <strong>Eclipse</strong> instance.
+ 		</p>
+
+		<h2 id="source">Download Source</h2>
+		
+		<p>
+		You can check-out the latest up-to-date version from 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample">here</a>
+		</p>
+		
+		<h2 id="try">Try the Sample with WSO2 Developer Studio</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#gettingReady">Getting Ready</a>
+				</li>
+				<li>
+					<a href="#installMySQL">Install and configure MySQL</a>
+				</li>
+				<li>
+					<a href="#installActiveMQ">Install and configure ActiveMQ</a>
+				</li>
+				<li>
+					<a href="#installWSO2">Install and Configure WSO2 Servers</a>
+				</li>
+				<li>
+					<a href="#configDSS">Configure WSO2 Data Services Server</a>
+				</li>
+				<li>
+					<a href="#configAppServer">Configure WSO2 Application Server</a>
+				</li>
+				<li>
+					<a href="#configESB">Configure WSO2 ESB</a>
+				</li>
+				<li>
+					<a href="#configBPS">Configure WSO2 Business Process Server</a>
+				</li>
+				<li>
+					<a href="#createDS">Create Data Services to abstract the Customer Master</a>
+				</li>
+				<li>
+					<a href="#createMock">Creating Mock Objects to represent Legacy Systems</a>
+				</li>
+				<li>
+					<a href="#createMainframeProxy">Create Proxy Services to abstract the Mainframe</a>
+				</li>
+				<li>
+					<a href="#createCardProxy">Create Proxy Services to abstract the Cards System</a>
+				</li>
+				<li>
+					<a href="#createBPEL">Create the Process to coordinate all the above Services</a>
+				</li>
+				<li>
+					<a href="#deploy">Deploy the SOA Integration Solution</a>
+				</li>
+				<li>
+					<a href="#test">Testing the Working Solution</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
