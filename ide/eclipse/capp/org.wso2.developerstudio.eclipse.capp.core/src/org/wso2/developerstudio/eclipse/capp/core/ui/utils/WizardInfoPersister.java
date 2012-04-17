@@ -76,7 +76,8 @@ public class WizardInfoPersister {
 	        	((Text) control).setText(temp);
 	        }
 		}
-		
+
+/*		
 		if(control instanceof Composite){
 			
 		}
@@ -84,5 +85,6 @@ public class WizardInfoPersister {
 		if(control instanceof Combo){
 			
 		}
+*/
 	}
 }

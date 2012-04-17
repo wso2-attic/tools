@@ -43,9 +43,11 @@ public class Initializer implements IStartup {
 				String loadProjectFilePath = System.getProperty("load_projects");
 				if (loadProjectFilePath!=null){
 					File loadProjectFile = new File(loadProjectFilePath);
+/*
 					if (loadProjectFile.exists()){
 						
 					}
+*/
 				}
 				Properties cAppAutomateBuilderProperties = new Properties();
 				try {

@@ -641,10 +641,8 @@ public class CAppArtifactManager implements ICAppArtifactManager{
 			content = null;
 		} else if (artifact.getType().equals(ArtifactTypeConstants.LIB_LIBRARY_BUNDLE)) {
 			content = null;
-		}else if (artifact.getType().equals(ArtifactTypeConstants.WAR_ARTIFACT_TYPE)) {
+		} else if (artifact.getType().equals(ArtifactTypeConstants.WAR_ARTIFACT_TYPE)) {
 			content = null;
-		}else{
-			
 		}
     }
 	
