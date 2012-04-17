@@ -51,7 +51,7 @@ public class ESBProjectNature extends AbstractWSO2ProjectNature {
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 			//Adding typrLidt property
-			mavenProject.getProperties().put("artifact.types", "bpel/workflow=zip,lib/registry/filter=jar,service/jaxws=jar,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar");
+			mavenProject.getProperties().put("artifact.types", "bpel/workflow=zip,lib/registry/filter=jar,service/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar");
 			//Setting the directory
 			mavenProject.getBuild().setDirectory("target/capp");
 			
