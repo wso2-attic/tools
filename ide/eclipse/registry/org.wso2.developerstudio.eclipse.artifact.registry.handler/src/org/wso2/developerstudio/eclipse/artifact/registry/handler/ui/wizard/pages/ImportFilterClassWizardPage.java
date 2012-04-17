@@ -47,12 +47,16 @@ import org.eclipse.swt.widgets.TableItem;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.Constants;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerInfo.DataType;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerInfo.PropertyData;
+import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
-public class ImportFilterClassWizardPage extends WizardPage{
+public class ImportFilterClassWizardPage extends WizardPage {
 	
 	private Table filterCriteriaTable;
 	private TableViewer viewer;
+	private CellEditor[] editors;
+	private Composite container;
+	private String []mimtypeArray;
 	private HashMap<String, PropertyData> filterMap;
 	private final static String[] titles = { "Property Name", "Value", "Type" };
 	private String[] filterDataTypeNames = { DataType.STRING.name(), DataType.XML.name() };
@@ -82,7 +86,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 		allFilterClassesList.add("org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher");
 		allFilterClassesList.add("org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher");
 		
-		Composite container = new Composite(parent, SWT.NULL);
+		container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 2;
 		layout.verticalSpacing = 9;
@@ -105,6 +109,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 				if (filterClassesCombo.getText().equals(
 						"org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher")) {
 					getMediaTypeMatcherFilterMap();
+					
 				} else if (filterClassesCombo.getText().equals(
 						"org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher")) {
 					getURLMatcherFilterMap();
@@ -125,7 +130,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 		lblNewLabel.setBounds(10, 97, 165, 13);
 		lblNewLabel.setText("Filter Criteria");
 		
-		CellEditor[] editors = new CellEditor[3];
+		editors = new CellEditor[3];
 
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(10, 150, true));
@@ -151,19 +156,24 @@ public class ImportFilterClassWizardPage extends WizardPage{
 		column = new TableColumn(filterCriteriaTable, SWT.NONE);
 		column.setText(titles[2]);
 		column.setAlignment(SWT.LEFT);
-
+		
+	    Registry registry = new Registry();
+	    ArrayList<String> mimetypeList = registry.getAllMediaTypes();
+	    mimtypeArray = new String[mimetypeList.size()];
+	    mimetypeList.toArray(mimtypeArray);
+			
 		viewer = new TableViewer(filterCriteriaTable);
 		viewer.setColumnProperties(titles);
 		viewer.setContentProvider(new TableContentProvider());
 		viewer.setLabelProvider(new TableLabelProvider());
+		
 		editors[0] = new TextCellEditor(filterCriteriaTable);
-		editors[1] = new TextCellEditor(filterCriteriaTable);
+		editors[1] = new ComboBoxCellEditor(filterCriteriaTable,mimtypeArray, SWT.READ_ONLY);
 		editors[2] = new ComboBoxCellEditor(filterCriteriaTable, filterDataTypeNames, SWT.READ_ONLY);
 		viewer.setCellEditors(editors);
 		viewer.setCellModifier(new TableCellModifier());
-		
 		loadData();
-		setControl(container);
+		setControl(container);	
 	}
 	
 	public void fillComboBoxInfo(List<String> filterClasses) {
@@ -403,7 +413,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 		}
 
 		public void inputChanged(Viewer arg0, Object arg1, Object arg2) {
-
+              System.out.println("changing");
 		}
 
 	}
@@ -449,6 +459,12 @@ public class ImportFilterClassWizardPage extends WizardPage{
 				break;
 			case 1:
 				result = row.propertyValue;
+				String[] choices1 = mimtypeArray;
+				int j = choices1.length - 1;
+				while (!result.equals(choices1[j]) && j > 0) {
+					--j;
+				}	 
+				result = new Integer(j);
 				break;
 			case 2:
 				result = row.type;
@@ -473,7 +489,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 
 			TableItem tableItem = (TableItem) element;
 			FilterData row = (FilterData) tableItem.getData();
-
+		
 			switch (columnIndex) {
 			case 0:
 				String key = (String) value;
@@ -494,7 +510,10 @@ public class ImportFilterClassWizardPage extends WizardPage{
 				break;
 
 			case 1:
-				String v = (String) value;
+				String v="";
+				if(((Integer) value).intValue() > -1){
+					v = mimtypeArray[((Integer) value).intValue()].trim();
+				}
 				if (v.length() > 0) {
 					row.propertyValue = v;
 				}
@@ -508,7 +527,8 @@ public class ImportFilterClassWizardPage extends WizardPage{
 			if (row.isBlank()) {
 				if (tableItem != filterCriteriaTable.getItem(filterCriteriaTable.getItemCount() - 1)) {
 				}
-			} else {
+		} else 
+		      {
 				TableItem item = filterCriteriaTable.getItem(filterCriteriaTable.getItemCount() - 1);
 				FilterData lastFilterData = (FilterData) item.getData();
 				if (!lastFilterData.isBlank()) {
@@ -564,8 +584,5 @@ public class ImportFilterClassWizardPage extends WizardPage{
 			    } 
 			}
 	 return newKey;		
-	}
-
-
-	
+	}	
 }
