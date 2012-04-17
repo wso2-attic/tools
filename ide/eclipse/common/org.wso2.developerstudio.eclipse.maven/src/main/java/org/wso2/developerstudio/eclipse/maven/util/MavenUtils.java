@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -240,7 +241,12 @@ public class MavenUtils {
 	}
 	
 	private static void updateMavenRepo(MavenProject mavenProject){
-		List<Repository> existingRepositories = mavenProject.getModel().getRepositories();
+		
+		List<Repository> newList=mavenProject.getModel().getRepositories();
+		List<Repository> existingRepositories = new ArrayList<Repository>();
+		for (Repository repository : newList) {
+	        existingRepositories.add(repository);
+        }
 		Repository repo = new Repository();
 		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
 		repo.setId("wso2-nexus");
