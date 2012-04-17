@@ -62,10 +62,15 @@ public class CAppExportWizard extends Wizard implements IExportWizard {
         } catch (Exception e) {
 	        MessageDialog.openError(getShell(), "Create CAR file", "Error occured while trying to create CAR file: "+e.getMessage());
 	        log.error(e);
-		    if (tempTag!=null) tempTag.clearAndEnd();
+		    if (tempTag != null) {
+                tempTag.clearAndEnd();
+            }
+
 	        return false;
         }finally{
-        	if (tempTag!=null) tempTag.clearAndEnd();
+        	if (tempTag != null) {
+                tempTag.clearAndEnd();
+            }
         }
         return true;
 	}

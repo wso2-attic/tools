@@ -167,7 +167,11 @@ public class ArtifactEditor extends FormEditor{
     			}
     		}
         	Artifact currentArtifact = artifactEditorPage.getCurrentArtifact();
-    		if (!checkAndHandleNewServerRole(currentArtifact)) return;
+
+    		if (!checkAndHandleNewServerRole(currentArtifact)) {
+                return;
+            }
+
 	    	try {
 	    		checkArtifactCyclicDependencies();
 	            artifactEditorPage.syncOriginalToCurrent();
@@ -390,7 +394,9 @@ public class ArtifactEditor extends FormEditor{
     	public void resourceChanged(IResourceChangeEvent event) {
         	IFile file = ((FileEditorInput)editor.getEditorInput()).getFile();
         	if ((event.getType() == IResourceChangeEvent.POST_CHANGE || event.getType() == IResourceChangeEvent.PRE_CLOSE)) {
-        		if (!file.exists()) closeEditor();
+        		if (!file.exists()) {
+                    closeEditor();
+                }
         	}
     	}
     
@@ -414,7 +420,10 @@ public class ArtifactEditor extends FormEditor{
 	}
 	
 	private boolean isCyclicDependency(ArtifactDependency dependency){
-		if (dependency.isInclude()) return false;
+		if (dependency.isInclude()) {
+            return false;
+        }
+
 		if (dependency.getConnectingArtifact()==getArtifact()){
 			return true;
 		}else{

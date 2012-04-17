@@ -82,8 +82,10 @@ public class CAppProjectSettings extends AbstractXMLDoc implements ICAppProjectS
 
 	@SuppressWarnings("unchecked")
     private void readSettings(){
-		if (settingsList==null)
-			settingsList=new HashMap<String, ISettingsData>();
+		if (settingsList == null) {
+			settingsList = new HashMap<String, ISettingsData>();
+        }
+
 		if(getcAppSettingsFile() != null){
 			if (getcAppSettingsFile().exists()){
 				try {

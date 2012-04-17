@@ -331,7 +331,11 @@ public class CAppExportWizardPage extends WizardPage {
     			
     		}
         }
-    	if (dependencyNames.size()>0) setDependenciesChanged(true);
+
+    	if (dependencyNames.size()>0) {
+            setDependenciesChanged(true);
+        }
+
     	lstViewLocalDependencies.setCheckedElements(selectedArtifacts.toArray());
     }
 

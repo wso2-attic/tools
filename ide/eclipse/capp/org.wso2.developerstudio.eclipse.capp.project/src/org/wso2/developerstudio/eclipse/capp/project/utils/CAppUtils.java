@@ -47,7 +47,9 @@ public class CAppUtils {
 			return;
 		}
 		if(!stratosEnabled){
-			if (superArtifact!=artifact) dependentArtifacts.add(artifact);
+			if (superArtifact!=artifact) {
+                dependentArtifacts.add(artifact);
+            }
 			List<ArtifactDependency> dependencies = artifact.getDependencies();
 			for (ArtifactDependency artifactDependency : dependencies) {
 				if (!artifactDependency.isInclude()) {

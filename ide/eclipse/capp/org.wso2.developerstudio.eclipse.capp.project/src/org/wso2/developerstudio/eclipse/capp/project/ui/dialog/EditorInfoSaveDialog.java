@@ -126,11 +126,12 @@ public class EditorInfoSaveDialog extends Dialog {
             	if (obj instanceof Artifact){
             		ICAppArtifactHandler handler=CAppArtifactManager.getInstance().getArtifactHandler((Artifact)obj);
             		if (handler==null){
-            			if (((Artifact)obj).getType().equals("carbon/application"))
+            			if (((Artifact)obj).getType().equals("carbon/application")) {
             				return CAppImageUtils.getInstance().getImageDescriptor("artifact-super.png").createImage();
-            			else
+            			} else {
             				return CAppImageUtils.getInstance().getImageDescriptor("artifact.png").createImage();
-            		}else{
+                        }
+            		} else {
             			return handler.getArtifactIcon().createImage();
             		}
             	}

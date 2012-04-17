@@ -42,7 +42,11 @@ public class CAppArtifactBundleManifest extends BundleManifest{
     }
 	protected List<String> getAdditionalHeaders() {
 		List<String> list=new ArrayList<String>();
-	    if (getParentApplication()!=null) list.add(getManifestHeaderLine("ParentApplication",getParentApplication()));
+
+	    if (getParentApplication() != null) {
+            list.add(getManifestHeaderLine("ParentApplication",getParentApplication()));
+        }
+
 	    return list;
     }
 	

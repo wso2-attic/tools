@@ -136,8 +136,10 @@ public class Artifact extends AbstractXMLDoc implements Observer{
     				String dependencyVersion = getAttribute(element, "version");
     				String includeStr = getAttribute(element, "include");
     				boolean isInclude=false;
-    				if (includeStr != null)
+    				if (includeStr != null) {
     					isInclude=Boolean.parseBoolean(includeStr);			
+                    }
+
     				ICAppArtifactManager cAppManager = CAppEnvironment.getcAppManager();
     				Artifact artifact = cAppManager.getArtifact(dependancyName, dependencyVersion, getSource().getProject());
     				ArtifactDependency artifactDependency = new ArtifactDependency(this,artifact);
@@ -168,8 +170,10 @@ public class Artifact extends AbstractXMLDoc implements Observer{
 	}
 
 	public List<Artifact> getSubArtifacts() {
-		if (subArtifacts == null)
+		if (subArtifacts == null) {
 			subArtifacts = new ArrayList<Artifact>();
+        }
+
 		return subArtifacts;
 	}
 
@@ -217,16 +221,26 @@ public class Artifact extends AbstractXMLDoc implements Observer{
 
 	public OMElement getDocumentElement() {
 		OMElement documentElement = getElement("artifact", "");
-		if (!isAnonymouse())
+		if (!isAnonymouse()) {
 			addAttribute(documentElement, "name", name);
-		if (!isAnonymouse() && version != null)
+        }
+
+		if (!isAnonymouse() && version != null) {
 			addAttribute(documentElement, "version", version);
-		if (type != null)
+        }
+
+		if (type != null) {
 			addAttribute(documentElement, "type", type);
-		if (serverRole != null)
+        }
+
+		if (serverRole != null) {
 			addAttribute(documentElement, "serverRole", serverRole);
-		if (file != null)
+        }
+
+		if (file != null) {
 			documentElement.addChild(getElement("file", file));
+        }
+
 		for (ArtifactDependency dependency : getDependencies()) {
 			OMElement dependecyElement = getElement("dependency", "");
 			dependecyElement = addAttribute(dependecyElement, "artifact", dependency.getName());
@@ -438,8 +452,9 @@ public class Artifact extends AbstractXMLDoc implements Observer{
 	
 	public boolean isDependencyPresent(String name, String version){
 		for (ArtifactDependency dependency : getDependencies()) {
-	        if (dependency.getName().equals(name) && dependency.getVersion().equals(version))
+	        if (dependency.getName().equals(name) && dependency.getVersion().equals(version)) {
 	        	return true;
+            }
         }
 		return false;
 	}

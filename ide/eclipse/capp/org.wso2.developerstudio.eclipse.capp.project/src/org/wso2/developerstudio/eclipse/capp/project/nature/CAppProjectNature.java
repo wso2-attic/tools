@@ -147,8 +147,9 @@ public class CAppProjectNature implements IProjectNature {
 	}
 
 	public static Map<String, CARDescriptor> getCarDescriptorsForProject() {
-		if (carDescriptorsForProject==null)
+		if (carDescriptorsForProject==null) {
 			carDescriptorsForProject=new HashMap<String, CARDescriptor>();
+        }
 	    return carDescriptorsForProject;
     }
 

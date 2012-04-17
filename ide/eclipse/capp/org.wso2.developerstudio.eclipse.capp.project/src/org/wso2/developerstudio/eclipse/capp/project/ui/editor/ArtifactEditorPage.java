@@ -830,7 +830,11 @@ public class ArtifactEditorPage extends FormPage implements IResourceChangeListe
     			
     		}
         }
-    	if (dependencyNames.size() > 0) setDependenciesChanged(true);
+
+    	if (dependencyNames.size() > 0) {
+            setDependenciesChanged(true);
+        }
+
     	lstViewLocalDependencies.setCheckedElements(selectedArtifacts.toArray());
     	updateSelectDeselectButtonState();
     }
@@ -878,7 +882,9 @@ public class ArtifactEditorPage extends FormPage implements IResourceChangeListe
 	    }
 		updateDirtyState();
 		updateSelectDeselectButtonState();
-		if (dependenciesChanged) updateDependencies();
+		if (dependenciesChanged) {
+            updateDependencies();
+        }
 	}
 
 

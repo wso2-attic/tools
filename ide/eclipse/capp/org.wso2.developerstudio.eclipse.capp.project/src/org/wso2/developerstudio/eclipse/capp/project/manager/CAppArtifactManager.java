@@ -189,8 +189,9 @@ public class CAppArtifactManager implements ICAppArtifactManager{
 	}
 	
 	public List<ICAppArtifactHandler> getArtifactHandlers() {
-		if (artifactHandlers==null)
+		if (artifactHandlers==null) {
 			artifactHandlers=new ArrayList<ICAppArtifactHandler>();
+        }
 	    return artifactHandlers;
     }
 	
@@ -289,8 +290,9 @@ public class CAppArtifactManager implements ICAppArtifactManager{
 		ICAppProjectSettings projectSetting = getProjectSettings(folder.getProject());
 		for (ICAppArtifactHandler artifactHandler : artifactHandlers) {
 	        try {
-	        	if (artifactHandler.isFolderArtifactPath(folder, projectSetting))
+	        	if (artifactHandler.isFolderArtifactPath(folder, projectSetting)) {
 	        		return true;
+                }
             } catch (Exception e) {
 	            log.error(e);
             }
@@ -317,8 +319,9 @@ public class CAppArtifactManager implements ICAppArtifactManager{
 
     public ICAppArtifactHandler getArtifactHandler(String artifactId) {
 		for (ICAppArtifactHandler artifactHandler: artifactHandlers) {
-			if (artifactHandler.getID().equals(artifactId))
+			if (artifactHandler.getID().equals(artifactId)) {
 				return artifactHandler;
+            }
         }
 	    return null;
     }

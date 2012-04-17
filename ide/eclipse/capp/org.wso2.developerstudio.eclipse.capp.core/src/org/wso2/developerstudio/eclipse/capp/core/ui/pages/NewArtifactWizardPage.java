@@ -153,7 +153,10 @@ public class NewArtifactWizardPage extends WizardPage implements Observer{
     private boolean alreadyFillingServerRoles=false;
     
 	private void fillServerRoleCombo(){
-		if (alreadyFillingServerRoles) return;
+		if (alreadyFillingServerRoles) {
+            return;
+        }
+
 		alreadyFillingServerRoles=true;
 		String serverRole=cmbArtifactServerRole.getText();
 		cmbArtifactServerRole.remove(0, cmbArtifactServerRole.getItemCount()-1);

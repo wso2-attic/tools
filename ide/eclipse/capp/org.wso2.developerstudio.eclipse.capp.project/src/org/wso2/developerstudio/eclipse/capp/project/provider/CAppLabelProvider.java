@@ -32,18 +32,19 @@ public class CAppLabelProvider extends EmptyNavigatorLabelProvider {
 	public Image getImage(Object obj) {
 		if (obj instanceof ServerRoleCollectionNode){
 			return CAppImageUtils.getInstance().getImageDescriptor("ServerRoleCollectionNode.png").createImage();
-    	}else if (obj instanceof ServerRoleNode){
+    	} else if (obj instanceof ServerRoleNode){
     		if (CAppEnvironment.getDefaultServerRole().getServerRoleName().equals(((ServerRoleNode)obj).getServerRole().getServerRoleName())){
     			return CAppImageUtils.getInstance().getImageDescriptor("ServerRoleNode_locked.png").createImage();
     		}else{
     			return CAppImageUtils.getInstance().getImageDescriptor("ServerRoleNode.png").createImage();
     		}
-    	}else if (obj instanceof ArtifactNode){
+    	} else if (obj instanceof ArtifactNode){
     		ICAppArtifactHandler artifactHandler = CAppArtifactManager.getInstance().getArtifactHandler(((ArtifactNode)obj).getAritfact());
-    		if (artifactHandler==null)
+    		if (artifactHandler == null) {
     			return CAppImageUtils.getInstance().getImageDescriptor("artifact.png").createImage();
-    		else
+    		} else {
     			return artifactHandler.getArtifactIcon().createImage();
+            }
     	}
 		return null;
 	}
