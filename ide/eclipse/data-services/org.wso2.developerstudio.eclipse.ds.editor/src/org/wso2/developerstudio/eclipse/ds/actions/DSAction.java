@@ -62,6 +62,7 @@ import org.wso2.developerstudio.eclipse.ds.Subscription;
 import org.wso2.developerstudio.eclipse.ds.TargetTopic;
 import org.wso2.developerstudio.eclipse.ds.WorkBookName;
 import org.wso2.developerstudio.eclipse.ds.WorkSheetNumber;
+import org.wso2.developerstudio.eclipse.ds.presentation.md.DetailSectionCustomUiConstants;
 import org.wso2.developerstudio.eclipse.ds.provider.DsEditPlugin;
 
 /**
@@ -301,7 +302,36 @@ public class DSAction extends StaticSelectionCommandAction {
 				
 				if(childObj instanceof QueryPropertyList && commandName.equals(DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION)){
 					
-					return getChildCommand(param, collection, owner);
+					CompoundCommand compoundCmd = new CompoundCommand(
+							commandName);
+					compoundCmd
+							.append(getChildCommand(param, collection, owner));
+
+					QueryPropertyList owner2 = (QueryPropertyList) childObj;
+
+					String[] properties = {
+							DetailSectionCustomUiConstants.QUERY_TIMEOUT,
+							DetailSectionCustomUiConstants.FETCH_DIRECTION,
+							DetailSectionCustomUiConstants.FETCH_SIZE,
+							DetailSectionCustomUiConstants.MAX_FIELD_SIZE,
+							DetailSectionCustomUiConstants.MAX_ROWS };
+					
+					for (int i = 0; i < properties.length; i++) {
+						QueryProperty queryProperty = DsFactory.eINSTANCE
+								.createQueryProperty();
+						queryProperty.setName(properties[i]);
+						queryProperty.setValue("");
+						CommandParameter param1 = new CommandParameter(
+								owner2,
+								DsPackage.Literals.QUERY_PROPERTY_LIST__PROPERTY,
+								queryProperty);
+
+						compoundCmd.append(getChildCommand(param1, collection,
+								owner2));
+					}
+
+					return compoundCmd;
+					
 				}
 				
 				//result action
