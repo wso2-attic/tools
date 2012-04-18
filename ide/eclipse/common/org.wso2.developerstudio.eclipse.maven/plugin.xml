@@ -3,6 +3,8 @@
 <plugin>
    <extension-point id="org.wso2.developerstudio.eclipse.maven.definitions" name="Maven ArcheType Definition Data" schema="schema/org.wso2.developerstudio.eclipse.maven.definitions.exsd"/>
    
+   	<!--Adding the pop up menu contributions-->
+	<!--Property Tester-->
    	<!--Command-->
 	<extension point="org.eclipse.ui.commands">
   		<command
@@ -24,16 +26,32 @@
      <command
            commandId="org.wso2.developerstudio.eclipse.maven.pom.generator"
            style="push">
-                   <visibleWhen checkEnabled="false">
+        <visibleWhen checkEnabled="false">
             <with variable="activeMenuSelection">
                <iterate ifEmpty="false" operator="and">
-							<instanceof
-								value="org.eclipse.core.resources.IProject">
-							</instanceof>
+                  <instanceof
+                     value="org.eclipse.core.resources.IProject">
+                  </instanceof>
+                                    <and>
+                  <test
+                    property="org.wso2.developerstudio.eclipse.serverModuleVisibility1"
+                    value="org.eclipse.core.resources.IProject">
+              </test>                 
+                  </and>
                </iterate>
            </with>
         </visibleWhen>
      </command>
   </menuContribution>
 </extension>
+ <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+             <propertyTester
+            class="org.wso2.developerstudio.eclipse.maven.ui.MavenPropertyTester"
+            id="org.wso2.developerstudio.eclipse.server.propertytester1"
+            namespace="org.wso2.developerstudio.eclipse"
+            properties="serverModuleVisibility1"
+            type="org.eclipse.core.resources.IProject">
+      </propertyTester>
+ </extension>
 </plugin>
