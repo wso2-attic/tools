@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.handlers;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -25,6 +26,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.Activator;
 
 /**
  * This is the handler class for generating maven pom for any given project option.
@@ -32,6 +37,7 @@ import org.eclipse.swt.widgets.Display;
  * 
  */
 public class MavenPomGeneratorHandler extends AbstractHandler {
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 
@@ -47,10 +53,28 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 		if (selectedUIElement.isOpen()) {
 			pomFile = selectedUIElement.getFile("pom.xml");
 			if (pomFile.exists()) {
-				openQuestion =
-				               MessageDialog.openQuestion(Display.getDefault().getActiveShell(),
-				                                          "Generate POM for the Project",
-				                                          "Do you want to convert this project to a maven multi module project?");
+//				Check for the packaging type
+				try {
+	                MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+	                String packagingType = mavenProject.getPackaging();
+	                if(!"pom".equalsIgnoreCase(packagingType)){
+	                	
+	                	openQuestion =
+	                		MessageDialog.openQuestion(Display.getDefault().getActiveShell(),
+	                		                           "Generate POM for the Project",
+	                		"Are you sure you want to overwite the existing pom file?");
+	                }
+                } catch (Exception e) {
+	                log.error("Error occured while tying to access the maven project corresponding to pom file", e);
+                }
+				
+				
+				
+				
+				
+				if(openQuestion){
+					
+				}
 			}
 		}
 		

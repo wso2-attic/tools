@@ -32,8 +32,6 @@ public class MavenPropertyTester extends PropertyTester{
 
 	@Override
     public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
-	    // TODO Auto-generated method stub
-		System.out.println("Hello world Tester");
 		
 		if(arg0 instanceof IProject){
 			IProject project= (IProject)arg0;
@@ -42,7 +40,6 @@ public class MavenPropertyTester extends PropertyTester{
 				for (String nature : allNatures) {
 	                try {
 	                    if(project.hasNature(nature)){
-	                    	System.out.println("Dev Studio Project Type");
 	                    	return false;
 	                    }
                     } catch (CoreException e) {
