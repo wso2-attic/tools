@@ -58,11 +58,16 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	                MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
 	                String packagingType = mavenProject.getPackaging();
 	                if(!"pom".equalsIgnoreCase(packagingType)){
-	                	
+//	                	If not pom ask user to confirm the pom overwrte operation
 	                	openQuestion =
 	                		MessageDialog.openQuestion(Display.getDefault().getActiveShell(),
 	                		                           "Generate POM for the Project",
 	                		"Are you sure you want to overwite the existing pom file?");
+	                	
+//	                	If confirms, back up the pom and create the aggregator pom
+	                	if(openQuestion){
+	                		
+	                	}
 	                }
                 } catch (Exception e) {
 	                log.error("Error occured while tying to access the maven project corresponding to pom file", e);
@@ -72,9 +77,6 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 				
 				
 				
-				if(openQuestion){
-					
-				}
 			}
 		}
 		
