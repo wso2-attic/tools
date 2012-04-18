@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.maven.ui;
+package org.wso2.developerstudio.eclipse.platform.ui.property.tester;
 
 import org.eclipse.core.expressions.PropertyTester;
+import org.eclipse.core.resources.IProject;
 
 public class MavenPropertyTester extends PropertyTester{
 
@@ -24,6 +25,13 @@ public class MavenPropertyTester extends PropertyTester{
     public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
 	    // TODO Auto-generated method stub
 		System.out.println("Hello world Tester");
+		
+		if(arg0 instanceof IProject){
+			IProject project= (IProject)arg0;
+			if(project.isOpen()){
+//				project.
+			}
+		}
 		
 	    return true;
     }

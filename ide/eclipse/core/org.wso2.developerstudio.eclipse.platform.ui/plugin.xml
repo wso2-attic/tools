@@ -37,6 +37,27 @@
 				id="org.wso2.developerstudio.eclipse.capp.samples.menu.items" /-->
          </menu>
       </menuContribution>
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+     <command
+           commandId="org.wso2.developerstudio.eclipse.maven.pom.generator"
+           style="push">
+        <visibleWhen checkEnabled="false">
+            <with variable="activeMenuSelection">
+               <iterate ifEmpty="false" operator="and">
+                  <instanceof
+                     value="org.eclipse.core.resources.IProject">
+                  </instanceof>
+                                    <and>
+                  <test
+                    property="org.wso2.developerstudio.eclipse.pomgenModuleVisibility"
+                    value="org.eclipse.core.resources.IProject">
+              </test>                 
+                  </and>
+               </iterate>
+           </with>
+        </visibleWhen>
+     </command>
+  </menuContribution>
 	</extension> 
 	
 	<extension
@@ -55,6 +76,11 @@
           id="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard"
           name="Open Dashboard">
     </command>
+    <command
+        description="Generate Maven Pom file for a Project"
+        id="org.wso2.developerstudio.eclipse.maven.pom.generator"
+        name="Generate POM">
+  	</command>
  </extension>
 	
 	<extension point="org.eclipse.ui.navigator.viewer">
@@ -189,6 +215,10 @@
           class="org.wso2.developerstudio.eclipse.platform.ui.handlers.OpenDashboardHandler"
           commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard">
     </handler>
+    <handler
+        class="org.wso2.developerstudio.eclipse.platform.ui.handlers.MavenPomGeneratorHandler"
+        commandId="org.wso2.developerstudio.eclipse.maven.pom.generator">
+  		</handler>
  </extension>
  <extension
        point="org.eclipse.ui.bindings">
@@ -198,5 +228,15 @@
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="M1+6">
     </key>
+ </extension>
+ <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+             <propertyTester
+            class="org.wso2.developerstudio.eclipse.platform.ui.property.tester.MavenPropertyTester"
+            id="org.wso2.developerstudio.eclipse.maven.propertytester"
+            namespace="org.wso2.developerstudio.eclipse"
+            properties="pomgenModuleVisibility"
+            type="org.eclipse.core.resources.IProject">
+      </propertyTester>
  </extension>
 </plugin>

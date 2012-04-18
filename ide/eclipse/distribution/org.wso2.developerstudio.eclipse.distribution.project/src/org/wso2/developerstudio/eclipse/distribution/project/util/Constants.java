@@ -18,6 +18,9 @@ package org.wso2.developerstudio.eclipse.distribution.project.util;
 
 import org.eclipse.osgi.util.NLS;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Constants extends NLS{
 	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.distribution.project.util.constants";
 	
@@ -44,5 +47,27 @@ public class Constants extends NLS{
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Constants.class);
+	}
+	
+	public static List getAllNatures(){
+		List list=new ArrayList();
+		
+		list.add(AXIS2_PROJECT_NATURE);
+		list.add(BPEL_PROJECT_NATURE);
+		list.add(DS_PROJECT_NATURE);
+		list.add(DS_VALIDATOR_PROJECT_NATURE);
+		list.add(JAXWS_PROJECT_NATURE);
+		list.add(WEBAPP_PROJECT_NATURE);
+		list.add(ESB_PROJECT_NATURE);
+		list.add(GADGET_PROJECT_NATURE);
+		list.add(LIBRARY_PROJECT_NATURE);
+		list.add(MEDIATOR_PROJECT_NATURE);
+		list.add(REGISTRY_FILTER_PROJECT_NATURE);
+		list.add(REGISTRY_HANDLER_PROJECT_NATURE);
+		list.add(GENERAL_PROJECT_NATURE);
+		list.add(CARBON_UI_PROJECT_NATURE);
+		list.add(DISTRIBUTION_PROJECT_NATURE);
+		
+		return list;
 	}
 }
