@@ -167,11 +167,26 @@ public class DashboardPage extends FormPage {
 		createCategory(managedForm,composite,"Carbon");
 		createCategory(managedForm,composite,"Business Process Server");
 		createCategory(managedForm,composite,"Gadget Server");
-		createCategory(managedForm,composite,"Distribution");
+		
 
 		sctnCreate.setExpanded(true);
+		Section sctnDistribution = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnDistribution.setBounds(650, 10, 300, 75);
+		managedForm.getToolkit().paintBordersFor(sctnDistribution);
+		sctnDistribution.setText("Distribution");
+		
+		Composite comDistribution = managedForm.getToolkit().createComposite(sctnDistribution, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(comDistribution);
+		sctnDistribution.setClient(comDistribution);
+		comDistribution.setLayout(new GridLayout(1, false));
+		ImageDescriptor distImageDesc = ImageDescriptor.createFromImage(resize(SWTResourceManager
+				.getImage(this.getClass(), "/intro/css/graphics/distribution-project-wizard.png"),
+				32, 32));
+		createTitlelessCategory(managedForm,comDistribution,"Distribution",distImageDesc);
+		sctnDistribution.setExpanded(true);
+		
 		Section sctnSamples = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnSamples.setBounds(650, 10, 300, 800);
+		sctnSamples.setBounds(650, 90, 300, 800);
 		managedForm.getToolkit().paintBordersFor(sctnSamples);
 		sctnSamples.setText("Samples");
 		
@@ -246,15 +261,37 @@ public class DashboardPage extends FormPage {
 	}
 	
 	/**
-	 * Create contents of wizard link
+	 * Create contents of category with title
+	 * @param managedForm
+	 * @param composite
+	 * @param category
+	 */
+	private void createTitlelessCategory(IManagedForm managedForm,Composite composite, String category,ImageDescriptor customImage){
+		int itemCount=0;
+		
+		for (String  id : wizardCategoryMap.get(category)){
+		if(wizardDescriptor.containsKey(id)){
+			itemCount++;
+			createWizardLink(managedForm, composite,wizardDescriptor.get(id),customImage);
+		}
+		}
+		if(itemCount %2 ==1){
+			new Label(composite, SWT.NONE);
+		}
+	}
+	
+	/**
+	 * Create contents of wizard link with custom image
 	 * @param managedForm
 	 * @param composite
 	 * @param wizard
+	 * @param customImage
 	 */
-	private void createWizardLink(IManagedForm managedForm,Composite composite,IWizardDescriptor wizard){
+	private void createWizardLink(IManagedForm managedForm,Composite composite,IWizardDescriptor wizard,ImageDescriptor customImage){
 		final String wizardId = wizard.getId();
 		ImageHyperlink wizardLink = managedForm.getToolkit().createImageHyperlink(composite, SWT.NONE);
-		ImageDescriptor descriptionImage = wizard.getImageDescriptor();
+		ImageDescriptor descriptionImage = (customImage != null) ? customImage : wizard
+				.getImageDescriptor();
 		if(descriptionImage!=null){
 			wizardLink.setImage(descriptionImage.createImage());
 		}
@@ -277,6 +314,16 @@ public class DashboardPage extends FormPage {
 				
 			}
 		});
+	}
+	
+	/**
+	 * Create contents of wizard link
+	 * @param managedForm
+	 * @param composite
+	 * @param wizard
+	 */
+	private void createWizardLink(IManagedForm managedForm,Composite composite,IWizardDescriptor wizard){
+		createWizardLink(managedForm,composite,wizard,null);
 	}
 	
 	private void createSamples(IManagedForm managedForm,Composite composite){
