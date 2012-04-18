@@ -39,6 +39,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	private Section detailsection;
 	private DetailSection sectionHolder;
 	private Composite parentComposite;
+	private Composite tmpcomp;
 	
 	public ObjectDetailPage(Object key, DsEditor editor) {
 
@@ -52,7 +53,9 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 
 	public void createContents(Composite parent) {
 		
+		if(parentComposite == null)
 		parentComposite = parent;
+		
 		TableWrapLayout layout = new TableWrapLayout();
 		layout.topMargin = 5;
 		layout.leftMargin = 5;
@@ -159,9 +162,13 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 			//Fixing TOOLS-1004
 			if (input instanceof Query || input instanceof CallQuery) {
 				detailsection.dispose();
-				Composite composite = toolkit.createComposite(parentComposite,
-						SWT.NULL);
-				createContents(composite);
+				if(tmpcomp != null && !tmpcomp.isDisposed()){
+					
+					tmpcomp.dispose();
+				}
+				tmpcomp = toolkit.createComposite(parentComposite,SWT.NULL);
+				
+				createContents(tmpcomp);
 				detailsection.layout();
 			}
 		} else {
