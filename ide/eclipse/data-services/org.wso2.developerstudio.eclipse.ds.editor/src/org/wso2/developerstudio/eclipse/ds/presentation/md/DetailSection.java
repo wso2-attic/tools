@@ -309,7 +309,7 @@ public class DetailSection {
 			
 			EList<Query> queryList = dataService.getQuery();
 			
-			Query [] q  = (Query [] )queryList.toArray();
+			Query [] q  = queryList.toArray(new Query [0]);
 			
 			String [] displayValues = new String [q.length];
 			
@@ -617,7 +617,7 @@ public class DetailSection {
 									
 					EList<DataSourceConfiguration> configList = dataService.getConfig();
 					
-					DataSourceConfiguration [] confArr = (DataSourceConfiguration [])configList.toArray();
+					DataSourceConfiguration [] confArr = configList.toArray(new DataSourceConfiguration [0]);
 					
 					String [] displayValues = new String [confArr.length];
 					
