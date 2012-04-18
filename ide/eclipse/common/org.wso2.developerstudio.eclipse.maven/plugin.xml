@@ -34,7 +34,7 @@
                   </instanceof>
                                     <and>
                   <test
-                    property="org.wso2.developerstudio.eclipse.serverModuleVisibility1"
+                    property="org.wso2.developerstudio.eclipse.pomgenModuleVisibility"
                     value="org.eclipse.core.resources.IProject">
               </test>                 
                   </and>
@@ -48,9 +48,9 @@
        point="org.eclipse.core.expressions.propertyTesters">
              <propertyTester
             class="org.wso2.developerstudio.eclipse.maven.ui.MavenPropertyTester"
-            id="org.wso2.developerstudio.eclipse.server.propertytester1"
+            id="org.wso2.developerstudio.eclipse.maven.propertytester"
             namespace="org.wso2.developerstudio.eclipse"
-            properties="serverModuleVisibility1"
+            properties="pomgenModuleVisibility"
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
  </extension>
