@@ -71,7 +71,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 					File pomfile = temp.getFile("pom.xml").getLocation().toFile();
 					if(!pomfile.exists()){
 				      try {
-				    	  getModel().setMavenInfo(new MavenInfo("org.wso2.carbon",temp.getName(),
+				    	  getModel().setMavenInfo(new MavenInfo("org.wso2.carbon." + temp.getName(),temp.getName(),
 				    			  "1.0.0"));
 					      getModel().setProjectName(temp.getName());
 					} catch (Exception e) {

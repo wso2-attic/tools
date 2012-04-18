@@ -267,7 +267,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		
 		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		if(!mavenProjectPomLocation.exists()){
-			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon", project.getName(), "1.0.0","pom");
+			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon." + project.getName(), project.getName(), "1.0.0","pom");
 		} else {
 			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		}
