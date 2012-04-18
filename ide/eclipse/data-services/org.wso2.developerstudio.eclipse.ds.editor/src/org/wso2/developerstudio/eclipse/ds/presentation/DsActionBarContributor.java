@@ -17,7 +17,6 @@ package org.wso2.developerstudio.eclipse.ds.presentation;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -58,7 +57,6 @@ import org.wso2.developerstudio.eclipse.ds.DataService;
 import org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration;
 import org.wso2.developerstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.developerstudio.eclipse.ds.EventTrigger;
-import org.wso2.developerstudio.eclipse.ds.ExcelQuery;
 import org.wso2.developerstudio.eclipse.ds.Operation;
 import org.wso2.developerstudio.eclipse.ds.Query;
 import org.wso2.developerstudio.eclipse.ds.QueryParameter;
@@ -68,8 +66,6 @@ import org.wso2.developerstudio.eclipse.ds.ResultMapping;
 import org.wso2.developerstudio.eclipse.ds.actions.DSAction;
 import org.wso2.developerstudio.eclipse.ds.actions.DSActionConstants;
 import org.wso2.developerstudio.eclipse.ds.actions.DataSourceConfigurationAction;
-import org.wso2.developerstudio.eclipse.ds.actions.QueryAction;
-import org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl;
 import org.wso2.developerstudio.eclipse.ds.impl.DataSourceConfigurationImpl;
 import org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl;
 import org.wso2.developerstudio.eclipse.ds.impl.QueryImpl;
@@ -199,9 +195,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	/** The output mappings menu manager. */
 	private IMenuManager outputMappingsMenuManager;
 
-	/** The input param action. */
-	private IAction inputParamAction;
-
 	/** The validator menu manager. */
 	private IMenuManager validatorMenuManager;
 
@@ -223,9 +216,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The resource action. */
 	private IAction resourceAction;
-
-	/** The config property action. */
-	private IAction configPropertyAction;
 
 	/** The rdbms menu manager. */
 	private IMenuManager rdbmsMenuManager;
@@ -395,7 +385,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		}
 
 		if (generateQueryMenu) {
-			submenuManager.insertBefore("additions", configPropertyAction);
 			submenuManager.insertBefore("additions", queryAction);
 			submenuManager.insertBefore("additions", operationAction);
 			submenuManager.insertBefore("additions", resourceAction);
@@ -403,7 +392,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 		if (generateQueryChildrenMenu) {
 			submenuManager.insertBefore("additions", resultAction);
-			submenuManager.insertBefore("additions", inputParamAction);
 			submenuManager.insertBefore("additions", eventTriggerAction);
 			submenuManager.insertBefore("additions", queryPropertyGroupAction);
 		}

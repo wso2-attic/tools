@@ -132,7 +132,6 @@ import org.wso2.developerstudio.eclipse.ds.command.DesignViewActionHandler;
 import org.wso2.developerstudio.eclipse.ds.impl.DocumentRootImpl;
 import org.wso2.developerstudio.eclipse.ds.presentation.custom.CustomAdapterFactoryContentProvider;
 import org.wso2.developerstudio.eclipse.ds.presentation.data.DataSourcePage;
-import org.wso2.developerstudio.eclipse.ds.presentation.md.DetailSection;
 import org.wso2.developerstudio.eclipse.ds.presentation.md.DetailSectionUiUtil;
 import org.wso2.developerstudio.eclipse.ds.presentation.md.MasterDetailsPage;
 import org.wso2.developerstudio.eclipse.ds.presentation.source.DsObjectSourceEditor;
