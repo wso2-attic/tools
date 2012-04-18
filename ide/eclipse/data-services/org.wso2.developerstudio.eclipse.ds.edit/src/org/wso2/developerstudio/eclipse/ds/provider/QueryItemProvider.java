@@ -71,10 +71,10 @@ public class QueryItemProvider
 
 			addIdPropertyDescriptor(object);
 			addUseConfigPropertyDescriptor(object);
-			addKeyColumnsPropertyDescriptor(object);
 			addInputEventTriggerPropertyDescriptor(object);
 			addOutputEventTriggerPropertyDescriptor(object);
 			addReturnGeneratedKeysPropertyDescriptor(object);
+			addKeyColumnsPropertyDescriptor(object);
 			
 		}
 		return itemPropertyDescriptors;

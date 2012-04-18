@@ -10,9 +10,13 @@ import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.wso2.developerstudio.eclipse.ds.AttributeMapping;
 import org.wso2.developerstudio.eclipse.ds.CallQuery;
@@ -73,10 +77,11 @@ public class DetailSection {
 		this.sectionUtil = new DetailSectionUiUtil(editor.getDataService(), editingDomain);
 	}
 
-	private void labelMaker(String s) {
+	private Label labelMaker(String s) {
 		Label l = toolkit.createLabel(detailsclient, s, SWT.NONE);
 		GridData gd = new GridData();
 		l.setLayoutData(gd);
+		return l;
 	}
 
 	public void createSection(final Object input) {
@@ -594,6 +599,10 @@ public class DetailSection {
 	    .getPropertyDescriptors(query);
 		labelMaker("");
 		labelMaker("");
+		StyledText keyColText = null;
+		Combo rgkCombo = null;
+		Label keyColLabel = null;
+		
 		for (Iterator<IItemPropertyDescriptor> i = detailPropertyDescriptors.iterator(); i.hasNext();) {
 			
 			ItemPropertyDescriptor desc = (ItemPropertyDescriptor) i.next();
@@ -636,16 +645,6 @@ public class DetailSection {
 					
 				}
 				
-				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_KEY_COLUMNS)){
-					
-					labelMaker(displayName);
-					
-					sectionUtil.getAttributeField(detailsclient, toolkit, query, query.getKeyColumns(),
-							DsPackage.eINSTANCE.getQuery_KeyColumns(), DetailSectionCustomUiConstants.STRING);
-					labelMaker("");
-					labelMaker("");
-					
-				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_INPUT_EVENT_TRIGGER)){
 					
@@ -672,16 +671,60 @@ public class DetailSection {
 					
 					labelMaker(displayName);
 					
-					sectionUtil.getBooleanComboField(detailsclient, toolkit, query,
+					rgkCombo = sectionUtil.getBooleanComboField(detailsclient, toolkit, query,
 							query.isReturnGeneratedKeys(), DsPackage.eINSTANCE.getQuery_ReturnGeneratedKeys());
+					
 					labelMaker("");
 					labelMaker("");
+					
+				}
+				
+				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_KEY_COLUMNS)){
+					
+					keyColLabel = labelMaker(displayName);
+				
+					keyColText = sectionUtil.getAttributeField(detailsclient, toolkit, query, query.getKeyColumns(),
+							DsPackage.eINSTANCE.getQuery_KeyColumns(), DetailSectionCustomUiConstants.STRING);
+					
+					if(rgkCombo != null && rgkCombo.getSelectionIndex() == 1){
+						
+							keyColLabel.setVisible(false);
+							keyColText.setVisible(false);
+						
+					}
+					
+					if(rgkCombo != null && keyColText != null && keyColLabel != null){
+					addSelectionListnerForRgkCombo(rgkCombo,keyColText,keyColLabel);
+					}
+					labelMaker("");
+					labelMaker("");
+					
 				}
 				
 				}
 			
 			
 		}
+	}
+
+	private void addSelectionListnerForRgkCombo(final Combo rgkCombo,final StyledText keyColText,final Label keyColLabel){
+		
+		rgkCombo.addListener(SWT.Selection, new Listener() {
+			
+			@Override
+			public void handleEvent(Event event) {
+				
+				if(rgkCombo.getSelectionIndex() == 0){
+					
+					keyColText.setVisible(true);
+					keyColLabel.setVisible(true);
+				}else{
+					
+					keyColText.setVisible(false);
+					keyColLabel.setVisible(false);
+				}
+			}
+		});
 	}
 	
 	private void queryPropertyObjectConfigurator(QueryProperty queryProperty){
