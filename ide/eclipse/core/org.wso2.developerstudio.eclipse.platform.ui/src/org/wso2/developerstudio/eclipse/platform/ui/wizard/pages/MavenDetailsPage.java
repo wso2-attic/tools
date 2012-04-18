@@ -70,6 +70,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 	private String parentProjectName;
 	private final ProjectDataModel dataModel;
 	private final MavenInfo mavenProjectInfo;
+	private String defaultGroupId;
 
 	/**
 	 * Create the wizard.
@@ -369,12 +370,16 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 	}
 
 	public void setArtifactIDLabel() {
+		
 		if (dataModel.getProjectName() != null && !dataModel.getProjectName().equals("")) {
 			MavenInfo newmavenProjectInfo=dataModel.getMavenInfo();	
+			newmavenProjectInfo.setGroupId(defaultGroupId + "." + dataModel.getProjectName());
 			newmavenProjectInfo.setArtifactId(dataModel.getProjectName());
 			txtGroupId.setText(newmavenProjectInfo.getGroupId());
 			lblArtifactIdValue.setText(newmavenProjectInfo.getArtifactId());
 			txtVersion.setText(newmavenProjectInfo.getVersion());
+		} else{
+			defaultGroupId = dataModel.getMavenInfo().getGroupId();
 		}
 	}
 }

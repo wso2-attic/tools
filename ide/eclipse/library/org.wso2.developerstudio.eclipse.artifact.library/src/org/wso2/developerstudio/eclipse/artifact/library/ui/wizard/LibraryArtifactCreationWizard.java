@@ -91,7 +91,7 @@ public class LibraryArtifactCreationWizard extends
 					File pomfile = workSpacePrj.getFile("pom.xml").getLocation().toFile();
 					if (!pomfile.exists()) {
 						MavenProject mavenProject = MavenUtils.createMavenProject(
-								"org.wso2.carbon", workSpacePrj.getName(), "1.0.0", "jar");
+								"org.wso2.carbon." + workSpacePrj.getName() , workSpacePrj.getName(), "1.0.0", "jar");
 						MavenUtils.saveMavenProject(mavenProject, pomfile);
 					}
 				}
