@@ -60,7 +60,7 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 		
 		Properties properties = mavenProject.getModel().getProperties();
 		
-		properties.put("CApp.type", "service/jaxws");
+		properties.put("CApp.type", "webapp/jaxws");
 		
 		mavenProject.getModel().setProperties(properties);
 		

@@ -17,15 +17,16 @@
 package org.wso2.developerstudio.eclipse.distribution.project.util;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ArtifactTypeMapping {
-	private static HashMap<String, String> type = new HashMap<String, String>();
-	private static HashMap<String, String> subType = new HashMap<String, String>();
+	private static Map<String, String> type = new HashMap<String, String>();
+	private static Map<String, String> subType = new HashMap<String, String>();
 	
 	static {
 		type.put("bpel/workflow","zip");
 		type.put("lib/registry/filter","jar");
-		type.put("service/jaxws","war");
+		type.put("webapp/jaxws","war");
 		type.put("lib/library/bundle","jar");
 		type.put("service/dataservice","dbs");
 		type.put("synapse/local-entry","xml");
@@ -47,12 +48,16 @@ public class ArtifactTypeMapping {
 		subType.put("bundle","jar");
 	}
 	
-	public static boolean isValidArtifactType(String str) {
+	private ArtifactTypeMapping(){
+		
+	}
+	
+	public static boolean isValidArtifactType(final String str) {
 		return type.containsKey(str);
 	}
 	
-	public static String getType(String packaging) {
-		String value = new String();
+	public static String getType(final String packaging) {
+		String value = "";
 		if (type.containsKey(packaging)) {
 			value = type.get(packaging);
 		} else {
@@ -66,12 +71,14 @@ public class ArtifactTypeMapping {
 	}
 	
 	public static String getArtifactTypes(){
-		String artifactTypes= new String();
+		StringBuffer artifactTypes = new StringBuffer();
 		for(String key: type.keySet()){
-			artifactTypes += (key + "=" + type.get(key) +",");
+			artifactTypes.append(key);
+			artifactTypes.append("=");
+			artifactTypes.append(type.get(key));
+			artifactTypes.append(',');
 		}
-		artifactTypes = artifactTypes.replaceAll(",$","");
-		return artifactTypes;
+		return artifactTypes.toString().replaceAll(",$","");
 	}
 	
 }

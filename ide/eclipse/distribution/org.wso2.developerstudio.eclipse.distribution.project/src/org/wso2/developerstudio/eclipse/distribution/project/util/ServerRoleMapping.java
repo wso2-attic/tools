@@ -17,14 +17,15 @@
 package org.wso2.developerstudio.eclipse.distribution.project.util;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ServerRoleMapping {
 
-	private static HashMap<String, String> serverRole = new HashMap<String, String>();
+	private static Map<String, String> serverRole = new HashMap<String, String>();
 
 	static {
 		serverRole.put("service/axis2", "ApplicationServer");
-		serverRole.put("service/jaxws", "ApplicationServer");
+		serverRole.put("webapp/jaxws", "ApplicationServer");
 		serverRole.put("service/dataservice", "DataServicesServer");
 		serverRole.put("synapse/sequence", "EnterpriseServiceBus");
 		serverRole.put("synapse/endpoint", "EnterpriseServiceBus");
@@ -48,7 +49,7 @@ public class ServerRoleMapping {
 	}
 
 	public static String getServerRole(String packaging) {
-		String value = new String();
+		String value = "";
 		if (serverRole.containsKey(packaging)) {
 			value = serverRole.get(packaging);
 		}

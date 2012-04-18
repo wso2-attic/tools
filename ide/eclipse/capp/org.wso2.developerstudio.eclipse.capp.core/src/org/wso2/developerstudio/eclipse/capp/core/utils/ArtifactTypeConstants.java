@@ -28,7 +28,7 @@ public class ArtifactTypeConstants {
 	/**
      * 
      */
-	public static final String SERVICE_JAXWS = "service/jaxws";
+	public static final String SERVICE_JAXWS = "webapp/jaxws";
 
 	/**
      * 
