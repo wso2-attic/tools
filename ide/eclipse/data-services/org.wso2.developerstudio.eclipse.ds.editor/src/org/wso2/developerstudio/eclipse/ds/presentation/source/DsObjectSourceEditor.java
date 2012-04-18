@@ -14,15 +14,8 @@ import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.texteditor.IDocumentProvider;
-import org.eclipse.wst.sse.core.StructuredModelManager;
-import org.eclipse.wst.sse.core.internal.provisional.IModelStateListener;
-import org.eclipse.wst.sse.core.internal.provisional.IStructuredModel;
-import org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocument;
-import org.eclipse.wst.sse.ui.StructuredTextEditor;
-import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.dbseditor.DsSourceEditor;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 import org.wso2.developerstudio.eclipse.ds.util.DsResourceFactoryImpl;
@@ -47,12 +40,10 @@ public class DsObjectSourceEditor{
 	AdapterFactoryEditingDomain domain;
 	DsEditor dseditor;
 	private IDocumentListener listner;
-	private Resource resource;
 	private File tempDirectory;
 	private File tempfile;
 	private boolean tmpFileHasContent;
 	private boolean modelChanged;
-    private IStructuredModel model;
     private ITemporaryFileTag tempTag;
     
 	public DsObjectSourceEditor(DsEditor editor,AdapterFactoryEditingDomain domain) throws Exception{
@@ -93,18 +84,18 @@ public class DsObjectSourceEditor{
 	}
 	
 	
-	private IStructuredModel getStructuredModel() {
+	/*private IStructuredModel getStructuredModel() {
 		IDocument document = getDocument();
 		IStructuredModel model = StructuredModelManager.getModelManager().getExistingModelForEdit(document);					
 		if (null == model && (document instanceof IStructuredDocument)) {
 			model = StructuredModelManager.getModelManager().getModelForEdit((IStructuredDocument) document);
 		}
 		return model;
-	}
+	}*/
 
-	private IDocument getDocument() {
+	/*private IDocument getDocument() {
 		return sourceView.getDocumentProvider().getDocument(sourceView.getEditorInput());
-	}
+	}*/
 	
 	
 	private void handleSourceEditedEvent(boolean isDummyFire) {
@@ -200,10 +191,6 @@ public class DsObjectSourceEditor{
 		return editorInput;
 	}
 	
-	public Resource getCurrentResource(){
-		return resource;
-	}
-
 	public File getTempDirectory() {
 		return tempDirectory;
 	}
