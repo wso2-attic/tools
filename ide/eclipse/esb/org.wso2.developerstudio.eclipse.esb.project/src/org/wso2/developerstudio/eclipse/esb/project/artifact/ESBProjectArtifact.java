@@ -37,11 +37,13 @@ import javax.xml.stream.FactoryConfigurationError;
  * <?xml version="1.0" encoding="UTF-8"?>
  * <artifacts>
  * 	<artifact name="testEndpoint2" version="1.0.0" type="synapse/endpoint"
- * 			serverRole="EnterpriseServiceBus">
+ * 			serverRole="EnterpriseServiceBus"
+ * 			groupId="org.wso2.carbon.myapp">
  * 		<file>src\main\synapse-config\endpoints\testEndpoint2.xml</file>
  * 	</artifact>
  * 	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint"
- * 			serverRole="EnterpriseServiceBus">
+ * 			serverRole="EnterpriseServiceBus"
+ * 			groupId="org.wso2.carbon.myapp">
  * 		<file>src\main\synapse-config\endpoints\testEndpoint3.xml</file>
  * 	</artifact>
  * </artifacts>
@@ -66,6 +68,7 @@ public class ESBProjectArtifact extends AbstractXMLDoc implements Observer{
 	        artifact.setVersion(getAttribute(omElement, "version"));
 	        artifact.setType(getAttribute(omElement, "type"));
 	        artifact.setServerRole(getAttribute(omElement, "serverRole"));
+	        artifact.setGroupId(getAttribute(omElement, "groupId"));
 	        artifact.setFile(getChildElements(omElement, "file").size()>0?getChildElements(omElement, "file").get(0).getText():null);
 	        
 	        esbArtifacts.add(artifact);
@@ -110,6 +113,10 @@ public class ESBProjectArtifact extends AbstractXMLDoc implements Observer{
 			
 			if (!esbArtifact.isAnonymous()){
 				addAttribute(artifactElement, "name", esbArtifact.getName());
+			}
+			
+			if (!esbArtifact.isAnonymous() && esbArtifact.getGroupId() != null){
+				addAttribute(artifactElement, "groupId", esbArtifact.getGroupId());
 			}
 	        
 			if (!esbArtifact.isAnonymous() && esbArtifact.getVersion() != null){
