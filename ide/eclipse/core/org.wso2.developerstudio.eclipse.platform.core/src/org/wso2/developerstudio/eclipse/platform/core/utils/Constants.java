@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.distribution.project.util;
+package org.wso2.developerstudio.eclipse.platform.core.utils;
 
 import org.eclipse.osgi.util.NLS;
 
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Constants extends NLS{
-	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.distribution.project.util.constants";
+	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.platform.core.utils.constants";
 	
 	public static final String POM_FILE_NAME = "pom";
 	public static final String POM_FILE_EXTENSION = "xml";
@@ -49,8 +49,8 @@ public class Constants extends NLS{
 		NLS.initializeMessages(BUNDLE_NAME, Constants.class);
 	}
 	
-	public static List getAllNatures(){
-		List list=new ArrayList();
+	public static List<String> getAllNatures(){
+		List<String> list=new ArrayList<String>();
 		
 		list.add(AXIS2_PROJECT_NATURE);
 		list.add(BPEL_PROJECT_NATURE);

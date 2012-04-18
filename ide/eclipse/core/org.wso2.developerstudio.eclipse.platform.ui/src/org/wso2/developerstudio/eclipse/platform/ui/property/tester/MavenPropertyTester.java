@@ -18,8 +18,17 @@ package org.wso2.developerstudio.eclipse.platform.ui.property.tester;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
+import org.wso2.developerstudio.eclipse.platform.ui.Activator;
+
+import java.util.List;
 
 public class MavenPropertyTester extends PropertyTester{
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	@Override
     public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
@@ -29,7 +38,17 @@ public class MavenPropertyTester extends PropertyTester{
 		if(arg0 instanceof IProject){
 			IProject project= (IProject)arg0;
 			if(project.isOpen()){
-//				project.
+				List<String> allNatures = Constants.getAllNatures();
+				for (String nature : allNatures) {
+	                try {
+	                    if(project.hasNature(nature)){
+	                    	System.out.println("Dev Studio Project Type");
+	                    	return false;
+	                    }
+                    } catch (CoreException e) {
+	                    log.error("Error occured while trying to access the project "+project.getName(), e);
+                    }
+                }
 			}
 		}
 		

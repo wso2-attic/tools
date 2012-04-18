@@ -31,11 +31,11 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
-import org.wso2.developerstudio.eclipse.distribution.project.util.Constants;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class ProjectExportWizard extends Wizard implements IExportWizard {

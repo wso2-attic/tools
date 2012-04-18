@@ -42,9 +42,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.wso2.developerstudio.eclipse.distribution.project.Activator;
-import org.wso2.developerstudio.eclipse.distribution.project.util.Constants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 
 public class ExportDetailsWizardPage extends WizardPage {
 	
