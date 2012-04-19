@@ -175,6 +175,7 @@
 		and <strong>WSO2 Products</strong>.
 		</p>
 		
+		<br></br>
 		<p>
 		<strong>Third Party Tools</strong>
 		</p>
@@ -258,25 +259,10 @@
 					<a href="#installMySQL">Install and configure MySQL</a>
 				</li>
 				<li>
-					<a href="#installActiveMQ">Install and configure ActiveMQ</a>
+					<a href="#installActiveMQ">Install and configure Apache ActiveMQ</a>
 				</li>
 				<li>
 					<a href="#installWSO2">Install and Configure WSO2 Servers</a>
-				</li>
-				<li>
-					<a href="#configDSS">Configure WSO2 Data Services Server</a>
-				</li>
-				<li>
-					<a href="#configAppServer">Configure WSO2 Application Server</a>
-				</li>
-				<li>
-					<a href="#configESB">Configure WSO2 ESB</a>
-				</li>
-				<li>
-					<a href="#configBPS">Configure WSO2 Business Process Server</a>
-				</li>
-				<li>
-					<a href="#createDS">Create Data Services to abstract the Customer Master</a>
 				</li>
 				<li>
 					<a href="#createMock">Creating Mock Objects to represent Legacy Systems</a>
@@ -298,5 +284,528 @@
 				</li>
 			</ul>
 		</div>
+		
+		<h3 id="gettingReady">Getting Ready</h3>
+		<p>
+		Following is the logical solution diagram that we are going to use while implementing the 
+		solution. This diagram shows how each and every <strong>WSO2 Product</strong> incorparate to 
+		come up with end to end solution. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking-sample2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		In this sample, we are going to create seven projects for each and every component. 
+		</p>
+		
+		<ul>
+			<li>MainframePojoService - Model account creation mainframe</li>
+			<li>CardAxis2Service - Model Card Issueing Service</li>
+			<li>CustomerDS - Data Service that handles Customer ID Creation</li>
+			<li>SynapseConfigs - Contains all the ESB configurations</li>
+			<li>RegistryResources - Contains xslt files, wsdl files etc</li>
+			<li>AccountOpeningProcess - BPEL process</li>
+			<li>BankingSample - Carbon Application</li>
+		</ul>
+		
+		<h3 id="installMySQL">Install and configure MySQL</h3>
+		<p>
+		Follow the default instructions provided by <a href="http://www.mysql.com/">MySQL.com</a> 
+		to install MySQL server (the default procedure is typically unpack, install, and run). 
+		It is recommended that MySQL be set up to run automatically on system startup.
+		</p>
+		
+		<h3 id="installActiveMQ">Install and configure Apache ActiveMQ</h3>
+		<p>
+		Follow the default instructions provided by <a href="http://activemq.apache.org/">
+		http://activemq.apache.org/</a> to install ActiveMQ server (the default procedure is 
+		typically unpack, install, and run).
+		</p>
+		<p>
+		To start <strong>activemq</strong>, go to bin folder of <strong>ACTIVEMQ_HOME</strong> 
+		and run the command <strong>activemq start</strong> in the command line.
+		</p>
+		
+		<h3 id="installWSO2">Install and Configure WSO2 Servers</h3>
+		<p>
+		All you need to do to install a WSO2 server is to unpack the downloaded archive. As a 
+		reference point, we will use the following logical directory names to refer to the 
+		installation folders of each WSO2 server:
+		</p>
+		<ul>
+			<li>WSO2 Application Server - AS_HOME</li>
+			<li>WSO2 Data Services Server - DSS_HOME</li>
+			<li>WSO2 ESB - ESB_HOME</li>
+			<li>WSO2 Business Process Server - BPS_HOME</li>
+		</ul>
+		<p>
+		(We will refer to the installation directory of any generic server as CARBON_HOME.)
+		</p>
+		
+		<p>
+		If you are running all the required WSO2 products on the same machine as these 
+		instructions assume, you will need to avoid port conflict, because all WSO2 server 
+		products listen on ports 9763 (HTTP) and 9443 (HTTPS) by default. This port conflict 
+		can be avoided by changing an "offset" parameter in the servers' main configuration 
+		file (the file <strong>carbon.xml</strong> found in 
+		<strong>$CARBON_HOME/repository/conf</strong>).
+		</p>
+		
+		<p>
+		We set offset for different <strong>carbon servers</strong> as follows.
+		</p>
+		
+		<ul>
+			<li>WSO2 App Server - 0 (App Server will now listen on 9764 and 9444)</li>
+			<li>WSO2 ESB - 1 (ESB will now listen on 9764 and 9444)</li>
+			<li>WSO2 BPS - 2 (Business Process Server will now listen on 9765 and 9445)</li>
+			<li>WSO2 DSS - 6 (Data Services Server will now listen on 9769 and 9449)</li>
+		</ul>
+		
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#configDSS">Configure WSO2 Data Services Server</a>
+				</li>
+				<li>
+					<a href="#configAppServer">Configure WSO2 Application Server</a>
+				</li>
+				<li>
+					<a href="#configESB">Configure WSO2 ESB</a>
+				</li>
+				<li>
+					<a href="#configBPS">Configure WSO2 Business Process Server</a>
+				</li>
+			</ul>
+		</div>
+		
+		<h4 id="configDSS">Configure WSO2 Data Services Server</h4>
+		<p>
+		<strong>Avoid port conflicts </strong>
+		</p>
+		<br/>
+		<p>
+		Edit <strong>$DSS_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
+		Set the value to </p>
+		<pre style='color:#000000;background:#ffffff;'>
+		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
+		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>6
+		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
+		</span><span style='color:#a65700; '>></span></pre> 
+		
+		<br></br>
+		<p>
+		<strong>Enable database access</strong>
+		</p>
+		<br/>
+		<p>
+		Copy the MySQL driver library (<strong>mysql-connector-java-5.1.13-bin.jar</strong>) to 
+		(<strong>$DSS_HOME/repository/components/lib</strong>).
+		</p>
+					
+		<h4 id="configAppServer">Configure WSO2 Application Server</h4>
+		<p>
+		<strong>Avoid port conflicts </strong>
+		</p>
+		<br/>
+		<p>
+		Leave the offset parameter of the <strong>$AS_HOME/repository/conf/carbon.xml</strong> as 
+		it is. That is keep the offset parameter to 0. 
+		</p>
+		<pre style='color:#000000;background:#ffffff;'>
+		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
+		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>0
+		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
+		</span><span style='color:#a65700; '>></span></pre> 
+		<p>
+		<strong>Enable the Application Server to talk over a message queue</strong>
+		<br/>
+		Copy the ActiveMQ libraries (<strong>activemq-core-5.4.2.jar, 
+		geronimo-j2ee-management_1.1_spec-1.0.1.jar and geronimo-jms_1.1_spec-1.1.1.jar</strong>) 
+		to the App Server ($AS_HOME/repository/components/lib).
+		<br/>
+		</p>
+		
+		<p>
+		<strong>Enable the JMS transport on the App Server (this can also be done via the admin console, 
+		but this will not be described here)</strong>
+		<br/>
+		This only requires un-commenting two sections in the App Server's configuration file. 
+		To enable JMS transport, we are going to edit <strong>axis2.xml</strong> resides in 
+		<strong>$AS_HOME/repository/conf</strong>
+		</p>
+		
+		<p>
+		Look for the two sections that begin with <strong>[transportReceiver name="jms"]</strong> and 
+		<strong>[transportSender name="jms"]</strong> and uncomment the XML.
+		</p>
+		<p>
+		After un-commenting, your <strong>axis2.xml</strong> will be as below.
+		</p>
+		<pre 
+		style='color:#000000;background:#ffffff;'><span 
+		style='color:#a65700; '>&lt;</span><span 
+		style='color:#5f5035; '>transportReceiver</span><span 
+		style='color:#274796; '> </span><span style='color:#074726; '>name</span><span 
+		style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span 
+		style='color:#274796; '> </span><span style='color:#074726; '>class</span><span 
+		style='color:#808030; '>=</span><span 
+		style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSListener"</span><span 
+		style='color:#a65700; '>></span>…<span 
+		style='color:#a65700; '>&lt;/</span><span 
+		style='color:#5f5035; '>transportReceiver</span><span 
+		style='color:#a65700; '>></span>
+		</pre>
+		
+		<br></br>
+		
+		<p>
+		<strong>AND</strong>
+		</p>
+		
+		<pre style='color:#000000;background:#ffffff;'><span 
+		style='color:#a65700; '>&lt;</span><span 
+		style='color:#5f5035; '>transportSender</span><span 
+		style='color:#274796; '> </span><span style='color:#074726; '>name</span><span 
+		style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span 
+		style='color:#274796; '> </span><span style='color:#074726; '>class</span><span 
+		style='color:#808030; '>=</span><span 
+		style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSSender"</span><span 
+		style='color:#a65700; '>/></span>
+		</pre>
+		
+		<p>
+		Ensure that you are uncommenting the section corresponding to <strong>ActiveMQ</strong> 
+		and not Qpid.
+		</p>
+		
+		<h4 id="configESB">Configure WSO2 ESB</h4>
+		<p>
+		<strong>Avoid port conflicts </strong>
+		</p>
+		<br/>
+		<p>
+		Edit <strong>$ESB_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
+		Set the value to </p>
+		<pre style='color:#000000;background:#ffffff;'>
+		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
+		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>1
+		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
+		</span><span style='color:#a65700; '>></span></pre> 
+		
+		<p>
+		<strong>Enable the ESB to talk over a message queue</strong>
+		<br/>
+		Copy the ActiveMQ libraries (<strong>activemq-core-5.4.2.jar, 
+		geronimo-j2ee-management_1.1_spec-1.0.1.jar and geronimo-jms_1.1_spec-1.1.1.jar</strong>) 
+		to the App Server ($ESB_HOME/repository/components/lib).
+		<br/>
+		</p>
+		
+		<p>
+		<strong>Enable the JMS transport on the ESB</strong>
+		<br/>
+		Follow the same step that we did for App Server in the previous step. 
+		</p>
+		
+		
+		<h4 id="configBPS">Configure WSO2 Business Process Server</h4>
+		<p>
+		<strong>Avoid port conflicts </strong>
+		</p>
+		<br/>
+		<p>
+		Edit <strong>$BPS_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
+		Set the value to </p>
+		<pre style='color:#000000;background:#ffffff;'>
+		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
+		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>2
+		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
+		</span><span style='color:#a65700; '>></span></pre> 
+		
+		<p>
+		
+		<h3 id="createMock">Creating Mock Objects to represent Legacy Systems</h3>
+		<p>
+		There are three legacy systems in this environment which you will need to create 
+		in your environment:
+		</p>
+		<ol>
+			<li>The Customer Database</li>
+			<li>The Mainframe holding account data and performing account-related functions</li>
+			<li>The Cards System holding card data and performing card-related functions</li>
+		</ol>
+		<p>
+		The integration solution using WSO2 middleware components can then be run against these 
+		mock objects representing legacy systems.
+		</p>
+		
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#customerDS">Set up the Customer Database using MySQL</a>
+				</li>
+				<li>
+					<a href="#mockServices">Set up Mock Objects representing the Mainframe and Cards System</a>
+				</li>
+			</ul>
+		</div>
+		
+		<h4 id="customerDS">Set up the Customer Database using MySQL</h4>
+		<p>
+		Create a database within MySQL called <strong>CustomersDatabase</strong>. Against 
+		this database, run the scripts <strong>CreateTables</strong> and 
+		<strong>getCustomer.sql</strong> from 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/ds/sql/">
+		$DOWNLOAD_HOME/banking-sample/ds/sql</a>  
+		</p>
+		
+		<p>
+		This script will create the <strong>Customer</strong> table and a 
+		stored procedure to retrieve and create customer data.
+		</p>
+		
+		<h4 id="mockServices">Set up Mock Objects representing the Mainframe and Cards System</h4>
+		<p>
+		To create the mock objects, go to Eclipse instance which you have <strong>WSO2 
+		Developer Studio</strong> installed. 
+		</p>
+		
+		<p>
+		<strong>1. Modeling Account System</strong>
+		</p>
+		<p>
+		Open the <strong>Developer Studio Dashboard</strong> by clicking on 
+		<strong>Open Dashboard</strong> option under top menu item 
+		<strong>Developer Studio</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking1.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		To create the <strong>Pojo Service</strong>, select <strong>Axis2 Service Project</strong> 
+		from the <strong>Dashboard</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		From the Axis2 Service Creation Wizard, select <strong>Create New Axis2 Service</strong> 
+		and click <strong>Next</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking3.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Fill the following information for <strong>Project Name, Package Name and Class Name</strong>. 
+		</p>
+		
+		<ul>
+			<li>Project Name - MainframePojoService</li>
+			<li>Package Name - wso2.hcc</li>
+			<li>Class Name - MainframePojoService</li>
+		</ul>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking4.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		After giving necessary details, click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+		Now you can see that the <strong>Axis2 Service</strong> has been created in the workspace. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking5.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now go and copy the two source files <strong>MainframePojoService.java and Account.java</strong> 
+		from <a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/appserver/AccountService/src/wso2/hcc">
+		$DOWNLOAD_HOME/banking-sample/appserver/AccountService/src/wso2/hcc</a> and paste in to 
+		<strong>wso2.hcc</strong> package in the <strong>MainframePojoService</strong> project.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking6.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we want to enable, <strong>JMS transport</strong> since this service will 
+		communicate via <strong>JMS transport</strong>. To enable this, we need to add 
+		following block to <strong>services.xml</strong> under 
+		<strong>/src/main/resources/META-INF</strong>. 
+		</p>
+		
+		<pre style='color:#000000;background:#ffffff;'>
+			<span style='color:#a65700; '>&lt;</span>
+			<span style='color:#5f5035; '>transports</span>
+			<span style='color:#a65700; '>></span>
+    		<span style='color:#a65700; '>&lt;</span>
+    		<span style='color:#5f5035; '>transport</span>
+    		<span style='color:#a65700; '>></span>jms
+    		<span style='color:#a65700; '>&lt;/</span>
+    		<span style='color:#5f5035; '>transport</span>
+    		<span style='color:#a65700; '>></span>
+			<span style='color:#a65700; '>&lt;/</span>
+			<span style='color:#5f5035; '>transports</span>
+			<span style='color:#a65700; '>></span>
+		</pre>
+		
+		<p>
+		Now your services.xml will look like below.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking7.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we are done with modeling <strong>Account Service</strong>.
+		</p>
+		
+		<p>
+		<strong>2. Modeling Card System</strong>
+		</p>
+		
+		<p>
+		Now we want to create the Card System. This will be another <strong>Apache Axis2 
+		Service Project</strong>. Select <strong>Axis2 Service Project</strong> from 
+		<strong>WSO2 Developer Studio Dashboard</strong> as you done in the previous 
+		step.
+		</p>
+		
+		<p>
+		Select <strong>Create New Axis2 Service</strong> option from the wizard and give following 
+		details to <strong>Project Name, Package Name and Class Name</strong>.
+		</p>
+		<ul>
+			<li>Project Name - CardAxis2Service</li>
+			<li>Package Name - org.wso2.sample</li>
+			<li>Class Name - CardAxis2Service</li>
+		</ul>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking8.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see the <strong>CardAxis2Service</strong> has been created in the 
+		workspace. Now copy the original sources 
+		<strong>CardAxis2Service.java, Customer.java and Card.java</strong> from 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/appserver/CardApplication/src/main/java/org/wso2/sample/">
+		$DOWNLOAD_HOME/banking-sample/appserver/CardApplication/src/main/java/org/wso2/sample</a> 
+		and paste in to <strong>org.wso2.sample</strong> package of <strong>CardAxis2Service</strong> 
+		project.
+		</p>
+		<p>
+		Now we are done with creating two mock services and we are ready to deploy those two services 
+		in to <strong>WSO2 Application Server.</strong>
+		</p>
+		
+		<p>
+		Before deploying the services to <strong>Application Server</strong>, we need to create 
+		a <strong>Carbon Application Project</strong> to group the two created axis2 services. 
+		</p>
+		
+		<p>
+		<strong>3. Create a Carbon Application Project to group mock objects</strong>
+		</p>
+		
+		<p>
+		Open <strong>WSO2 Developer Studio Dashboard</strong> again and select 
+		<strong>Carbon Application Project</strong> under <strong>Destribution</strong> 
+		category. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking9.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Give a name to the <strong>Carbon Application Project</strong> and select both 
+		<strong>services</strong> that we created. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking10.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that the <strong>Carbon Application Project</strong> has been created 
+		in the workspace with the name you have specified.
+ 		</p>
+ 		
+ 		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking11.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		<strong>4. Deploy the Carbon Application Project in to WSO2 App Server</strong>
+		</p>	
+		
+		<p>
+		Now we are going to deploy the created <strong>Carbon Application Project</strong> in 
+		to <strong>WSO2 Application Server</strong>. Before starting the <strong>WSO2 
+		App Server</strong>, make sure <strong>Apache ActiveMQ</strong> is up and 
+		running. 
+		</p>
+		<p>
+		In this section, we are going to start the <strong>WSO2 App Service</strong> inside 
+		Eclipse. Follow the steps in <a href="testing_deploying_category.html#Deploy">
+		Deploy C-App to a running Server inside Eclipse</a> section under 
+		<strong>Testing and Deploying</strong> document.
+		</p>
+		<p>
+		Once you add the server successfully, start the server. 
+		</p>
+				
+		<h3 id="installMySQL">Install and configure MySQL</h3>
+		<p>
+		
+		</p>
+		<h3 id="installMySQL">Install and configure MySQL</h3>
+		<p>
+		
+		</p>
+		<h3 id="installMySQL">Install and configure MySQL</h3>
+		<p>
+		
+		</p>
+		
+		
 	</body>
 </html>
