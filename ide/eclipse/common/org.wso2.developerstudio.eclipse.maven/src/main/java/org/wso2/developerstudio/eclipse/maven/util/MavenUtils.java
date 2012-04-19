@@ -210,6 +210,10 @@ public class MavenUtils {
 		mavenProject.getModel().addProperty(PROPERTY_CAPP_TYPE, cappType);
 	}
 	
+	public static void updateMavenProjectWithSkipTests(MavenProject mavenProject){
+		mavenProject.getModel().addProperty("maven.test.skip","false");
+	}
+	
 	public static MavenProject updateMavenProjectWithWarBuilderPlugin(IProject project,
 	                                                                  MavenProject mavenProject,
 	                                                                  File mavenProjectSaveLocation)
