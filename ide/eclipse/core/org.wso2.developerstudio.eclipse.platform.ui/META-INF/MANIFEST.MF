@@ -28,6 +28,7 @@ Import-Package: org.apache.axis2.client,
  org.wso2.developerstudio.eclipse.platform.core.types,
  org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.platform.ui.utils,
+ org.wso2.developerstudio.eclipse.utils.file,
  org.wso2.developerstudio.eclipse.utils.project
 Export-Package: org.wso2.developerstudio.eclipse.platform.ui,
  org.wso2.developerstudio.eclipse.platform.ui.interfaces,

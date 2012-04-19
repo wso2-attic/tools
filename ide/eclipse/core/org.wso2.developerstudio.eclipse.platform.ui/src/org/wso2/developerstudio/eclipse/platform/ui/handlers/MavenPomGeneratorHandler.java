@@ -21,7 +21,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -30,6 +33,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 /**
  * This is the handler class for generating maven pom for any given project option.
@@ -66,7 +70,13 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	                	
 //	                	If confirms, back up the pom and create the aggregator pom
 	                	if(openQuestion){
+	                		IFolder backupFolder = selectedUIElement.getFolder("BACK_UP");
+	                		IFile backupFile = backupFolder.getFile("pom.xml");
+	                		FileUtils.copy(pomFile.getLocation().toFile(), backupFile.getLocation().toFile());
 	                		
+	                		selectedUIElement.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+	                		
+//	                		Open the new wizard
 	                	}
 	                }
                 } catch (Exception e) {
@@ -80,9 +90,9 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 			}
 		}
 		
-		if(!pomFile.exists() || (pomFile.exists() && openQuestion)){
-			createMavenPom(selectedUIElement);
-		}
+//		if(pomFile == null || (pomFile.exists() && openQuestion)){
+//			createMavenPom(selectedUIElement);
+//		}
 
 		return null;
 	}
