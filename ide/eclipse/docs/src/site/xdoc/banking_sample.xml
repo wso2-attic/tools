@@ -389,7 +389,8 @@
 		<br/>
 		<p>
 		Edit <strong>$DSS_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
-		Set the value to </p>
+		Set the value to 
+		</p>
 		<pre style='color:#000000;background:#ffffff;'>
 		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
 		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>6
@@ -806,6 +807,6 @@
 		
 		</p>
 		
-		
+		</p>
 	</body>
 </html>
