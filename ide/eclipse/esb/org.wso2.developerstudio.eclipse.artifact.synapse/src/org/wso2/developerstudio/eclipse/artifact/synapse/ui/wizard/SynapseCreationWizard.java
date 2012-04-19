@@ -106,7 +106,9 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					File synConfig = new File(saveLocation.getLocation().toFile(),
 							synapseModel.getImportFile().getName());
 					FileUtils.copy(synapseModel.getImportFile(), synConfig);
-					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION);
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
 					                            saveLocation.getLocation().toFile());
 					fileList.add(synConfig);
@@ -134,20 +136,25 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		addPluginEntry(mavenProject, "org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 		
-		for(Plugin plg:plugins){
-			if(plg.getId().equals("wso2-esb-synapse-plugin")){
-				return ;
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+	}
+
+	private void addPluginEntry(MavenProject mavenProject, String groupId, String artifactId, String version, String Id) {
+	    List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		for (Plugin plg : plugins) {
+			if (plg.getGroupId().equalsIgnoreCase(groupId) && plg.getArtifactId().equalsIgnoreCase(artifactId) && plg.getVersion().equalsIgnoreCase(version) ) {
+				return;
 			}
 		}
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION, true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, groupId, artifactId, version, true);
 		
 		PluginExecution pluginExecution = new PluginExecution();
 		pluginExecution.addGoal("pom-gen");
 		pluginExecution.setPhase("process-resources");
-		pluginExecution.setId("synapse");
+		pluginExecution.setId(Id);
 		
 		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
 		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
@@ -172,9 +179,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	        mavenProject.getModel().addRepository(repo);
 	        mavenProject.getModel().addPluginRepository(repo);
         }
-		
-		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
-	}
+    }
 
 	
 
@@ -185,24 +190,26 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		File synapseConfigFile =new File(saveLocation.getLocation().toFile(),
 		                                  synapseModel.getName().replaceAll(".xml$", "") + ".xml");
 		FileUtils.writeContent(synapseConfigFile, template);
-		addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION);
+		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+		addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+		MavenUtils.saveMavenProject(mavenProject, pomfile);
 		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
 		                            saveLocation.getLocation().toFile());
 		fileList.add(synapseConfigFile);
 	}
 
-	public boolean addPluginEntry(String artifactId, String version) throws Exception {
-
-		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		for (Plugin plg : plugins) {
-			if (plg.getId().equals(artifactId)) {
-				return true;
-			}
-		}
-		MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", artifactId, version, true);
-		return false;
-	}
+//	public boolean addPluginEntry(String groupId, String artifactId, String version) throws Exception {
+//
+//		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+//		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+//		for (Plugin plg : plugins) {
+//			if (plg.getGroupId().equalsIgnoreCase(groupId) && plg.getArtifactId().equalsIgnoreCase(artifactId) && plg.getVersion().equalsIgnoreCase(version) ) {
+//				return true;
+//			}
+//		}
+//		MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", artifactId, version, true);
+//		return false;
+//	}
 
 	public void createArtifactMetaDataEntry(String name, String type,File baseDir)
 	                                                                 throws FactoryConfigurationError,
@@ -267,28 +274,36 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					File baseDir = esbProject.getFolder(commonESBPath + "sequences").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("wso2-esb-sequence-plugin", MavenConstants.WSO2_ESB_SEQUENCE_VERSION);
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-sequence-plugin", MavenConstants.WSO2_ESB_SEQUENCE_VERSION,"sequence");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/sequence", baseDir);
 				} else if (localName.equals("endpoint")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "endpoints").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("wso2-esb-endpoint-plugin", MavenConstants.WSO2_ESB_ENDPOINT_VERSION);
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-endpoint-plugin", MavenConstants.WSO2_ESB_ENDPOINT_VERSION,"endpoint");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/endpoint", baseDir);
 				}else if (localName.equals("proxy")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "proxy-services").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION);
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION,"proxy");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir);
 				}else if (localName.equals("localEntry")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION);
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION,"localentry");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/local-entry", baseDir);
 				}	
