@@ -106,7 +106,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					File synConfig = new File(saveLocation.getLocation().toFile(),
 							synapseModel.getImportFile().getName());
 					FileUtils.copy(synapseModel.getImportFile(), synConfig);
-					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
+					addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION);
 					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
 					                            saveLocation.getLocation().toFile());
 					fileList.add(synConfig);
@@ -142,7 +142,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 		}
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION, true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION, true);
 		
 		PluginExecution pluginExecution = new PluginExecution();
 		pluginExecution.addGoal("pom-gen");
@@ -185,7 +185,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		File synapseConfigFile =new File(saveLocation.getLocation().toFile(),
 		                                  synapseModel.getName().replaceAll(".xml$", "") + ".xml");
 		FileUtils.writeContent(synapseConfigFile, template);
-		addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.MAVEN_SYNAPSE_VERSION);
+		addPluginEntry("wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION);
 		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
 		                            saveLocation.getLocation().toFile());
 		fileList.add(synapseConfigFile);
@@ -267,28 +267,28 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					File baseDir = esbProject.getFolder(commonESBPath + "sequences").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-sequence-plugin", MavenConstants.MAVEN_SEQUENCE_VERSION);
+					addPluginEntry("wso2-esb-sequence-plugin", MavenConstants.WSO2_ESB_SEQUENCE_VERSION);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/sequence", baseDir);
 				} else if (localName.equals("endpoint")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "endpoints").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-endpoint-plugin", MavenConstants.MAVEN_ENDPOINT_VERSION);
+					addPluginEntry("wso2-esb-endpoint-plugin", MavenConstants.WSO2_ESB_ENDPOINT_VERSION);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/endpoint", baseDir);
 				}else if (localName.equals("proxy")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "proxy-services").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-proxy-plugin", MavenConstants.MAVEN_PROXY_SERVICE_VERSION);
+					addPluginEntry("wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir);
 				}else if (localName.equals("localEntry")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
 					FileUtils.createFile(destFile, element.toString());
-					addPluginEntry("maven-localentry-plugin", MavenConstants.MAVEN_LOCAL_ENTRY_VERSION);
+					addPluginEntry("wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION);
 					fileList.add(destFile);
 					createArtifactMetaDataEntry(qName, "synapse/local-entry", baseDir);
 				}	

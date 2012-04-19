@@ -4,7 +4,7 @@
 
 	<groupId>org.wso2.maven</groupId>
 	<artifactId>maven-synapse-mediator-plugin</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Maven Synapse Mediator Plugin</name>
@@ -18,12 +18,12 @@
 		<dependency>
 			<groupId>org.wso2.maven</groupId>
 			<artifactId>org.wso2.maven.capp</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>maven-bundle-plugin</artifactId>
-			<version>1.4.0</version>
+			<version>2.3.7</version>
 		</dependency>
 	</dependencies>
     <distributionManagement>

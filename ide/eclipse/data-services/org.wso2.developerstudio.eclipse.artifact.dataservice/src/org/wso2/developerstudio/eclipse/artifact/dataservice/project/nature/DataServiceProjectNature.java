@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.JavaModelException;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -42,7 +43,7 @@ public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 		Plugin pluginEntry = MavenUtils.createPluginEntry(mavenProject, 
 									 "org.wso2.maven", 
 									 "maven-dataservice-plugin", 
-									 "1.0.3", 
+									 MavenConstants.MAVEN_DATASERVICE_PLUGIN_VERSION, 
 									 true);
 		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(pluginEntry);
 		Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode, "artifact");

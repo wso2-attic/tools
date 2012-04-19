@@ -5,20 +5,21 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.synapse;singleton
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.synapse.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.maven,
- org.wso2.developerstudio.eclipse.capp.maven,
- org.wso2.developerstudio.eclipse.utils,
- org.wso2.developerstudio.eclipse.libraries,
- org.wso2.developerstudio.eclipse.esb.project
+ org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.core.resources,
+Import-Package: org.apache.axiom.om,
+ org.apache.axiom.om.impl.builder,
+ org.apache.maven.model,
+ org.apache.maven.project,
+ org.codehaus.plexus.util.xml,
+ org.eclipse.core.resources,
  org.eclipse.jdt.core,
  org.eclipse.ui.ide,
  org.eclipse.wst.command.internal.env.core.common,
  org.wso2.developerstudio.eclipse.capp.maven.utils,
  org.wso2.developerstudio.eclipse.esb.core.utils,
+ org.wso2.developerstudio.eclipse.esb.project.artifact,
  org.wso2.developerstudio.eclipse.esb.project.utils,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.maven.util,
@@ -31,6 +32,9 @@ Import-Package: org.eclipse.core.resources,
  org.wso2.developerstudio.eclipse.platform.ui.wizard,
  org.wso2.developerstudio.eclipse.platform.ui.wizard.pages,
  org.wso2.developerstudio.eclipse.utils.archive,
+ org.wso2.developerstudio.eclipse.utils.constants,
+ org.wso2.developerstudio.eclipse.utils.file,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project,
- org.wso2.developerstudio.eclipse.utils.template
+ org.wso2.developerstudio.eclipse.utils.template,
+ org.wso2.developerstudio.eclipse.utils.ui

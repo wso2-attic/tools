@@ -4,7 +4,7 @@
 
 	<groupId>org.wso2.maven</groupId>
 	<artifactId>maven-ds-validator-plugin</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Maven DataServices Validator Plugin</name>
@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>org.wso2.maven</groupId>
 			<artifactId>org.wso2.maven.capp</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>

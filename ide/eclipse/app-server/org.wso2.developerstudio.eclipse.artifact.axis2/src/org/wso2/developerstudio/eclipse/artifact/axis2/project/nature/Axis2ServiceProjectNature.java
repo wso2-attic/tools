@@ -29,6 +29,7 @@ import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
@@ -50,7 +51,7 @@ public class Axis2ServiceProjectNature extends AbstractWSO2ProjectNature {
 	public void updatePom() throws Exception {
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-axis2-plugin", "1.0.3", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-axis2-plugin", MavenConstants.MAVEN_AXIS2_PLUGIN_VERSION, true);
 		PluginExecution pluginExecution;
 		
 		pluginExecution = new PluginExecution();

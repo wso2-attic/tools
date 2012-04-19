@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryMode
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryTemplateUtils;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -152,7 +153,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			}
 		}
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-localentry-plugin", "1.0.5", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION, true);
 		
 		PluginExecution pluginExecution = new PluginExecution();
 		pluginExecution.addGoal("pom-gen");

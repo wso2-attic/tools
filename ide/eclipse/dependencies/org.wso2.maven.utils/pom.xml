@@ -26,7 +26,7 @@
 
 	<groupId>org.wso2.maven</groupId>
     <artifactId>org.wso2.maven.utils</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 	<description>Maven utilities for Plugins</description>
     <name>WSO2 Maven Common Utils</name>

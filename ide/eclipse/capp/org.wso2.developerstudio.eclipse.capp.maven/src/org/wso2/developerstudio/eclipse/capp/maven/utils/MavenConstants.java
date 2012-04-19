@@ -20,4 +20,10 @@ public class MavenConstants {
 	public static final String MAVEN_DS_VALIDATOR_PLUGIN_VERSION = Messages.MAVEN_DS_VALIDATOR_PLUGIN_VERSION;
 	public static final String MAVEN_GADGET_PLUGIN_VERSION = Messages.MAVEN_GADGET_PLUGIN_VERSION;
 	public static final String MAVEN_JAXWS_PLUGIN_VERSION = Messages.MAVEN_JAXWS_PLUGIN_VERSION;
+	public static final String WSO2_ESB_ENDPOINT_VERSION = Messages.WSO2_ESB_ENDPOINT_VERSION;
+	public static final String WSO2_ESB_LOCAL_ENTRY_VERSION = Messages.WSO2_ESB_LOCAL_ENTRY_VERSION;
+	public static final String WSO2_ESB_PROXY_VERSION = Messages.WSO2_ESB_PROXY_VERSION;
+	public static final String WSO2_ESB_SEQUENCE_VERSION = Messages.WSO2_ESB_SEQUENCE_VERSION;
+	public static final String WSO2_ESB_SYNAPSE_VERSION = Messages.WSO2_ESB_SYNAPSE_VERSION;
+	public static final String WSO2_GENERAL_PROJECT_VERSION = Messages.WSO2_GENERAL_PROJECT_VERSION;
 }

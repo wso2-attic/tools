@@ -47,6 +47,7 @@ import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EndPointImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
@@ -281,7 +282,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		}
 		
 		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", "1.0.5", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;
 		
@@ -331,7 +332,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			}
 		}
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-endpoint-plugin", "1.0.5", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-endpoint-plugin", MavenConstants.WSO2_ESB_ENDPOINT_VERSION, true);
 		
 		PluginExecution pluginExecution = new PluginExecution();
 		pluginExecution.addGoal("pom-gen");

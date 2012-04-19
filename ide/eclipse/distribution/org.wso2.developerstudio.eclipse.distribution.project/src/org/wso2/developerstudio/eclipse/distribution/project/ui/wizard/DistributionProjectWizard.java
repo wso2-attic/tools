@@ -34,6 +34,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DistributionProjectModel;
@@ -75,7 +76,7 @@ public class DistributionProjectWizard extends
 			MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 			mavenProject.getModel().setPackaging("carbon/application");
 			Plugin plugin = MavenUtils.createPluginEntry(mavenProject,
-					"org.wso2.maven", "maven-car-plugin", "1.0.6", true);
+					"org.wso2.maven", "maven-car-plugin", MavenConstants.MAVEN_CAR_VERSION, true);
 			PluginExecution pluginExecution;
 
 			pluginExecution = new PluginExecution();

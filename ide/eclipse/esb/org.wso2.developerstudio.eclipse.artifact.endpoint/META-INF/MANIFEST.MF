@@ -7,19 +7,21 @@ Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.endpoint.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.wso2.developerstudio.eclipse.maven,
  org.wso2.developerstudio.eclipse.libraries,
  org.eclipse.text,
  org.eclipse.ui.ide,
  org.eclipse.ui.editors
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.apache.maven.project,
+Import-Package: org.apache.maven.model,
+ org.apache.maven.project,
+ org.codehaus.plexus.util.xml,
  org.eclipse.jdt.core,
  org.eclipse.ltk.core.refactoring,
  org.eclipse.ltk.core.refactoring.participants,
  org.eclipse.text.edits,
  org.eclipse.ui.ide,
+ org.wso2.developerstudio.eclipse.capp.maven.utils,
  org.wso2.developerstudio.eclipse.esb.core.configuration.impl,
  org.wso2.developerstudio.eclipse.esb.core.interfaces,
  org.wso2.developerstudio.eclipse.esb.core.utils,
