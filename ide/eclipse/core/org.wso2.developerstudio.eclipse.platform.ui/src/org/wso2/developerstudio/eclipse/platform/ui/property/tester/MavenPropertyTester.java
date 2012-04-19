@@ -30,7 +30,7 @@ import java.util.List;
 public class MavenPropertyTester extends PropertyTester{
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
-	@Override
+	
     public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
 		
 		if(arg0 instanceof IProject){
