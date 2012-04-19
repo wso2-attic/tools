@@ -82,7 +82,7 @@
       <handler
             class="org.wso2.developerstudio.eclipse.artifact.jaxws.project.export.JaxwsArtfactExportHandler"
             id="org.wso2.developerstudio.eclipse.artifact.jaxws.project.export.handler"
-            type="service/jaxws">
+            type="webapp/jaxws">
       </handler>
    </extension>
 </plugin>
