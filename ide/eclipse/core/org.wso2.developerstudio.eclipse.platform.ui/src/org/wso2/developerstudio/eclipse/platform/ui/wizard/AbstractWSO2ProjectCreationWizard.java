@@ -36,7 +36,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectWizardSettings;
@@ -46,6 +49,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsP
 
 public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implements INewWizard,
                                                                       IExecutableExtension {
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private ProjectDataModel model;
 	private IConfigurationElement configElement;
 	private ISelection currentSelection;
@@ -68,7 +72,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("error adding pages", e);
 		}
 	}
 
@@ -149,6 +153,19 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		        MavenUtils.createMavenProject(mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
 		                                      mavenInfo.getVersion(), packagingType);
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
+	}
+	
+	public String getMavenGroupId(File pomLocation){
+		String groupId = "org.wso2.carbon";
+		if(pomLocation!=null && pomLocation.exists()){
+			try {
+				MavenProject mavenProject = MavenUtils.getMavenProject(pomLocation);
+				groupId = mavenProject.getGroupId();
+			} catch (Exception e) {
+				log.error("error reading pom file", e);
+			}
+		}
+		return groupId;
 	}
 
 	public void setCurrentSelection(ISelection currentSelection) {
