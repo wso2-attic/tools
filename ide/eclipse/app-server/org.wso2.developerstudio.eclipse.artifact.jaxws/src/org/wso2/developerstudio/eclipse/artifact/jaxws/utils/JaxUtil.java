@@ -20,6 +20,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.axiom.om.OMAbstractFactory;
@@ -69,8 +70,8 @@ public class JaxUtil {
 		buffer.append("\n");
 		}
 		buffer.append("import javax.jws.WebService;\n");
-		buffer.append("import javax.jws.WebMethod;\n");
-		buffer.append("import javax.jws.WebParam;\n");
+		/*buffer.append("import javax.jws.WebMethod;\n");
+		buffer.append("import javax.jws.WebParam;\n");*/
 		buffer.append("\n");
 		buffer.append("@WebService\n" + "public interface " + className +"{\n\n" );
 		if(stubs){
@@ -192,7 +193,7 @@ public class JaxUtil {
 				serverElement.addAttribute("address",s.getAddress(),null);
 				if(s.getBeanClass()!=null){
 					OMElement serviceBeanElement = factory.createOMElement("serviceBean",jaxws);
-					OMElement beanElement = factory.createOMElement("bean",jaxws);
+					OMElement beanElement = factory.createOMElement(new QName("bean"));
 					beanElement.addAttribute("class",s.getBeanClass(),null);
 					serviceBeanElement.addChild(beanElement);
 					serverElement.addChild(serviceBeanElement);

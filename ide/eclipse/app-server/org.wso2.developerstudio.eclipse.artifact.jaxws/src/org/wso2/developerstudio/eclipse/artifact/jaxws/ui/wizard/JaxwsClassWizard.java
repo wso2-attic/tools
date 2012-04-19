@@ -103,13 +103,25 @@ public class JaxwsClassWizard extends Wizard implements INewWizard {
 				
 				cxfServlet = new JaxUtil.CxfServlet();
 				cxfServlet.deserialize(cxfServletXML);
-				cxfServlet.addServer( cu.getTypes()[0].getElementName(), cu.getTypes()[0].getFullyQualifiedName(), "/" + unit.getTypes()[0].getElementName(), unit.getTypes()[0].getFullyQualifiedName());
-				cxfServletXML.setContents(new ByteArrayInputStream(cxfServlet.toString().getBytes()), IResource.FORCE, null);
+				String id = cu.getTypes()[0].getElementName();
+				id = Character.toLowerCase(id.charAt(0)) + id.substring(1);
+				String serviceClass = cu.getTypes()[0].getFullyQualifiedName();
+				String address = "/" + cu.getTypes()[0].getElementName();
+				address = address.replaceAll("([A-Z])", "_$1"); // split CamelCase
+				address = address.replaceAll("^/_", "/");
+				address = address.toLowerCase();
+				String beanClass = unit.getTypes()[0].getFullyQualifiedName();
+				cxfServlet.addServer(id , serviceClass, address,beanClass );
+				 /*to drop empty NS, due to https://issues.apache.org/jira/browse/AXIOM-97 (was fixed in AXIOM 1.2.10)*/			
+				String content = cxfServlet.toString().replaceAll("xmlns=\"\"",""); 
+				cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
 				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 				
 				IEditorPart javaEditor = JavaUI.openInEditor(unit);
 				JavaUI.revealInEditor(javaEditor, (IJavaElement) unit);
-			} catch (Exception e) { /* ignore */}
+			} catch (Exception e) {
+				log.error("cannot update cxf-servlet.xml", e);
+			}
 
 		} catch (CoreException e) {
 			log.error("", e);
