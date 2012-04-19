@@ -45,6 +45,7 @@
 	    <module>maven-carbon-ui-plugin</module>
             <module>maven-car-plugin</module>
 	    <module>maven-endpoint-plugin</module>
+	    <module>maven-stratos-plugin</module>
     </modules>
 	<build>
 	<extensions>
