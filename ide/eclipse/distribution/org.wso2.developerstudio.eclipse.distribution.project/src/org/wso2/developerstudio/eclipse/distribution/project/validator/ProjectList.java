@@ -79,8 +79,11 @@ public class ProjectList extends AbstractListDataProvider {
 										for (ESBArtifact artifact : artifacts) {
 											Dependency dependency = new Dependency();
 											dependency.setArtifactId(artifact.getName());
-											dependency.setGroupId(mavenProject.getGroupId());
-											// TODO: replace with dependency's real group id
+											if(artifact.getGroupId()!=null && !artifact.getGroupId().trim().isEmpty()){
+												dependency.setGroupId(artifact.getGroupId());
+											} else{
+												dependency.setGroupId(mavenProject.getGroupId());
+											}
 											dependency.setVersion(artifact.getVersion());
 											dependency.setType(ArtifactTypeMapping.getType(artifact.getType()));
 											dependency.setScope("capp/"+ artifact.getServerRole());
@@ -93,7 +96,7 @@ public class ProjectList extends AbstractListDataProvider {
 											
 											list.add(createListData(
 													DistProjectUtils
-															.getArtifactInfoAsString(dependency),
+															.getArtifactInfoAsString(dependency,project.getName()),
 															dependencyData));
 										}
 									} catch (FactoryConfigurationError ignored) {

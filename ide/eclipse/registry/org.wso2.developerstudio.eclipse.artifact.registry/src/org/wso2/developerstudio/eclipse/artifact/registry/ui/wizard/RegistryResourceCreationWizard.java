@@ -173,13 +173,12 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
 			generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 			
-//			ESBArtifact artifact=new ESBArtifact();
 			RegistryArtifact artifact=new RegistryArtifact();
 			artifact.setName(regModel.getResourceName());
 			artifact.setVersion("1.0.0");
 			artifact.setType("registry/resource");
 			artifact.setServerRole("GovernanceRegistry");
-//			artifact.setFile("reg-info.xml");
+			artifact.setGroupId(getMavenGroupId(project.getFile("pom.xml").getLocation().toFile()));
 			List<RegistryResourceInfo> registryResources = regResInfoDoc.getRegistryResources();
 			for (RegistryResourceInfo registryResourceInfo : registryResources) {
 				RegistryElement item = null;

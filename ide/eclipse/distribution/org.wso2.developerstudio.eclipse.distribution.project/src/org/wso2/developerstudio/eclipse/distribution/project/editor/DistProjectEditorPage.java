@@ -137,7 +137,7 @@ public class DistProjectEditorPage extends FormPage {
 		HashMap<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData)data.getData();
-			projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
+			projectList.put(data.getCaption(), dependencyData);
 		}
 		
 		parentPrj = MavenUtils.getMavenProject(pomFile);
@@ -552,7 +552,7 @@ public class DistProjectEditorPage extends FormPage {
 		String serverRole = project.getScope().replaceAll("^capp/","");
 		String version = project.getVersion();
 		
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
 		item.setText(2,version);
 		NodeData nodeData = new NodeData(project);
@@ -589,7 +589,7 @@ public class DistProjectEditorPage extends FormPage {
 		final String serverRole = project.getScope().replaceAll("^capp/","");
 		final String version = project.getVersion();
 		
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
 		item.setText(2,version);
 		
@@ -729,7 +729,7 @@ public class DistProjectEditorPage extends FormPage {
 	}
 	
 
-	public void setDependencyList(HashMap<String,Dependency> dependencyList) {
+	public void setDependencyList(Map<String,Dependency> dependencyList) {
 		this.dependencyList = dependencyList;
 	}
 

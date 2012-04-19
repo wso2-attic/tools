@@ -266,7 +266,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		String serverRole = project.getScope().replaceAll("^capp/","");
 		String version = project.getVersion();
 		
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
 		item.setText(2,version);
 		NodeData nodeData = new NodeData(project);
@@ -303,7 +303,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		final String serverRole = project.getScope().replaceAll("^capp/","");
 		final String version = project.getVersion();
 		
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
 		item.setText(2,version);
 		

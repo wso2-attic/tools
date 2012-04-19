@@ -72,7 +72,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
-				projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
+				projectList.put(data.getCaption(), dependencyData);
 			}
 			
 			parentPrj = MavenUtils.getMavenProject(pomFile);

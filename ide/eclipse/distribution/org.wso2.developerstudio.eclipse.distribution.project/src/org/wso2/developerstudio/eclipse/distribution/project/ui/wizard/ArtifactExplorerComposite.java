@@ -128,7 +128,7 @@ public class ArtifactExplorerComposite extends AbstractComposite {
 		List<ListData> projectListData = projectListProvider.getListData(null, null);
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData)data.getData();
-			projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
+			projectList.put(data.getCaption(), dependencyData);
 		}
 		for (String project : getProjectList().keySet()) {
 			DependencyData dependencyData = getProjectList().get(project);
@@ -168,7 +168,7 @@ public class ArtifactExplorerComposite extends AbstractComposite {
 	TreeItem createNode(TreeItem parent, final DependencyData project){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project.getDependency());
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		NodeData nodeData = new NodeData(project);
 		item.setData(nodeData);
 		
@@ -187,7 +187,7 @@ public class ArtifactExplorerComposite extends AbstractComposite {
 	TreeItem createNode(Tree parent, final DependencyData project){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		final String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project.getDependency());
-		item.setText(0,artifactInfo);
+		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		NodeData nodeData = new NodeData(project);
 		item.setData(nodeData);
 

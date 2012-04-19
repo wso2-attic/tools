@@ -40,12 +40,10 @@ public class DistProjectUtils {
 	}
 	
 	public static String getArtifactInfoAsString(Dependency dep,String parent) {
-		String suffix= null;
+		String suffix= "";
 		if(parent!=null){
 			suffix =  "#" + parent + "#";
-		} else {
-			suffix = "#" + dep.getArtifactId() + "#";
-		}
+		} 
 		return  suffix.concat(dep.getGroupId().concat(":").concat(dep.getArtifactId())
 				.concat(":").concat(dep.getVersion()));
 	}
