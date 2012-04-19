@@ -866,7 +866,26 @@ public class DetailSection {
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME)){
 				
-				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME);
+				//Fixed TOOLS-1012.
+				String labelString = DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME;
+				
+				if(element != null){
+					
+					Object result = editingDomain.getParent(element);
+					
+					if(result != null && editingDomain.getParent(element) instanceof ResultMapping){
+						
+						ResultMapping resultMapping = (ResultMapping)result;
+						
+						if(resultMapping.isUseColumnNumbers()){
+							
+							labelString = DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NUMBUR; 
+						}
+						
+					}
+				}
+				
+				labelMaker(labelString);
 				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getColumn()
 						,DsPackage.eINSTANCE.getElementMapping_Column(),DetailSectionCustomUiConstants.STRING);
 				labelMaker("");
@@ -946,7 +965,25 @@ public class DetailSection {
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME)){
 				
-				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME);
+				//Fixed TOOLS-1012.
+				String labelString = DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME;
+				
+				if(attributeMapping != null){
+					
+					Object result = editingDomain.getParent(attributeMapping);
+					
+					if(result != null && editingDomain.getParent(attributeMapping) instanceof ResultMapping){
+						
+						ResultMapping resultMapping = (ResultMapping)result;
+						
+						if(resultMapping.isUseColumnNumbers()){
+							
+							labelString = DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NUMBUR; 
+						}
+						
+					}
+				}
+				labelMaker(labelString);
 				sectionUtil.getAttributeField(detailsclient, toolkit, attributeMapping, attributeMapping.getColumn()
 						,DsPackage.eINSTANCE.getAttributeMapping_Column(),DetailSectionCustomUiConstants.STRING);
 				labelMaker("");

@@ -58,6 +58,7 @@ public interface DetailSectionCustomUiConstants {
 	public String MAX_ROWS_DISPLAY = "Max Rows";
 	
 	public String ELEMENT_MAPPING_COLUMN_NAME = "Data Source Column Name";
+	public String ELEMENT_MAPPING_COLUMN_NUMBUR = "Data Source Column Number";
 	public String ELEMENT_MAPPING_EXPORT = "Export Name";
 	public String ELEMENT_MAPPING_OUTPUT_FIELD ="Output Field Name";
 	public String ELEMENT_MAPING_ALLOWED_USER_ROLES = "Allowed User Roles";
