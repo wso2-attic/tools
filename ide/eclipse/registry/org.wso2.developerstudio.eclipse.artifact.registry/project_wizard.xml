@@ -3,10 +3,10 @@
 	<projectOptions title="Registry Resource Artifact Creation Options"
 					description="Select how you would like to create your new registry resource"
 					error="Please select a method to create the registry resource">
-		<option id="new.resource" default="true">From existing Template</option>
-		<option id="import.resource">Import from File System</option>
-		<option id="import.dump">Import Registry Dump File from File System</option>
-		<option id="checkout">Check-out from Registry</option>
+		<option id="new.resource" default="true">From existing template</option>
+		<option id="import.resource">Import from file system</option>
+		<option id="import.dump">Import Registry dump file from file system</option>
+		<option id="checkout">Check-out from registry</option>
 	</projectOptions>
 	<projectOptionSettings>
 		<settings optionId="new.resource"
