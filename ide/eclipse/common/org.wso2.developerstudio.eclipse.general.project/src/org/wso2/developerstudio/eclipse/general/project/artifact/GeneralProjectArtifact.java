@@ -27,25 +27,30 @@ import javax.xml.stream.FactoryConfigurationError;
 
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
+import org.wso2.developerstudio.eclipse.general.project.Activator;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryCollection;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryDump;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 
 /**
  * This class represents the .artifact.xml file which keeps the metadata of the
- * artifacts included in an ESB project.
+ * artifacts included in an registry resource project.
  * Structure of the file is as follows.
  * 
  * <?xml version="1.0" encoding="UTF-8"?>
  * <artifacts>
  * 	<artifact name="testEndpoint2" version="1.0.0" type="synapse/endpoint"
- * 			serverRole="EnterpriseServiceBus">
+ * 			serverRole="EnterpriseServiceBus"
+ * 			groupId="org.wso2.carbon.myapp">
  * 		<file>src\main\synapse-config\endpoints\testEndpoint2.xml</file>
  * 	</artifact>
  * 	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint"
- * 			serverRole="EnterpriseServiceBus">
+ * 			serverRole="EnterpriseServiceBus"
+ * 			groupId="org.wso2.carbon.myapp">
  * 		<file>src\main\synapse-config\endpoints\testEndpoint3.xml</file>
  * 	</artifact>
  * </artifacts>
@@ -54,6 +59,8 @@ import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
  * 
  */
 public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	List<RegistryArtifact> registryArtifacts=new ArrayList<RegistryArtifact>();
 	
 	private File source;
@@ -70,6 +77,7 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 	        artifact.setVersion(getAttribute(omElement, "version"));
 	        artifact.setType(getAttribute(omElement, "type"));
 	        artifact.setServerRole(getAttribute(omElement, "serverRole"));
+	        artifact.setGroupId(getAttribute(omElement, "groupId"));
 	        
 	        List<OMElement> itemElements = getChildElements(omElement, "item");
 	        
@@ -110,7 +118,7 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 		try {
 			result = getPretifiedString(documentElement);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("cannot serialize document", e);
 			return null;
 		}
 		return result;
@@ -135,27 +143,31 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 	public OMElement getDocumentElement() {
 		OMElement documentElement = getElement("artifacts", "");
 		
-		for (RegistryArtifact esbArtifact : registryArtifacts) {
+		for (RegistryArtifact artifact : registryArtifacts) {
 			OMElement artifactElement = getElement("artifact", "");
 			
-			if (!esbArtifact.isAnonymous()){
-				addAttribute(artifactElement, "name", esbArtifact.getName());
+			if (!artifact.isAnonymous()){
+				addAttribute(artifactElement, "name", artifact.getName());
+			}
+			
+			if (!artifact.isAnonymous() && artifact.getGroupId() != null) {
+				addAttribute(artifactElement, "groupId", artifact.getGroupId());
 			}
 	        
-			if (!esbArtifact.isAnonymous() && esbArtifact.getVersion() != null){
-				addAttribute(artifactElement, "version", esbArtifact.getVersion());
+			if (!artifact.isAnonymous() && artifact.getVersion() != null){
+				addAttribute(artifactElement, "version", artifact.getVersion());
 			}
 			
-			if (esbArtifact.getType() != null){
-				addAttribute(artifactElement, "type", esbArtifact.getType());
+			if (artifact.getType() != null){
+				addAttribute(artifactElement, "type", artifact.getType());
 			}
 			
-			if (esbArtifact.getServerRole() != null){
-				addAttribute(artifactElement, "serverRole", esbArtifact.getServerRole());
+			if (artifact.getServerRole() != null){
+				addAttribute(artifactElement, "serverRole", artifact.getServerRole());
 			}
 			
 
-			for (RegistryElement item : esbArtifact.getAllRegistryItems()) {
+			for (RegistryElement item : artifact.getAllRegistryItems()) {
 				if (item instanceof RegistryItem) {
 	                OMElement element = getElement("item", "");
 	                OMElement element2 = getElement("file", ((RegistryItem)item).getFile());

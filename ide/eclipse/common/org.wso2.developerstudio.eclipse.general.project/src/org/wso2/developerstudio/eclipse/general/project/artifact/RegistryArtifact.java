@@ -31,7 +31,8 @@ public class RegistryArtifact {
 	private String groupId;
 	
 //	This is the file path for the actual artifact.
-//	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+//	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus"
+//					groupId="org.wso2.carbon.myapp">
 //    <file>src\main\synapse-config\endpoints\testEndpoint3.xml</file>
 //    </artifact>
 
