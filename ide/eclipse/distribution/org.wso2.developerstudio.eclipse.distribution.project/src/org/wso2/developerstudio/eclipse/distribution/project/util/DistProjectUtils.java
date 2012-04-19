@@ -16,6 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.distribution.project.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -31,8 +34,30 @@ public class DistProjectUtils {
 		return MavenUtils.getMavenProject(pomFile.getLocation().toFile());
 	}
 	
+	
 	public static String getArtifactInfoAsString(Dependency dep) {
-		return dep.getGroupId().concat(":").concat(dep.getArtifactId())
-				.concat(":").concat(dep.getVersion());
+		return getArtifactInfoAsString(dep,null);
 	}
+	
+	public static String getArtifactInfoAsString(Dependency dep,String parent) {
+		String suffix= null;
+		if(parent!=null){
+			suffix =  "#" + parent + "#";
+		} else {
+			suffix = "#" + dep.getArtifactId() + "#";
+		}
+		return  suffix.concat(dep.getGroupId().concat(":").concat(dep.getArtifactId())
+				.concat(":").concat(dep.getVersion()));
+	}
+	
+	public static String getMavenInfoAsString(String info) {
+		String suffix=new String();
+		Pattern pattern = Pattern.compile("^#(.*?)#");
+		Matcher matcher = pattern.matcher(info);
+		 while (matcher.find()) {
+			 suffix= matcher.group().toString();
+	        }
+		return info.replaceFirst(suffix,"");
+	}
+	
 }

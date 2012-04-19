@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -92,9 +93,9 @@ public class DistProjectEditorPage extends FormPage {
 	
 	
 
-	private HashMap<String,Dependency> dependencyList = new HashMap<String, Dependency>();
-	private HashMap<String,DependencyData> projectList = new HashMap<String, DependencyData>();
-	private HashMap<String,Dependency> missingDependencyList = new HashMap<String, Dependency>();
+	private Map<String,Dependency> dependencyList = new HashMap<String, Dependency>();
+	private Map<String,DependencyData> projectList = new HashMap<String, DependencyData>();
+	private Map<String,Dependency> missingDependencyList = new HashMap<String, Dependency>();
 	
 	
 	private Tree trDependencies;
@@ -151,7 +152,7 @@ public class DistProjectEditorPage extends FormPage {
 		setDescription(parentPrj.getDescription());
 		setProjectList(projectList);
 		setDependencyList(dependencyMap);
-		setMissingDependencyList((HashMap<String,Dependency>)getDependencyList().clone());
+		setMissingDependencyList((Map<String, Dependency>)((HashMap) getDependencyList()).clone());
 	}
 	
 	public void savePOM() throws Exception{
@@ -178,7 +179,7 @@ public class DistProjectEditorPage extends FormPage {
 		toolkit.paintBordersFor(body);
 		managedForm.getForm().getBody().setLayout(new GridLayout(2, false));
 
-		Label lblGroupId = managedForm.getToolkit().createLabel(
+		managedForm.getToolkit().createLabel(
 				managedForm.getForm().getBody(), "Group Id", SWT.NONE);
 
 		txtGroupId = managedForm.getToolkit().createText(
@@ -197,7 +198,7 @@ public class DistProjectEditorPage extends FormPage {
 			}
 		});
 
-		Label lblArtifactId = managedForm.getToolkit().createLabel(
+		managedForm.getToolkit().createLabel(
 				managedForm.getForm().getBody(), "Artifact Id", SWT.NONE);
 
 		txtArtifactId = managedForm.getToolkit().createText(
@@ -208,7 +209,7 @@ public class DistProjectEditorPage extends FormPage {
 		gd_txtArtifactId.widthHint = 180;
 		txtArtifactId.setLayoutData(gd_txtArtifactId);
 
-		Label lblVersion = managedForm.getToolkit().createLabel(
+		managedForm.getToolkit().createLabel(
 				managedForm.getForm().getBody(), "Version", SWT.NONE);
 
 		txtVersion = managedForm.getToolkit().createText(
@@ -732,23 +733,23 @@ public class DistProjectEditorPage extends FormPage {
 		this.dependencyList = dependencyList;
 	}
 
-	public HashMap<String,Dependency> getDependencyList() {
+	public Map<String,Dependency> getDependencyList() {
 		return dependencyList;
 	}
 
-	public void setProjectList(HashMap<String,DependencyData> projectList) {
+	public void setProjectList(Map<String,DependencyData> projectList) {
 		this.projectList = projectList;
 	}
 
-	public HashMap<String,DependencyData> getProjectList() {
+	public Map<String,DependencyData> getProjectList() {
 		return projectList;
 	}
 
-	public void setMissingDependencyList(HashMap<String,Dependency> missingDependencyList) {
+	public void setMissingDependencyList(Map<String,Dependency> missingDependencyList) {
 		this.missingDependencyList = missingDependencyList;
 	}
 
-	public HashMap<String,Dependency> getMissingDependencyList() {
+	public Map<String,Dependency> getMissingDependencyList() {
 		return missingDependencyList;
 	}
 

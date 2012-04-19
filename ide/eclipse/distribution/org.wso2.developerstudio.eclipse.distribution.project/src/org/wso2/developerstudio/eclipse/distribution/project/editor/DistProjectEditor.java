@@ -71,6 +71,11 @@ public class DistProjectEditor extends FormEditor {
 	                updateDirtyState();
 	            }  
 	        });  
+			
+			if(getFile()!=null){
+				setTitle(getFile().toString().replaceFirst("^L/",""));
+			}
+			
 
 		} catch (PartInitException e) {
 			log.error("Page init error has occurred", e);
