@@ -42,18 +42,23 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.proxyservice.Activator;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.ProxyServiceImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private final ProxyServiceModel psModel;
 	private IFile proxyServiceFile;
 	private ESBProjectArtifact esbProjectArtifact;
@@ -89,6 +94,16 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
                                  File.separator +
                                  "proxy-services");
 			
+			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
+			if(!pomfile.exists()){
+				getModel().getMavenInfo().setPackageName("synapse/proxy-service");
+				createPOM(pomfile);
+			}
+			updatePom();
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			
+			String groupId = getMavenGroupId(pomfile) + ".proxy";
+			
 			//Adding the metadata about the proxy service to the metadata store.
 			esbProjectArtifact=new ESBProjectArtifact();
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
@@ -101,7 +116,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 					}
 					isNewArtifact = false;
 				} 
-				copyImportFile(location,isNewArtifact);
+				copyImportFile(location,isNewArtifact,groupId);
 			} else {
 				ArtifactTemplate selectedTemplate = psModel.getSelectedTemplate();
 				templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
@@ -125,28 +140,13 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 				File destFile = proxyServiceFile.getLocation().toFile();
 				FileUtils.createFile(destFile, template);
 				fileLst.add(destFile);
-				
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(proxyServiceModel.getProxyServiceName());
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/proxy-service");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),proxyServiceModel.getProxyServiceName()+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
+				String relativePath = FileUtils.getRelativePath(
+						esbProject.getLocation().toFile(),
+						new File(location.getLocation().toFile(), proxyServiceModel
+								.getProxyServiceName() + ".xml"));
+				esbProjectArtifact.addESBArtifact(createArtifact(
+						proxyServiceModel.getProxyServiceName(), groupId, "1.0.0", relativePath));
 			}
-			
-
-			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
-			if(!pomfile.exists()){
-				getModel().getMavenInfo().setPackageName("synapse/proxy-service");
-				createPOM(pomfile);
-			}
-			updatePom();
-			
-//			ProjectUtils.addNatureToProject(esbProject,
-//											false,
-//						                    PsArtifactConstants.ESB_PROJECT_NATURE,
-//						                    "org.wso2.developerstudio.eclipse.proxy.project.nature" );
 			
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
@@ -157,9 +157,9 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			}
 			
 		} catch (CoreException e) {
-			e.printStackTrace();
+			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 
 		return true;
@@ -212,9 +212,10 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 
 	}
 
-	public void copyImportFile(IContainer location,boolean isNewArtifact) throws IOException {
+	public void copyImportFile(IContainer location,boolean isNewArtifact,String groupId) throws IOException {
 		File destFile = null;
 		List<OMElement> availablePSList = psModel.getSelectedProxyList();
+		String relativePath;
 		
 		if(availablePSList.size()>0){
 			for(OMElement proxy:availablePSList){
@@ -223,13 +224,9 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 				FileUtils.createFile(destFile,  proxy.toString());
 				fileLst.add(destFile);
 				if(isNewArtifact){
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(name);
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/proxy-service");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setFile(FileUtils.getRelativePath(location.getProject().getLocation().toFile(), new File(location.getLocation().toFile(),name+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
+					relativePath = FileUtils.getRelativePath(location.getProject().getLocation()
+							.toFile(), new File(location.getLocation().toFile(), name + ".xml"));
+					esbProjectArtifact.addESBArtifact(createArtifact(name,groupId,"1.0.0",relativePath) );
 				}
 			}			
 		}
@@ -241,13 +238,9 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			FileUtils.copy(importFile, destFile);
 			fileLst.add(destFile);
 			if(isNewArtifact){
-			ESBArtifact artifact=new ESBArtifact();
-			artifact.setName(name);
-			artifact.setVersion("1.0.0");
-			artifact.setType("synapse/proxy-service");
-			artifact.setServerRole("EnterpriseServiceBus");
-			artifact.setFile(FileUtils.getRelativePath(location.getProject().getLocation().toFile(), new File(location.getLocation().toFile(),name+".xml")));
-			esbProjectArtifact.addESBArtifact(artifact);
+				relativePath = FileUtils.getRelativePath(location.getProject().getLocation()
+						.toFile(), new File(location.getLocation().toFile(), name + ".xml"));
+			esbProjectArtifact.addESBArtifact(createArtifact(name,groupId,"1.0.0",relativePath) );
 			}
 		}
 	}
@@ -309,5 +302,15 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 		} catch (Exception e) { /* ignore */}
 	}
 	
+	private ESBArtifact createArtifact(String name,String groupId,String version,String path){
+		ESBArtifact artifact=new ESBArtifact();
+		artifact.setName(name);
+		artifact.setVersion(version);
+		artifact.setType("synapse/proxy-service");
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		artifact.setFile(path);
+		return artifact;
+	}
 
 }
