@@ -13,6 +13,7 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
 
 public class GeneralProjectNature extends AbstractWSO2ProjectNature {
+	private static final String cappType = "bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar";
 
 	
 	public void configure() throws CoreException {
@@ -28,9 +29,11 @@ public class GeneralProjectNature extends AbstractWSO2ProjectNature {
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 			//Adding typrLidt property
-			mavenProject.getProperties().put("artifact.types", "bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar");
+			MavenUtils.updateMavenProjectWithCAppType(mavenProject, cappType);
 			//Setting the directory
 			mavenProject.getBuild().setDirectory("target/capp");
+//			Adding maven test skip property
+			MavenUtils.updateMavenProjectWithSkipTests(mavenProject);
 			
 			//Adding maven exec plugin entry
 			Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.codehaus.mojo", "exec-maven-plugin", "1.2", true);
@@ -49,6 +52,8 @@ public class GeneralProjectNature extends AbstractWSO2ProjectNature {
 			cleanArgumentNode.setValue("clean");
 			Xpp3Dom installArgumentNode = MavenUtils.createXpp3Node(argumentsNode, "argument");
 			installArgumentNode.setValue("install");
+			Xpp3Dom testSkipArgumentNode = MavenUtils.createXpp3Node(argumentsNode, "argument");
+			testSkipArgumentNode.setValue("-Dmaven.test.skip=${maven.test.skip}");
 			
 			pluginExecution.setConfiguration(configurationNode);
 			
