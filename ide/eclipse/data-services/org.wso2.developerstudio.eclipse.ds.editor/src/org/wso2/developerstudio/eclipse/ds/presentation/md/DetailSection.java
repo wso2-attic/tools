@@ -361,12 +361,27 @@ public class DetailSection {
 						
 			if(displayName.equals(DetailSectionCustomUiConstants.DATA_SERVICE_NAME)){
 				
-				labelMaker(displayName);
-				
-				sectionUtil.getAttributeField(detailsclient,toolkit,selectedObject,dataService.getName(),
-						DsPackage.eINSTANCE.getDataService_Name(),DetailSectionCustomUiConstants.STRING);
-				labelMaker("");
-				labelMaker("");
+					labelMaker(displayName);
+
+					sectionUtil.getAttributeField(detailsclient, toolkit,
+							selectedObject, dataService.getName(),
+							DsPackage.eINSTANCE.getDataService_Name(),
+							DetailSectionCustomUiConstants.STRING);
+					labelMaker("");
+					labelMaker("");
+					// Fixing
+					// TOOLS-1008.(org.wso2.developerstudio.eclipse.ds.provider.DataServiceItemProvider
+					// also has relevant change)
+					Description description = dataService.getDescription();
+					if (description != null) {
+						labelMaker(DetailSectionCustomUiConstants.DATA_SERVICE_DESCRIPTION);
+						sectionUtil.getAttributeField(detailsclient, toolkit,
+								description, description.getValue(),
+								DsPackage.eINSTANCE.getDescription_Value(),
+								DetailSectionCustomUiConstants.STRING);
+						labelMaker("");
+						labelMaker("");
+					}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.DATA_SERVICE_GROUP)){

@@ -261,7 +261,7 @@ public class DataServiceItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -269,7 +269,8 @@ public class DataServiceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__DESCRIPTION);
+			//Fixing TOOLS-1008.
+			//childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__DESCRIPTION);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__CONFIG);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__QUERY);
 			childrenFeatures.add(DsPackage.Literals.DATA_SERVICE__EVENT_TRIGGER);
