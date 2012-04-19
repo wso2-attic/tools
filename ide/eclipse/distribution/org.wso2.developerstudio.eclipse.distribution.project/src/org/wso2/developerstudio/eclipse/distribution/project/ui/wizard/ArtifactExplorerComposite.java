@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 
 import org.eclipse.core.resources.IProject;
@@ -49,9 +50,9 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 public class ArtifactExplorerComposite extends AbstractComposite {
 	private DistributionProjectModel model;
 	private Tree trDependencies;
-	private HashMap<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
-	private HashMap<String,DependencyData> projectList = new HashMap<String, DependencyData>();
-	private HashMap<String,DependencyData> selectedProjects = new HashMap<String, DependencyData>();
+	private Map<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
+	private Map<String,DependencyData> projectList = new HashMap<String, DependencyData>();
+	private Map<String,DependencyData> selectedProjects = new HashMap<String, DependencyData>();
 	
 	
 	public ArtifactExplorerComposite(Composite parent, int style,
@@ -83,7 +84,7 @@ public class ArtifactExplorerComposite extends AbstractComposite {
 		btnSelectAll.setLayoutData(gdBtn);
 		btnSelectAll.addListener(SWT.MouseDown, new Listener() {
 			public void handleEvent(Event evt) {
-				selectedProjects = (HashMap<String, DependencyData>) getProjectList().clone();
+				selectedProjects = (Map<String, DependencyData>)((HashMap)getProjectList()).clone();
 				setSelectAll(true);
 				updateModel();
 			}
@@ -352,12 +353,12 @@ public class ArtifactExplorerComposite extends AbstractComposite {
     }
 
 
-	public HashMap<String,DependencyData> getProjectList() {
+	public Map<String,DependencyData> getProjectList() {
 	    return projectList;
     }
 	
 
-	public HashMap<String,DependencyData> getSelectedProjects() {
+	public Map<String,DependencyData> getSelectedProjects() {
 	    return selectedProjects;
     }
 

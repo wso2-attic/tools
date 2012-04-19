@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -44,12 +45,12 @@ import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUti
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 public class DistributionProjectExportWizardPage extends WizardPage {
-	private HashMap<String,Dependency> dependencyList;
-	private HashMap<String,DependencyData> projectList;
-	private HashMap<String,Dependency> missingDependencyList;
+	private Map<String,Dependency> dependencyList;
+	private Map<String,DependencyData> projectList;
+	private Map<String,Dependency> missingDependencyList;
 	private Tree trDependencies;
 	private TreeEditor editor;
-	private HashMap<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
+	private Map<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
 	
 	private final String[] serverRoles = new String[] { "GovernanceRegistry",
 			"BusinessProcessServer", "GadgetServer",
@@ -58,27 +59,27 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 			"BusinessRulesServer", "IdentityServer",
 			"BusinessActivityMonitor" };
 	
-	public HashMap<String, Dependency> getDependencyList() {
+	public Map<String, Dependency> getDependencyList() {
 		return dependencyList;
 	}
 
-	public HashMap<String, DependencyData> getProjectList() {
+	public Map<String, DependencyData> getProjectList() {
 		return projectList;
 	}
 
-	public HashMap<String, Dependency> getMissingDependencyList() {
+	public Map<String, Dependency> getMissingDependencyList() {
 		return missingDependencyList;
 	}
 	
-	public void setDependencyList(HashMap<String, Dependency> dependencyList) {
+	public void setDependencyList(Map<String, Dependency> dependencyList) {
 		this.dependencyList = dependencyList;
 	}
 
-	public void setProjectList(HashMap<String, DependencyData> projectList) {
+	public void setProjectList(Map<String, DependencyData> projectList) {
 		this.projectList = projectList;
 	}
 
-	public void setMissingDependencyList(HashMap<String, Dependency> missingDependencyList) {
+	public void setMissingDependencyList(Map<String, Dependency> missingDependencyList) {
 		this.missingDependencyList = missingDependencyList;
 	}
 	

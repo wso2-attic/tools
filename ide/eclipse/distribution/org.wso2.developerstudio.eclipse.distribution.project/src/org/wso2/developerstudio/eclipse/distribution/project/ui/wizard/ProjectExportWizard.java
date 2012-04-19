@@ -86,10 +86,10 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 	}
 
 	private void exportArchivable(IProject project) throws Exception{
-		String cAppType = new String();
+		String cAppType = "";
 		MavenProject mavenProject;
-		String ext = new String();
-		String finalFileName = new String();
+		String ext = "";
+		String finalFileName = "";
 		mavenProject = DistProjectUtils.getMavenProject(project);
 		cAppType = mavenProject.getModel().getPackaging();
 		String version = mavenProject.getModel().getVersion();

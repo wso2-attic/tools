@@ -109,11 +109,11 @@ public class DistProjectEditorPage extends FormPage {
 			"BusinessRulesServer", "IdentityServer",
 			"BusinessActivityMonitor" };
 	
-	private String projectName = new String();
-	private String groupId = new String();
-	private String artifactId = new String();
-	private String version = new String();
-	private String description = new String();
+	private String projectName = "";
+	private String groupId = "";
+	private String artifactId = "";
+	private String version = "";
+	private String description = "";
 	
 	private Action exportAction;
 	private Action refreshAction;

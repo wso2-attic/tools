@@ -173,6 +173,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 					}
 			}
 		} catch (CoreException e) {
+			log.error("Error reading projects", e);
 		}
 	}
 	

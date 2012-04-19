@@ -20,7 +20,7 @@ import org.apache.maven.model.Dependency;
 
 public class DependencyData {
 private Dependency dependency;
-private String cApptype= new String();
+private String cApptype= "";
 private Object self;
 private Object parent;
 private String serverRole;

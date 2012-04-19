@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -67,8 +68,8 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			
 			ProjectList projectListProvider = new ProjectList();
 			List<ListData> projectListData = projectListProvider.getListData(null, null);
-			HashMap<String,DependencyData> projectList= new HashMap<String, DependencyData>();
-			HashMap<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+			Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
 				projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
@@ -82,7 +83,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			mainPage = new DistributionProjectExportWizardPage();
 			mainPage.setProjectList(projectList);
 			mainPage.setDependencyList(dependencyMap);
-			mainPage.setMissingDependencyList((HashMap<String,Dependency>)mainPage.getDependencyList().clone());
+			mainPage.setMissingDependencyList((Map<String,Dependency>)((HashMap)mainPage.getDependencyList()).clone());
 			detailsPage.setName(parentPrj.getModel().getArtifactId());
 			detailsPage.setVersion(parentPrj.getModel().getVersion());
 		} catch (Exception e) {

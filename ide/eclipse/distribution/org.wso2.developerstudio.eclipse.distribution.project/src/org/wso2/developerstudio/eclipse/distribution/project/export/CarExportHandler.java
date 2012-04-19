@@ -34,11 +34,14 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.ArtifactData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
@@ -49,6 +52,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.file.TempFileUtils;
 
 public class CarExportHandler extends ProjectArtifactHandler {
+   private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
    private static final String POM_FILE = "pom.xml";
 
 	public List<IResource> exportArtifact(IProject project) throws Exception {
@@ -74,8 +78,8 @@ public class CarExportHandler extends ProjectArtifactHandler {
 	        
 	    	ProjectList projectListProvider = new ProjectList();
 			List<ListData> projectListData = projectListProvider.getListData(null, null);
-			HashMap<String,DependencyData> projectList= new HashMap<String, DependencyData>();
-			HashMap<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+			Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
 				projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
@@ -87,12 +91,16 @@ public class CarExportHandler extends ProjectArtifactHandler {
 				dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
 			}
 			
-			for(String dependency : dependencyMap.keySet()) {
-				if(projectList.containsKey(dependency)) {
-					DependencyData dependencyData = projectList.get(dependency);
+			//for(String dependency : dependencyMap.keySet()) {
+			for(Map.Entry<String,Dependency> entry : dependencyMap.entrySet()) {
+				String dependencyKey = entry.getKey();
+				Dependency dependency = entry.getValue();
+				if(projectList.containsKey(dependencyKey)) {
+					DependencyData dependencyData = projectList.get(dependencyKey);
 					Object parent = dependencyData.getParent();
 					Object self = dependencyData.getSelf();
-					dependencyData.setServerRole(dependencyMap.get(dependency).getScope()
+					dependencyMap.get(dependencyKey);
+					dependencyData.setServerRole(dependency.getScope()
 				                                          .replaceAll("^capp/", ""));
 					
 					if(parent!=null && self!=null) { //ESB artifacts 
@@ -218,7 +226,7 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		try {
 			XMLUtil.prettify(artifactElt, new FileOutputStream(artifactXml));
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error creating artifact.xml", e);
 		}
 	}
 	

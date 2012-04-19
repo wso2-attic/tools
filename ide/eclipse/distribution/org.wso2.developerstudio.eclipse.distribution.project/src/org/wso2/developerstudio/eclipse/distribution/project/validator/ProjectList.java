@@ -101,7 +101,7 @@ public class ProjectList extends AbstractListDataProvider {
 									}
 								}
 							} else {
-								String cAppType = new String();
+								String cAppType = "";
 								MavenProject mavenProject = DistProjectUtils.getMavenProject(project);
 								Dependency dependency = new Dependency();
 								dependency.setArtifactId(mavenProject.getArtifactId());

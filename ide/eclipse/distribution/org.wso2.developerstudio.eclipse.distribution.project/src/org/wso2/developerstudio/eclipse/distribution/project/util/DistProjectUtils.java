@@ -51,7 +51,7 @@ public class DistProjectUtils {
 	}
 	
 	public static String getMavenInfoAsString(String info) {
-		String suffix=new String();
+		String suffix="";
 		Pattern pattern = Pattern.compile("^#(.*?)#");
 		Matcher matcher = pattern.matcher(info);
 		 while (matcher.find()) {
