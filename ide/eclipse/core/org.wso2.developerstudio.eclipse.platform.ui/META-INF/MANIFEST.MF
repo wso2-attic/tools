@@ -6,7 +6,8 @@ Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.platform.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.platform.core
+ org.wso2.developerstudio.eclipse.platform.core,
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axis2.client,
  org.apache.axis2.transport.http,
@@ -14,6 +15,7 @@ Import-Package: org.apache.axis2.client,
  org.apache.commons.httpclient.protocol;version="3.1.0.wso2v1",
  org.apache.commons.ssl,
  org.apache.commons.validator.routines,
+ org.apache.maven.model,
  org.apache.maven.project,
  org.eclipse.core.expressions,
  org.eclipse.core.resources,

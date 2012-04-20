@@ -239,4 +239,15 @@
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
  </extension>
+ <extension point="org.eclipse.ui.newWizards">
+		<wizard name="Maven Multi Module Project" 
+		category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
+			class="org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard"
+			wizardManifest="project_wizard_mvn.xml"
+			id="org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard"
+			descriptionImage="mvn-wizard.png"
+			project="false" icon="icons/mvn.png">
+			<description>Maven Multimodule Project</description>
+		</wizard>
+	</extension>
 </plugin>
