@@ -85,7 +85,7 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	                		selectedUIElement.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 	                		
 //	                		Open the new wizard
-	                		openWizard(MAVEN_MUL_MODULE_WIZARD_ID);
+	                		openWizard(MAVEN_MUL_MODULE_WIZARD_ID,selectedUIElement);
 	                	}
 	                }
                 } catch (Exception e) {
@@ -107,22 +107,23 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	}
 	
 	
-	private void openWizard(String id) {
-		 IWizardDescriptor descriptor = PlatformUI.getWorkbench()
-		   .getNewWizardRegistry().findWizard(id);
-		 try {
-		   if (null != descriptor) {
-			   MvnMultiModuleWizard wizard = (MvnMultiModuleWizard) descriptor.createWizard();
-		     WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getShell(), wizard);
-		     wd.setTitle(wizard.getWindowTitle());
-		     if (wd.open() == Window.OK) {
-					
+	private void openWizard(String id, IProject project) {
+		IWizardDescriptor descriptor =
+		                               PlatformUI.getWorkbench().getNewWizardRegistry()
+		                                         .findWizard(id);
+		try {
+			if (null != descriptor) {
+				MvnMultiModuleWizard wizard = (MvnMultiModuleWizard) descriptor.createWizard();
+				wizard.setMultiModuleProject(project);
+				WizardDialog wd = new WizardDialog(Display.getDefault().getActiveShell(), wizard);
+				wd.setTitle(wizard.getWindowTitle());
+				if (wd.open() == Window.OK) {
+
 				}
-		   }
-		 } catch (CoreException e) {
-		   log.error("Cannot open wizard",e);
-		 }
+			}
+		} catch (CoreException e) {
+			log.error("Cannot open wizard", e);
 		}
+	}
 
 }

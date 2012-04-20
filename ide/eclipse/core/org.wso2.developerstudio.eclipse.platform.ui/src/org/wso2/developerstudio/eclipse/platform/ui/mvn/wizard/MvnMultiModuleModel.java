@@ -1,9 +1,16 @@
 package org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard;
 
+import org.eclipse.core.resources.IProject;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MvnMultiModuleModel extends ProjectDataModel  {
+	private List<IProject> selectedProjects = new ArrayList<IProject>();
+
+
 
 	private String groupId;
 	private String artifactId;
@@ -21,6 +28,11 @@ public class MvnMultiModuleModel extends ProjectDataModel  {
 	  if((modelPropertyValue == null)&&("version.id".equals(key))){
 		  modelPropertyValue = this.getVersion();
 	  }
+	  
+	  if (modelPropertyValue == null && key.equals("workspace.project")) {
+		  modelPropertyValue = selectedProjects.toArray();
+		}
+	  
 	  return modelPropertyValue;
 	}
 	
@@ -36,6 +48,17 @@ public class MvnMultiModuleModel extends ProjectDataModel  {
 		if("version.id".equals(key)){
 			this.setVersion(data.toString());
 		}
+		
+		if (key.equals("workspace.project")) {
+			Object[] selectedPrjs = (Object[]) data;
+			selectedProjects.clear();
+			for (Object object : selectedPrjs) {
+				if (object instanceof IProject) {
+					selectedProjects.add((IProject) object);
+				}
+			}
+		}
+		
 		return isUiControlUpdated;
 	}
 
@@ -69,4 +92,12 @@ public class MvnMultiModuleModel extends ProjectDataModel  {
 		this.version = version;
 	}
 
+	public List<IProject> getSelectedProjects() {
+		return selectedProjects;
+	}
+	
+	
+	public void setSelectedProjects(List<IProject> selectedProjects) {
+		this.selectedProjects = selectedProjects;
+	}
 }

@@ -36,7 +36,6 @@ public class DistributionProjectModel extends ProjectDataModel {
 					selectedProjects.add((DependencyData) object);
 				}
 			}
-			setSelectedProjects(selectedProjects);
 		}
 		return ret;
 	}
