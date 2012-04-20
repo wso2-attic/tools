@@ -293,7 +293,6 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			return ;
 		}
 		
-		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;

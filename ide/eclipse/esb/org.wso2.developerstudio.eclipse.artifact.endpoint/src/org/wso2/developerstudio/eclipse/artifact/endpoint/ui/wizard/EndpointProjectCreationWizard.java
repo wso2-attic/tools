@@ -286,7 +286,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			return ;
 		}
 	
-		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;
@@ -370,7 +369,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	public void copyImportFile(IContainer importLocation, boolean isNewArtifact,String groupId) throws IOException {
+	public void copyImportFile(IContainer importLocation, boolean isNewArtifact, String groupId) throws IOException {
 		File importFile = getModel().getImportFile();
 		EndpointModel endpointModel = (EndpointModel) getModel();
 		List<OMElement> selectedEPList = endpointModel.getSelectedEPList();

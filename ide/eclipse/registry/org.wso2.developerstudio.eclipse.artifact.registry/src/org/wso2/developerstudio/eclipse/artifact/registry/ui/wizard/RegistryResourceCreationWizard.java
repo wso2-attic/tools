@@ -230,7 +230,6 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			return ;
 		}
 		
-		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;
