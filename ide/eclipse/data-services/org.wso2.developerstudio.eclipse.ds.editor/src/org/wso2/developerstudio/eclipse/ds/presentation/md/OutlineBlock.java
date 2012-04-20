@@ -1,9 +1,11 @@
 package org.wso2.developerstudio.eclipse.ds.presentation.md;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -14,6 +16,7 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -205,6 +208,42 @@ public class OutlineBlock extends MasterDetailsBlock {
 		return currentSelection;
 	}
 	
+	public void setSelectionToViewer(Collection<?> collection) {
+		final Collection<?> theSelection = collection;
+		
+		if (theSelection != null && !theSelection.isEmpty()) {
+			Runnable runnable =
+				new Runnable() {
+					public void run() {
+						// Try to select the item in the current content viewer of the editor.
+						//
+						if (viewer != null) {
+							
+							Object selectedObject = null;
+							
+							Object []  arr = theSelection.toArray();
+							
+							if(arr.length >= 1 && arr[0] != null){
+								
+								// get the current viewer selection
+								IStructuredSelection ssel = (IStructuredSelection) viewer.getSelection();
+								
+								if (ssel != null && ssel.size() == 1) {
+
+									selectedObject = (EObjectImpl) ssel.getFirstElement();
+								}
+								//check whether newly selected object already selected.
+								if(!selectedObject.equals(arr[0])){
+									
+									viewer.setSelection(new StructuredSelection(arr[0]));
+								}
+							}
+						}
+					}
+				};
+				dseditor.getSite().getShell().getDisplay().asyncExec(runnable);
+		}
+	}
 	
 
 }

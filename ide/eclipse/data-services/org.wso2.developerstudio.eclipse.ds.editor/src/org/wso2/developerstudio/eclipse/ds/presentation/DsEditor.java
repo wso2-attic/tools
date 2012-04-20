@@ -762,8 +762,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 								  // Try to select the affected objects.
 								  //
 								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-								  if (mostRecentCommand != null) {
-									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+								  if (mostRecentCommand != null && mdPage != null && mdPage.getOutLineBlock() != null) {
+									  mdPage.getOutLineBlock().setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 								  }
 								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
 									  propertySheetPage.refresh();
@@ -1049,7 +1049,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			mdPage = new MasterDetailsPage(this, adapterFactory, editingDomain);
 			addPage(DESIGN_VIEW_INDEX,mdPage);
 			setPageText(DESIGN_VIEW_INDEX,"Outline");
-			
+			 
 			sourceEditor = new DsObjectSourceEditor(this, editingDomain);
 			addPage(SOURCE_VIEW_INDEX, sourceEditor.getEditor(), sourceEditor.getInput());
 			setPageText(SOURCE_VIEW_INDEX,"Source");
