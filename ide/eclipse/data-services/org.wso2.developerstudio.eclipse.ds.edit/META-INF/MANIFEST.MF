@@ -11,10 +11,10 @@ Bundle-Localization: plugin
 Export-Package: org.wso2.developerstudio.eclipse.ds.provider,
  org.wso2.developerstudio.eclipse.ds.provider.choiceListProvider
 Require-Bundle: org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.ds;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport,
- org.wso2.developerstudio.eclipse.libraries
+ org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.wso2.developerstudio.eclipse.ds,
+ org.wso2.developerstudio.eclipse.ds.util
 
 

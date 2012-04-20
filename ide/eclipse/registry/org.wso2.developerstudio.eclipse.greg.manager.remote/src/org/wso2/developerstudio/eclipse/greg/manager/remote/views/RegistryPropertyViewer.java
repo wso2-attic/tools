@@ -43,7 +43,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.part.ViewPart;
 import org.wso2.carbon.registry.core.Comment;
 import org.wso2.carbon.registry.core.Resource;
-import org.wso2.carbon.registry.core.Tag;
+import org.wso2.carbon.registry.api.Tag;
 import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.core.RegistryAssociation;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;

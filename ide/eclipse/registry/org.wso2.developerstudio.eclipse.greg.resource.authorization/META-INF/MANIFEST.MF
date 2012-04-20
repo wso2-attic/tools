@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.greg.resource.authorizatio
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.greg.resource.authorization.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.libraries;bundle-version="2.0.0"
+ org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.activation;version="1.2.9.wso2v1",
  javax.wsdl,

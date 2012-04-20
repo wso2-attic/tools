@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.greg.base;singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.greg.base.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.libraries
+ org.eclipse.core.runtime
 Export-Package: org.wso2.carbon.utils,
  org.wso2.developer.studio.eclipse.greg.base.ui.util,
  org.wso2.developernstudio.eclipse.greg.base.ui.dialog,
@@ -25,6 +24,10 @@ Export-Package: org.wso2.carbon.utils,
  org.wso2.developerstudio.eclipse.greg.base.usermgt.ui.controls,
  org.wso2.developerstudio.eclipse.greg.base.util
 Import-Package: org.apache.axis2,
+ org.apache.axis2.client,
+ org.apache.axis2.context,
+ org.apache.axis2.transport.http,
+ org.apache.commons.io,
  org.eclipse.core.filesystem,
  org.eclipse.core.resources,
  org.eclipse.emf.common.ui.celleditor,
@@ -32,10 +35,12 @@ Import-Package: org.apache.axis2,
  org.eclipse.ui.forms.editor,
  org.eclipse.ui.forms.widgets,
  org.eclipse.ui.ide,
+ org.wso2.carbon.registry.api,
  org.wso2.carbon.registry.app,
  org.wso2.carbon.registry.core,
  org.wso2.carbon.registry.core.exceptions,
  org.wso2.carbon.registry.core.jdbc,
+ org.wso2.carbon.registry.core.jdbc.handlers.filters,
  org.wso2.carbon.registry.core.utils,
  org.wso2.carbon.user.api,
  org.wso2.carbon.user.core,
