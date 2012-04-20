@@ -86,7 +86,7 @@
 		<h2 id="design">Design the Solution</h2>
 		
 		<p>
-		There is only one process (“Open Account”) that needs to be initiated, and this consists of a 
+		There is only one process (Open Account) that needs to be initiated, and this consists of a 
 		number of steps, which would be natural points at which services are invoked. The functions 
 		performed at these various steps are:
 		</p>
@@ -207,9 +207,6 @@
 			</li>
 			<li>
 				<a href="http://wso2.com/products/data-services-server">WSO2 Data Services Server</a>
-			</li>
-			<li>
-				<a href="http://wso2.com/products/governance-registry">WSO2 Governance Registry</a>
 			</li>
 		</ul>
 		
@@ -342,7 +339,8 @@
 			<li>WSO2 Business Process Server - BPS_HOME</li>
 		</ul>
 		<p>
-		(We will refer to the installation directory of any generic server as CARBON_HOME.)
+		(We will refer to the installation directory of any generic server as <strong>CARBON_HOME</strong>.)
+		<br/>
 		</p>
 		
 		<p>
@@ -365,6 +363,9 @@
 			<li>WSO2 DSS - 6 (Data Services Server will now listen on 9769 and 9449)</li>
 		</ul>
 		
+		<p>
+		Let's configure following WSO2 Servers.
+		</p>
 		<div class="toc">
 			<ul>
 				<li>
@@ -391,12 +392,7 @@
 		Edit <strong>$DSS_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
 		Set the value to 
 		</p>
-		<pre style='color:#000000;background:#ffffff;'>
-		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
-		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>6
-		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
-		</span><span style='color:#a65700; '>></span></pre> 
-		
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>6</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span></pre>
 		<br></br>
 		<p>
 		<strong>Enable database access</strong>
@@ -416,11 +412,7 @@
 		Leave the offset parameter of the <strong>$AS_HOME/repository/conf/carbon.xml</strong> as 
 		it is. That is keep the offset parameter to 0. 
 		</p>
-		<pre style='color:#000000;background:#ffffff;'>
-		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
-		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>0
-		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
-		</span><span style='color:#a65700; '>></span></pre> 
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>0</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span></pre> 
 		<p>
 		<strong>Enable the Application Server to talk over a message queue</strong>
 		<br/>
@@ -447,37 +439,13 @@
 		After un-commenting, your <strong>axis2.xml</strong> will be as below.
 		</p>
 		<pre 
-		style='color:#000000;background:#ffffff;'><span 
-		style='color:#a65700; '>&lt;</span><span 
-		style='color:#5f5035; '>transportReceiver</span><span 
-		style='color:#274796; '> </span><span style='color:#074726; '>name</span><span 
-		style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span 
-		style='color:#274796; '> </span><span style='color:#074726; '>class</span><span 
-		style='color:#808030; '>=</span><span 
-		style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSListener"</span><span 
-		style='color:#a65700; '>></span>…<span 
-		style='color:#a65700; '>&lt;/</span><span 
-		style='color:#5f5035; '>transportReceiver</span><span 
-		style='color:#a65700; '>></span>
-		</pre>
-		
-		<br></br>
+		style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>transportReceiver</span><span style='color:#274796; '> </span><span style='color:#074726; '>name</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span style='color:#274796; '> </span><span style='color:#074726; '>class</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSListener"</span><span style='color:#a65700;'>></span><span style='color:#a65700;'>/</span><span style='color:#5f5035; '>transportReceiver</span><span style='color:#a65700;'>></span></pre>
 		
 		<p>
 		<strong>AND</strong>
 		</p>
 		
-		<pre style='color:#000000;background:#ffffff;'><span 
-		style='color:#a65700; '>&lt;</span><span 
-		style='color:#5f5035; '>transportSender</span><span 
-		style='color:#274796; '> </span><span style='color:#074726; '>name</span><span 
-		style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span 
-		style='color:#274796; '> </span><span style='color:#074726; '>class</span><span 
-		style='color:#808030; '>=</span><span 
-		style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSSender"</span><span 
-		style='color:#a65700; '>/></span>
-		</pre>
-		
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>transportSender</span><span style='color:#274796; '> </span><span style='color:#074726; '>name</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"jms"</span><span style='color:#274796; '> </span><span style='color:#074726; '>class</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"org.apache.axis2.transport.jms.JMSSender"</span><span style='color:#a65700; '>/></span></pre>
 		<p>
 		Ensure that you are uncommenting the section corresponding to <strong>ActiveMQ</strong> 
 		and not Qpid.
@@ -491,12 +459,7 @@
 		<p>
 		Edit <strong>$ESB_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
 		Set the value to </p>
-		<pre style='color:#000000;background:#ffffff;'>
-		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
-		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>1
-		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
-		</span><span style='color:#a65700; '>></span></pre> 
-		
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>1</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span></pre>
 		<p>
 		<strong>Enable the ESB to talk over a message queue</strong>
 		<br/>
@@ -521,13 +484,7 @@
 		<p>
 		Edit <strong>$BPS_HOME/repository/conf/carbon.xml</strong> to set the offset parameter.
 		Set the value to </p>
-		<pre style='color:#000000;background:#ffffff;'>
-		<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>
-		Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>2
-		</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset
-		</span><span style='color:#a65700; '>></span></pre> 
-		
-		<p>
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span><span style='color:#008c00; '>2</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>Offset</span><span style='color:#a65700; '>></span></pre>
 		
 		<h3 id="createMock">Creating Mock Objects to represent Legacy Systems</h3>
 		<p>
@@ -550,6 +507,9 @@
 					<a href="#customerDS">Set up the Customer Database using MySQL</a>
 				</li>
 				<li>
+					<a href="#customerDataService">Set up Customer Data Service</a>
+				</li>
+				<li>
 					<a href="#mockServices">Set up Mock Objects representing the Mainframe and Cards System</a>
 				</li>
 			</ul>
@@ -568,6 +528,64 @@
 		This script will create the <strong>Customer</strong> table and a 
 		stored procedure to retrieve and create customer data.
 		</p>
+		
+		<h4 id="customerDataService">Set up Customer Data Service</h4>
+		
+		<p>
+		Open the <strong>Developer Studio Dashboard</strong> by clicking on 
+		<strong>Open Dashboard</strong> option under top menu item 
+		<strong>Developer Studio</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking1.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		To create a <strong>Data Service</strong>, click on <strong>Data Service Project</strong> 
+		under <strong>Data Services Server</strong> category.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking16.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>Import Data Service</strong> option and click <strong>Next</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking17.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Browse for the <strong>Data Services Descriptor</strong> file, <strong>CustomerDS.dbs</strong> under 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/ds/dbs">
+		$DOWNLOAD_HOME/banking-sample/ds/dbs</a> and click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking18.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that the <strong>Data Service Project</strong> has been created in the 
+		workspace and make sure to change the <strong>User Name</strong> and 
+		<strong>Password</strong> according to your MySQL credentials.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking19.png"></img>
+			<br></br>
+		</p>
+		
 		
 		<h4 id="mockServices">Set up Mock Objects representing the Mainframe and Cards System</h4>
 		<p>
@@ -662,21 +680,10 @@
 		<strong>/src/main/resources/META-INF</strong>. 
 		</p>
 		
-		<pre style='color:#000000;background:#ffffff;'>
-			<span style='color:#a65700; '>&lt;</span>
-			<span style='color:#5f5035; '>transports</span>
-			<span style='color:#a65700; '>></span>
-    		<span style='color:#a65700; '>&lt;</span>
-    		<span style='color:#5f5035; '>transport</span>
-    		<span style='color:#a65700; '>></span>jms
-    		<span style='color:#a65700; '>&lt;/</span>
-    		<span style='color:#5f5035; '>transport</span>
-    		<span style='color:#a65700; '>></span>
-			<span style='color:#a65700; '>&lt;/</span>
-			<span style='color:#5f5035; '>transports</span>
-			<span style='color:#a65700; '>></span>
-		</pre>
-		
+		<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>transports</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>transport</span><span style='color:#a65700; '>></span>jms<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>transport</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>transports</span><span style='color:#a65700; '>></span>
+</pre>		
 		<p>
 		Now your services.xml will look like below.
 		</p>
@@ -791,9 +798,121 @@
 		<strong>Testing and Deploying</strong> document.
 		</p>
 		<p>
-		Once you add the server successfully, start the server. 
+		Once you add the server successfully, start the server and add <strong>BankingSample</strong> 
+		Carbon Application to the running server.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking12.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Wait till the application get deployed successfully to the server. Once the deployement 
+		is completed, you will see following logs in the Eclipse Console.
+		</p>
+		
+		<p>
+		[2012-04-20 10:05:57,818]  INFO {org.wso2.carbon.application.deployer.internal.ApplicationManager} -  Deploying Carbon Application : BankingSample.car...
+		<br/>
+		[2012-04-20 10:05:58,059]  INFO {org.wso2.carbon.application.deployer.internal.ApplicationManager} -  Successfully Deployed Carbon Application : BankingSample {super-tenant}
+		<br/>
+		[2012-04-20 10:06:07,881]  INFO {org.wso2.carbon.core.deployment.DeploymentInterceptor} -  Deploying Axis2 service: MainframePojoService {super-tenant}
+		<br/>
+		[2012-04-20 10:06:10,517]  INFO {org.apache.axis2.transport.jms.ServiceTaskManager} -  Task manager for service : MainframePojoService [re-]initialized
+		<br/>
+		[2012-04-20 10:06:11,528]  INFO {org.apache.axis2.transport.jms.JMSListener} -  Started to listen on destination : MainframePojoService of type queue for service MainframePojoService
+		<br/>
+		[2012-04-20 10:06:11,570]  INFO {org.apache.axis2.deployment.DeploymentEngine} -  Deploying Web service: MainframePojoService-1.0.0.aar - file:/media/dev/CS-Resources/2.0.0/review-02-04-2012/servers/wso2as-4.1.2/repository/deployment/server/axis2services/MainframePojoService-1.0.0.aar
+		<br/>
+		[2012-04-20 10:06:11,605]  INFO {org.wso2.carbon.core.deployment.DeploymentInterceptor} -  Deploying Axis2 service: CardAxis2Service {super-tenant}
+		<br/>
+		[2012-04-20 10:06:12,224]  INFO {org.apache.axis2.transport.jms.ServiceTaskManager} -  Task manager for service : CardAxis2Service [re-]initialized
+		<br/>
+		[2012-04-20 10:06:13,233]  INFO {org.apache.axis2.transport.jms.JMSListener} -  Started to listen on destination : CardAxis2Service of type queue for service CardAxis2Service
+		<br/>
+		[2012-04-20 10:06:13,234]  INFO {org.apache.axis2.deployment.DeploymentEngine} -  Deploying Web service: CardAxis2Service-1.0.0.aar - file:/media/dev/CS-Resources/2.0.0/review-02-04-2012/servers/wso2as-4.1.2/repository/deployment/server/axis2services/CardAxis2Service-1.0.0.aar
+		
+		</p>
+		
+		<p>
+		As deplayed in the console log, you can see that the <strong>MainframePojoService</strong> 
+		and <strong>CardAxis2Service</strong> have been deployed in to <strong>WSO2 Application 
+		Server</strong>. Go to management console in the browser and check for <strong>Deployed 
+		Services</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking13.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you click on the <strong>MainframePojoService</strong> and check for <strong>Endpoints</strong> 
+		section, you will see a <strong>JMS endpoint</strong>. This is because we have specified 
+		transport for this service as JMS.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking14.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you check on other service <strong>CardAxis2Service</strong>, you will see both 
+		<strong>HTTP</strong> and <strong>JMS</strong> transport endpoints are available.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking15.png"></img>
+			<br></br>
+		</p>
+		
+		<p> 
+		Now we are going to create proxy services to abstract above two services.
 		</p>
 				
+		<h3 id="createMainframeProxy">Create Proxy Services to abstract the Mainframe</h3>
+		<p>
+		<strong>1. Create an "address endpoint" for the mainframe on the ESB</strong>
+		</p>
+		
+		<p>
+		Open <strong>WSO2 Developer Studio Dashboard</strong> and select <strong>Endpoint</strong>. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking20.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>Import Endpoint</strong> option and click <strong>Next</strong>. Browse for the 
+		<strong>MainFrameEP.xml</strong> from 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/esb/synapse-configs/default/endpoints">
+		$DOWNLOAD_HOME/banking-sample/esb/synapse-configs/default/endpoints</a> folder.
+		</p>
+		
+		<p>
+		All your ESB configurations should be saved in a project type called <strong>ESB Config Project</strong>. 
+		Since our workspace does not have any created <strong>ESB Config Projects</strong>, we need 
+		to create an <strong>ESB Config Projects</strong> in order to save our endpoint. To create 
+		<strong>ESB Config Project</strong>, click on <strong>Create New Project</strong> link.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking21.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Give a name to <strong>ESB Config Project</strong> and click <strong>Finish</strong>.
+		</p>	
+		
 		<h3 id="installMySQL">Install and configure MySQL</h3>
 		<p>
 		
@@ -802,11 +921,6 @@
 		<p>
 		
 		</p>
-		<h3 id="installMySQL">Install and configure MySQL</h3>
-		<p>
 		
-		</p>
-		
-		</p>
 	</body>
 </html>
