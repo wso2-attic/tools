@@ -76,7 +76,6 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 
 			public void mouseEntered(MouseEvent me) {
 				// TODO Auto-generated method stub
-				System.out.println(me.getState());
 
 			}
 

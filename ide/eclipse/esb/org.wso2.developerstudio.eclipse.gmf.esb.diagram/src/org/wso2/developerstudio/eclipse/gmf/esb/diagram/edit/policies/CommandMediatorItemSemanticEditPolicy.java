@@ -31,7 +31,7 @@ public class CommandMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CommandMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.CommandMediator_3222);
+		super(EsbElementTypes.CommandMediator_3511);
 	}
 
 	/**

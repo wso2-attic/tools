@@ -1,49 +1,33 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.CustomDragDropEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentCanonicalEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 		extends ShapeCompartmentEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 7006;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart(
 			View view) {
 		super(view);
@@ -57,23 +41,23 @@ public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
 		result.setToolTip((String) null);
 
-		/*result.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
-				getMapMode().DPtoLP(130)));*/
+		result.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
+				getMapMode().DPtoLP(130)));
 
 		return result;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	public String getCompartmentName() {
 		return Messages.ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart_title;
 		//return "";
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -90,9 +74,9 @@ public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 				new ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentCanonicalEditPolicy());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -112,7 +96,7 @@ public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 		if(((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().size()==2)		
 		((ProxyServiceFaultContainerEditPart)((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().get(1)).refreshInputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
 		
-		/*		AbstractInputConnector inputConnector=null;
+				AbstractInputConnector inputConnector=null;
 		 if (child instanceof AbstractMediator) {
 		 AbstractMediator mediator=(AbstractMediator)child;
 		
@@ -145,8 +129,9 @@ public class ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart
 		 if (child instanceof AbstractMediator) {
 		 ((AbstractMediator) child).Reverse(child);
 		 }
-		 */
+		 
 
 	}
 
 }
+*/

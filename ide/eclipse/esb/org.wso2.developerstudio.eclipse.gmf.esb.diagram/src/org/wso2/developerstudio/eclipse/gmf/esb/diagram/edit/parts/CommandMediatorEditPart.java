@@ -42,7 +42,7 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3222;
+	public static final int VISUAL_ID = 3511;
 
 	/**
 	 * @generated

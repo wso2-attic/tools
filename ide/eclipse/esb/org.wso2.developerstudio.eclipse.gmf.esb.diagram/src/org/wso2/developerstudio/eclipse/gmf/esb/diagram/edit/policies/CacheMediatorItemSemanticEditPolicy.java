@@ -31,7 +31,7 @@ public class CacheMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CacheMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.CacheMediator_3229);
+		super(EsbElementTypes.CacheMediator_3518);
 	}
 
 	/**

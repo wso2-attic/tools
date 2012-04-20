@@ -16,29 +16,12 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorOnCompleteOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorOutputConnectorCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MediatorFlow3CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediator2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.Sequence2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediator2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XSLTMediator2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -52,7 +35,7 @@ public class AggregateMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AggregateMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.AggregateMediator_3236);
+		super(EsbElementTypes.AggregateMediator_3525);
 	}
 
 	/**
@@ -73,6 +56,9 @@ public class AggregateMediatorItemSemanticEditPolicy extends
 				.getElementType()) {
 			return getGEFWrapper(new AggregateMediatorOnCompleteOutputConnectorCreateCommand(
 					req));
+		}
+		if (EsbElementTypes.MediatorFlow_3526 == req.getElementType()) {
+			return getGEFWrapper(new MediatorFlow3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -160,139 +146,11 @@ public class AggregateMediatorItemSemanticEditPolicy extends
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case AggregateMediatorAggregateCompartmentEditPart.VISUAL_ID:
-				for (Iterator<?> cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (EsbVisualIDRegistry.getVisualID(cnode)) {
-					case LogMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case DropMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case FilterMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case PropertyMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case EnrichMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case XSLTMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case SwitchMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case FaultMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case DBLookupMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case DBReportMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case SendMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case HeaderMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case CloneMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case IterateMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case CalloutMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case TransactionMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case RMSequenceMediator2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case Sequence2EditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					}
-				}
+			case MediatorFlow3EditPart.VISUAL_ID:
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
 			}
 		}

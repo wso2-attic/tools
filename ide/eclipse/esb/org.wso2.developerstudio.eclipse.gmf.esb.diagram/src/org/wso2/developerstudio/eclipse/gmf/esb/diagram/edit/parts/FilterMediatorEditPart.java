@@ -41,7 +41,7 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3209;
+	public static final int VISUAL_ID = 3494;
 
 	/**
 	 * @generated

@@ -52,7 +52,7 @@ public class EntitlementMediatorServerURLEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5051;
+	public static final int VISUAL_ID = 5134;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class EntitlementMediatorServerURLEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.EntitlementMediator_3216,
+							EsbElementTypes.EntitlementMediator_3505,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURLEditPart.VISUAL_ID));

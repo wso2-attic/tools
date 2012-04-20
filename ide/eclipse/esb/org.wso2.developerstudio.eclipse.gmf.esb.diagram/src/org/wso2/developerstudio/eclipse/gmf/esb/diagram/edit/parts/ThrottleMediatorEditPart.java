@@ -41,7 +41,7 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3205;
+	public static final int VISUAL_ID = 3493;
 
 	/**
 	 * @generated

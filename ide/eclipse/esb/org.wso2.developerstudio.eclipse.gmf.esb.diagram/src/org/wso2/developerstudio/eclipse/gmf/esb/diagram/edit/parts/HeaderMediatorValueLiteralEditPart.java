@@ -52,7 +52,7 @@ public class HeaderMediatorValueLiteralEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5060;
+	public static final int VISUAL_ID = 5143;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class HeaderMediatorValueLiteralEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.HeaderMediator_3227,
+							EsbElementTypes.HeaderMediator_3516,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteralEditPart.VISUAL_ID));

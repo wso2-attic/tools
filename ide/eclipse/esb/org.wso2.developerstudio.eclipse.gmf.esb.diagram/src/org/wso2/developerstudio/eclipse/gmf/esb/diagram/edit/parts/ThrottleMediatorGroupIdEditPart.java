@@ -52,7 +52,7 @@ public class ThrottleMediatorGroupIdEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5044;
+	public static final int VISUAL_ID = 5128;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class ThrottleMediatorGroupIdEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.ThrottleMediator_3205,
+							EsbElementTypes.ThrottleMediator_3493,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupIdEditPart.VISUAL_ID));

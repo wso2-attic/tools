@@ -17,19 +17,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyFault
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceContainerCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceEndpointContainerCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceFaultContainerCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceSequenceAndEndpointContainerCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceSequenceContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEndpointContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 

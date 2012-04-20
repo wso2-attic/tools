@@ -52,7 +52,7 @@ public class OAuthMediatorRemoteServiceUrlEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5065;
+	public static final int VISUAL_ID = 5148;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class OAuthMediatorRemoteServiceUrlEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.OAuthMediator_3235,
+							EsbElementTypes.OAuthMediator_3524,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID));

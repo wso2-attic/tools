@@ -31,7 +31,7 @@ public class TransactionMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TransactionMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.TransactionMediator_3232);
+		super(EsbElementTypes.TransactionMediator_3521);
 	}
 
 	/**

@@ -15,11 +15,15 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchCaseBranchOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchDefaultBranchOutputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorInputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseBranchOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultBranchOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -33,7 +37,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SwitchMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.SwitchMediator_3213);
+		super(EsbElementTypes.SwitchMediator_3498);
 	}
 
 	/**
@@ -54,6 +58,15 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 				.getElementType()) {
 			return getGEFWrapper(new SwitchDefaultBranchOutputConnectorCreateCommand(
 					req));
+		}
+		if (EsbElementTypes.SwitchMediatorOutputConnector_3499 == req
+				.getElementType()) {
+			return getGEFWrapper(new SwitchMediatorOutputConnectorCreateCommand(
+					req));
+		}
+		if (EsbElementTypes.SwitchMediatorContainer_3500 == req
+				.getElementType()) {
+			return getGEFWrapper(new SwitchMediatorContainerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -136,6 +149,30 @@ public class SwitchMediatorItemSemanticEditPolicy extends
 						continue;
 					}
 				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case SwitchMediatorContainerEditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

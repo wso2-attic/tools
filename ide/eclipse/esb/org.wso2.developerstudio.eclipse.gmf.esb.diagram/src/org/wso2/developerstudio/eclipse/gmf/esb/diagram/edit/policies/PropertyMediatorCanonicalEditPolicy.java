@@ -23,8 +23,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorInputConnector5EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorOutputConnector5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -73,7 +73,7 @@ public class PropertyMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getPropertyMediator_3396SemanticChildren(viewObject);
+				.getPropertyMediator_3492SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -94,8 +94,8 @@ public class PropertyMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == PropertyMediatorInputConnector5EditPart.VISUAL_ID
-				|| visualID == PropertyMediatorOutputConnector5EditPart.VISUAL_ID;
+		return visualID == PropertyMediatorInputConnectorEditPart.VISUAL_ID
+				|| visualID == PropertyMediatorOutputConnectorEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class PropertyMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getPropertyMediator_3396SemanticChildren((View) getHost()
+				.getPropertyMediator_3492SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

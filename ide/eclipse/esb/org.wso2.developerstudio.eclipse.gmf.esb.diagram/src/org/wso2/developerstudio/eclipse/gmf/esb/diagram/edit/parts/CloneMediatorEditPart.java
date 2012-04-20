@@ -46,7 +46,7 @@ public class CloneMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3228;
+	public static final int VISUAL_ID = 3517;
 
 	/**
 	 * @generated

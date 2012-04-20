@@ -52,7 +52,7 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5047;
+	public static final int VISUAL_ID = 5130;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.LogMediator_3210,
+							EsbElementTypes.LogMediator_3495,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategoryEditPart.VISUAL_ID));

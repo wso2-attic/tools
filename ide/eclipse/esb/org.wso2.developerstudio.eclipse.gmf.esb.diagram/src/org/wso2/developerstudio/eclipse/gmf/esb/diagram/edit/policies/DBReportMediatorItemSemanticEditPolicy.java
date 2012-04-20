@@ -31,7 +31,7 @@ public class DBReportMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DBReportMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.DBReportMediator_3224);
+		super(EsbElementTypes.DBReportMediator_3513);
 	}
 
 	/**

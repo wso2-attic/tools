@@ -31,7 +31,7 @@ public class CalloutMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CalloutMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.CalloutMediator_3231);
+		super(EsbElementTypes.CalloutMediator_3520);
 	}
 
 	/**

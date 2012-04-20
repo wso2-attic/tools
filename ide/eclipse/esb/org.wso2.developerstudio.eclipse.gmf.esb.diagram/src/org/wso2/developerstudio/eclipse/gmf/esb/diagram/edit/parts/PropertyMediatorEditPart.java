@@ -434,6 +434,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
@@ -451,7 +452,7 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3396;
+	public static final int VISUAL_ID = 3492;
 
 	/**
 	 * @generated
@@ -500,8 +501,8 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case PropertyMediatorInputConnector5EditPart.VISUAL_ID:
-				case PropertyMediatorOutputConnector5EditPart.VISUAL_ID:
+				case PropertyMediatorInputConnectorEditPart.VISUAL_ID:
+				case PropertyMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child
@@ -547,8 +548,8 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 							.getFigurePropertyMediatorPropertyValueLabel());
 			return true;
 		}
-		if (childEditPart instanceof PropertyMediatorInputConnector5EditPart) {
-			IFigure borderItemFigure = ((PropertyMediatorInputConnector5EditPart) childEditPart)
+		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
+			IFigure borderItemFigure = ((PropertyMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					getMainFigure(), borderItemFigure, PositionConstants.WEST,
@@ -557,8 +558,8 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 					locator);
 			return true;
 		}
-		if (childEditPart instanceof PropertyMediatorOutputConnector5EditPart) {
-			IFigure borderItemFigure = ((PropertyMediatorOutputConnector5EditPart) childEditPart)
+		if (childEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
+			IFigure borderItemFigure = ((PropertyMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					getMainFigure(), borderItemFigure, PositionConstants.EAST,
@@ -577,15 +578,15 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		if (childEditPart instanceof PropertyMediatorPropertyNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof PropertyMediatorInputConnector5EditPart) {
+		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((PropertyMediatorInputConnector5EditPart) childEditPart)
+					((PropertyMediatorInputConnectorEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof PropertyMediatorOutputConnector5EditPart) {
+		if (childEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((PropertyMediatorOutputConnector5EditPart) childEditPart)
+					((PropertyMediatorOutputConnectorEditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -736,14 +737,16 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 
 			fFigurePropertyMediatorPropertyValueLabel = new WrappingLabel();
 			fFigurePropertyMediatorPropertyValueLabel.setText("<...>");
+			fFigurePropertyMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
 
-			this.add(fFigurePropertyMediatorPropertyValueLabel);
+			this.getPropertyValueRectangle1().add(
+					fFigurePropertyMediatorPropertyValueLabel);
 
 		}
 
@@ -752,6 +755,14 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		 */
 		public WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {
 			return fFigurePropertyMediatorPropertyValueLabel;
+		}
+		
+		public String getIconPath() {
+			return "icons/ico20/property-mediator.gif";
+		}
+
+		public String getNodeName() {
+			return "Property";
 		}
 
 	}

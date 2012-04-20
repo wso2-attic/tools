@@ -40,7 +40,7 @@ public class RuleMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3234;
+	public static final int VISUAL_ID = 3523;
 
 	/**
 	 * @generated

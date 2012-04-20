@@ -31,7 +31,7 @@ public class EnrichMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EnrichMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.EnrichMediator_3387);
+		super(EsbElementTypes.EnrichMediator_3496);
 	}
 
 	/**

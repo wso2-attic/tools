@@ -42,7 +42,7 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3221;
+	public static final int VISUAL_ID = 3510;
 
 	/**
 	 * @generated

@@ -64,13 +64,12 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected IFigure primaryShape;
 
-	
 	public IFigure inputConnectorFigure;
-	
+
 	public IFigure outputConnectorFigure;
-	
+
 	public IFigure faultInputnputConnectorFigure;
-	
+
 	/**
 	 * @generated
 	 */
@@ -160,31 +159,31 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ProxyOutputConnectorEditPart) {
 			outputConnectorFigure = ((ProxyOutputConnectorEditPart) childEditPart)
 					.getFigure();
-/*			BorderItemLocator locator = new FixedBorderItemLocator(
-					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
-							.getChildren().get(0)).getChildren().get(0))
-							.getChildren().get(0), outputConnectorFigure,
-					PositionConstants.EAST, 0.25);
-			getBorderedFigure().getBorderItemContainer().add(outputConnectorFigure,
-					locator);*/
+			/*			BorderItemLocator locator = new FixedBorderItemLocator(
+			 (IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
+			 .getChildren().get(0)).getChildren().get(0))
+			 .getChildren().get(0), outputConnectorFigure,
+			 PositionConstants.EAST, 0.25);
+			 getBorderedFigure().getBorderItemContainer().add(outputConnectorFigure,
+			 locator);*/
 
 			return false;
 		}
 		if (childEditPart instanceof ProxyInputConnectorEditPart) {
 			inputConnectorFigure = ((ProxyInputConnectorEditPart) childEditPart)
 					.getFigure();
-/*
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
-							.getChildren().get(0)).getChildren().get(0))
-							.getChildren().get(0), inputConnectorFigure,
-					PositionConstants.EAST, 0.75);
-			getBorderedFigure().getBorderItemContainer().add(inputConnectorFigure,
-					locator);*/
+			/*
+			 BorderItemLocator locator = new FixedBorderItemLocator(
+			 (IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
+			 .getChildren().get(0)).getChildren().get(0))
+			 .getChildren().get(0), inputConnectorFigure,
+			 PositionConstants.EAST, 0.75);
+			 getBorderedFigure().getBorderItemContainer().add(inputConnectorFigure,
+			 locator);*/
 
 			return false;
 		}
-		
+
 		if (childEditPart instanceof ProxyFaultInputConnectorEditPart) {
 			faultInputnputConnectorFigure = ((ProxyFaultInputConnectorEditPart) childEditPart)
 					.getFigure();

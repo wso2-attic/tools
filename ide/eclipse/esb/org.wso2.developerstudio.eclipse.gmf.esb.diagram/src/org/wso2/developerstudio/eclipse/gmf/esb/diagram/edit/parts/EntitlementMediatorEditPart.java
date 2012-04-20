@@ -42,7 +42,7 @@ public class EntitlementMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3216;
+	public static final int VISUAL_ID = 3505;
 
 	/**
 	 * @generated

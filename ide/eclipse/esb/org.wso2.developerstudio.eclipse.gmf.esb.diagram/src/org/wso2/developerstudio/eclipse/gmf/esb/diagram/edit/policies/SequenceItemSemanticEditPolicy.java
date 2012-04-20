@@ -31,7 +31,7 @@ public class SequenceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SequenceItemSemanticEditPolicy() {
-		super(EsbElementTypes.Sequence_3214);
+		super(EsbElementTypes.Sequence_3503);
 	}
 
 	/**

@@ -124,7 +124,7 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3214;
+	public static final int VISUAL_ID = 3503;
 
 	/**
 	 * @generated
@@ -493,15 +493,15 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 
 	private ToolEntry createSequence4CreationTool(String name) {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(EsbElementTypes.Sequence_3214);
-		types.add(EsbElementTypes.Sequence_3187);
+		types.add(EsbElementTypes.Sequence_3503);
+		/*types.add(EsbElementTypes.Sequence_3187);
 		types.add(EsbElementTypes.Sequence_3254);
-		types.add(EsbElementTypes.Sequence_3375);
+		types.add(EsbElementTypes.Sequence_3375);*/
 		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.Sequence4CreationTool_desc, types);
 		entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.Sequence_3187));
+				.getImageDescriptor(EsbElementTypes.Sequence_3503));
 		entry.setLargeIcon(entry.getSmallIcon());
 
 		// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
@@ -770,10 +770,10 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		private ToolEntry createSequence4CreationTool(String name) {
 			NodeToolEntry entry = new NodeToolEntry(name,
 					Messages.Sequence4CreationTool_desc,
-					Collections.singletonList(EsbElementTypes.Sequence_3187));
+					Collections.singletonList(EsbElementTypes.Sequence_3503));
 			entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
 			entry.setSmallIcon(EsbElementTypes
-					.getImageDescriptor(EsbElementTypes.Sequence_3187));
+					.getImageDescriptor(EsbElementTypes.Sequence_3503));
 			entry.setLargeIcon(entry.getSmallIcon());
 
 			// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");

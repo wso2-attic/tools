@@ -8,6 +8,7 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -19,6 +20,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
@@ -28,6 +31,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceOutSequenceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceOutSequenceItemSemanticEditPolicy;
 
 /**
@@ -61,9 +65,15 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ProxyServiceOutSequenceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new ProxyServiceOutSequenceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -116,24 +126,25 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	protected void refreshInputConnector(EditPart childEditPart) {
-		if(childEditPart instanceof ProxyServiceEditPart){
-			ProxyServiceEditPart proxyServiceEditPart=(ProxyServiceEditPart) childEditPart;
+		if (childEditPart instanceof ProxyServiceEditPart) {
+			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
 			BorderItemLocator locator = new FixedBorderItemLocator(
-					this.getFigure(), proxyServiceEditPart.inputConnectorFigure, PositionConstants.WEST,
-					0.5);
-			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer().add(proxyServiceEditPart.inputConnectorFigure,
-					locator);
-		}
-		else{
+					this.getFigure(),
+					proxyServiceEditPart.inputConnectorFigure,
+					PositionConstants.WEST, 0.5);
+			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer()
+					.add(proxyServiceEditPart.inputConnectorFigure, locator);
+		} else {
 			//Should handle properly.
 			throw new ClassCastException();
 		}
-	}	
-	
+	}
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshInputConnector(((ProxyServiceEditPart)childEditPart.getParent().getParent().getParent().getParent().getParent()));
+		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent()
+				.getParent().getParent().getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -234,15 +245,22 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 		 */
 		public ProxyServiceOutSequenceFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			this.setLayoutManager(layoutThis);
+			/*	GridLayout layoutThis = new GridLayout();
+				layoutThis.numColumns = 1;
+				layoutThis.makeColumnsEqualWidth = true;
+				this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setBackgroundColor(THIS_BACK);
-			this.setLineStyle(Graphics.LINE_DASH);
+				this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+						getMapMode().DPtoLP(8)));
+				this.setBackgroundColor(THIS_BACK);
+				this.setLineStyle(Graphics.LINE_DASH);*/
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
 
 			this.setOutline(true);
 			// TODO: review this:

@@ -40,7 +40,7 @@ public class XSLTMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3212;
+	public static final int VISUAL_ID = 3497;
 
 	/**
 	 * @generated

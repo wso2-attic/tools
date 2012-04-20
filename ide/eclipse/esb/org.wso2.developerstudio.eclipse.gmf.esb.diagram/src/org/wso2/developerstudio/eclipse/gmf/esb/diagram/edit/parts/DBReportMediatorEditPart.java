@@ -42,7 +42,7 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3224;
+	public static final int VISUAL_ID = 3513;
 
 	/**
 	 * @generated

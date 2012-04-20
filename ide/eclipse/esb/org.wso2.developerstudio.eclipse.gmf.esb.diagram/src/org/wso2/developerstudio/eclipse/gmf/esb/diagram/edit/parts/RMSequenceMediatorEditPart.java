@@ -40,7 +40,7 @@ public class RMSequenceMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3233;
+	public static final int VISUAL_ID = 3522;
 
 	/**
 	 * @generated

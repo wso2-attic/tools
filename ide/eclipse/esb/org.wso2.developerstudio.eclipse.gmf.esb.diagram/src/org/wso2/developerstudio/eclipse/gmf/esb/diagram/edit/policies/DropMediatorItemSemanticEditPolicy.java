@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DropMediatorInputConnector5CreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorInputConnector5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DropMediatorInputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -29,16 +29,16 @@ public class DropMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DropMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.DropMediator_3394);
+		super(EsbElementTypes.DropMediator_3491);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EsbElementTypes.DropMediatorInputConnector_3395 == req
+		if (EsbElementTypes.DropMediatorInputConnector_3008 == req
 				.getElementType()) {
-			return getGEFWrapper(new DropMediatorInputConnector5CreateCommand(
+			return getGEFWrapper(new DropMediatorInputConnectorCreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -73,7 +73,7 @@ public class DropMediatorItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case DropMediatorInputConnector5EditPart.VISUAL_ID:
+			case DropMediatorInputConnectorEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();

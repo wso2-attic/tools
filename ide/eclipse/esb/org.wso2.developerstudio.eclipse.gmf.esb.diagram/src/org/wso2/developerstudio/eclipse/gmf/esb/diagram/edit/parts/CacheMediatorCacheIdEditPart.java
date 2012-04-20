@@ -52,7 +52,7 @@ public class CacheMediatorCacheIdEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5062;
+	public static final int VISUAL_ID = 5145;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class CacheMediatorCacheIdEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.CacheMediator_3229,
+							EsbElementTypes.CacheMediator_3518,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheIdEditPart.VISUAL_ID));

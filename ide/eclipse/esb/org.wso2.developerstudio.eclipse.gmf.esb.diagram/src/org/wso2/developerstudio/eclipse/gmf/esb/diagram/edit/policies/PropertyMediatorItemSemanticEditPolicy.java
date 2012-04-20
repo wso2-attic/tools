@@ -13,11 +13,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorInputConnector5CreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorOutputConnector5CreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorInputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorInputConnector5EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorOutputConnector5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -31,21 +31,21 @@ public class PropertyMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PropertyMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.PropertyMediator_3396);
+		super(EsbElementTypes.PropertyMediator_3492);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EsbElementTypes.PropertyMediatorInputConnector_3397 == req
+		if (EsbElementTypes.PropertyMediatorInputConnector_3033 == req
 				.getElementType()) {
-			return getGEFWrapper(new PropertyMediatorInputConnector5CreateCommand(
+			return getGEFWrapper(new PropertyMediatorInputConnectorCreateCommand(
 					req));
 		}
-		if (EsbElementTypes.PropertyMediatorOutputConnector_3398 == req
+		if (EsbElementTypes.PropertyMediatorOutputConnector_3034 == req
 				.getElementType()) {
-			return getGEFWrapper(new PropertyMediatorOutputConnector5CreateCommand(
+			return getGEFWrapper(new PropertyMediatorOutputConnectorCreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -80,7 +80,7 @@ public class PropertyMediatorItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case PropertyMediatorInputConnector5EditPart.VISUAL_ID:
+			case PropertyMediatorInputConnectorEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
@@ -98,7 +98,7 @@ public class PropertyMediatorItemSemanticEditPolicy extends
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case PropertyMediatorOutputConnector5EditPart.VISUAL_ID:
+			case PropertyMediatorOutputConnectorEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();

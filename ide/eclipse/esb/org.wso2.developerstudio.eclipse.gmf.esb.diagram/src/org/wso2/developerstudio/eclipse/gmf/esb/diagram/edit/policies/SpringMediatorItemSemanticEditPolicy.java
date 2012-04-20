@@ -31,7 +31,7 @@ public class SpringMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SpringMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.SpringMediator_3218);
+		super(EsbElementTypes.SpringMediator_3507);
 	}
 
 	/**

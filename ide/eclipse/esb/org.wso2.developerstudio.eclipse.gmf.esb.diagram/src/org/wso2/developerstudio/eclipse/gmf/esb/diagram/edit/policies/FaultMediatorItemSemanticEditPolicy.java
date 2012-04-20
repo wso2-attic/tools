@@ -31,7 +31,7 @@ public class FaultMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public FaultMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.FaultMediator_3220);
+		super(EsbElementTypes.FaultMediator_3509);
 	}
 
 	/**

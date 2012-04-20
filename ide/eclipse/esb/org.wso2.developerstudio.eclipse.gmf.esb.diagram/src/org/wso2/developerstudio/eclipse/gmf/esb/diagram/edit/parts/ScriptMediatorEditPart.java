@@ -42,7 +42,7 @@ public class ScriptMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3219;
+	public static final int VISUAL_ID = 3508;
 
 	/**
 	 * @generated

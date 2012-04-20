@@ -670,7 +670,7 @@ public class PropertyMediatorPropertyNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5105;
+	public static final int VISUAL_ID = 5127;
 
 	/**
 	 * @generated
@@ -908,7 +908,7 @@ public class PropertyMediatorPropertyNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.PropertyMediator_3396,
+							EsbElementTypes.PropertyMediator_3492,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyNameEditPart.VISUAL_ID));

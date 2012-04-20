@@ -33,7 +33,7 @@ public class CloneMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CloneMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.CloneMediator_3228);
+		super(EsbElementTypes.CloneMediator_3517);
 	}
 
 	/**

@@ -40,7 +40,7 @@ public class SendMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3226;
+	public static final int VISUAL_ID = 3515;
 
 	/**
 	 * @generated

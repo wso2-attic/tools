@@ -42,7 +42,7 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3223;
+	public static final int VISUAL_ID = 3512;
 
 	/**
 	 * @generated

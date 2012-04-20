@@ -31,7 +31,7 @@ public class XQueryMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public XQueryMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.XQueryMediator_3221);
+		super(EsbElementTypes.XQueryMediator_3510);
 	}
 
 	/**

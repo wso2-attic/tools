@@ -13,8 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 
 /**
  * @generated
@@ -56,7 +55,7 @@ public class CacheMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		CacheMediator newElement = EsbFactory.eINSTANCE.createCacheMediator();
 
-		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

@@ -31,7 +31,7 @@ public class SmooksMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SmooksMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.SmooksMediator_3225);
+		super(EsbElementTypes.SmooksMediator_3514);
 	}
 
 	/**

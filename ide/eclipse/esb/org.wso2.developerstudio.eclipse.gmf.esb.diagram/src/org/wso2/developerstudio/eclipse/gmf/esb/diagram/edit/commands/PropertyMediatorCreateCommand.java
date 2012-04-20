@@ -12,9 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceFaultContainer;
 
 /**
  * @generated
@@ -57,7 +56,7 @@ public class PropertyMediatorCreateCommand extends EditElementCommand {
 		PropertyMediator newElement = EsbFactory.eINSTANCE
 				.createPropertyMediator();
 
-		ProxyServiceFaultContainer owner = (ProxyServiceFaultContainer) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

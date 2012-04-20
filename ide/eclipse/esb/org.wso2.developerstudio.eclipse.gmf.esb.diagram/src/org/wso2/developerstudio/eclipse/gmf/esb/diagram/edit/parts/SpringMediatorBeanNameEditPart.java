@@ -52,7 +52,7 @@ public class SpringMediatorBeanNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5053;
+	public static final int VISUAL_ID = 5136;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class SpringMediatorBeanNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.SpringMediator_3218,
+							EsbElementTypes.SpringMediator_3507,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanNameEditPart.VISUAL_ID));

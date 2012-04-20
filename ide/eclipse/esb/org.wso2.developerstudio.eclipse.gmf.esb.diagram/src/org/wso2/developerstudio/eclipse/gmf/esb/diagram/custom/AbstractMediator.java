@@ -11,8 +11,8 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
@@ -51,8 +51,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public void Reverse(EditPart editorPart) {
 		if (!reversed
-				& ((editorPart.getParent() instanceof ProxyServiceOutSequenceProxyServiceOutSequenceCompartmentEditPart)|
-						(editorPart.getParent() instanceof ProxyServiceFaultContainerProxyServiceFaultSequenceCompartmentEditPart))) {
+				& ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart)|
+						(editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart))) {
 
 			AbstractMediator selectedEP = (AbstractMediator) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();

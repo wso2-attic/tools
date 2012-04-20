@@ -31,7 +31,7 @@ public class RMSequenceMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RMSequenceMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.RMSequenceMediator_3233);
+		super(EsbElementTypes.RMSequenceMediator_3522);
 	}
 
 	/**

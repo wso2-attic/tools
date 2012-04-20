@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
@@ -29,20 +29,20 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 		extends ShapeCompartmentEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 7005;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart(
 			View view) {
 		super(view);
@@ -56,23 +56,23 @@ public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
 		result.setToolTip((String) null);
 
-		/*	result.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
-					getMapMode().DPtoLP(130)));*/
+			result.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
+					getMapMode().DPtoLP(130)));
 
 		return result;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	public String getCompartmentName() {
 		return Messages.ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart_title;
 		//return "";
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -89,9 +89,9 @@ public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 				new ProxyServiceInSequenceProxyServiceInSequenceCompartmentCanonicalEditPolicy());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -167,10 +167,11 @@ public class ProxyServiceInSequenceProxyServiceInSequenceCompartmentEditPart
 			sourceEditPart = (AbstractBorderedShapeEditPart) child;
 
 		}
-		/*	if (child instanceof AbstractMediator) {
+			if (child instanceof AbstractMediator) {
 				((AbstractMediator) child).Reverse(child);
-			}*/
+			}
 
 	}
 
 }
+*/

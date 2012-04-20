@@ -379,7 +379,7 @@ public class DropMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3394;
+	public static final int VISUAL_ID = 3491;
 
 	/**
 	 * @generated
@@ -428,7 +428,7 @@ public class DropMediatorEditPart extends AbstractMediator {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case DropMediatorInputConnector5EditPart.VISUAL_ID:
+				case DropMediatorInputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				EditPolicy result = child

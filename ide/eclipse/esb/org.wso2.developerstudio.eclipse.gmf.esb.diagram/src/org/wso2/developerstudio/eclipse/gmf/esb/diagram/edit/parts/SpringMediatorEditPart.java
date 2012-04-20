@@ -42,7 +42,7 @@ public class SpringMediatorEditPart extends AbstractMediator {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3218;
+	public static final int VISUAL_ID = 3507;
 
 	/**
 	 * @generated

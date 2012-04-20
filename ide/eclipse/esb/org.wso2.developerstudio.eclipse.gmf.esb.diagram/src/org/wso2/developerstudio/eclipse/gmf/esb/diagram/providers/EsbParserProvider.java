@@ -14,100 +14,33 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateID2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateIDEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheId2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheId3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheIdEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapAction5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorSoapActionEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassNameEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneID5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneIDEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURL5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURL5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceTypeEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURL2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURL3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURLEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicType2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringTypeEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionType5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionTypeEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteral5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteralEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateID5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategory5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategoryEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrl2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrl3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrlEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName3EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyName5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorPropertyNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceNameEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguage2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguage3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorScriptLanguageEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceNameEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanName3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanNameEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupId2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupId3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupIdEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointName2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyType2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyType3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.parsers.MessageFormatParser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -139,1027 +72,415 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser propertyMediatorPropertyName_5042Parser;
+	private IParser propertyMediatorPropertyName_5127Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPropertyMediatorPropertyName_5042Parser() {
-		if (propertyMediatorPropertyName_5042Parser == null) {
+	private IParser getPropertyMediatorPropertyName_5127Parser() {
+		if (propertyMediatorPropertyName_5127Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getPropertyMediator_PropertyName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyMediatorPropertyName_5042Parser = parser;
+			propertyMediatorPropertyName_5127Parser = parser;
 		}
-		return propertyMediatorPropertyName_5042Parser;
+		return propertyMediatorPropertyName_5127Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser throttleMediatorGroupId_5044Parser;
+	private IParser throttleMediatorGroupId_5128Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getThrottleMediatorGroupId_5044Parser() {
-		if (throttleMediatorGroupId_5044Parser == null) {
+	private IParser getThrottleMediatorGroupId_5128Parser() {
+		if (throttleMediatorGroupId_5128Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getThrottleMediator_GroupId() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			throttleMediatorGroupId_5044Parser = parser;
+			throttleMediatorGroupId_5128Parser = parser;
 		}
-		return throttleMediatorGroupId_5044Parser;
+		return throttleMediatorGroupId_5128Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser filterMediatorConditionType_5046Parser;
+	private IParser filterMediatorConditionType_5129Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getFilterMediatorConditionType_5046Parser() {
-		if (filterMediatorConditionType_5046Parser == null) {
+	private IParser getFilterMediatorConditionType_5129Parser() {
+		if (filterMediatorConditionType_5129Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getFilterMediator_ConditionType() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			filterMediatorConditionType_5046Parser = parser;
+			filterMediatorConditionType_5129Parser = parser;
 		}
-		return filterMediatorConditionType_5046Parser;
+		return filterMediatorConditionType_5129Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser logMediatorLogCategory_5047Parser;
+	private IParser logMediatorLogCategory_5130Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLogMediatorLogCategory_5047Parser() {
-		if (logMediatorLogCategory_5047Parser == null) {
+	private IParser getLogMediatorLogCategory_5130Parser() {
+		if (logMediatorLogCategory_5130Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getLogMediator_LogCategory() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			logMediatorLogCategory_5047Parser = parser;
+			logMediatorLogCategory_5130Parser = parser;
 		}
-		return logMediatorLogCategory_5047Parser;
+		return logMediatorLogCategory_5130Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser enrichMediatorSourceType_5104Parser;
+	private IParser enrichMediatorSourceType_5131Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEnrichMediatorSourceType_5104Parser() {
-		if (enrichMediatorSourceType_5104Parser == null) {
+	private IParser getEnrichMediatorSourceType_5131Parser() {
+		if (enrichMediatorSourceType_5131Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getEnrichMediator_SourceType() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			enrichMediatorSourceType_5104Parser = parser;
+			enrichMediatorSourceType_5131Parser = parser;
 		}
-		return enrichMediatorSourceType_5104Parser;
+		return enrichMediatorSourceType_5131Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser sequenceName_5049Parser;
+	private IParser sequenceName_5132Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSequenceName_5049Parser() {
-		if (sequenceName_5049Parser == null) {
+	private IParser getSequenceName_5132Parser() {
+		if (sequenceName_5132Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getSequence_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			sequenceName_5049Parser = parser;
+			sequenceName_5132Parser = parser;
 		}
-		return sequenceName_5049Parser;
+		return sequenceName_5132Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser eventMediatorTopicType_5050Parser;
+	private IParser eventMediatorTopicType_5133Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEventMediatorTopicType_5050Parser() {
-		if (eventMediatorTopicType_5050Parser == null) {
+	private IParser getEventMediatorTopicType_5133Parser() {
+		if (eventMediatorTopicType_5133Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getEventMediator_TopicType() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			eventMediatorTopicType_5050Parser = parser;
+			eventMediatorTopicType_5133Parser = parser;
 		}
-		return eventMediatorTopicType_5050Parser;
+		return eventMediatorTopicType_5133Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser entitlementMediatorServerURL_5051Parser;
+	private IParser entitlementMediatorServerURL_5134Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEntitlementMediatorServerURL_5051Parser() {
-		if (entitlementMediatorServerURL_5051Parser == null) {
+	private IParser getEntitlementMediatorServerURL_5134Parser() {
+		if (entitlementMediatorServerURL_5134Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getEntitlementMediator_ServerURL() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			entitlementMediatorServerURL_5051Parser = parser;
+			entitlementMediatorServerURL_5134Parser = parser;
 		}
-		return entitlementMediatorServerURL_5051Parser;
+		return entitlementMediatorServerURL_5134Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser classMediatorClassName_5052Parser;
+	private IParser classMediatorClassName_5135Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getClassMediatorClassName_5052Parser() {
-		if (classMediatorClassName_5052Parser == null) {
+	private IParser getClassMediatorClassName_5135Parser() {
+		if (classMediatorClassName_5135Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getClassMediator_ClassName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			classMediatorClassName_5052Parser = parser;
+			classMediatorClassName_5135Parser = parser;
 		}
-		return classMediatorClassName_5052Parser;
+		return classMediatorClassName_5135Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser springMediatorBeanName_5053Parser;
+	private IParser springMediatorBeanName_5136Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSpringMediatorBeanName_5053Parser() {
-		if (springMediatorBeanName_5053Parser == null) {
+	private IParser getSpringMediatorBeanName_5136Parser() {
+		if (springMediatorBeanName_5136Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getSpringMediator_BeanName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			springMediatorBeanName_5053Parser = parser;
+			springMediatorBeanName_5136Parser = parser;
 		}
-		return springMediatorBeanName_5053Parser;
+		return springMediatorBeanName_5136Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser scriptMediatorScriptLanguage_5054Parser;
+	private IParser scriptMediatorScriptLanguage_5137Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getScriptMediatorScriptLanguage_5054Parser() {
-		if (scriptMediatorScriptLanguage_5054Parser == null) {
+	private IParser getScriptMediatorScriptLanguage_5137Parser() {
+		if (scriptMediatorScriptLanguage_5137Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getScriptMediator_ScriptLanguage() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			scriptMediatorScriptLanguage_5054Parser = parser;
+			scriptMediatorScriptLanguage_5137Parser = parser;
 		}
-		return scriptMediatorScriptLanguage_5054Parser;
+		return scriptMediatorScriptLanguage_5137Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser faultMediatorFaultStringType_5055Parser;
+	private IParser faultMediatorFaultStringType_5138Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getFaultMediatorFaultStringType_5055Parser() {
-		if (faultMediatorFaultStringType_5055Parser == null) {
+	private IParser getFaultMediatorFaultStringType_5138Parser() {
+		if (faultMediatorFaultStringType_5138Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getFaultMediator_FaultStringType() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			faultMediatorFaultStringType_5055Parser = parser;
+			faultMediatorFaultStringType_5138Parser = parser;
 		}
-		return faultMediatorFaultStringType_5055Parser;
+		return faultMediatorFaultStringType_5138Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser xQueryMediatorScriptKeyType_5056Parser;
+	private IParser xQueryMediatorScriptKeyType_5139Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getXQueryMediatorScriptKeyType_5056Parser() {
-		if (xQueryMediatorScriptKeyType_5056Parser == null) {
+	private IParser getXQueryMediatorScriptKeyType_5139Parser() {
+		if (xQueryMediatorScriptKeyType_5139Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getXQueryMediator_ScriptKeyType() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			xQueryMediatorScriptKeyType_5056Parser = parser;
+			xQueryMediatorScriptKeyType_5139Parser = parser;
 		}
-		return xQueryMediatorScriptKeyType_5056Parser;
+		return xQueryMediatorScriptKeyType_5139Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser commandMediatorClassName_5057Parser;
+	private IParser commandMediatorClassName_5140Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCommandMediatorClassName_5057Parser() {
-		if (commandMediatorClassName_5057Parser == null) {
+	private IParser getCommandMediatorClassName_5140Parser() {
+		if (commandMediatorClassName_5140Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getCommandMediator_ClassName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			commandMediatorClassName_5057Parser = parser;
+			commandMediatorClassName_5140Parser = parser;
 		}
-		return commandMediatorClassName_5057Parser;
+		return commandMediatorClassName_5140Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser dBLookupMediatorConnectionURL_5058Parser;
+	private IParser dBLookupMediatorConnectionURL_5141Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDBLookupMediatorConnectionURL_5058Parser() {
-		if (dBLookupMediatorConnectionURL_5058Parser == null) {
+	private IParser getDBLookupMediatorConnectionURL_5141Parser() {
+		if (dBLookupMediatorConnectionURL_5141Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getAbstractSqlExecutorMediator_ConnectionURL() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			dBLookupMediatorConnectionURL_5058Parser = parser;
+			dBLookupMediatorConnectionURL_5141Parser = parser;
 		}
-		return dBLookupMediatorConnectionURL_5058Parser;
+		return dBLookupMediatorConnectionURL_5141Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser dBReportMediatorConnectionURL_5059Parser;
+	private IParser dBReportMediatorConnectionURL_5142Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDBReportMediatorConnectionURL_5059Parser() {
-		if (dBReportMediatorConnectionURL_5059Parser == null) {
+	private IParser getDBReportMediatorConnectionURL_5142Parser() {
+		if (dBReportMediatorConnectionURL_5142Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getAbstractSqlExecutorMediator_ConnectionURL() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			dBReportMediatorConnectionURL_5059Parser = parser;
+			dBReportMediatorConnectionURL_5142Parser = parser;
 		}
-		return dBReportMediatorConnectionURL_5059Parser;
+		return dBReportMediatorConnectionURL_5142Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser headerMediatorValueLiteral_5060Parser;
+	private IParser headerMediatorValueLiteral_5143Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getHeaderMediatorValueLiteral_5060Parser() {
-		if (headerMediatorValueLiteral_5060Parser == null) {
+	private IParser getHeaderMediatorValueLiteral_5143Parser() {
+		if (headerMediatorValueLiteral_5143Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getHeaderMediator_ValueLiteral() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			headerMediatorValueLiteral_5060Parser = parser;
+			headerMediatorValueLiteral_5143Parser = parser;
 		}
-		return headerMediatorValueLiteral_5060Parser;
+		return headerMediatorValueLiteral_5143Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser cloneMediatorCloneID_5061Parser;
+	private IParser cloneMediatorCloneID_5144Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCloneMediatorCloneID_5061Parser() {
-		if (cloneMediatorCloneID_5061Parser == null) {
+	private IParser getCloneMediatorCloneID_5144Parser() {
+		if (cloneMediatorCloneID_5144Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getCloneMediator_CloneID() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			cloneMediatorCloneID_5061Parser = parser;
+			cloneMediatorCloneID_5144Parser = parser;
 		}
-		return cloneMediatorCloneID_5061Parser;
+		return cloneMediatorCloneID_5144Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser cacheMediatorCacheId_5062Parser;
+	private IParser cacheMediatorCacheId_5145Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCacheMediatorCacheId_5062Parser() {
-		if (cacheMediatorCacheId_5062Parser == null) {
+	private IParser getCacheMediatorCacheId_5145Parser() {
+		if (cacheMediatorCacheId_5145Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getCacheMediator_CacheId() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			cacheMediatorCacheId_5062Parser = parser;
+			cacheMediatorCacheId_5145Parser = parser;
 		}
-		return cacheMediatorCacheId_5062Parser;
+		return cacheMediatorCacheId_5145Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser iterateMediatorIterateID_5063Parser;
+	private IParser iterateMediatorIterateID_5146Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getIterateMediatorIterateID_5063Parser() {
-		if (iterateMediatorIterateID_5063Parser == null) {
+	private IParser getIterateMediatorIterateID_5146Parser() {
+		if (iterateMediatorIterateID_5146Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getIterateMediator_IterateID() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			iterateMediatorIterateID_5063Parser = parser;
+			iterateMediatorIterateID_5146Parser = parser;
 		}
-		return iterateMediatorIterateID_5063Parser;
+		return iterateMediatorIterateID_5146Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser calloutMediatorSoapAction_5064Parser;
+	private IParser calloutMediatorSoapAction_5147Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCalloutMediatorSoapAction_5064Parser() {
-		if (calloutMediatorSoapAction_5064Parser == null) {
+	private IParser getCalloutMediatorSoapAction_5147Parser() {
+		if (calloutMediatorSoapAction_5147Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getCalloutMediator_SoapAction() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			calloutMediatorSoapAction_5064Parser = parser;
+			calloutMediatorSoapAction_5147Parser = parser;
 		}
-		return calloutMediatorSoapAction_5064Parser;
+		return calloutMediatorSoapAction_5147Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser oAuthMediatorRemoteServiceUrl_5065Parser;
+	private IParser oAuthMediatorRemoteServiceUrl_5148Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOAuthMediatorRemoteServiceUrl_5065Parser() {
-		if (oAuthMediatorRemoteServiceUrl_5065Parser == null) {
+	private IParser getOAuthMediatorRemoteServiceUrl_5148Parser() {
+		if (oAuthMediatorRemoteServiceUrl_5148Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getOAuthMediator_RemoteServiceUrl() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			oAuthMediatorRemoteServiceUrl_5065Parser = parser;
+			oAuthMediatorRemoteServiceUrl_5148Parser = parser;
 		}
-		return oAuthMediatorRemoteServiceUrl_5065Parser;
+		return oAuthMediatorRemoteServiceUrl_5148Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser aggregateMediatorAggregateID_5066Parser;
+	private IParser aggregateMediatorAggregateID_5149Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAggregateMediatorAggregateID_5066Parser() {
-		if (aggregateMediatorAggregateID_5066Parser == null) {
+	private IParser getAggregateMediatorAggregateID_5149Parser() {
+		if (aggregateMediatorAggregateID_5149Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
 					.getAggregateMediator_AggregateID() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			aggregateMediatorAggregateID_5066Parser = parser;
+			aggregateMediatorAggregateID_5149Parser = parser;
 		}
-		return aggregateMediatorAggregateID_5066Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser propertyMediatorPropertyName_5043Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPropertyMediatorPropertyName_5043Parser() {
-		if (propertyMediatorPropertyName_5043Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getPropertyMediator_PropertyName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyMediatorPropertyName_5043Parser = parser;
-		}
-		return propertyMediatorPropertyName_5043Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser throttleMediatorGroupId_5045Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getThrottleMediatorGroupId_5045Parser() {
-		if (throttleMediatorGroupId_5045Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getThrottleMediator_GroupId() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			throttleMediatorGroupId_5045Parser = parser;
-		}
-		return throttleMediatorGroupId_5045Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser filterMediatorConditionType_5067Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFilterMediatorConditionType_5067Parser() {
-		if (filterMediatorConditionType_5067Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFilterMediator_ConditionType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			filterMediatorConditionType_5067Parser = parser;
-		}
-		return filterMediatorConditionType_5067Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser logMediatorLogCategory_5068Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLogMediatorLogCategory_5068Parser() {
-		if (logMediatorLogCategory_5068Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getLogMediator_LogCategory() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			logMediatorLogCategory_5068Parser = parser;
-		}
-		return logMediatorLogCategory_5068Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser enrichMediatorSourceType_5069Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEnrichMediatorSourceType_5069Parser() {
-		if (enrichMediatorSourceType_5069Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEnrichMediator_SourceType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			enrichMediatorSourceType_5069Parser = parser;
-		}
-		return enrichMediatorSourceType_5069Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser sequenceName_5070Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSequenceName_5070Parser() {
-		if (sequenceName_5070Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getSequence_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			sequenceName_5070Parser = parser;
-		}
-		return sequenceName_5070Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser eventMediatorTopicType_5071Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEventMediatorTopicType_5071Parser() {
-		if (eventMediatorTopicType_5071Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEventMediator_TopicType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			eventMediatorTopicType_5071Parser = parser;
-		}
-		return eventMediatorTopicType_5071Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser entitlementMediatorServerURL_5072Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEntitlementMediatorServerURL_5072Parser() {
-		if (entitlementMediatorServerURL_5072Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEntitlementMediator_ServerURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			entitlementMediatorServerURL_5072Parser = parser;
-		}
-		return entitlementMediatorServerURL_5072Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser classMediatorClassName_5073Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getClassMediatorClassName_5073Parser() {
-		if (classMediatorClassName_5073Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getClassMediator_ClassName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			classMediatorClassName_5073Parser = parser;
-		}
-		return classMediatorClassName_5073Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser springMediatorBeanName_5074Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSpringMediatorBeanName_5074Parser() {
-		if (springMediatorBeanName_5074Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getSpringMediator_BeanName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			springMediatorBeanName_5074Parser = parser;
-		}
-		return springMediatorBeanName_5074Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser scriptMediatorScriptLanguage_5075Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getScriptMediatorScriptLanguage_5075Parser() {
-		if (scriptMediatorScriptLanguage_5075Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getScriptMediator_ScriptLanguage() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			scriptMediatorScriptLanguage_5075Parser = parser;
-		}
-		return scriptMediatorScriptLanguage_5075Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser faultMediatorFaultStringType_5076Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFaultMediatorFaultStringType_5076Parser() {
-		if (faultMediatorFaultStringType_5076Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFaultMediator_FaultStringType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			faultMediatorFaultStringType_5076Parser = parser;
-		}
-		return faultMediatorFaultStringType_5076Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser xQueryMediatorScriptKeyType_5077Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getXQueryMediatorScriptKeyType_5077Parser() {
-		if (xQueryMediatorScriptKeyType_5077Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getXQueryMediator_ScriptKeyType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			xQueryMediatorScriptKeyType_5077Parser = parser;
-		}
-		return xQueryMediatorScriptKeyType_5077Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser commandMediatorClassName_5078Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCommandMediatorClassName_5078Parser() {
-		if (commandMediatorClassName_5078Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCommandMediator_ClassName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			commandMediatorClassName_5078Parser = parser;
-		}
-		return commandMediatorClassName_5078Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBLookupMediatorConnectionURL_5079Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBLookupMediatorConnectionURL_5079Parser() {
-		if (dBLookupMediatorConnectionURL_5079Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBLookupMediatorConnectionURL_5079Parser = parser;
-		}
-		return dBLookupMediatorConnectionURL_5079Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBReportMediatorConnectionURL_5080Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBReportMediatorConnectionURL_5080Parser() {
-		if (dBReportMediatorConnectionURL_5080Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBReportMediatorConnectionURL_5080Parser = parser;
-		}
-		return dBReportMediatorConnectionURL_5080Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser headerMediatorValueLiteral_5081Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getHeaderMediatorValueLiteral_5081Parser() {
-		if (headerMediatorValueLiteral_5081Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getHeaderMediator_ValueLiteral() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			headerMediatorValueLiteral_5081Parser = parser;
-		}
-		return headerMediatorValueLiteral_5081Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cloneMediatorCloneID_5082Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCloneMediatorCloneID_5082Parser() {
-		if (cloneMediatorCloneID_5082Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCloneMediator_CloneID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cloneMediatorCloneID_5082Parser = parser;
-		}
-		return cloneMediatorCloneID_5082Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cacheMediatorCacheId_5083Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCacheMediatorCacheId_5083Parser() {
-		if (cacheMediatorCacheId_5083Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCacheMediator_CacheId() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cacheMediatorCacheId_5083Parser = parser;
-		}
-		return cacheMediatorCacheId_5083Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser iterateMediatorIterateID_5084Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getIterateMediatorIterateID_5084Parser() {
-		if (iterateMediatorIterateID_5084Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getIterateMediator_IterateID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			iterateMediatorIterateID_5084Parser = parser;
-		}
-		return iterateMediatorIterateID_5084Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser calloutMediatorSoapAction_5085Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCalloutMediatorSoapAction_5085Parser() {
-		if (calloutMediatorSoapAction_5085Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCalloutMediator_SoapAction() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			calloutMediatorSoapAction_5085Parser = parser;
-		}
-		return calloutMediatorSoapAction_5085Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser oAuthMediatorRemoteServiceUrl_5086Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOAuthMediatorRemoteServiceUrl_5086Parser() {
-		if (oAuthMediatorRemoteServiceUrl_5086Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getOAuthMediator_RemoteServiceUrl() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			oAuthMediatorRemoteServiceUrl_5086Parser = parser;
-		}
-		return oAuthMediatorRemoteServiceUrl_5086Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser aggregateMediatorAggregateID_5098Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getAggregateMediatorAggregateID_5098Parser() {
-		if (aggregateMediatorAggregateID_5098Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAggregateMediator_AggregateID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			aggregateMediatorAggregateID_5098Parser = parser;
-		}
-		return aggregateMediatorAggregateID_5098Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser logMediatorLogCategory_5087Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLogMediatorLogCategory_5087Parser() {
-		if (logMediatorLogCategory_5087Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getLogMediator_LogCategory() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			logMediatorLogCategory_5087Parser = parser;
-		}
-		return logMediatorLogCategory_5087Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser filterMediatorConditionType_5088Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFilterMediatorConditionType_5088Parser() {
-		if (filterMediatorConditionType_5088Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFilterMediator_ConditionType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			filterMediatorConditionType_5088Parser = parser;
-		}
-		return filterMediatorConditionType_5088Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser propertyMediatorPropertyName_5089Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPropertyMediatorPropertyName_5089Parser() {
-		if (propertyMediatorPropertyName_5089Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getPropertyMediator_PropertyName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyMediatorPropertyName_5089Parser = parser;
-		}
-		return propertyMediatorPropertyName_5089Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser enrichMediatorSourceType_5090Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEnrichMediatorSourceType_5090Parser() {
-		if (enrichMediatorSourceType_5090Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEnrichMediator_SourceType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			enrichMediatorSourceType_5090Parser = parser;
-		}
-		return enrichMediatorSourceType_5090Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser faultMediatorFaultStringType_5091Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFaultMediatorFaultStringType_5091Parser() {
-		if (faultMediatorFaultStringType_5091Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFaultMediator_FaultStringType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			faultMediatorFaultStringType_5091Parser = parser;
-		}
-		return faultMediatorFaultStringType_5091Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBLookupMediatorConnectionURL_5092Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBLookupMediatorConnectionURL_5092Parser() {
-		if (dBLookupMediatorConnectionURL_5092Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBLookupMediatorConnectionURL_5092Parser = parser;
-		}
-		return dBLookupMediatorConnectionURL_5092Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBReportMediatorConnectionURL_5093Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBReportMediatorConnectionURL_5093Parser() {
-		if (dBReportMediatorConnectionURL_5093Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBReportMediatorConnectionURL_5093Parser = parser;
-		}
-		return dBReportMediatorConnectionURL_5093Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser headerMediatorValueLiteral_5094Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getHeaderMediatorValueLiteral_5094Parser() {
-		if (headerMediatorValueLiteral_5094Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getHeaderMediator_ValueLiteral() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			headerMediatorValueLiteral_5094Parser = parser;
-		}
-		return headerMediatorValueLiteral_5094Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cloneMediatorCloneID_5095Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCloneMediatorCloneID_5095Parser() {
-		if (cloneMediatorCloneID_5095Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCloneMediator_CloneID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cloneMediatorCloneID_5095Parser = parser;
-		}
-		return cloneMediatorCloneID_5095Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser iterateMediatorIterateID_5096Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getIterateMediatorIterateID_5096Parser() {
-		if (iterateMediatorIterateID_5096Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getIterateMediator_IterateID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			iterateMediatorIterateID_5096Parser = parser;
-		}
-		return iterateMediatorIterateID_5096Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser calloutMediatorSoapAction_5097Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCalloutMediatorSoapAction_5097Parser() {
-		if (calloutMediatorSoapAction_5097Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCalloutMediator_SoapAction() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			calloutMediatorSoapAction_5097Parser = parser;
-		}
-		return calloutMediatorSoapAction_5097Parser;
+		return aggregateMediatorAggregateID_5149Parser;
 	}
 
 	/**
@@ -1255,740 +576,56 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser propertyMediatorPropertyName_5105Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPropertyMediatorPropertyName_5105Parser() {
-		if (propertyMediatorPropertyName_5105Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getPropertyMediator_PropertyName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyMediatorPropertyName_5105Parser = parser;
-		}
-		return propertyMediatorPropertyName_5105Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser throttleMediatorGroupId_5106Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getThrottleMediatorGroupId_5106Parser() {
-		if (throttleMediatorGroupId_5106Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getThrottleMediator_GroupId() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			throttleMediatorGroupId_5106Parser = parser;
-		}
-		return throttleMediatorGroupId_5106Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser filterMediatorConditionType_5107Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFilterMediatorConditionType_5107Parser() {
-		if (filterMediatorConditionType_5107Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFilterMediator_ConditionType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			filterMediatorConditionType_5107Parser = parser;
-		}
-		return filterMediatorConditionType_5107Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser logMediatorLogCategory_5108Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLogMediatorLogCategory_5108Parser() {
-		if (logMediatorLogCategory_5108Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getLogMediator_LogCategory() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			logMediatorLogCategory_5108Parser = parser;
-		}
-		return logMediatorLogCategory_5108Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser enrichMediatorSourceType_5109Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEnrichMediatorSourceType_5109Parser() {
-		if (enrichMediatorSourceType_5109Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEnrichMediator_SourceType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			enrichMediatorSourceType_5109Parser = parser;
-		}
-		return enrichMediatorSourceType_5109Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser sequenceName_5110Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSequenceName_5110Parser() {
-		if (sequenceName_5110Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getSequence_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			sequenceName_5110Parser = parser;
-		}
-		return sequenceName_5110Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser eventMediatorTopicType_5111Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEventMediatorTopicType_5111Parser() {
-		if (eventMediatorTopicType_5111Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEventMediator_TopicType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			eventMediatorTopicType_5111Parser = parser;
-		}
-		return eventMediatorTopicType_5111Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser entitlementMediatorServerURL_5112Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEntitlementMediatorServerURL_5112Parser() {
-		if (entitlementMediatorServerURL_5112Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEntitlementMediator_ServerURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			entitlementMediatorServerURL_5112Parser = parser;
-		}
-		return entitlementMediatorServerURL_5112Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser classMediatorClassName_5113Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getClassMediatorClassName_5113Parser() {
-		if (classMediatorClassName_5113Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getClassMediator_ClassName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			classMediatorClassName_5113Parser = parser;
-		}
-		return classMediatorClassName_5113Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser springMediatorBeanName_5114Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSpringMediatorBeanName_5114Parser() {
-		if (springMediatorBeanName_5114Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getSpringMediator_BeanName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			springMediatorBeanName_5114Parser = parser;
-		}
-		return springMediatorBeanName_5114Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser scriptMediatorScriptLanguage_5115Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getScriptMediatorScriptLanguage_5115Parser() {
-		if (scriptMediatorScriptLanguage_5115Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getScriptMediator_ScriptLanguage() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			scriptMediatorScriptLanguage_5115Parser = parser;
-		}
-		return scriptMediatorScriptLanguage_5115Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser faultMediatorFaultStringType_5116Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFaultMediatorFaultStringType_5116Parser() {
-		if (faultMediatorFaultStringType_5116Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFaultMediator_FaultStringType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			faultMediatorFaultStringType_5116Parser = parser;
-		}
-		return faultMediatorFaultStringType_5116Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser xQueryMediatorScriptKeyType_5117Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getXQueryMediatorScriptKeyType_5117Parser() {
-		if (xQueryMediatorScriptKeyType_5117Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getXQueryMediator_ScriptKeyType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			xQueryMediatorScriptKeyType_5117Parser = parser;
-		}
-		return xQueryMediatorScriptKeyType_5117Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser commandMediatorClassName_5118Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCommandMediatorClassName_5118Parser() {
-		if (commandMediatorClassName_5118Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCommandMediator_ClassName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			commandMediatorClassName_5118Parser = parser;
-		}
-		return commandMediatorClassName_5118Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBLookupMediatorConnectionURL_5119Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBLookupMediatorConnectionURL_5119Parser() {
-		if (dBLookupMediatorConnectionURL_5119Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBLookupMediatorConnectionURL_5119Parser = parser;
-		}
-		return dBLookupMediatorConnectionURL_5119Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBReportMediatorConnectionURL_5120Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBReportMediatorConnectionURL_5120Parser() {
-		if (dBReportMediatorConnectionURL_5120Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBReportMediatorConnectionURL_5120Parser = parser;
-		}
-		return dBReportMediatorConnectionURL_5120Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser headerMediatorValueLiteral_5121Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getHeaderMediatorValueLiteral_5121Parser() {
-		if (headerMediatorValueLiteral_5121Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getHeaderMediator_ValueLiteral() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			headerMediatorValueLiteral_5121Parser = parser;
-		}
-		return headerMediatorValueLiteral_5121Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cloneMediatorCloneID_5122Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCloneMediatorCloneID_5122Parser() {
-		if (cloneMediatorCloneID_5122Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCloneMediator_CloneID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cloneMediatorCloneID_5122Parser = parser;
-		}
-		return cloneMediatorCloneID_5122Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cacheMediatorCacheId_5123Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCacheMediatorCacheId_5123Parser() {
-		if (cacheMediatorCacheId_5123Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCacheMediator_CacheId() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cacheMediatorCacheId_5123Parser = parser;
-		}
-		return cacheMediatorCacheId_5123Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser iterateMediatorIterateID_5124Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getIterateMediatorIterateID_5124Parser() {
-		if (iterateMediatorIterateID_5124Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getIterateMediator_IterateID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			iterateMediatorIterateID_5124Parser = parser;
-		}
-		return iterateMediatorIterateID_5124Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser calloutMediatorSoapAction_5125Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCalloutMediatorSoapAction_5125Parser() {
-		if (calloutMediatorSoapAction_5125Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCalloutMediator_SoapAction() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			calloutMediatorSoapAction_5125Parser = parser;
-		}
-		return calloutMediatorSoapAction_5125Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser oAuthMediatorRemoteServiceUrl_5126Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOAuthMediatorRemoteServiceUrl_5126Parser() {
-		if (oAuthMediatorRemoteServiceUrl_5126Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getOAuthMediator_RemoteServiceUrl() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			oAuthMediatorRemoteServiceUrl_5126Parser = parser;
-		}
-		return oAuthMediatorRemoteServiceUrl_5126Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser logMediatorLogCategory_5030Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLogMediatorLogCategory_5030Parser() {
-		if (logMediatorLogCategory_5030Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getLogMediator_LogCategory() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			logMediatorLogCategory_5030Parser = parser;
-		}
-		return logMediatorLogCategory_5030Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser filterMediatorConditionType_5031Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFilterMediatorConditionType_5031Parser() {
-		if (filterMediatorConditionType_5031Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFilterMediator_ConditionType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			filterMediatorConditionType_5031Parser = parser;
-		}
-		return filterMediatorConditionType_5031Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser propertyMediatorPropertyName_5032Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getPropertyMediatorPropertyName_5032Parser() {
-		if (propertyMediatorPropertyName_5032Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getPropertyMediator_PropertyName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			propertyMediatorPropertyName_5032Parser = parser;
-		}
-		return propertyMediatorPropertyName_5032Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser enrichMediatorSourceType_5033Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEnrichMediatorSourceType_5033Parser() {
-		if (enrichMediatorSourceType_5033Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEnrichMediator_SourceType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			enrichMediatorSourceType_5033Parser = parser;
-		}
-		return enrichMediatorSourceType_5033Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser faultMediatorFaultStringType_5034Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFaultMediatorFaultStringType_5034Parser() {
-		if (faultMediatorFaultStringType_5034Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFaultMediator_FaultStringType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			faultMediatorFaultStringType_5034Parser = parser;
-		}
-		return faultMediatorFaultStringType_5034Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBLookupMediatorConnectionURL_5035Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBLookupMediatorConnectionURL_5035Parser() {
-		if (dBLookupMediatorConnectionURL_5035Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBLookupMediatorConnectionURL_5035Parser = parser;
-		}
-		return dBLookupMediatorConnectionURL_5035Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dBReportMediatorConnectionURL_5036Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDBReportMediatorConnectionURL_5036Parser() {
-		if (dBReportMediatorConnectionURL_5036Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getAbstractSqlExecutorMediator_ConnectionURL() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			dBReportMediatorConnectionURL_5036Parser = parser;
-		}
-		return dBReportMediatorConnectionURL_5036Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser headerMediatorValueLiteral_5037Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getHeaderMediatorValueLiteral_5037Parser() {
-		if (headerMediatorValueLiteral_5037Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getHeaderMediator_ValueLiteral() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			headerMediatorValueLiteral_5037Parser = parser;
-		}
-		return headerMediatorValueLiteral_5037Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser cloneMediatorCloneID_5038Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCloneMediatorCloneID_5038Parser() {
-		if (cloneMediatorCloneID_5038Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCloneMediator_CloneID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			cloneMediatorCloneID_5038Parser = parser;
-		}
-		return cloneMediatorCloneID_5038Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser iterateMediatorIterateID_5039Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getIterateMediatorIterateID_5039Parser() {
-		if (iterateMediatorIterateID_5039Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getIterateMediator_IterateID() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			iterateMediatorIterateID_5039Parser = parser;
-		}
-		return iterateMediatorIterateID_5039Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser calloutMediatorSoapAction_5040Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCalloutMediatorSoapAction_5040Parser() {
-		if (calloutMediatorSoapAction_5040Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getCalloutMediator_SoapAction() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			calloutMediatorSoapAction_5040Parser = parser;
-		}
-		return calloutMediatorSoapAction_5040Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ProxyServiceNameEditPart.VISUAL_ID:
 			return getProxyServiceName_5003Parser();
-		case PropertyMediatorPropertyName3EditPart.VISUAL_ID:
-			return getPropertyMediatorPropertyName_5042Parser();
+		case PropertyMediatorPropertyNameEditPart.VISUAL_ID:
+			return getPropertyMediatorPropertyName_5127Parser();
 		case ThrottleMediatorGroupIdEditPart.VISUAL_ID:
-			return getThrottleMediatorGroupId_5044Parser();
+			return getThrottleMediatorGroupId_5128Parser();
 		case FilterMediatorConditionTypeEditPart.VISUAL_ID:
-			return getFilterMediatorConditionType_5046Parser();
+			return getFilterMediatorConditionType_5129Parser();
 		case LogMediatorLogCategoryEditPart.VISUAL_ID:
-			return getLogMediatorLogCategory_5047Parser();
+			return getLogMediatorLogCategory_5130Parser();
 		case EnrichMediatorSourceTypeEditPart.VISUAL_ID:
-			return getEnrichMediatorSourceType_5104Parser();
+			return getEnrichMediatorSourceType_5131Parser();
 		case SequenceNameEditPart.VISUAL_ID:
-			return getSequenceName_5049Parser();
+			return getSequenceName_5132Parser();
 		case EventMediatorTopicTypeEditPart.VISUAL_ID:
-			return getEventMediatorTopicType_5050Parser();
+			return getEventMediatorTopicType_5133Parser();
 		case EntitlementMediatorServerURLEditPart.VISUAL_ID:
-			return getEntitlementMediatorServerURL_5051Parser();
+			return getEntitlementMediatorServerURL_5134Parser();
 		case ClassMediatorClassNameEditPart.VISUAL_ID:
-			return getClassMediatorClassName_5052Parser();
+			return getClassMediatorClassName_5135Parser();
 		case SpringMediatorBeanNameEditPart.VISUAL_ID:
-			return getSpringMediatorBeanName_5053Parser();
+			return getSpringMediatorBeanName_5136Parser();
 		case ScriptMediatorScriptLanguageEditPart.VISUAL_ID:
-			return getScriptMediatorScriptLanguage_5054Parser();
+			return getScriptMediatorScriptLanguage_5137Parser();
 		case FaultMediatorFaultStringTypeEditPart.VISUAL_ID:
-			return getFaultMediatorFaultStringType_5055Parser();
+			return getFaultMediatorFaultStringType_5138Parser();
 		case XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID:
-			return getXQueryMediatorScriptKeyType_5056Parser();
+			return getXQueryMediatorScriptKeyType_5139Parser();
 		case CommandMediatorClassNameEditPart.VISUAL_ID:
-			return getCommandMediatorClassName_5057Parser();
+			return getCommandMediatorClassName_5140Parser();
 		case DBLookupMediatorConnectionURLEditPart.VISUAL_ID:
-			return getDBLookupMediatorConnectionURL_5058Parser();
+			return getDBLookupMediatorConnectionURL_5141Parser();
 		case DBReportMediatorConnectionURLEditPart.VISUAL_ID:
-			return getDBReportMediatorConnectionURL_5059Parser();
+			return getDBReportMediatorConnectionURL_5142Parser();
 		case HeaderMediatorValueLiteralEditPart.VISUAL_ID:
-			return getHeaderMediatorValueLiteral_5060Parser();
+			return getHeaderMediatorValueLiteral_5143Parser();
 		case CloneMediatorCloneIDEditPart.VISUAL_ID:
-			return getCloneMediatorCloneID_5061Parser();
+			return getCloneMediatorCloneID_5144Parser();
 		case CacheMediatorCacheIdEditPart.VISUAL_ID:
-			return getCacheMediatorCacheId_5062Parser();
+			return getCacheMediatorCacheId_5145Parser();
 		case IterateMediatorIterateIDEditPart.VISUAL_ID:
-			return getIterateMediatorIterateID_5063Parser();
+			return getIterateMediatorIterateID_5146Parser();
 		case CalloutMediatorSoapActionEditPart.VISUAL_ID:
-			return getCalloutMediatorSoapAction_5064Parser();
+			return getCalloutMediatorSoapAction_5147Parser();
 		case OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID:
-			return getOAuthMediatorRemoteServiceUrl_5065Parser();
+			return getOAuthMediatorRemoteServiceUrl_5148Parser();
 		case AggregateMediatorAggregateIDEditPart.VISUAL_ID:
-			return getAggregateMediatorAggregateID_5066Parser();
-		case LogMediatorLogCategory2EditPart.VISUAL_ID:
-			return getLogMediatorLogCategory_5030Parser();
-		case FilterMediatorConditionType2EditPart.VISUAL_ID:
-			return getFilterMediatorConditionType_5031Parser();
-		case PropertyMediatorPropertyName2EditPart.VISUAL_ID:
-			return getPropertyMediatorPropertyName_5032Parser();
-		case EnrichMediatorSourceType2EditPart.VISUAL_ID:
-			return getEnrichMediatorSourceType_5033Parser();
-		case FaultMediatorFaultStringType2EditPart.VISUAL_ID:
-			return getFaultMediatorFaultStringType_5034Parser();
-		case DBLookupMediatorConnectionURL2EditPart.VISUAL_ID:
-			return getDBLookupMediatorConnectionURL_5035Parser();
-		case DBReportMediatorConnectionURL2EditPart.VISUAL_ID:
-			return getDBReportMediatorConnectionURL_5036Parser();
-		case HeaderMediatorValueLiteral2EditPart.VISUAL_ID:
-			return getHeaderMediatorValueLiteral_5037Parser();
-		case CloneMediatorCloneID2EditPart.VISUAL_ID:
-			return getCloneMediatorCloneID_5038Parser();
-		case IterateMediatorIterateID2EditPart.VISUAL_ID:
-			return getIterateMediatorIterateID_5039Parser();
-		case CalloutMediatorSoapAction2EditPart.VISUAL_ID:
-			return getCalloutMediatorSoapAction_5040Parser();
-		case PropertyMediatorPropertyName4EditPart.VISUAL_ID:
-			return getPropertyMediatorPropertyName_5043Parser();
-		case ThrottleMediatorGroupId2EditPart.VISUAL_ID:
-			return getThrottleMediatorGroupId_5045Parser();
-		case FilterMediatorConditionType3EditPart.VISUAL_ID:
-			return getFilterMediatorConditionType_5067Parser();
-		case LogMediatorLogCategory3EditPart.VISUAL_ID:
-			return getLogMediatorLogCategory_5068Parser();
-		case EnrichMediatorSourceType3EditPart.VISUAL_ID:
-			return getEnrichMediatorSourceType_5069Parser();
-		case SequenceName2EditPart.VISUAL_ID:
-			return getSequenceName_5070Parser();
-		case EventMediatorTopicType2EditPart.VISUAL_ID:
-			return getEventMediatorTopicType_5071Parser();
-		case EntitlementMediatorServerURL2EditPart.VISUAL_ID:
-			return getEntitlementMediatorServerURL_5072Parser();
-		case ClassMediatorClassName2EditPart.VISUAL_ID:
-			return getClassMediatorClassName_5073Parser();
-		case SpringMediatorBeanName2EditPart.VISUAL_ID:
-			return getSpringMediatorBeanName_5074Parser();
-		case ScriptMediatorScriptLanguage2EditPart.VISUAL_ID:
-			return getScriptMediatorScriptLanguage_5075Parser();
-		case FaultMediatorFaultStringType3EditPart.VISUAL_ID:
-			return getFaultMediatorFaultStringType_5076Parser();
-		case XQueryMediatorScriptKeyType2EditPart.VISUAL_ID:
-			return getXQueryMediatorScriptKeyType_5077Parser();
-		case CommandMediatorClassName2EditPart.VISUAL_ID:
-			return getCommandMediatorClassName_5078Parser();
-		case DBLookupMediatorConnectionURL3EditPart.VISUAL_ID:
-			return getDBLookupMediatorConnectionURL_5079Parser();
-		case DBReportMediatorConnectionURL3EditPart.VISUAL_ID:
-			return getDBReportMediatorConnectionURL_5080Parser();
-		case HeaderMediatorValueLiteral3EditPart.VISUAL_ID:
-			return getHeaderMediatorValueLiteral_5081Parser();
-		case CloneMediatorCloneID3EditPart.VISUAL_ID:
-			return getCloneMediatorCloneID_5082Parser();
-		case CacheMediatorCacheId2EditPart.VISUAL_ID:
-			return getCacheMediatorCacheId_5083Parser();
-		case IterateMediatorIterateID3EditPart.VISUAL_ID:
-			return getIterateMediatorIterateID_5084Parser();
-		case CalloutMediatorSoapAction3EditPart.VISUAL_ID:
-			return getCalloutMediatorSoapAction_5085Parser();
-		case OAuthMediatorRemoteServiceUrl2EditPart.VISUAL_ID:
-			return getOAuthMediatorRemoteServiceUrl_5086Parser();
-		case AggregateMediatorAggregateID2EditPart.VISUAL_ID:
-			return getAggregateMediatorAggregateID_5098Parser();
-		case LogMediatorLogCategory4EditPart.VISUAL_ID:
-			return getLogMediatorLogCategory_5087Parser();
-		case FilterMediatorConditionType4EditPart.VISUAL_ID:
-			return getFilterMediatorConditionType_5088Parser();
-		case PropertyMediatorPropertyName5EditPart.VISUAL_ID:
-			return getPropertyMediatorPropertyName_5089Parser();
-		case EnrichMediatorSourceType4EditPart.VISUAL_ID:
-			return getEnrichMediatorSourceType_5090Parser();
-		case FaultMediatorFaultStringType4EditPart.VISUAL_ID:
-			return getFaultMediatorFaultStringType_5091Parser();
-		case DBLookupMediatorConnectionURL4EditPart.VISUAL_ID:
-			return getDBLookupMediatorConnectionURL_5092Parser();
-		case DBReportMediatorConnectionURL4EditPart.VISUAL_ID:
-			return getDBReportMediatorConnectionURL_5093Parser();
-		case HeaderMediatorValueLiteral4EditPart.VISUAL_ID:
-			return getHeaderMediatorValueLiteral_5094Parser();
-		case CloneMediatorCloneID4EditPart.VISUAL_ID:
-			return getCloneMediatorCloneID_5095Parser();
-		case IterateMediatorIterateID4EditPart.VISUAL_ID:
-			return getIterateMediatorIterateID_5096Parser();
-		case CalloutMediatorSoapAction4EditPart.VISUAL_ID:
-			return getCalloutMediatorSoapAction_5097Parser();
+			return getAggregateMediatorAggregateID_5149Parser();
 		case DefaultEndPointEndPointName2EditPart.VISUAL_ID:
 			return getDefaultEndPointEndPointName_5099Parser();
 		case AddressEndPointEndPointName2EditPart.VISUAL_ID:
@@ -1999,50 +636,6 @@ public class EsbParserProvider extends AbstractProvider implements
 			return getWSDLEndPointEndPointName_5102Parser();
 		case LoadBalanceEndPointEndPointName2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPointEndPointName_5103Parser();
-		case PropertyMediatorPropertyNameEditPart.VISUAL_ID:
-			return getPropertyMediatorPropertyName_5105Parser();
-		case ThrottleMediatorGroupId3EditPart.VISUAL_ID:
-			return getThrottleMediatorGroupId_5106Parser();
-		case FilterMediatorConditionType5EditPart.VISUAL_ID:
-			return getFilterMediatorConditionType_5107Parser();
-		case LogMediatorLogCategory5EditPart.VISUAL_ID:
-			return getLogMediatorLogCategory_5108Parser();
-		case EnrichMediatorSourceType5EditPart.VISUAL_ID:
-			return getEnrichMediatorSourceType_5109Parser();
-		case SequenceName3EditPart.VISUAL_ID:
-			return getSequenceName_5110Parser();
-		case EventMediatorTopicType3EditPart.VISUAL_ID:
-			return getEventMediatorTopicType_5111Parser();
-		case EntitlementMediatorServerURL3EditPart.VISUAL_ID:
-			return getEntitlementMediatorServerURL_5112Parser();
-		case ClassMediatorClassName3EditPart.VISUAL_ID:
-			return getClassMediatorClassName_5113Parser();
-		case SpringMediatorBeanName3EditPart.VISUAL_ID:
-			return getSpringMediatorBeanName_5114Parser();
-		case ScriptMediatorScriptLanguage3EditPart.VISUAL_ID:
-			return getScriptMediatorScriptLanguage_5115Parser();
-		case FaultMediatorFaultStringType5EditPart.VISUAL_ID:
-			return getFaultMediatorFaultStringType_5116Parser();
-		case XQueryMediatorScriptKeyType3EditPart.VISUAL_ID:
-			return getXQueryMediatorScriptKeyType_5117Parser();
-		case CommandMediatorClassName3EditPart.VISUAL_ID:
-			return getCommandMediatorClassName_5118Parser();
-		case DBLookupMediatorConnectionURL5EditPart.VISUAL_ID:
-			return getDBLookupMediatorConnectionURL_5119Parser();
-		case DBReportMediatorConnectionURL5EditPart.VISUAL_ID:
-			return getDBReportMediatorConnectionURL_5120Parser();
-		case HeaderMediatorValueLiteral5EditPart.VISUAL_ID:
-			return getHeaderMediatorValueLiteral_5121Parser();
-		case CloneMediatorCloneID5EditPart.VISUAL_ID:
-			return getCloneMediatorCloneID_5122Parser();
-		case CacheMediatorCacheId3EditPart.VISUAL_ID:
-			return getCacheMediatorCacheId_5123Parser();
-		case IterateMediatorIterateID5EditPart.VISUAL_ID:
-			return getIterateMediatorIterateID_5124Parser();
-		case CalloutMediatorSoapAction5EditPart.VISUAL_ID:
-			return getCalloutMediatorSoapAction_5125Parser();
-		case OAuthMediatorRemoteServiceUrl3EditPart.VISUAL_ID:
-			return getOAuthMediatorRemoteServiceUrl_5126Parser();
 		}
 		return null;
 	}

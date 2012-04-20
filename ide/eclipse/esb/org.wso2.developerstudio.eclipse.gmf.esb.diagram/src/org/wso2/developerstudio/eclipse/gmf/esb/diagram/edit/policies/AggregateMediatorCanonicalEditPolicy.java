@@ -26,6 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -64,6 +65,8 @@ public class AggregateMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getAggregateMediator_OutputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getAggregateMediator_OnCompleteOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getAggregateMediator_MediatorFlow());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -76,7 +79,7 @@ public class AggregateMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getAggregateMediator_3236SemanticChildren(viewObject);
+				.getAggregateMediator_3525SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -97,9 +100,14 @@ public class AggregateMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == AggregateMediatorInputConnectorEditPart.VISUAL_ID
-				|| visualID == AggregateMediatorOutputConnectorEditPart.VISUAL_ID
-				|| visualID == AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case AggregateMediatorInputConnectorEditPart.VISUAL_ID:
+		case AggregateMediatorOutputConnectorEditPart.VISUAL_ID:
+		case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID:
+		case MediatorFlow3EditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -111,7 +119,7 @@ public class AggregateMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getAggregateMediator_3236SemanticChildren((View) getHost()
+				.getAggregateMediator_3525SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

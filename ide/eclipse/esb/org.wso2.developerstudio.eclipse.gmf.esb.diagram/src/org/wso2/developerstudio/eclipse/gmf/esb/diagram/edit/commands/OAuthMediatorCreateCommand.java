@@ -12,9 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 
 /**
  * @generated
@@ -56,7 +55,7 @@ public class OAuthMediatorCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		OAuthMediator newElement = EsbFactory.eINSTANCE.createOAuthMediator();
 
-		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

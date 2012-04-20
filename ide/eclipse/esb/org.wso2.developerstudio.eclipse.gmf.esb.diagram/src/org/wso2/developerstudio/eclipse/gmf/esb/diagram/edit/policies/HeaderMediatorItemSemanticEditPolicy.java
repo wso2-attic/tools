@@ -31,7 +31,7 @@ public class HeaderMediatorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public HeaderMediatorItemSemanticEditPolicy() {
-		super(EsbElementTypes.HeaderMediator_3227);
+		super(EsbElementTypes.HeaderMediator_3516);
 	}
 
 	/**

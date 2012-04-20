@@ -5,19 +5,13 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.GridData;
-import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.draw2d.RoundedRectangle;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.ocl.ecore.IfExp;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.IWorkbenchPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
@@ -25,13 +19,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConn
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart.EastPointerFigure;
 
 public class DirectionEsbNodeAction  extends AbstractActionHandler {
 

@@ -25,7 +25,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseBranchOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultBranchOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -64,6 +66,10 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getSwitchMediator_CaseBranches());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getSwitchMediator_DefaultBranch());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getSwitchMediator_OutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getSwitchMediator_SwitchContainer());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -76,7 +82,7 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getSwitchMediator_3213SemanticChildren(viewObject);
+				.getSwitchMediator_3498SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -97,9 +103,15 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == SwitchMediatorInputConnectorEditPart.VISUAL_ID
-				|| visualID == SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID
-				|| visualID == SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SwitchMediatorContainerEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -111,7 +123,7 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getSwitchMediator_3213SemanticChildren((View) getHost()
+				.getSwitchMediator_3498SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

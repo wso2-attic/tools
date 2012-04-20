@@ -216,6 +216,9 @@ public class ScriptMediatorOutputConnectorEditPart extends
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof ProxyFaultInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof DropMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -309,207 +312,6 @@ public class ScriptMediatorOutputConnectorEditPart extends
 		if (targetEditPart instanceof AggregateMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
-		if (targetEditPart instanceof LogMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DropMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FilterMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof PropertyMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof EnrichMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof XSLTMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SwitchMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FaultMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBLookupMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBReportMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SendMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof HeaderMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CloneMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof IterateMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CalloutMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof TransactionMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof RMSequenceMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SequenceInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DropMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof PropertyMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof ThrottleMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FilterMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof LogMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof EnrichMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof XSLTMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SwitchMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SequenceInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof EventMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof EntitlementMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof ClassMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SpringMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof ScriptMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FaultMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof XQueryMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CommandMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBLookupMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBReportMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SmooksMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SendMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof HeaderMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CloneMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CacheMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof IterateMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CalloutMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof TransactionMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof RMSequenceMediatorInputConnector3EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof RuleMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof OAuthMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof AggregateMediatorInputConnector2EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof LogMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DropMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FilterMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof PropertyMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof EnrichMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof XSLTMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SwitchMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FaultMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBLookupMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof DBReportMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SendMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof HeaderMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CloneMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof IterateMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof CalloutMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof TransactionMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof RMSequenceMediatorInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof SequenceInputConnector4EditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
 		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -544,6 +346,7 @@ public class ScriptMediatorOutputConnectorEditPart extends
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == EsbElementTypes.EsbLink_4001) {
 			types.add(EsbElementTypes.ProxyInputConnector_3003);
+			types.add(EsbElementTypes.ProxyFaultInputConnector_3489);
 			types.add(EsbElementTypes.DropMediatorInputConnector_3008);
 			types.add(EsbElementTypes.PropertyMediatorInputConnector_3033);
 			types.add(EsbElementTypes.ThrottleMediatorInputConnector_3121);
@@ -575,73 +378,6 @@ public class ScriptMediatorOutputConnectorEditPart extends
 			types.add(EsbElementTypes.RuleMediatorInputConnector_3127);
 			types.add(EsbElementTypes.OAuthMediatorInputConnector_3130);
 			types.add(EsbElementTypes.AggregateMediatorInputConnector_3112);
-			types.add(EsbElementTypes.LogMediatorInputConnector_3135);
-			types.add(EsbElementTypes.DropMediatorInputConnector_3138);
-			types.add(EsbElementTypes.FilterMediatorInputConnector_3140);
-			types.add(EsbElementTypes.PropertyMediatorInputConnector_3144);
-			types.add(EsbElementTypes.EnrichMediatorInputConnector_3147);
-			types.add(EsbElementTypes.XSLTMediatorInputConnector_3150);
-			types.add(EsbElementTypes.SwitchMediatorInputConnector_3153);
-			types.add(EsbElementTypes.FaultMediatorInputConnector_3157);
-			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3160);
-			types.add(EsbElementTypes.DBReportMediatorInputConnector_3163);
-			types.add(EsbElementTypes.SendMediatorInputConnector_3166);
-			types.add(EsbElementTypes.HeaderMediatorInputConnector_3169);
-			types.add(EsbElementTypes.CloneMediatorInputConnector_3172);
-			types.add(EsbElementTypes.IterateMediatorInputConnector_3176);
-			types.add(EsbElementTypes.CalloutMediatorInputConnector_3181);
-			types.add(EsbElementTypes.TransactionMediatorInputConnector_3183);
-			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3185);
-			types.add(EsbElementTypes.SequenceInputConnector_3188);
-			types.add(EsbElementTypes.DropMediatorInputConnector_3192);
-			types.add(EsbElementTypes.PropertyMediatorInputConnector_3201);
-			types.add(EsbElementTypes.ThrottleMediatorInputConnector_3207);
-			types.add(EsbElementTypes.FilterMediatorInputConnector_3238);
-			types.add(EsbElementTypes.LogMediatorInputConnector_3242);
-			types.add(EsbElementTypes.EnrichMediatorInputConnector_3245);
-			types.add(EsbElementTypes.XSLTMediatorInputConnector_3248);
-			types.add(EsbElementTypes.SwitchMediatorInputConnector_3251);
-			types.add(EsbElementTypes.SequenceInputConnector_3255);
-			types.add(EsbElementTypes.EventMediatorInputConnector_3258);
-			types.add(EsbElementTypes.EntitlementMediatorInputConnector_3261);
-			types.add(EsbElementTypes.ClassMediatorInputConnector_3264);
-			types.add(EsbElementTypes.SpringMediatorInputConnector_3267);
-			types.add(EsbElementTypes.ScriptMediatorInputConnector_3270);
-			types.add(EsbElementTypes.FaultMediatorInputConnector_3273);
-			types.add(EsbElementTypes.XQueryMediatorInputConnector_3276);
-			types.add(EsbElementTypes.CommandMediatorInputConnector_3279);
-			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3282);
-			types.add(EsbElementTypes.DBReportMediatorInputConnector_3285);
-			types.add(EsbElementTypes.SmooksMediatorInputConnector_3288);
-			types.add(EsbElementTypes.SendMediatorInputConnector_3291);
-			types.add(EsbElementTypes.HeaderMediatorInputConnector_3294);
-			types.add(EsbElementTypes.CloneMediatorInputConnector_3297);
-			types.add(EsbElementTypes.CacheMediatorInputConnector_3301);
-			types.add(EsbElementTypes.IterateMediatorInputConnector_3304);
-			types.add(EsbElementTypes.CalloutMediatorInputConnector_3307);
-			types.add(EsbElementTypes.TransactionMediatorInputConnector_3310);
-			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3313);
-			types.add(EsbElementTypes.RuleMediatorInputConnector_3316);
-			types.add(EsbElementTypes.OAuthMediatorInputConnector_3319);
-			types.add(EsbElementTypes.AggregateMediatorInputConnector_3322);
-			types.add(EsbElementTypes.LogMediatorInputConnector_3326);
-			types.add(EsbElementTypes.DropMediatorInputConnector_3195);
-			types.add(EsbElementTypes.FilterMediatorInputConnector_3330);
-			types.add(EsbElementTypes.PropertyMediatorInputConnector_3203);
-			types.add(EsbElementTypes.EnrichMediatorInputConnector_3388);
-			types.add(EsbElementTypes.XSLTMediatorInputConnector_3338);
-			types.add(EsbElementTypes.SwitchMediatorInputConnector_3341);
-			types.add(EsbElementTypes.FaultMediatorInputConnector_3345);
-			types.add(EsbElementTypes.DBLookupMediatorInputConnector_3348);
-			types.add(EsbElementTypes.DBReportMediatorInputConnector_3351);
-			types.add(EsbElementTypes.SendMediatorInputConnector_3354);
-			types.add(EsbElementTypes.HeaderMediatorInputConnector_3357);
-			types.add(EsbElementTypes.CloneMediatorInputConnector_3360);
-			types.add(EsbElementTypes.IterateMediatorInputConnector_3364);
-			types.add(EsbElementTypes.CalloutMediatorInputConnector_3367);
-			types.add(EsbElementTypes.TransactionMediatorInputConnector_3370);
-			types.add(EsbElementTypes.RMSequenceMediatorInputConnector_3373);
-			types.add(EsbElementTypes.SequenceInputConnector_3376);
 			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
