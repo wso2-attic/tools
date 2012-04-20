@@ -146,6 +146,8 @@ public class JaxwsClassWizard extends Wizard implements INewWizard {
         }
         if (obj instanceof IResource) {
             return ((IResource) obj).getProject();
+        } else if (obj instanceof IJavaElement) { 
+        	return ((IJavaElement) obj).getJavaProject().getProject();
         } else if (obj instanceof IStructuredSelection) {
             return getProject(((IStructuredSelection) obj).getFirstElement());
         }
