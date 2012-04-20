@@ -120,12 +120,11 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		
-		for(Plugin plg:plugins){
-			if(plg.getId().equals("wso2-esb-sequence-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-esb-sequence-plugin",
+				MavenConstants.WSO2_ESB_SEQUENCE_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-sequence-plugin", MavenConstants.WSO2_ESB_SEQUENCE_VERSION, true);

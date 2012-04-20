@@ -169,13 +169,12 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	public void updatePom() throws Exception{
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
 		
-		for(Plugin plg:plugins){
-			if(plg.getId().equals("wso2-esb-proxy-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-esb-proxy-plugin",
+				MavenConstants.WSO2_ESB_PROXY_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION, true);

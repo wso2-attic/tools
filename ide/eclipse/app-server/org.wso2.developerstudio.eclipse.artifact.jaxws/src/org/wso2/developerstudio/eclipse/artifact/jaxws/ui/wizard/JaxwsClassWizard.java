@@ -124,9 +124,9 @@ public class JaxwsClassWizard extends Wizard implements INewWizard {
 			}
 
 		} catch (CoreException e) {
-			log.error("", e);
+			log.error("CoreException has occurred", e);
 		} catch (InterruptedException e) {
-			log.error("", e);
+			log.error("An InterruptedException has occurred", e);
 		}
 		return true;
 	}

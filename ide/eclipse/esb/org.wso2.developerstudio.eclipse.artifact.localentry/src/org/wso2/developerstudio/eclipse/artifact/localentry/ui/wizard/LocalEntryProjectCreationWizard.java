@@ -36,11 +36,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.localentry.Activator;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryImageUtils;
@@ -48,11 +50,15 @@ import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryTemp
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private LocalEntryModel localEntryModel;
 	private IFile localEntryFile;
@@ -70,7 +76,6 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	
 	
 	public IResource getCreatedResource() {
-		// TODO Auto-generated method stub
 		return localEntryFile;
 	}
 	
@@ -89,6 +94,12 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			                                           File.separator +
 			                                           "local-entries");
 			
+			updatePom();
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			File pomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+			String groupId = getMavenGroupId(pomLocation);
+			groupId += ".local-entry";
+			
 			//Adding the metadata about the localentry to the metadata store.
 			esbProjectArtifact=new ESBProjectArtifact();
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
@@ -101,7 +112,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 					}
 					isNewArtifact = false;
 				} 	
-				copyImportFile(location,isNewArtifact);
+				copyImportFile(location,isNewArtifact,groupId);
 				
 			} else {
 				File localEntryFile = new File(location.getLocation().toFile(),leModel.getLocalENtryName() + ".xml");
@@ -112,6 +123,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				artifact.setVersion("1.0.0");
 				artifact.setType("synapse/local-entry");
 				artifact.setServerRole("EnterpriseServiceBus");
+				artifact.setGroupId(groupId);
 				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),localEntryModel.getLocalENtryName()+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
 			}
@@ -120,11 +132,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			if(!pomfile.exists()){
 				createPOM(pomfile);
 			}
-//			ProjectUtils.addNatureToProject(esbProject,
-//											false,
-//			                                LocalEntryArtifactConstants.ESB_PROJECT_NATURE,
-//			                                "org.wso2.developerstudio.eclipse.localentry.project.nature" );
-			updatePom();
+
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			esbProjectArtifact.toFile();
@@ -133,10 +141,10 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				openEditor(fileLst.get(0));
 			}
 			
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (CoreException e) {
+			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 		return true;
 	}
@@ -145,12 +153,11 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		
-		for(Plugin plg:plugins){
-			if(plg.getId().equals("wso2-esb-localentry-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-esb-localentry-plugin",
+				MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION, true);
@@ -225,11 +232,11 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			FileUtils.writeContent(localEntryFile, content);
 			fileLst.add(localEntryFile);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("I/O Error has occurred", e);
 		}
 	}
 	
-	public void copyImportFile(IContainer importLocation,boolean isNewArtifact) throws IOException {
+	public void copyImportFile(IContainer importLocation,boolean isNewArtifact,String groupId) throws IOException {
 		File importFile = getModel().getImportFile();
 		List<OMElement> selectedLEList = leModel.getSelectedLEList();
 		File destFile = null;
@@ -245,6 +252,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				artifact.setVersion("1.0.0");
 				artifact.setType("synapse/local-entry");
 				artifact.setServerRole("EnterpriseServiceBus");
+				artifact.setGroupId(groupId);
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),key+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
 				}
@@ -261,6 +269,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 			artifact.setVersion("1.0.0");
 			artifact.setType("synapse/local-entry");
 			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setFile(groupId);
 			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),key+".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
 			}
