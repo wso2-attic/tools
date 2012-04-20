@@ -428,10 +428,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServicePolicy/policyKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceInSequence">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceInSequence/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceInSequence/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceOutSequence">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceOutSequence/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceOutSequence/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceSequenceContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceContainer/inSequence"/>
@@ -445,11 +445,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/endpointContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceFaultContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceFaultContainer/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceFaultContainer/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceContainer/sequenceAndEndpointContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceContainer/faultContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//MediatorFlow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MediatorFlow/children"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//AbstractEndPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/reliableMessagingEnabled"/>
@@ -608,12 +611,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediator/caseBranches"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediator/defaultBranch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediator/switchContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SwitchCaseBranchOutputConnector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SwitchCaseBranchOutputConnector/caseRegex"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SwitchDefaultBranchOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SwitchMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//SwitchMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//SwitchMediatorContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchCaseContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchDefaultContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SwitchCaseContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchCaseContainer/mediatorFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SwitchDefaultContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchDefaultContainer/mediatorFlow"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequenceDiagram">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SequenceDiagram/sequence"/>
     </genClasses>
@@ -741,7 +757,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/onCompleteOutputConnector"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorOutputConnector"/>

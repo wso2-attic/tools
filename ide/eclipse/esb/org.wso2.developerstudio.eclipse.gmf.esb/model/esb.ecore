@@ -108,12 +108,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceInSequence" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//EsbElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceOutSequence" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//EsbElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inSequence" eType="#//ProxyServiceInSequence"
@@ -133,14 +133,18 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceFaultContainer" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//EsbElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceAndEndpointContainer"
         eType="#//ProxyServiceSequenceAndEndpointContainer" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faultContainer" eType="#//ProxyServiceFaultContainer"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MediatorFlow" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractEndPoint" abstract="true" eSuperTypes="#//EndPoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reliableMessagingEnabled"
@@ -478,6 +482,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//SwitchMediatorInputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//SwitchMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchContainer" eType="#//SwitchMediatorContainer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchCaseBranchOutputConnector" eSuperTypes="#//OutputConnector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -486,6 +494,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="SwitchDefaultBranchOutputConnector"
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchCaseContainer" lowerBound="1"
+        upperBound="-1" eType="#//SwitchCaseContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchDefaultContainer"
+        eType="#//SwitchDefaultContainer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchCaseContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchDefaultContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequenceDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" eType="#//EsbSequence"
         containment="true"/>
@@ -727,8 +750,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onCompleteOutputConnector"
         eType="#//AggregateMediatorOnCompleteOutputConnector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//EsbElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>

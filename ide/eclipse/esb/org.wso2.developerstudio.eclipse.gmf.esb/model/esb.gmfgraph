@@ -981,6 +981,72 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="SwitchMediatorOutputConnectorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SwitchMediatorOutputConnectorFigure"/>
+    </descriptors>
+    <descriptors
+        name="SwitchMediatorContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SwitchMediatorContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="SwitchCaseContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SwitchCaseContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="SwitchDefaultContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SwitchDefaultContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="MediatorFlowFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="MediatorFlowFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -1502,6 +1568,21 @@
   <nodes
       name="ProxyFaultInputConnector"
       figure="WestPointerFigure"/>
+  <nodes
+      name="SwitchMediatorOutputConnector"
+      figure="EastPointerFigure"/>
+  <nodes
+      name="SwitchMediatorContainer"
+      figure="SwitchMediatorContainerFigure"/>
+  <nodes
+      name="SwitchCaseContainer"
+      figure="SwitchCaseContainerFigure"/>
+  <nodes
+      name="SwitchDefaultContainer"
+      figure="SwitchDefaultContainerFigure"/>
+  <nodes
+      name="MediatorFlow"
+      figure="MediatorFlowFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -1537,6 +1618,15 @@
       collapsible="true"/>
   <compartments
       name="ProxyServiceFaultSequenceCompartment"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="SwitchMediatorCaseCompartment"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="SwitchMediatorDefaultCompartment"
+      figure="CompartmentFigure"/>
+  <compartments
+      name="MediatorFlowCompartment"
       figure="CompartmentFigure"/>
   <labels
       name="FailoverEndPointName"

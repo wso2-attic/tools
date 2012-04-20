@@ -255,6 +255,13 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.MEDIATOR_FLOW: {
+				MediatorFlow mediatorFlow = (MediatorFlow)theEObject;
+				T result = caseMediatorFlow(mediatorFlow);
+				if (result == null) result = caseEsbNode(mediatorFlow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.ABSTRACT_END_POINT: {
 				AbstractEndPoint abstractEndPoint = (AbstractEndPoint)theEObject;
 				T result = caseAbstractEndPoint(abstractEndPoint);
@@ -619,6 +626,35 @@ public class EsbSwitch<T> {
 				T result = caseSwitchMediatorInputConnector(switchMediatorInputConnector);
 				if (result == null) result = caseInputConnector(switchMediatorInputConnector);
 				if (result == null) result = caseEsbConnector(switchMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SWITCH_MEDIATOR_OUTPUT_CONNECTOR: {
+				SwitchMediatorOutputConnector switchMediatorOutputConnector = (SwitchMediatorOutputConnector)theEObject;
+				T result = caseSwitchMediatorOutputConnector(switchMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(switchMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(switchMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER: {
+				SwitchMediatorContainer switchMediatorContainer = (SwitchMediatorContainer)theEObject;
+				T result = caseSwitchMediatorContainer(switchMediatorContainer);
+				if (result == null) result = caseEsbNode(switchMediatorContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SWITCH_CASE_CONTAINER: {
+				SwitchCaseContainer switchCaseContainer = (SwitchCaseContainer)theEObject;
+				T result = caseSwitchCaseContainer(switchCaseContainer);
+				if (result == null) result = caseEsbNode(switchCaseContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SWITCH_DEFAULT_CONTAINER: {
+				SwitchDefaultContainer switchDefaultContainer = (SwitchDefaultContainer)theEObject;
+				T result = caseSwitchDefaultContainer(switchDefaultContainer);
+				if (result == null) result = caseEsbNode(switchDefaultContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2056,6 +2092,21 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mediator Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mediator Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMediatorFlow(MediatorFlow object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract End Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2727,6 +2778,66 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseSwitchMediatorInputConnector(SwitchMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchMediatorOutputConnector(SwitchMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Mediator Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchMediatorContainer(SwitchMediatorContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Case Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Case Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchCaseContainer(SwitchCaseContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Default Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Default Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchDefaultContainer(SwitchDefaultContainer object) {
 		return null;
 	}
 

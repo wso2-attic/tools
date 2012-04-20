@@ -157,6 +157,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeFirstInputConnector;
@@ -254,9 +255,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SqlResultMapping;
 import org.wso2.developerstudio.eclipse.gmf.esb.SqlStatement;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
@@ -475,6 +480,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass proxyServiceContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mediatorFlowEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -790,6 +802,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass switchMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchMediatorContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchCaseContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchDefaultContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2737,7 +2777,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyServiceInSequence_Children() {
+	public EReference getProxyServiceInSequence_MediatorFlow() {
 		return (EReference)proxyServiceInSequenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2755,7 +2795,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyServiceOutSequence_Children() {
+	public EReference getProxyServiceOutSequence_MediatorFlow() {
 		return (EReference)proxyServiceOutSequenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2845,7 +2885,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyServiceFaultContainer_Children() {
+	public EReference getProxyServiceFaultContainer_MediatorFlow() {
 		return (EReference)proxyServiceFaultContainerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2874,6 +2914,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getProxyServiceContainer_FaultContainer() {
 		return (EReference)proxyServiceContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMediatorFlow() {
+		return mediatorFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMediatorFlow_Children() {
+		return (EReference)mediatorFlowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4150,6 +4208,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSwitchMediator_OutputConnector() {
+		return (EReference)switchMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchMediator_SwitchContainer() {
+		return (EReference)switchMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSwitchCaseBranchOutputConnector() {
 		return switchCaseBranchOutputConnectorEClass;
 	}
@@ -4179,6 +4255,78 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getSwitchMediatorInputConnector() {
 		return switchMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchMediatorOutputConnector() {
+		return switchMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchMediatorContainer() {
+		return switchMediatorContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchMediatorContainer_SwitchCaseContainer() {
+		return (EReference)switchMediatorContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchMediatorContainer_SwitchDefaultContainer() {
+		return (EReference)switchMediatorContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchCaseContainer() {
+		return switchCaseContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchCaseContainer_MediatorFlow() {
+		return (EReference)switchCaseContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchDefaultContainer() {
+		return switchDefaultContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchDefaultContainer_MediatorFlow() {
+		return (EReference)switchDefaultContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5194,7 +5342,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_Children() {
+	public EReference getAggregateMediator_MediatorFlow() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -8966,10 +9114,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(proxyServicePolicyEClass, PROXY_SERVICE_POLICY__POLICY_KEY);
 
 		proxyServiceInSequenceEClass = createEClass(PROXY_SERVICE_IN_SEQUENCE);
-		createEReference(proxyServiceInSequenceEClass, PROXY_SERVICE_IN_SEQUENCE__CHILDREN);
+		createEReference(proxyServiceInSequenceEClass, PROXY_SERVICE_IN_SEQUENCE__MEDIATOR_FLOW);
 
 		proxyServiceOutSequenceEClass = createEClass(PROXY_SERVICE_OUT_SEQUENCE);
-		createEReference(proxyServiceOutSequenceEClass, PROXY_SERVICE_OUT_SEQUENCE__CHILDREN);
+		createEReference(proxyServiceOutSequenceEClass, PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW);
 
 		proxyServiceSequenceContainerEClass = createEClass(PROXY_SERVICE_SEQUENCE_CONTAINER);
 		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE);
@@ -8983,11 +9131,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(proxyServiceSequenceAndEndpointContainerEClass, PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__ENDPOINT_CONTAINER);
 
 		proxyServiceFaultContainerEClass = createEClass(PROXY_SERVICE_FAULT_CONTAINER);
-		createEReference(proxyServiceFaultContainerEClass, PROXY_SERVICE_FAULT_CONTAINER__CHILDREN);
+		createEReference(proxyServiceFaultContainerEClass, PROXY_SERVICE_FAULT_CONTAINER__MEDIATOR_FLOW);
 
 		proxyServiceContainerEClass = createEClass(PROXY_SERVICE_CONTAINER);
 		createEReference(proxyServiceContainerEClass, PROXY_SERVICE_CONTAINER__SEQUENCE_AND_ENDPOINT_CONTAINER);
 		createEReference(proxyServiceContainerEClass, PROXY_SERVICE_CONTAINER__FAULT_CONTAINER);
+
+		mediatorFlowEClass = createEClass(MEDIATOR_FLOW);
+		createEReference(mediatorFlowEClass, MEDIATOR_FLOW__CHILDREN);
 
 		abstractEndPointEClass = createEClass(ABSTRACT_END_POINT);
 		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED);
@@ -9171,6 +9322,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(switchMediatorEClass, SWITCH_MEDIATOR__CASE_BRANCHES);
 		createEReference(switchMediatorEClass, SWITCH_MEDIATOR__DEFAULT_BRANCH);
 		createEReference(switchMediatorEClass, SWITCH_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(switchMediatorEClass, SWITCH_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(switchMediatorEClass, SWITCH_MEDIATOR__SWITCH_CONTAINER);
 
 		switchCaseBranchOutputConnectorEClass = createEClass(SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR);
 		createEAttribute(switchCaseBranchOutputConnectorEClass, SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX);
@@ -9178,6 +9331,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		switchDefaultBranchOutputConnectorEClass = createEClass(SWITCH_DEFAULT_BRANCH_OUTPUT_CONNECTOR);
 
 		switchMediatorInputConnectorEClass = createEClass(SWITCH_MEDIATOR_INPUT_CONNECTOR);
+
+		switchMediatorOutputConnectorEClass = createEClass(SWITCH_MEDIATOR_OUTPUT_CONNECTOR);
+
+		switchMediatorContainerEClass = createEClass(SWITCH_MEDIATOR_CONTAINER);
+		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER);
+		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER);
+
+		switchCaseContainerEClass = createEClass(SWITCH_CASE_CONTAINER);
+		createEReference(switchCaseContainerEClass, SWITCH_CASE_CONTAINER__MEDIATOR_FLOW);
+
+		switchDefaultContainerEClass = createEClass(SWITCH_DEFAULT_CONTAINER);
+		createEReference(switchDefaultContainerEClass, SWITCH_DEFAULT_CONTAINER__MEDIATOR_FLOW);
 
 		sequenceDiagramEClass = createEClass(SEQUENCE_DIAGRAM);
 		createEReference(sequenceDiagramEClass, SEQUENCE_DIAGRAM__SEQUENCE);
@@ -9325,7 +9490,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR);
-		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__CHILDREN);
+		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__MEDIATOR_FLOW);
 
 		aggregateMediatorInputConnectorEClass = createEClass(AGGREGATE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -9890,6 +10055,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyServiceSequenceAndEndpointContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceFaultContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceContainerEClass.getESuperTypes().add(this.getEsbNode());
+		mediatorFlowEClass.getESuperTypes().add(this.getEsbNode());
 		abstractEndPointEClass.getESuperTypes().add(this.getEndPoint());
 		messageMediatorEClass.getESuperTypes().add(this.getEsbElement());
 		messageInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -9934,6 +10100,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		switchCaseBranchOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		switchDefaultBranchOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		switchMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		switchMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		switchMediatorContainerEClass.getESuperTypes().add(this.getEsbNode());
+		switchCaseContainerEClass.getESuperTypes().add(this.getEsbNode());
+		switchDefaultContainerEClass.getESuperTypes().add(this.getEsbNode());
 		esbSequenceEClass.getESuperTypes().add(this.getEsbNode());
 		esbSequenceInputEClass.getESuperTypes().add(this.getEsbNode());
 		esbSequenceOutputEClass.getESuperTypes().add(this.getEsbNode());
@@ -10120,10 +10290,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getProxyServicePolicy_PolicyKey(), this.getRegistryKeyProperty(), null, "policyKey", null, 0, 1, ProxyServicePolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceInSequenceEClass, ProxyServiceInSequence.class, "ProxyServiceInSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceInSequence_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceInSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceInSequence_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceInSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceOutSequenceEClass, ProxyServiceOutSequence.class, "ProxyServiceOutSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceOutSequence_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceOutSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceOutSequence_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceOutSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceSequenceContainerEClass, ProxyServiceSequenceContainer.class, "ProxyServiceSequenceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServiceSequenceContainer_InSequence(), this.getProxyServiceInSequence(), null, "inSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10137,11 +10307,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getProxyServiceSequenceAndEndpointContainer_EndpointContainer(), this.getProxyServiceEndpointContainer(), null, "endpointContainer", null, 0, 1, ProxyServiceSequenceAndEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceFaultContainerEClass, ProxyServiceFaultContainer.class, "ProxyServiceFaultContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceFaultContainer_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceFaultContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceFaultContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceFaultContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceContainerEClass, ProxyServiceContainer.class, "ProxyServiceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServiceContainer_SequenceAndEndpointContainer(), this.getProxyServiceSequenceAndEndpointContainer(), null, "sequenceAndEndpointContainer", null, 0, 1, ProxyServiceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyServiceContainer_FaultContainer(), this.getProxyServiceFaultContainer(), null, "faultContainer", null, 0, 1, ProxyServiceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mediatorFlowEClass, MediatorFlow.class, "MediatorFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMediatorFlow_Children(), this.getEsbElement(), null, "children", null, 0, -1, MediatorFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractEndPointEClass, AbstractEndPoint.class, "AbstractEndPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractEndPoint_ReliableMessagingEnabled(), ecorePackage.getEBoolean(), "reliableMessagingEnabled", "false", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10335,6 +10508,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSwitchMediator_CaseBranches(), this.getSwitchCaseBranchOutputConnector(), null, "caseBranches", null, 0, -1, SwitchMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwitchMediator_DefaultBranch(), this.getSwitchDefaultBranchOutputConnector(), null, "defaultBranch", null, 0, 1, SwitchMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwitchMediator_InputConnector(), this.getSwitchMediatorInputConnector(), null, "inputConnector", null, 0, 1, SwitchMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwitchMediator_OutputConnector(), this.getSwitchMediatorOutputConnector(), null, "outputConnector", null, 0, 1, SwitchMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwitchMediator_SwitchContainer(), this.getSwitchMediatorContainer(), null, "switchContainer", null, 0, 1, SwitchMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(switchCaseBranchOutputConnectorEClass, SwitchCaseBranchOutputConnector.class, "SwitchCaseBranchOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSwitchCaseBranchOutputConnector_CaseRegex(), ecorePackage.getEString(), "caseRegex", ".*+", 0, 1, SwitchCaseBranchOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10342,6 +10517,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(switchDefaultBranchOutputConnectorEClass, SwitchDefaultBranchOutputConnector.class, "SwitchDefaultBranchOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(switchMediatorInputConnectorEClass, SwitchMediatorInputConnector.class, "SwitchMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(switchMediatorOutputConnectorEClass, SwitchMediatorOutputConnector.class, "SwitchMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(switchMediatorContainerEClass, SwitchMediatorContainer.class, "SwitchMediatorContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchMediatorContainer_SwitchCaseContainer(), this.getSwitchCaseContainer(), null, "switchCaseContainer", null, 1, -1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwitchMediatorContainer_SwitchDefaultContainer(), this.getSwitchDefaultContainer(), null, "switchDefaultContainer", null, 0, 1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(switchCaseContainerEClass, SwitchCaseContainer.class, "SwitchCaseContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchCaseContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, SwitchCaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(switchDefaultContainerEClass, SwitchDefaultContainer.class, "SwitchDefaultContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchDefaultContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, SwitchDefaultContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceDiagramEClass, SequenceDiagram.class, "SequenceDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequenceDiagram_Sequence(), this.getEsbSequence(), null, "sequence", null, 0, 1, SequenceDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10489,7 +10676,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getAggregateMediator_InputConnector(), this.getAggregateMediatorInputConnector(), null, "inputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OutputConnector(), this.getAggregateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OnCompleteOutputConnector(), this.getAggregateMediatorOnCompleteOutputConnector(), null, "onCompleteOutputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregateMediator_Children(), this.getEsbElement(), null, "children", null, 0, -1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregateMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(aggregateMediatorInputConnectorEClass, AggregateMediatorInputConnector.class, "AggregateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

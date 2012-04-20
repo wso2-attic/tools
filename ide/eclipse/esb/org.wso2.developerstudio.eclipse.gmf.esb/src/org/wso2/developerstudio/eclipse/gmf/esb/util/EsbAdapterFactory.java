@@ -169,6 +169,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createProxyServiceContainerAdapter();
 			}
 			@Override
+			public Adapter caseMediatorFlow(MediatorFlow object) {
+				return createMediatorFlowAdapter();
+			}
+			@Override
 			public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
 				return createAbstractEndPointAdapter();
 			}
@@ -347,6 +351,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSwitchMediatorInputConnector(SwitchMediatorInputConnector object) {
 				return createSwitchMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseSwitchMediatorOutputConnector(SwitchMediatorOutputConnector object) {
+				return createSwitchMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseSwitchMediatorContainer(SwitchMediatorContainer object) {
+				return createSwitchMediatorContainerAdapter();
+			}
+			@Override
+			public Adapter caseSwitchCaseContainer(SwitchCaseContainer object) {
+				return createSwitchCaseContainerAdapter();
+			}
+			@Override
+			public Adapter caseSwitchDefaultContainer(SwitchDefaultContainer object) {
+				return createSwitchDefaultContainerAdapter();
 			}
 			@Override
 			public Adapter caseSequenceDiagram(SequenceDiagram object) {
@@ -1254,6 +1274,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow <em>Mediator Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow
+	 * @generated
+	 */
+	public Adapter createMediatorFlowAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint <em>Abstract End Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1880,6 +1914,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSwitchMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector <em>Switch Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createSwitchMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer <em>Switch Mediator Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer
+	 * @generated
+	 */
+	public Adapter createSwitchMediatorContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer <em>Switch Case Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer
+	 * @generated
+	 */
+	public Adapter createSwitchCaseContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer <em>Switch Default Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer
+	 * @generated
+	 */
+	public Adapter createSwitchDefaultContainerAdapter() {
 		return null;
 	}
 

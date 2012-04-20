@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -270,19 +270,29 @@ public interface AggregateMediator extends Mediator {
 	void setOnCompleteOutputConnector(AggregateMediatorOnCompleteOutputConnector value);
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.EsbElement}.
+	 * Returns the value of the '<em><b>Mediator Flow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Mediator Flow</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' containment reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_Children()
+	 * @return the value of the '<em>Mediator Flow</em>' containment reference.
+	 * @see #setMediatorFlow(MediatorFlow)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_MediatorFlow()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<EsbElement> getChildren();
+	MediatorFlow getMediatorFlow();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getMediatorFlow <em>Mediator Flow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mediator Flow</em>' containment reference.
+	 * @see #getMediatorFlow()
+	 * @generated
+	 */
+	void setMediatorFlow(MediatorFlow value);
 
 } // AggregateMediator

@@ -170,6 +170,15 @@ public interface EsbFactory extends EFactory {
 	ProxyServiceContainer createProxyServiceContainer();
 
 	/**
+	 * Returns a new object of class '<em>Mediator Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mediator Flow</em>'.
+	 * @generated
+	 */
+	MediatorFlow createMediatorFlow();
+
+	/**
 	 * Returns a new object of class '<em>Message Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +560,42 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	SwitchMediatorInputConnector createSwitchMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Switch Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	SwitchMediatorOutputConnector createSwitchMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Switch Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Mediator Container</em>'.
+	 * @generated
+	 */
+	SwitchMediatorContainer createSwitchMediatorContainer();
+
+	/**
+	 * Returns a new object of class '<em>Switch Case Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Case Container</em>'.
+	 * @generated
+	 */
+	SwitchCaseContainer createSwitchCaseContainer();
+
+	/**
+	 * Returns a new object of class '<em>Switch Default Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Default Container</em>'.
+	 * @generated
+	 */
+	SwitchDefaultContainer createSwitchDefaultContainer();
 
 	/**
 	 * Returns a new object of class '<em>Sequence Diagram</em>'.

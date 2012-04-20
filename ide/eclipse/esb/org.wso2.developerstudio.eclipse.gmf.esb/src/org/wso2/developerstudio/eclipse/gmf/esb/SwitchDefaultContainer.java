@@ -6,25 +6,24 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Proxy Service In Sequence</b></em>'.
+ * A representation of the model object '<em><b>Switch Default Container</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyServiceInSequence()
+ * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchDefaultContainer()
  * @model
  * @generated
  */
-public interface ProxyServiceInSequence extends EsbNode {
+public interface SwitchDefaultContainer extends EsbNode {
 	/**
 	 * Returns the value of the '<em><b>Mediator Flow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -35,14 +34,14 @@ public interface ProxyServiceInSequence extends EsbNode {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mediator Flow</em>' containment reference.
 	 * @see #setMediatorFlow(MediatorFlow)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyServiceInSequence_MediatorFlow()
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchDefaultContainer_MediatorFlow()
 	 * @model containment="true"
 	 * @generated
 	 */
 	MediatorFlow getMediatorFlow();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence#getMediatorFlow <em>Mediator Flow</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer#getMediatorFlow <em>Mediator Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Mediator Flow</em>' containment reference.
@@ -51,4 +50,4 @@ public interface ProxyServiceInSequence extends EsbNode {
 	 */
 	void setMediatorFlow(MediatorFlow value);
 
-} // ProxyServiceInSequence
+} // SwitchDefaultContainer

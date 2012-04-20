@@ -77,6 +77,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER: return createProxyServiceSequenceAndEndpointContainer();
 			case EsbPackage.PROXY_SERVICE_FAULT_CONTAINER: return createProxyServiceFaultContainer();
 			case EsbPackage.PROXY_SERVICE_CONTAINER: return createProxyServiceContainer();
+			case EsbPackage.MEDIATOR_FLOW: return createMediatorFlow();
 			case EsbPackage.MESSAGE_MEDIATOR: return createMessageMediator();
 			case EsbPackage.MESSAGE_INPUT_CONNECTOR: return createMessageInputConnector();
 			case EsbPackage.MESSAGE_OUTPUT_CONNECTOR: return createMessageOutputConnector();
@@ -118,6 +119,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR: return createSwitchCaseBranchOutputConnector();
 			case EsbPackage.SWITCH_DEFAULT_BRANCH_OUTPUT_CONNECTOR: return createSwitchDefaultBranchOutputConnector();
 			case EsbPackage.SWITCH_MEDIATOR_INPUT_CONNECTOR: return createSwitchMediatorInputConnector();
+			case EsbPackage.SWITCH_MEDIATOR_OUTPUT_CONNECTOR: return createSwitchMediatorOutputConnector();
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER: return createSwitchMediatorContainer();
+			case EsbPackage.SWITCH_CASE_CONTAINER: return createSwitchCaseContainer();
+			case EsbPackage.SWITCH_DEFAULT_CONTAINER: return createSwitchDefaultContainer();
 			case EsbPackage.SEQUENCE_DIAGRAM: return createSequenceDiagram();
 			case EsbPackage.ESB_SEQUENCE: return createEsbSequence();
 			case EsbPackage.ESB_SEQUENCE_INPUT: return createEsbSequenceInput();
@@ -651,20 +656,22 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ProxyServiceInSequence createProxyServiceInSequence() {
 		ProxyServiceInSequenceImpl proxyServiceInSequence = new ProxyServiceInSequenceImpl();
+		proxyServiceInSequence.setMediatorFlow(createMediatorFlow());
 		return proxyServiceInSequence;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ProxyServiceOutSequence createProxyServiceOutSequence() {
 		ProxyServiceOutSequenceImpl proxyServiceOutSequence = new ProxyServiceOutSequenceImpl();
+		proxyServiceOutSequence.setMediatorFlow(createMediatorFlow());
 		return proxyServiceOutSequence;
 	}
 
@@ -705,10 +712,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ProxyServiceFaultContainer createProxyServiceFaultContainer() {
 		ProxyServiceFaultContainerImpl proxyServiceFaultContainer = new ProxyServiceFaultContainerImpl();
+		proxyServiceFaultContainer.setMediatorFlow(createMediatorFlow());
 		return proxyServiceFaultContainer;
 	}
 
@@ -722,6 +730,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		proxyServiceContainer.setSequenceAndEndpointContainer(createProxyServiceSequenceAndEndpointContainer());
 		proxyServiceContainer.setFaultContainer(createProxyServiceFaultContainer());
 		return proxyServiceContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediatorFlow createMediatorFlow() {
+		MediatorFlowImpl mediatorFlow = new MediatorFlowImpl();
+		return mediatorFlow;
 	}
 
 	/**
@@ -1179,6 +1197,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public SwitchMediatorInputConnector createSwitchMediatorInputConnector() {
 		SwitchMediatorInputConnectorImpl switchMediatorInputConnector = new SwitchMediatorInputConnectorImpl();
 		return switchMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchMediatorOutputConnector createSwitchMediatorOutputConnector() {
+		SwitchMediatorOutputConnectorImpl switchMediatorOutputConnector = new SwitchMediatorOutputConnectorImpl();
+		return switchMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchMediatorContainer createSwitchMediatorContainer() {
+		SwitchMediatorContainerImpl switchMediatorContainer = new SwitchMediatorContainerImpl();
+		return switchMediatorContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchCaseContainer createSwitchCaseContainer() {
+		SwitchCaseContainerImpl switchCaseContainer = new SwitchCaseContainerImpl();
+		return switchCaseContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchDefaultContainer createSwitchDefaultContainer() {
+		SwitchDefaultContainerImpl switchDefaultContainer = new SwitchDefaultContainerImpl();
+		return switchDefaultContainer;
 	}
 
 	/**

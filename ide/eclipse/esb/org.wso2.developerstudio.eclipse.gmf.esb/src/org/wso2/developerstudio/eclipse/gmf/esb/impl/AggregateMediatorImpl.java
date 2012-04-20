@@ -25,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 
 /**
@@ -43,7 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -181,14 +182,14 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	protected AggregateMediatorOnCompleteOutputConnector onCompleteOutputConnector;
 
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildren()
+	 * @see #getMediatorFlow()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EsbElement> children;
+	protected MediatorFlow mediatorFlow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -521,11 +522,42 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EsbElement> getChildren() {
-		if (children == null) {
-			children = new EObjectContainmentEList<EsbElement>(EsbElement.class, this, EsbPackage.AGGREGATE_MEDIATOR__CHILDREN);
+	public MediatorFlow getMediatorFlow() {
+		return mediatorFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
+		MediatorFlow oldMediatorFlow = mediatorFlow;
+		mediatorFlow = newMediatorFlow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW, oldMediatorFlow, newMediatorFlow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return children;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
+		if (newMediatorFlow != mediatorFlow) {
+			NotificationChain msgs = null;
+			if (mediatorFlow != null)
+				msgs = ((InternalEObject)mediatorFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			if (newMediatorFlow != null)
+				msgs = ((InternalEObject)newMediatorFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			msgs = basicSetMediatorFlow(newMediatorFlow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
 	}
 
 	/**
@@ -547,8 +579,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 				return basicSetOnCompleteOutputConnector(null, msgs);
-			case EsbPackage.AGGREGATE_MEDIATOR__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+				return basicSetMediatorFlow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -580,8 +612,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return getOutputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 				return getOnCompleteOutputConnector();
-			case EsbPackage.AGGREGATE_MEDIATOR__CHILDREN:
-				return getChildren();
+			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+				return getMediatorFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -623,9 +655,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 				setOnCompleteOutputConnector((AggregateMediatorOnCompleteOutputConnector)newValue);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__CHILDREN:
-				getChildren().clear();
-				getChildren().addAll((Collection<? extends EsbElement>)newValue);
+			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -667,8 +698,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 				setOnCompleteOutputConnector((AggregateMediatorOnCompleteOutputConnector)null);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__CHILDREN:
-				getChildren().clear();
+			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -701,8 +732,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return outputConnector != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 				return onCompleteOutputConnector != null;
-			case EsbPackage.AGGREGATE_MEDIATOR__CHILDREN:
-				return children != null && !children.isEmpty();
+			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
 	}

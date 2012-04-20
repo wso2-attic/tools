@@ -27,7 +27,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +45,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorImpl#getCaseBranches <em>Case Branches</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorImpl#getDefaultBranch <em>Default Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorImpl#getSwitchContainer <em>Switch Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -148,6 +152,26 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 	 * @ordered
 	 */
 	protected SwitchMediatorInputConnector inputConnector;
+
+	/**
+	 * The cached value of the '{@link #getOutputConnector() <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected SwitchMediatorOutputConnector outputConnector;
+
+	/**
+	 * The cached value of the '{@link #getSwitchContainer() <em>Switch Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSwitchContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected SwitchMediatorContainer switchContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -386,6 +410,92 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SwitchMediatorOutputConnector getOutputConnector() {
+		return outputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutputConnector(SwitchMediatorOutputConnector newOutputConnector, NotificationChain msgs) {
+		SwitchMediatorOutputConnector oldOutputConnector = outputConnector;
+		outputConnector = newOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR, oldOutputConnector, newOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputConnector(SwitchMediatorOutputConnector newOutputConnector) {
+		if (newOutputConnector != outputConnector) {
+			NotificationChain msgs = null;
+			if (outputConnector != null)
+				msgs = ((InternalEObject)outputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			if (newOutputConnector != null)
+				msgs = ((InternalEObject)newOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOutputConnector(newOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR, newOutputConnector, newOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchMediatorContainer getSwitchContainer() {
+		return switchContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSwitchContainer(SwitchMediatorContainer newSwitchContainer, NotificationChain msgs) {
+		SwitchMediatorContainer oldSwitchContainer = switchContainer;
+		switchContainer = newSwitchContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER, oldSwitchContainer, newSwitchContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSwitchContainer(SwitchMediatorContainer newSwitchContainer) {
+		if (newSwitchContainer != switchContainer) {
+			NotificationChain msgs = null;
+			if (switchContainer != null)
+				msgs = ((InternalEObject)switchContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER, null, msgs);
+			if (newSwitchContainer != null)
+				msgs = ((InternalEObject)newSwitchContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER, null, msgs);
+			msgs = basicSetSwitchContainer(newSwitchContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER, newSwitchContainer, newSwitchContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -398,6 +508,10 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 				return basicSetDefaultBranch(null, msgs);
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
+				return basicSetSwitchContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -425,6 +539,10 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 				return getDefaultBranch();
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+				return getOutputConnector();
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
+				return getSwitchContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -461,6 +579,12 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((SwitchMediatorInputConnector)newValue);
 				return;
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((SwitchMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
+				setSwitchContainer((SwitchMediatorContainer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -495,6 +619,12 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((SwitchMediatorInputConnector)null);
 				return;
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((SwitchMediatorOutputConnector)null);
+				return;
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
+				setSwitchContainer((SwitchMediatorContainer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -522,6 +652,10 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 				return defaultBranch != null;
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+				return outputConnector != null;
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
+				return switchContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
