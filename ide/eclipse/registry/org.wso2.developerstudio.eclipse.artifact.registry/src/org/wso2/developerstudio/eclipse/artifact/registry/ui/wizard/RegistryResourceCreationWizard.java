@@ -223,12 +223,11 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		}
 		
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		
-		for(Plugin plg:plugins){
-			if(plg.getArtifactId().equals("wso2-general-project-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-general-project-plugin",
+				MavenConstants.WSO2_GENERAL_PROJECT_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
