@@ -24,15 +24,22 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.IWizard;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.handlers.HandlerUtil;
+import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
+import org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 /**
@@ -41,6 +48,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
  * 
  */
 public class MavenPomGeneratorHandler extends AbstractHandler {
+	private static final String MAVEN_MUL_MODULE_WIZARD_ID = "org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard";
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
@@ -77,6 +85,7 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	                		selectedUIElement.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 	                		
 //	                		Open the new wizard
+	                		openWizard(MAVEN_MUL_MODULE_WIZARD_ID);
 	                	}
 	                }
                 } catch (Exception e) {
@@ -97,8 +106,23 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 		return null;
 	}
 	
-	private void createMavenPom(IProject project){
-//			 TODO: implement the Pom Generation Logic
-	}
+	
+	private void openWizard(String id) {
+		 IWizardDescriptor descriptor = PlatformUI.getWorkbench()
+		   .getNewWizardRegistry().findWizard(id);
+		 try {
+		   if (null != descriptor) {
+			   MvnMultiModuleWizard wizard = (MvnMultiModuleWizard) descriptor.createWizard();
+		     WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getShell(), wizard);
+		     wd.setTitle(wizard.getWindowTitle());
+		     if (wd.open() == Window.OK) {
+					
+				}
+		   }
+		 } catch (CoreException e) {
+		   log.error("Cannot open wizard",e);
+		 }
+		}
 
 }

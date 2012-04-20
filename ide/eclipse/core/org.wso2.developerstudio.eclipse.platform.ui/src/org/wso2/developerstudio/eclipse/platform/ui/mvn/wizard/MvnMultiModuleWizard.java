@@ -12,6 +12,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard  {
 	private MvnMultiModuleModel moduleModel;
 	private IProject project;
 	
+	
 	public MvnMultiModuleWizard(){
 		 moduleModel = new MvnMultiModuleModel();
 		 setModel(moduleModel);
@@ -22,15 +23,15 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard  {
 	
 
 	public boolean performFinish() {
-        try {
-			project = createNewProject();
-			
-			//Add Logic here 
-			
-			
-		} catch (CoreException e) {
-		 
-		}
+//        try {
+////			project = createNewProject();
+//			
+//			//Add Logic here 
+//			
+//			
+//		} catch (CoreException e) {
+//		 
+//		}
 		return true;
 	}
 
