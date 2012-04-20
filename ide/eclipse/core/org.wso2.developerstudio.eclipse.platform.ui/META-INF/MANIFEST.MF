@@ -6,6 +6,7 @@ Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.platform.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
+ org.wso2.developerstudio.eclipse.platform.core,
  org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axis2.client,
@@ -26,10 +27,6 @@ Import-Package: org.apache.axis2.client,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.maven.types,
  org.wso2.developerstudio.eclipse.maven.util,
- org.wso2.developerstudio.eclipse.platform.core,
- org.wso2.developerstudio.eclipse.platform.core.exception,
- org.wso2.developerstudio.eclipse.platform.core.model,
- org.wso2.developerstudio.eclipse.platform.core.project.model,
  org.wso2.developerstudio.eclipse.platform.core.types,
  org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.platform.ui.utils,

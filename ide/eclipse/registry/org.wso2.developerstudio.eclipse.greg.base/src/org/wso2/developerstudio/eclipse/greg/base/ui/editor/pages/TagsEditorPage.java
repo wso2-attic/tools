@@ -54,7 +54,7 @@ import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
-import org.wso2.carbon.registry.api.Tag;
+import org.wso2.carbon.registry.core.Tag;
 import org.wso2.developerstudio.eclipse.greg.base.Activator;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;

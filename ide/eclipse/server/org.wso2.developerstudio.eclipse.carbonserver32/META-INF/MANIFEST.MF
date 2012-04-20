@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.carbonserver32;singleton:=
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.carbonserver32.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.wso2.developerstudio.eclipse.libraries;bundle-version="1.0.2"
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.apache.axiom.om,
@@ -23,11 +24,8 @@ Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.apache.axis2.transport,
  org.apache.axis2.wsdl,
  org.apache.commons.httpclient,
- org.apache.commons.httpclient.contrib.ssl,
  org.apache.commons.httpclient.methods,
  org.apache.commons.httpclient.methods.multipart,
- org.apache.commons.httpclient.protocol,
- org.apache.commons.io,
  org.eclipse.ant.core,
  org.eclipse.core.resources,
  org.eclipse.debug.core,
