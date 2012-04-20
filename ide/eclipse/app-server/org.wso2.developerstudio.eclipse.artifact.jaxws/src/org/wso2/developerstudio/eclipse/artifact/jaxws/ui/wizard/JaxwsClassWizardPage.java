@@ -19,8 +19,8 @@ package org.wso2.developerstudio.eclipse.artifact.jaxws.ui.wizard;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.wizards.NewTypeWizardPage;
@@ -63,27 +63,40 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        doStatusUpdate();
 	    } 
 
-	    private void doStatusUpdate() {
+	    @SuppressWarnings("restriction")
+		private void doStatusUpdate() {
 	    	final String pkgName = getPackageText();
+	    	final String className = getTypeName();
+	    	final String classFqn = pkgName + "." + className;
 	    	final String ifPkgName = (txtServiceInterfacePkg!=null)?txtServiceInterfacePkg.getText():"";
 	    	final String ifClassName = (txtServiceInterfaceClass!=null)?txtServiceInterfaceClass.getText():"";
-	    	
+	    	final String ifFqn = ifPkgName + "." + ifClassName;
+	    	final boolean nameConflict = ifFqn.equals(classFqn);
 	    	IStatus ifClassStatus = new StatusInfo(IStatus.ERROR, "Service interface class name is invalid");
 	    	IStatus ifpkgStatus = new StatusInfo(IStatus.ERROR, "Service interface package name is invalid");
 	    	IStatus okStatus = new StatusInfo(IStatus.OK, "");
-	    	
+	    	IStatus ifResource = new StatusInfo(IStatus.OK, "");
+	    	IJavaProject javaProject = getJavaProject();
+	    	try {
+				IType findType = javaProject.findType(ifFqn);
+				if(findType!=null && findType.exists()){
+					ifResource = new StatusInfo(IStatus.ERROR, "Service interface type already exists");
+				}
+			} catch (Exception e) {
+				/*safe to ignore*/
+			}
 	    	
 	    	IStatus pkgStatus = new IStatus() {
 				
 				public boolean matches(int arg) {
-					if(ifPkgName.trim().isEmpty()) {
+					if(pkgName.trim().isEmpty()) {
 						return true;
 					}
 					return fPackageStatus.matches(arg);
 				}
 				
 				public boolean isOK() {
-					if(ifPkgName.trim().isEmpty()) {
+					if(pkgName.trim().isEmpty()) {
 						return false;
 					}
 					return fPackageStatus.isOK();
@@ -121,11 +134,61 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 				}
 			};
 			
+			IStatus classStatus = new IStatus(){
+
+				public boolean matches(int arg) {
+					if(nameConflict) {
+						return true;
+					}
+					return fTypeNameStatus.matches(arg);
+				}
+				
+				public boolean isOK() {
+					if(nameConflict) {
+						return false;
+					}
+					return fTypeNameStatus.isOK();
+				}
+				
+				public boolean isMultiStatus() {
+					return fTypeNameStatus.isMultiStatus();
+				}
+				
+				public int getSeverity() { 
+					if(nameConflict) {
+						return 4;
+					}
+					return fTypeNameStatus.getSeverity();
+				}
+				
+				public String getPlugin() {
+					return fTypeNameStatus.getPlugin();
+				}
+				
+				public String getMessage() {
+					return (!nameConflict)?fTypeNameStatus.getMessage():"Service class name conflicts with interface class";
+				}
+				
+				public Throwable getException() {
+					return fTypeNameStatus.getException();
+				}
+				
+				public int getCode() {
+					return fTypeNameStatus.getCode();
+				}
+				
+				public IStatus[] getChildren() {
+					return fTypeNameStatus.getChildren();
+				}
+				
+			};
+			
 	    	
 	        IStatus[] status= new IStatus[] {
 	            fContainerStatus,
 	            isEnclosingTypeSelected() ? fEnclosingTypeStatus : pkgStatus,
-	            fTypeNameStatus,
+	            classStatus,
+	            ifResource,
 	            CommonFieldValidator.isJavaClassName(ifClassName) ? okStatus : ifClassStatus,
 	            CommonFieldValidator.isJavaPackageName(ifPkgName) ? okStatus : ifpkgStatus
 	        };
@@ -166,7 +229,7 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        lblServiceInterface.setText("Service Interface");
 	        
 	    	lblServiceInterfacePkg = new Label(composite, SWT.NONE);
-	    	lblServiceInterfacePkg.setText("Package");
+	    	lblServiceInterfacePkg.setText("Packa&ge");
 	    	txtServiceInterfacePkg = new Text(composite, SWT.BORDER);
 	    	GridData gridData= new GridData(GridData.FILL_HORIZONTAL);
 	    	gridData.horizontalSpan= 2;
@@ -179,7 +242,7 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	    	btnServiceInterfacePkg.addListener(SWT.MouseDown, this);
 
 	    	lblServiceInterfaceClass = new Label(composite, SWT.NONE);
-	    	lblServiceInterfaceClass.setText("Class");
+	    	lblServiceInterfaceClass.setText("Nam&e");
 	    	txtServiceInterfaceClass = new Text(composite, SWT.BORDER);
 	    	txtServiceInterfaceClass.setLayoutData(gridData);
 	    	txtServiceInterfaceClass.addListener(SWT.CHANGED, this);
