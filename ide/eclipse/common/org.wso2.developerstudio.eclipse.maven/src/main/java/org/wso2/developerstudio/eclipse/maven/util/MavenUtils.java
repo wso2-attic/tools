@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -136,6 +137,24 @@ public class MavenUtils {
 		MavenUtils.createMainConfigurationNode(plugin);
 		project.getBuild().addPlugin(plugin);
 		return plugin;
+	}
+	
+	public static boolean checkOldPluginEntry(MavenProject project, String groupId,
+			String artifactId, String version) {
+		List<Plugin> plugins = project.getBuild().getPlugins();
+		Iterator<Plugin> iterator = plugins.iterator();
+		boolean exists = false;
+		while (iterator.hasNext()) {
+			Plugin plugin = iterator.next();
+			if (plugin.getGroupId().equals(groupId) && plugin.getArtifactId().equals(artifactId)) {
+				exists = true;
+				if (!version.equalsIgnoreCase(plugin.getVersion())) {
+					iterator.remove();
+					exists = false;
+				}
+			}
+		}
+		return exists;
 	}
 	
 	public static String getMavenModuleRelativePath(File mavenModuleProject, File mavenProject){

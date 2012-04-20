@@ -113,30 +113,23 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 	}
 	
 	private void addMavenCompilerPlugin(MavenProject mavenProject) {
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		for (Plugin plg : plugins) {
-			if (plg.getId().equals("maven-compiler-plugin")) {
-				return;
-			}
-		}
-		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
-				"maven-compiler-plugin", "2.3.2", false);
-		Xpp3Dom createMainConfigurationNode = MavenUtils.createMainConfigurationNode(plugin);
-		Xpp3Dom createSourceNode = MavenUtils.createXpp3Node(createMainConfigurationNode, "source");
-		createSourceNode.setValue("1.5");
-		Xpp3Dom createTargetNode = MavenUtils.createXpp3Node(createMainConfigurationNode, "target");
-		createTargetNode.setValue("1.5");
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.apache.maven.plugins", "maven-compiler-plugin",
+				"2.3.2");
+		if(!pluginExists){
+			MavenUtils.addMavenCompilerPlugin(mavenProject);
+		}	
 	}
 	
 	private void addMavenWarPlugin(MavenProject mavenProject) {
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		for (Plugin plg : plugins) {
-			if (plg.getId().equals("maven-war-plugin")) {
-				return;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.apache.maven.plugins", "maven-war-plugin",
+				"2.2");
+		if(pluginExists){
+			return ;
 		}
 		
+		//TODO : use MavenUtils.addMavenWarPlugin() instead 
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins",
 				"maven-war-plugin", "2.2", false);
 		Xpp3Dom createMainConfigurationNode = MavenUtils.createMainConfigurationNode(plugin);
