@@ -522,11 +522,12 @@ public class RegistryCheckInClientUtils {
 	 */
 	public static void checkout(String username, String password,String workingDirectory, 
 			String registryUrl, String checkoutPath) throws SynchronizationException {
+		String userUrl = registryUrl.replaceAll("/$","") + "/registry" + checkoutPath;
 		ClientOptions clientOptions = new ClientOptions();
 		clientOptions.setUsername(username);
 		clientOptions.setPassword(password);
 		clientOptions.setWorkingDir(workingDirectory);
-		clientOptions.setUserUrl(registryUrl + "registry" + checkoutPath);
+		clientOptions.setUserUrl(userUrl);
 //		clientOptions.setType(RegistryType.WS);
 		clientOptions.setUserInteractor(new UserInteractor() {
 
