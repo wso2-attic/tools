@@ -25,15 +25,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProxyServiceOutSequenceItemProvider
+public class SwitchMediatorContainerItemProvider
 	extends EsbNodeItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class ProxyServiceOutSequenceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProxyServiceOutSequenceItemProvider(AdapterFactory adapterFactory) {
+	public SwitchMediatorContainerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,7 +78,8 @@ public class ProxyServiceOutSequenceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -97,14 +98,14 @@ public class ProxyServiceOutSequenceItemProvider
 	}
 
 	/**
-	 * This returns ProxyServiceOutSequence.gif.
+	 * This returns SwitchMediatorContainer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyServiceOutSequence"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwitchMediatorContainer"));
 	}
 
 	/**
@@ -115,7 +116,7 @@ public class ProxyServiceOutSequenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ProxyServiceOutSequence_type");
+		return getString("_UI_SwitchMediatorContainer_type");
 	}
 
 	/**
@@ -129,8 +130,9 @@ public class ProxyServiceOutSequenceItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProxyServiceOutSequence.class)) {
-			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW:
+		switch (notification.getFeatureID(SwitchMediatorContainer.class)) {
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,8 +152,13 @@ public class ProxyServiceOutSequenceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW,
-				 EsbFactory.eINSTANCE.createMediatorFlow()));
+				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER,
+				 EsbFactory.eINSTANCE.createSwitchCaseContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER,
+				 EsbFactory.eINSTANCE.createSwitchDefaultContainer()));
 	}
 
 }

@@ -13,28 +13,21 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProxyServiceOutSequenceItemProvider
-	extends EsbNodeItemProvider
+public class SwitchMediatorOutputConnectorItemProvider
+	extends OutputConnectorItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -47,7 +40,7 @@ public class ProxyServiceOutSequenceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProxyServiceOutSequenceItemProvider(AdapterFactory adapterFactory) {
+	public SwitchMediatorOutputConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,44 +60,14 @@ public class ProxyServiceOutSequenceItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ProxyServiceOutSequence.gif.
+	 * This returns SwitchMediatorOutputConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyServiceOutSequence"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwitchMediatorOutputConnector"));
 	}
 
 	/**
@@ -115,7 +78,7 @@ public class ProxyServiceOutSequenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ProxyServiceOutSequence_type");
+		return getString("_UI_SwitchMediatorOutputConnector_type");
 	}
 
 	/**
@@ -128,12 +91,6 @@ public class ProxyServiceOutSequenceItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ProxyServiceOutSequence.class)) {
-			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -147,11 +104,6 @@ public class ProxyServiceOutSequenceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW,
-				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }

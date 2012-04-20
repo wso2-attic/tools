@@ -448,6 +448,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MediatorFlowItemProvider mediatorFlowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMediatorFlowAdapter() {
+		if (mediatorFlowItemProvider == null) {
+			mediatorFlowItemProvider = new MediatorFlowItemProvider(this);
+		}
+
+		return mediatorFlowItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1429,6 +1452,98 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return switchMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchMediatorOutputConnectorItemProvider switchMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchMediatorOutputConnectorAdapter() {
+		if (switchMediatorOutputConnectorItemProvider == null) {
+			switchMediatorOutputConnectorItemProvider = new SwitchMediatorOutputConnectorItemProvider(this);
+		}
+
+		return switchMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchMediatorContainerItemProvider switchMediatorContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchMediatorContainerAdapter() {
+		if (switchMediatorContainerItemProvider == null) {
+			switchMediatorContainerItemProvider = new SwitchMediatorContainerItemProvider(this);
+		}
+
+		return switchMediatorContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchCaseContainerItemProvider switchCaseContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchCaseContainerAdapter() {
+		if (switchCaseContainerItemProvider == null) {
+			switchCaseContainerItemProvider = new SwitchCaseContainerItemProvider(this);
+		}
+
+		return switchCaseContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchDefaultContainerItemProvider switchDefaultContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchDefaultContainerAdapter() {
+		if (switchDefaultContainerItemProvider == null) {
+			switchDefaultContainerItemProvider = new SwitchDefaultContainerItemProvider(this);
+		}
+
+		return switchDefaultContainerItemProvider;
 	}
 
 	/**
@@ -4747,6 +4862,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyServiceSequenceAndEndpointContainerItemProvider != null) proxyServiceSequenceAndEndpointContainerItemProvider.dispose();
 		if (proxyServiceFaultContainerItemProvider != null) proxyServiceFaultContainerItemProvider.dispose();
 		if (proxyServiceContainerItemProvider != null) proxyServiceContainerItemProvider.dispose();
+		if (mediatorFlowItemProvider != null) mediatorFlowItemProvider.dispose();
 		if (messageMediatorItemProvider != null) messageMediatorItemProvider.dispose();
 		if (messageInputConnectorItemProvider != null) messageInputConnectorItemProvider.dispose();
 		if (messageOutputConnectorItemProvider != null) messageOutputConnectorItemProvider.dispose();
@@ -4788,6 +4904,10 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (switchCaseBranchOutputConnectorItemProvider != null) switchCaseBranchOutputConnectorItemProvider.dispose();
 		if (switchDefaultBranchOutputConnectorItemProvider != null) switchDefaultBranchOutputConnectorItemProvider.dispose();
 		if (switchMediatorInputConnectorItemProvider != null) switchMediatorInputConnectorItemProvider.dispose();
+		if (switchMediatorOutputConnectorItemProvider != null) switchMediatorOutputConnectorItemProvider.dispose();
+		if (switchMediatorContainerItemProvider != null) switchMediatorContainerItemProvider.dispose();
+		if (switchCaseContainerItemProvider != null) switchCaseContainerItemProvider.dispose();
+		if (switchDefaultContainerItemProvider != null) switchDefaultContainerItemProvider.dispose();
 		if (sequenceDiagramItemProvider != null) sequenceDiagramItemProvider.dispose();
 		if (esbSequenceItemProvider != null) esbSequenceItemProvider.dispose();
 		if (esbSequenceInputItemProvider != null) esbSequenceInputItemProvider.dispose();

@@ -200,6 +200,8 @@ public class SwitchMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR__CASE_BRANCHES);
 			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR__DEFAULT_BRANCH);
 			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR__SWITCH_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -267,6 +269,8 @@ public class SwitchMediatorItemProvider
 			case EsbPackage.SWITCH_MEDIATOR__CASE_BRANCHES:
 			case EsbPackage.SWITCH_MEDIATOR__DEFAULT_BRANCH:
 			case EsbPackage.SWITCH_MEDIATOR__INPUT_CONNECTOR:
+			case EsbPackage.SWITCH_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.SWITCH_MEDIATOR__SWITCH_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -304,6 +308,16 @@ public class SwitchMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.SWITCH_MEDIATOR__INPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createSwitchMediatorInputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SWITCH_MEDIATOR__OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createSwitchMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SWITCH_MEDIATOR__SWITCH_CONTAINER,
+				 EsbFactory.eINSTANCE.createSwitchMediatorContainer()));
 	}
 
 }
