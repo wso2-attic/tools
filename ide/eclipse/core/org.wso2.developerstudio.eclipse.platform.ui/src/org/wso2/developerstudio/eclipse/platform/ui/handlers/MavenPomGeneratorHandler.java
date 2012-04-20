@@ -87,15 +87,15 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 //	                		Open the new wizard
 	                		openWizard(MAVEN_MUL_MODULE_WIZARD_ID,selectedUIElement);
 	                	}
+	                }else{
+	                	//If it is pom, extract the maven info and pop up the wizard with that data and preserve the current content and just add the new content
+	                	openWizard(MAVEN_MUL_MODULE_WIZARD_ID,selectedUIElement);
 	                }
                 } catch (Exception e) {
 	                log.error("Error occured while tying to access the maven project corresponding to pom file", e);
                 }
-				
-				
-				
-				
-				
+			}else{
+				openWizard(MAVEN_MUL_MODULE_WIZARD_ID, selectedUIElement);
 			}
 		}
 		
@@ -115,11 +115,10 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 			if (null != descriptor) {
 				MvnMultiModuleWizard wizard = (MvnMultiModuleWizard) descriptor.createWizard();
 				wizard.setMultiModuleProject(project);
+				wizard.init();
 				WizardDialog wd = new WizardDialog(Display.getDefault().getActiveShell(), wizard);
 				wd.setTitle(wizard.getWindowTitle());
-				if (wd.open() == Window.OK) {
-
-				}
+				wd.open();
 			}
 		} catch (CoreException e) {
 			log.error("Cannot open wizard", e);
