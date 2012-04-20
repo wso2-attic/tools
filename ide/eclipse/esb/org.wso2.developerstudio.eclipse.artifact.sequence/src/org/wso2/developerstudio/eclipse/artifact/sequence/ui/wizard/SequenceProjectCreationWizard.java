@@ -171,6 +171,18 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		esbProjectArtifact = new ESBProjectArtifact();
 		esbProjectArtifact.fromFile(project.getFile("artifact.xml")
 				.getLocation().toFile());
+		
+		File pomfile = project.getFile("pom.xml").getLocation().toFile();
+		getModel().getMavenInfo().setPackageName("synapse/sequence");
+		if (!pomfile.exists()) {
+			createPOM(pomfile);
+		}
+
+		updatePom();
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
+		String groupId = getMavenGroupId(pomfile);
+		groupId += ".sequence";
 
 		if (getModel().getSelectedOption().equals("import.sequence")) {
 			IFile sequence = location.getFile(new Path(getModel().getImportFile().getName()));
@@ -180,7 +192,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				}
 				isNewArtifact = false;
 			} 	
-			copyImportFile(location,isNewArtifact);
+			copyImportFile(location,isNewArtifact,groupId);
 		} else {
 			// Map<String,List<String>> filters=new HashMap<String,List<String>>
 			// ();
@@ -202,24 +214,24 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setVersion("1.0.0");
 			artifact.setType("synapse/sequence");
 			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
 					.toFile(), new File(location.getLocation().toFile(),
 					sequenceModel.getSequenceName() + ".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
 		}
-
-		File pomfile = project.getFile("pom.xml").getLocation().toFile();
-		getModel().getMavenInfo().setPackageName("synapse/sequence");
-		if (!pomfile.exists()) {
-			createPOM(pomfile);
-		}
-
-		updatePom();
 		esbProjectArtifact.toFile();
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
 		return true;
 	}
 	
 	private void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{
+		
+		addGeneralProjectPlugin(project);
+		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
+		String groupId = getMavenGroupId(pomLocation);
+		
 		String registryPath = sequenceModel.getDynamicSeqRegistryPath()
 				.replaceAll("^conf:", "/_system/config")
 				.replaceAll("^gov:", "/_system/governance")
@@ -249,6 +261,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		artifact.setVersion("1.0.0");
 		artifact.setType("registry/resource");
 		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
 		List<RegistryResourceInfo> registryResources = regResInfoDoc.getRegistryResources();
 		for (RegistryResourceInfo registryResourceInfo : registryResources) {
 			RegistryElement item = null;
@@ -261,7 +274,6 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
         }
 		generalProjectArtifact.addArtifact(artifact);
 		generalProjectArtifact.toFile();
-		addGeneralProjectPlugin(project);
 	}
 	
 	private void addGeneralProjectPlugin(IProject project) throws Exception{
@@ -274,16 +286,15 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		}
 		
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		
-		for(Plugin plg:plugins){
-			if(plg.getArtifactId().equals("wso2-general-project-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-general-project-plugin",
+				MavenConstants.WSO2_GENERAL_PROJECT_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", "1.0.5", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;
 		
@@ -321,7 +332,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	public void copyImportFile(IContainer importLocation,boolean isNewAritfact) throws IOException {
+	public void copyImportFile(IContainer importLocation,boolean isNewAritfact, String groupId) throws IOException {
 		File importFile = getModel().getImportFile();
 		File destFile = null;
 		List<OMElement> selectedSeqList = ((SequenceModel)getModel()).getSelectedSeqList();
@@ -337,6 +348,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				artifact.setVersion("1.0.0");
 				artifact.setType("synapse/sequence");
 				artifact.setServerRole("EnterpriseServiceBus");
+				artifact.setGroupId(groupId);
 				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
 				esbProjectArtifact.addESBArtifact(artifact);
 				}
@@ -353,6 +365,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setVersion("1.0.0");
 			artifact.setType("synapse/sequence");
 			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
 			esbProjectArtifact.addESBArtifact(artifact);
 			}
