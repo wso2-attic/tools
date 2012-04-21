@@ -24,8 +24,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 
-import org.eclipse.swt.widgets.Display;
-
 public class DummySSLSocketFactory extends SSLSocketFactory {
     private SSLSocketFactory factory;
 

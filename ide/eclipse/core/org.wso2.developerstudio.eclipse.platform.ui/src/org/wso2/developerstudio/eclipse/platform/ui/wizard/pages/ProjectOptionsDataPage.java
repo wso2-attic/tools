@@ -1164,7 +1164,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 							    controlListData.equals(currentModelPropertyValue)) {
 								return;
 							}
-							if (getModel().setModelPropertyValue(modelProperty,
+							if (controlListData!= null && getModel().setModelPropertyValue(modelProperty,
 							                                     controlListData.getData())) {
 								updateField(modelProperty);
 							}

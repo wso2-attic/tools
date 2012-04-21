@@ -28,8 +28,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.window.Window;
-import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
@@ -52,9 +50,6 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
-
-		System.out.println("command Executed");
-
 		IStructuredSelection selection =
 		                                 (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(arg0);
 		IProject selectedUIElement = (IProject) selection.getFirstElement();
@@ -88,7 +83,7 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 	                		openWizard(MAVEN_MUL_MODULE_WIZARD_ID,selectedUIElement);
 	                	}
 	                }else{
-	                	//If it is pom, extract the maven info and pop up the wizard with that data and preserve the current content and just add the new content
+//	                	If it is pom, extract the maven info and pop up the wizard with that data and preserve the current content and just add the new content
 	                	openWizard(MAVEN_MUL_MODULE_WIZARD_ID,selectedUIElement);
 	                }
                 } catch (Exception e) {
@@ -98,10 +93,6 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 				openWizard(MAVEN_MUL_MODULE_WIZARD_ID, selectedUIElement);
 			}
 		}
-		
-//		if(pomFile == null || (pomFile.exists() && openQuestion)){
-//			createMavenPom(selectedUIElement);
-//		}
 
 		return null;
 	}
@@ -121,7 +112,7 @@ public class MavenPomGeneratorHandler extends AbstractHandler {
 				wd.open();
 			}
 		} catch (CoreException e) {
-			log.error("Cannot open wizard", e);
+			log.error("Error occured while trying to create the wizard.", e);
 		}
 	}
 
