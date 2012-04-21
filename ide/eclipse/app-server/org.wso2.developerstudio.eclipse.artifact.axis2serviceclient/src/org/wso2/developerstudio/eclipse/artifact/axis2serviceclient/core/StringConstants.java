@@ -33,7 +33,7 @@ package org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.core;
 
 import org.eclipse.osgi.util.NLS;
 
-public class StringConstants extends NLS {
+public final class StringConstants extends NLS {
 	private static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.core.stringconstants"; //$NON-NLS-1$
 	public static String ARTIFACT_DESCRIPTION;
 	public static String ARTIFACT_NAME;

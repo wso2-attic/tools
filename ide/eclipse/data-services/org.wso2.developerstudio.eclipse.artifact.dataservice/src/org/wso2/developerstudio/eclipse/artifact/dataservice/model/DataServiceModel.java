@@ -323,17 +323,17 @@ public class DataServiceModel extends ProjectDataModel {
 	
 	public static class JndiConfig implements DataSourceConfig{
 		private LinkedHashMap<String,String>  config;
-		private String JndiContextClass;
+		private String jndiContextClass;
 		private String provideUrl;
 		private String resourceName;
 		private String password;
 		
 		public String getJndiContextClass() {
-			return JndiContextClass;
+			return jndiContextClass;
 		}
 
 		public void setJndiContextClass(String jndiContextClass) {
-			JndiContextClass = jndiContextClass;
+			this.jndiContextClass = jndiContextClass;
 		}
 
 		public String getProvideUrl() {
@@ -373,7 +373,7 @@ public class DataServiceModel extends ProjectDataModel {
 	public static class GoogleSpreadsheetConfig implements DataSourceConfig{
 		private LinkedHashMap<String,String>  config;
 		private String spreadsheetURL;
-		private boolean PublicVisible;
+		private boolean publicVisible;
 		private String userName;
 		private String password;
 		
@@ -386,11 +386,11 @@ public class DataServiceModel extends ProjectDataModel {
 		}
 
 		public boolean isPublicVisible() {
-			return PublicVisible;
+			return publicVisible;
 		}
 
 		public void setPublicVisible(boolean publicVisible) {
-			PublicVisible = publicVisible;
+			this.publicVisible = publicVisible;
 		}
 
 		public String getUserName() {

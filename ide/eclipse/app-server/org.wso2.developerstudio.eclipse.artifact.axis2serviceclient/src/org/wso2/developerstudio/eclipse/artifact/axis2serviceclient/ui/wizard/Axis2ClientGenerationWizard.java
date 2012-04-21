@@ -62,8 +62,8 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 	private Axis2ClientConfigurationPage clientConfigurationPage;
 	private DataModel model;
 	private String wsdlFileLocation;
-	private static int CREATE_CLIENT = 0;
-	private static int CREATE_SERVICE = 1;
+	private static final int CREATE_CLIENT = 0;
+	private static final int CREATE_SERVICE = 1;
 
 	private int modelGeneratingType;
 	private IPackageFragmentRoot sourceFolder;

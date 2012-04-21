@@ -23,13 +23,13 @@ import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class JaxWSImageUtils extends ImageUtils{
 	
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new JaxWSImageUtils();
+		if (instance==null){
+			instance=new JaxWSImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 	
 	public Bundle getBundle() {

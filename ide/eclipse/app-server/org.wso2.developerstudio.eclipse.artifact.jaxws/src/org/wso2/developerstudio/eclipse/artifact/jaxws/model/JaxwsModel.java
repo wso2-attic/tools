@@ -23,7 +23,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class JaxwsModel extends ProjectDataModel {
 	private String sourcePackage;
-	private String CXFRuntime;
+	private String cxfRuntime;
 	
 
 	
@@ -61,12 +61,12 @@ public class JaxwsModel extends ProjectDataModel {
 	}
 
 	public void setCXFRuntime(String cXFRuntime) {
-		CXFRuntime = cXFRuntime;
+		cxfRuntime = cXFRuntime;
 	}
 
 
 	public String getCXFRuntime() {
-		return CXFRuntime;
+		return cxfRuntime;
 	}
 	
 }

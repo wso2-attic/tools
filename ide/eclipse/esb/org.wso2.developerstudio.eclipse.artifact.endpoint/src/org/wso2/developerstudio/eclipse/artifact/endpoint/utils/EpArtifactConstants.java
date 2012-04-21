@@ -18,7 +18,7 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.utils;
 
 import org.eclipse.osgi.util.NLS;
 
-public class EpArtifactConstants extends NLS{
+public final class EpArtifactConstants extends NLS{
 	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.endpoint.utils.epartifactconstants";
 	public static  String EP_WIZARD_WINDOW_TITLE;
 	public static  String ADDRESS_EP;

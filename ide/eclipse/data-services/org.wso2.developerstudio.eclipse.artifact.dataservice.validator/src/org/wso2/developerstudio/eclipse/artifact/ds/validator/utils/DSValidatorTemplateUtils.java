@@ -7,15 +7,15 @@ import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class DSValidatorTemplateUtils extends TemplateUtil{
 
-	private static DSValidatorTemplateUtils INSTANCE;
+	private static DSValidatorTemplateUtils instance;
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	public static DSValidatorTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new DSValidatorTemplateUtils();
+		if (instance==null){
+			instance=new DSValidatorTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 }

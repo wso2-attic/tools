@@ -7,15 +7,15 @@ import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class DataServiceTemplateUtils extends TemplateUtil{
 
-	private static DataServiceTemplateUtils INSTANCE;
+	private static DataServiceTemplateUtils instance;
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	public static DataServiceTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new DataServiceTemplateUtils();
+		if (instance==null){
+			instance=new DataServiceTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 }

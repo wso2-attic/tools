@@ -38,7 +38,7 @@ import org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.utils.Axis2I
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
 public class SourceFolderSelectionDialog extends Dialog {
-	public static String CAPP_NATURE_ID = "org.wso2.developerstudio.eclipse.capp.project.nature";
+	public static final String CAPP_NATURE_ID = "org.wso2.developerstudio.eclipse.capp.project.nature";
 
 	private IPackageFragmentRoot sourceFolder;
 

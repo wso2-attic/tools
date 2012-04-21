@@ -22,17 +22,17 @@ import org.wso2.developerstudio.eclipse.artifact.gadget.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class GadgetTemplateUtils extends TemplateUtil {
-	private static GadgetTemplateUtils INSTANCE;
+	private static GadgetTemplateUtils instance;
 	
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	
 	public static GadgetTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new GadgetTemplateUtils();
+		if (instance==null){
+			instance=new GadgetTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 }

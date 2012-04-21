@@ -22,12 +22,12 @@ import org.wso2.developerstudio.eclipse.artifact.axis2.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class Axis2TemplateUtils extends TemplateUtil {
-	private static Axis2TemplateUtils INSTANCE;
+	private static Axis2TemplateUtils instance;
 	public static Axis2TemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new Axis2TemplateUtils();
+		if (instance==null){
+			instance=new Axis2TemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 	
 	protected Bundle getBundle() {

@@ -23,13 +23,13 @@ import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class EndPointImageUtils extends ImageUtils{
 
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new EndPointImageUtils();
+		if (instance==null){
+			instance=new EndPointImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 	
 	public Bundle getBundle() {

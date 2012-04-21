@@ -53,8 +53,8 @@ public class Axis2CodeGenerationOptionPage extends WizardPage {
 
 	private Text sourceFolderText;
 	private IPackageFragmentRoot sourceFolder;
-	private static int CREATE_CLIENT = 0;
-	private static int CREATE_SERVICE = 1;
+	private static final int CREATE_CLIENT = 0;
+	private static final int CREATE_SERVICE = 1;
 	private int modelGeneratingType;
 	private Link createNewProjectLink;
 	private DataModel model;

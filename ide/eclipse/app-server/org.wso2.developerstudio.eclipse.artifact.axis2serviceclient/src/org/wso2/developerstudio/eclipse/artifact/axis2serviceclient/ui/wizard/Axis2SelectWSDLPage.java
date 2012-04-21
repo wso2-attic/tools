@@ -55,11 +55,11 @@ public class Axis2SelectWSDLPage extends WizardPage {
 	private DataModel model;
 	private int optionType;
 
-	public static int OPTION_IMPORT_FS = 3;
-	public static int OPTION_IMPORT_WS = 8;
+	public static final int OPTION_IMPORT_FS = 3;
+	public static final int OPTION_IMPORT_WS = 8;
 
 	// local entry source types
-	public static int OPTION_SOURCE_URL = 32;
+	public static final int OPTION_SOURCE_URL = 32;
 
 	public int getOptionType() {
 		return optionType;

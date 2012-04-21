@@ -7,13 +7,13 @@ import org.wso2.developerstudio.eclipse.artifact.bpel.Activator;
 
 public class BPELImageUtils extends ImageUtils{
 
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new BPELImageUtils();
+		if (instance==null){
+			instance=new BPELImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

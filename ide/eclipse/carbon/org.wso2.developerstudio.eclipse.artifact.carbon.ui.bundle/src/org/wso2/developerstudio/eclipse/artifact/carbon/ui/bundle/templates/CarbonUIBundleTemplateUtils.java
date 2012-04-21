@@ -22,16 +22,16 @@ import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class CarbonUIBundleTemplateUtils extends TemplateUtil{
-	private static CarbonUIBundleTemplateUtils INSTANCE;
+	private static CarbonUIBundleTemplateUtils instance;
 	
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	
 	public static CarbonUIBundleTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new CarbonUIBundleTemplateUtils();
+		if (instance==null){
+			instance=new CarbonUIBundleTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 }

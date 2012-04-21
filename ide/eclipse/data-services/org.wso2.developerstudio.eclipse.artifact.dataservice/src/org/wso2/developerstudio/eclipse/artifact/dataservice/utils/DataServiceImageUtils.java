@@ -7,13 +7,13 @@ import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class DataServiceImageUtils extends ImageUtils{
 
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new DataServiceImageUtils();
+		if (instance==null){
+			instance=new DataServiceImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

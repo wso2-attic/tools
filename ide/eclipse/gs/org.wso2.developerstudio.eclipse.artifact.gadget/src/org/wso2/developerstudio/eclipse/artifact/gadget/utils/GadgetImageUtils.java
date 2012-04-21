@@ -6,13 +6,13 @@ import org.wso2.developerstudio.eclipse.artifact.gadget.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class GadgetImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new GadgetImageUtils();
+		if (instance==null){
+			instance=new GadgetImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

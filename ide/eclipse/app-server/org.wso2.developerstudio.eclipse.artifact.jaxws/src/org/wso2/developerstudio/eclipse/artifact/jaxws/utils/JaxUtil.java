@@ -84,15 +84,15 @@ public class JaxUtil {
 	}
 	
 	public static class CxfServlet extends AbstractXMLDoc{
-		private static final String schemaLocation = "http://www.springframework.org/schema/beans "
+		private static final String SCHEMA_LOCATION = "http://www.springframework.org/schema/beans "
 				+ "http://www.springframework.org/schema/beans/spring-beans.xsd "
 				+ "http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd "
 				+ "http://cxf.apache.org/jaxws "
 				+ "http://cxf.apache.org/schemas/jaxws.xsd";
-		private static final String xsiNS = "http://www.w3.org/2001/XMLSchema-instance";
-		private static final String jaxwsNS = "http://cxf.apache.org/jaxws";
-		private static final String soapNS = "http://cxf.apache.org/bindings/soap";
-		private static final String defaultNS = "http://www.springframework.org/schema/beans";
+		private static final String XSI_NS = "http://www.w3.org/2001/XMLSchema-instance";
+		private static final String JAXWS_NS = "http://cxf.apache.org/jaxws";
+		private static final String SOAP_NS = "http://cxf.apache.org/bindings/soap";
+		private static final String DEFAULT_NS = "http://www.springframework.org/schema/beans";
 		
 		OMElement documentElement=null;
 		OMNamespace xsi = null;
@@ -126,9 +126,9 @@ public class JaxUtil {
 		@Override
 		public void deserialize(OMElement documentElement) throws Exception {
 			this.documentElement = documentElement;
-			xsi = documentElement.findNamespace(xsiNS, "xsi");
-			jaxws = documentElement.findNamespace(jaxwsNS, "jaxws");
-			soap = documentElement.findNamespace(soapNS, "soap");
+			xsi = documentElement.findNamespace(XSI_NS, "xsi");
+			jaxws = documentElement.findNamespace(JAXWS_NS, "jaxws");
+			soap = documentElement.findNamespace(SOAP_NS, "soap");
 			/*
 			List<OMElement> servers = getChildElements(documentElement,"server");
 			if (servers.size() > 1) {
@@ -179,11 +179,11 @@ public class JaxUtil {
 			OMFactory factory = OMAbstractFactory.getOMFactory();
 			if(documentElement==null){
 				documentElement = getElement("beans", "");
-				documentElement.declareDefaultNamespace(defaultNS);
-				xsi = documentElement.declareNamespace(xsiNS, "xsi");
-				jaxws = documentElement.declareNamespace(jaxwsNS, "jaxws");
-				soap = documentElement.declareNamespace(soapNS, "soap");
-				documentElement.addAttribute("schemaLocation",schemaLocation, xsi);
+				documentElement.declareDefaultNamespace(DEFAULT_NS);
+				xsi = documentElement.declareNamespace(XSI_NS, "xsi");
+				jaxws = documentElement.declareNamespace(JAXWS_NS, "jaxws");
+				soap = documentElement.declareNamespace(SOAP_NS, "soap");
+				documentElement.addAttribute("schemaLocation",SCHEMA_LOCATION, xsi);
 			}
 			
 			for(JaxwsServer s: getServers().values()){

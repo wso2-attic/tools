@@ -52,7 +52,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 public class NewDataSourceWizardPage extends WizardPage {
 	
 	public static final int SELECTED_REGISTRY_RESOURCE = 8;
-	private static final String SymbolicName = "org.wso2.developerstudio.eclipse.artifact.dataservice";
+	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.dataservice";
 	
 	private Text txtDataSourceId;
 	private CTabFolder tabConfig;
@@ -294,12 +294,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdCsvKeyConRegBrowse = new Button(cCSV, SWT.NONE);
 		cmdCsvKeyConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdCsvKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdCsvKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdCsvKeyConRegBrowse.setToolTipText("Configuration registry");
 		cmdCsvKeyConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtCsvFileLocation, 2);
+				selectRegistryResource(txtCsvFileLocation, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -310,12 +310,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdCsvKeyGovRegBrowse = new Button(cCSV, SWT.NONE);
 		cmdCsvKeyGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
 				SWT.CENTER, false, false, 1, 1));
-		cmdCsvKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdCsvKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdCsvKeyGovRegBrowse.setToolTipText("Governance registry");
 		cmdCsvKeyGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtCsvFileLocation, 3);
+				selectRegistryResource(txtCsvFileLocation, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -376,12 +376,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdExcelKeyConRegBrowse = new Button(cEXCEL, SWT.NONE);
 		cmdExcelKeyConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdExcelKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdExcelKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdExcelKeyConRegBrowse.setToolTipText("Configuration registry");
 		cmdExcelKeyConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtExcelFileLocation, 2);
+				selectRegistryResource(txtExcelFileLocation, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -392,12 +392,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdExcelKeyGovRegBrowse = new Button(cEXCEL, SWT.NONE);
 		cmdExcelKeyGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
 				SWT.CENTER, false, false, 1, 1));
-		cmdExcelKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdExcelKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdExcelKeyGovRegBrowse.setToolTipText("Governance registry");
 		cmdExcelKeyGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtExcelFileLocation, 3);
+				selectRegistryResource(txtExcelFileLocation, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -432,12 +432,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdRdfKeyConRegBrowse = new Button(cRDF, SWT.NONE);
 		cmdRdfKeyConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdRdfKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdRdfKeyConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdRdfKeyConRegBrowse.setToolTipText("Configuration registry");
 		cmdRdfKeyConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtRDFFileLocation, 2);
+				selectRegistryResource(txtRDFFileLocation, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -448,12 +448,12 @@ public class NewDataSourceWizardPage extends WizardPage {
 		Button cmdRdfKeyGovRegBrowse = new Button(cRDF, SWT.NONE);
 		cmdRdfKeyGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
 				SWT.CENTER, false, false, 1, 1));
-		cmdRdfKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdRdfKeyGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdRdfKeyGovRegBrowse.setToolTipText("Governance registry");
 		cmdRdfKeyGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtRDFFileLocation, 3);
+				selectRegistryResource(txtRDFFileLocation, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -1046,7 +1046,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 	 * @param defaultPathId
 	 *            Conf.Reg=2 and Gov.Reg=3
 	 */
-	private void SelectRegistryResource(Text textBox, int defaultPathId) {
+	private void selectRegistryResource(Text textBox, int defaultPathId) {
 		RegistryResourceNode selectedRegistryResourceNode = null;
 		RegistryTreeBrowserDialog r = new RegistryTreeBrowserDialog(getShell(),
 				RegistryTreeBrowserDialog.SELECT_REGISTRY_RESOURCE,
