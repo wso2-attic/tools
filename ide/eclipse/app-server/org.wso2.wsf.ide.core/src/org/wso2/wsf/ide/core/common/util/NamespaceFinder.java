@@ -17,21 +17,21 @@ package org.wso2.wsf.ide.core.common.util;
 
 public class NamespaceFinder {
 	
-	private static String NS_PREFIX = "http://";
-	private static String SCHEMA_NS_DEFAULT_PREFIX = "xsd";
-	private static String NS_DEFAULT_PREFIX = "ns";
+	private static final String NS_PREFIX = "http://";
+	private static final String SCHEMA_NS_DEFAULT_PREFIX = "xsd";
+	private static final String NS_DEFAULT_PREFIX = "ns";
 	
 	
 	public static String getTargetNamespaceFromClass(String fullyQualifiedClassName){
 		//tokenize the className
 		String[] classNameParts = fullyQualifiedClassName.split("\\.");
 		//add the strings in reverse order to make the namespace
-		String nsUri = "";
+		StringBuffer sb=new StringBuffer();
 		for(int i=classNameParts.length-2;i>=0;i--){
-			nsUri = nsUri + classNameParts[i] + (i==0?"":".");
+			sb.append(classNameParts[i]).append((i==0?"":"."));
 		}
 		
-		return NS_PREFIX + nsUri;	
+		return NS_PREFIX + sb.toString();	
 		
 	}
 	

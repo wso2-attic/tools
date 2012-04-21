@@ -39,12 +39,15 @@ public class RegistryResourceInfoDoc extends AbstractXMLDoc {
 				&& Constants.getStaticPath().contains(path)) {
 			File[] listFiles = inputFile.listFiles();
 			for (File file : listFiles) {
-				String newPath = path;
+				StringBuffer sb=new StringBuffer();
+				sb.append(path);
 				if (!file.isFile()) {
-					path = path + "/" + file.getName();
+					sb.append("/").append(file.getName());
 				}
+//				XXX: Be watchful whether this fix has broken the functionality due to string pointers
+				path=sb.toString();
 				addRegistryResourceInfoDoc(
-						newPath,
+						sb.toString(),
 						file,
 						file.isFile() ? Constants.REGISTRY_RESOURCE
 								: Constants.REGISTRY_COLLECTION,

@@ -1145,16 +1145,16 @@ public class ResourceEditorPage extends FormPage implements
 						editorInput.getParentResource()
 								.setResourceName(newPath);
 					} else {
-						String rootPath = "";
+						StringBuffer sb=new StringBuffer();
 						for (int i = 1; i < pathInfo.length - 1; i++) {
 							if (pathInfo[i] != null && !pathInfo[i].equals("")) {
-								rootPath += "/" + pathInfo[i];
+								sb.append("/").append(pathInfo[i]);
 							}
 						}
 						RegistryResourceNode registryResourceNode = editorInput
 								.getParentResource().getConnectionInfo()
 								.getRegistryContent()
-								.getRegistryResourceNode(rootPath);
+								.getRegistryResourceNode(sb.toString());
 						if (registryResourceNode != null) {
 							editorInput.setParentResource(registryResourceNode);
 							updateFormName();

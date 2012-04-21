@@ -50,21 +50,19 @@ public abstract class AbstractoMavenPluginContributorProvider implements
 	protected void addTypeList(MavenProject mavenProject, Map<String, String> artifactTypeExtensionMap,
 			Xpp3Dom config) {
 		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(config, "typeList");
-		String typeList = null;
+		StringBuffer sb=new StringBuffer();
 		for (String artifactType : artifactTypeExtensionMap.keySet()) {
 			if (artifactType!=null && !artifactType.trim().equals("")) {
-				if (typeList == null) {
-					typeList = artifactType + "="
-							+ artifactTypeExtensionMap.get(artifactType);
+				if ("".equalsIgnoreCase(sb.toString())) {
+					sb.append(artifactType).append("=").append(artifactTypeExtensionMap.get(artifactType));
 				} else {
-					typeList = typeList + "," + artifactType + "="
-							+ artifactTypeExtensionMap.get(artifactType);
+					sb.append(",").append(artifactType).append("=").append(artifactTypeExtensionMap.get(artifactType));
 				}
 			}
 		}
 		String artifactTypesVariable = "artifact.types";
 		if (!mavenProject.getProperties().containsKey(artifactTypesVariable)){
-			mavenProject.getProperties().put(artifactTypesVariable, typeList);
+			mavenProject.getProperties().put(artifactTypesVariable, sb.toString());
 		}
 		typeListNode.setValue("${"+artifactTypesVariable+"}");
 		

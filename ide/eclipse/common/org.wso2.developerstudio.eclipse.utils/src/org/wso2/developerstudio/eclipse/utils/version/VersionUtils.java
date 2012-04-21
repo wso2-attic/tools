@@ -188,11 +188,12 @@ public class VersionUtils {
 //	        System.out.println(major);
 	        Integer majorInteger = Integer.valueOf(major);
 	        majorInteger++;
-	        String result=majorInteger.toString();
+	        StringBuffer sb=new StringBuffer();
+	        sb.append(majorInteger.toString());
 	        for(int i=1; i < split.length; i++){
-	        	result=result+"."+split[i];
+	        	sb.append(".").append(split[i]);
 	        }
-	        return result;
+	        return sb.toString();
         } catch (Exception e) {
 	        log.error(e);
 	        return null;

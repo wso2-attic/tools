@@ -415,18 +415,17 @@ public class Axis2ClientConfigurationPage extends WizardPage {
 	 * @return
 	 */
 	public String getNs2PkgMapping() {
-		String returnList = "";
+		StringBuffer sb=new StringBuffer();
 		TableItem[] items = namespace2packageTable.getItems();
 		String packageValue;
 		for (int i = 0; i < items.length; i++) {
 			packageValue = items[i].getText(1);
 			if (packageValue != null && !"".equals(packageValue)) {
-				returnList = returnList + ("".equals(returnList) ? "" : ",")
-						+ items[i].getText(0) + "=" + packageValue;
+				sb.append(("".equals(sb.toString()) ? "" : ",")).append(items[i].getText(0)).append("=").append(packageValue);
 			}
 
 		}
-		return "".equals(returnList) ? null : returnList;
+		return "".equals(sb.toString()) ? null : sb.toString();
 	}
 
 	private void populateModel() {

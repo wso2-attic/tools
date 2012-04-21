@@ -71,15 +71,15 @@ public class ArtifactFileUtils {
     }
     
     public static String getFileNameWithoutExtension(String filePath){
-		String fileName = "";
+		StringBuffer sb=new StringBuffer();
 		String[] fileInfo = filePath.split(Pattern.quote(File.separator));
 //		if(fileInfo[fileInfo.length - 1].contains("\\.")){
 		String[] splitByPeriod = fileInfo[fileInfo.length - 1].split("\\.");
 		for (int i=0; i< splitByPeriod.length -1 ; i++) {
-			fileName += splitByPeriod[i];
+			sb.append(splitByPeriod[i]);
 		}
 		
-		return fileName;
+		return sb.toString();
 		
     }
 

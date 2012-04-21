@@ -187,12 +187,16 @@ public class BundlesDataInfo extends AbstractXMLDoc {
 	}
 	
 	public String getAllPackagesString(){
-		String result=null;
+		StringBuffer sb=new StringBuffer();
 		List<String> allPackages = getAllPackages();
 		for (String packageString : allPackages) {
-			result=result==null?packageString:result+","+packageString;
+			if (("".equals(sb.toString()))) {
+				sb.append(packageString);
+			}else{
+				sb.append(",").append(packageString);
+			}
 		}
-		return result;
+		return sb.toString();
 	}
 
 	public void setProjects(List<ProjectMapping> projects) {

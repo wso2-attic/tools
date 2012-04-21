@@ -263,16 +263,16 @@ public class CredentialsDialog extends Dialog {
 	        log.error(e);
         }
 //		URL url = getUrl();
-		String urlString = url.getProtocol() + "://" + url.getHost() + ":"
-				+ url.getPort() + "/";
+        StringBuffer sb=new StringBuffer();
+        sb.append(url.getProtocol()).append("://").append(url.getHost()).append(":").append(url.getPort()).append("/");
 		String[] pathSegments = url.getPath().split("/");
 		for (int i = 0; i < pathSegments.length - 1; i++) {
 			String pathSegment = pathSegments[i];
 			if (!pathSegment.trim().equalsIgnoreCase("")){
-				urlString = urlString + pathSegment + "/";
+				sb.append(pathSegment).append("/");
 			}
 		}
-		return urlString;
+		return sb.toString();
 	}
 	
 	public boolean urlValid(URL url){
