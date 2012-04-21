@@ -37,13 +37,13 @@ import org.wso2.developerstudio.eclipse.greg.registry.handler.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class RegistryHandlerImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new RegistryHandlerImageUtils();
+		if (instance==null){
+			instance=new RegistryHandlerImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

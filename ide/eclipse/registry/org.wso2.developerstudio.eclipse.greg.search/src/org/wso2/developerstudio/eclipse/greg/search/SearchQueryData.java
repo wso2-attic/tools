@@ -26,7 +26,7 @@ public class SearchQueryData {
 	private String propertyValue;
 	private String tags;
 	private String comment;
-	private String SQL;
+	private String sql;
 	private List<String> parameters;
 	private boolean allRegistries;
 	private String searchLocation;
@@ -88,11 +88,11 @@ public class SearchQueryData {
 	}
 
 	public void setSQL(String sQL) {
-		SQL = sQL;
+		sql = sQL;
 	}
 
 	public String getSQL() {
-		return SQL;
+		return sql;
 	}
 
 	public void setParameters(List<String> parameters) {

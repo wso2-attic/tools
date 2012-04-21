@@ -54,11 +54,11 @@ public class CarbonServerConstants {
 		"geronimo-jaxws_2.1_spec-1.0.0"
 	};
 	
-	public static final List<String> portCaptions=Arrays.asList(new String[]{"Carbon service port (HTTP)",
+	public static final List<String> PORT_CAPTIONS=Arrays.asList(new String[]{"Carbon service port (HTTP)",
 																			 "Carbon web console port (HTTPS)",
 																			 "Synapse transport HTTP port(change only if applicable)",
             																 "Synapse transport HTTPS port(change only if applicable)"});
-	public static final List<String> portIds=Arrays.asList(new String[]{"carbon.http","carbon.https",
+	public static final List<String> PORT_IDS=Arrays.asList(new String[]{"carbon.http","carbon.https",
 	                                                       "synapse.transport.http",
 	                                                       "synapse.transport.https"});
 	

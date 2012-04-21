@@ -40,6 +40,6 @@ public class EditorConstants {
 
 	public static final String DEPENDENCY_ASSOCIATION_TYPE = "depends";
 
-	public static String FORM_EDITOR_ID = "org.wso2.developerstudio.eclipse.editors.registry.formEditor";
+	public static final String FORM_EDITOR_ID = "org.wso2.developerstudio.eclipse.editors.registry.formEditor";
 
 }

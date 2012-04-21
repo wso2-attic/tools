@@ -6,13 +6,13 @@ import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class DistributionProjectImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new DistributionProjectImageUtils();
+		if (instance==null){
+			instance=new DistributionProjectImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

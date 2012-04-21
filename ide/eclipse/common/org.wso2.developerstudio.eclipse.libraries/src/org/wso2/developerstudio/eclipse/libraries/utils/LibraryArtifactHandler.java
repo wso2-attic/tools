@@ -10,9 +10,9 @@ import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
 public class LibraryArtifactHandler {
-	private static String LIBRARY_ARTIFACT_EXTENSION="org.wso2.developerstudio.libraries.libraryprovider";
+	private static final String LIBRARY_ARTIFACT_EXTENSION="org.wso2.developerstudio.libraries.libraryprovider";
 	private static Map<String,LibraryCategory> categoryList;
-	public static String ALL_LIB_CATEGORY_ID = "org.wso2.developerstudio.eclipse.libraries.alllibs";
+	public static final String ALL_LIB_CATEGORY_ID = "org.wso2.developerstudio.eclipse.libraries.alllibs";
 	
 	private static void addDefaultAllList(Map<String,LibraryCategory> categoryList){
 		LibraryCategory libraryCategory = new LibraryCategory();

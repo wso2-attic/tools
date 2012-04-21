@@ -980,7 +980,7 @@ public class RegistryHandlerCreationWizard extends
 
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil
 				.getDependencyInfoMap(project);
-		Map<String, String> map = ProjectDependencyConstants.dependencyMap;
+		Map<String, String> map = ProjectDependencyConstants.DEPENDENCY_MAP;
 		for (JavaLibraryBean bean : dependencyInfoMap.values()) {
 			if (bean.getVersion().contains("${")) {
 				for (String path : map.keySet()) {

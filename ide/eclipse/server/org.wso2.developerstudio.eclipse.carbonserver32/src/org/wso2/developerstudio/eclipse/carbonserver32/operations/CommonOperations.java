@@ -63,10 +63,10 @@ public class CommonOperations {
 		int httpPort=0;
 		int offSet=0;
 		for(ServerPort p:serverPorts){
-			int i = CarbonServerConstants.portCaptions.indexOf(p.getName());
-			if (i!=-1 && CarbonServerConstants.portIds.get(i).equals("carbon.http")){
+			int i = CarbonServerConstants.PORT_CAPTIONS.indexOf(p.getName());
+			if (i!=-1 && CarbonServerConstants.PORT_IDS.get(i).equals("carbon.http")){
 				httpPort=p.getPort();
-			}else if (i!=-1 && CarbonServerConstants.portIds.get(i).equals("carbon.offset")){
+			}else if (i!=-1 && CarbonServerConstants.PORT_IDS.get(i).equals("carbon.offset")){
 				offSet=p.getPort();
 			}
 		}

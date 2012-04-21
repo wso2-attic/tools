@@ -31,7 +31,7 @@ import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2Project
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class ESBProjectNature extends AbstractWSO2ProjectNature {
-	private static final String cappType = "bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar";
+	private static final String CAPP_TYPE = "bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar";
 
 	
 	public void configure() throws CoreException {
@@ -52,7 +52,7 @@ public class ESBProjectNature extends AbstractWSO2ProjectNature {
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 			//Adding typrLidt property
-			MavenUtils.updateMavenProjectWithCAppType(mavenProject, cappType);
+			MavenUtils.updateMavenProjectWithCAppType(mavenProject, CAPP_TYPE);
 			//Setting the directory
 			mavenProject.getBuild().setDirectory("target/capp");
 //			Adding maven test skip property

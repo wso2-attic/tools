@@ -63,7 +63,7 @@ public class ShowInRegistryBrowserAction extends BaseRegistryAction {
 			}
 			RemoteRegistryInfo info = RegistryCheckInClientUtils.getResourceRemoteRegistryUrlInfo(
 																resource.getLocation().toOSString());
-			RegistryBrowserView view = RegistryBrowserView.LAST_INSTANCE;
+			RegistryBrowserView view = RegistryBrowserView.lastInstance;
 			if (view != null) {
 				view.traverseRegistryBrowser(info.getUrl().toString(),info.getPath());
 			}

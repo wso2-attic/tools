@@ -7,16 +7,16 @@ import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class LibImageUtils extends ImageUtils {
 
-	private static LibImageUtils INSTANCE;
+	private static LibImageUtils instance;
 	
 //	public ImageDescriptor getJarImage(){
 //		return getImageDescriptor("jar_obj.gif");
 //	}
 	public static LibImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new LibImageUtils();
+		if (instance==null){
+			instance=new LibImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 	
 	public Bundle getBundle() {

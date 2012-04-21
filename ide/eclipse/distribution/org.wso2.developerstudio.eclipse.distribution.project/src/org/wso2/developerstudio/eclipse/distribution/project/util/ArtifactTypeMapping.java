@@ -19,7 +19,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.util;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArtifactTypeMapping {
+public final class ArtifactTypeMapping {
 	private static Map<String, String> type = new HashMap<String, String>();
 	private static Map<String, String> subType = new HashMap<String, String>();
 	

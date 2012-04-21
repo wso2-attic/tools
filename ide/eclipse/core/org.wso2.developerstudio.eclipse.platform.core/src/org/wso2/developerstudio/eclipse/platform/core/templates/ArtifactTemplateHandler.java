@@ -13,7 +13,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 public class ArtifactTemplateHandler {
-	private static String ESB_ARTIFACT_TEMPLATE_EXTENSION="org.wso2.developerstudio.eclipse.platform.core.artifacttemplates";
+	private static final String ESB_ARTIFACT_TEMPLATE_EXTENSION="org.wso2.developerstudio.eclipse.platform.core.artifacttemplates";
 	private static List<ArtifactTemplate> templateList;
 	
 	private static void loadProxyTemplateInfo(){

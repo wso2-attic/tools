@@ -131,8 +131,8 @@ public class CarbonServerBehavior31 extends CarbonServerBehaviour{
     	  	ServerPort[] ports=getServerPorts(getServer());
         	ServerPort sp = null;
     	    for(int i=0;i<ports.length;i++){
-    	    	int j = CarbonServerConstants.portCaptions.indexOf(ports[i].getName());
-    	    	if(j!=-1 && CarbonServerConstants.portIds.get(j).equals("carbon.http")){
+    	    	int j = CarbonServerConstants.PORT_CAPTIONS.indexOf(ports[i].getName());
+    	    	if(j!=-1 && CarbonServerConstants.PORT_IDS.get(j).equals("carbon.http")){
     	    		sp=ports[i];
     	        	int port = sp.getPort();
     	        	String newUrl = url;

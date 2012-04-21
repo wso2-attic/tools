@@ -37,13 +37,13 @@ import org.wso2.developerstudio.eclipse.ds.customvalidator.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class DataserviceImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new DataserviceImageUtils();
+		if (instance==null){
+			instance=new DataserviceImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

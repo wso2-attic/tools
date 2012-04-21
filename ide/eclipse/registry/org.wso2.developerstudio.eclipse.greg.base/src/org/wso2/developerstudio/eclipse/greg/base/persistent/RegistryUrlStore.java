@@ -32,12 +32,12 @@ import org.wso2.developerstudio.eclipse.greg.base.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
-public class RegistryUrlStore {
+public final class RegistryUrlStore {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private File urlListFile;
 	private List<RegistryURLInfo> urlList;
-	private static RegistryUrlStore INSTANCE;
+	private static RegistryUrlStore instance;
 
 	/**
 	 * RegistryUrlStore constructor
@@ -61,11 +61,11 @@ public class RegistryUrlStore {
 	 * @return
 	 */
 	public static RegistryUrlStore getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new RegistryUrlStore();
-			INSTANCE.init();
+		if (instance == null) {
+			instance = new RegistryUrlStore();
+			instance.init();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 	/**

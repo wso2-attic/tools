@@ -62,8 +62,8 @@ public class CommonOperations {
 		ServerPort[] serverPorts = ServerController.getInstance().getServerManager().getServerPorts(server);
 		int http=9763;
 		for(ServerPort p:serverPorts){
-			int i = CarbonServerConstants.portCaptions.indexOf(p.getName());
-			if (i!=-1 && CarbonServerConstants.portIds.get(i).equals("carbon.http"))
+			int i = CarbonServerConstants.PORT_CAPTIONS.indexOf(p.getName());
+			if (i!=-1 && CarbonServerConstants.PORT_IDS.get(i).equals("carbon.http"))
 				http=p.getPort();
 		}
 		//WSASServer30Utils.setTrustoreProperties(server);

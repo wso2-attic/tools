@@ -20,7 +20,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.wso2.developerstudio.eclipse.greg.base.Activator;
 
 public class RegistryCredentialData {
-	private static RegistryCredentialData INSTANCE;
+	private static RegistryCredentialData instance;
 	private IPreferenceStore preferenceStore;
 	private static final String USERNAME_SUFFIX = "_USERNAME";
 	private static final String PASSWORD_SUFFIX = "_PASSWORD";
@@ -38,10 +38,10 @@ public class RegistryCredentialData {
 	 * @return
 	 */
 	public static RegistryCredentialData getInstance() {
-		if (INSTANCE == null){
-			INSTANCE = new RegistryCredentialData();
+		if (instance == null){
+			instance = new RegistryCredentialData();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 	/**

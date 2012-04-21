@@ -24,7 +24,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class MavenDefinitionHandler {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	private static String MAVEN_DEFINITION_HANDLER_EXTENSION = "org.wso2.developerstudio.eclipse.maven.definitions";
+	private static final String MAVEN_DEFINITION_HANDLER_EXTENSION = "org.wso2.developerstudio.eclipse.maven.definitions";
 
 	private static Map<String, IMavenArchetypeDefinition> archeTypeDefinitions;
 	private static Map<String, IMavenPluginDefinition> pluginDefinitions;

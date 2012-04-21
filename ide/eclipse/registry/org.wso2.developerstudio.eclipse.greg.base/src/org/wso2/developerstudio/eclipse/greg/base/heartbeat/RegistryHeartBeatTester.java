@@ -29,7 +29,7 @@ public class RegistryHeartBeatTester implements Runnable {
 	private RegistryURLNode urlNodeList;
 	private boolean stop=false;
 	private Map<RegistryNode,Boolean> originalState=new HashMap<RegistryNode, Boolean>();;
-	private int HEARTBEAT_RATE=5000;
+	private static final int HEARTBEAT_RATE=5000;
 	
 	public RegistryHeartBeatTester(RegistryURLNode urlNodeList) {
 		setUrlNodeList(urlNodeList);

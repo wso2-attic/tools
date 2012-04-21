@@ -29,7 +29,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
 
 public class RegistryManager {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
-	private static String REGISTRY_RESOURCE_EXTENSION = "org.wso2.developerstudio.eclipse.greg.resourceProvider";
+	private static final String REGISTRY_RESOURCE_EXTENSION = "org.wso2.developerstudio.eclipse.greg.resourceProvider";
 	private static List<IRegistryResourceProviderData> providerList;
 
 	public static IRegistryResourceProviderData[] getResourceProviders(

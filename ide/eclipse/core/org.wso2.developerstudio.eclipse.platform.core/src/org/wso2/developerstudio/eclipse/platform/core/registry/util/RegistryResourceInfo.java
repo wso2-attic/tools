@@ -32,9 +32,9 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	private File sourceFile;
 	private File base;
 	private String relativePath;
-	private static String RESOURCE_TAG_NAME = "item";
-	private static String COLLECTION_TAG_NAME = "collection";
-	private static String DUMP_TAG_NAME = "dump";
+	private static final String RESOURCE_TAG_NAME = "item";
+	private static final String COLLECTION_TAG_NAME = "collection";
+	private static final String DUMP_TAG_NAME = "dump";
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public String getRelativePath() {

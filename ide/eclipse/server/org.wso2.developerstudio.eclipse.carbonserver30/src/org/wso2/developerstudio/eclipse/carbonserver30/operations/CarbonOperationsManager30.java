@@ -47,10 +47,10 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class CarbonOperationsManager30 implements ICarbonOperationManager {
 
-	private static final String runtimeId="org.wso2.developerstudio.eclipse.carbon.runtime30"; 
+	private static final String RUNTIME_ID="org.wso2.developerstudio.eclipse.carbon.runtime30"; 
 	
 	public String getRuntimeId(){
-		return runtimeId;
+		return RUNTIME_ID;
 	}
 	
 	public Object executeOperation(Map<String, Object> operation) throws Exception {

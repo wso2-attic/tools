@@ -236,9 +236,9 @@ public class RemoteCarbonServerUtils {
 	    	Node httpsNode = (Node)xPath.evaluate("/axisconfig/transportReceiver[@name='https']/parameter[@name='port']", document, XPathConstants.NODE);
 	    	for(ServerPort serverPort:serverPorts){
 	    		ServerPort port=serverPort;
-				int i = CarbonServerConstants.portCaptions.indexOf(serverPort.getName());
+				int i = CarbonServerConstants.PORT_CAPTIONS.indexOf(serverPort.getName());
 				if (i!=-1){
-					port=new ServerPort(CarbonServerConstants.portIds.get(i), serverPort.getName(), serverPort.getPort(), serverPort.getProtocol());
+					port=new ServerPort(CarbonServerConstants.PORT_IDS.get(i), serverPort.getName(), serverPort.getPort(), serverPort.getProtocol());
 				}
 	    		if (port.getId().equalsIgnoreCase("synapse.transport.http")) httpNode.setTextContent(Integer.toString(serverPort.getPort()));
 	    		if (port.getId().equalsIgnoreCase("synapse.transport.https")) httpsNode.setTextContent(Integer.toString(serverPort.getPort()));
@@ -284,9 +284,9 @@ public class RemoteCarbonServerUtils {
 	    	Node httpsNode = (Node)xPath.evaluate("/transports/transport[@name='https']/parameter[@name='port']", document, XPathConstants.NODE);
 	    	for(ServerPort serverPort:serverPorts){
 	    		ServerPort port=serverPort;
-				int i = CarbonServerConstants.portCaptions.indexOf(serverPort.getName());
+				int i = CarbonServerConstants.PORT_CAPTIONS.indexOf(serverPort.getName());
 				if (i!=-1){
-					port=new ServerPort(CarbonServerConstants.portIds.get(i), serverPort.getName(), serverPort.getPort(), serverPort.getProtocol());
+					port=new ServerPort(CarbonServerConstants.PORT_IDS.get(i), serverPort.getName(), serverPort.getPort(), serverPort.getProtocol());
 				}
 	    		if (port.getId().equalsIgnoreCase("carbon.http")) httpNode.setTextContent(Integer.toString(serverPort.getPort()));
 	    		if (port.getId().equalsIgnoreCase("carbon.https")) httpsNode.setTextContent(Integer.toString(serverPort.getPort()));

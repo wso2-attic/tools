@@ -25,7 +25,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 public class DeveloperStudioLog implements IDeveloperStudioLog {
 	private String pluginId;
 	private Class<Object> classObj;
-	private static final ILog log=Activator.getDefault().getLog();
+	private static final ILog LOG=Activator.getDefault().getLog();
 	
 	public DeveloperStudioLog(String pluginId) {
 		setPluginId(pluginId);
@@ -50,7 +50,7 @@ public class DeveloperStudioLog implements IDeveloperStudioLog {
     }
 
 	public static ILog getLog() {
-	    return log;
+	    return LOG;
     }
 
 	/* (non-Javadoc)

@@ -298,10 +298,10 @@ public class CarbonServer32Utils {
 								document, XPathConstants.NODE);
 				for (ServerPort serverPort : serverPorts) {
 					ServerPort port = serverPort;
-					int i = CarbonServerConstants.portCaptions
+					int i = CarbonServerConstants.PORT_CAPTIONS
 							.indexOf(serverPort.getName());
 					if (i != -1) {
-						port = new ServerPort(CarbonServerConstants.portIds
+						port = new ServerPort(CarbonServerConstants.PORT_IDS
 								.get(i), serverPort.getName(), serverPort
 								.getPort(), serverPort.getProtocol());
 					}
@@ -364,10 +364,10 @@ public class CarbonServer32Utils {
 				Node offSet=(Node) xPath.evaluate("/Server/Ports/Offset", document,XPathConstants.NODE);
 				for (ServerPort serverPort : serverPorts) {
 					ServerPort port = serverPort;
-					int i = CarbonServerConstants.portCaptions
+					int i = CarbonServerConstants.PORT_CAPTIONS
 							.indexOf(serverPort.getName());
 					if (i != -1) {
-						port = new ServerPort(CarbonServerConstants.portIds
+						port = new ServerPort(CarbonServerConstants.PORT_IDS
 								.get(i), serverPort.getName(), serverPort
 								.getPort(), serverPort.getProtocol());
 					}

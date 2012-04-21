@@ -151,11 +151,11 @@ public class CarbonServerBehavior32 extends CarbonServerBehaviour{
         	int offSet=0;
         	
     	    for(int i=0;i<ports.length;i++){
-    	    	int j = CarbonServerConstants.portCaptions.indexOf(ports[i].getName());
-    	    	if(j!=-1 && CarbonServerConstants.portIds.get(j).equals("carbon.http")){
+    	    	int j = CarbonServerConstants.PORT_CAPTIONS.indexOf(ports[i].getName());
+    	    	if(j!=-1 && CarbonServerConstants.PORT_IDS.get(j).equals("carbon.http")){
     	    		sp=ports[i];
     	        	port = sp.getPort();
-    	    	}else if(j!=-1 && CarbonServerConstants.portIds.get(j).equals("carbon.offset")){
+    	    	}else if(j!=-1 && CarbonServerConstants.PORT_IDS.get(j).equals("carbon.offset")){
     	    		sp=ports[i];
     	        	offSet = sp.getPort();
     	    	} 

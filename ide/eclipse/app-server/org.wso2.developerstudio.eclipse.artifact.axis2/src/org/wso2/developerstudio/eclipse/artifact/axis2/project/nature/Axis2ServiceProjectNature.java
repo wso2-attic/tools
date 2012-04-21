@@ -77,7 +77,7 @@ public class Axis2ServiceProjectNature extends AbstractWSO2ProjectNature {
 		List<Dependency> dependencyList = new ArrayList<Dependency>();
 		
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(getProject());
-		Map<String, String> map = ProjectDependencyConstants.dependencyMap;
+		Map<String, String> map = ProjectDependencyConstants.DEPENDENCY_MAP;
 		for (JavaLibraryBean bean : dependencyInfoMap.values()) {
 			if (bean.getVersion().contains("${")){
 				for(String path: map.keySet()) {

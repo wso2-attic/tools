@@ -232,7 +232,7 @@ public class RegistryHandler implements IRegistryHandler {
 		} catch (PartInitException e1) {
 			e1.printStackTrace();
 		}
-		RegistryBrowserView view = RegistryBrowserView.LAST_INSTANCE;
+		RegistryBrowserView view = RegistryBrowserView.lastInstance;
 		if (view != null) {
 			view.traverseRegistryBrowser(registryData.getURL().toString(),registryData.getPath());
 		}
@@ -248,7 +248,7 @@ public class RegistryHandler implements IRegistryHandler {
 		} catch (PartInitException e1) {
 			e1.printStackTrace();
 		}
-		RegistryBrowserView view = RegistryBrowserView.LAST_INSTANCE;
+		RegistryBrowserView view = RegistryBrowserView.lastInstance;
 		if (view != null) {
 			view.removeRegistryNode(url,path);
 		}

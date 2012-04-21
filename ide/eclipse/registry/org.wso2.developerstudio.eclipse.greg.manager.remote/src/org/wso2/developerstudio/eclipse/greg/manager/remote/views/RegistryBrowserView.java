@@ -228,7 +228,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 	private ExceptionHandler exeptionHandler;
 
 	private Object selectedObj;
-	public static RegistryBrowserView LAST_INSTANCE;
+	public static RegistryBrowserView lastInstance;
 
 	private static RegistryPropertyViewer registryPropertyViewer;
 	private static ResourceInfoViewer resourceInfoViewer;
@@ -250,7 +250,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 	private boolean linkedWithEditor;
 
-	public static int CNTRL_KEY_CODE = 262144;
+	public static final int CNTRL_KEY_CODE = 262144;
 	
 	boolean cntrlKeyPressed;
 	
@@ -290,7 +290,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 		super();
 		this.regUrlNode = new RegistryURLNode();
 		regUrlNode.addObserver(this);
-		LAST_INSTANCE = this;
+		lastInstance = this;
 		registryHeartBeatTester = new RegistryHeartBeatTester(regUrlNode);
 		new Thread(registryHeartBeatTester).start();
 	}

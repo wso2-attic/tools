@@ -50,7 +50,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
  * @since 1.1.0
  * 
  */
-public class MavenExecutorImpl implements IMavenExecutor {
+public final class MavenExecutorImpl implements IMavenExecutor {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private static final String ENABLE_BATCH_MODE = "-B";
@@ -78,16 +78,16 @@ public class MavenExecutorImpl implements IMavenExecutor {
 	private static final String INSTALL_GOAL = "install";
 	private static final String CLEAN_GOAL = "clean";
 	
-	private static MavenExecutorImpl INSTANCE;
+	private static MavenExecutorImpl instance;
 	
 	private MavenExecutorImpl() {
 	}
 
 	public static MavenExecutorImpl getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new MavenExecutorImpl();
+		if (instance==null){
+			instance=new MavenExecutorImpl();
 		}
-		return INSTANCE;
+		return instance;
 	}
 	
 	public boolean executeMavenGoal(File projectPath, List<String> goals,

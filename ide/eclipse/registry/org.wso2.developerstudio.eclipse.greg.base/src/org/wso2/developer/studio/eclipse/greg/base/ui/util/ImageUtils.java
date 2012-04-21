@@ -29,7 +29,7 @@ import org.wso2.developerstudio.eclipse.greg.base.Activator;
 
 public class ImageUtils {
 
-	private static Map<String, ImageDescriptor> ICONS;
+	private static Map<String, ImageDescriptor> icons;
 
 	public static final String ACTION_CHECK_OUT_MENU = "checkout_menu.png";
 	public static final String STATE_NORMAL = "checkout_file.png";
@@ -135,12 +135,12 @@ public class ImageUtils {
 	 * @return
 	 */
 	public static ImageDescriptor getImageDescriptor(String key) {
-		if (ICONS == null) {
-			ICONS = new HashMap<String, ImageDescriptor>();
+		if (icons == null) {
+			icons = new HashMap<String, ImageDescriptor>();
 		}
-		if (!ICONS.containsKey(key)){
-			ICONS.put(key, createImageDescriptor(key));
+		if (!icons.containsKey(key)){
+			icons.put(key, createImageDescriptor(key));
 		}
-		return ICONS.get(key);
+		return icons.get(key);
 	}
 }

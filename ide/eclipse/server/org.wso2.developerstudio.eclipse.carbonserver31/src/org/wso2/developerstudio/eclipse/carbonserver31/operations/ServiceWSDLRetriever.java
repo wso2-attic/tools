@@ -44,11 +44,11 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.xml.sax.SAXException;
 
-public class ServiceWSDLRetriever implements Runnable {
+public final class ServiceWSDLRetriever implements Runnable {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	private int MAX_RUN_TIME=300000;
-	private int SLEEP_STEP=2000;
+	private static final int MAX_RUN_TIME=300000;
+	private static final int SLEEP_STEP=2000;
 	private IPath path;
 	private URL url;
 	private boolean stop=false;

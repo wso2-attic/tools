@@ -250,9 +250,9 @@ public class ConfigurationPortEditorSection extends ServerEditorSection {
 			String[] s = new String[] {port.getName(), portStr};
 			item.setText(s);
 			//item.setImage(TomcatUIPlugin.getImage(TomcatUIPlugin.IMG_PORT));
-			int i = CarbonServerConstants.portCaptions.indexOf(port.getName());
+			int i = CarbonServerConstants.PORT_CAPTIONS.indexOf(port.getName());
 			if (i!=-1){
-				port=new ServerPort(CarbonServerConstants.portIds.get(i), port.getName(), port.getPort(), port.getProtocol());
+				port=new ServerPort(CarbonServerConstants.PORT_IDS.get(i), port.getName(), port.getPort(), port.getProtocol());
 			}
 			item.setData(port);
 		}
