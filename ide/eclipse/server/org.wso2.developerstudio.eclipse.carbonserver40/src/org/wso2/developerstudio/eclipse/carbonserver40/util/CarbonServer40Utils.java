@@ -683,16 +683,16 @@ public class CarbonServer40Utils {
 		return id;
 	}
 
-	private static void setEasySSLProtocolSocketFactory(int port){
-		Protocol.unregisterProtocol("https");  
-		try {
-			Protocol.registerProtocol("https", new Protocol("https", new EasySSLProtocolSocketFactory(), port));
-		} catch (GeneralSecurityException e2) {
-			e2.printStackTrace();
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}
-	}
+//	private static void setEasySSLProtocolSocketFactory(int port){
+//		Protocol.unregisterProtocol("https");  
+//		try {
+//			Protocol.registerProtocol("https", new Protocol("https", new EasySSLProtocolSocketFactory(), port));
+//		} catch (GeneralSecurityException e2) {
+//			e2.printStackTrace();
+//		} catch (IOException e2) {
+//			e2.printStackTrace();
+//		}
+//	}
 
 	public static File getCappMonitorBundle(){
 		URL resource = Platform.getBundle(Activator.PLUGIN_ID).getResource("lib"+File.separator+"org.wso2.carbon.capp.monitor-3.0.0.jar");

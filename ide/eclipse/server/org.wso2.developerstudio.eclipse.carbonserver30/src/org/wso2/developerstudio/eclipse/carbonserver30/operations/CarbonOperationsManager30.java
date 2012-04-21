@@ -348,11 +348,11 @@ public class CarbonOperationsManager30 implements ICarbonOperationManager {
 		}
 	}
 	
-	private void continueOperationWithServerStatus(IServer server) throws CarbonServerNotRunningException{
-		if (server.getServerState()!=IServer.STATE_STARTED){
-			throw new CarbonServerNotRunningException();
-		}
-	}
+//	private void continueOperationWithServerStatus(IServer server) throws CarbonServerNotRunningException{
+//		if (server.getServerState()!=IServer.STATE_STARTED){
+//			throw new CarbonServerNotRunningException();
+//		}
+//	}
 	
 	private String[] getCodegenLibraries(String[] serverCodegenLibraries) throws Exception{
 		List<String> paths=new ArrayList<String>();

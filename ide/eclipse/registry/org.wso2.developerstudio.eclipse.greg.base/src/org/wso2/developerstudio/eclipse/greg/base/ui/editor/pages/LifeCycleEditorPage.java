@@ -39,8 +39,4 @@ public class LifeCycleEditorPage extends FormPage implements
 
 	}
 
-	private void updateDirtyState() {
-
-	}
-
 }

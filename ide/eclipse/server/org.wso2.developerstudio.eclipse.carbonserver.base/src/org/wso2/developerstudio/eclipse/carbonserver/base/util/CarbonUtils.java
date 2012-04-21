@@ -98,21 +98,21 @@ public class CarbonUtils {
 		return wsasHTTPAddress;
 	}
 
-	private static Document getXmlDocument(String filename){
-		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBuilder;
-		try {
-			docBuilder = docBuilderFactory.newDocumentBuilder();
-			Document doc = docBuilder.parse (new File(filename));
-			return doc;
-		} catch (ParserConfigurationException e) {
-			return null;
-		} catch (SAXException e) {
-			return null;
-		} catch (IOException e) {
-			return null;
-		}
-	}
+//	private static Document getXmlDocument(String filename){
+//		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+//		DocumentBuilder docBuilder;
+//		try {
+//			docBuilder = docBuilderFactory.newDocumentBuilder();
+//			Document doc = docBuilder.parse (new File(filename));
+//			return doc;
+//		} catch (ParserConfigurationException e) {
+//			return null;
+//		} catch (SAXException e) {
+//			return null;
+//		} catch (IOException e) {
+//			return null;
+//		}
+//	}
 	
 	public static List getJavaProjectSourceDirectories (IProject project){
 			    ArrayList srcPaths = new ArrayList();

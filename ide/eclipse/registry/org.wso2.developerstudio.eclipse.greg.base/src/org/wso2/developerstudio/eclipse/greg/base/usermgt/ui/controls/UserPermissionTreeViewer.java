@@ -308,23 +308,23 @@ public class UserPermissionTreeViewer extends CheckboxTreeViewer implements Obse
     /**
 	 * trigger RegistryTreeSelectionListeners
 	 */
-	private void triggerRegistryTreeSelectionListeners() {
-		for (IRegistryTreeItemSelectionListener r : getRegistryTreeSelectionListeners()) {
-			try {
-				if ((getSelectionState() & SELECTED_NONE) == SELECTED_NONE){
-					r.selectionLost();
-				}else if ((getSelectionState() & SELECTED_REGISTRY_PATH) == SELECTED_REGISTRY_PATH){
-					r.registryPathSelected(getSelectedRegistryPathCollections()
-														.toArray(new RegistryResourceNode[] {}));
-				}else if((getSelectionState() & SELECTED_REGISTRY_RESOURCE) == SELECTED_REGISTRY_RESOURCE){
-					r.registryResourceSelected(getSelectedRegistryPathCollections()
-															.toArray(new RegistryResourceNode[] {}));
-				}
-			} catch (Exception e) {
-				log.error(e);
-			}
-		}
-	}
+//	private void triggerRegistryTreeSelectionListeners() {
+//		for (IRegistryTreeItemSelectionListener r : getRegistryTreeSelectionListeners()) {
+//			try {
+//				if ((getSelectionState() & SELECTED_NONE) == SELECTED_NONE){
+//					r.selectionLost();
+//				}else if ((getSelectionState() & SELECTED_REGISTRY_PATH) == SELECTED_REGISTRY_PATH){
+//					r.registryPathSelected(getSelectedRegistryPathCollections()
+//														.toArray(new RegistryResourceNode[] {}));
+//				}else if((getSelectionState() & SELECTED_REGISTRY_RESOURCE) == SELECTED_REGISTRY_RESOURCE){
+//					r.registryResourceSelected(getSelectedRegistryPathCollections()
+//															.toArray(new RegistryResourceNode[] {}));
+//				}
+//			} catch (Exception e) {
+//				log.error(e);
+//			}
+//		}
+//	}
 	
 	/**
 	 * add registryTreeItem selection listener
@@ -390,21 +390,21 @@ public class UserPermissionTreeViewer extends CheckboxTreeViewer implements Obse
 		return list;
 	}
 	
-	private void setParentsGray(RegistryResourceNode regResourceNode, boolean state){
-		RegistryResourceNode registryResourceNodeParent = regResourceNode.getRegistryResourceNodeParent();
-		if(registryResourceNodeParent != null && !regResourceNode.getCaption().equals("permission")){
-			if(getChecked(registryResourceNodeParent)){
-				setGrayChecked(registryResourceNodeParent,state);
-			}else{
-				setGrayed(registryResourceNodeParent, state);
-			}
-			setParentsGray(registryResourceNodeParent,state);
-		}
-	}
+//	private void setParentsGray(RegistryResourceNode regResourceNode, boolean state){
+//		RegistryResourceNode registryResourceNodeParent = regResourceNode.getRegistryResourceNodeParent();
+//		if(registryResourceNodeParent != null && !regResourceNode.getCaption().equals("permission")){
+//			if(getChecked(registryResourceNodeParent)){
+//				setGrayChecked(registryResourceNodeParent,state);
+//			}else{
+//				setGrayed(registryResourceNodeParent, state);
+//			}
+//			setParentsGray(registryResourceNodeParent,state);
+//		}
+//	}
 	
-	private void setChildrenGrayed(RegistryResourceNode regResourceNode,boolean state){
-		for (RegistryResourceNode item : getAllChildRegistryResourceNodes(regResourceNode)) {
-	        setGrayed(item, state);
-        }
-	}
+//	private void setChildrenGrayed(RegistryResourceNode regResourceNode,boolean state){
+//		for (RegistryResourceNode item : getAllChildRegistryResourceNodes(regResourceNode)) {
+//	        setGrayed(item, state);
+//        }
+//	}
 }

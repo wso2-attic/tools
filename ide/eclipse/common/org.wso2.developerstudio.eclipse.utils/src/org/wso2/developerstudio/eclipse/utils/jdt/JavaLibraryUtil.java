@@ -20,17 +20,11 @@ import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.constants.ProjectConstants;
-import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -48,8 +42,8 @@ public class JavaLibraryUtil {
 	/**
      * 
      */
-	private static final String POM_FILE_NAME = "pom";
-	private static final String POM_FILE_EXTENSION = "xml";
+//	private static final String POM_FILE_NAME = "pom";
+//	private static final String POM_FILE_EXTENSION = "xml";
 
 	/**
 	 * This method is extracting the jar libraries from the Eclipse java project
@@ -139,12 +133,12 @@ public class JavaLibraryUtil {
     	return null;
     }
 
-	private static MavenProject getMavenProject(File file) throws Exception {
-		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-		Model model;
-		model = mavenXpp3Reader.read(new FileInputStream(file));
-		return new MavenProject(model);
-	}
+//	private static MavenProject getMavenProject(File file) throws Exception {
+//		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+//		Model model;
+//		model = mavenXpp3Reader.read(new FileInputStream(file));
+//		return new MavenProject(model);
+//	}
 	
 	private static MavenProject getMavenProject(String serializedModel) throws Exception {
 		StringReader sReader = new StringReader( serializedModel );

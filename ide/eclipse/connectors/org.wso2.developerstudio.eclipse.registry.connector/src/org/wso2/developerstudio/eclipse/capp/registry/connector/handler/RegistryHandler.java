@@ -66,12 +66,8 @@ public class RegistryHandler implements IRegistryHandler {
 
 	private static RegistryHandler INSTANCE;
 	private HashMap<File, String> resourceList;
-	private boolean isResource;
 	private static final String RESOURCE = "resource";
 	private static final String COLLECTION = "collection";
-	private ResourceMetaData resMetaData;
-	private File metaFolder;
-	
 	public RegistryHandler() {
     }
 	
@@ -152,11 +148,6 @@ public class RegistryHandler implements IRegistryHandler {
 			}
 		}
 	}
-	
-	private void createMetaDataForResource(HashMap<File, String> resourceList , File metaFolder){
-		
-	}
-	
 	
 	public IRegistryData selectRegistryPath(IRegistryConnection[] registryConnections, String title,
 	                                        String message, int type){

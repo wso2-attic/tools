@@ -219,49 +219,49 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		TrayDialog.setDialogHelpAvailable(false);
 	}
 
-	private void setParentMavenInfo(String parentProjectInfo) {
-		String[] projectInfo = parentProjectInfo.split("(");
-		if (projectInfo.length != 0) {
-			setParentProjectName(projectInfo[0]);
-			String[] mavenInfo = projectInfo[projectInfo.length - 1].split(">:<");
-			setParentGroupID(mavenInfo[0].substring(1));
-			setParentArtifactID(mavenInfo[1]);
-			setParentVersion(mavenInfo[2].substring(0, mavenInfo[2].length() - 2));
-		}
+//	private void setParentMavenInfo(String parentProjectInfo) {
+//		String[] projectInfo = parentProjectInfo.split("(");
+//		if (projectInfo.length != 0) {
+//			setParentProjectName(projectInfo[0]);
+//			String[] mavenInfo = projectInfo[projectInfo.length - 1].split(">:<");
+//			setParentGroupID(mavenInfo[0].substring(1));
+//			setParentArtifactID(mavenInfo[1]);
+//			setParentVersion(mavenInfo[2].substring(0, mavenInfo[2].length() - 2));
+//		}
+//
+//	}
 
-	}
+//	private void loadParentProjectInfo() throws Exception {
+//		String mavenInfo;
+//		List<MavenProject> parentMavenProjects =
+//		        getParentMavenProjects(new ArrayList<MavenProject>());
+//		for (MavenProject mavenProject : parentMavenProjects) {
+//			mavenInfo =
+//			        dataModel.getProjectName() + "(<" + mavenProject.getGroupId() + ">:<" +
+//			                mavenProject.getArtifactId() + ">:<" + mavenProject.getVersion() + ">)";
+//			parentProjectInfoCombo.add(mavenInfo);
+//		}
+//
+//		if (parentProjectInfoCombo.getSelectionIndex() == -1) {
+//			parentProjectInfoCombo.select(0);
+//		}
+//	}
 
-	private void loadParentProjectInfo() throws Exception {
-		String mavenInfo;
-		List<MavenProject> parentMavenProjects =
-		        getParentMavenProjects(new ArrayList<MavenProject>());
-		for (MavenProject mavenProject : parentMavenProjects) {
-			mavenInfo =
-			        dataModel.getProjectName() + "(<" + mavenProject.getGroupId() + ">:<" +
-			                mavenProject.getArtifactId() + ">:<" + mavenProject.getVersion() + ">)";
-			parentProjectInfoCombo.add(mavenInfo);
-		}
-
-		if (parentProjectInfoCombo.getSelectionIndex() == -1) {
-			parentProjectInfoCombo.select(0);
-		}
-	}
-
-	private List<MavenProject> getParentMavenProjects(List<MavenProject> mavenParentProjects)
-	        throws Exception {
-		File parentLocation = dataModel.getLocation();
-		while (parentLocation != null) {
-			File pomFile = new File(parentLocation, "pom.xml");
-			if (pomFile.exists()) {
-				MavenProject mavenProject = MavenUtils.getMavenProject(pomFile);
-				if (mavenProject.getPackaging().equals("pom")) {
-					mavenParentProjects.add(mavenProject);
-				}
-			}
-			parentLocation = parentLocation.getParentFile();
-		}
-		return mavenParentProjects;
-	}
+//	private List<MavenProject> getParentMavenProjects(List<MavenProject> mavenParentProjects)
+//	        throws Exception {
+//		File parentLocation = dataModel.getLocation();
+//		while (parentLocation != null) {
+//			File pomFile = new File(parentLocation, "pom.xml");
+//			if (pomFile.exists()) {
+//				MavenProject mavenProject = MavenUtils.getMavenProject(pomFile);
+//				if (mavenProject.getPackaging().equals("pom")) {
+//					mavenParentProjects.add(mavenProject);
+//				}
+//			}
+//			parentLocation = parentLocation.getParentFile();
+//		}
+//		return mavenParentProjects;
+//	}
 
 	private void updateMavenDetailsControls() {
 		if (mavenProjectInfo != null) {

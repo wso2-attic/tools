@@ -216,9 +216,9 @@ public class ResourceInfoViewer extends ViewPart implements
 	}
 
 
-	private void setBlankPage(TabItem tabpage) {
-		tabpage.setControl(lblNoData);
-	}
+//	private void setBlankPage(TabItem tabpage) {
+//		tabpage.setControl(lblNoData);
+//	}
 	
 	private String getVersion(RegistryResourceNode regResourceNode){
 		String version = "";

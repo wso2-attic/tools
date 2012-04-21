@@ -197,19 +197,19 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 		initialize();
 	}
 	
-	private void saveInfo() {
-		if(!validateUsername()){
-			MessageDialog.openError(this.getShell(), "Error", "Username not valid");
-			return;
-		}
-//		else if(!validatePWD()){
-//			MessageDialog.openError(this.getShell(), "Error", "Passwords does not match");
+//	private void saveInfo() {
+//		if(!validateUsername()){
+//			MessageDialog.openError(this.getShell(), "Error", "Username not valid");
 //			return;
 //		}
-		RemoteCarbonServer rcs=(RemoteCarbonServer)server.loadAdapter(RemoteCarbonServer.class, null);
-		rcs.setUsername(username);
-//		rcs.setPassword(pwd);
-	}
+////		else if(!validatePWD()){
+////			MessageDialog.openError(this.getShell(), "Error", "Passwords does not match");
+////			return;
+////		}
+//		RemoteCarbonServer rcs=(RemoteCarbonServer)server.loadAdapter(RemoteCarbonServer.class, null);
+//		rcs.setUsername(username);
+////		rcs.setPassword(pwd);
+//	}
 
 	private boolean validateUsername() {
 		if(username==null || username.equals("")){

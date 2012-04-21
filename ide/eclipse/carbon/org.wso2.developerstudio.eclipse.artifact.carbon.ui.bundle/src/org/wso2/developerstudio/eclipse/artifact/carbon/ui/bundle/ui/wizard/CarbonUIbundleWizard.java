@@ -136,19 +136,19 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 	}
 	
 	
-	private IFile getActivatorClassForProject(IProject project) throws JavaModelException{
-		List<File> javaFileList = new ArrayList<File>();
-		File[] javaFiles = FileUtils.getAllExactMatchingFiles(project.getLocation().toString(), null, "java", javaFileList);
-		for (File javaFile : javaFiles) {
-			String relativePath = FileUtils.getRelativePath(project.getLocation().toFile(), javaFile);
-			IFile sourceFile = project.getFile(relativePath);
-			boolean isClassImplemented = JavaUtils.isClassImplement(project, "BundleActivator");
-			if(isClassImplemented){
-				return sourceFile;
-			}
-		}
-		return null;
-	}
+//	private IFile getActivatorClassForProject(IProject project) throws JavaModelException{
+//		List<File> javaFileList = new ArrayList<File>();
+//		File[] javaFiles = FileUtils.getAllExactMatchingFiles(project.getLocation().toString(), null, "java", javaFileList);
+//		for (File javaFile : javaFiles) {
+//			String relativePath = FileUtils.getRelativePath(project.getLocation().toFile(), javaFile);
+//			IFile sourceFile = project.getFile(relativePath);
+//			boolean isClassImplemented = JavaUtils.isClassImplement(project, "BundleActivator");
+//			if(isClassImplemented){
+//				return sourceFile;
+//			}
+//		}
+//		return null;
+//	}
 	
 	private IFile getManifestFileForProject(IProject project) throws JavaModelException{
 		List<File> manifestFileList = new ArrayList<File>();

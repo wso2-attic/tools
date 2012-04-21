@@ -268,27 +268,27 @@ public class GARImportDependencyImpl implements IGARImportDependency {
 		}
 	}
 	
-	private void setupSchemaIncludeList(URL parentURL, Map imports) throws MalformedURLException {
-		for (Object key : imports.keySet()) {
-			Object object = imports.get(key);
-			if (object instanceof Iterable){
-				Iterable i=(Iterable)object;
-				Iterator iterator = i.iterator();
-				while(iterator.hasNext()){
-					Object p=iterator.next();
-					if (p instanceof SchemaImport) {
-						SchemaImport si=(SchemaImport)p;
-						String locationURI = si.getSchemaLocationURI();
-						if (locationURI!=null) {
-							URL schemaUrl = getDependencyURL(parentURL,locationURI);
-							GARImportDependencyImpl garSchemaImportDependency = new GARImportDependencyImpl(schemaUrl, si.getReferencedSchema());
-							addDependency(garSchemaImportDependency, schemaImports, si, locationURI);
-						}
-					}
-				}
-			}
-		}
-	}
+//	private void setupSchemaIncludeList(URL parentURL, Map imports) throws MalformedURLException {
+//		for (Object key : imports.keySet()) {
+//			Object object = imports.get(key);
+//			if (object instanceof Iterable){
+//				Iterable i=(Iterable)object;
+//				Iterator iterator = i.iterator();
+//				while(iterator.hasNext()){
+//					Object p=iterator.next();
+//					if (p instanceof SchemaImport) {
+//						SchemaImport si=(SchemaImport)p;
+//						String locationURI = si.getSchemaLocationURI();
+//						if (locationURI!=null) {
+//							URL schemaUrl = getDependencyURL(parentURL,locationURI);
+//							GARImportDependencyImpl garSchemaImportDependency = new GARImportDependencyImpl(schemaUrl, si.getReferencedSchema());
+//							addDependency(garSchemaImportDependency, schemaImports, si, locationURI);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 	
 	public void setDefinition(Definition definition) {
 		this.definition = definition;

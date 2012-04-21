@@ -89,10 +89,10 @@ public class NewRegistryAspectsClassWizardPage extends NewClassWizardPage{
 		}
 	}
 
-	private void addSynapseLibrary() throws JavaModelException {
-	    IJavaProject javaProject = getJavaProject();
-		JavaUtils.addJarLibraryToProject(javaProject, RegistryAspectsUtils.getRegistryCoreLibraryPath());
-    }
+//	private void addSynapseLibrary() throws JavaModelException {
+//	    IJavaProject javaProject = getJavaProject();
+//		JavaUtils.addJarLibraryToProject(javaProject, RegistryAspectsUtils.getRegistryCoreLibraryPath());
+//    }
 
 	public  IProject getProject() {
 	    return getJavaProject().getProject();

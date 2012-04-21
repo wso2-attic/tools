@@ -91,35 +91,35 @@ public class ImportHandlerJarWizardPage extends WizardPage{
 
 	}
 
-	private boolean isValidHandler(IFile jar){
-			IPackageFragmentRoot rootPkg = JavaCore.createJarPackageFragmentRootFrom(jar);
-			try {
-				IPackageFragment[] packageFragments =rootPkg.getJavaProject().getPackageFragments();
-				for (IPackageFragment fragment : packageFragments) {
-					IJavaElement[] children = fragment.getChildren();
-					for (IJavaElement element : children) {
-							ICompilationUnit[] compilationUnits = fragment.getCompilationUnits();
-							for (ICompilationUnit unit : compilationUnits) {
-								String a = unit.getElementName();
-								IType[] types = unit.getTypes();
-								for (IType type : types) {
-									if(type.getSuperclassName() != null){
-										String[][] resolveType = type.resolveType(type.getSuperclassName());
-										if(resolveType != null){
-											String fullyQualifiedSuperClassName=(resolveType[0][0]).toString()+"."+(resolveType[0][1]).toString();
-											if(Constants.HANDLER_SUPER_CLASSNAME.equals(fullyQualifiedSuperClassName)){
-											return true;	
-											}
-										}
-									}
-								}
-							}
-					}
-				}
-			} catch (JavaModelException e) {
-			}
-		return false;
-	}
+//	private boolean isValidHandler(IFile jar){
+//			IPackageFragmentRoot rootPkg = JavaCore.createJarPackageFragmentRootFrom(jar);
+//			try {
+//				IPackageFragment[] packageFragments =rootPkg.getJavaProject().getPackageFragments();
+//				for (IPackageFragment fragment : packageFragments) {
+//					IJavaElement[] children = fragment.getChildren();
+//					for (IJavaElement element : children) {
+//							ICompilationUnit[] compilationUnits = fragment.getCompilationUnits();
+//							for (ICompilationUnit unit : compilationUnits) {
+//								String a = unit.getElementName();
+//								IType[] types = unit.getTypes();
+//								for (IType type : types) {
+//									if(type.getSuperclassName() != null){
+//										String[][] resolveType = type.resolveType(type.getSuperclassName());
+//										if(resolveType != null){
+//											String fullyQualifiedSuperClassName=(resolveType[0][0]).toString()+"."+(resolveType[0][1]).toString();
+//											if(Constants.HANDLER_SUPER_CLASSNAME.equals(fullyQualifiedSuperClassName)){
+//											return true;	
+//											}
+//										}
+//									}
+//								}
+//							}
+//					}
+//				}
+//			} catch (JavaModelException e) {
+//			}
+//		return false;
+//	}
 	
 	private String openFileDialog(){
 		FileDialog fd = new FileDialog(getShell(), SWT.OPEN);

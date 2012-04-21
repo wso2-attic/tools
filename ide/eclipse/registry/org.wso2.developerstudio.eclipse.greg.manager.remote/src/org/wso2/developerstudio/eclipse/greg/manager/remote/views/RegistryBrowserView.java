@@ -825,14 +825,14 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 		return versionCaption;
 	}
 
-	private void fillContextMenu(IMenuManager mgr) {
-		mgr.add(addRegistryAction);
-		mgr.add(addCollectionAction);
-		mgr.add(addResourceAction);
-		mgr.add(deleteAction);
-		mgr.add(communityAction);
-		mgr.add(metaDataAction);
-	}
+//	private void fillContextMenu(IMenuManager mgr) {
+//		mgr.add(addRegistryAction);
+//		mgr.add(addCollectionAction);
+//		mgr.add(addResourceAction);
+//		mgr.add(deleteAction);
+//		mgr.add(communityAction);
+//		mgr.add(metaDataAction);
+//	}
 
 	public void createActions(final Composite parent) {
 		parentComposite = parent;

@@ -104,42 +104,42 @@ public class DsValidatorExportHandler extends ProjectArtifactHandler {
     return exportedPackagesList;
 }
 
-	private void getClassName(IJavaProject iJavaProject) throws JavaModelException{
+//	private void getClassName(IJavaProject iJavaProject) throws JavaModelException{
+//		
+//		IPackageFragment[] packages = iJavaProject.getPackageFragments();
+//	    for (IPackageFragment mypackage : packages) {
+//	    	        mypackage.getElementName();
+//			    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) { 
+//			    	 if(mypackage.hasChildren()){
+//			      //      exportedPackagesList.add(iPackageFragment.getElementName());
+//			    		 for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+//			    			  
+//			    			   //   unit.
+//			    				System.out.println("Source file " + unit.getElementName());
+//			    			//	Document doc = new Document(unit.getSource());
+//			    			//	System.out
+//			    				//		.println("Has number of lines: " + doc.getNumberOfLines());
+//			    				//printIMethods(unit);
+//
+//			    			}			    		 
+//			    	 }
+//				}
+//		  }	
+//	}	
 		
-		IPackageFragment[] packages = iJavaProject.getPackageFragments();
-	    for (IPackageFragment mypackage : packages) {
-	    	        mypackage.getElementName();
-			    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) { 
-			    	 if(mypackage.hasChildren()){
-			      //      exportedPackagesList.add(iPackageFragment.getElementName());
-			    		 for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-			    			  
-			    			   //   unit.
-			    				System.out.println("Source file " + unit.getElementName());
-			    			//	Document doc = new Document(unit.getSource());
-			    			//	System.out
-			    				//		.println("Has number of lines: " + doc.getNumberOfLines());
-			    				//printIMethods(unit);
-
-			    			}			    		 
-			    	 }
-				}
-		  }	
-	}	
-		
-	private void printIMethods(ICompilationUnit unit) throws JavaModelException {
-		IType[] allTypes = unit.getAllTypes();
-		for (IType type : allTypes) {
-			  if("".equals(type.getSuperclassName())){}
-			IMethod[] methods = type.getMethods();
-			for (IMethod method : methods) {
-
-				System.out.println("Method name " + method.getElementName());
-				System.out.println("Signature " + method.getSignature());
-				System.out.println("Return Type " + method.getReturnType());
-
-			}
-		}
-	}
+//	private void printIMethods(ICompilationUnit unit) throws JavaModelException {
+//		IType[] allTypes = unit.getAllTypes();
+//		for (IType type : allTypes) {
+//			  if("".equals(type.getSuperclassName())){}
+//			IMethod[] methods = type.getMethods();
+//			for (IMethod method : methods) {
+//
+//				System.out.println("Method name " + method.getElementName());
+//				System.out.println("Signature " + method.getSignature());
+//				System.out.println("Return Type " + method.getReturnType());
+//
+//			}
+//		}
+//	}
 	
 }

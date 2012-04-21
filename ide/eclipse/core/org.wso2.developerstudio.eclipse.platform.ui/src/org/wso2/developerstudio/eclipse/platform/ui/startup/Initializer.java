@@ -16,11 +16,6 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.startup;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
@@ -32,33 +27,33 @@ public class Initializer {
 //		setupCustomTrustManager();
 	}
 	
-	private static void setupCustomTrustManager(){
-		Display.getDefault().asyncExec(new Runnable(){
-//			public void run() {
-//				Display.getDefault().timerExec(2000, new Runnable(){
-
-					public void run() {
-						java.security.Security.setProperty("ssl.SocketFactory.provider","abc.DummySSLSocketFactory");
-						
-//						EclipseSWTTrustManager.initiate(Display.getDefault().getActiveShell());
-						URL url;
-						try {
-							url = new URL("https://wso2.org");
-							url.openStream();
-						} catch (MalformedURLException e) {
-							// TODO Auto-generated catch block
-							log.error(e);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							log.error(e);
-						}
-//						Display.getDefault().timerExec(2000, this);
-					}
-					
-//				});				
-//			}
-			
-		});
-
-	}
+//	private static void setupCustomTrustManager(){
+//		Display.getDefault().asyncExec(new Runnable(){
+////			public void run() {
+////				Display.getDefault().timerExec(2000, new Runnable(){
+//
+//					public void run() {
+//						java.security.Security.setProperty("ssl.SocketFactory.provider","abc.DummySSLSocketFactory");
+//						
+////						EclipseSWTTrustManager.initiate(Display.getDefault().getActiveShell());
+//						URL url;
+//						try {
+//							url = new URL("https://wso2.org");
+//							url.openStream();
+//						} catch (MalformedURLException e) {
+//							// TODO Auto-generated catch block
+//							log.error(e);
+//						} catch (IOException e) {
+//							// TODO Auto-generated catch block
+//							log.error(e);
+//						}
+////						Display.getDefault().timerExec(2000, this);
+//					}
+//					
+////				});				
+////			}
+//			
+//		});
+//
+//	}
 }

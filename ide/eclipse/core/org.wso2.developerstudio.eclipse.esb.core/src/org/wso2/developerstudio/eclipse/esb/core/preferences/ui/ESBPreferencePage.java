@@ -51,17 +51,17 @@ public class ESBPreferencePage extends FieldEditorPreferencePage implements
 
 	}
 
-	private String[][] getSynapseNamespaceComboData() {
-		String[] synapseNamespaces = SynapseUtils.getSynapseNamespaces();
-		String[][] namespaceComboData = new String[synapseNamespaces.length][2];
-		int i = 0;
-		for (String namespace : synapseNamespaces) {
-			namespaceComboData[i][0] = namespace;
-			namespaceComboData[i][1] = namespace;
-			i++;
-		}
-		return namespaceComboData;
-	}
+//	private String[][] getSynapseNamespaceComboData() {
+//		String[] synapseNamespaces = SynapseUtils.getSynapseNamespaces();
+//		String[][] namespaceComboData = new String[synapseNamespaces.length][2];
+//		int i = 0;
+//		for (String namespace : synapseNamespaces) {
+//			namespaceComboData[i][0] = namespace;
+//			namespaceComboData[i][1] = namespace;
+//			i++;
+//		}
+//		return namespaceComboData;
+//	}
 
 	private String[][] getEsbVersionComboData() {
 		String[] esbVersions = EsbVersionUtils.getEsbVersions();

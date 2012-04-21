@@ -130,13 +130,13 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
 //		shutdown(state);
     }
 	
-	private void unpublishAllModules(){
-		IModule[] modules = getServer().getModules();
-		for(IModule module:modules){
-			//ServiceModuleOperations serviceModuleOperation = new ServiceModuleOperations(module.getProject(),getServer());
-			//serviceModuleOperation.unpublishServiceModule(null, null);
-		}
-	}
+//	private void unpublishAllModules(){
+//		IModule[] modules = getServer().getModules();
+//		for(IModule module:modules){
+//			//ServiceModuleOperations serviceModuleOperation = new ServiceModuleOperations(module.getProject(),getServer());
+//			//serviceModuleOperation.unpublishServiceModule(null, null);
+//		}
+//	}
 	
     protected List serverClasspath(String cpRef) {
     	List classpathEntries = super.serverClasspath(cpRef);
@@ -291,15 +291,15 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
     	return vmParameters;
     }
     
-    private void checkClosed(IModule[] module) throws CoreException
-    {
-    	for( int i=0; i < module.length; i++ ){
-    		if( module[i] instanceof DeletedModule ){	
-                IStatus status = new Status(IStatus.ERROR,CorePlugin.PLUGIN_ID,0, NLS.bind(GenericServerCoreMessages.canNotPublishDeletedModule,module[i].getName()),null);
-                throw new CoreException(status);
-    		}
-    	}
-    }
+//    private void checkClosed(IModule[] module) throws CoreException
+//    {
+//    	for( int i=0; i < module.length; i++ ){
+//    		if( module[i] instanceof DeletedModule ){	
+//                IStatus status = new Status(IStatus.ERROR,CorePlugin.PLUGIN_ID,0, NLS.bind(GenericServerCoreMessages.canNotPublishDeletedModule,module[i].getName()),null);
+//                throw new CoreException(status);
+//    		}
+//    	}
+//    }
     
     public void publishModule(int kind, int deltaKind, IModule[] module,
             IProgressMonitor monitor) throws CoreException {
@@ -317,27 +317,27 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
 //    	}
 //        setModulePublishState( module, null );
     }
-    private void setModulePublishState( IModule[] module, IStatus[] status ) throws CoreException {
-//        if( module==null )
-//            return;
-//        for( int i=0; i < module.length; i++)
-//        {
-//            if(status == null ||
-//                    status.length < i ||
-//                    status[i]==null || 
-//                    status[i].getSeverity() == IStatus.OK )
-//            {
-//            setModulePublishState(module, IServer.PUBLISH_STATE_NONE);    
-//            }
-//            else
-//            {
-//                if ( IStatus.ERROR == status[i].getSeverity() ){
-//                    setModulePublishState( module, IServer.PUBLISH_STATE_UNKNOWN );
-//                    throw new CoreException( status[i] );
-//                }
-//            }
-//        }
-    }
+//    private void setModulePublishState( IModule[] module, IStatus[] status ) throws CoreException {
+////        if( module==null )
+////            return;
+////        for( int i=0; i < module.length; i++)
+////        {
+////            if(status == null ||
+////                    status.length < i ||
+////                    status[i]==null || 
+////                    status[i].getSeverity() == IStatus.OK )
+////            {
+////            setModulePublishState(module, IServer.PUBLISH_STATE_NONE);    
+////            }
+////            else
+////            {
+////                if ( IStatus.ERROR == status[i].getSeverity() ){
+////                    setModulePublishState( module, IServer.PUBLISH_STATE_UNKNOWN );
+////                    throw new CoreException( status[i] );
+////                }
+////            }
+////        }
+//    }
     
     protected void doServerStartedTasks(){
     }
