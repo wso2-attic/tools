@@ -96,6 +96,11 @@
      <id>helios</id>
      <layout>p2</layout>
      <url>http://download.eclipse.org/releases/helios</url>
+     <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+      </releases>
    </repository>
   </repositories>
 
