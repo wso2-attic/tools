@@ -6,13 +6,13 @@ import org.wso2.developerstudio.eclipse.artifact.webapp.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class WebAppImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new WebAppImageUtils();
+		if (instance==null){
+			instance=new WebAppImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

@@ -36,13 +36,13 @@ import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.axis2.rpcmessagereceiver.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 public class Axis2ImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new Axis2ImageUtils();
+		if (instance==null){
+			instance=new Axis2ImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

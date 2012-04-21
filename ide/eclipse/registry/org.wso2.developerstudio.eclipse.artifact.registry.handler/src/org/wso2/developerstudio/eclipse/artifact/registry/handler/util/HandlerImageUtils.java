@@ -6,13 +6,13 @@ import org.wso2.developerstudio.eclipse.artifact.registry.handler.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class HandlerImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new HandlerImageUtils();
+		if (instance==null){
+			instance=new HandlerImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

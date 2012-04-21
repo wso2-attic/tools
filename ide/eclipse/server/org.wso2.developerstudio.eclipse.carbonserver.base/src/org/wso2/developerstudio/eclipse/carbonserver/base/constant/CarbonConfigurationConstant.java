@@ -33,20 +33,20 @@ package org.wso2.developerstudio.eclipse.carbonserver.base.constant;
 
 public class CarbonConfigurationConstant {
 	
-    public static String WSAS_DEFAULT_PATH = "<WSAS Installation Path>";
-    public static String WSAS_COMPONENT_NAME = "WSASApplicationComponent";
-    public static String WSAS_CONFIGURATION = "WSAS Configuration";
-    public static String LIB = "lib";
-    public static String DOT_TEXT = ".txt";
-    public static String DOT_JAR = ".jar";
-    public static String DOT_PROPERTIES = ".properties";
-    public static String WSAS_MAIN_CLASS = "org.wso2.wsas.Main";
-    public static String WSAS_SERVER_CONFIG_CLASS = "org.wso2.utils.ServerConfiguration";
+    public static final String WSAS_DEFAULT_PATH = "<WSAS Installation Path>";
+    public static final String WSAS_COMPONENT_NAME = "WSASApplicationComponent";
+    public static final String WSAS_CONFIGURATION = "WSAS Configuration";
+    public static final String LIB = "lib";
+    public static final String DOT_TEXT = ".txt";
+    public static final String DOT_JAR = ".jar";
+    public static final String DOT_PROPERTIES = ".properties";
+    public static final String WSAS_MAIN_CLASS = "org.wso2.wsas.Main";
+    public static final String WSAS_SERVER_CONFIG_CLASS = "org.wso2.utils.ServerConfiguration";
 
     //icon paths
-    public static String ICON_WSAS = "/icons/wsas.gif";
-    public static String ICON_WSAS_START = "/icons/start.gif";
-    public static String ICON_WSAS_STOP = "/icons/stop.gif";
+    public static final String ICON_WSAS = "/icons/wsas.gif";
+    public static final String ICON_WSAS_START = "/icons/start.gif";
+    public static final String ICON_WSAS_STOP = "/icons/stop.gif";
 
     //wsas
     public static final String WSO2WSAS_HOME = "wso2wsas.home";

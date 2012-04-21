@@ -85,7 +85,7 @@ public abstract class AbstractXMLDoc extends AbstractManifest{
 		return element;
 	}
 	
-	private static final String prettyPrintStylesheet =
+	private static final String PRETTY_PRINT_STYLE_SHEET =
         "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='1.0' "
                 + " xmlns:xalan='http://xml.apache.org/xslt' "
                 + " exclude-result-prefixes='xalan'>"
@@ -108,7 +108,7 @@ public abstract class AbstractXMLDoc extends AbstractManifest{
 		Source stylesheetSource =
 		                          new StreamSource(
 		                                           new ByteArrayInputStream(
-		                                                                    prettyPrintStylesheet
+		                                                                    PRETTY_PRINT_STYLE_SHEET
 		                                                                                         .getBytes()));
 		Source xmlSource = new StreamSource(new ByteArrayInputStream(baos.toByteArray()));
 

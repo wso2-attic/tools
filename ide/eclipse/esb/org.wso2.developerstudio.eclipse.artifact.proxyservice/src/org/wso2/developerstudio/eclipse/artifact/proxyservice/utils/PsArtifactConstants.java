@@ -18,7 +18,7 @@ package org.wso2.developerstudio.eclipse.artifact.proxyservice.utils;
 
 import org.eclipse.osgi.util.NLS;
 
-public class PsArtifactConstants extends NLS{
+public final class PsArtifactConstants extends NLS{
 	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.psartifactconstants";
 	public static  String PS_WIZARD_WINDOW_TITLE;
 	public static  String PASS_THROUGH_PROXY;

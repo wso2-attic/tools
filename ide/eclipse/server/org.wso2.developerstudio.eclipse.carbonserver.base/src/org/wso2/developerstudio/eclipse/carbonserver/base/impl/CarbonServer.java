@@ -87,8 +87,8 @@ public class CarbonServer extends GenericServer implements ICarbonServer{
 		
 	}
 
-	private static String CARBON_SERVER_MODULE_PUBLISHER_EXTENSION="org.wso2.developerstudio.eclipse.carbonserver.publisher";
-	private static String CARBON_SERVER_MONITOR_EXTENSION="org.wso2.developerstudio.eclipse.carbonserver.monitor";
+	private static final String CARBON_SERVER_MODULE_PUBLISHER_EXTENSION="org.wso2.developerstudio.eclipse.carbonserver.publisher";
+	private static final String CARBON_SERVER_MONITOR_EXTENSION="org.wso2.developerstudio.eclipse.carbonserver.monitor";
 
     public static List<ICarbonServerModulePublisher> getProjectPublishers(IServer server) {
 		List<ICarbonServerModulePublisher> publishers=new ArrayList<ICarbonServerModulePublisher>();

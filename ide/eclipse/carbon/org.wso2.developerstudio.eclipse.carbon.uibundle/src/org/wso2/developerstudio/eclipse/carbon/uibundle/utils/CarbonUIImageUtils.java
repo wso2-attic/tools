@@ -36,13 +36,13 @@ import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.carbon.uibundle.Activator;
 
 public class CarbonUIImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new CarbonUIImageUtils();
+		if (instance==null){
+			instance=new CarbonUIImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

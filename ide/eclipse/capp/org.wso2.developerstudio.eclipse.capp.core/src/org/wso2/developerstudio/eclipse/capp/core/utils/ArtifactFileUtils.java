@@ -58,7 +58,7 @@ public class ArtifactFileUtils {
 	public static final int OPTION_SOURCE_URL = 32;
 	
 	
-    public static boolean IsSpecialCharactersExist(String str){
+    public static boolean isSpecialCharactersExist(String str){
     	Pattern p = Pattern.compile("[^a-zA-Z0-9_-]");
     	Matcher m = p.matcher(str);
     	String test = m.replaceAll("%");

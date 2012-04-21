@@ -46,7 +46,7 @@ public class NewFilterClassWizardPage extends WizardPage{
 	private Table filterCriteriaTable;
 	private TableViewer viewer;
 	private HashMap<String, PropertyData> filterMap;
-	private final static String[] titles = { "Property Name", "Value", "Type" };
+	private final static String[] TITLES = { "Property Name", "Value", "Type" };
 	private String[] filterDataTypeNames = { DataType.STRING.name(), DataType.XML.name() };
 	private FilterCreationOptionsWizardPage filterCreationOptionPage;
 	
@@ -134,17 +134,17 @@ public class NewFilterClassWizardPage extends WizardPage{
 		filterCriteriaTable.setLayoutData(data);
 		filterCriteriaTable.setLayout(tableLayout);
 		TableColumn column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[0]);
+		column.setText(TITLES[0]);
 		column.setAlignment(SWT.LEFT);
 		column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[1]);
+		column.setText(TITLES[1]);
 		column.setAlignment(SWT.LEFT);
 		column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[2]);
+		column.setText(TITLES[2]);
 		column.setAlignment(SWT.LEFT);
 
 		viewer = new TableViewer(filterCriteriaTable);
-		viewer.setColumnProperties(titles);
+		viewer.setColumnProperties(TITLES);
 		viewer.setContentProvider(new TableContentProvider());
 		viewer.setLabelProvider(new TableLabelProvider());
 		editors[0] = new TextCellEditor(filterCriteriaTable);
@@ -278,8 +278,8 @@ public class NewFilterClassWizardPage extends WizardPage{
 			Object result = null;
 			FilterData row = (FilterData) element;
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 			switch (columnIndex) {
@@ -305,8 +305,8 @@ public class NewFilterClassWizardPage extends WizardPage{
 
 		public void modify(Object element, String property, Object value) {
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 

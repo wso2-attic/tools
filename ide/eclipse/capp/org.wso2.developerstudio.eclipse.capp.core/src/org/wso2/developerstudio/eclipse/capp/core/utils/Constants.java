@@ -20,13 +20,13 @@ public class Constants {
 	public static final String FILE_SYSTEM_PATH_LINK_PROTOCOL="eclipse://";
 	
 	//registry constants
-	public static int REGISTRY_RESOURCE = 0; 
-	public static int REGISTRY_COLLECTION = 1; 
-	public static int REGISTRY_ROOT = 2; 
-	public static String ARTIFACT_PATH="path";
-	public static String ID = "org.wso2.capp.artifact.registry";
-	public static String REGISTRY_CONNECTIONS_ID="RegistryConnections";
-	public static String REGISTRY_CONNECTION_ID="RegistryConnection";
-	public static String DEFAULT_PATH="Registry";
-	public static boolean STRATOS_ENABLED = true;
+	public static final int REGISTRY_RESOURCE = 0; 
+	public static final int REGISTRY_COLLECTION = 1; 
+	public static final int REGISTRY_ROOT = 2; 
+	public static final String ARTIFACT_PATH="path";
+	public static final String ID = "org.wso2.capp.artifact.registry";
+	public static final String REGISTRY_CONNECTIONS_ID="RegistryConnections";
+	public static final String REGISTRY_CONNECTION_ID="RegistryConnection";
+	public static final String DEFAULT_PATH="Registry";
+	public static final boolean STRATOS_ENABLED = true;
 }

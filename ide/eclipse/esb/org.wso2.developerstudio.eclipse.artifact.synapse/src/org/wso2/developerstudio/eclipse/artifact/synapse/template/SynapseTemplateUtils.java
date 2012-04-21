@@ -22,16 +22,16 @@ import org.wso2.developerstudio.eclipse.artifact.synapse.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class SynapseTemplateUtils extends TemplateUtil {
-private static SynapseTemplateUtils INSTANCE;
+private static SynapseTemplateUtils instance;
 	
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	
 	public static SynapseTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new SynapseTemplateUtils();
+		if (instance==null){
+			instance=new SynapseTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 }    

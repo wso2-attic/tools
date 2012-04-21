@@ -25,7 +25,7 @@ import org.eclipse.developerstudio.eclipse.bpel.core.handler.IBPELHandlerRequest
 import org.wso2.developerstudio.eclipse.bpel.connector.handler.BPELHandler;
 
 public class BPELExtensionPointHandler {
-	private static String BPEL_HANDLER_REQUESTER_EXTENSION="org.wso2.developerstudio.eclipse.bpel.connector";
+	private static final String BPEL_HANDLER_REQUESTER_EXTENSION="org.wso2.developerstudio.eclipse.bpel.connector";
 	
 	public static void setBPELArtifactHandlers(List<IBPELHandler> bpelHandlers){
 		bpelHandlers.clear();

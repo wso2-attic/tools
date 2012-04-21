@@ -43,7 +43,7 @@ public class HandlerMethodsInfoPage extends WizardPage{
 	private Table handlerPropertiesTable;
 	private Table handlerMethodsTable;
 	private TableViewer viewer;
-	private final static String[] titles = { "Property Name", "Value", "Type" };
+	private final static String[] TITLES = { "Property Name", "Value", "Type" };
 	private String[] handlerTypes = {DataType.STRING.name(), DataType.XML.name()};
 	private HashMap<String, PropertyData> handlerPropertyMap;
 	private String[] methodTypes;
@@ -90,17 +90,17 @@ public class HandlerMethodsInfoPage extends WizardPage{
 		
 		handlerProptableLayout.addColumnData(new ColumnWeightData(10, 250, true));
 		TableColumn column = new TableColumn(handlerPropertiesTable, SWT.NONE);
-		column.setText(titles[0]);
+		column.setText(TITLES[0]);
 		column.setAlignment(SWT.LEFT);
 		
 		handlerProptableLayout.addColumnData(new ColumnWeightData(15, 250, true));
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
-		column.setText(titles[1]);
+		column.setText(TITLES[1]);
 		column.setAlignment(SWT.LEFT);
 		
 		handlerProptableLayout.addColumnData(new ColumnWeightData(20, 100, true));
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
-		column.setText(titles[2]);
+		column.setText(TITLES[2]);
 		column.setAlignment(SWT.LEFT);
 		
 		column.addSelectionListener(new SelectionListener() {
@@ -115,7 +115,7 @@ public class HandlerMethodsInfoPage extends WizardPage{
 		});
 		
 		viewer = new TableViewer(handlerPropertiesTable);
-		viewer.setColumnProperties(titles);
+		viewer.setColumnProperties(TITLES);
 		viewer.setContentProvider(new HandlerPropertyContentProvider());
 		viewer.setLabelProvider(new HandlerPropertyLabelProvider());
 		
@@ -337,8 +337,8 @@ public class HandlerMethodsInfoPage extends WizardPage{
 			Object result = null;
 			HandlerPropertyData row = (HandlerPropertyData) element;
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 			switch (columnIndex) {
@@ -363,8 +363,8 @@ public class HandlerMethodsInfoPage extends WizardPage{
 
 		public void modify(Object element, String property, Object value) {
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 

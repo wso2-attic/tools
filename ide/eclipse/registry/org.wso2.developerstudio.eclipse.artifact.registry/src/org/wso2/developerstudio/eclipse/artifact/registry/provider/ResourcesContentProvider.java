@@ -93,7 +93,7 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 	
     public boolean hasChildren(Object element) {
     if(element instanceof NavigatorNode){
-		return ((NavigatorNode)element).HasChildren();
+		return ((NavigatorNode)element).hasChildren();
 	} else{
 		return true;
 	}

@@ -48,7 +48,7 @@ import org.wso2.developerstudio.eclipse.carbonserver.base.manager.ICarbonOperati
 import org.wso2.developerstudio.eclipse.server.base.core.IServerManager;
 import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
 
-public class CarbonUploadServiceRequestUtil {
+public final class CarbonUploadServiceRequestUtil {
 	
 	private static CarbonUploadServiceRequestUtil instance;
 	

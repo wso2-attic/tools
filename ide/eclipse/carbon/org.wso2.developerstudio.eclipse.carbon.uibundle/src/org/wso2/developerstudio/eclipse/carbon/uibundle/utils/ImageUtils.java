@@ -43,7 +43,7 @@ import org.osgi.framework.Bundle;
 
 public abstract class ImageUtils {
 
-	private Map<String, ImageDescriptor> ICONS;
+	private Map<String, ImageDescriptor> icons;
 	/**
 	 * create ImageDescriptor 
 	 * @param imgName
@@ -68,13 +68,13 @@ public abstract class ImageUtils {
 	 * @return
 	 */
 	public ImageDescriptor getImageDescriptor(String key) {
-		if (ICONS == null) {
-			ICONS = new HashMap<String, ImageDescriptor>();
+		if (icons == null) {
+			icons = new HashMap<String, ImageDescriptor>();
 		}
-		if (!ICONS.containsKey(key)){
-			ICONS.put(key, createImageDescriptor(key));
+		if (!icons.containsKey(key)){
+			icons.put(key, createImageDescriptor(key));
 		}
-		return ICONS.get(key);
+		return icons.get(key);
 	}
 	
 	public abstract Bundle getBundle();

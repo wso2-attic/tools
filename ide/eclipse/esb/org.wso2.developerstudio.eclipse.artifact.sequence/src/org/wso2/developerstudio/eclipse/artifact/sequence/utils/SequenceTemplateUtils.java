@@ -22,12 +22,12 @@ import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class SequenceTemplateUtils extends TemplateUtil{
 
-	private static SequenceTemplateUtils INSTANCE;
+	private static SequenceTemplateUtils instance;
 	public static SequenceTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new SequenceTemplateUtils();
+		if (instance==null){
+			instance=new SequenceTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 	
 	protected Bundle getBundle() {

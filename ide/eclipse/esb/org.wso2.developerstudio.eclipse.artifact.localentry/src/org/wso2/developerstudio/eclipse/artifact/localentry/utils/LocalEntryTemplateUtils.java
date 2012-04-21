@@ -22,16 +22,16 @@ import org.wso2.developerstudio.eclipse.artifact.localentry.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class LocalEntryTemplateUtils extends TemplateUtil{
-	private static LocalEntryTemplateUtils INSTANCE;
+	private static LocalEntryTemplateUtils instance;
 	
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);
 	}
 	
 	public static LocalEntryTemplateUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new LocalEntryTemplateUtils();
+		if (instance==null){
+			instance=new LocalEntryTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 }

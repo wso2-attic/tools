@@ -53,7 +53,7 @@ import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 
-public class CarbonServerManager implements IServerManager {
+public final class CarbonServerManager implements IServerManager {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	private static List<IServer> servers;

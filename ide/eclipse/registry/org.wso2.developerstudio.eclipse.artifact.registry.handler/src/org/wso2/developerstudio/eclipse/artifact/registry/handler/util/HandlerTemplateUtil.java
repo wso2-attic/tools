@@ -22,12 +22,12 @@ import org.wso2.developerstudio.eclipse.artifact.registry.handler.Activator;
 import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class HandlerTemplateUtil extends TemplateUtil {
-	private static HandlerTemplateUtil INSTANCE;
+	private static HandlerTemplateUtil instance;
 	public static HandlerTemplateUtil getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new HandlerTemplateUtil();
+		if (instance==null){
+			instance=new HandlerTemplateUtil();
 		}
-		return INSTANCE;
+		return instance;
 	}
 	protected Bundle getBundle() {
 		return Platform.getBundle(Activator.PLUGIN_ID);

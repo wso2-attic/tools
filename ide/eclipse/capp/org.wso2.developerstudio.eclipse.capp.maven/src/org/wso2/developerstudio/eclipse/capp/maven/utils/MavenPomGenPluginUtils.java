@@ -25,7 +25,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 public class MavenPomGenPluginUtils {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
-	private static String MAVEN_DEFINITION_HANDLER_EXTENSION = "org.wso2.developerstudio.eclipse.capp.maven.artifact.mavenplugin.generator";
+	private static final String MAVEN_DEFINITION_HANDLER_EXTENSION = "org.wso2.developerstudio.eclipse.capp.maven.artifact.mavenplugin.generator";
 
 	private static Map<String, MavenPluginContributor> archeTypeDefinitions;
 

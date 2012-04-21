@@ -22,13 +22,13 @@ import org.wso2.developerstudio.eclipse.utils.template.TemplateUtil;
 
 public class ProxyServiceTemplateUtils extends TemplateUtil{
 
-	private static TemplateUtil INSTANCE;
+	private static TemplateUtil instance;
 
 	public static TemplateUtil getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new ProxyServiceTemplateUtils();
+		if (instance==null){
+			instance=new ProxyServiceTemplateUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 	
 	protected Bundle getBundle() {

@@ -35,7 +35,7 @@ import java.io.FileFilter;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class CarbonLibraryHelper {
+public final class CarbonLibraryHelper {
 	
     private  static CarbonLibraryHelper object = new CarbonLibraryHelper();
 

@@ -7,13 +7,13 @@ import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class MediatorImageUtils extends ImageUtils{
 
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new MediatorImageUtils();
+		if (instance==null){
+			instance=new MediatorImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	}
 	
 	public Bundle getBundle() {

@@ -34,36 +34,36 @@ package org.wso2.developerstudio.eclipse.carbonserver.base.constant;
 public class CarbonMessageConstant {
 	
     //warnings
-    public static String WARNING_WSAS_HEADING = "WSAS Warning Message";
-    public static String WARNING_WSAS_PATH_NOT_SET = "WSAS Runtime location does not point to valid server !! \nPlease set the correct location of the WSAS runtime on WSAS Preferences";
-    public static String WARNING_WSAS_NOT_STARTED = "Configured WSAS instance is not active !! Please Start the server";
-    public static String WARNING_NO_WSAS_SERVER_DEFINED = "There are no WSAS servers defined";
+    public static final String WARNING_WSAS_HEADING = "WSAS Warning Message";
+    public static final String WARNING_WSAS_PATH_NOT_SET = "WSAS Runtime location does not point to valid server !! \nPlease set the correct location of the WSAS runtime on WSAS Preferences";
+    public static final String WARNING_WSAS_NOT_STARTED = "Configured WSAS instance is not active !! Please Start the server";
+    public static final String WARNING_NO_WSAS_SERVER_DEFINED = "There are no WSAS servers defined";
 
     //errors
-    public static String ERROR_WSAS_ALREADY_RUNNING = "WSO2 Web Services Application Server instance is already running, \n" +
+    public static final String ERROR_WSAS_ALREADY_RUNNING = "WSO2 Web Services Application Server instance is already running, \n" +
             "Please Stop the server..";
-    public static String ERROR_WSAS_NOT_RUNNING = "WSO2 Web Services Application Server instance is not active,\n" +
+    public static final String ERROR_WSAS_NOT_RUNNING = "WSO2 Web Services Application Server instance is not active,\n" +
             "Ignoring Stop server..";
 
     //WSAS
-    public static String INFO_WSAS_START_SUCCESS = "WSO2 Web Services Application Server instance started successfully";
-    public static String INFO_WSAS_START_FAIL = "Error Occured while starting WSO2 Web Services Application Server instance";
-    public static String INFO_WSAS_STOP_SUCCESS = "WSO2 Web Services Application Server instance stoped successfully";
-    public static String INFO_WSAS_STOP_FAIL = "Error Occured while stopping WSO2 Web Services Application Server instance";
-    public static String INFO_LINUX_SHELL_INIT_FAIL = "The Shell environment initiation failed, \nPlease make sure you have started eclipse with a attached shell environment\n";
+    public static final String INFO_WSAS_START_SUCCESS = "WSO2 Web Services Application Server instance started successfully";
+    public static final String INFO_WSAS_START_FAIL = "Error Occured while starting WSO2 Web Services Application Server instance";
+    public static final String INFO_WSAS_STOP_SUCCESS = "WSO2 Web Services Application Server instance stoped successfully";
+    public static final String INFO_WSAS_STOP_FAIL = "Error Occured while stopping WSO2 Web Services Application Server instance";
+    public static final String INFO_LINUX_SHELL_INIT_FAIL = "The Shell environment initiation failed, \nPlease make sure you have started eclipse with a attached shell environment\n";
     //EndPoints of Services
-    public static String host = "http://localhost:";
-    public static String port = "9763";
+    public static final String host = "http://localhost:";
+    public static final String port = "9763";
 
-    public static String generalServiceEndPoint = host+port+"/services/GeneralServices";
-    public static String validateServiceEndpoint = host+port+"/services/Service";
-    public static String validateModuleEndpoint = host+port+"/fileupload/aar_mar_validator";
-    public static String wsdlConversionEndpoint = host+port+"/services/WSDLConverterService";
+    public static final String generalServiceEndPoint = host+port+"/services/GeneralServices";
+    public static final String validateServiceEndpoint = host+port+"/services/Service";
+    public static final String validateModuleEndpoint = host+port+"/fileupload/aar_mar_validator";
+    public static final String wsdlConversionEndpoint = host+port+"/services/WSDLConverterService";
 	
-    public static String serviceXMLEndOperation = "validateServicesXML";
-    public static String moduleXMLEndOperation = "validateModuleXML";
-    public static String archiveEndOperation = "validate";
-    public static String wsdlConversionEndOperation = "convert";
+    public static final String serviceXMLEndOperation = "validateServicesXML";
+    public static final String moduleXMLEndOperation = "validateModuleXML";
+    public static final String archiveEndOperation = "validate";
+    public static final String wsdlConversionEndOperation = "convert";
     
 
 }

@@ -22,13 +22,13 @@ import org.wso2.developerstudio.eclipse.artifact.proxyservice.Activator;
 import org.wso2.developerstudio.eclipse.utils.ui.ImageUtils;
 
 public class ProxyServiceImageUtils extends ImageUtils{
-	private static ImageUtils INSTANCE;
+	private static ImageUtils instance;
 
 	public static ImageUtils getInstance(){
-		if (INSTANCE==null){
-			INSTANCE=new ProxyServiceImageUtils();
+		if (instance==null){
+			instance=new ProxyServiceImageUtils();
 		}
-		return INSTANCE;
+		return instance;
 	} 
 
 	public Bundle getBundle(){

@@ -50,8 +50,8 @@ public class RegistryResourcePage extends FormPage {
     private TableEditor editor;
     private GridData tableGridData;
     private ScrolledForm form;
-    private int EDITABLECOLUMN = 2;
-    private int INDEXCOLUM = 0;
+    private static final int EDITABLECOLUMN = 2;
+    private static final int INDEXCOLUM = 0;
     
 	public RegistryResourcePage(String id, String title) {
 		super(id, title);

@@ -123,7 +123,7 @@ public class NavigatorNode {
 	    return root;
     }
 
-	public boolean HasChildren() {
+	public boolean hasChildren() {
 	    return getChildren().length!=0;
     }
 

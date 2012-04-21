@@ -56,7 +56,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 
 public class AdvancedConfigComposite extends AbstractComposite {
 
-	private static final String SymbolicName = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
+	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
 	private ProxyServiceModel model;
 
 	/* common */
@@ -262,12 +262,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdEndPointConRegBrowse = new Button(this, SWT.NONE);
 		cmdEndPointConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdEndPointConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdEndPointConRegBrowse.setToolTipText("Configuration registry");
 		cmdEndPointConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtEndPointkey, 2);
+				selectRegistryResource(txtEndPointkey, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -280,12 +280,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdEndPointGovRegBrowse = new Button(this, SWT.NONE);
 		cmdEndPointGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
 				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdEndPointGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdEndPointGovRegBrowse.setToolTipText("Governance registry");
 		cmdEndPointGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtEndPointkey, 3);
+				selectRegistryResource(txtEndPointkey, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -321,14 +321,14 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdReqXSLTConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtReqXSLT, 2);
+				selectRegistryResource(txtReqXSLT, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
 				widgetSelected(evt);
 			}
 		});
-		cmdReqXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdReqXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdReqXSLTConRegBrowse.setToolTipText("Configuration registry");
 		
 		cmdReqXSLTGovRegBrowse = new Button(this, SWT.NONE);
@@ -337,14 +337,14 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdReqXSLTGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtReqXSLT, 3);
+				selectRegistryResource(txtReqXSLT, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
 				widgetSelected(evt);
 			}
 		});
-		cmdReqXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdReqXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdReqXSLTGovRegBrowse.setToolTipText("Governance registry");
 		
 
@@ -392,12 +392,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdResXSLTConRegBrowse = new Button(this, SWT.NONE);
 		cmdResXSLTConRegBrowse.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER,
 				false, false, 1, 1));
-		cmdResXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdResXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdResXSLTConRegBrowse.setToolTipText("Configuration registry");
 		cmdResXSLTConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtResponseXSLT, 2);
+				selectRegistryResource(txtResponseXSLT, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -409,12 +409,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdResXSLTGovRegBrowse = new Button(this, SWT.NONE);
 		cmdResXSLTGovRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
 				false, false, 1, 1));
-		cmdResXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdResXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdResXSLTGovRegBrowse.setToolTipText("Governance registry");
 		cmdResXSLTGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtResponseXSLT, 3);
+				selectRegistryResource(txtResponseXSLT, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -620,12 +620,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdSecPolicyConRegBrowse = new Button(this, SWT.NONE);
 		cmdSecPolicyConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdSecPolicyConRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry-16x16.png"));
+		cmdSecPolicyConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
 		cmdSecPolicyConRegBrowse.setToolTipText("Configuration registry");
 		cmdSecPolicyConRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtSecPolicy, 2);
+				selectRegistryResource(txtSecPolicy, 2);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -637,12 +637,12 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdSecPolicyGovRegBrowse = new Button(this, SWT.NONE);
 		cmdSecPolicyGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
 				SWT.CENTER, false, false, 1, 1));
-		cmdSecPolicyGovRegBrowse.setImage(ResourceManager.getPluginImage(SymbolicName, "icons/registry_picker.gif"));
+		cmdSecPolicyGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
 		cmdSecPolicyGovRegBrowse.setToolTipText("Governance registry");
 		cmdSecPolicyGovRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				SelectRegistryResource(txtSecPolicy, 3);
+				selectRegistryResource(txtSecPolicy, 3);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -802,7 +802,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	 * @param defaultPathId
 	 *            Conf.Reg=2 and Gov.Reg=3
 	 */
-	private void SelectRegistryResource(Text textBox, int defaultPathId) {
+	private void selectRegistryResource(Text textBox, int defaultPathId) {
 		RegistryResourceNode selectedRegistryResourceNode = null;
 		RegistryTreeBrowserDialog r = new RegistryTreeBrowserDialog(getShell(),
 				RegistryTreeBrowserDialog.SELECT_REGISTRY_RESOURCE,

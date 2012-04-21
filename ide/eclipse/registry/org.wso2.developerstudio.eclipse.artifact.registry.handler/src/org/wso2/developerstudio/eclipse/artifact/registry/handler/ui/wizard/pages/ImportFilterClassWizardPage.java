@@ -58,7 +58,7 @@ public class ImportFilterClassWizardPage extends WizardPage {
 	private Composite container;
 	private String []mimtypeArray;
 	private HashMap<String, PropertyData> filterMap;
-	private final static String[] titles = { "Property Name", "Value", "Type" };
+	private final static String[] TITLES = { "Property Name", "Value", "Type" };
 	private String[] filterDataTypeNames = { DataType.STRING.name(), DataType.XML.name() };
 	private ArrayList<String> allFilterClassesList;
 	private Combo filterClassesCombo;
@@ -148,13 +148,13 @@ public class ImportFilterClassWizardPage extends WizardPage {
 		filterCriteriaTable.setLayoutData(data);
 		filterCriteriaTable.setLayout(tableLayout);
 		TableColumn column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[0]);
+		column.setText(TITLES[0]);
 		column.setAlignment(SWT.LEFT);
 		column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[1]);
+		column.setText(TITLES[1]);
 		column.setAlignment(SWT.LEFT);
 		column = new TableColumn(filterCriteriaTable, SWT.NONE);
-		column.setText(titles[2]);
+		column.setText(TITLES[2]);
 		column.setAlignment(SWT.LEFT);
 		
 	    Registry registry = new Registry();
@@ -163,7 +163,7 @@ public class ImportFilterClassWizardPage extends WizardPage {
 	    mimetypeList.toArray(mimtypeArray);
 			
 		viewer = new TableViewer(filterCriteriaTable);
-		viewer.setColumnProperties(titles);
+		viewer.setColumnProperties(TITLES);
 		viewer.setContentProvider(new TableContentProvider());
 		viewer.setLabelProvider(new TableLabelProvider());
 		
@@ -413,7 +413,7 @@ public class ImportFilterClassWizardPage extends WizardPage {
 		}
 
 		public void inputChanged(Viewer arg0, Object arg1, Object arg2) {
-              System.out.println("changing");
+//              System.out.println("changing");
 		}
 
 	}
@@ -449,8 +449,8 @@ public class ImportFilterClassWizardPage extends WizardPage {
 			Object result = null;
 			FilterData row = (FilterData) element;
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 			switch (columnIndex) {
@@ -482,8 +482,8 @@ public class ImportFilterClassWizardPage extends WizardPage {
 
 		public void modify(Object element, String property, Object value) {
 			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < titles.length; i++) {
-				list.add(titles[i]);
+			for (int i = 0; i < TITLES.length; i++) {
+				list.add(TITLES[i]);
 			}
 			int columnIndex = list.indexOf(property);
 
