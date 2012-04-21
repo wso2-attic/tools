@@ -1,17 +1,11 @@
 package org.wso2.developerstudio.eclipse.artifact.axis2.ui.wizard;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.wizards.NewTypeWizardPage;
-import org.eclipse.jdt.ui.wizards.NewTypeWizardPage.ImportsManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 
@@ -20,8 +14,6 @@ public class Axis2ClassWizardPage extends  NewTypeWizardPage{
 	  public Axis2ClassWizardPage(IWorkbench workbench,IStructuredSelection selection) {
 			super(true, "Create new Axis2  class");
 		}
-
-		private Button fCreateStubs;
 
 		    public void init(IStructuredSelection selection) {
 		    	setTitle("Create new Axis2 class");
