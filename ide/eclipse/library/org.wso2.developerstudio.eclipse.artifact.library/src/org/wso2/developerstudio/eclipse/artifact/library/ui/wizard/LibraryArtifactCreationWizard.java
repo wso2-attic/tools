@@ -71,7 +71,7 @@ public class LibraryArtifactCreationWizard extends
 				
 			List<Dependency> dependencyList = new ArrayList<Dependency>();
 			List<String> exportedPackages = new ArrayList<String>();
-			String exportPackageNodeValue = new String();
+			StringBuffer sb=new StringBuffer();
 			
 			if (libraryModel.isFragmentHostBundle()) {
 				bundleData.setFragmentHost(libraryModel.getFragmentHostBundleName());
@@ -159,9 +159,9 @@ public class LibraryArtifactCreationWizard extends
 			}
 			
 			for(String exportedpackage : exportedPackages) {
-				exportPackageNodeValue += (exportedpackage.trim() +",");
+				sb.append(exportedpackage.trim()).append(",");
 			}
-			exportPackageNodeValue = exportPackageNodeValue.trim().replaceAll(",$","");
+			String exportPackageNodeValue = sb.toString().trim().replaceAll(",$","");
 			bundleData.toFile(bundlesDataFile);
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());

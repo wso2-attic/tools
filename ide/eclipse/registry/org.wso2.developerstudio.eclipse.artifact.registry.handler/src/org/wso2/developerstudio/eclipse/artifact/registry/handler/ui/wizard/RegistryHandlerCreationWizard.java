@@ -852,7 +852,7 @@ public class RegistryHandlerCreationWizard extends
 				.getLocation().toFile();
 		MavenProject mavenProject = MavenUtils
 				.getMavenProject(mavenProjectPomLocation);
-		String exportedPackageList = new String();
+		StringBuffer sb=new StringBuffer();
 		String activatorClass=new String(); 
 		
 		Properties properties = mavenProject.getModel().getProperties();
@@ -871,7 +871,7 @@ public class RegistryHandlerCreationWizard extends
 			if (item instanceof IPackageFragment) {
 				IPackageFragment pkg = (IPackageFragment) item;
 				if (pkg.hasChildren()) {
-					exportedPackageList += (pkg.getElementName() + ",");
+					sb.append(pkg.getElementName()).append(",");
 					for (IClassFile clazz : pkg.getClassFiles()) {
 						IType type = clazz.getType();
 						if (type.getSuperInterfaceNames().length > 0 &&
@@ -882,7 +882,7 @@ public class RegistryHandlerCreationWizard extends
 				}
 			}
 		}
-		exportedPackageList = exportedPackageList.replaceAll(",$", "");
+		String exportedPackageList = sb.toString().replaceAll(",$", "");
 		
 		
 		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(plugin);
@@ -1015,11 +1015,12 @@ public class RegistryHandlerCreationWizard extends
 	private String getExportedPackage(HandlerInfo handlerInfo){
 		String handlerCls = handlerInfo.getHandlerClass();
 		String[] collection = handlerCls.split("\\.");
-		String exportPackage = collection[0];
+		StringBuffer sb=new StringBuffer();
+		sb.append(collection[0]);
 		for (int i = 1; i< collection.length; i++) {
-			exportPackage +=  "." + collection[i];
+			sb.append(".").append(collection[i]);
 		}
-		return exportPackage;
+		return sb.toString();
 		
 	}
 	

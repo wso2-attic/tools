@@ -99,7 +99,7 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 
 	private File addDSTemplate(IProject project) throws Exception {
 		String eol = System.getProperty("line.separator"); 
-		String properties ="";
+		StringBuffer sb=new StringBuffer();
 		File dsTemplateFile = new DataServiceTemplateUtils().getResourceFile("templates/Dataservice1.dbs");
 		String templateContent = FileUtils.getContentAsString(dsTemplateFile);
 		templateContent = templateContent.replaceAll("\\{", "<");
@@ -114,10 +114,9 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 		Iterator<String> iterator = config.keySet().iterator();
 		    while (iterator.hasNext()) {
 		      String key = (String) iterator.next();
-		      String property = "<property name=\""+ key + "\">" + config.get(key)+ "</property>\n";
-		      properties += property;
+		      sb.append("<property name=\"").append(key).append("\">").append(config.get(key)).append("</property>\n");
 		    }
-		templateContent = templateContent.replaceAll("<config.properties>",properties);    
+		templateContent = templateContent.replaceAll("<config.properties>",sb.toString());    
 		
 		IFolder dsfolder = project.getFolder("src/main/dataservice");
 		File template = new File(dsfolder.getLocation().toFile(), dsModel.getServiceName()+ ".dbs");

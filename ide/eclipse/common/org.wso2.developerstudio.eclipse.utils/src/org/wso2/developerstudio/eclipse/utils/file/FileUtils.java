@@ -219,27 +219,28 @@ public class FileUtils{
 	}
 	
 	public static String addNodesToPath(String currentPath, String[] newNode) {
-		String returnPath=currentPath;
+		StringBuffer sb=new StringBuffer();
+		sb.append(currentPath);
 		for (int i = 0; i < newNode.length; i++) {
-			returnPath = returnPath + File.separator + newNode[i];
+			sb.append(File.separator).append(newNode[i]);
 		}
-		return returnPath;
+		return sb.toString();
 	}
 	
 	public static String addNodesToPath(StringBuffer currentPath, String[] pathNodes) {
 		for (int i = 0; i < pathNodes.length; i++){
-			currentPath.append(File.separator);
-			currentPath.append(pathNodes[i]);
+			currentPath.append(File.separator).append(pathNodes[i]);
 		}
 		return currentPath.toString();
 	}
 	
 	public static String addNodesToURL(String currentPath, String[] newNode) {
-		String returnPath=currentPath;
+		StringBuffer sb=new StringBuffer();
+		sb.append(currentPath);
 		for (int i = 0; i < newNode.length; i++) {
-			returnPath = returnPath + "/" + newNode[i];
+			sb.append("/").append(newNode[i]);
 		}
-		return returnPath;
+		return sb.toString();
 	}
 	
     /**
@@ -514,12 +515,13 @@ public class FileUtils{
 				exportedpackage = classFile.getParent().substring(tempDir.getPath().length());
 				String[] packagesInfo = exportedpackage.split(Pattern.quote(File.separator));
 				if (packagesInfo.length>1){
-    				String packageName = packagesInfo[1];
+    				StringBuffer sb=new StringBuffer();
+    				sb.append(packagesInfo[1]);
     				for (int i =0 ; i< packagesInfo.length - 2;  i++) {
-    					packageName += "." + packagesInfo[i+2];
+    					sb.append(".").append(packagesInfo[i+2]);
     				}
-    				if(!packagesTObeExported.contains(packageName)){
-    					packagesTObeExported.add(packageName);
+    				if(!packagesTObeExported.contains(sb.toString())){
+    					packagesTObeExported.add(sb.toString());
     				}
 				}
 			}
@@ -660,8 +662,7 @@ public class FileUtils{
 	private static String matchPathLists(List<String> r,List<String> f) {
 		int i;
 		int j;
-		String s;
-		s = "";
+		StringBuffer sb=new StringBuffer();
 		i = r.size()-1;
 		j = f.size()-1;
 
@@ -671,19 +672,18 @@ public class FileUtils{
 		}
 
 		for(;i>=0;i--) {
-			s += ".." + File.separator;
+			sb.append("..").append(File.separator);
 		}
 
 		for(;j>=1;j--) {
-			s += f.get(j) + File.separator;
+			sb.append(f.get(j)).append(File.separator);
 		}
 
-		s += f.get(j);
-		return s;
+		sb.append(f.get(j));
+		return sb.toString();
 	}
 
 	public static String getRelativePath(File home,File f){
-		File r;
 		List<String> homelist;
 		List<String> filelist;
 		String s;

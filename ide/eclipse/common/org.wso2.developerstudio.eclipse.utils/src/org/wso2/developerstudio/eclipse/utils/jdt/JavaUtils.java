@@ -180,15 +180,15 @@ public class JavaUtils {
 		IMarker[] markers;
 		markers = project.findMarkers(IMarker.PROBLEM, true,IResource.DEPTH_INFINITE);
 		boolean errorsExists=false;
-		String errors="";
+		StringBuffer sb=new StringBuffer();
 		for (IMarker marker : markers) {
 			if(marker.getAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR) == IMarker.SEVERITY_ERROR) {
-				errors+=marker.getAttribute(IMarker.MESSAGE)+"\n";
+				sb.append(marker.getAttribute(IMarker.MESSAGE)).append("\n");
 				errorsExists=true;
 			}
 		}
 		if (errorsExists){
-			throw new CoreException(new Status(IStatus.ERROR,Activator.PLUGIN_ID,"Compilation error exists in the project "+project.getName()+". Please resolve these error before continuing:\n"+errors));
+			throw new CoreException(new Status(IStatus.ERROR,Activator.PLUGIN_ID,"Compilation error exists in the project "+project.getName()+". Please resolve these error before continuing:\n"+sb.toString()));
 		}
 		return new File(project.getWorkspace().getRoot().getFolder(getJavaOutputDirectory(project)).getLocation().toOSString());
 	}
@@ -408,16 +408,18 @@ public class JavaUtils {
 	}
 
 	private static String repeatText(String textToRepeat, int count){
-		String result="";
+		StringBuffer sb=new StringBuffer();
 		while(count-->0){
-			result+=textToRepeat;
+			sb.append(textToRepeat);
 		}
-		return result;
+		return sb.toString();
 	}
+	
 	public static boolean addMethod(IType classType,WSO2JavaMethod method) throws JavaModelException{
 		if (classType!=null && !isMethodPresent(classType, method)){
 			List<String> newImportListAdditions=new ArrayList<String>();
-			String methodContent=method.getModifier()+(method.isStaticMethod()? getSpaceAddition("static"):"");
+			StringBuffer sb=new StringBuffer();
+			sb.append(method.getModifier()).append((method.isStaticMethod()? getSpaceAddition("static"):""));
 			String returnType = method.getReturnType();
 			if (returnType!=null && !isImportClassPresentInMethod(classType, returnType)){
 				if (!getPackageName(returnType).trim().equalsIgnoreCase("")){
@@ -425,9 +427,9 @@ public class JavaUtils {
 					returnType=getClassName(returnType);
 				}
 			}
-			methodContent+=getSpaceAddition(returnType==null? "void":returnType);
-			methodContent+=getSpaceAddition(method.getElementName());
-			methodContent+="(";
+			sb.append(getSpaceAddition(returnType==null? "void":returnType));
+			sb.append(getSpaceAddition(method.getElementName()));
+			sb.append("(");
 			String[] parameterNames = method.getParameterNames();
 			if (parameterNames.length>0){
 				String[] newParameterTypes=new String[parameterNames.length];
@@ -443,15 +445,15 @@ public class JavaUtils {
 					}
 					i++;
 				}
-				methodContent+=newParameterTypes[0]+getSpaceAddition(parameterNames[0]);
+				sb.append(newParameterTypes[0]).append(getSpaceAddition(parameterNames[0]));
 				for (i=1; i< newParameterTypes.length; i++) {
-					methodContent+=getCommaAddition(newParameterTypes[i]+getSpaceAddition(parameterNames[i]));
+					sb.append(getCommaAddition(newParameterTypes[i]+getSpaceAddition(parameterNames[i])));
 				}
 			}
-			methodContent+=")";
+			sb.append(")");
 			String[] exceptionTypes = method.getExceptionTypes();
 			if (exceptionTypes.length>0){
-				methodContent+=getSpaceAddition("throws");
+				sb.append(getSpaceAddition("throws"));
 
 				String[] newExceptionTypes=new String[exceptionTypes.length];
 				int i=0;
@@ -465,21 +467,18 @@ public class JavaUtils {
 					}
 					i++;
 				}
-
-				methodContent+=getSpaceAddition(newExceptionTypes[0]);
+				sb.append(getSpaceAddition(newExceptionTypes[0]));
 				for (i=1; i< newExceptionTypes.length; i++) {
-					methodContent+=getCommaAddition(newExceptionTypes[i]);
+					sb.append(getCommaAddition(newExceptionTypes[i]));
 				}
 			}
-			methodContent+="{";
-			methodContent+=getNewLineAddition("");
+			sb.append("{").append(getNewLineAddition(""));
 			String[] methodCodes = method.getMethodCodes();
 			for (String methodCode : methodCodes) {
-				methodContent+=getTabSpaceAddition(methodCode)+getNewLineAddition("");
+				sb.append(getTabSpaceAddition(methodCode)).append(getNewLineAddition(""));
 			}
-			methodContent+="}";
-			methodContent+=getNewLineAddition("");
-			classType.createMethod(methodContent, null, true, new NullProgressMonitor());
+			sb.append("}").append(getNewLineAddition(""));
+			classType.createMethod(sb.toString(), null, true, new NullProgressMonitor());
 			for (String newImportAddition : newImportListAdditions) {
 				classType.getCompilationUnit().createImport(newImportAddition, null, new NullProgressMonitor());
 			}

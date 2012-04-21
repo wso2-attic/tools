@@ -246,14 +246,14 @@ public class HandlerInfo extends AbstractXMLDoc {
 	}
 
 	private String getCommaSeparateString(List<String> list) {
-		String listString = "";
+		StringBuffer sb=new StringBuffer();
 		if (list != null && !list.isEmpty()) {
-			listString = list.get(0);
+			sb.append(list.get(0));
 			for (int i = 1; i < list.size(); i++) {
-				listString += "," + list.get(i);
+				sb.append(",").append(list.get(i));
 			}
 		}
-		return listString;
+		return sb.toString();
 	}
 
 	private List<String> getStringList(String commaSeparatedString) {

@@ -279,9 +279,10 @@ public class RegistryHandlerPOMGenMojo extends AbstractBundlePOMGenMojo {
 	private File createActivatorJavaClass(File sourceContentLocation,HandlerInfo handlerInfo) throws IOException {
 		String handlerFileContent = HandlerTemplate.getInstance().getResourceString("templates/Activator.java");
 		List<String> propertySetMethodCallList = getPropertySetMethodCallList(handlerInfo);
-		String methodCallListString="\n";
+		StringBuffer sb=new StringBuffer();
+		sb.append("\n");
 		for (String methodCall : propertySetMethodCallList) {
-			methodCallListString+=methodCall+"\n";
+			sb.append(methodCall).append("\n");
 		}
 		handlerFileContent = MessageFormat
 				.format(
@@ -292,7 +293,7 @@ public class RegistryHandlerPOMGenMojo extends AbstractBundlePOMGenMojo {
 								handlerInfo.getFilterClass(),
 								ClassUtils.getClassName(handlerInfo.getFilterClass()),
 								filterMethodList((String[]) handlerInfo.getSelectedMethods().toArray(new String[] {})),
-								methodCallListString,
+								sb.toString(),
 								"{",
 								"}",
 								HANDLER_VAR_NAME,
@@ -305,11 +306,12 @@ public class RegistryHandlerPOMGenMojo extends AbstractBundlePOMGenMojo {
 	
 	private static String filterMethodList(String[] methodsList) {
 		if (methodsList.length>0){
-			String filterMethodsListString = " Filter." + methodsList[0];
+			StringBuffer sb=new StringBuffer();
+			sb.append(" Filter.").append(methodsList[0]);
 			for (int i = 1; i < methodsList.length; i++) {
-				filterMethodsListString += ", Filter." + methodsList[i];
+				sb.append(", Filter.").append(methodsList[i]);
 			}
-			return filterMethodsListString;
+			return sb.toString();
 		}else{
 			return "";
 		}
