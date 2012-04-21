@@ -199,7 +199,7 @@
         <common.utils.version>2.0.0-SNAPSHOT</common.utils.version>
         <server.plugins.version>2.0.0-SNAPSHOT</server.plugins.version>   
         <core.plugins.version>2.0.0-SNAPSHOT</core.plugins.version>                
-        <appserver.tools.version>3.2.0-SNAPSHOT</appserver.tools.version> 
+        <appserver.tools.version>3.2.1-SNAPSHOT</appserver.tools.version> 
 	<appserver.artifacts.version>2.0.0-SNAPSHOT</appserver.artifacts.version> 
     	<user.mgt.tools.version>2.0.0-SNAPSHOT</user.mgt.tools.version>
         <carbon.tools.version>2.0.0-SNAPSHOT</carbon.tools.version>
@@ -208,7 +208,7 @@
         <common.ui.version>2.0.0-SNAPSHOT</common.ui.version>                   
         <common.maven.version>2.0.0-SNAPSHOT</common.maven.version>    
         <common.tools.version>2.0.0-SNAPSHOT</common.tools.version>                         
-        <bps.export.tool.version>1.2.3-SNAPSHOT</bps.export.tool.version>
+        <bps.export.tool.version>1.2.4-SNAPSHOT</bps.export.tool.version>
         <bps.tools.version>0.5.0.wso2v2</bps.tools.version>
         <axis2.mr.tools.version>2.0.0-SNAPSHOT</axis2.mr.tools.version>
         <usermgt.tools.version>2.0.0-SNAPSHOT</usermgt.tools.version>

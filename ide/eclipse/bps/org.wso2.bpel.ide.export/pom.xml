@@ -27,7 +27,7 @@
     <artifactId>org.wso2.wsf.ide.bpel.export</artifactId>
   <packaging>eclipse-plugin</packaging>
     <name>BPEL Export</name>
-   	<version>1.2.3-SNAPSHOT</version>
+   	<version>1.2.4-SNAPSHOT</version>
     <!--dependencies>
         <dependency>
             <groupId>org.wso2.eclipse</groupId>
