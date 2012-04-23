@@ -123,7 +123,7 @@ public class EsbSequenceMultiPageEditor extends MultiPageEditorPart implements
 			// updateSourceEditor();
 		} catch (Exception ex) {
 			// TODO: Get rid of this
-			System.out.println("Error while creating source view");
+			ex.printStackTrace();
 			// log.error(
 			// "Error while initializing source viewer control.",
 			// ex);

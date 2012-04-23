@@ -59,9 +59,7 @@ public class AddBranchSwitchMediatorAction extends ConfigureEsbNodeAction {
 		AddCommand addCmd = new AddCommand(domain,parentMediator,EsbPackage.Literals.SWITCH_MEDIATOR__CASE_BRANCHES, cb);
 		if (addCmd.canExecute()){
 			domain.getCommandStack().execute(addCmd);
-		} else {
-			System.out.println("Cannot Execute the command");
-		}
+		} 
 		
 
 	}
