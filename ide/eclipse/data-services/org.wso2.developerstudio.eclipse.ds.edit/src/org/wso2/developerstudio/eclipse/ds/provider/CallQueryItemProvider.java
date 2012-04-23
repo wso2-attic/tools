@@ -145,16 +145,16 @@ public class CallQueryItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
 	@Override
 	public String getText(Object object) {
 		String label = ((CallQuery)object).getHref();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CallQuery_type") :
-			getString("_UI_CallQuery_type") + " " + label;
+		String type = " (" + getString("_UI_CallQuery_type") + ")";
+		return label != null ? label.toString() + type : type;
+		
 	}
 
 	/**

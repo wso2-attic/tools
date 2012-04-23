@@ -108,16 +108,16 @@ public class TargetTopicItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
 	@Override
 	public String getText(Object object) {
 		String label = ((TargetTopic)object).getValue();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TargetTopic_type") :
-			getString("_UI_TargetTopic_type") + " " + label;
+		String type = " (" + getString("_UI_TargetTopic_type") + ")";
+		return label != null ? label.toString() + type : type;
+		
 	}
 
 	/**

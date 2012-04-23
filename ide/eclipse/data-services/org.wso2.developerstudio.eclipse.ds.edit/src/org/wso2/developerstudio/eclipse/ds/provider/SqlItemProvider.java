@@ -138,8 +138,7 @@ public class SqlItemProvider
 	public String getText(Object object) {
 		String label = ((Sql)object).getValue();
 		String type = " (" + getString("_UI_Sql_type") + ")";
-		return type;
-		//return label != null ? label.toString() + type : type;
+		return label != null ? label.toString() + type : type;
 		
 	}
 

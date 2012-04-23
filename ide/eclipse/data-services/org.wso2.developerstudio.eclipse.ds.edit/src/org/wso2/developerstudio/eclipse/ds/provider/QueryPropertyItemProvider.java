@@ -145,13 +145,9 @@ public class QueryPropertyItemProvider
 		
 		String label = DSEditPropertiesLabelProvider.getInstance().getDisplayLabel(
 				((QueryProperty) object).getName());
-		
 		String type = " (" + getString("_UI_QueryProperty_type") + ")";
 		return label != null ? label.toString() + type : type;
-		/*String label = ((QueryProperty)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_QueryProperty_type") :
-			getString("_UI_QueryProperty_type") + " " + label;*/
+
 	}
 
 	/**

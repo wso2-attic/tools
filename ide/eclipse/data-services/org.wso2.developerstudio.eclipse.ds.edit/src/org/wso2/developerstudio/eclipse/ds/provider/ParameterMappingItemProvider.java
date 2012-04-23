@@ -154,16 +154,16 @@ public class ParameterMappingItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
 	@Override
 	public String getText(Object object) {
 		String label = ((ParameterMapping)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ParameterMapping_type") :
-			getString("_UI_ParameterMapping_type") + " " + label;
+		String type = " (" + getString("_UI_ParameterMapping_type") + ")";
+		return label != null ? label.toString() + type : type;
+		
 	}
 
 	/**

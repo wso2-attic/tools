@@ -108,16 +108,16 @@ public class CustomValidatorItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
 	@Override
 	public String getText(Object object) {
 		String label = ((CustomValidator)object).getClass_();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CustomValidator_type") :
-			getString("_UI_CustomValidator_type") + " " + label;
+		String type = " (" + getString("_UI_CustomValidator_type") + ")";
+		return label != null ? label.toString() + type : type;
+		 
 	}
 
 	/**

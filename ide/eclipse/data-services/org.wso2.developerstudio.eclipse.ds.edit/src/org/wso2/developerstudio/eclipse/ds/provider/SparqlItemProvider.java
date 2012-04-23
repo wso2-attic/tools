@@ -116,7 +116,7 @@ public class SparqlItemProvider
 	public String getText(Object object) {
 		String label = ((Sparql)object).getValue();
 		String type = " (" + getString("_UI_Sparql_type") + ")";
-		return type;
+		return label != null ? label.toString() + type : type;
 		
 	}
 
