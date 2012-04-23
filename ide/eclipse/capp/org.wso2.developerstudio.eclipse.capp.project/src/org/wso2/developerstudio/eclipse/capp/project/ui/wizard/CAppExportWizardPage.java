@@ -404,7 +404,7 @@ public class CAppExportWizardPage extends WizardPage {
 		}
 		
 		if(txtName.getText() != null && !txtName.getText().equals("")){
-			if(ArtifactFileUtils.IsSpecialCharactersExist(txtName.getText())){
+			if(ArtifactFileUtils.isSpecialCharactersExist(txtName.getText())){
 				setErrorMessage("Could not create CAR files with special characters");
 				setPageComplete(false);
 				return;

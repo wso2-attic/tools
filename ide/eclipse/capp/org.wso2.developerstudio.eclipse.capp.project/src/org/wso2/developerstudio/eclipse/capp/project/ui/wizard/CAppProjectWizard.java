@@ -67,7 +67,7 @@ public class CAppProjectWizard extends Wizard implements INewWizard {
 //			cAppCARPage.initValues();
 			IProject project = wizardNewProjectCreationPage.getProjectHandle();
 			setCreatedProject(project);
-			if (!project.exists() && !ArtifactFileUtils.IsSpecialCharactersExist(project.getName())){
+			if (!project.exists() && !ArtifactFileUtils.isSpecialCharactersExist(project.getName())){
 				URI locationURI = wizardNewProjectCreationPage.getLocationURI();
 				String path = locationURI.getPath();
 				path = path.substring(1, path.length());
