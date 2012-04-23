@@ -289,7 +289,7 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 	public void optimizeBounds() {
 		Rectangle bounds = this.getMainFigure().getClientArea().getCopy();
 		bounds.setSize(bounds.getSize().width + 10, bounds.getSize().height + 10);
-		//System.out.println(this.getChildren());
+		
 		SetBoundsCommand sbc =
 		                       new SetBoundsCommand(this.getEditingDomain(), "change size",
 		                                            new EObjectAdapter((View) this.getModel()),

@@ -514,9 +514,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 		if (getResultCommand().canExecute()) {
 			editingDomain.getCommandStack().execute(getResultCommand());
 		} 
-		else{
-			System.out.println("Cannot Execute");
-		}
+		
 
 		super.okPressed();
 	}

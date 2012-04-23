@@ -1,5 +1,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -33,6 +36,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.ui.internal.handlers.WizardHandler.New;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -53,7 +57,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 public class SwitchMediatorEditPart extends AbstractMediator {
 
 	public IFigure defaultOutputConnector;
-	public IFigure caseOutputConnector;
+	public ArrayList<IFigure> caseOutputConnectors=new ArrayList<IFigure>();
 
 	/**
 	 * @generated
@@ -174,11 +178,24 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 			                         ((SwitchDefaultBranchOutputConnectorEditPart) childEditPart).getFigure();
 		}
 		if (childEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			caseOutputConnector =
-			                      ((SwitchCaseBranchOutputConnectorEditPart) childEditPart).getFigure();			
+			IFigure caseOutputConnector=((SwitchCaseBranchOutputConnectorEditPart) childEditPart).getFigure();
+			caseOutputConnectors.add(caseOutputConnector);	
+			refresh(caseOutputConnector);
 		}
 
 		return false;
+	}
+	
+	private void refresh(IFigure caseOutputConnector){		
+		if(this.getChildren().get(3)!=null){
+			if(((SwitchMediatorContainerEditPart)this.getChildren().get(3)).getChildren().get(0) instanceof SwitchCaseContainerEditPart){
+			BorderItemLocator locator = new FixedBorderItemLocator(((SwitchCaseContainerEditPart)((SwitchMediatorContainerEditPart)this.getChildren().get(3)).getChildren().get(0)).getFigure(),
+			                                                       caseOutputConnector,PositionConstants.WEST, 0.5);
+			this.getBorderedFigure().getBorderItemContainer().add(caseOutputConnector, locator);
+			}
+		}
+
+		
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {

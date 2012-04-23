@@ -178,9 +178,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends ShapeCompartmen
 				                                                caseOutputConnector);
 				if (addCaseConnectorCmd.canExecute()) {
 					domain.getCommandStack().execute(addCaseConnectorCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 
 				SwitchCaseContainer caseContainer =
 				                                    EsbFactory.eINSTANCE.createSwitchCaseContainer();
@@ -192,9 +190,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends ShapeCompartmen
 				                                   caseContainer);
 				if (addCmd.canExecute()) {
 					domain.getCommandStack().execute(addCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 			}
 		}
 

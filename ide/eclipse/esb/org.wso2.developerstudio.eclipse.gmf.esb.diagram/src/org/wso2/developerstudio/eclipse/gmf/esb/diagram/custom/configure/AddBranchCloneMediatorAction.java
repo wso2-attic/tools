@@ -41,9 +41,7 @@ public class AddBranchCloneMediatorAction extends ConfigureEsbNodeAction {
 		AddCommand addCmd = new AddCommand(domain,parentMediator,EsbPackage.Literals.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR, cb);
 		if (addCmd.canExecute()){
 			domain.getCommandStack().execute(addCmd);
-		} else {
-			System.out.println("Cannot Execute the command");
-		}
+		} 
 		
 	}
 

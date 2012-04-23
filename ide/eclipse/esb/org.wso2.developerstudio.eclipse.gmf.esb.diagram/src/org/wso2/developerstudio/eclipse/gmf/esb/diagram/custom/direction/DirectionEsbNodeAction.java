@@ -172,9 +172,7 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 				SetCommand command = new SetCommand(selectedEP.getEditingDomain(), (Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement(), EsbPackage.Literals.MEDIATOR__REVERSE, true);				
 				if (command.canExecute()){
 					selectedEP.getEditingDomain().getCommandStack().execute(command);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 				
 			}
 			else{
@@ -183,9 +181,7 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 				SetCommand command = new SetCommand(selectedEP.getEditingDomain(), (Mediator)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)selectedEP.getModel()).getElement(), EsbPackage.Literals.MEDIATOR__REVERSE, false);				
 				if (command.canExecute()){
 					selectedEP.getEditingDomain().getCommandStack().execute(command);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 			}
 
 		//}

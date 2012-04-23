@@ -898,29 +898,24 @@ public class EsbPaletteFactory {
 		public Tool createTool() {
 			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes) {
 
-				public void mouseDown(MouseEvent me, EditPartViewer viewer) {
-					//System.out.println("mouse down link tool");				
+				public void mouseDown(MouseEvent me, EditPartViewer viewer) {			
 					super.mouseDown(me, viewer);
 
 				}
 
 				public void mouseUp(MouseEvent me, EditPartViewer viewer) {
-					//System.out.println("mouse up link tool");
 					super.mouseUp(me, viewer);
 				}
 
 				public void mouseDrag(MouseEvent me, EditPartViewer viewer) {
-					//System.out.println("mouse drag link tool");
 					super.mouseDrag(me, viewer);
 				}
 
 				public void mouseHover(MouseEvent me, EditPartViewer viewer) {
-					//System.out.println("mouse hover link tool");
 					super.mouseHover(me, viewer);
 				}
 
 				public void mouseMove(MouseEvent me, EditPartViewer viewer) {
-					//System.out.println("mouse move link tool");
 					super.mouseMove(me, viewer);
 				}
 			};

@@ -139,9 +139,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   outputConnector);
 					if (addCmd.canExecute()) {
 						domain.getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 			if (((FailoverEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
@@ -154,9 +152,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   EsbFactory.eINSTANCE.createFailoverEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 		} else if (child instanceof LoadBalanceEndPoint2EditPart) {
@@ -176,9 +172,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   outputConnector);
 					if (addCmd.canExecute()) {
 						domain.getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
@@ -192,9 +186,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   EsbFactory.eINSTANCE.createLoadBalanceEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 
@@ -212,9 +204,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   EsbFactory.eINSTANCE.createDefaultEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 		} else if (child instanceof AddressEndPoint2EditPart) {
@@ -231,9 +221,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   EsbFactory.eINSTANCE.createAddressEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 		} else if (child instanceof WSDLEndPoint2EditPart) {
@@ -250,9 +238,7 @@ public class ProxyServiceEndpointContainerEndpointCompartmentEditPart extends
 					                                   EsbFactory.eINSTANCE.createWSDLEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
-					} else {
-						System.out.println("Cannot Execute the command");
-					}
+					} 
 				}
 			}
 		}

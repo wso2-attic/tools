@@ -169,7 +169,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			//updateSourceEditor();
 		} catch (Exception ex) {
 			//TODO: Get rid of this
-			System.out.println("Error while creating source view");
+			ex.printStackTrace();
 			//log.error(
 			//		"Error while initializing source viewer control.",
 			//		ex);
@@ -449,8 +449,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				URI uri = URI.createFileURI(f.getAbsolutePath());
 
 				if (!f.exists()) {
-					System.out.println(file.getLocationURI().getPath()
-							+ " does not exist");
+					//System.out.println(file.getLocationURI().getPath()
+							//+ " does not exist");
 
 				} else {
 

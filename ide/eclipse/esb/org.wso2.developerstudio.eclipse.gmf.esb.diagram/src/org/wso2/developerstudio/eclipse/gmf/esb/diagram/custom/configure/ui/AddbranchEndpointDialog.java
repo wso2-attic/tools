@@ -97,8 +97,6 @@ public class AddbranchEndpointDialog extends Dialog{
 			AddCommand addCmd = new AddCommand(domain,parentEndpoint,EsbPackage.Literals.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR, cb);
 			if (addCmd.canExecute()){
 				domain.getCommandStack().execute(addCmd);
-			} else {
-				System.out.println("Cannot Execute the command");
 			}
 			}
 			}else{
@@ -109,9 +107,7 @@ public class AddbranchEndpointDialog extends Dialog{
 				DeleteCommand deleteCmd=new DeleteCommand(domain, collection);
 				if (deleteCmd.canExecute()){
 					domain.getCommandStack().execute(deleteCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 				collection.remove(lastConnector);
 			}
 			}
@@ -126,9 +122,7 @@ public class AddbranchEndpointDialog extends Dialog{
 			AddCommand addCmd = new AddCommand(domain,parentEndpoint,EsbPackage.Literals.FAILOVER_END_POINT__OUTPUT_CONNECTOR, cb);
 			if (addCmd.canExecute()){
 				domain.getCommandStack().execute(addCmd);
-			} else {
-				System.out.println("Cannot Execute the command");
-			}
+			} 
 			}
 			}else{
 				Collection collection=new ArrayList();
@@ -138,9 +132,7 @@ public class AddbranchEndpointDialog extends Dialog{
 				DeleteCommand deleteCmd=new DeleteCommand(domain, collection);
 				if (deleteCmd.canExecute()){
 					domain.getCommandStack().execute(deleteCmd);
-				} else {
-					System.out.println("Cannot Execute the command");
-				}
+				} 
 				collection.remove(lastConnector);
 			}
 			}

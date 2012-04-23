@@ -126,16 +126,18 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 	}
 
 	public void refreshOutputConnector(EditPart childEditPart) {
-		if (childEditPart instanceof SwitchMediatorEditPart) {
+		if (childEditPart instanceof SwitchMediatorEditPart) {			
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) childEditPart;
+			if(switchMediatorEditPart.caseOutputConnectors.size()!=0){
 			BorderItemLocator locator =
 			                            new FixedBorderItemLocator(
 			                                                       this.getFigure(),
-			                                                       switchMediatorEditPart.caseOutputConnector,
+			                                                       switchMediatorEditPart.caseOutputConnectors.get(0),
 			                                                       PositionConstants.WEST, 0.5);
-			if(switchMediatorEditPart.caseOutputConnector!=null){
+			if(switchMediatorEditPart.caseOutputConnectors.get(0)!=null){
 			switchMediatorEditPart.getBorderedFigure().getBorderItemContainer()
-			                      .add(switchMediatorEditPart.caseOutputConnector, locator);
+			                      .add(switchMediatorEditPart.caseOutputConnectors.get(0), locator);
+			}
 			}
 		} else {
 			//Should handle properly.

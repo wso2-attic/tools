@@ -1,10 +1,13 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -310,7 +313,7 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 		private WrappingLabel fFigureAggregateMediatorPropertyValue;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public AggregateMediatorFigure() {
 
@@ -318,13 +321,36 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
-			layoutThis.setSpacing(5);
+			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
 
 			this.setLayoutManager(layoutThis);
-
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250), getMapMode().DPtoLP(100)));
+			this.setOutline(true);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
+		}
+		
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof DefaultSizeNodeFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else if (figure instanceof RoundedRectangle) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			}
+
+			else {
+				super.add(figure, constraint, index);
+			}
 		}
 
 		/**

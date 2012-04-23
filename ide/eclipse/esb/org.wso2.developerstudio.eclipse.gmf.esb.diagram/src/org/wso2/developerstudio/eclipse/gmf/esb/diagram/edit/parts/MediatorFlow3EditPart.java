@@ -254,6 +254,6 @@ public class MediatorFlow3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 255, 255, 255);
+	static final Color THIS_BACK = new Color(null, 255, 0, 255);
 
 }
