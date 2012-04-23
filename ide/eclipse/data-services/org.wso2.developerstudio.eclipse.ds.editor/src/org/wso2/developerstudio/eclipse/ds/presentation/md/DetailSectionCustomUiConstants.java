@@ -21,15 +21,15 @@ public interface DetailSectionCustomUiConstants {
 	public String BASE_URI = "Base URI";
 	public String ENABLE_BATCH_REQUESTS ="Enable Batch Requests";
 	public String ENABLE_BOX_CARRING ="Enable Boxcarring";
-	public String ENABLE_DTP ="Enable DTP";
+	public String ENABLE_DTP ="Enable Distributed Transactions";
 	public String SERVICE_STATUS ="Service Status";
 	
 	public String DATA_SERVICE_DESCRIPTION ="Description";
 	
-	public String DATA_SOURCE_CONFIGURATION_ID ="Data Source Configuration";
+	public String DATA_SOURCE_CONFIGURATION_ID ="DataSource Id";
 	
 	public String QUERY_ID = "Query Id";
-	public String QUERY_USE_CONFIG = "Use Config";
+	public String QUERY_USE_CONFIG = "Data Source";
 	public String QUERY_KEY_COLUMNS = "Key Columns";
 	public String QUERY_INPUT_EVENT_TRIGGER = "Input Event Trigger";
 	public String QUERY_OUTPUT_EVENT_TRIGGER = "Output Event Trigger";
