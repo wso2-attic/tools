@@ -170,7 +170,6 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 			doTransform(info, ((FailoverEndPoint)info.firstEndPoint).getWestOutputConnector());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error defaultEndpointTransformer class.");
 			e.printStackTrace();
 		}
 		}
@@ -180,7 +179,6 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 				doTransform(info, ((LoadBalanceEndPoint)info.firstEndPoint).getWestOutputConnector());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				System.out.println("Error defaultEndpointTransformer class.");
 				e.printStackTrace();
 			}
 		}

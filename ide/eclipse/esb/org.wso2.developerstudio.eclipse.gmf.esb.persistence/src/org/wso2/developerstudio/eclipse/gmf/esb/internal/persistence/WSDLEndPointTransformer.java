@@ -60,7 +60,6 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 				doTransform(info, ((FailoverEndPoint)info.firstEndPoint).getWestOutputConnector());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				System.out.println("Error WSDLEndpointTransformer class.");
 				e.printStackTrace();
 			}
 		}
@@ -69,7 +68,6 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 				doTransform(info, ((LoadBalanceEndPoint)info.firstEndPoint).getWestOutputConnector());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				System.out.println("Error WSDLEndpointTransformer class.");
 				e.printStackTrace();
 			}
 		}

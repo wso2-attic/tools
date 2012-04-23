@@ -96,7 +96,6 @@ public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 	}
 	catch(Exception e){
-		System.out.println(e.toString());
 		e.printStackTrace();
 	}
 		

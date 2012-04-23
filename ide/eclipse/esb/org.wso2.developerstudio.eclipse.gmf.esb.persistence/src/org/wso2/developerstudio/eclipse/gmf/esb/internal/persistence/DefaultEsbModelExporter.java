@@ -230,7 +230,6 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		// cleaning old diagram
 		// TODO: should be replaced by better approach
 		for(EsbElement child : esbServer.getChildren()){
-			System.out.println("child found:" + child);
 			if(child instanceof ProxyService ){
 			RemoveCommand removeCmd = new RemoveCommand(domain, esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN,child) ;
 			resultCommand.append(removeCmd);

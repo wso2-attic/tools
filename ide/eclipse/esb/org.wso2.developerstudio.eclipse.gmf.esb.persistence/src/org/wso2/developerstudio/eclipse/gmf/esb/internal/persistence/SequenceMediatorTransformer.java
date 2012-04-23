@@ -47,7 +47,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		information.getSynapseConfiguration().addSequence(visualSequence.getName(),sequence );
 		}
 		catch(org.apache.synapse.SynapseException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			//Should handle properly
 			//Duplicate sequence definition for key
 		}
