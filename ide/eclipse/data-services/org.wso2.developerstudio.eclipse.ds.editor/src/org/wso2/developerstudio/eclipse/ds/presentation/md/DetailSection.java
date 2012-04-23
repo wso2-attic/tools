@@ -154,7 +154,7 @@ public class DetailSection {
 			Sql sql = (Sql)input;
 			
 			labelMaker(DetailSectionCustomUiConstants.QUERY_SQL);
-			sectionUtil.getAttributeField(detailsclient, toolkit, input, sql.getValue(),
+			sectionUtil.getMultilineTextFileld(detailsclient, toolkit, input, sql.getValue(),
 					DsPackage.eINSTANCE.getSql_Value(), DetailSectionCustomUiConstants.STRING);
 			labelMaker("");
 			labelMaker("");
@@ -164,7 +164,7 @@ public class DetailSection {
 			Sparql sparql = (Sparql)input;
 			
 			labelMaker(DetailSectionCustomUiConstants.QUERY_SPARQL);
-			sectionUtil.getAttributeField(detailsclient, toolkit, input, sparql.getValue(),
+			sectionUtil.getMultilineTextFileld(detailsclient, toolkit, input, sparql.getValue(),
 					DsPackage.eINSTANCE.getSparql_Value(), DetailSectionCustomUiConstants.STRING);
 			labelMaker("");
 			labelMaker("");

@@ -136,12 +136,12 @@ public class DetailSectionUiUtil {
 	}
 	
 	/**
-	 * @param detailsclient: Client that hold the creting text
+	 * @param detailsclient: Client that hold the creating text
 	 * @param toolkit : Form toolkit
 	 * @param input : Input Object currently selected
 	 * @param text : Initial value
 	 * @param metaObject : Meta Object describes the EMF context
-	 * @param dataType : Data Type of the focuesed value
+	 * @param dataType : Data Type of the focused value
 	 * @return Configured Styled Text field
 	 */
 	public StyledText getAttributeField(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
@@ -167,6 +167,47 @@ public class DetailSectionUiUtil {
 				
 		GridData gd = new GridData();
 		gd.widthHint = 200;
+		dtxt.setLayoutData(gd);
+		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
+		addFocusListner(dtxt);
+		addTraverseListner(dtxt);
+		return dtxt;
+		
+	}
+	
+	/**
+	 * @param detailsclient: Client that hold the creating text
+	 * @param toolkit : Form toolkit
+	 * @param input : Input Object currently selected
+	 * @param text : Initial value
+	 * @param metaObject : Meta Object describes the EMF context
+	 * @param dataType : Data Type of the focused value
+	 * @return Configured Styled Text field
+	 */
+	public StyledText getMultilineTextFileld(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
+		
+		StyledText dtxt = new StyledText(detailsclient,SWT.BORDER | SWT.MULTI);		
+		addCommonActions(dtxt);
+		dtxt.setEditable(true);
+		dtxt.setEnabled(true);
+		
+		//adding control decoration for validation 
+		final ControlDecoration controlDecoration = crateControlDecoration(dtxt);
+		controlDecoration.hide();
+		toolkit.adapt(dtxt, true, true);
+		if(existingVal != null)
+		dtxt.setText(existingVal);
+
+		StyleRange styleRange = new StyleRange();
+		styleRange.start = 0;
+		styleRange.length = "".length();
+		styleRange.fontStyle = SWT.NORMAL;
+		styleRange.foreground = detailsclient.getDisplay().getSystemColor(SWT.COLOR_BLACK);
+		dtxt.setStyleRange(styleRange);
+				
+		GridData gd = new GridData();
+		gd.widthHint = 400;
+		gd.heightHint = 200;
 		dtxt.setLayoutData(gd);
 		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
 		addFocusListner(dtxt);
