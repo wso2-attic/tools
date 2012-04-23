@@ -137,7 +137,7 @@
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.dom:1.6.0.v200912221622</bundleArtifactDef>
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.ext.awt:1.6.0.v200805290154</bundleArtifactDef>
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.parser:1.6.0.v200805290154</bundleArtifactDef>
-								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.pdf:1.6.0.v200806031500</bundleArtifactDef>
+								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.pdf:1.6.0.v200806031500.wso2v1</bundleArtifactDef>
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.svggen:1.6.0.v200805290154</bundleArtifactDef>
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.transcoder:1.6.0.v200805290154</bundleArtifactDef>
 								<bundleArtifactDef>org.apache.xmlgraphics:org.apache.batik.util.gui:1.6.0.v200805290154</bundleArtifactDef>
