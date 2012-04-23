@@ -21,6 +21,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.ControlAction;
@@ -53,6 +57,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.wso2.developerstudio.eclipse.ds.CallQuery;
 import org.wso2.developerstudio.eclipse.ds.CallQueryList;
+import org.wso2.developerstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.developerstudio.eclipse.ds.DataService;
 import org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration;
 import org.wso2.developerstudio.eclipse.ds.EventSubscriptionList;
@@ -67,6 +72,7 @@ import org.wso2.developerstudio.eclipse.ds.actions.DSAction;
 import org.wso2.developerstudio.eclipse.ds.actions.DSActionConstants;
 import org.wso2.developerstudio.eclipse.ds.actions.DataSourceConfigurationAction;
 import org.wso2.developerstudio.eclipse.ds.impl.DataSourceConfigurationImpl;
+import org.wso2.developerstudio.eclipse.ds.impl.DocumentRootImpl;
 import org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl;
 import org.wso2.developerstudio.eclipse.ds.impl.QueryImpl;
 import org.wso2.developerstudio.eclipse.ds.provider.DsEditPlugin;
@@ -786,17 +792,55 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		//Menu for query item
 		
 		if(generateQueryMenu){
-			if (query != null && StringUtils.isNotBlank(query.getId())) {
-			menuManager.insertBefore("edit", sqlAction);
-			menuManager.insertBefore("edit", sparqlAction);
-			menuManager.insertBefore("edit", queryPropertyGroupAction);
-			menuManager.insertBefore("edit", resultAction);
-			menuManager.insertBefore("edit", excelAction);
-			menuManager.insertBefore("edit", gspredAction);
-			menuManager.insertBefore("edit", queryParmAction);
-			generateQueryMenu = false;
-			} else {
+			
+			if (query != null && (query.getId() == null || StringUtils.isBlank(query.getId()))) {
+				
 				displayError("Enter the Query Id to proceed.");
+				
+			}else if(query != null && (query.getUseConfig() == null || StringUtils.isBlank(query.getUseConfig()))){
+				
+				displayError("Please Select a valid data source to proceed.");
+				
+			} else {
+				
+				DataService dataService = getDataServiceObject(query);
+
+				if (dataService != null) {
+
+					String dataSourceType = getDataSourceType(dataService,
+							query.getUseConfig());
+
+					if (dataSourceType
+							.equals(DSActionConstants.DRIVER_PROPERTY)
+							|| dataSourceType
+									.equals(DSActionConstants.JNDI_CONTEXT_PROPERTY)
+							|| dataSourceType
+									.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+
+						menuManager.insertBefore("edit", sqlAction);
+
+					} else if (dataSourceType
+							.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)) {
+
+						menuManager.insertBefore("edit", excelAction);
+
+					} else if (dataSourceType
+							.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)) {
+
+						menuManager.insertBefore("edit", gspredAction);
+
+					} else {
+						// TODO since editor does not have RDF dataSource ,can
+						// not show the sparql action.
+						menuManager.insertBefore("edit", sparqlAction);
+					}
+				}
+
+				menuManager.insertBefore("edit", queryPropertyGroupAction);
+				menuManager.insertBefore("edit", resultAction);
+				menuManager.insertBefore("edit", queryParmAction);
+				generateQueryMenu = false;
+				
 			}
 		}
 		
@@ -1161,5 +1205,47 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		if (shell != null) {
 			MessageDialog.openWarning(shell, "Warning", errorMsg);
 		}
+	}
+	/**
+	 * 
+	 * @param eobject EObject submit to get the root 
+	 * @return DataService Object
+	 */
+	private DataService getDataServiceObject(EObject eobject){
+		
+		DocumentRootImpl root  = (DocumentRootImpl)EcoreUtil.getRootContainer(eobject);
+		return root.getData();
+	}
+	
+	private String getDataSourceType(DataService dataService,String usedDataSource){
+		
+		String dataSourceType = "";
+		
+		if(dataService != null){
+			int index = 0;
+			EList<DataSourceConfiguration> configList = dataService.getConfig();
+			
+			DataSourceConfiguration [] confArr = configList.toArray(new DataSourceConfiguration [0]);
+								
+			for(int j = 0;j< configList.size() ; j++){
+				
+				if(confArr[j].getId().equals(usedDataSource)){
+					
+					index = j;
+				}
+				
+			}
+			
+			DataSourceConfiguration config  = configList.get(index);
+			EList<ConfigurationProperty> proplist  = config.getProperty();
+			
+			if(proplist != null && !proplist.isEmpty()){
+				
+				dataSourceType =  proplist.get(0).getName();
+				
+			}
+		}
+		
+		return dataSourceType;
 	}
 }
