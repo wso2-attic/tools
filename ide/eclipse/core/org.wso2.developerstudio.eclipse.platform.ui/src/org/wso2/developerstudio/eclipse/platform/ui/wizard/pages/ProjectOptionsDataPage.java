@@ -1007,13 +1007,13 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		}
 		return tableItems.toArray(new TableItem[] {});
 	}
-
+	
 	private void createTypeListCheckBoxListField(Composite container, int noOfColumns,
 	        final ProjectOptionData optionData) {
 		final CheckboxTableViewer combo =
 		        WSO2UIToolkit.createList(container, optionData.getCaption(), noOfColumns,
 		                                 optionData.getVerticalIndent(), optionData
-		                                         .getHorizontalIndent());
+		                                         .getHorizontalIndent(),optionData.isSelectAllbtn(),this,optionData);
 
 		FieldExecutor fieldExecutor =
 		        new CommonFieldExecutor(optionData, getModel(), combo.getTable()) {
@@ -1064,7 +1064,6 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 					if (getModel().setModelPropertyValue(modelProperty, checkedElements)) {
 						updateField(modelProperty);
 					}
-
 				} catch (ObserverFailedException e) {
 					log.error("ObserverFailed:", e);
 				} catch (Exception e) {
@@ -1082,6 +1081,31 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		}
 	}
 
+	public void updateListCheckBox(ProjectOptionData optionData,Object[] checkedElements ){
+		
+		try{
+			String modelProperty =optionData.getModelProperty();
+			Object[] currentModelPropertyValue =
+			        (Object[]) getModel().getModelPropertyValue(modelProperty);
+
+			try {
+				if (isEqual(currentModelPropertyValue, checkedElements)) {
+					return;
+				}
+				if (getModel().setModelPropertyValue(modelProperty, checkedElements)) {
+					updateField(modelProperty);
+				}
+			} catch (ObserverFailedException e) {
+				log.error("ObserverFailed:", e);
+			} catch (Exception e) {
+				log.error("An unexpected error has occurred", e);
+			}
+			doPostFieldModificationAction(optionData);
+		}catch(Exception e){
+			log.error("An unexpected error has occurred", e);
+		}
+	}
+	
 	private boolean comboBeingModified = false;
 
 	private void createTypeListComboField(Composite container, int noOfColumns,
@@ -1343,7 +1367,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		}
 	}
 
-	private void updateField(String modelProperty) throws Exception {
+	public void updateField(String modelProperty) throws Exception {
 		FieldExecutor fieldExecutor = fieldControllers.get(modelProperty);
 		fieldExecutor.setFieldValue(getModel());
 		fieldExecutor.setControlEnableState();

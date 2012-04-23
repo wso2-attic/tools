@@ -38,10 +38,12 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.events.ExpansionAdapter;
@@ -55,6 +57,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IFieldControlData
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IOnAction;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.UIControl;
 import org.wso2.developerstudio.eclipse.platform.ui.startup.RegisterUIControl;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -131,7 +134,8 @@ public class WSO2UIToolkit {
 	}
 
 	public static CheckboxTableViewer createList(Composite container, String label, int columns,
-	        Integer verticalIndent, Integer horizontalIndent) {
+	        Integer verticalIndent, Integer horizontalIndent,boolean isSelectAllbtn,
+	        final ProjectOptionsDataPage dataPage,final ProjectOptionData optionData) {
 		final Label lblCaption = new Label(container, SWT.None);
 		lblCaption.setText(label);
 		if (columns != -1) {
@@ -148,9 +152,12 @@ public class WSO2UIToolkit {
 			}
 			lblCaption.setLayoutData(gridData);
 		}
+		
+		
+
 		final CheckboxTableViewer cmbValue =
 		        CheckboxTableViewer.newCheckList(container, SWT.BORDER | SWT.FULL_SELECTION);
-		propagateControlStatus(cmbValue.getTable(), lblCaption);
+				
 		if (columns != -1) {
 			GridData gridData = new GridData();
 			gridData.horizontalSpan = columns;
@@ -161,10 +168,71 @@ public class WSO2UIToolkit {
 				gridData.horizontalIndent += horizontalIndent;
 			}
 			gridData.grabExcessHorizontalSpace = true;
-//			gridData.grabExcessVerticalSpace = true;
+			gridData.grabExcessVerticalSpace = true;
 			gridData.horizontalAlignment = SWT.FILL;
 			gridData.verticalAlignment = SWT.FILL;
 			cmbValue.getTable().setLayoutData(gridData);
+		}
+		
+		if(isSelectAllbtn){
+		
+		Label splabel= new Label(container, SWT.NONE);
+		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd.horizontalSpan = columns-3;
+		splabel.setLayoutData(gd);
+		splabel.setText("");
+	
+        Button selectAllButton = new Button(container,SWT.NONE);
+        GridData gdb = new GridData(GridData.END);
+        gdb.horizontalSpan = 1;
+        selectAllButton.setLayoutData(gdb);
+		selectAllButton.setText("Select All");
+		selectAllButton.addListener(SWT.MouseDown, new Listener() {
+			public void handleEvent(Event evt) {
+				cmbValue.setAllChecked(true);
+				dataPage.updateListCheckBox(optionData, cmbValue.getCheckedElements());
+			}
+		});
+		Button unSelectAllButton = new Button(container,SWT.NONE);
+		unSelectAllButton.setText("Deselect All");
+		unSelectAllButton.addListener(SWT.MouseDown, new Listener() {
+			public void handleEvent(Event evt) {
+				cmbValue.setAllChecked(false);
+				dataPage.updateListCheckBox(optionData, cmbValue.getCheckedElements());
+			}
+		});
+		if (columns != -1) {
+
+			GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+			gridData.horizontalSpan = 2;
+			gridData.grabExcessHorizontalSpace = false;
+			gridData.horizontalAlignment = SWT.RIGHT;
+			//gridData.verticalAlignment = SWT.columns
+			if (verticalIndent != null) {
+				gridData.verticalIndent = verticalIndent;
+			}
+			if (horizontalIndent != null) {
+				gridData.horizontalIndent = horizontalIndent;
+			}
+			selectAllButton.setLayoutData(gridData);
+	
+			gridData = new GridData();
+			gridData.horizontalSpan = columns;
+			gridData.grabExcessHorizontalSpace = false;
+			gridData.horizontalAlignment = SWT.FILL;
+			//gridData.verticalAlignment = SWT.columns
+			if (verticalIndent != null) {
+				gridData.verticalIndent = verticalIndent;
+			}
+			if (horizontalIndent != null) {
+				gridData.horizontalIndent = horizontalIndent;
+			}		
+			unSelectAllButton.setLayoutData(gdb);
+		} 
+	   	propagateControlStatus(cmbValue.getTable(), lblCaption, selectAllButton,unSelectAllButton);
+		}else{
+			
+			propagateControlStatus(cmbValue.getTable(), lblCaption);
 		}
 		return cmbValue;
 	}
@@ -263,7 +331,6 @@ public class WSO2UIToolkit {
 		return fieldControl;
 	}
 	
-	
 	public static IFieldControlData createComposite(
 			Composite container,
 			int columns,
@@ -311,7 +378,6 @@ public class WSO2UIToolkit {
 		return fieldControl;
 	}
 	
-
 	public static IFieldControlData createText(Composite container, String label, int columns,
 	        boolean isTextReadonly, Integer verticalIndent, Integer horizontalIndent,boolean multiline) {
 		int flags = (multiline)?(SWT.BORDER|SWT.MULTI|SWT.WRAP):SWT.BORDER;
@@ -855,7 +921,6 @@ public class WSO2UIToolkit {
 			parentLayout = parentLayout.getParent();
 		}
 	}
-
 
 	private static abstract class FileldControlTextDataImple extends FieldControlDataImpl{
 
