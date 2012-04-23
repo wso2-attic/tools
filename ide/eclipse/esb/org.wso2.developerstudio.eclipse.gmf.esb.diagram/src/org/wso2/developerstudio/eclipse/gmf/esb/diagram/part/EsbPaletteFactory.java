@@ -66,7 +66,7 @@ public class EsbPaletteFactory {
 		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
 		//paletteContainer.add(createEsbServer1CreationTool());
 		paletteContainer.add(createProxyService2CreationTool());
-		paletteContainer.add(createMessageMediator3CreationTool());
+		//paletteContainer.add(createMessageMediator3CreationTool());
 		//paletteContainer.add(createSequence4CreationTool());
 		return paletteContainer;
 	}
@@ -86,9 +86,9 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createEventMediator8CreationTool());
 		paletteContainer.add(createSendMediator19CreationTool());
 
-		paletteContainer.add(new PaletteSeparator());
+		//paletteContainer.add(new PaletteSeparator());
 		//paletteContainer.add(createFilterMediator2CreationTool());
-		paletteContainer.add(createSwitchMediator7CreationTool());
+		//paletteContainer.add(createSwitchMediator7CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createXSLTMediator6CreationTool());

@@ -44,7 +44,7 @@ public class EsbServerContentsCompartmentEditPart extends ShapeCompartmentEditPa
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return "Still Developing.";
+		return "This is a tech preview.";
 		//return Messages.EsbServerContentsCompartmentEditPart_title;
 	}
 
