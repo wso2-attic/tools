@@ -42,7 +42,6 @@ import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DistributionProjectModel;
-import org.wso2.developerstudio.eclipse.distribution.project.model.NodeData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractComposite;
