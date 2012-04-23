@@ -22,6 +22,7 @@ import java.util.Map;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TreeEditor;
@@ -36,6 +37,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
@@ -379,12 +381,20 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		if (nodeData.hasChildren()) {
 			TreeItem[] subItems = item.getItems();
 			if (select) {
+				boolean conflict=false;
 				for (TreeItem subitem : subItems) {
 					if (!subitem.getChecked()) {
-						subitem.setChecked(true);
 						NodeData subNodeData = (NodeData) subitem.getData();
-						addDependency(subNodeData);
+						if(!isNameConflict(subNodeData)){
+							subitem.setChecked(true);
+							addDependency(subNodeData);
+						} else{
+							conflict=true;
+						}
 					}
+				}
+				if(conflict){
+					MessageDialog.openWarning(new Shell(), "Add dependencies","Cannot add multiple dependencies with same identity");
 				}
 			} else {
 				for (TreeItem subitem : subItems) {
@@ -399,12 +409,32 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		} else {
 			TreeItem parentItem = item.getParentItem();
 			if (select) {
-				addDependency(nodeData);
+				if(!isNameConflict(nodeData)){
+					addDependency(nodeData);
+				} else{
+					item.setChecked(false);
+					MessageDialog.openWarning(new Shell(), "Add dependencies","Cannot add multiple dependencies with same identity");
+				}
 			} else {
 				removeDependency(nodeData);
 			}
 			updateCheckState(parentItem);
 		}
+	}
+	
+	/**
+	 * Check for conflicts
+	 * @param nodeData
+	 * @return
+	 */
+	private boolean isNameConflict(NodeData nodeData){
+		Dependency dependency = nodeData.getDependency();
+		for(Dependency entry  : getDependencyList().values()){
+			if(entry.getArtifactId().equalsIgnoreCase(dependency.getArtifactId())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**

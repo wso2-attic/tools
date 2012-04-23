@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -29,6 +30,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IFileEditorInput;
@@ -57,6 +59,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
@@ -351,13 +354,21 @@ public class DistProjectEditorPage extends FormPage {
 		if (nodeData.hasChildren()) {
 			TreeItem[] subItems = item.getItems();
 			if (select) {
+				boolean conflict=false;
 				for (TreeItem subitem : subItems) {
 					if (!subitem.getChecked()) {
-						subitem.setChecked(true);
 						NodeData subNodeData = (NodeData) subitem.getData();
-						addDependency(subNodeData);
-						setPageDirty(true);
+						if(!isNameConflict(subNodeData)){
+							subitem.setChecked(true);
+							addDependency(subNodeData);
+							setPageDirty(true);
+						} else{
+							conflict=true;
+						}
 					}
+				}
+				if(conflict){
+					MessageDialog.openWarning(new Shell(), "Add dependencies","Cannot add multiple dependencies with same identity");
 				}
 			} else {
 				for (TreeItem subitem : subItems) {
@@ -373,8 +384,13 @@ public class DistProjectEditorPage extends FormPage {
 		} else {
 			TreeItem parentItem = item.getParentItem();
 			if (select) {
-				addDependency(nodeData);
-				setPageDirty(true);
+				if(!isNameConflict(nodeData)){
+					addDependency(nodeData);
+					setPageDirty(true);
+				} else{
+					item.setChecked(false);
+					MessageDialog.openWarning(new Shell(), "Add dependencies","Cannot add multiple dependencies with same identity");
+				}
 			} else {
 				removeDependency(nodeData);
 				setPageDirty(true);
@@ -382,6 +398,21 @@ public class DistProjectEditorPage extends FormPage {
 			updateCheckState(parentItem);
 		}
 		updateDirtyState();
+	}
+	
+	/**
+	 * Check for conflicts
+	 * @param nodeData
+	 * @return
+	 */
+	private boolean isNameConflict(NodeData nodeData){
+		Dependency dependency = nodeData.getDependency();
+		for(Dependency entry  : getDependencyList().values()){
+			if(entry.getArtifactId().equalsIgnoreCase(dependency.getArtifactId())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
