@@ -175,28 +175,10 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
 			caseOutputConnector =
-			                      ((SwitchCaseBranchOutputConnectorEditPart) childEditPart).getFigure();		
-			
-			//refreshOutputConnector();
+			                      ((SwitchCaseBranchOutputConnectorEditPart) childEditPart).getFigure();			
 		}
-		System.out.println("fffffffff"+((SwitchMediatorContainerEditPart)this.getChildren().get(3)).getChildren().get(0));
 
 		return false;
-	}
-	
-
-	public void refreshOutputConnector() {
-			BorderItemLocator locator =
-			                            new FixedBorderItemLocator(
-			                                                       (IFigure) this,
-			                                                       this.caseOutputConnector,
-			                                                       PositionConstants.WEST, 0.5);
-			if(this.caseOutputConnector!=null){
-			this.getBorderedFigure().getBorderItemContainer()
-			                      .add(this.caseOutputConnector, locator);
-			}
-			
-	
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
