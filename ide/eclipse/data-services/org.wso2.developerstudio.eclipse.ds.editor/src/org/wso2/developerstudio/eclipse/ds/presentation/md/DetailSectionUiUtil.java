@@ -441,7 +441,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef, text);
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {
@@ -455,7 +456,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef,new Long(text) );
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {
@@ -468,7 +470,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef,new Double(text) );
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {
@@ -482,7 +485,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef,new BigInteger(text) );
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {
@@ -496,7 +500,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef,new Integer(text) );
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {
@@ -509,7 +514,8 @@ public class DetailSectionUiUtil {
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
     			attributeRef, new Boolean(isSet));
     	if (setAttribCommand.canExecute()) {
-    			
+    		
+    		OutlineBlock.isEditAction = true;
     		editingDomain.getCommandStack().execute(setAttribCommand);
 			
 		} else {

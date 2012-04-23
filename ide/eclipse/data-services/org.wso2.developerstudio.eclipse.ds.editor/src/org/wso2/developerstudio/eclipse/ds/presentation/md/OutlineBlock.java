@@ -40,6 +40,7 @@ import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
 public class OutlineBlock extends MasterDetailsBlock {
 
+	public static boolean isEditAction;
 	private ComposedAdapterFactory adapterFactory;
 	private EditingDomain domain;
 	private IDetailsPageProvider dsDetailsPageProvider;
@@ -217,7 +218,7 @@ public class OutlineBlock extends MasterDetailsBlock {
 					public void run() {
 						// Try to select the item in the current content viewer of the editor.
 						//
-						if (viewer != null) {
+						if (viewer != null && !isEditAction) {
 							
 							Object selectedObject = null;
 							
@@ -238,6 +239,9 @@ public class OutlineBlock extends MasterDetailsBlock {
 									viewer.setSelection(new StructuredSelection(arr[0]));
 								}
 							}
+						}else{
+							
+							isEditAction = false;
 						}
 					}
 				};

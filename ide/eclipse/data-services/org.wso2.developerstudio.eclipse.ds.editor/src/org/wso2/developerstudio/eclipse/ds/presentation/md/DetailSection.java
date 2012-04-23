@@ -171,7 +171,18 @@ public class DetailSection {
 			
 		}else if(input instanceof QueryPropertyList){
 			
-			//no attribute to display
+			QueryPropertyList propList = (QueryPropertyList)input;
+			
+			EList<QueryProperty> queryProperties = propList.getProperty();
+			
+			Iterator<QueryProperty> iterator = queryProperties.iterator();
+			
+			while(iterator.hasNext()){
+				
+				QueryProperty queryProperty = (QueryProperty)iterator.next();
+				queryPropertyObjectConfigurator(queryProperty);
+			}
+			
 		}else if(input instanceof QueryProperty){
 			
 			QueryProperty property = (QueryProperty)input;
