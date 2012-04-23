@@ -1592,7 +1592,8 @@
       name="LoadBalanceEndPointWestOutputConnector"/>
   <compartments
       name="ContentsCompartment"
-      figure="CompartmentFigure"/>
+      figure="CompartmentFigure"
+      needsTitle="true"/>
   <compartments
       name="EndpointCompartment"
       figure="CompartmentFigure"
@@ -1627,7 +1628,8 @@
       figure="CompartmentFigure"/>
   <compartments
       name="MediatorFlowCompartment"
-      figure="CompartmentFigure"/>
+      figure="CompartmentFigure"
+      needsTitle="true"/>
   <labels
       name="FailoverEndPointName"
       figure="FailoverEndPointFigure"

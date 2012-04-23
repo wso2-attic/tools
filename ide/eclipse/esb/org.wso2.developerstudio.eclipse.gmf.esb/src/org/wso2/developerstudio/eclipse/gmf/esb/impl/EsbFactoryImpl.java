@@ -1164,8 +1164,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public SwitchMediator createSwitchMediator() {
 		SwitchMediatorImpl switchMediator = new SwitchMediatorImpl();
 		switchMediator.setInputConnector(createSwitchMediatorInputConnector());
+		switchMediator.setOutputConnector(createSwitchMediatorOutputConnector());
 		switchMediator.setDefaultBranch(createSwitchDefaultBranchOutputConnector());
-		//switchMediator.getCaseBranches().add(createSwitchCaseBranchOutputConnector());
+		switchMediator.setSwitchContainer(createSwitchMediatorContainer());
 		return switchMediator;
 	}
 
@@ -1212,30 +1213,33 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public SwitchMediatorContainer createSwitchMediatorContainer() {
 		SwitchMediatorContainerImpl switchMediatorContainer = new SwitchMediatorContainerImpl();
+		switchMediatorContainer.setSwitchDefaultContainer(createSwitchDefaultContainer());
 		return switchMediatorContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public SwitchCaseContainer createSwitchCaseContainer() {
 		SwitchCaseContainerImpl switchCaseContainer = new SwitchCaseContainerImpl();
+		switchCaseContainer.setMediatorFlow(createMediatorFlow());
 		return switchCaseContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public SwitchDefaultContainer createSwitchDefaultContainer() {
 		SwitchDefaultContainerImpl switchDefaultContainer = new SwitchDefaultContainerImpl();
+		switchDefaultContainer.setMediatorFlow(createMediatorFlow());
 		return switchDefaultContainer;
 	}
 
