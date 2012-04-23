@@ -59,6 +59,13 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 				}
 			}
 			
+		}  else if(modelProperty.equals("available.sequences")){
+			SequenceModel seqModel = (SequenceModel) model; 
+			if(null!=seqModel.getAvailableSeqList() && seqModel.getAvailableSeqList().size()>0){
+				if(null==seqModel.getSelectedSeqList() || seqModel.getSelectedSeqList().size() <=0){
+					throw new FieldValidationException("Please select at least one artifact");
+				}
+		}
 		}
 
 	}

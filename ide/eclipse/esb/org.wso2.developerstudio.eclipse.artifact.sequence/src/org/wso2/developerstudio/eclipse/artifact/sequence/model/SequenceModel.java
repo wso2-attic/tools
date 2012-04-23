@@ -70,7 +70,11 @@ public class SequenceModel extends ProjectDataModel {
 				modelPropertyValue = getSequenceSaveLocation();
 			} else if (key.equals("reg.browse")){
 				modelPropertyValue = getDynamicSeqRegistryPath();
-			}
+			} else if(key.equals("available.sequences")){
+				if(selectedSeqList!=null){
+					modelPropertyValue = selectedSeqList.toArray();
+					}
+				}
 		}
 		return modelPropertyValue;
 	}
@@ -144,7 +148,6 @@ public class SequenceModel extends ProjectDataModel {
 					
 				}
 			}
-			setSelectedSeqList(selectedSeqList);
 		}else if (key.equals("reg.browse")){
 			if(null!=data){
 				setDynamicSeqRegistryPath(data.toString());
