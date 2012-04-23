@@ -39,6 +39,7 @@ public class ProjectOptionData {
 	// For lists
 	private boolean listMultiSelect = false;
 	private boolean listEditable = false;
+	private boolean selectAllbtn = false;
 	private AbstractListDataProvider listDataProvider;
 
 	// For links
@@ -132,6 +133,14 @@ public class ProjectOptionData {
 
 	public boolean isListEditable() {
 		return listEditable;
+	}
+
+	public void setSelectAllbtn(boolean selectAllbtn) {
+		this.selectAllbtn = selectAllbtn;
+	}
+
+	public boolean isSelectAllbtn() {
+		return selectAllbtn;
 	}
 
 	public void setTextMultiline(boolean textMultiline) {

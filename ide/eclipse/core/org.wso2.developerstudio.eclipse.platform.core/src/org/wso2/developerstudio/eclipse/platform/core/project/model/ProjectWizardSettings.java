@@ -395,6 +395,7 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 		AbstractListDataProvider dataProviderClass = null;
 		boolean multiSelect = false;
 		boolean editable = false;
+		boolean selectAllbtn = false;
 		if (controlData.containsKey("class")) {
 			dataProviderClass =
 			        (AbstractListDataProvider) createExecutable(controlData.get("class"));
@@ -405,10 +406,15 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 		if (controlData.containsKey("modify")) {
 			editable = controlData.get("modify").toLowerCase().equals("editable");
 		}
+		if(controlData.containsKey("selectAllbtn")){
+			selectAllbtn =  controlData.get("selectAllbtn").toLowerCase().equals("true");
+		}
+			
 		setupCommonControlData(dataElement, projectOptionData);
 		projectOptionData.setListDataProvider(dataProviderClass);
 		projectOptionData.setListEditable(editable);
 		projectOptionData.setListMultiSelect(multiSelect);
+		projectOptionData.setSelectAllbtn(selectAllbtn);
 	}
 
 	@SuppressWarnings("restriction")
