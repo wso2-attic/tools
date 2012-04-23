@@ -35,6 +35,7 @@
             </activation>
             <modules>
 		<module>dependencies</module>
+		<module>orbit</orbit>
 		<module>common</module>
 		<module>server</module>
 		<module>core</module>
