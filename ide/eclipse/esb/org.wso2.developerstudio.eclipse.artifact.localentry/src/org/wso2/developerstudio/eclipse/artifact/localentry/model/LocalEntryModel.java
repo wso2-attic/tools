@@ -172,7 +172,9 @@ public class LocalEntryModel extends ProjectDataModel {
 		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)){
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);
-			setLocalEntrySaveLocation(esbProject);
+			if(esbProject!=null){
+				setLocalEntrySaveLocation(esbProject);
+			}	
 		}
 		return returnResult;
 	}

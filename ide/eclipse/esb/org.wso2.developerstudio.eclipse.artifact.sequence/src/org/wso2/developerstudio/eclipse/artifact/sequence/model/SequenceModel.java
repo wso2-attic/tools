@@ -120,16 +120,17 @@ public class SequenceModel extends ProjectDataModel {
 			if(isSaveAsDynamic()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
-				setSequenceSaveLocation(generalProject);
+				if(generalProject!=null){
+					setSequenceSaveLocation(generalProject);
+				}
+				
 			} else{
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject esbProject = ESBProjectUtils.createESBProject(shell);
-				setSequenceSaveLocation(esbProject);
+				if(esbProject!=null){
+					setSequenceSaveLocation(esbProject);
+				}
 			}
-			
-			// TODO show wizard to create a esb project
-			// get endpoint location of the esb project & set
-			// endpointSaveLocation as it is
 		}else if(key.equals("sequence.name")){
 			setSequenceName(data.toString());
 		}else if(key.equals("on.error.sequence")){

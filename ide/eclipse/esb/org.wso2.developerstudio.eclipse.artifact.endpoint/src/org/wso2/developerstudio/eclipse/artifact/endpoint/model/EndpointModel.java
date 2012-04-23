@@ -133,11 +133,15 @@ public class EndpointModel extends ProjectDataModel {
 			if(isSaveAsDynamic()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
-				setEndpointSaveLocation(generalProject);
+				if(generalProject!=null){
+					setEndpointSaveLocation(generalProject);
+				}
 			} else{
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject esbProject = ESBProjectUtils.createESBProject(shell);
-				setEndpointSaveLocation(esbProject);
+				if(esbProject!=null){
+					setEndpointSaveLocation(esbProject);
+				}
 			}			
 			// TODO show wizard to create a esb project
 			// get endpoint location of the esb project & set

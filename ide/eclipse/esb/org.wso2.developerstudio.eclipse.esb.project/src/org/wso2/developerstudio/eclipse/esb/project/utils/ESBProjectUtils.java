@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.esb.project.utils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -37,6 +38,7 @@ public class ESBProjectUtils {
 		IWizardDescriptor wizardDesc = PlatformUI.getWorkbench().getNewWizardRegistry().findWizard("org.wso2.developerstudio.eclipse.artifact.newesbproject");
 		if (wizardDesc!=null) {
 			try {
+				IProject esbProject = null;
 				ESBProjectWizard esbProjectWizard = (ESBProjectWizard) wizardDesc.createWizard();
 				IStructuredSelection selection = (IStructuredSelection) PlatformUI
 												.getWorkbench().getActiveWorkbenchWindow()
@@ -44,13 +46,14 @@ public class ESBProjectUtils {
 				esbProjectWizard.init(PlatformUI.getWorkbench(), selection);
 				WizardDialog dialog = new WizardDialog(shell, esbProjectWizard);
 				dialog.create();
-				dialog.open();
-				String projectName = esbProjectWizard.getModel().getProjectName();
-				IProject esbProject = ResourcesPlugin.getWorkspace().getRoot()
-						.getProject(projectName);
+				if(dialog.open() ==Dialog.OK){
+					String projectName = esbProjectWizard.getModel().getProjectName();
+					esbProject = ResourcesPlugin.getWorkspace().getRoot()
+							.getProject(projectName);
+				}
 				return esbProject;
 			} catch (CoreException e) {
-				log.error(e);
+				log.error("CoreException has occurred",e);
 			}
 		}
 		return null;

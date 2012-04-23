@@ -80,7 +80,9 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		if(key.equals(RegistryArtifactConstants.DATA_CREATE_PRJ)){
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
-			setResourceSaveLocation(generalProject);
+			if(generalProject!=null){
+				setResourceSaveLocation(generalProject);
+			}
 		} else if (key.equals(RegistryArtifactConstants.DATA_RESOURCE_TYPE)) {
 			RegistryTemplate template = (RegistryTemplate) data;
 			setSelectedTemplate(template);

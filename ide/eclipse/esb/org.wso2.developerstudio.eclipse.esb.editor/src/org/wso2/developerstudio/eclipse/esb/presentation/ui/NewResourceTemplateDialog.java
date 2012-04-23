@@ -48,14 +48,19 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -120,11 +125,30 @@ public class NewResourceTemplateDialog extends Dialog {
 		fd_cmbProject.left = new FormAttachment(lblProject, 16);
 		fd_cmbProject.top = new FormAttachment(lblProject, -5, SWT.TOP);
 		cmbProject.setLayoutData(fd_cmbProject);
-
+		
+		Link linkButton = new Link(container, SWT.NULL);
+		linkButton.setText("<a>Create New Project</a>");
+		
+		FormData fd_linkButton = new FormData();
+		fd_linkButton.left = new FormAttachment(lblProject, 16);
+		fd_linkButton.top = new FormAttachment(cmbProject, 40, SWT.TOP);
+		linkButton.setLayoutData(fd_linkButton);
+		linkButton.addListener (SWT.Selection, new Listener () {
+		      public void handleEvent(Event event) {
+		    	  Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+					IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
+					if(generalProject!=null){
+						cmbProject.add(generalProject.getName());
+						if(cmbProject.getItems().length>0){
+							cmbProject.select(cmbProject.getItems().length -1);
+						}
+					}
+		        }
+		      }); 
 		Label lblArtifactName = new Label(container, SWT.NONE);
 		FormData fd_lblArtifactName = new FormData();
-		fd_lblArtifactName.top = new FormAttachment(cmbProject, 22);
-		fd_lblArtifactName.bottom = new FormAttachment(100, -137);
+		fd_lblArtifactName.top = new FormAttachment(linkButton, 22);
+		fd_lblArtifactName.right = new FormAttachment(cmbProject, 22, SWT.RIGHT);
 		fd_lblArtifactName.left = new FormAttachment(0, 10);
 		lblArtifactName.setLayoutData(fd_lblArtifactName);
 		lblArtifactName.setText("Resource file name");
@@ -337,7 +361,7 @@ public class NewResourceTemplateDialog extends Dialog {
 	 */
 	
 	protected Point getInitialSize() {
-		return new Point(446, 304);
+		return new Point(446, 340);
 	}
 
 	public void setSelectedPath(String selectedPath) {

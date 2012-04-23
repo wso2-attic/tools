@@ -151,10 +151,9 @@ public class ProxyServiceModel extends ProjectDataModel {
 		} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);
-			setProxyServiceSaveLocation(esbProject);
-			// TODO show wizard to create a esb project
-			// get ProxyService location of the esb project & set
-			// proxyServiceSaveLocation as it is
+			if(esbProject!=null){
+				setProxyServiceSaveLocation(esbProject);
+			}
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_PS_NAME)){
 			setProxyServiceName(data.toString());
 		} else if (key.equals("proxy.target.ep.type")) {
