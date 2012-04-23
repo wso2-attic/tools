@@ -69,15 +69,12 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new AddressEndPoint2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new AddressEndPoint2CanonicalEditPolicy());
+		                  new AddressEndPoint2ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new AddressEndPoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -87,31 +84,34 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-				case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+					                                                                       case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -134,42 +134,42 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof AddressEndPointEndPointName2EditPart) {
-			((AddressEndPointEndPointName2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureAddressEndPointNamePropertyLabel());
+			((AddressEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureAddressEndPointNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {
 			double position;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
-					.getParent()).getModel()).getElement();
-			if (((AddressEndPoint) parentEndpoint).getInputConnector()
-					.getIncomingLinks().size() != 0) {
-				EObject source = ((AddressEndPoint) parentEndpoint)
-						.getInputConnector().getIncomingLinks().get(0)
-						.getSource().eContainer();
-				position = ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint)) ? 0.5
-						: 0.25;
+			EObject parentEndpoint =
+			                         ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
+			if (((AddressEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+				EObject source =
+				                 ((AddressEndPoint) parentEndpoint).getInputConnector()
+				                                                   .getIncomingLinks().get(0)
+				                                                   .getSource().eContainer();
+				position =
+				           ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint))
+				                                                                                            ? 0.5
+				                                                                                            : 0.25;
 			} else {
 				position = 0.25;
 			}
-			IFigure borderItemFigure = ((AddressEndPointInputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					position);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((AddressEndPointInputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.WEST, position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointOutputConnectorEditPart) {
-			IFigure borderItemFigure = ((AddressEndPointOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((AddressEndPointOutputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -183,15 +183,13 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((AddressEndPointInputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((AddressEndPointInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointOutputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((AddressEndPointOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((AddressEndPointOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -317,8 +315,7 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(AddressEndPointEndPointName2EditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry.getType(AddressEndPointEndPointName2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -350,8 +347,7 @@ public class AddressEndPoint2EditPart extends AbstractEndpoint {
 
 			fFigureAddressEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureAddressEndPointNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(fFigureAddressEndPointNamePropertyLabel);
 
 		}
 

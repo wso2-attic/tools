@@ -19,8 +19,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
@@ -31,7 +29,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowItemSemanticEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceInSequenceCanonicalEditPolicy;
 
 /**
  * @generated
@@ -39,7 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServi
 public class MediatorFlowEditPart extends ShapeNodeEditPart {
 
 	//ProxyService InSequence.
-	
+
 	/**
 	 * @generated
 	 */
@@ -67,8 +64,7 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlowItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlowItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -78,25 +74,27 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -121,16 +119,17 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	public void refreshOutputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceEditPart) {
 			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					this.getFigure(),
-					proxyServiceEditPart.outputConnectorFigure,
-					PositionConstants.WEST, 0.5);
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(
+			                                                       this.getFigure(),
+			                                                       proxyServiceEditPart.outputConnectorFigure,
+			                                                       PositionConstants.WEST, 0.5);
 			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer()
-					.add(proxyServiceEditPart.outputConnectorFigure, locator);
+			                    .add(proxyServiceEditPart.outputConnectorFigure, locator);
 		} else {
 			//Should handle properly.
 			throw new ClassCastException();
@@ -138,8 +137,9 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshOutputConnector(((ProxyServiceEditPart) childEditPart
-				.getParent().getParent().getParent().getParent().getParent().getParent()));
+		refreshOutputConnector(((ProxyServiceEditPart) childEditPart.getParent().getParent()
+		                                                            .getParent().getParent()
+		                                                            .getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -239,18 +239,18 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		public MediatorFlowFigure() {
-
+			super();
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
-					getMapMode().DPtoLP(4000)));
+			                                    getMapMode().DPtoLP(4000)));
+
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {

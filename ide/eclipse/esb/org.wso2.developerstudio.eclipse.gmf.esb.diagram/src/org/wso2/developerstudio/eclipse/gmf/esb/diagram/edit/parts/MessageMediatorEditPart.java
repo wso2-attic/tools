@@ -56,17 +56,13 @@ public class MessageMediatorEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MessageMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MessageMediatorCanonicalEditPolicy());
+		                  new MessageMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MessageMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -76,31 +72,34 @@ public class MessageMediatorEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case MessageInputConnectorEditPart.VISUAL_ID:
-				case MessageOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case MessageInputConnectorEditPart.VISUAL_ID:
+					                                                                       case MessageOutputConnectorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 

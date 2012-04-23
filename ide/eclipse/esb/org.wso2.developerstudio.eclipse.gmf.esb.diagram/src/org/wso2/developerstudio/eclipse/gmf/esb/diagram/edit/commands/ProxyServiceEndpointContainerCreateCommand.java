@@ -18,8 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointC
 /**
  * @generated
  */
-public class ProxyServiceEndpointContainerCreateCommand extends
-		EditElementCommand {
+public class ProxyServiceEndpointContainerCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -33,8 +32,7 @@ public class ProxyServiceEndpointContainerCreateCommand extends
 	 * @generated
 	 */
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
+		EObject container = ((CreateElementRequest) getRequest()).getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -45,7 +43,8 @@ public class ProxyServiceEndpointContainerCreateCommand extends
 	 * @generated
 	 */
 	public boolean canExecute() {
-		ProxyServiceSequenceAndEndpointContainer container = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer container =
+		                                                     (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		if (container.getEndpointContainer() != null) {
 			return false;
 		}
@@ -56,12 +55,13 @@ public class ProxyServiceEndpointContainerCreateCommand extends
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		ProxyServiceEndpointContainer newElement = EsbFactory.eINSTANCE
-				.createProxyServiceEndpointContainer();
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+	                                                                                      throws ExecutionException {
+		ProxyServiceEndpointContainer newElement =
+		                                           EsbFactory.eINSTANCE.createProxyServiceEndpointContainer();
 
-		ProxyServiceSequenceAndEndpointContainer owner = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer owner =
+		                                                 (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		owner.setEndpointContainer(newElement);
 
 		doConfigure(newElement, monitor, info);
@@ -73,18 +73,15 @@ public class ProxyServiceEndpointContainerCreateCommand extends
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(ProxyServiceEndpointContainer newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
+	protected void doConfigure(ProxyServiceEndpointContainer newElement, IProgressMonitor monitor,
+	                           IAdaptable info) throws ExecutionException {
+		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		ConfigureRequest configureRequest =
+		                                    new ConfigureRequest(getEditingDomain(), newElement,
+		                                                         elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}

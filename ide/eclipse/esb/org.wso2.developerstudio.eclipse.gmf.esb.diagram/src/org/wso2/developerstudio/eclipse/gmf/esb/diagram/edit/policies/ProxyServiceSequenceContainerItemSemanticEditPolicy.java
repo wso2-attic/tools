@@ -23,7 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated
  */
 public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
-		EsbBaseItemSemanticEditPolicy {
+                                                                EsbBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -39,8 +39,7 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 		if (EsbElementTypes.ProxyServiceInSequence_3197 == req.getElementType()) {
 			return getGEFWrapper(new ProxyServiceInSequenceCreateCommand(req));
 		}
-		if (EsbElementTypes.ProxyServiceOutSequence_3198 == req
-				.getElementType()) {
+		if (EsbElementTypes.ProxyServiceOutSequence_3198 == req.getElementType()) {
 			return getGEFWrapper(new ProxyServiceOutSequenceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
@@ -51,8 +50,9 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd =
+		                                    new CompositeTransactionalCommand(getEditingDomain(),
+		                                                                      null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -75,18 +75,20 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case ProxyServiceInSequenceEditPart.VISUAL_ID:
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
-			case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
+				case ProxyServiceInSequenceEditPart.VISUAL_ID:
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
+				case ProxyServiceOutSequenceEditPart.VISUAL_ID:
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
 			}
 		}
 	}

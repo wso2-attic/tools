@@ -61,15 +61,13 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new AggregateMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		                  new AggregateMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new AggregateMediatorCanonicalEditPolicy());
+		                  new AggregateMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -85,10 +83,10 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case AggregateMediatorInputConnectorEditPart.VISUAL_ID:
-				case AggregateMediatorOutputConnectorEditPart.VISUAL_ID:
-				case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
+					case AggregateMediatorInputConnectorEditPart.VISUAL_ID:
+					case AggregateMediatorOutputConnectorEditPart.VISUAL_ID:
+					case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID:
+						return new BorderItemSelectionEditPolicy();
 				}
 				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
 					if (child instanceof ITextAwareEditPart) {
@@ -120,36 +118,34 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof AggregateMediatorAggregateIDEditPart) {
-			((AggregateMediatorAggregateIDEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureAggregateMediatorPropertyValue());
+			((AggregateMediatorAggregateIDEditPart) childEditPart).setLabel(getPrimaryShape().getFigureAggregateMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorInputConnectorEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.WEST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((AggregateMediatorInputConnectorEditPart) childEditPart)
-							.getFigure(), locator);
+			BorderItemLocator locator =
+			                            new BorderItemLocator(getMainFigure(),
+			                                                  PositionConstants.WEST);
+			getBorderedFigure().getBorderItemContainer()
+			                   .add(((AggregateMediatorInputConnectorEditPart) childEditPart).getFigure(),
+			                        locator);
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorOutputConnectorEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.EAST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((AggregateMediatorOutputConnectorEditPart) childEditPart)
-							.getFigure(), locator);
+			BorderItemLocator locator =
+			                            new BorderItemLocator(getMainFigure(),
+			                                                  PositionConstants.EAST);
+			getBorderedFigure().getBorderItemContainer()
+			                   .add(((AggregateMediatorOutputConnectorEditPart) childEditPart).getFigure(),
+			                        locator);
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.EAST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((AggregateMediatorOnCompleteOutputConnectorEditPart) childEditPart)
-							.getFigure(), locator);
+			BorderItemLocator locator =
+			                            new BorderItemLocator(getMainFigure(),
+			                                                  PositionConstants.EAST);
+			getBorderedFigure().getBorderItemContainer()
+			                   .add(((AggregateMediatorOnCompleteOutputConnectorEditPart) childEditPart).getFigure(),
+			                        locator);
 			return true;
 		}
 		return false;
@@ -163,22 +159,18 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorInputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((AggregateMediatorInputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((AggregateMediatorInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorOutputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((AggregateMediatorOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((AggregateMediatorOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.remove(((AggregateMediatorOnCompleteOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((AggregateMediatorOnCompleteOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -304,8 +296,7 @@ public class AggregateMediatorEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(AggregateMediatorAggregateIDEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry.getType(AggregateMediatorAggregateIDEditPart.VISUAL_ID));
 	}
 
 	/**

@@ -3,9 +3,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -18,11 +20,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchDefaultContainerCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchDefaultContainerItemSemanticEditPolicy;
 
@@ -57,15 +61,13 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SwitchDefaultContainerItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		                  new SwitchDefaultContainerItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SwitchDefaultContainerCanonicalEditPolicy());
+		                  new SwitchDefaultContainerCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -75,25 +77,27 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -117,6 +121,28 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
+	}
+
+	public void refreshOutputConnector(EditPart childEditPart) {
+		if (childEditPart instanceof SwitchMediatorEditPart) {
+			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) childEditPart;
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(
+			                                                       this.getFigure(),
+			                                                       switchMediatorEditPart.defaultOutputConnector,
+			                                                       PositionConstants.WEST, 0.5);
+			switchMediatorEditPart.getBorderedFigure().getBorderItemContainer()
+			                      .add(switchMediatorEditPart.defaultOutputConnector, locator);
+		} else {
+			//Should handle properly.
+			throw new ClassCastException();
+		}
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		refreshOutputConnector(((SwitchMediatorEditPart) childEditPart.getParent().getParent()
+		                                                              .getParent()));
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -203,21 +229,29 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	public class SwitchDefaultContainerFigure extends RoundedRectangle {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public SwitchDefaultContainerFigure() {
-
-			GridLayout layoutThis = new GridLayout();
+			/*GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.makeColumnsEqualWidth = true;*/
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
 			this.setLayoutManager(layoutThis);
-
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700), getMapMode().DPtoLP(300)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 		}
 
+	}
+
+	public boolean isSelectable() {
+		// TODO This or using ResizableEditpolicy?
+		return false;
 	}
 
 	/**

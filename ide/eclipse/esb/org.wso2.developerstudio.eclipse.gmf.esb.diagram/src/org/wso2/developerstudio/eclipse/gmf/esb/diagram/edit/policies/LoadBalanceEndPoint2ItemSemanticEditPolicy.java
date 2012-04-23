@@ -26,8 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class LoadBalanceEndPoint2ItemSemanticEditPolicy extends
-		EsbBaseItemSemanticEditPolicy {
+public class LoadBalanceEndPoint2ItemSemanticEditPolicy extends EsbBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -40,20 +39,14 @@ public class LoadBalanceEndPoint2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EsbElementTypes.LoadBalanceEndPointInputConnector_3095 == req
-				.getElementType()) {
-			return getGEFWrapper(new LoadBalanceEndPointInputConnectorCreateCommand(
-					req));
+		if (EsbElementTypes.LoadBalanceEndPointInputConnector_3095 == req.getElementType()) {
+			return getGEFWrapper(new LoadBalanceEndPointInputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.LoadBalanceEndPointOutputConnector_3096 == req
-				.getElementType()) {
-			return getGEFWrapper(new LoadBalanceEndPointOutputConnectorCreateCommand(
-					req));
+		if (EsbElementTypes.LoadBalanceEndPointOutputConnector_3096 == req.getElementType()) {
+			return getGEFWrapper(new LoadBalanceEndPointOutputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098 == req
-				.getElementType()) {
-			return getGEFWrapper(new LoadBalanceEndPointWestOutputConnectorCreateCommand(
-					req));
+		if (EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098 == req.getElementType()) {
+			return getGEFWrapper(new LoadBalanceEndPointWestOutputConnectorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -63,8 +56,9 @@ public class LoadBalanceEndPoint2ItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd =
+		                                    new CompositeTransactionalCommand(getEditingDomain(),
+		                                                                      null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -87,60 +81,63 @@ public class LoadBalanceEndPoint2ItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-				for (Iterator<?> it = node.getTargetEdges().iterator(); it
-						.hasNext();) {
-					Edge incomingLink = (Edge) it.next();
-					if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
-						DestroyElementRequest r = new DestroyElementRequest(
-								incomingLink.getElement(), false);
-						cmd.add(new DestroyElementCommand(r));
-						cmd.add(new DeleteCommand(getEditingDomain(),
-								incomingLink));
-						continue;
+				case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+					for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
+						Edge incomingLink = (Edge) it.next();
+						if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
+							DestroyElementRequest r =
+							                          new DestroyElementRequest(
+							                                                    incomingLink.getElement(),
+							                                                    false);
+							cmd.add(new DestroyElementCommand(r));
+							cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+							continue;
+						}
 					}
-				}
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
-			case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-				for (Iterator<?> it = node.getSourceEdges().iterator(); it
-						.hasNext();) {
-					Edge outgoingLink = (Edge) it.next();
-					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
-						DestroyElementRequest r = new DestroyElementRequest(
-								outgoingLink.getElement(), false);
-						cmd.add(new DestroyElementCommand(r));
-						cmd.add(new DeleteCommand(getEditingDomain(),
-								outgoingLink));
-						continue;
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
+				case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+					for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
+						Edge outgoingLink = (Edge) it.next();
+						if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
+							DestroyElementRequest r =
+							                          new DestroyElementRequest(
+							                                                    outgoingLink.getElement(),
+							                                                    false);
+							cmd.add(new DestroyElementCommand(r));
+							cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+							continue;
+						}
 					}
-				}
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
-			case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-				for (Iterator<?> it = node.getSourceEdges().iterator(); it
-						.hasNext();) {
-					Edge outgoingLink = (Edge) it.next();
-					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
-						DestroyElementRequest r = new DestroyElementRequest(
-								outgoingLink.getElement(), false);
-						cmd.add(new DestroyElementCommand(r));
-						cmd.add(new DeleteCommand(getEditingDomain(),
-								outgoingLink));
-						continue;
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
+				case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+					for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
+						Edge outgoingLink = (Edge) it.next();
+						if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
+							DestroyElementRequest r =
+							                          new DestroyElementRequest(
+							                                                    outgoingLink.getElement(),
+							                                                    false);
+							cmd.add(new DestroyElementCommand(r));
+							cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+							continue;
+						}
 					}
-				}
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
 			}
 		}
 	}

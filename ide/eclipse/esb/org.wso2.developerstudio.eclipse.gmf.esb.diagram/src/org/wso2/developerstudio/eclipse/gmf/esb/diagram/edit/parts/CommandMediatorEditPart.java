@@ -65,19 +65,15 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CommandMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CommandMediatorCanonicalEditPolicy());
+		                  new CommandMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CommandMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -86,31 +82,34 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case CommandMediatorInputConnectorEditPart.VISUAL_ID:
-				case CommandMediatorOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case CommandMediatorInputConnectorEditPart.VISUAL_ID:
+					                                                                       case CommandMediatorOutputConnectorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -133,29 +132,27 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CommandMediatorClassNameEditPart) {
-			((CommandMediatorClassNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCommandMediatorPropertyValue());
+			((CommandMediatorClassNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureCommandMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof CommandMediatorInputConnectorEditPart) {
-			IFigure borderItemFigure = ((CommandMediatorInputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((CommandMediatorInputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.WEST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-			IFigure borderItemFigure = ((CommandMediatorOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((CommandMediatorOutputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.EAST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -169,15 +166,13 @@ public class CommandMediatorEditPart extends AbstractMediator {
 			return true;
 		}
 		if (childEditPart instanceof CommandMediatorInputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((CommandMediatorInputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((CommandMediatorInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((CommandMediatorOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((CommandMediatorOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -303,8 +298,7 @@ public class CommandMediatorEditPart extends AbstractMediator {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(CommandMediatorClassNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry.getType(CommandMediatorClassNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -335,8 +329,7 @@ public class CommandMediatorEditPart extends AbstractMediator {
 			fFigureCommandMediatorPropertyValue.setText("<...>");
 			fFigureCommandMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureCommandMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(fFigureCommandMediatorPropertyValue);
 
 		}
 

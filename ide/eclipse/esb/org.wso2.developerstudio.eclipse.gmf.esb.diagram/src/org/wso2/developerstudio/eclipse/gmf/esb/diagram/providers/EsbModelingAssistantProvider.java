@@ -33,8 +33,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	 * @generated
 	 */
 	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart editPart =
+		                              (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof EsbDiagramEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(EsbElementTypes.EsbServer_2001);
@@ -571,187 +571,142 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart sourceEditPart =
+		                                    (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof ProxyOutputConnectorEditPart) {
-			return ((ProxyOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((ProxyOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
-			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof ThrottleMediatorOutputConnectorEditPart) {
-			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
-			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
-			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof LogMediatorOutputConnectorEditPart) {
-			return ((LogMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((LogMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof EnrichMediatorOutputConnectorEditPart) {
-			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof XSLTMediatorOutputConnectorEditPart) {
-			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
-			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
-			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SequenceOutputConnectorEditPart) {
-			return ((SequenceOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SequenceOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof EventMediatorOutputConnectorEditPart) {
-			return ((EventMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((EventMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof EntitlementMediatorOutputConnectorEditPart) {
-			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof ClassMediatorOutputConnectorEditPart) {
-			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SpringMediatorOutputConnectorEditPart) {
-			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof ScriptMediatorOutputConnectorEditPart) {
-			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof FaultMediatorOutputConnectorEditPart) {
-			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
-			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
-			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
-			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SmooksMediatorOutputConnectorEditPart) {
-			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SendMediatorOutputConnectorEditPart) {
-			return ((SendMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((SendMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof HeaderMediatorOutputConnectorEditPart) {
-			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof CloneMediatorOutputConnectorEditPart) {
-			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
-			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof CacheMediatorOutputConnectorEditPart) {
-			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof IterateMediatorOutputConnectorEditPart) {
-			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof CalloutMediatorOutputConnectorEditPart) {
-			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof TransactionMediatorOutputConnectorEditPart) {
-			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof RMSequenceMediatorOutputConnectorEditPart) {
-			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof RuleMediatorOutputConnectorEditPart) {
-			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {
-			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof AggregateMediatorOutputConnectorEditPart) {
-			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
-			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof DefaultEndPointOutputConnectorEditPart) {
-			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof AddressEndPointOutputConnectorEditPart) {
-			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof FailoverEndPointOutputConnectorEditPart) {
-			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnectorEditPart) {
-			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
-			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof MessageOutputConnectorEditPart) {
-			return ((MessageOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((MessageOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof MergeNodeOutputConnectorEditPart) {
-			return ((MergeNodeOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
+			return ((MergeNodeOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -760,171 +715,130 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	 * @generated
 	 */
 	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart =
+		                                    (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
-			return ((ProxyInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((ProxyInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof ProxyFaultInputConnectorEditPart) {
-			return ((ProxyFaultInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((ProxyFaultInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof DropMediatorInputConnectorEditPart) {
-			return ((DropMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((DropMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof PropertyMediatorInputConnectorEditPart) {
-			return ((PropertyMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((PropertyMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof ThrottleMediatorInputConnectorEditPart) {
-			return ((ThrottleMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((ThrottleMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof FilterMediatorInputConnectorEditPart) {
-			return ((FilterMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((FilterMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof LogMediatorInputConnectorEditPart) {
-			return ((LogMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((LogMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof EnrichMediatorInputConnectorEditPart) {
-			return ((EnrichMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((EnrichMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof XSLTMediatorInputConnectorEditPart) {
-			return ((XSLTMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((XSLTMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SwitchMediatorInputConnectorEditPart) {
-			return ((SwitchMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((SwitchMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SequenceInputConnectorEditPart) {
-			return ((SequenceInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((SequenceInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof EventMediatorInputConnectorEditPart) {
-			return ((EventMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((EventMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof EntitlementMediatorInputConnectorEditPart) {
-			return ((EntitlementMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((EntitlementMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof ClassMediatorInputConnectorEditPart) {
-			return ((ClassMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((ClassMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SpringMediatorInputConnectorEditPart) {
-			return ((SpringMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((SpringMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof ScriptMediatorInputConnectorEditPart) {
-			return ((ScriptMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((ScriptMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof FaultMediatorInputConnectorEditPart) {
-			return ((FaultMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((FaultMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof XQueryMediatorInputConnectorEditPart) {
-			return ((XQueryMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((XQueryMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof CommandMediatorInputConnectorEditPart) {
-			return ((CommandMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((CommandMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
-			return ((DBLookupMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((DBLookupMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof DBReportMediatorInputConnectorEditPart) {
-			return ((DBReportMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((DBReportMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SmooksMediatorInputConnectorEditPart) {
-			return ((SmooksMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((SmooksMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SendMediatorInputConnectorEditPart) {
-			return ((SendMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((SendMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof HeaderMediatorInputConnectorEditPart) {
-			return ((HeaderMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((HeaderMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof CloneMediatorInputConnectorEditPart) {
-			return ((CloneMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((CloneMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof CacheMediatorInputConnectorEditPart) {
-			return ((CacheMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((CacheMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof IterateMediatorInputConnectorEditPart) {
-			return ((IterateMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((IterateMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof CalloutMediatorInputConnectorEditPart) {
-			return ((CalloutMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((CalloutMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof TransactionMediatorInputConnectorEditPart) {
-			return ((TransactionMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((TransactionMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof RMSequenceMediatorInputConnectorEditPart) {
-			return ((RMSequenceMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((RMSequenceMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof RuleMediatorInputConnectorEditPart) {
-			return ((RuleMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((RuleMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof OAuthMediatorInputConnectorEditPart) {
-			return ((OAuthMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((OAuthMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof AggregateMediatorInputConnectorEditPart) {
-			return ((AggregateMediatorInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((AggregateMediatorInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
-			return ((DefaultEndPointInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((DefaultEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof AddressEndPointInputConnectorEditPart) {
-			return ((AddressEndPointInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((AddressEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof FailoverEndPointInputConnectorEditPart) {
-			return ((FailoverEndPointInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((FailoverEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
-			return ((WSDLEndPointInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((WSDLEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
-			return ((LoadBalanceEndPointInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((LoadBalanceEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
-			return ((MessageInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((MessageInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof MergeNodeFirstInputConnectorEditPart) {
-			return ((MergeNodeFirstInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((MergeNodeFirstInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof MergeNodeSecondInputConnectorEditPart) {
-			return ((MergeNodeSecondInputConnectorEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
+			return ((MergeNodeSecondInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -932,191 +846,145 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source,
-			IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
+	public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
+		IGraphicalEditPart sourceEditPart =
+		                                    (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart =
+		                                    (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof ProxyOutputConnectorEditPart) {
-			return ((ProxyOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((ProxyOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
-			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof ThrottleMediatorOutputConnectorEditPart) {
-			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
-			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
-			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof LogMediatorOutputConnectorEditPart) {
-			return ((LogMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((LogMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof EnrichMediatorOutputConnectorEditPart) {
-			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof XSLTMediatorOutputConnectorEditPart) {
-			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
-			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
-			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SequenceOutputConnectorEditPart) {
-			return ((SequenceOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SequenceOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof EventMediatorOutputConnectorEditPart) {
-			return ((EventMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((EventMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof EntitlementMediatorOutputConnectorEditPart) {
-			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof ClassMediatorOutputConnectorEditPart) {
-			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SpringMediatorOutputConnectorEditPart) {
-			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof ScriptMediatorOutputConnectorEditPart) {
-			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof FaultMediatorOutputConnectorEditPart) {
-			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
-			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
-			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
-			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SmooksMediatorOutputConnectorEditPart) {
-			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SendMediatorOutputConnectorEditPart) {
-			return ((SendMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((SendMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof HeaderMediatorOutputConnectorEditPart) {
-			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof CloneMediatorOutputConnectorEditPart) {
-			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
-			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof CacheMediatorOutputConnectorEditPart) {
-			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof IterateMediatorOutputConnectorEditPart) {
-			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof CalloutMediatorOutputConnectorEditPart) {
-			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof TransactionMediatorOutputConnectorEditPart) {
-			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof RMSequenceMediatorOutputConnectorEditPart) {
-			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof RuleMediatorOutputConnectorEditPart) {
-			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {
-			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof AggregateMediatorOutputConnectorEditPart) {
-			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
-			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof DefaultEndPointOutputConnectorEditPart) {
-			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof AddressEndPointOutputConnectorEditPart) {
-			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof FailoverEndPointOutputConnectorEditPart) {
-			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnectorEditPart) {
-			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
-			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof MessageOutputConnectorEditPart) {
-			return ((MessageOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((MessageOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof MergeNodeOutputConnectorEditPart) {
-			return ((MergeNodeOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
+			return ((MergeNodeOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1124,173 +992,131 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForSource(IAdaptable target,
-			IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
+	public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
+		IGraphicalEditPart targetEditPart =
+		                                    (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
-			return ((ProxyInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((ProxyInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof ProxyFaultInputConnectorEditPart) {
-			return ((ProxyFaultInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((ProxyFaultInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof DropMediatorInputConnectorEditPart) {
-			return ((DropMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((DropMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof PropertyMediatorInputConnectorEditPart) {
-			return ((PropertyMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((PropertyMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof ThrottleMediatorInputConnectorEditPart) {
-			return ((ThrottleMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((ThrottleMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof FilterMediatorInputConnectorEditPart) {
-			return ((FilterMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((FilterMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof LogMediatorInputConnectorEditPart) {
-			return ((LogMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((LogMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof EnrichMediatorInputConnectorEditPart) {
-			return ((EnrichMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((EnrichMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof XSLTMediatorInputConnectorEditPart) {
-			return ((XSLTMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((XSLTMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SwitchMediatorInputConnectorEditPart) {
-			return ((SwitchMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((SwitchMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SequenceInputConnectorEditPart) {
-			return ((SequenceInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((SequenceInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof EventMediatorInputConnectorEditPart) {
-			return ((EventMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((EventMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof EntitlementMediatorInputConnectorEditPart) {
-			return ((EntitlementMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((EntitlementMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof ClassMediatorInputConnectorEditPart) {
-			return ((ClassMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((ClassMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SpringMediatorInputConnectorEditPart) {
-			return ((SpringMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((SpringMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof ScriptMediatorInputConnectorEditPart) {
-			return ((ScriptMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((ScriptMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof FaultMediatorInputConnectorEditPart) {
-			return ((FaultMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((FaultMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof XQueryMediatorInputConnectorEditPart) {
-			return ((XQueryMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((XQueryMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof CommandMediatorInputConnectorEditPart) {
-			return ((CommandMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((CommandMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
-			return ((DBLookupMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((DBLookupMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof DBReportMediatorInputConnectorEditPart) {
-			return ((DBReportMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((DBReportMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SmooksMediatorInputConnectorEditPart) {
-			return ((SmooksMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((SmooksMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SendMediatorInputConnectorEditPart) {
-			return ((SendMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((SendMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof HeaderMediatorInputConnectorEditPart) {
-			return ((HeaderMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((HeaderMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof CloneMediatorInputConnectorEditPart) {
-			return ((CloneMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((CloneMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof CacheMediatorInputConnectorEditPart) {
-			return ((CacheMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((CacheMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof IterateMediatorInputConnectorEditPart) {
-			return ((IterateMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((IterateMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof CalloutMediatorInputConnectorEditPart) {
-			return ((CalloutMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((CalloutMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof TransactionMediatorInputConnectorEditPart) {
-			return ((TransactionMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((TransactionMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof RMSequenceMediatorInputConnectorEditPart) {
-			return ((RMSequenceMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((RMSequenceMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof RuleMediatorInputConnectorEditPart) {
-			return ((RuleMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((RuleMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof OAuthMediatorInputConnectorEditPart) {
-			return ((OAuthMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((OAuthMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof AggregateMediatorInputConnectorEditPart) {
-			return ((AggregateMediatorInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((AggregateMediatorInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
-			return ((DefaultEndPointInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((DefaultEndPointInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof AddressEndPointInputConnectorEditPart) {
-			return ((AddressEndPointInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((AddressEndPointInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof FailoverEndPointInputConnectorEditPart) {
-			return ((FailoverEndPointInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((FailoverEndPointInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
-			return ((WSDLEndPointInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((WSDLEndPointInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
-			return ((LoadBalanceEndPointInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((LoadBalanceEndPointInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
-			return ((MessageInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((MessageInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof MergeNodeFirstInputConnectorEditPart) {
-			return ((MergeNodeFirstInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((MergeNodeFirstInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof MergeNodeSecondInputConnectorEditPart) {
-			return ((MergeNodeSecondInputConnectorEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
+			return ((MergeNodeSecondInputConnectorEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1298,189 +1124,143 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public List getTypesForTarget(IAdaptable source,
-			IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
+	public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart =
+		                                    (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof ProxyOutputConnectorEditPart) {
-			return ((ProxyOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((ProxyOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
-			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof ThrottleMediatorOutputConnectorEditPart) {
-			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((ThrottleMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
-			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((FilterMediatorPassOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
-			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((FilterMediatorFailOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof LogMediatorOutputConnectorEditPart) {
-			return ((LogMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((LogMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof EnrichMediatorOutputConnectorEditPart) {
-			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((EnrichMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof XSLTMediatorOutputConnectorEditPart) {
-			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
-			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
-			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SequenceOutputConnectorEditPart) {
-			return ((SequenceOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SequenceOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof EventMediatorOutputConnectorEditPart) {
-			return ((EventMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((EventMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof EntitlementMediatorOutputConnectorEditPart) {
-			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((EntitlementMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof ClassMediatorOutputConnectorEditPart) {
-			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((ClassMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SpringMediatorOutputConnectorEditPart) {
-			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SpringMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof ScriptMediatorOutputConnectorEditPart) {
-			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((ScriptMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof FaultMediatorOutputConnectorEditPart) {
-			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((FaultMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
-			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((XQueryMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof CommandMediatorOutputConnectorEditPart) {
-			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((CommandMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
-			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((DBLookupMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
-			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((DBReportMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SmooksMediatorOutputConnectorEditPart) {
-			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SmooksMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SendMediatorOutputConnectorEditPart) {
-			return ((SendMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((SendMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof HeaderMediatorOutputConnectorEditPart) {
-			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((HeaderMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof CloneMediatorOutputConnectorEditPart) {
-			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((CloneMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
-			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((CloneMediatorTargetOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof CacheMediatorOutputConnectorEditPart) {
-			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((CacheMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof IterateMediatorOutputConnectorEditPart) {
-			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((IterateMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof CalloutMediatorOutputConnectorEditPart) {
-			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((CalloutMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof TransactionMediatorOutputConnectorEditPart) {
-			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((TransactionMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof RMSequenceMediatorOutputConnectorEditPart) {
-			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((RMSequenceMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof RuleMediatorOutputConnectorEditPart) {
-			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {
-			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof AggregateMediatorOutputConnectorEditPart) {
-			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((AggregateMediatorOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
-			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((AggregateMediatorOnCompleteOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof DefaultEndPointOutputConnectorEditPart) {
-			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((DefaultEndPointOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof AddressEndPointOutputConnectorEditPart) {
-			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((AddressEndPointOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof FailoverEndPointOutputConnectorEditPart) {
-			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((FailoverEndPointOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnectorEditPart) {
-			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
-			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((LoadBalanceEndPointOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
-			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((LoadBalanceEndPointWestOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof MessageOutputConnectorEditPart) {
-			return ((MessageOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((MessageOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof MergeNodeOutputConnectorEditPart) {
-			return ((MergeNodeOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
+			return ((MergeNodeOutputConnectorEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -1488,19 +1268,15 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	/**
 	 * @generated
 	 */
-	public EObject selectExistingElementForSource(IAdaptable target,
-			IElementType relationshipType) {
-		return selectExistingElement(target,
-				getTypesForSource(target, relationshipType));
+	public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
+		return selectExistingElement(target, getTypesForSource(target, relationshipType));
 	}
 
 	/**
 	 * @generated
 	 */
-	public EObject selectExistingElementForTarget(IAdaptable source,
-			IElementType relationshipType) {
-		return selectExistingElement(source,
-				getTypesForTarget(source, relationshipType));
+	public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
+		return selectExistingElement(source, getTypesForTarget(source, relationshipType));
 	}
 
 	/**
@@ -1510,15 +1286,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (types.isEmpty()) {
 			return null;
 		}
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart editPart =
+		                              (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 		if (editPart == null) {
 			return null;
 		}
 		Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
 		HashSet<EObject> elements = new HashSet<EObject>();
-		for (Iterator<EObject> it = diagram.getElement().eAllContents(); it
-				.hasNext();) {
+		for (Iterator<EObject> it = diagram.getElement().eAllContents(); it.hasNext();) {
 			EObject element = it.next();
 			if (isApplicableElement(element, types)) {
 				elements.add(element);
@@ -1527,16 +1302,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (elements.isEmpty()) {
 			return null;
 		}
-		return selectElement((EObject[]) elements.toArray(new EObject[elements
-				.size()]));
+		return selectElement((EObject[]) elements.toArray(new EObject[elements.size()]));
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean isApplicableElement(EObject element, Collection types) {
-		IElementType type = ElementTypeRegistry.getInstance().getElementType(
-				element);
+		IElementType type = ElementTypeRegistry.getInstance().getElementType(element);
 		return types.contains(type);
 	}
 
@@ -1545,11 +1318,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	protected EObject selectElement(EObject[] elements) {
 		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
-				EsbDiagramEditorPlugin.getInstance()
-						.getItemProvidersAdapterFactory());
-		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
-				shell, labelProvider);
+		ILabelProvider labelProvider =
+		                               new AdapterFactoryLabelProvider(
+		                                                               EsbDiagramEditorPlugin.getInstance()
+		                                                                                     .getItemProvidersAdapterFactory());
+		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
 		dialog.setMessage(Messages.EsbModelingAssistantProviderMessage);
 		dialog.setTitle(Messages.EsbModelingAssistantProviderTitle);
 		dialog.setMultipleSelection(false);

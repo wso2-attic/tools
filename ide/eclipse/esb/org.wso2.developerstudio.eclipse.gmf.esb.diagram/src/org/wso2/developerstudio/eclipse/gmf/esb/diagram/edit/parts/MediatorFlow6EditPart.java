@@ -40,7 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServi
 public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 
 	//ProxyService FaultSequence.
-	
+
 	/**
 	 * @generated
 	 */
@@ -68,8 +68,7 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlow6ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlow6ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -79,25 +78,27 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -122,19 +123,17 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	protected void refreshInputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceEditPart) {
 			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					this.getFigure(),
-					proxyServiceEditPart.faultInputnputConnectorFigure,
-					PositionConstants.WEST, 0.5);
-			proxyServiceEditPart
-					.getBorderedFigure()
-					.getBorderItemContainer()
-					.add(proxyServiceEditPart.faultInputnputConnectorFigure,
-							locator);
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(
+			                                                       this.getFigure(),
+			                                                       proxyServiceEditPart.faultInputnputConnectorFigure,
+			                                                       PositionConstants.WEST, 0.5);
+			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer()
+			                    .add(proxyServiceEditPart.faultInputnputConnectorFigure, locator);
 		} else {
 			//Should handle properly.
 			throw new ClassCastException();
@@ -142,8 +141,8 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent()
-				.getParent().getParent().getParent()));
+		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent().getParent()
+		                                                           .getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -249,12 +248,11 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
-					getMapMode().DPtoLP(4000)));
+			                                    getMapMode().DPtoLP(4000)));
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {
@@ -271,7 +269,7 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

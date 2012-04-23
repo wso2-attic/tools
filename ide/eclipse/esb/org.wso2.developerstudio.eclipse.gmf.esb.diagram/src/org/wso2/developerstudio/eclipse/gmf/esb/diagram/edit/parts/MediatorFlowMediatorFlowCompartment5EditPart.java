@@ -18,8 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class MediatorFlowMediatorFlowCompartment5EditPart extends
-		ShapeCompartmentEditPart {
+public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -34,22 +33,22 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return Messages.MediatorFlowMediatorFlowCompartment5EditPart_title;
+		return "Out Sequence";
+		//return Messages.MediatorFlowMediatorFlowCompartment5EditPart_title;
 	}
 
 	/**
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
-		result.setTitleVisibility(false);
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
-		result.setToolTip((String) null);
+		result.setToolTip(getCompartmentName());
 		return result;
 	}
 
@@ -58,43 +57,58 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		                  new MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy());
+		                  new MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy());
 	}
-	
+
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
 		//Refresh connector's position. Hardcoded. Should be altered.
-		((MediatorFlow5EditPart)child.getParent().getParent()).refreshInputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent().getParent());
-		((MediatorFlowEditPart)((ProxyServiceInSequenceEditPart)child.getParent().getParent().getParent().getParent().getChildren().get(0)).getChildren().get(0)).refreshOutputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent().getParent());
+		((MediatorFlow5EditPart) child.getParent().getParent()).refreshInputConnector(child.getParent()
+		                                                                                   .getParent()
+		                                                                                   .getParent()
+		                                                                                   .getParent()
+		                                                                                   .getParent()
+		                                                                                   .getParent()
+		                                                                                   .getParent());
+		((MediatorFlowEditPart) ((ProxyServiceInSequenceEditPart) child.getParent().getParent()
+		                                                               .getParent().getParent()
+		                                                               .getChildren().get(0)).getChildren()
+		                                                                                     .get(0)).refreshOutputConnector(child.getParent()
+		                                                                                                                          .getParent()
+		                                                                                                                          .getParent()
+		                                                                                                                          .getParent()
+		                                                                                                                          .getParent()
+		                                                                                                                          .getParent()
+		                                                                                                                          .getParent());
 		//if(((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().size()==2)	;	
 		//((MediatorFlow6EditPart)((ProxyServiceContainerEditPart)child.getParent().getParent().getParent().getParent().getParent().getParent().getChildren().get(4)).getChildren().get(1)).refreshInputConnector(child.getParent().getParent().getParent().getParent().getParent().getParent());
 	}
-	
-	
+
 	protected void removeChild(EditPart child) {
 		// TODO Auto-generated method stub
-		MediatorFlow5EditPart mediatorFlow=(MediatorFlow5EditPart)child.getParent().getParent();
-		EditPart proxyService=child.getParent().getParent().getParent().getParent().getParent().getParent().getParent();
+		MediatorFlow5EditPart mediatorFlow = (MediatorFlow5EditPart) child.getParent().getParent();
+		EditPart proxyService =
+		                        child.getParent().getParent().getParent().getParent().getParent()
+		                             .getParent().getParent();
 		super.removeChild(child);
 		mediatorFlow.refreshInputConnector(proxyService);
-		((MediatorFlowEditPart)((ProxyServiceInSequenceEditPart)mediatorFlow.getParent().getParent().getChildren().get(0)).getChildren().get(0)).refreshOutputConnector(proxyService);
+		((MediatorFlowEditPart) ((ProxyServiceInSequenceEditPart) mediatorFlow.getParent()
+		                                                                      .getParent()
+		                                                                      .getChildren().get(0)).getChildren()
+		                                                                                            .get(0)).refreshOutputConnector(proxyService);
 	}
 
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;
 	}
-	
+
 	/**
 	 * @generated
 	 */

@@ -37,8 +37,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(
-			ID);
+	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(ID);
 
 	/**
 	 * @generated
@@ -82,8 +81,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
-				getPreferenceStore());
+		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
 		adapterFactory = createAdapterFactory();
 	}
 
@@ -136,11 +134,12 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public ImageDescriptor getItemImageDescriptor(Object item) {
-		IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory
-				.adapt(item, IItemLabelProvider.class);
+		IItemLabelProvider labelProvider =
+		                                   (IItemLabelProvider) adapterFactory.adapt(item,
+		                                                                             IItemLabelProvider.class);
 		if (labelProvider != null) {
-			return ExtendedImageRegistry.getInstance().getImageDescriptor(
-					labelProvider.getImage(item));
+			return ExtendedImageRegistry.getInstance()
+			                            .getImageDescriptor(labelProvider.getImage(item));
 		}
 		return null;
 	}
@@ -169,8 +168,9 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	public static ImageDescriptor findImageDescriptor(String path) {
 		final IPath p = new Path(path);
 		if (p.isAbsolute() && p.segmentCount() > 1) {
-			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p
-					.removeFirstSegments(1).makeAbsolute().toString());
+			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0),
+			                                                  p.removeFirstSegments(1)
+			                                                   .makeAbsolute().toString());
 		} else {
 			return getBundledImageDescriptor(p.makeAbsolute().toString());
 		}
@@ -222,8 +222,7 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	public void setLinkConstraints(
-			EsbBaseItemSemanticEditPolicy.LinkConstraints lc) {
+	public void setLinkConstraints(EsbBaseItemSemanticEditPolicy.LinkConstraints lc) {
 		this.linkConstraints = lc;
 	}
 
@@ -269,9 +268,8 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 		if (error == null && throwable != null) {
 			error = throwable.getMessage();
 		}
-		getLog().log(
-				new Status(IStatus.ERROR, EsbDiagramEditorPlugin.ID,
-						IStatus.OK, error, throwable));
+		getLog().log(new Status(IStatus.ERROR, EsbDiagramEditorPlugin.ID, IStatus.OK, error,
+		                        throwable));
 		debug(error, throwable);
 	}
 
@@ -289,9 +287,8 @@ public class EsbDiagramEditorPlugin extends AbstractUIPlugin {
 		if (message == null && throwable != null) {
 			message = throwable.getMessage();
 		}
-		getLog().log(
-				new Status(IStatus.INFO, EsbDiagramEditorPlugin.ID, IStatus.OK,
-						message, throwable));
+		getLog().log(new Status(IStatus.INFO, EsbDiagramEditorPlugin.ID, IStatus.OK, message,
+		                        throwable));
 		debug(message, throwable);
 	}
 

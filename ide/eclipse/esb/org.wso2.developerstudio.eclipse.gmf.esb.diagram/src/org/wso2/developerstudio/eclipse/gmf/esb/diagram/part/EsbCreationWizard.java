@@ -80,8 +80,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	public void setOpenNewlyCreatedDiagramEditor(
-			boolean openNewlyCreatedDiagramEditor) {
+	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
@@ -92,8 +91,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(Messages.EsbCreationWizardTitle);
-		setDefaultPageImageDescriptor(EsbDiagramEditorPlugin
-				.getBundledImageDescriptor("icons/wizban/NewEsbWizard.gif")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(EsbDiagramEditorPlugin.getBundledImageDescriptor("icons/wizban/NewEsbWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
 
@@ -101,32 +99,30 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public void addPages() {
-		diagramModelFilePage = new EsbCreationWizardPage(
-				"DiagramModelFile", getSelection(), "esb_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage
-				.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
-		diagramModelFilePage
-				.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
+		diagramModelFilePage =
+		                       new EsbCreationWizardPage(
+		                                                 "DiagramModelFile", getSelection(), "esb_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new EsbCreationWizardPage(
-				"DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new EsbCreationWizardPage("DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
 
-			public void setVisible(boolean visible) {
-				if (visible) {
-					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".esb_diagram".length()); //$NON-NLS-1$
-					setFileName(EsbDiagramEditorUtil.getUniqueFileName(
-							getContainerFullPath(), fileName, "esb")); //$NON-NLS-1$
-				}
-				super.setVisible(visible);
-			}
-		};
-		domainModelFilePage
-				.setTitle(Messages.EsbCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(Messages.EsbCreationWizard_DomainModelFilePageDescription);
+			                      public void setVisible(boolean visible) {
+				                      if (visible) {
+					                      String fileName = diagramModelFilePage.getFileName();
+					                      fileName =
+					                                 fileName.substring(0, fileName.length() -
+					                                                       ".esb_diagram".length()); //$NON-NLS-1$
+					                      setFileName(EsbDiagramEditorUtil.getUniqueFileName(getContainerFullPath(),
+					                                                                         fileName,
+					                                                                         "esb")); //$NON-NLS-1$
+				                      }
+				                      super.setVisible(visible);
+			                      }
+		                      };
+		domainModelFilePage.setTitle(Messages.EsbCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage.setDescription(Messages.EsbCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
 	}
 
@@ -136,18 +132,18 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor)
-					throws CoreException, InterruptedException {
-				diagram = EsbDiagramEditorUtil.createDiagram(
-						diagramModelFilePage.getURI(),
-						domainModelFilePage.getURI(), monitor);
+			protected void execute(IProgressMonitor monitor) throws CoreException,
+			                                                InterruptedException {
+				diagram =
+				          EsbDiagramEditorUtil.createDiagram(diagramModelFilePage.getURI(),
+				                                             domainModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
 						ErrorDialog.openError(getContainer().getShell(),
-								Messages.EsbCreationWizardOpenEditorError,
-								null, e.getStatus());
+						                      Messages.EsbCreationWizardOpenEditorError, null,
+						                      e.getStatus());
 					}
 				}
 			}
@@ -159,11 +155,11 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
 				ErrorDialog.openError(getContainer().getShell(),
-						Messages.EsbCreationWizardCreationError, null,
-						((CoreException) e.getTargetException()).getStatus());
+				                      Messages.EsbCreationWizardCreationError, null,
+				                      ((CoreException) e.getTargetException()).getStatus());
 			} else {
-				EsbDiagramEditorPlugin.getInstance().logError(
-						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+				EsbDiagramEditorPlugin.getInstance()
+				                      .logError("Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;
 		}

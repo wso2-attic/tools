@@ -2,11 +2,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.beans.PropertyChangeListener;
 
-import org.eclipse.draw2d.FigureListener;
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -35,9 +32,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.layout.GridLayout;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceCanonicalEditPolicy;
@@ -81,21 +76,15 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ProxyServiceItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ProxyServiceCanonicalEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ProxyServiceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new ProxyServiceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -104,31 +93,34 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case ProxyOutputConnectorEditPart.VISUAL_ID:
-				case ProxyInputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case ProxyOutputConnectorEditPart.VISUAL_ID:
+					                                                                       case ProxyInputConnectorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -151,14 +143,11 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceNameEditPart) {
-			((ProxyServiceNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureProxyNamePropertyLabel());
+			((ProxyServiceNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureProxyNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof ProxyOutputConnectorEditPart) {
-			outputConnectorFigure = ((ProxyOutputConnectorEditPart) childEditPart)
-					.getFigure();
+			outputConnectorFigure = ((ProxyOutputConnectorEditPart) childEditPart).getFigure();
 			/*			BorderItemLocator locator = new FixedBorderItemLocator(
 			 (IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
 			 .getChildren().get(0)).getChildren().get(0))
@@ -170,8 +159,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			return false;
 		}
 		if (childEditPart instanceof ProxyInputConnectorEditPart) {
-			inputConnectorFigure = ((ProxyInputConnectorEditPart) childEditPart)
-					.getFigure();
+			inputConnectorFigure = ((ProxyInputConnectorEditPart) childEditPart).getFigure();
 			/*
 			 BorderItemLocator locator = new FixedBorderItemLocator(
 			 (IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
@@ -185,8 +173,8 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 		if (childEditPart instanceof ProxyFaultInputConnectorEditPart) {
-			faultInputnputConnectorFigure = ((ProxyFaultInputConnectorEditPart) childEditPart)
-					.getFigure();
+			faultInputnputConnectorFigure =
+			                                ((ProxyFaultInputConnectorEditPart) childEditPart).getFigure();
 
 			return false;
 		}
@@ -202,13 +190,13 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof ProxyOutputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((ProxyOutputConnectorEditPart) childEditPart).getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((ProxyOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof ProxyInputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((ProxyInputConnectorEditPart) childEditPart).getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((ProxyInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -334,8 +322,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(ProxyServiceNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry.getType(ProxyServiceNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -366,8 +353,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 
 			//this.setBackgroundColor(new Color(null, 255, 255, 255));
 
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(200)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(200)));
 			this.setBackgroundColor(THIS_BACK);
 			//this.setLineStyle(Graphics.LINE_DASH);
 			this.setOutline(true);

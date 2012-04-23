@@ -32,8 +32,7 @@ public class ProxyServiceInSequenceCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
+		EObject container = ((CreateElementRequest) getRequest()).getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -44,7 +43,8 @@ public class ProxyServiceInSequenceCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		ProxyServiceSequenceContainer container = (ProxyServiceSequenceContainer) getElementToEdit();
+		ProxyServiceSequenceContainer container =
+		                                          (ProxyServiceSequenceContainer) getElementToEdit();
 		if (container.getInSequence() != null) {
 			return false;
 		}
@@ -55,10 +55,9 @@ public class ProxyServiceInSequenceCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		ProxyServiceInSequence newElement = EsbFactory.eINSTANCE
-				.createProxyServiceInSequence();
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+	                                                                                      throws ExecutionException {
+		ProxyServiceInSequence newElement = EsbFactory.eINSTANCE.createProxyServiceInSequence();
 
 		ProxyServiceSequenceContainer owner = (ProxyServiceSequenceContainer) getElementToEdit();
 		owner.setInSequence(newElement);
@@ -72,18 +71,15 @@ public class ProxyServiceInSequenceCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(ProxyServiceInSequence newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
+	protected void doConfigure(ProxyServiceInSequence newElement, IProgressMonitor monitor,
+	                           IAdaptable info) throws ExecutionException {
+		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		ConfigureRequest configureRequest =
+		                                    new ConfigureRequest(getEditingDomain(), newElement,
+		                                                         elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}

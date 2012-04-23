@@ -22,7 +22,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated
  */
 public class LoadBalanceEndPointInputConnectorItemSemanticEditPolicy extends
-		EsbBaseItemSemanticEditPolicy {
+                                                                    EsbBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -36,14 +36,16 @@ public class LoadBalanceEndPointInputConnectorItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd =
+		                                    new CompositeTransactionalCommand(getEditingDomain(),
+		                                                                      null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (EsbVisualIDRegistry.getVisualID(incomingLink) == EsbLinkEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
+				DestroyElementRequest r =
+				                          new DestroyElementRequest(incomingLink.getElement(),
+				                                                    false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
@@ -65,17 +67,16 @@ public class LoadBalanceEndPointInputConnectorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
-		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
-				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
+		Command command =
+		                  req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+		                                         : getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (EsbElementTypes.EsbLink_4001 == req.getElementType()) {
 			return null;
 		}
@@ -85,11 +86,9 @@ public class LoadBalanceEndPointInputConnectorItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (EsbElementTypes.EsbLink_4001 == req.getElementType()) {
-			return getGEFWrapper(new EsbLinkCreateCommand(req, req.getSource(),
-					req.getTarget()));
+			return getGEFWrapper(new EsbLinkCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -100,11 +99,10 @@ public class LoadBalanceEndPointInputConnectorItemSemanticEditPolicy extends
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
+	protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case EsbLinkEditPart.VISUAL_ID:
-			return getGEFWrapper(new EsbLinkReorientCommand(req));
+			case EsbLinkEditPart.VISUAL_ID:
+				return getGEFWrapper(new EsbLinkReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

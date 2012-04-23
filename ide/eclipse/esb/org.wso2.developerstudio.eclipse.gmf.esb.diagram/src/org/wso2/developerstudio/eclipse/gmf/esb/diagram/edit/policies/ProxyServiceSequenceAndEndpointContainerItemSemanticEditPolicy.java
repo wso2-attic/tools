@@ -22,8 +22,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy
-		extends EsbBaseItemSemanticEditPolicy {
+public class ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy extends
+                                                                           EsbBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -36,15 +36,11 @@ public class ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EsbElementTypes.ProxyServiceSequenceContainer_3391 == req
-				.getElementType()) {
-			return getGEFWrapper(new ProxyServiceSequenceContainerCreateCommand(
-					req));
+		if (EsbElementTypes.ProxyServiceSequenceContainer_3391 == req.getElementType()) {
+			return getGEFWrapper(new ProxyServiceSequenceContainerCreateCommand(req));
 		}
-		if (EsbElementTypes.ProxyServiceEndpointContainer_3392 == req
-				.getElementType()) {
-			return getGEFWrapper(new ProxyServiceEndpointContainerCreateCommand(
-					req));
+		if (EsbElementTypes.ProxyServiceEndpointContainer_3392 == req.getElementType()) {
+			return getGEFWrapper(new ProxyServiceEndpointContainerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -54,8 +50,9 @@ public class ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd =
+		                                    new CompositeTransactionalCommand(getEditingDomain(),
+		                                                                      null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -78,18 +75,20 @@ public class ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
-			case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
-						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
-				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
-				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
-				break;
+				case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
+				case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
+					cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+					                                                            node.getElement(),
+					                                                            false))); // directlyOwned: true
+					// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+					// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+					break;
 			}
 		}
 	}

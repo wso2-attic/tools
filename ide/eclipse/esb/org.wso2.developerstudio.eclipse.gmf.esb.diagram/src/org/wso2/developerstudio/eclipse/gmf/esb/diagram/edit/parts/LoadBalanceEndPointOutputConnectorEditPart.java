@@ -38,7 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class LoadBalanceEndPointOutputConnectorEditPart extends
-		AbstractEndpointAdditionalOutputConnector {
+                                                       AbstractEndpointAdditionalOutputConnector {
 
 	/**
 	 * @generated
@@ -67,10 +67,9 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new LoadBalanceEndPointOutputConnectorItemSemanticEditPolicy());
+		                  new LoadBalanceEndPointOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -80,25 +79,27 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -137,8 +138,9 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	 */
 	protected NodeFigure createNodeFigure() {
 		IFigure shape = createNodeShape();
-		NodeFigure figure = new DefaultSizeCaseBranchPointerNodeFigure(12, 10,
-				(AbstractPointerShape) shape);
+		NodeFigure figure =
+		                    new DefaultSizeCaseBranchPointerNodeFigure(12, 10,
+		                                                               (AbstractPointerShape) shape);
 		//NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		figure.add(shape);
@@ -214,8 +216,7 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
@@ -405,8 +406,7 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 			this.addMouseMotionListener(new MouseMotionListener() {
 
 				public void mouseMoved(MouseEvent me) {
@@ -427,13 +427,11 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 
 				public void mouseEntered(MouseEvent me) {
 					// TODO Auto-generated method stub
-					getEditDomain()
-							.getPaletteViewer()
-							.setActiveTool(
-									(ToolEntry) (((PaletteContainer) getEditDomain()
-											.getPaletteViewer()
-											.getPaletteRoot().getChildren()
-											.get(4)).getChildren().get(0)));
+					getEditDomain().getPaletteViewer()
+					               .setActiveTool((ToolEntry) (((PaletteContainer) getEditDomain().getPaletteViewer()
+					                                                                              .getPaletteRoot()
+					                                                                              .getChildren()
+					                                                                              .get(4)).getChildren().get(0)));
 
 				}
 

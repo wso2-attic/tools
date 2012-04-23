@@ -79,7 +79,8 @@ public class EsbNavigatorGroup extends EsbAbstractNavigatorItem {
 	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup) {
-			org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup anotherGroup = (org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup) obj;
+			org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup anotherGroup =
+			                                                                                            (org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup) obj;
 			if (getGroupName().equals(anotherGroup.getGroupName())) {
 				return getParent().equals(anotherGroup.getParent());
 			}

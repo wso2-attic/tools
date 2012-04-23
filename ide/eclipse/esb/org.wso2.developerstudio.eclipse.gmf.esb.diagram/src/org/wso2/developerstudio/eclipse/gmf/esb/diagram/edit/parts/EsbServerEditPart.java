@@ -81,15 +81,11 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new EsbServerItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new EsbServerCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EsbServerItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new EsbServerCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -99,30 +95,33 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case MessageMediatorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case MessageMediatorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -201,33 +200,32 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void addBorderItem(IFigure borderItemContainer,
-			IBorderItemEditPart borderItemEditPart) {
+	protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
 		if (borderItemEditPart instanceof ProxyServiceEditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
-					new SlidingBorderItemLocator(getMainFigure(),
-							borderItemEditPart.getFigure(),
-							PositionConstants.WEST, 10, 5));
+			                        new SlidingBorderItemLocator(getMainFigure(),
+			                                                     borderItemEditPart.getFigure(),
+			                                                     PositionConstants.WEST, 10, 5));
 		} else if (borderItemEditPart instanceof MessageMediatorEditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
-					new SlidingBorderItemLocator(getMainFigure(),
-							borderItemEditPart.getFigure(),
-							PositionConstants.WEST, 10, 5));
+			                        new SlidingBorderItemLocator(getMainFigure(),
+			                                                     borderItemEditPart.getFigure(),
+			                                                     PositionConstants.WEST, 10, 5));
 		} else if (borderItemEditPart instanceof DefaultEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
-					new SlidingBorderItemLocator(getMainFigure(),
-							borderItemEditPart.getFigure(),
-							PositionConstants.EAST, 10, 5));
+			                        new SlidingBorderItemLocator(getMainFigure(),
+			                                                     borderItemEditPart.getFigure(),
+			                                                     PositionConstants.EAST, 10, 5));
 		} else if (borderItemEditPart instanceof AddressEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
-					new SlidingBorderItemLocator(getMainFigure(),
-							borderItemEditPart.getFigure(),
-							PositionConstants.EAST, 10, 5));
+			                        new SlidingBorderItemLocator(getMainFigure(),
+			                                                     borderItemEditPart.getFigure(),
+			                                                     PositionConstants.EAST, 10, 5));
 		} else if (borderItemEditPart instanceof WSDLEndPoint2EditPart) {
 			borderItemContainer.add(borderItemEditPart.getFigure(),
-					new SlidingBorderItemLocator(getMainFigure(),
-							borderItemEditPart.getFigure(),
-							PositionConstants.EAST, 10, 5));
+			                        new SlidingBorderItemLocator(getMainFigure(),
+			                                                     borderItemEditPart.getFigure(),
+			                                                     PositionConstants.EAST, 10, 5));
 		}
 
 		else {
@@ -290,12 +288,12 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public void optimizeBounds() {
 		Rectangle bounds = this.getMainFigure().getClientArea().getCopy();
-		bounds.setSize(bounds.getSize().width + 10,
-				bounds.getSize().height + 10);
+		bounds.setSize(bounds.getSize().width + 10, bounds.getSize().height + 10);
 		//System.out.println(this.getChildren());
-		SetBoundsCommand sbc = new SetBoundsCommand(this.getEditingDomain(),
-				"change size", new EObjectAdapter((View) this.getModel()),
-				bounds);
+		SetBoundsCommand sbc =
+		                       new SetBoundsCommand(this.getEditingDomain(), "change size",
+		                                            new EObjectAdapter((View) this.getModel()),
+		                                            bounds);
 		getEditDomain().getCommandStack().execute(new ICommandProxy(sbc));
 	}
 
@@ -323,14 +321,12 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setBackgroundColor(THIS_BACK);
 
 			this.setOutline(true);
 			// TODO: review this:
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(600)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(600)));
 
 			// Leave more space on left and right for border item placement.
 			MarginBorder marginBorder = new MarginBorder(-7, 20, -5, 20);

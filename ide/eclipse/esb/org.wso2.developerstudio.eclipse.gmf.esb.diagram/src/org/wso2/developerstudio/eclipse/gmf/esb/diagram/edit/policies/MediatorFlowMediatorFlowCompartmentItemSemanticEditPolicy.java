@@ -39,7 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated
  */
 public class MediatorFlowMediatorFlowCompartmentItemSemanticEditPolicy extends
-		EsbBaseItemSemanticEditPolicy {
+                                                                      EsbBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

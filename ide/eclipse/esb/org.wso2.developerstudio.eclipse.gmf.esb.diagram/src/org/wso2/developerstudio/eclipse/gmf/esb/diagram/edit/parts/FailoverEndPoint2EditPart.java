@@ -74,19 +74,16 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FailoverEndPoint2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		                  new FailoverEndPoint2ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new FailoverEndPoint2CanonicalEditPolicy());
+		                  new FailoverEndPoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -95,32 +92,35 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+		                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-				case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-				case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+			                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
+				                                                                       View childView =
+				                                                                                        (View) child.getModel();
+				                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
+					                                                                       case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+					                                                                       case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+					                                                                       case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+						                                                                       return new BorderItemSelectionEditPolicy();
+				                                                                       }
+				                                                                       EditPolicy result =
+				                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				                                                                       if (result == null) {
+					                                                                       result =
+					                                                                                new NonResizableEditPolicy();
+				                                                                       }
+				                                                                       return result;
+			                                                                       }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+			                                                                       protected Command getMoveChildrenCommand(Request request) {
+				                                                                       return null;
+			                                                                       }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
+			                                                                       protected Command getCreateCommand(CreateRequest request) {
+				                                                                       return null;
+			                                                                       }
+		                                                                       };
 		return lep;
 	}
 
@@ -144,57 +144,56 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		int outputCount = arrangeOutputConnectors();
 		if (childEditPart instanceof FailoverEndPointEndPointName2EditPart) {
-			((FailoverEndPointEndPointName2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFailoverEndPointNamePropertyLabel());
+			((FailoverEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureFailoverEndPointNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnectorEditPart) {
 			double position;
-			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
-					.getParent()).getModel()).getElement();
-			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
-					.getIncomingLinks().size() != 0) {
-				EObject source = ((FailoverEndPoint) parentEndpoint)
-						.getInputConnector().getIncomingLinks().get(0)
-						.getSource().eContainer();
-				position = ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint)) ? 0.5
-						: 0.25;
+			EObject parentEndpoint =
+			                         ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+				EObject source =
+				                 ((FailoverEndPoint) parentEndpoint).getInputConnector()
+				                                                    .getIncomingLinks().get(0)
+				                                                    .getSource().eContainer();
+				position =
+				           ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint))
+				                                                                                            ? 0.5
+				                                                                                            : 0.25;
 			} else {
 				position = 0.25;
 			}
-			IFigure borderItemFigure = ((FailoverEndPointInputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					position);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((FailoverEndPointInputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.WEST, position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointOutputConnectorEditPart) {
 
-			IFigure borderItemFigure = ((FailoverEndPointOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(borderItemFigure,
-							new EvenlyDividedFixedBorderItemLocator(
-									getMainFigure(),
-									borderItemFigure,
-									PositionConstants.EAST,
-									((DefaultSizeCaseBranchPointerNodeFigure) borderItemFigure)
-											.getId(), outputCount));
+			IFigure borderItemFigure =
+			                           ((FailoverEndPointOutputConnectorEditPart) childEditPart).getFigure();
+			getBorderedFigure().getBorderItemContainer()
+			                   .add(borderItemFigure,
+			                        new EvenlyDividedFixedBorderItemLocator(
+			                                                                getMainFigure(),
+			                                                                borderItemFigure,
+			                                                                PositionConstants.EAST,
+			                                                                ((DefaultSizeCaseBranchPointerNodeFigure) borderItemFigure).getId(),
+			                                                                outputCount));
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointWestOutputConnectorEditPart) {
-			IFigure borderItemFigure = ((FailoverEndPointWestOutputConnectorEditPart) childEditPart)
-					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			IFigure borderItemFigure =
+			                           ((FailoverEndPointWestOutputConnectorEditPart) childEditPart).getFigure();
+			BorderItemLocator locator =
+			                            new FixedBorderItemLocator(getMainFigure(),
+			                                                       borderItemFigure,
+			                                                       PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -208,22 +207,18 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((FailoverEndPointInputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((FailoverEndPointInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointOutputConnectorEditPart) {
-			getBorderedFigure().getBorderItemContainer().remove(
-					((FailoverEndPointOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((FailoverEndPointOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointWestOutputConnectorEditPart) {
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.remove(((FailoverEndPointWestOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer()
+			                   .remove(((FailoverEndPointWestOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -349,20 +344,21 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(FailoverEndPointEndPointName2EditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry.getType(FailoverEndPointEndPointName2EditPart.VISUAL_ID));
 	}
 
 	public int arrangeOutputConnectors() {
 
 		@SuppressWarnings("rawtypes")
 		List childParts = this.getChildren();
-		List<FailoverEndPointOutputConnectorEditPart> outputParts = new ArrayList<FailoverEndPointOutputConnectorEditPart>();
+		List<FailoverEndPointOutputConnectorEditPart> outputParts =
+		                                                            new ArrayList<FailoverEndPointOutputConnectorEditPart>();
 
 		int id = 1;
 		for (Object editpart : childParts) {
 			if (editpart instanceof FailoverEndPointOutputConnectorEditPart) {
-				FailoverEndPointOutputConnectorEditPart output = (FailoverEndPointOutputConnectorEditPart) editpart;
+				FailoverEndPointOutputConnectorEditPart output =
+				                                                 (FailoverEndPointOutputConnectorEditPart) editpart;
 				outputParts.add(output);
 			}
 		}
@@ -372,11 +368,10 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 			EvenlyDividedFixedBorderItemLocator borderItemLocator = null;
 			// if (((DefaultSizeCaseBranchPointerNodeFigure) caseBranch
 			// .getFigure()).getId() == -1) {
-			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart
-					.getFigure()).setId(id++);
+			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart.getFigure()).setId(id++);
 			if (caseBranchEditpart.getBorderItemLocator() instanceof EvenlyDividedFixedBorderItemLocator) {
-				borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
-						.getBorderItemLocator();
+				borderItemLocator =
+				                    (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart.getBorderItemLocator();
 			}
 			if (borderItemLocator != null) {
 				borderItemLocator.setSiblingCount(outputCount);
@@ -415,8 +410,7 @@ public class FailoverEndPoint2EditPart extends AbstractEndpoint {
 			fFigureFailoverEndPointNamePropertyLabel.setText("<...>");
 			fFigureFailoverEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureFailoverEndPointNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(fFigureFailoverEndPointNamePropertyLabel);
 
 		}
 
