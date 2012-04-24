@@ -298,7 +298,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION,"proxy");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					fileList.add(destFile);
-					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir,groupId + ".proxy");
+					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir,groupId + ".proxy-service");
 				}else if (localName.equalsIgnoreCase("localEntry")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
 					File destFile = new File(baseDir, qName + ".xml");
