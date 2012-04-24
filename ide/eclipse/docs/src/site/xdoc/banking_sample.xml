@@ -56,7 +56,7 @@
 		Once the person's identity is established, the branch staff perform a query against a 
 		customer database to see if the person is an existing customer. Legacy banking systems 
 		are based on account numbers, but banks today are focused on getting a 
-		“single view of the customer”, which requires the generation of customer numbers. 
+		<strong>single view of the customer</strong>, which requires the generation of customer numbers. 
 		It's therefore important to ensure that a customer is not 
 		assigned more than one customer number by mistake. 
 		</p>
@@ -72,7 +72,7 @@
 		A debit card is normally issued with the first cheque or savings account that is opened. 
 		However, not all branches have the equipment to generate and issue them on the spot. 
 		Hence cards are issued centrally and sent to the customers. If this is an existing customer, 
-		the new account is “linked” to their existing debit card on the spot. Most branches are unable to 
+		the new account is linked to their existing debit card on the spot. Most branches are unable to 
 		provide secure PIN printing facilities, so this too is centralised. 
 		</p>
 		
@@ -594,6 +594,7 @@
 		</p>
 		
 		<p>
+		<br/>
 		<strong>1. Modeling Account System</strong>
 		</p>
 		<p>
@@ -913,14 +914,688 @@
 		Give a name to <strong>ESB Config Project</strong> and click <strong>Finish</strong>.
 		</p>	
 		
-		<h3 id="installMySQL">Install and configure MySQL</h3>
 		<p>
-		
-		</p>
-		<h3 id="installMySQL">Install and configure MySQL</h3>
-		<p>
-		
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking22.png"></img>
+			<br></br>
 		</p>
 		
+		<p>
+		Now you will see that the created <strong>ESB Project</strong> is set for 
+		<strong>Save endpoint in:</strong> option. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking23.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that the endpoint has been created inside the <strong>ESB Project</strong> 
+		that you have created. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking24.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Once you double click on the <strong>MainFrameEP</strong> node, you will see that the 
+		<strong>Properties</strong> view gets focused. You need to update the <strong>URI</strong> 
+		field with the correct <strong>JMS URI</strong> that appears in the <strong>App Server</strong> 
+		after deploying the two mock services.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking25.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Save the configuration and now we are done with the address endpoint. 
+		</p>
+		
+		<p>
+		<strong>2. Create a service on the ESB that will act as a proxy to the mainframe</strong>
+		</p>
+		
+		<p>
+		Right-click on the <strong>ESB Configuration Project</strong>, then select 
+		<strong>New ->Proxy Service</strong>. Choose the second radio button 
+		<strong>Import Proxy Service</strong> and click <strong>Next</strong>.
+		Browse to 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/esb/synapse-configs/default/proxy-services">
+		$DOWNLOAD_HOME/banking-sample/esb/synapse-configs/default/proxy-services</a>  
+		and select <strong>AccountServiceProxy.xml</strong> and click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking26.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Make sure the correct endpoint is being referenced. Expand 
+		<strong>AccountService -> InSequence -> Anonymous -> Send</strong> and click on the 
+		<strong>Endpoint</strong> below it. In the Properties window below, 
+		select the row with the Endpoint on it, then click on the button 
+		containing ellipsis (...). 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking27.png"></img>
+			<br></br>
+		</p>
+		<p>
+		In the Resource Key Editor that pops up, select <strong>workspace</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking28.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Expand <strong>Carbon Application Endpoints</strong> and <strong>ESB Configuration 
+		Project</strong>, then select <strong>MainframeEP</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking29.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Save the proxy service and now we complete the proxy service that wrap the 
+		<strong>AccountService</strong> mock object.
+		</p>
+		
+		<h3 id="createCardProxy">Create Proxy Services to abstract the Cards System</h3>
+		<p>
+		<strong>1. Create an "address endpoint" for the CardService on the ESB</strong>
+		</p>
+		<p>
+		In the same manner, you create the <strong>MainFrameEP</strong>, create the 
+		<strong>cardServiceEP</strong>. Resource file for <strong>cardServiceEP</strong> can be found at 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/esb/synapse-configs/default/endpoints">
+		$DOWNLOAD_HOME/banking-sample/esb/synapse-configs/default/endpoints</a>
+		</p>	
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking30.png"></img>
+			<br></br>
+		</p>
+			
+		<p>
+		Once the endpoint has been created, make sure that the correct URI has been specified.
+		</p>	
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking31.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		<strong>2. Create a service on the ESB that will act as a proxy to the Cards system</strong>
+		</p>
+		
+		<p>
+		Right click on the <strong>ESB Configuration Project</strong> and select 
+		<strong>New->Proxy Service</strong>. Select <strong>Create New Proxy Service</strong> 
+		option and click <strong>Next</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking32.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Give the name as <strong>CardService</strong> and select <strong>Custom Proxy</strong>
+		 from <strong>Proxy Service Type</strong> and click <strong>Finish</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking33.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will find a basic template for a custom proxy has been created in the 
+		workspace. Now we have to configure it according to our scenario.
+		</p>
+		
+		<p>
+		Once the <strong>CardService</strong> has been opened in <strong>Design view</strong>,
+	 	 you will see that there are five top level nodes as <strong>WSDL, InSequence, 
+	 	 Endpoint, OutSequence</strong> and <strong>FaultSequence</strong>.
+	 	 </p>
+		
+		<p>
+		Select <strong>WSDL</strong>, then in the <strong>Properties</strong> window below, 
+		select the row corresponding to <strong>WSDL Type</strong>, and change its value from 
+		<strong>None</strong> to <strong>Specify source URI</strong> and hit <strong>Enter</strong>. 
+		Now a new row will open up with the name <strong>WSDL URL</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking34.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		In this field, we specify the actual file location of the WSDL file as file URI. Actual
+		file <strong>CardService.wsdl</strong> can be found at 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/appserver">
+		$DOWNLOAD_HOME/banking-sample/appserver</a>.Your file URI will be something as below. 
+		<strong>file:///$DOWNLOAD_HOME/banking-sample/appserver/CardService.wsdl</strong>.
+		</p>		
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking35.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>InSequence -> Anonymous</strong>, right-click on <strong>Anonymous</strong> 
+		and select <strong>New child -> Transform -> XSLT</strong>. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking36.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Click on the newly-created XSLT node, and in the <strong>Properties</strong> window below, enter the value
+		 <strong>conf:/transform/transform.xslt</strong> against <strong>Schema Key</strong>. 
+		 </p>
+		 <p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking37.png"></img>
+			<br></br>
+		</p>
+		 <p>
+		 This means that the transformation style-sheet is to be found in the local registry. 
+		 But we don’t have it there yet. The XSL style-sheet used for transformation 
+		 <strong>(transform.xslt)</strong>, now needs to be imported into the local registry.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking38.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		We will create the <strong>Registry Resource</strong> in the next step. Before that , we 
+		will complete the proxy service assuming that the <strong>Registry Resource</strong> is 
+		being there.
+		</p>
+		
+		<p>
+		You can create <strong>before</strong> and <strong>after</strong> logging elements 
+		under <strong>CardService -> InSequence -> Anonymous</strong> by right-clicking 
+		on Anonymous and selecting <strong>New Child -> Core -> Log</strong>. Move one of 
+		them above <strong>XSLT</strong> and the other below. For each of them, 
+		create a <strong>Property</strong> by right-clicking on the <strong>Log</strong> element 
+		and selecting <strong>New Child -> Log Property</strong>. 
+		</p>
+		
+		<p>
+		Add a <strong>Send</strong> mediator to point to <strong>cardServiceEP</strong> that we 
+		have created earlier.
+		</p>
+		
+		<p>
+		To add <strong>Send</strong> mediator, right click on <strong>Anonymous</strong> and
+		 select <strong>New Child -> Core -> Send</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking56.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Right click on the <strong>Send</strong> mediator and select 
+		<strong>New Child -> Endpoint Reference (Registry)</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking57.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now go to <strong>Properties</strong> view and open <strong>Resource Key Editor</strong> 
+		and select <strong>workspace</strong> link.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking58.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Choose <strong>cardServiceEP</strong> and click <strong>OK</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking59.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Ensure that in the Design window, <strong>CardService -> OutSequence -> Anonymous</strong> has 
+		an element called <strong>Send</strong> under it.
+		</p>
+		<p>
+		Now your <strong>CardService</strong> will look like this.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking45.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we have successfully completed creating the proxy service for the card system.
+		</p>
+		
+		<p>
+		<strong>Create Registry Resource for transform.xslt</strong>
+		</p>
+		<p>
+		Click on <strong>WSO2 Developer Studio Dashboard</strong> and select 
+		<strong>Registry Resource</strong> under <strong>Governance Registry</strong> 
+		category. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking39.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>Import from file system</strong> option and click <strong>Next</strong>.
+		</p>		
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking40.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>Browse file..</strong> button and browse for the <strong>transform.xslt</strong> 
+		file at <a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/esb/cardService">
+		$DOWNLOAD_HOME/banking-sample/esb/cardService</a>. 
+		</p>
+		
+		<p>
+		Set <strong>Registry path to deploy</strong> as <strong>/_system/config/transform</strong>. 
+		Note that this is the same path we set when creating <strong>CardService</strong>
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking41.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		With WSO2 Developer Studio, we create all the <strong>Registry Resources</strong> in a 
+		project type called <strong>Registry Resources Project</strong>. If your workspace has 
+		already created <strong>Registry Resources Projects</strong>, you can point one of them 
+		to save your registry resource. 
+		</p>
+		
+		<p>
+		If you do not have created <strong>Registry Resources Project</strong>, you will have 
+		to create a <strong>Registry Resource Project</strong> in order to create the 
+		<strong>Registry Resource</strong>. To create a <strong>Registry Resource Project</strong>, 
+		click on the link <strong>Create New Project...</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking42.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Give necessary information for the <strong>Registry Resource Project</strong> and 
+		click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking43.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you can see that the created <strong>Registry Resources Project</strong> is being 
+		set for <strong>Save resource in:</strong> field. Once you fill all the information, 
+		click <strong>Finish</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking44.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that the new <strong>Registry Resources Project</strong> has been created 
+		in the workspace.
+		</p>
+		
+		
+		<p>
+		Now we have successfully completed the two proxy services for the mock services.
+		</p>
+		
+		<h3 id="createBPEL">Create the Process to coordinate all the above Services</h3>
+		<p>
+		Ideally, all WSDL files referenced by the Process Server should also be hosted on 
+		the global repository that is mounted on the BPEL server in order to appear like 
+		local resources. i.e., the decoupling model should follow the process described 
+		in the creation of the Card System Proxy. However, in the interests of simplicity, 
+		we will just import all the WSDL files directly and concentrate on the business 
+		process.
+		</p>
+		
+		<p>
+		To create a <strong>BPEL Process</strong>, open <strong>WSO2 Developer Studio 
+		Dashboard</strong>, and select <strong>BPEL Workflow</strong> under 
+		<strong>Business Process Server</strong> category.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking46.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select <strong>Create New BPEL Workflow</strong> and click <strong>Next</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking47.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Give <strong>Project Name</strong> and <strong>Process Name</strong> as 
+		<strong>AccountOpeningProcess</strong> and leave the other fields as 
+		default values. Then click <strong>Finish</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking48.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now you will see that new <strong>BPEL Workflow</strong> has been created in 
+		the workspace. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking49.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Note that this is just a template BPEL. We need to create the process file according 
+		to our scenario. If you are familiar with BPEL, you can use the graphical editor 
+		to drag and drop necessary elements from the palette. 
+		</p>
+		
+		<p>
+		For this scenario, you can find already developed <strong>BPEL</strong> file and 
+		other WSDL files from 
+		<a href="https://svn.wso2.org/repos/wso2/trunk/tools/ide/eclipse/docs/src/main/resources/samples/banking-sample/bps/AccountOpeningProcess">
+		$DOWNLOAD_HOME/banking-sample/bps/AccountOpeningProcess</a>.
+		</p>
+		
+		<p>
+		Copy all the files from that location and paste in to <strong>AccountOpeningProcess</strong> 
+		project. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking50.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we have successfully completed all the parts that we need to try the 
+		scenario. 
+		</p>
+		
+		
+		
+		<h3 id="deploy">Deploy the SOA Integration Solution</h3>
+		<p>
+		Now we will create a <strong>Carbon Application Archive</strong> from the 
+		<strong>Banking Sample Carbon Application Project</strong>.  
+		</p>
+		<p>
+		Open the <strong>pom.xml</strong> under <strong>Banking Sample</strong>. If it 
+		is already opened, you will have to refresh the file in order to 
+		view all the artifacts in the design view.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking51.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select all the artifacts by clicking <strong>Select All</strong> button. Now we 
+		want to change the <strong>server role</strong> of the <strong>Registry 
+		Resource</strong> from <strong>Governance Registry</strong> to 
+		<strong>Enterprise Service Bus</strong> since we need to deploy the 
+		<strong>XSLT</strong> file in to local registry of the 
+		<strong>WSO2 ESB</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking52.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Now we are ready to create the <strong>CAR</strong> file from the 
+		<strong>BankingSample C-App project</strong>. 
+		</p>
+		
+		<p>
+		To create the <strong>CAR</strong> file, click on the <strong>Create Archive</strong> 
+		button at the right hand corner of the design view of the pom.xml. You can achieve the 
+		same option by right click on the <strong>BankingSample</strong> C-App project and 
+		select <strong>Export Carbon Application Project</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking52.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Specify the location you want to save the <strong>CAR</strong> file. Now you will see that 
+		the <strong>BankingSample.car</strong> file has been created in the given location and 
+		you can deploy this CAR file in to WSO2 Servers.
+		</p>
+		
+		
+		<h3 id="test">Testing the Working Solution</h3>
+		<ol>
+			<li>Start apache activeMQ if it is not already started</li>
+			<li>Start WSO2 App Server it is not already started</li>
+			<li>Start WSO2 ESB, WSO2 DSS and WSO2 BPS</li>
+		</ol>
+		
+		<p>
+		To open <strong>WSO2 Servers</strong>, go to <strong>$CARBON_HOME/bin</strong> and run 
+		the command <strong>wso2server.sh</strong> or <strong>wso2server.bat</strong>.
+		</p>
+		
+		<p>
+		Once all the servers get started servers will run on following ports.
+		</p>
+		
+		<ul>
+			<li>WSO2 App Server - 9443</li>
+			<li>WSO2 ESB - 9444</li>
+			<li>WSO2 BPS - 9445</li>
+			<li>WSO2 DSS - 9449</li>
+		</ul>
+		
+		<p>
+		I assume mock services are already being deployed in to <strong>WSO2 App Server</strong>. 
+		</p>
+		
+		<p>
+		Deploy the <strong>CAR</strong> file in to <strong>WSO2 DSS</strong>, then to 
+		<strong>WSO2 ESB</strong> and finally to <strong>WSO2 BPS</strong>.
+		</p>
+		
+		<p>
+		You can deploy <strong>Carbon Application</strong> from the management console of 
+		each and every server. Go to <strong>Manage -> Applications -> Add</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking54.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Once you click this link, you will be prompted to select the <strong>CAR</strong> 
+		file you have saved to your file system. Upload it, then watch the console for 
+		messages that the CAR file has been deployed and the appropriate services have also 
+		been deployed.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking55.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		You will find following artifacts in different servers once you deploy the 
+		<strong>CAR</strong> file in to all the servers. The application 
+		<strong>BankingSample</strong> should be listed in all the servers as well.
+		</p>
+		
+		<table border="2">
+			<tbody>
+				<tr>
+					<td><strong>Server</strong></td>
+					<td><strong>Deployed Artifacts</strong></td>
+				</tr>
+				<tr>
+					<td>WSO2 App Server</td>
+					<td>MainframePojoService, CardAxis2Service</td>
+				</tr>
+				<tr>
+					<td>WSO2 ESB</td>
+					<td>MainFrameEP, cardServiceEP, AccountServiceProxy, CardService, transform.xslt</td>
+				</tr>
+				<tr>
+					<td>WSO2 DSS</td>
+					<td>CustomerDS</td>
+				</tr>
+				<tr>
+					<td>WSO2 BPS</td>
+					<td>AccountOpeningProcess</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<p>
+		Let's test whole banking scenario. 
+		</p>
+		<p>
+		In the Admin console of the BPS, click on <strong>Business Processes -> Processes</strong>, 
+		then on the displayed list of processes, click on <strong>AccountOpeningProcess</strong>.
+		</p>
+		<p>
+		On the right hand side of the screen, under WSDL details, you will find a 
+		<strong>Create Instance</strong> link. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/banking60.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Click this link. A new tab will open up displaying two windows for the 
+		 request and response messages. The request message has been formatted for you and 
+		 you only have to enter values into the appropriate placeholders.
+		</p>
+		
+		<p>
+		<strong>1. Test the account opening process with a new customer</strong>
+		<br/>
+		</p>
+		<p>
+		Enter a random integer value for <strong>nid</strong> and a string for 
+		<strong>name</strong>. Also enter the string <strong>CURRENT</strong> 
+		for <strong>accountType</strong>. Click <strong>Send</strong>. 
+		The response should be displayed in the other window with four fields 
+		including a <strong>card number</strong>.
+		</p>
+			
+		<p>
+		<br></br>
+		<img alt="New Server Runtime" src="images/banking61.png"></img>
+		<br></br>
+		</p>
+		
+		<p>
+		<strong>2. Test the account opening process with an existing customer</strong>
+		</p>
+			
+		<p>
+		Click <strong>Send</strong> again without changing any of the values 
+		in the request. The response displayed in the other window now only has two 
+		fields. One of them is a new account number. Significantly, there should 
+		be no field for card number because existing customers already have debit cards.
+		</p>
+		<p>
+		<br></br>
+		<img alt="New Server Runtime" src="images/banking62.png"></img>
+		<br></br>
+		</p>
+		
+			
 	</body>
 </html>
