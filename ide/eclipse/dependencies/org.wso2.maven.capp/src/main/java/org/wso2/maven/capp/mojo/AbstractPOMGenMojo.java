@@ -71,7 +71,7 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 				getLog().info("Creating maven project for artifact "+artifact.getName()+":"+artifact.getVersion()+"...");
 				getLog().info("\tgenerating maven project...");
 
-				File projectLocation = new File(getOutputLocation(), artifact.getName());
+				File projectLocation = new File(getOutputLocation()+File.separator+artifact.getType().substring(artifact.getType().indexOf("/")+1), artifact.getName());
 				
 				projectLocation.mkdirs();
 				setProjectLocation(projectLocation);
@@ -108,7 +108,7 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 
 	protected MavenProject createMavenProjectForCappArtifact(Artifact artifact, List<Artifact> artifacts, File projectLocation)
 			throws MojoExecutionException {
-		MavenProject artifactMavenProject = CAppMavenUtils.createMavenProject(artifact, getGroupId(),getArtifactType());
+		MavenProject artifactMavenProject = CAppMavenUtils.createMavenProject(artifact, getGroupId()+"."+getArtifactType().substring(getArtifactType().indexOf("/")+1),getArtifactType());
 		addDependencies(artifactMavenProject, artifact,projectLocation);
 
 		//Adding & configuring the plugin section

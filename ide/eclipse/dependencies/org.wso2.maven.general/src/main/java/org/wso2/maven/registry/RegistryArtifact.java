@@ -27,6 +27,7 @@ public class RegistryArtifact {
 	private String version;
 	private String serverRole;
 	private String type;
+	private String groupId;
 	
 //	This is the file path for the actual artifact.
 //	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
@@ -74,5 +75,11 @@ public class RegistryArtifact {
 	public List<RegistryElement> getAllRegistryItems(){
 		return Collections.unmodifiableList(items);
 	}
+	public void setGroupId(String groupId) {
+	    this.groupId = groupId;
+    }
+	public String getGroupId() {
+	    return groupId;
+    }
 
 }

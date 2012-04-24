@@ -66,6 +66,7 @@ public class ESBProjectArtifact extends AbstractXMLDoc implements Observer{
 	        artifact.setVersion(getAttribute(omElement, "version"));
 	        artifact.setType(getAttribute(omElement, "type"));
 	        artifact.setServerRole(getAttribute(omElement, "serverRole"));
+	        artifact.setGroupId(getAttribute(omElement, "groupId"));
 	        artifact.setFile(getChildElements(omElement, "file").size()>0?getChildElements(omElement, "file").get(0).getText():null);
 	        
 	        esbArtifacts.add(artifact);
@@ -110,6 +111,10 @@ public class ESBProjectArtifact extends AbstractXMLDoc implements Observer{
 			
 			if (!esbArtifact.isAnonymous()){
 				addAttribute(artifactElement, "name", esbArtifact.getName());
+			}
+			
+			if (!esbArtifact.isAnonymous() && esbArtifact.getGroupId() != null){
+				addAttribute(artifactElement, "groupId", esbArtifact.getGroupId());
 			}
 	        
 			if (!esbArtifact.isAnonymous() && esbArtifact.getVersion() != null){

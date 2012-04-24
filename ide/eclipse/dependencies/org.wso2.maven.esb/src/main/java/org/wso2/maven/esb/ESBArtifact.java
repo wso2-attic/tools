@@ -22,6 +22,7 @@ public class ESBArtifact {
 	private String version;
 	private String serverRole;
 	private String type;
+	private String groupId;
 	
 //	This is the file path for the actual artifact.
 //	<artifact name="testEndpoint3" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
@@ -64,5 +65,11 @@ public class ESBArtifact {
 	public boolean isAnonymous(){
 		return name!=null ? false:true;
 	}
+	public void setGroupId(String groupId) {
+	    this.groupId = groupId;
+    }
+	public String getGroupId() {
+	    return groupId;
+    }
 
 }
