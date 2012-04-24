@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.ds.presentation;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -252,7 +253,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	private DSAction gspredAction;
 	
 	private DSAction queryParmAction;
-	
 	
 	/** The selected object in the editor. */
 	private Object referenceObject = null;
@@ -557,7 +557,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			if (referenceObject != null && referenceObject instanceof DataSourceConfiguration) {
 
 				config = (DataSourceConfigurationImpl) referenceObject;
-
+				
 				//do noting we do nto give add properties to the configuration
 				
 			} 
@@ -1229,7 +1229,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 								
 			for(int j = 0;j< configList.size() ; j++){
 				
-				if(confArr[j].getId().equals(usedDataSource)){
+				if(confArr[j].getId() != null && confArr[j].getId().equals(usedDataSource)){
 					
 					index = j;
 				}
@@ -1239,11 +1239,37 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			DataSourceConfiguration config  = configList.get(index);
 			EList<ConfigurationProperty> proplist  = config.getProperty();
 			
-			if(proplist != null && !proplist.isEmpty()){
-				
-				dataSourceType =  proplist.get(0).getName();
-				
+			Iterator<ConfigurationProperty> iterator = proplist.iterator();
+			
+			while (iterator.hasNext()) {
+
+				ConfigurationProperty property = (ConfigurationProperty) iterator
+						.next();
+
+				if (property != null) {
+
+					if (property.getName().equals(
+							DSActionConstants.DRIVER_PROPERTY)
+							|| property.getName().equals(
+									DSActionConstants.CSV_DATASOURCE_PROPERTY)
+							|| property
+									.getName()
+									.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)
+							|| property.getName().equals(
+									DSActionConstants.JNDI_CONTEXT_PROPERTY)
+							|| property
+									.getName()
+									.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)
+							|| property
+									.getName()
+									.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+
+						dataSourceType = property.getName();
+					}
+				}
+
 			}
+
 		}
 		
 		return dataSourceType;

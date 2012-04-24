@@ -234,7 +234,7 @@ public class OutlineBlock extends MasterDetailsBlock {
 									selectedObject = (EObjectImpl) ssel.getFirstElement();
 								}
 								//check whether newly selected object already selected.
-								if(!selectedObject.equals(arr[0])){
+								if(selectedObject != null && !selectedObject.equals(arr[0])){
 									
 									viewer.setSelection(new StructuredSelection(arr[0]));
 								}

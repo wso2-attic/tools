@@ -35,6 +35,8 @@ import org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration;
 import org.wso2.developerstudio.eclipse.ds.Description;
 import org.wso2.developerstudio.eclipse.ds.DsFactory;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
+import org.wso2.developerstudio.eclipse.ds.presentation.DsActionBarContributor;
+import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 import org.wso2.developerstudio.eclipse.ds.provider.DsEditPlugin;
 
 /**
@@ -68,6 +70,7 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 
 	/** The image url. */
 	protected String imageURL;
+	
 
 	/**
 	 * Instantiates a new data source configuration action.
@@ -133,10 +136,10 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 
 		if (mainType.equals(DSActionConstants.RDBMS_TYPE)) {
 			listOfProperties = new ArrayList<String>();
-			listOfProperties.add(DSActionConstants.DRIVER_PROPERTY);
-			listOfProperties.add(DSActionConstants.PROTOCOL_PROPERTY);
 			listOfProperties.add(DSActionConstants.USER_PROPERTY);
 			listOfProperties.add(DSActionConstants.PASSWORD_PROPERTY);
+			listOfProperties.add(DSActionConstants.PROTOCOL_PROPERTY);
+			listOfProperties.add(DSActionConstants.DRIVER_PROPERTY);
 			listOfProperties.add(DSActionConstants.MINPOOLSIZE_PROPERTY);
 			listOfProperties.add(DSActionConstants.MAXPOOLSIZE_PROPERTY);
 			listOfProperties.add(DSActionConstants.VALIDATIONQUERY_PROPERTY);
@@ -264,6 +267,7 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 				if (childObj instanceof DataSourceConfiguration) {
 
 					DataSourceConfiguration child = (DataSourceConfiguration) childObj;
+					child.setId("New Data Source");
 
 					// generate the properties
 					Iterator<String> i = listOfProperties.iterator();
