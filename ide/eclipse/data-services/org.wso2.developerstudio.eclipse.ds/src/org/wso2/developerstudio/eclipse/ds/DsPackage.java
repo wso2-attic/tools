@@ -659,13 +659,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__EXPORT_TYPE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__NAMESPACE = 5;
+
+	/**
 	 * The feature id for the '<em><b>Xsd Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__XSD_TYPE = 5;
+	int ELEMENT_MAPPING__XSD_TYPE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
@@ -674,7 +683,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 6;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2460,6 +2469,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_ExportType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getNamespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Namespace</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getNamespace()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_Namespace();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getXsdType <em>Xsd Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4072,6 +4092,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__EXPORT_TYPE = eINSTANCE.getElementMapping_ExportType();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__NAMESPACE = eINSTANCE.getElementMapping_Namespace();
 
 		/**
 		 * The meta object literal for the '<em><b>Xsd Type</b></em>' attribute feature.

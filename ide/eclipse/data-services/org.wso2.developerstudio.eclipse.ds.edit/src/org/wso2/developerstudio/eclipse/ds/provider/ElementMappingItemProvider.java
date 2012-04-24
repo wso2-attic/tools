@@ -71,6 +71,7 @@ public class ElementMappingItemProvider
 			addNamePropertyDescriptor(object);
 			addRequiredRolesPropertyDescriptor(object);
 			addExportTypePropertyDescriptor(object);
+			addNamespacePropertyDescriptor(object);
 			addXsdTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -187,6 +188,28 @@ public class ElementMappingItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Namespace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamespacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementMapping_namespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_namespace_feature", "_UI_ElementMapping_type"),
+				 DsPackage.Literals.ELEMENT_MAPPING__NAMESPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Xsd Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,6 +277,7 @@ public class ElementMappingItemProvider
 			case DsPackage.ELEMENT_MAPPING__NAME:
 			case DsPackage.ELEMENT_MAPPING__REQUIRED_ROLES:
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
+			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

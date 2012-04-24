@@ -77,6 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/requiredRoles"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/exportType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/xsdType"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventSubscriptionList">

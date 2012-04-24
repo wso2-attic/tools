@@ -947,6 +947,15 @@ public class DetailSection {
 				
 			}
 			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_NAMESPACE)){
+				
+				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_NAMESPACE);
+				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getNamespace(),
+						DsPackage.eINSTANCE.getElementMapping_Namespace(), DetailSectionCustomUiConstants.STRING);
+				labelMaker("");
+				labelMaker("");
+			}
+			
 			
 		}
 		

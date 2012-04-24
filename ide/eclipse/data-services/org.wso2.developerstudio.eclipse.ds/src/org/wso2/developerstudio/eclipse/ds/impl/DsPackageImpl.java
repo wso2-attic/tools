@@ -894,8 +894,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_XsdType() {
+	public EAttribute getElementMapping_Namespace() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementMapping_XsdType() {
+		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1927,6 +1936,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__NAME);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__REQUIRED_ROLES);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__EXPORT_TYPE);
+		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__NAMESPACE);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__XSD_TYPE);
 
 		eventSubscriptionListEClass = createEClass(EVENT_SUBSCRIPTION_LIST);
@@ -2161,6 +2171,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_RequiredRoles(), theXMLTypePackage.getString(), "requiredRoles", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_ExportType(), theXMLTypePackage.getString(), "exportType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementMapping_Namespace(), theXMLTypePackage.getString(), "namespace", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_XsdType(), theXMLTypePackage.getString(), "xsdType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2742,6 +2753,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "exportType",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_Namespace(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "namespace",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

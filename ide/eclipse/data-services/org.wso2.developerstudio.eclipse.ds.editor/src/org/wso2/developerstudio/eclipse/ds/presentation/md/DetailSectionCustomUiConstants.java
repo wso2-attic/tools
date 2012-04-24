@@ -63,6 +63,7 @@ public interface DetailSectionCustomUiConstants {
 	public String ELEMENT_MAPPING_OUTPUT_FIELD ="Output Field Name";
 	public String ELEMENT_MAPING_ALLOWED_USER_ROLES = "Allowed User Roles";
 	public String ELEMENT_MAPPING_SCHEMA_TYPE = "Schema Type";
+	public String ELEMENT_MAPPING_NAMESPACE = "Element Namespace";
 	public String ELEMENT_MAPPING_EXPORT_TYPE = "Export Type";
 	
 	public String EXCEL_WORKBOOK_NAME = "Workbook Name";

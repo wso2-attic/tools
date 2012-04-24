@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getRequiredRoles <em>Required Roles</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getExportType <em>Export Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getXsdType <em>Xsd Type</em>}</li>
  * </ul>
  * </p>
@@ -134,6 +135,26 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * @ordered
 	 */
 	protected String exportType = EXPORT_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAMESPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String namespace = NAMESPACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getXsdType() <em>Xsd Type</em>}' attribute.
@@ -286,6 +307,27 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNamespace() {
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNamespace(String newNamespace) {
+		String oldNamespace = namespace;
+		namespace = newNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__NAMESPACE, oldNamespace, namespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getXsdType() {
 		return xsdType;
 	}
@@ -322,6 +364,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return getRequiredRoles();
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
 				return getExportType();
+			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
+				return getNamespace();
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				return getXsdType();
 		}
@@ -352,6 +396,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return;
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
 				setExportType((String)newValue);
+				return;
+			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
+				setNamespace((String)newValue);
 				return;
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				setXsdType((String)newValue);
@@ -385,6 +432,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
 				setExportType(EXPORT_TYPE_EDEFAULT);
 				return;
+			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				setXsdType(XSD_TYPE_EDEFAULT);
 				return;
@@ -412,6 +462,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return REQUIRED_ROLES_EDEFAULT == null ? requiredRoles != null : !REQUIRED_ROLES_EDEFAULT.equals(requiredRoles);
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
 				return EXPORT_TYPE_EDEFAULT == null ? exportType != null : !EXPORT_TYPE_EDEFAULT.equals(exportType);
+			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
+				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				return XSD_TYPE_EDEFAULT == null ? xsdType != null : !XSD_TYPE_EDEFAULT.equals(xsdType);
 		}
@@ -440,6 +492,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 		result.append(requiredRoles);
 		result.append(", exportType: ");
 		result.append(exportType);
+		result.append(", namespace: ");
+		result.append(namespace);
 		result.append(", xsdType: ");
 		result.append(xsdType);
 		result.append(')');
