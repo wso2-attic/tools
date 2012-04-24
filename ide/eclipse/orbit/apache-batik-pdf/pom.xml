@@ -47,6 +47,34 @@
 
     <build>
         <plugins>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-dependency-plugin</artifactId>
+         <version>2.4</version>
+         <executions>
+           <execution>
+             <id>unpack</id>
+             <phase>compile</phase>
+             <goals>
+               <goal>unpack</goal>
+             </goals>
+             <configuration>
+               <artifactItems>
+                 <artifactItem>
+  		<groupId>org.apache.xmlgraphics</groupId>
+            	<artifactId>org.apache.batik.pdf</artifactId>
+            	<version>1.6.0.v200806031500</version>
+                   <type>jar</type>
+                   <overWrite>true</overWrite>
+		   <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                   <includes>**/*.class,**/*.xml,**/*.properties,**/*.html,**/*.inf</includes>
+                   <excludes>**/*.SF,**/*.RSA</excludes>
+                 </artifactItem>
+               </artifactItems>
+             </configuration>
+           </execution>
+         </executions>
+       </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -56,10 +84,10 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Export-Package>
+			<Import-Package>!org.apache.avalon.*,!org.apache.fop.*,!org.apache.log.*,*</Import-Package>
+ 			<Export-Package>
                             !org.apache.commons.*,*
                         </Export-Package>
-			<Import-Package>!org.apache.avalon.*,!org.apache.fop.*,*</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
