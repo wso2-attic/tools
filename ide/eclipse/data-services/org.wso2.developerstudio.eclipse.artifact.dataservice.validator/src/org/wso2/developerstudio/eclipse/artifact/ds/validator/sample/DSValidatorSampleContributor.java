@@ -4,10 +4,14 @@ import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.wso2.developerstudio.eclipse.artifact.ds.validator.utils.DSValidatorImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.ds.validator.utils.DSValidatorTemplateUtils;
+import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.samples.contributor.AbstractSampleContributor;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class DSValidatorSampleContributor extends AbstractSampleContributor{
 	static String caption="Dataservice Number Validator";
@@ -19,6 +23,9 @@ public class DSValidatorSampleContributor extends AbstractSampleContributor{
 	
 	public void addSampleTo(IProject project) throws Exception {
 	    super.addSampleTo(project);
+	    File dataserviceCoreLibraryPath = LibraryUtils.getDependencyPath("org.wso2.carbon.dataservices.core-3.0.1.jar",false);
+	    FileUtils.copy(dataserviceCoreLibraryPath, new File(project.getFolder("lib").getLocation().toFile(),dataserviceCoreLibraryPath.getName()));
+	    project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 	}
 	
 	protected File getSampleResourceFile() throws IOException {
