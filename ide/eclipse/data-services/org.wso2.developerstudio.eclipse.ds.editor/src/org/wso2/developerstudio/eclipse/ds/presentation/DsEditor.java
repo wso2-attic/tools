@@ -245,6 +245,9 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 */
 	private boolean designViewActivated;
 	
+	
+	
+	private boolean isSavingProcOk;
 	/**
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc --> <!--
@@ -727,6 +730,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		site.getPage().addPartListener(partListener);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 		createModel();
+		setSavingProcOk(true);
 		
 	}
 
@@ -1178,7 +1182,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 */
 	private void saveSourceViewChanges() {
-				
+		
+			setSavingProcOk(true);	
 		if (sourceEditor.isTmpFileHasContent() && sourceEditor.isModelChanged()) {
 			DocumentRootImpl nwroot = null;
 			DataService nwdata = null;
@@ -1229,6 +1234,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 				
 			} catch (Exception e) {
 				MessageDialog.openError(Display.getCurrent().getActiveShell(), "Incomplete Data Service Configuration", e.getMessage());
+				setSavingProcOk(false);
 				this.setActivePage(SOURCE_VIEW_INDEX);
 			}
 		}
@@ -1475,6 +1481,9 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		if(this.getActivePage() == SOURCE_VIEW_INDEX){
 			saveSourceViewChanges();
 		}
+		
+		if(isSavingProcOk()){
+			
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
@@ -1540,6 +1549,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
 		}
 		
 	}
@@ -1904,6 +1914,16 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			}
 		}); 
 	}
+
+	public boolean isSavingProcOk() {
+		return isSavingProcOk;
+	}
+
+	public void setSavingProcOk(boolean isSavingProcOk) {
+		this.isSavingProcOk = isSavingProcOk;
+	}
+	
+	
 
 		
 }
