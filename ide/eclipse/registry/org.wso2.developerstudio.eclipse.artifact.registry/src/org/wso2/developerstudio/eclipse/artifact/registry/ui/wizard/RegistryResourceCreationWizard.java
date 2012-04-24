@@ -169,7 +169,8 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			getModel().getMavenInfo().setPackageName("registry/resource");
 			updatePOM(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
+			String groupId = getMavenGroupId(project.getFile("pom.xml").getLocation().toFile());
+			groupId += ".resource";
 			//Adding the metadata about the endpoint to the metadata store.
 			GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
 			generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
@@ -179,7 +180,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			artifact.setVersion("1.0.0");
 			artifact.setType("registry/resource");
 			artifact.setServerRole("GovernanceRegistry");
-			artifact.setGroupId(getMavenGroupId(project.getFile("pom.xml").getLocation().toFile()));
+			artifact.setGroupId(groupId);
 			List<RegistryResourceInfo> registryResources = regResInfoDoc.getRegistryResources();
 			for (RegistryResourceInfo registryResourceInfo : registryResources) {
 				RegistryElement item = null;

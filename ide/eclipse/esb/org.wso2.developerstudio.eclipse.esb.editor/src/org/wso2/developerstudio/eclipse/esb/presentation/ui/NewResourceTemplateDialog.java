@@ -56,6 +56,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
@@ -380,12 +381,29 @@ public class NewResourceTemplateDialog extends Dialog {
 		return filters;
 	}
 	
+	private String getMavenGroupId(File pomLocation){
+		String groupId = "org.wso2.carbon";
+		if(pomLocation!=null && pomLocation.exists()){
+			try {
+				MavenProject mavenProject = MavenUtils.getMavenProject(pomLocation);
+				groupId = mavenProject.getGroupId();
+			} catch (Exception e) {
+				log.error("error reading pom file", e);
+			}
+		}
+		return groupId;
+	}
+	
 	private boolean createRegistryArtifact(IProject project,String fileName, String registryPath,String content) throws Exception{
 		File destFile = project.getFile(fileName).getLocation().toFile();
 		String resourceName = FileUtils.getResourceFileName(fileName);
 		if(destFile.exists()){
 			return false;
 		}
+		
+		String groupId = getMavenGroupId(project.getFile("pom.xml").getLocation().toFile());
+		groupId += ".resource";
+		
 		FileUtils.createFile(destFile, content);
 		
 		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
@@ -404,6 +422,7 @@ public class NewResourceTemplateDialog extends Dialog {
 		artifact.setVersion("1.0.0");
 		artifact.setType("registry/resource");
 		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
 		java.util.List<RegistryResourceInfo> registryResources = regResInfoDoc
 				.getRegistryResources();
 		for (RegistryResourceInfo registryResourceInfo : registryResources) {
@@ -435,16 +454,16 @@ public class NewResourceTemplateDialog extends Dialog {
 			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		}
 		
-		java.util.List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		
-		for(Plugin plg:plugins){
-			if(plg.getArtifactId().equals("wso2-general-project-plugin")){
-				return ;
-			}
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-general-project-plugin",
+				MavenConstants.WSO2_GENERAL_PROJECT_VERSION);
+		if(pluginExists){
+			return ;
 		}
 		
 		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-general-project-plugin", "1.0.5", true);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven",
+				"wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
 		
 		PluginExecution pluginExecution;
 		

@@ -201,7 +201,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		
 		addGeneralProjectPlugin(project);
 		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
-		String groupId = getMavenGroupId(pomLocation);
+		String groupId = getMavenGroupId(pomLocation) + ".resource";
 		
 		String registryPath = model.getDynamicEpRegistryPath()
 				.replaceAll("^conf:", "/_system/config")

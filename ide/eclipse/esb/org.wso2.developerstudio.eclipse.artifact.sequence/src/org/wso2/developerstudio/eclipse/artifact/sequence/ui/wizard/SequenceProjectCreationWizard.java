@@ -230,7 +230,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		
 		addGeneralProjectPlugin(project);
 		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
-		String groupId = getMavenGroupId(pomLocation);
+		String groupId = getMavenGroupId(pomLocation) + ".resource";
 		
 		String registryPath = sequenceModel.getDynamicSeqRegistryPath()
 				.replaceAll("^conf:", "/_system/config")

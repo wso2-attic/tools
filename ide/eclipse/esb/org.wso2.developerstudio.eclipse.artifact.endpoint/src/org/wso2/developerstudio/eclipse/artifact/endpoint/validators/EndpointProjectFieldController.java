@@ -113,6 +113,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		if (modelProperty.equals("dynamic.ep")) {
 			updateFields.add("reg.path");
 			updateFields.add("registry.browser");
+			updateFields.add("save.file");
 		} else if (modelProperty.equals("import.file")) {
 			updateFields.add("available.eps");
 		} else if (modelProperty.equals("create.esb.prj")) {
