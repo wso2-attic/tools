@@ -17,18 +17,16 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.Mediator;
-import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.endpoints.Endpoint;
-import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -72,9 +70,18 @@ public class ClassMediatorTransformer extends AbstractEsbNodeTransformer {
 		// Configure class mediator.
 		org.apache.synapse.mediators.ext.ClassMediator classMediator = new org.apache.synapse.mediators.ext.ClassMediator();
 		String className = visualClass.getClassName();
-		Class mClass = null;
-		Mediator m = null;
-
+		Mediator m = null;	
+		Class clazz=null;
+		Object o=null;
+		try{
+		clazz= Class.forName(className);
+		o= clazz.newInstance();
+		}
+		catch(ClassNotFoundException ex){
+			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Invalid Class Name ", "Enter a valid class name for Class Mediator.");			
+		}		
+		classMediator.setMediator((Mediator) o);
+		
 		 // Class properties.
 		 for (ClassProperty visualProperty : visualClass.getProperties()) {
 //		 MediatorProperty mediatorProperty = new MediatorProperty();

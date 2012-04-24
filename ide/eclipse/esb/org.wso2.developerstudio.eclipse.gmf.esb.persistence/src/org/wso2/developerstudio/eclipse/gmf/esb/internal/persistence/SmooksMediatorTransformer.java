@@ -52,6 +52,7 @@ public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
 			smooksMediator.setInput(input);
 			Output output=new Output();
 			smooksMediator.setOutput(output);
+			smooksMediator.setConfigKey(visualSmooks.getConfigurationKey().getKeyValue());
 		}
 		return smooksMediator;
 	}

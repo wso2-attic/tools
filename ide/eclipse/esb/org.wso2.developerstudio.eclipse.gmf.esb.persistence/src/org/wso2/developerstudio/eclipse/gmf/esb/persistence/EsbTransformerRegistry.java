@@ -15,15 +15,30 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.synapse.endpoints.FailoverEndpoint;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
@@ -63,6 +78,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CacheMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CalloutMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ClassMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloneMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CommandMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBLookupMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBReportMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DropMediatorTransformer;
@@ -151,6 +167,7 @@ public class EsbTransformerRegistry {
 		addTransformer(ScriptMediator.class, new ScriptMediatorTransformer());
 		addTransformer(SmooksMediator.class, new SmooksMediatorTransformer());
 		addTransformer(EntitlementMediator.class, new EntitlementMediatorTransformer());
+		addTransformer(CommandMediator.class, new CommandMediatorTransformer());
 		
 	}
 	
