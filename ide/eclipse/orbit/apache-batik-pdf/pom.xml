@@ -37,13 +37,13 @@
     </description>
     <url>http://wso2.org</url>
 
-    <dependencies>
+    <!--dependencies>
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>org.apache.batik.pdf</artifactId>
             <version>1.6.0.v200806031500</version>
         </dependency>
-    </dependencies>
+    </dependencies-->
 
     <build>
         <plugins>
