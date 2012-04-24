@@ -114,10 +114,11 @@ public class PatternValidatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		String label = ((PatternValidator)object).getPattern();
-		return label == null || label.length() == 0 ?
+		//String label = ((PatternValidator)object).getPattern();
+		return getString("_UI_PatternValidator_type");
+		/*return label == null || label.length() == 0 ?
 			getString("_UI_PatternValidator_type") :
-			getString("_UI_PatternValidator_type") + " " + label;
+			getString("_UI_PatternValidator_type") + " " + label;*/
 	}
 
 	/**

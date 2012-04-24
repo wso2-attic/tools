@@ -272,7 +272,7 @@ public class DetailSection {
 			labelMaker("");
 			PatternValidator  pValiditor = (PatternValidator)input;
 			labelMaker(DetailSectionCustomUiConstants.VALIDATOR_PATTORN);
-			sectionUtil.getAttributeField(detailsclient, toolkit, pValiditor, pValiditor.getPattern(),
+			sectionUtil.getMultilineTextFileld(detailsclient, toolkit, pValiditor, pValiditor.getPattern(),
 					DsPackage.eINSTANCE.getPatternValidator_Pattern(), DetailSectionCustomUiConstants.STRING);
 			
 			

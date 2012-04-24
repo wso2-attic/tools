@@ -137,8 +137,8 @@ public class DoubleRangeValidatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator)object;
-		return getString("_UI_DoubleRangeValidator_type") + " " + doubleRangeValidator.getMaximum();
+		//DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator)object;
+		return getString("_UI_DoubleRangeValidator_type") ;//+ " " + doubleRangeValidator.getMaximum();
 	}
 
 	/**

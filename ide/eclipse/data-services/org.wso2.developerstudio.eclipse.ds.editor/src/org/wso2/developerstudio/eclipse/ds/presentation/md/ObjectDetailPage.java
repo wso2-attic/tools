@@ -162,8 +162,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 			input = (EObjectImpl) ssel.getFirstElement();
 			
 			//Fixing TOOLS-1004
-			if (input instanceof Query || input instanceof CallQuery || input instanceof ElementMapping
-					|| input instanceof AttributeMapping) {
+			if (input instanceof Query || input instanceof CallQuery) {
 				detailsection.dispose();
 				if(tmpcomp != null && !tmpcomp.isDisposed()){
 					

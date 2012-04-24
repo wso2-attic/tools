@@ -114,9 +114,10 @@ public class CustomValidatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomValidator)object).getClass_();
+//		String label = ((CustomValidator)object).getClass_();
 		String type = " (" + getString("_UI_CustomValidator_type") + ")";
-		return label != null ? label.toString() + type : type;
+		return type;
+//		return label != null ? label.toString() + type : type;
 		 
 	}
 

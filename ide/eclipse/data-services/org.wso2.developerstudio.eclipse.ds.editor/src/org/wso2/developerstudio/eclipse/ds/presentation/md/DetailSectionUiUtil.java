@@ -167,6 +167,7 @@ public class DetailSectionUiUtil {
 				
 		GridData gd = new GridData();
 		gd.widthHint = 200;
+		gd.heightHint = 20;
 		dtxt.setLayoutData(gd);
 		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
 		addFocusListner(dtxt);
@@ -186,7 +187,7 @@ public class DetailSectionUiUtil {
 	 */
 	public StyledText getMultilineTextFileld(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
 		
-		StyledText dtxt = new StyledText(detailsclient,SWT.BORDER | SWT.MULTI);		
+		StyledText dtxt = new StyledText(detailsclient,SWT.BORDER | SWT.MULTI | SWT.WRAP);		
 		addCommonActions(dtxt);
 		dtxt.setEditable(true);
 		dtxt.setEnabled(true);
