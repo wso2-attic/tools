@@ -347,7 +347,8 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 		} else if(type.equals(RegistryArtifactConstants.XSLT_TEMPL_ID)){
 			newContent=templateContent;		
 		} else if(type.equals(RegistryArtifactConstants.WSDL_TEMPL_ID)){
-			newContent=templateContent;		
+			newContent=templateContent;	
+			newContent = newContent.replaceAll("<0>", regModel.getResourceName());
 		}     
 		return newContent;
 	}
