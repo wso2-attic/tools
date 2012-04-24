@@ -145,7 +145,6 @@ public class EsbPropertySource extends PropertySource {
 			  return super.getPropertyValue(propertyId);
 		  }
 		  catch(NullPointerException e){
-			  log.warn("Null", e);
 			  return null;
 		  }
 	  }
