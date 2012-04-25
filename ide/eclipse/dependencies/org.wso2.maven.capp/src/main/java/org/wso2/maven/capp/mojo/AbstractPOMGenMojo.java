@@ -35,6 +35,7 @@ import org.wso2.maven.capp.utils.CAppUtils;
 import org.apache.maven.model.Repository;
 
 public abstract class AbstractPOMGenMojo extends AbstractMojo {
+	private static final String SYNAPSE_TYPE="synapse/configuration";
 
 	public MavenProject project;
 
@@ -64,14 +65,23 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 
 	protected abstract String getArtifactType();
 	
+	private String getArtifactPostFix(){
+		if (SYNAPSE_TYPE.equalsIgnoreCase(getArtifactType())) {
+			return getArtifactType().substring(0,getArtifactType().indexOf("/"));
+		}else{
+			return getArtifactType().substring(getArtifactType().indexOf("/")+1);
+		}
+	}
+	
 	protected void processArtifacts(List<Artifact> artifacts)
 			throws MojoExecutionException {
 		for (Artifact artifact : artifacts) {
 			if (artifact.getType().equalsIgnoreCase(getArtifactType())) {
 				getLog().info("Creating maven project for artifact "+artifact.getName()+":"+artifact.getVersion()+"...");
 				getLog().info("\tgenerating maven project...");
+				
 
-				File projectLocation = new File(getOutputLocation()+File.separator+artifact.getType().substring(artifact.getType().indexOf("/")+1), artifact.getName());
+				File projectLocation = new File(getOutputLocation()+File.separator+getArtifactPostFix(), artifact.getName());
 				
 				projectLocation.mkdirs();
 				setProjectLocation(projectLocation);
@@ -108,7 +118,7 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 
 	protected MavenProject createMavenProjectForCappArtifact(Artifact artifact, List<Artifact> artifacts, File projectLocation)
 			throws MojoExecutionException {
-		MavenProject artifactMavenProject = CAppMavenUtils.createMavenProject(artifact, getGroupId()+"."+getArtifactType().substring(getArtifactType().indexOf("/")+1),getArtifactType());
+		MavenProject artifactMavenProject = CAppMavenUtils.createMavenProject(artifact, getGroupId()+"."+getArtifactPostFix(),getArtifactType());
 		addDependencies(artifactMavenProject, artifact,projectLocation);
 
 		//Adding & configuring the plugin section
