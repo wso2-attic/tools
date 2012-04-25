@@ -150,18 +150,25 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				ProcessBuilder pb=null;
 				
 				if(os.indexOf("win") >= 0){
-					shell = "cmd.exe /c";
+					//shell = "cmd.exe /c";
+					shell = "cmd.exe";
 					wsdl2java = "wsdl2java.bat";
+					if(sourcePkg!=null && sourcePkg.trim().length()>0){
+						pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wsdlFile);
+					} else {
+						pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-d",sourceDir,wsdlFile);
+					}
 				} else {
 					shell = "sh";
 					wsdl2java = "wsdl2java";
+					if(sourcePkg!=null && sourcePkg.trim().length()>0){
+						pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wsdlFile);
+					} else {
+						pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-d",sourceDir,wsdlFile);
+					}
 				}
 				
-				if(sourcePkg!=null && sourcePkg.trim().length()>0){
-					pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wsdlFile);
-				} else {
-					pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-d",sourceDir,wsdlFile);
-				}
+				
 				
 				 Map<String, String> env = pb.environment();
 				 env.put("CXF_HOME", jaxwsModel.getCXFRuntime());
