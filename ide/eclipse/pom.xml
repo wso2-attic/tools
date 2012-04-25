@@ -253,6 +253,7 @@
         <carbonserver.30.feature.version>2.0.0-SNAPSHOT</carbonserver.30.feature.version>        
         <carbonserver.31.feature.version>2.0.0-SNAPSHOT</carbonserver.31.feature.version>  
 	<carbonserver.32.feature.version>2.0.0-SNAPSHOT</carbonserver.32.feature.version>
+	<carbonserver.40.feature.version>2.0.0-SNAPSHOT</carbonserver.40.feature.version>
 	<carbonserver.remote.feature.version>2.0.0-SNAPSHOT</carbonserver.remote.feature.version>
 	    
         <osde.feature.version>2.0.0-SNAPSHOT</osde.feature.version>

@@ -106,11 +106,11 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.40.feature:${carbonserver.40.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 						                                
 						<!--featureArtifactDef>com.googlecode.wso2:com.googlecode.osde.feature:${osde.feature.version}</featureArtifactDef-->  
 						<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef> 
-						<!--featureArtifactDef>org.smooks.edi:org.smooks.edi.editor-feature:1.5.0.201105031731</featureArtifactDef-->
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
@@ -282,13 +282,13 @@
 						        <featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.30.feature:${carbonserver.30.feature.version}</featureArtifactDef>
 						        <featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
 						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.40.feature:${carbonserver.40.feature.version}</featureArtifactDef>
 						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 									    					
 						    	<!--featureArtifactDef>org.maven.ide:org.maven.ide.eclipse.feature:0.12.0.20101115-1102</featureArtifactDef>
 							<featureArtifactDef>org.ebayopensource.turmeric.tools.eclipse:org.ebayopensource.turmeric.eclipse.core.feature:1.0.0.201101200748</featureArtifactDef>
 							<featureArtifactDef>org.ebayopensource.turmeric.tools.eclipse:org.ebayopensource.turmeric.eclipse.utils.feature:1.0.0.201101200748</featureArtifactDef-->
 							<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef>
-							<!--featureArtifactDef>org.smooks.edi:org.smooks.edi.editor-feature:1.5.0.201105031731</featureArtifactDef-->
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.distribution.project.feature:${common.tools.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.library.feature:${common.tools.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gadget.artifact.feature:${common.tools.version}</featureArtifactDef>
