@@ -31,19 +31,20 @@ public class EsbSequenceSeqContentsCompartmentEditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return Messages.EsbSequenceSeqContentsCompartmentEditPart_title;
+		//return Messages.EsbSequenceSeqContentsCompartmentEditPart_title;
+		return "This is a tech preview."; 
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
-		result.setTitleVisibility(false);
+		result.setTitleVisibility(true);
 		return result;
 	}
 
