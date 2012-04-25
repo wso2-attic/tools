@@ -45,7 +45,7 @@
 		<h2 id="overview">High Level Overview of WSO2 Developer Studio</h2>
 		<p>
 			WSO2 Developer Studio is a complete tooling platform where you can develop, deploy, test and 
-			debug your SOA applications in a very userfriendly manner. 
+			debug your SOA applications in a very user-friendly manner. 
         </p>
         <p>
         Following is the high level diagram of the overview of WSO2 Developer Studio. 
@@ -96,7 +96,7 @@
 		</ul>
 		<p>
 		WSO2 Carbon is a component based Enterprise SOA platform. It is designed in a way of 
-		seperating key functionalities of the SOA platform in to seperate pluggable carbon components. 
+		separating key functionalities of the SOA platform in to separate pluggable carbon components. 
 		Those components can be mixed and matched like customizable building blocks. This lose 
 		coupling allows you to add only the functionalities you need in the beginning. 
 		You can add more components as your requirements grow on. This helps you to start a business 
@@ -166,7 +166,7 @@
 		<h2 id="artifactProject">Artifact Project</h2>
 		<p>
 		As you already know, you can create different kind of artifacts with the use of WSO2 Developer Studio. 
-		Each and every artifact, that you create, we create a seperate maven project in your 
+		Each and every artifact, that you create, we create a separate maven project in your 
 		workspace. You can create these artifact projects in any structure that you need. We have 
 		introduced new project types called <strong>ESB Project</strong> and <strong>General 
 		Project</strong>. <strong>ESB Project</strong> is responsible for hosting all the 
@@ -293,19 +293,19 @@
 		 is also unified.  
 		</p>
 		<p>
-		It is quite common that your app may not be successful at the first time. You may see lot of 
-		issues when you deploy the app for the first time. So you will have to remove the application 
-		from the server, modify the app and redeploy to the server. This procedure sometimes become 
+		It is quite common that your application may not be successful at the first time. You may see lot of 
+		issues when you deploy the application for the first time. So you will have to remove the application 
+		from the server, modify the application and re-deploy to the server. This procedure sometimes become 
 		really cumbersome. But with WSO2 Developer Studio, you can achieve this as simple as you 
 		deploy the application in the first time.
 		You have the capability to enable hot update option of a server, so you may not need to 
-		redeploy manually. Application will be automatically deployed whenever a change has been 
+		re-deploy manually. Application will be automatically deployed whenever a change has been 
 		done in the artifact level. This will allow you to play around with your application without 
 		much hassle.
 		In the similar manner, you can start servers in debug mode and debug your applications. 
 		Suppose you have a ESB Mediator or registry handler or axis2 service in your 
 		application which involves java sources. If you can debug the source while you are deploying, 
-		it will be really benefitial for a developer.  This facility is available in Developer Studio
+		it will be really beneficial for a developer.  This facility is available in Developer Studio
 		 by extending debug capability of Eclipse IDE.
 		 At the same time, we allow servers to be started with OSGi console enabled. As you may 
 		 already known, WSO2 Carbon platform is on top of OSGi framework. Knowing state of the 

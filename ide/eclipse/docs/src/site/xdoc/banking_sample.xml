@@ -29,7 +29,7 @@
 					<a href="#design">Design the Solution</a>
 				</li>
 				<li>
-					<a href="#prerequisits">Pre-requisits</a>
+					<a href="#prerequisits">Pre-Requisits</a>
 				</li>
 				<li>
 					<a href="#source">Download Source</a>
@@ -168,7 +168,7 @@
 			<br></br>
 		</p>
 		
-		<h2 id="prerequisits">Pre-requisits</h2>
+		<h2 id="prerequisits">Pre-Requisits</h2>
 		<p>
 		Now we are going to implement the solution using <strong>WSO2 Developer Studio</strong>. 
 		Before start implementing, you will need following third party tools
@@ -271,7 +271,7 @@
 					<a href="#createCardProxy">Create Proxy Services to abstract the Cards System</a>
 				</li>
 				<li>
-					<a href="#createBPEL">Create the Process to coordinate all the above Services</a>
+					<a href="#createBPEL">Create the Process to co-ordinate all the above Services</a>
 				</li>
 				<li>
 					<a href="#deploy">Deploy the SOA Integration Solution</a>
@@ -303,7 +303,7 @@
 			<li>CardAxis2Service - Model Card Issueing Service</li>
 			<li>CustomerDS - Data Service that handles Customer ID Creation</li>
 			<li>SynapseConfigs - Contains all the ESB configurations</li>
-			<li>RegistryResources - Contains xslt files, wsdl files etc</li>
+			<li>RegistryResources - Contains XSLT files, WSDL files etc</li>
 			<li>AccountOpeningProcess - BPEL process</li>
 			<li>BankingSample - Carbon Application</li>
 		</ul>
@@ -1313,7 +1313,7 @@
 		Now we have successfully completed the two proxy services for the mock services.
 		</p>
 		
-		<h3 id="createBPEL">Create the Process to coordinate all the above Services</h3>
+		<h3 id="createBPEL">Create the Process to co-ordinate all the above Services</h3>
 		<p>
 		Ideally, all WSDL files referenced by the Process Server should also be hosted on 
 		the global repository that is mounted on the BPEL server in order to appear like 

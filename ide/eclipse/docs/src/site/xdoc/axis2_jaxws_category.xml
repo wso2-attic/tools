@@ -59,7 +59,7 @@ permissions and ~ limitations under the License.
 		</p>
 		<ol>
 			<li>Create New Axis2 Service</li>
-			<li>Create New Axis2 Service using wsdl File</li>
+			<li>Create New Axis2 Service using WSDL File</li>
 		</ol>
 		
 		<p>
@@ -173,7 +173,7 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		<p>
-		Select the necessary <strong>Client configaration Options</strong> available in the next page and click 
+		Select the necessary <strong>Client configuration Options</strong> available in the next page and click 
 		<strong>Finish</strong>.
 		</p>
 		
@@ -197,7 +197,7 @@ permissions and ~ limitations under the License.
 		<h3 id="Axis2Utils3">Generate Apache Axis2 Archive (AAR)</h3>
 		<p>
 		You can generate an Axis2 Service Archive(.aar) by exporting the project. Right click on your <strong>
-		Axis2 Service Project</strong> Select <strong>Export project as Deployaable Archive</strong> from the menu.
+		Axis2 Service Project</strong> Select <strong>Export project as Deployable Archive</strong> from the menu.
 		</p>
 		
 			<p>
@@ -236,8 +236,8 @@ permissions and ~ limitations under the License.
 		</p>
 		
 	    <p>
-		There are <strong>three</strong>options to provide the WSDl file, can brows the wsdl file in<strong> the file system </strong>or
-		<strong> workspace </strong> also can provide the <strong>uri</strong> of the wsdl file
+		There are <strong>three</strong>options to provide the WSDl file, can brows the WSDL file in<strong> the file system </strong>or
+		<strong> workspace </strong> also can provide the <strong>URI</strong> of the WSDL file
 		</p>
 		
 		<p>
@@ -260,7 +260,7 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		<p>
-		Select the necessary <strong>configaration Options</strong> available in the next page and click 
+		Select the necessary <strong>configuration Options</strong> available in the next page and click 
 		<strong>Finish</strong>.
 		</p>
 		
@@ -350,48 +350,81 @@ permissions and ~ limitations under the License.
 			<br></br>
 		</p>
 
-		<p>With the first option, you can create a basic JAX-WS Project. You can develop a JAX-WS-enabled Web service as a Java class inside this project. 
-<strong>Create New JAX-WS Service</strong> dialog that lets you specify many parameters such as location, working sets  for the generated Web service project, 
-<br/>by checking <strong>Create JAX-WS Class</strong>, you create sample JAX-WS server with this Web service project. 
-			</p>
+		<p>With the first option, you can create a basic JAX-WS Project. You can develop a 
+		JAX-WS-enabled Web service as a Java class inside this project. 
+		</p>
 			<p>
 				<br></br>
 				<img alt="New Server Runtime" src="images/jaxws3.png"></img>
 				<br></br>
 			</p>
 			
-			<p>With the <strong>Create New JAX-WS Service using WSDL File</strong>,you can generate a Web service from a WSDL file. The resulting Web service class will contain the public endpoint interface described by the WSDL without the implementation. After the Web service has been generated, 
-you have to write Web service implementation class.
+			<p>
+			Once you create the <strong>JAX-WS</strong> project, to create a 
+			<strong>JAX-WS Service</strong> class, right click on the created JAX-WS project and 
+			go to <strong>New -> JAX-WS Service Class</strong>.
 			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws4.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			In the service creation class dialog, you will have to specify the 
+			<strong>bean</strong> class as well as the <strong>interface</strong> class. Give 
+			necessary information and click <strong>Finish</strong>.
+			</p>
+			
 			<p>
 				<br></br>
 				<img alt="New Server Runtime" src="images/jaxws5.png"></img>
 				<br></br>
-			</p>	
+			</p>
 			
-			
-			<p>You can add new JAX-WS service by add <strong>JAX-WS annotated</strong> java class to your service project,  
-			you can use either eclipse class wizard or Carbon studio JAX-WS Class wizard,  
-			To create a JAX-WS Class  service using  Carbon studio JAX-WS Class wizard, 
-			Right-click a JAX-WS project select <strong>New ->JAX-WS service class</strong>, 
-			This will open the <strong>New JAX-WS class</strong> dialog. 
-			Enter the package name in the Package field, and a class name in the Name field, and then click <strong>Finish</strong>.
+			<p>
+			Now you will see that the interface class and the bean class has been created inside the 
+			JAX-WS project that you have created. 
 			</p>
 			<p>
 				<br></br>
 				<img alt="New Server Runtime" src="images/jaxws6.png"></img>
 				<br></br>
+			</p>
+			
+			<p>With the <strong>Create New JAX-WS Service using WSDL File</strong>,you 
+			can generate a Web service from a WSDL file. The resulting Web service class will 
+			contain the public endpoint interface described by the WSDL without the implementation. 
+			After the Web service has been generated, you have to write Web service implementation class.
+			</p>
+			<p>
+			Browse for the correct <strong>WSDL</strong> file and you have to specify the 
+			<strong>CXF Home</strong>. You can download the 
+			<a href="http://cxf.apache.org/download.html">CXF Binary Distribution</a> and 
+			extract it. This will be your <strong>CXF Home</strong>.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxws7.png"></img>
+				<br></br>
 			</p>	
 			
-			<p>You can export JAX-WS project as Java Archive (JAR) file or you can add it as dependency of 
+			<p>
+			Now you will see that the needed <strong>JAX-WS Service Classes</strong> have 
+			been generated. 
+			</p>
+			
+			<p>You can export JAX-WS project as a web application (war) file or you can add it as dependency of 
 			Carbon Application project which can deploy on WSO2 Application Server.
 			<br/>
-			To create a deployable  archive (JAR) , Right-click on project, select  
+			To create a deployable  archive (WAR) , Right-click on project, select  
 			<strong>Export Project as Deployable Archive</strong>, then choose destination location.
 			</p>
 			<p>
 				<br></br>
-				<img alt="New Server Runtime" src="images/jaxws7.png"></img>
+				<img alt="New Server Runtime" src="images/jaxws8.png"></img>
 				<br></br>
 				<br></br>
 			</p>								

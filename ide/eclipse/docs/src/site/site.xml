@@ -14,7 +14,7 @@
        <menu name="Documentation">
         <item name="Index" href="index.html"/>
         <item name="Overview to WSO2 Developer Studio" href="overview.html"/>
-        <item name="WSO2 Developer Studio Features" href="cstudio-features.html"/>
+        <item name="WSO2 Developer Studio Features" href="devstudio-features.html"/>
         <item name="Installation Guide" href="install_guide.html"/>
 	    <item name="Getting Started with Developer Studio" href="getting_started_category.html"/>
 	    <item name="Application Server Tools" href="axis2_jaxws_category.html"/>
@@ -26,9 +26,9 @@
 	    <item name="Gadget Server Tools" href="gadget_category.html"/>
 	    <item name="Carbon Tools" href="carbon_category.html"/>
 	    <item name="Packaging" href="packaging.html"/>
-	    <item name="Life Cycle Management of a Carbon Application Archive (CAR)" href="lifecyclemanagement.html"/>
+	    <item name="Life Cycle Management of a CAR file" href="lifecyclemanagement.html"/>
 	    <item name="Advance Server Extensions" href="server_extensions_category.html"/>
-	    <item name="Apache Maven Support" href="cs_maven_support.html"/>
+	    <item name="Apache Maven Support" href="devs_maven_support.html"/>
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>
        </menu>
 

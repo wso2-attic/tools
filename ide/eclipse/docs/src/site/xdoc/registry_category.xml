@@ -370,10 +370,10 @@ permissions and ~ limitations under the License.
         To create a Registry Aspect class, select any java project / or any artifact type project 
         that you have created in your workspace and press <strong>Ctrl + n</strong> to 
         open the <strong>New</strong> wizard. You can open the same wizard by <strong>File -> New -> Other</strong> 
-        as well. 
+        as well. In the wizard, go to <strong>WSO2 -> Extensions -> Service Extension Features</strong>.
         </p>
         <p>
-		Select <strong>WSO2 Registry Aspect</strong> and click <strong>Next</strong>.
+		Select <strong>WSO2 Registry Aspect Class</strong> and click <strong>Next</strong>.
 		</p>
 		<p>
 			<br></br>
@@ -382,7 +382,8 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		
-		<p>Then you will get normal Eclipse class generating wizard page. (Figure 32)
+		<p>Then you will get normal Eclipse class generating wizard page. 
+		Give necessary information and click <strong>Finish</strong>.
 		</p>
 			
 			<p>
@@ -390,21 +391,13 @@ permissions and ~ limitations under the License.
 				<img src="images/regAspect2.png" alt="New Server Runtime"/>
 				<br></br>
 			</p>
-		<p>
-		Give necessary information and click <strong>Finish</strong>. (Figure 33)
-		</p>
-		
-		<p>
-				<br></br>
-				<img src="images/regAspect3.png" alt="New Server Runtime"/>
-				<br></br>
-		</p>
+
 			<p>Now you will see Aspect class is created which is extended from <strong>org.wso2.carbon.registry.core.Aspect</strong> 
-			super class. (Figure 34)
+			super class. 
 			</p>
 			<p>
 				<br></br>
-				<img src="images/regAspect4.png" alt="New Server Runtime"/>
+				<img src="images/regAspect3.png" alt="New Server Runtime"/>
 				<br></br>
 			</p>			
 			
@@ -436,7 +429,7 @@ permissions and ~ limitations under the License.
 			
 			<p>
 				<br></br>
-				<img src="images/regAspect6.png"  alt="New Server Runtime"/>
+				<img src="images/regAspect4.png"  alt="New Server Runtime"/>
 				<br></br>
 			</p>
 			
@@ -446,13 +439,9 @@ permissions and ~ limitations under the License.
 			library bundle as <strong>GovernanceRegistry</strong>. For library artifacts default 
 			server role is set as <strong>ApplicationServer</strong>.
 			</p>
-			<p>				
-				<br></br>
-				<img src="images/appser.png" style="padding-bottom:0.5em;" alt="New Server Runtime"/>
-				<br></br>
-			</p>
+			
 			<p>To deploy it to <strong>
-			WSO2 Governance Registry</strong>, you need to change it to correct server role.(Figure 37) 
+			WSO2 Governance Registry</strong>, you need to change it to correct server role. 
 			</p>
 			<p>
 			After deploying the library artifact, you will have to restart the server to make 

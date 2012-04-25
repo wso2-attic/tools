@@ -22,9 +22,9 @@
 </head>
 
 <body>
-<h1>WSO2 Developer Studio 2.0.0.M11 Release Notes</h1>
+<h1>WSO2 Developer Studio 2.0.0.Beta Release Notes</h1>
 
-<h3>02nd April 2012</h3>
+<h3>26th April 2012</h3>
 
 <p>
 WSO2 Developer Studio is a fully functioned tooling environment which facilitate you to develop, 
@@ -42,7 +42,7 @@ IDE Eclipse.
    functionality as well.
 </p>
 <p>
-You can download this distribution from <a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/M11/">here</a> 
+You can download this distribution from <a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/Beta/">here</a> 
 and give it a try.
 </p>
 
@@ -142,7 +142,7 @@ and give it a try.
 </ul>
 
 <p>
-You can find a more detailed version of all the features available in Developer Studio from <a href="cstudio-features.html">
+You can find a more detailed version of all the features available in Developer Studio from <a href="devstudio-features.html">
 WSO2 Developer Studio Features</a> page. 
 </p>
 
@@ -173,11 +173,11 @@ Issues can be reported using the public JIRA available at
 <h2>Contact us</h2>
 WSO2 Tools developers can be contacted via the mailing lists:
 <br/>
-<strong>For Users:</strong>
+<!-- strong>For Users:</strong>
 <a href="mailto:tools-user@wso2.org">tools-user@wso2.org</a>
-<br/>
+<br/ -->
 <strong>For Developers:</strong>
-<a href="mailto:carbon-dev@wso2.org">carbon-dev@wso2.org</a>
+<a href="mailto:dev@wso2.org">dev@wso2.org</a>
 <br/>
 <!--strong>For Developers:</strong>
 <a href="mailto:tools-dev@wso2.org">tools-dev@wso2.org</a-->
@@ -186,13 +186,14 @@ For details on subscriptions see
 <a href="http://wso2.org/projects/tools#mail">
     http://wso2.org/projects/tools#mail</a>
 <br/>
+<!-- 
 <br/>
 <br/>
 Alternatively, questions can also be raised in the WSO2 Tools forum:
 <br/>
 <strong>Forum</strong>
 <a href="http://wso2.org/forum/194" target="_blank">http://www.wso2.org/forum/194</a>
-<br/>
+<br/ -->
 
 <!-- h2>Training</h2>
 

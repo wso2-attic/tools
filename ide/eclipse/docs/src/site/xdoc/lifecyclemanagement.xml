@@ -46,7 +46,7 @@ permissions and ~ limitations under the License.
 		<p>
 		To manage such environment, we use lot of tools that are provided in order make this 
 		task easy. We use tools like <strong>source control</strong> in order to manage 
-		collaborative development. As we discribed in the <a href="getting_started_category.html">
+		collaborative development. As we described in the <a href="getting_started_category.html">
 		Getting Started with Developer Studio</a> document, you can use <strong>WSO2 Carbon 
 		Studio</strong> to develop your SOA application and commit the changes to the 
 		<strong>source control</strong>. Developers can commit the generated CAR files 
@@ -54,14 +54,14 @@ permissions and ~ limitations under the License.
 		developer testing. Since Carbon Applications are fully supported with Maven, 
 		developers will need only to commit the source projects. Developers will create 
 		<strong>Carbon Application Archives</strong> using build commands, and this CAR file 
-		can be used by all the devolopers since everyone shares the same dev environment. 
+		can be used by all the developers since everyone shares the same dev environment. 
 		Developers will test the application with test data in their local setups. After the dev 
 		testing, CAR file will be handed over to the QA.
 		</p>
 		
 		<h3>Quality Assurance (QA) Life Cycle</h3>
 		<p>
-		Handing over the CAR file to the QA enviromnet can be done manually or using 
+		Handing over the CAR file to the QA environment can be done manually or using 
 		life cycle management feature of <a href="http://wso2.com/products/governance-registry">
 		WSO2 Governance Registry</a>. If you use <strong>G-Reg</strong> life cycle management 
 		feature, you do not have to do anything manually. Developers and QA engineers will get 
@@ -69,7 +69,7 @@ permissions and ~ limitations under the License.
 		notifications feature of <strong>G-Reg</strong>. QA engineers will deploy the CAR file 
 		upon a test environment which will use real data and real traffic. If QA passed, CAR file 
 		can be promoted to <strong>Staging / Production</strong> environment. If problems are 
-		occured during the QA phase, QA engineers can demote the artifact. In each and every 
+		occurred during the QA phase, QA engineers can demote the artifact. In each and every 
 		scenario, relevant parties will be notified.     
 		</p>
 		
@@ -90,7 +90,7 @@ permissions and ~ limitations under the License.
 		way to handle such scenarios is to keep those endpoints and other information that are 
 		changing in a G-Reg instance that are available in each and every environment. When moving 
 		from one environment to the other, we will have to checkout those resources 
-		from the G-Reg instance and then checkin the the next G-Reg instance.    
+		from the G-Reg instance and then check-in the the next G-Reg instance.    
 		</p>
 	</body>
 </html>

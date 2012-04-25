@@ -25,7 +25,7 @@ permissions and ~ limitations under the License.
 					<a href="#Deploy">Deploy C-App to a running Server inside Eclipse</a>
 				</li>
 				<li>
-					<a href="#Redeploy">Redeploy an already deployed C-App to a running Server inside Eclipse</a>
+					<a href="#Redeploy">Re-deploy an already deployed C-App to a running Server inside Eclipse</a>
 				</li>
 				<li>
 					<a href="#debug">Debug a Carbon Application</a>
@@ -37,7 +37,7 @@ permissions and ~ limitations under the License.
 		<h2 id="CarGen">Create Carbon Application Archive (CAR) file</h2>
 		<p>
         There are two ways you can create a <strong>.car</strong> file. One way is to right click on the <strong>C-App</strong> 
-        project and select <strong>Export Carbon Application Project</strong> from the popup menu. 
+        project and select <strong>Export Carbon Application Project</strong> from the pop-up menu. 
         
          </p>
 		<p>
@@ -185,11 +185,11 @@ permissions and ~ limitations under the License.
 		</p>
 		
 		
-		<h2 id="Redeploy">Redeploy an already deployed C-App to a running Server inside Eclipse</h2>
+		<h2 id="Redeploy">Re-deploy an already deployed C-App to a running Server inside Eclipse</h2>
 		<p>
 		After you have deployed your C-App to a running server inside Eclipse, you may want to change the content of your C-App.
 		In that case you do not need to remove the deployed C-App from the server and deploy again to the server. Instead you can 
-		redeploy an already deployed C-App.
+		re-deploy an already deployed C-App.
 		</p>
 		<p>
 		Deploy the C-App project according to the instructions given above and then do the necessary changes to your C-App project.
@@ -198,10 +198,10 @@ permissions and ~ limitations under the License.
         Open the <strong>Servers</strong> view in Eclipse using <strong>Window => Show View => Servers</strong>.
         </p>
         <p>
-        Click on the expandable icon of the Server you are running inside Eclipse. (This expandble icons available only if you have 
+        Click on the expandable icon of the Server you are running inside Eclipse. (This expandable icons available only if you have 
         deployed a project in that server)
         </p>
-        <p>Right click on the project and Select <strong>Redeploy</strong> option from the popup menu.
+        <p>Right click on the project and Select <strong>Re-deploy</strong> option from the popup menu.
         </p>
 		<p>
 			<br></br>

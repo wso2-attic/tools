@@ -34,7 +34,7 @@ permissions and ~ limitations under the License.
 		may already know what you can do with <strong>WSO2 Developer Studio</strong>. 
         </p>
         <p>
-        With the new version, main benifit is, you can create create projects in any custom location as 
+        With the new version, main benefit is, you can create projects in any custom location as 
         you wish. Suppose I need to create my SOA application in a location which is sync with 
         my <strong>source control</strong>.
         </p>
@@ -55,7 +55,7 @@ permissions and ~ limitations under the License.
 		</p>
 		<p>
 		Suppose <strong>AcmeSuper</strong> is a famous shopping complex which has branches all over the 
-		country. For the sample, we will asume that <strong>AcmeSuper</strong> has branches at Colombo, 
+		country. For the sample, we will assume that <strong>AcmeSuper</strong> has branches at Colombo, 
 		Galle and Kandy as showed in the above images. Let's see how we are going to create different
 		 <strong>SOA</strong> applications in different locations.   
 		</p>
@@ -128,7 +128,7 @@ permissions and ~ limitations under the License.
 				<br></br>
 			</p>	
 			<p>
-			Now you will see a new project has been created in the wokspace. 
+			Now you will see a new project has been created in the workspace. 
 			</p>
 				<p>
 				<br></br>
@@ -204,7 +204,7 @@ permissions and ~ limitations under the License.
 			</p>
 			<p>
 			As you can see, all the new projects are being added. So in a collaborative development 
-			environmet, developers from different braches can work simultaniously without an issue. 
+			environment, developers from different branches can work simultaneously without an issue. 
 			</p>
 			<p>
 			With the <strong>Carbon Application</strong> projects, you can generate the 

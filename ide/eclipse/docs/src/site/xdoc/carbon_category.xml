@@ -169,7 +169,7 @@ permissions and ~ limitations under the License.
 		With <strong>Import Carbon UI Bundle From Workspace</strong> option, you can refer already defined  
 		<strong>Carbon UI Bundle Components</strong> in the workspace. With <strong>WSO2 Developer Studio</strong> 
 		you can create <strong>Carbon UI Bundle Component</strong> as well. This will be a stand-alone 
-		<strong>Eclipse Plugin Project</strong> with customizations relavent to make it a <strong>Carbon 
+		<strong>Eclipse Plugin Project</strong> with customizations relevant to make it a <strong>Carbon 
 		UI Bundle</strong>. This option is available under <strong>File -> New -> Other -> Carbon -> 
 		Carbon UI Component</strong>.
 		</p>

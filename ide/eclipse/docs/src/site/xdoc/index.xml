@@ -38,7 +38,7 @@ permissions and ~ limitations under the License.
 					</li>
 				</ul>
 			</li>
-			<li><a href="cstudio-features.html">WSO2 Developer Studio Features</a>
+			<li><a href="devstudio-features.html">WSO2 Developer Studio Features</a>
 				<ul>
 					<li>
 					This gives you a quick insight to what WSO2 Developer Studio can do in WSO2 product wise.
@@ -244,7 +244,7 @@ permissions and ~ limitations under the License.
 			</ul>
 			</li>
 			
-			 <li><a href="cs_maven_support.html">Apache Maven Support</a>
+			 <li><a href="devs_maven_support.html">Apache Maven Support</a>
             	<ul>
 					<li>
 					This explains how to create a Carbon Archive (CAR) using Apache Maven commands. 

@@ -43,7 +43,7 @@ permissions and ~ limitations under the License.
 					<a href="#contentAssist">Provide Content Assist Support</a>
 				</li>
 				<li>
-					<a href="#SmooksConfArtifact">Smoooks Configuration</a>
+					<a href="#SmooksConfArtifact">Smooks Configuration</a>
 				</li>
 				<li>
 					<a href="#DeployESBProject">Deploy ESB Config Project</a>
