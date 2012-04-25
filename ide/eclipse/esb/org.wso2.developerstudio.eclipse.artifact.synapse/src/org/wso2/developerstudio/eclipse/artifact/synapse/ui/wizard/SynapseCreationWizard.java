@@ -111,7 +111,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
-					                            saveLocation.getLocation().toFile(),groupId + ".configuration");
+					                            saveLocation.getLocation().toFile(),groupId + ".synapse");
 					fileList.add(synConfig);
 				}
 			}
@@ -195,7 +195,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 		MavenUtils.saveMavenProject(mavenProject, pomfile);
 		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
-		                            saveLocation.getLocation().toFile(),groupId + ".configuration");
+		                            saveLocation.getLocation().toFile(),groupId + ".synapse");
 		fileList.add(synapseConfigFile);
 	}
 
