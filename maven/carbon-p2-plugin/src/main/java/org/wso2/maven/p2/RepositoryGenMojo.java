@@ -385,7 +385,9 @@ public class RepositoryGenMojo extends AbstractMojo {
 			launcher.setApplicationName("org.eclipse.equinox.p2.publisher.CategoryPublisher");
 			launcher.addArguments("-metadataRepository", metadataRepository.toString(),
 			                      "-categoryDefinition", categoryDeinitionFile.toURI().toString(),
-			                      "-categoryQualifier");
+			                      "-categoryQualifier", 
+			                      "-compress", 
+			                      "-append");
 
 			int result = launcher.execute(forkedProcessTimeoutInSeconds);
 			if (result != 0) {

@@ -30,6 +30,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.wso2.maven.p2.CatFeature;
 import org.wso2.maven.p2.Category;
 import org.wso2.maven.p2.EquinoxLauncher;
 import org.wso2.maven.p2.FeatureArtifact;
@@ -199,15 +200,14 @@ public class P2Utils {
 				Element descriptionElement = doc.createElement("description");
 				descriptionElement.setTextContent(cat.getDescription());
 				categoryDef.appendChild(descriptionElement);
-				ArrayList processedFeatures = cat.getProcessedFeatures(project, artifactFactory, remoteRepositories, localRepository, resolver);
-				for (Object obj : processedFeatures) {
-					FeatureArtifact feature=(FeatureArtifact)obj;
-					if (!featureCategories.containsKey(feature.getArtifactId())){
+				ArrayList<CatFeature> processedFeatures = cat.getProcessedFeatures(project, artifactFactory, remoteRepositories, localRepository, resolver);
+				for (CatFeature feature : processedFeatures) {
+					if (!featureCategories.containsKey(feature.getId())){
 						ArrayList list = new ArrayList();
-						featureCategories.put(feature.getArtifactId(), list);
+						featureCategories.put(feature.getId(), list);
 						list.add(feature);
 					}
-					ArrayList list = (ArrayList)featureCategories.get(feature.getArtifactId());
+					ArrayList list = (ArrayList)featureCategories.get(feature.getId());
 					list.add(cat.getId());
 				}
 			}
@@ -217,11 +217,11 @@ public class P2Utils {
     		Object object = featureCategories.get(key);
 			if (object instanceof List){
 				List list=(List)object;
-				FeatureArtifact feature=(FeatureArtifact)list.get(0);
+				CatFeature feature=(CatFeature)list.get(0);
 				list.remove(0);
 				
 				Element featureDef = doc.createElement("feature");
-				featureDef.setAttribute("id", feature.getArtifactId());
+				featureDef.setAttribute("id", feature.getId());
 				featureDef.setAttribute("version", Bundle.getOSGIVersion(feature.getVersion()));
 				for (Object catId : list) {
 					Element category = doc.createElement("category");
