@@ -86,7 +86,7 @@ permissions and ~ limitations under the License.
 		<p>
 		You can manage life cycle of your application as described above, only if your CAR application 
 		contains data that are not depend on the environment. Suppose you have some endpoints that 
-		differ according to the environmet, above method will have to modified accordingly. Best 
+		differ according to the environment, above method will have to modified accordingly. Best 
 		way to handle such scenarios is to keep those endpoints and other information that are 
 		changing in a G-Reg instance that are available in each and every environment. When moving 
 		from one environment to the other, we will have to checkout those resources 
