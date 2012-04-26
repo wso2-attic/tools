@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
@@ -21,9 +22,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
-import org.wso2.developerstudio.eclipse.ds.AttributeMapping;
 import org.wso2.developerstudio.eclipse.ds.CallQuery;
-import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.Query;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
@@ -40,8 +39,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	private Composite detailsclient;
 	private Section detailsection;
 	private DetailSection sectionHolder;
-	private Composite parentComposite;
-	private Composite tmpcomp;
+	private boolean isCreateContentCalled;
 	
 	public ObjectDetailPage(Object key, DsEditor editor) {
 
@@ -55,8 +53,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 
 	public void createContents(Composite parent) {
 		
-		if(parentComposite == null)
-		parentComposite = parent;
+		isCreateContentCalled = true;
 		
 		TableWrapLayout layout = new TableWrapLayout();
 		layout.topMargin = 5;
@@ -155,33 +152,43 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 
 	
 	public void selectionChanged(IFormPart part, ISelection selection) {
-
+		
 		IStructuredSelection ssel = (IStructuredSelection) selection;
+
 		if (ssel.size() == 1) {
 
 			input = (EObjectImpl) ssel.getFirstElement();
-			
-			//Fixing TOOLS-1004
-			if (input instanceof Query || input instanceof CallQuery) {
-				detailsection.dispose();
-				if(tmpcomp != null && !tmpcomp.isDisposed()){
-					
-					tmpcomp.dispose();
+
+			// Fixing TOOLS-1004
+			if ((input instanceof Query || input instanceof CallQuery)
+					&& !isCreateContentCalled) {
+
+				if (detailsclient != null) {
+
+					Control contrArr[] = detailsclient.getChildren();
+
+					for (int i = 0; i < contrArr.length; i++) {
+
+						contrArr[i].dispose();
+					}
+
+					detailsclient.layout();
+					detailsPageSwitch(input);
+					detailsclient.layout();
 				}
-				tmpcomp = toolkit.createComposite(parentComposite,SWT.NULL);
-				
-				createContents(tmpcomp);
-				detailsection.layout();
+			} else {
+
+				isCreateContentCalled = false;
+
 			}
-		} else {
-		//	update();
+
 		}
 
 	}
 	
 		
 	public void selectionChanged(SelectionChangedEvent arg0) {
-
+		// TODO Auto-generated method stub
 	}
 
 	
