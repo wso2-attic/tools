@@ -319,7 +319,7 @@ public class DetailSection {
 			Operation operation = (Operation)input;
 			operationObjectConfigurator(operation);
 		
-		}else if(input instanceof CallQuery) {
+		}else if(input instanceof CallQuery && dataService != null) {
 			
 			CallQuery callQuery = (CallQuery)input;
 			
@@ -329,7 +329,7 @@ public class DetailSection {
 			
 			String [] displayValues = new String [q.length];
 			
-			for(int i = 0;i< queryList.size();i++){
+			for(int i = 0;i< q.length ;i++){
 				
 				displayValues [i] = q[i].getId();
 			}
@@ -648,7 +648,7 @@ public class DetailSection {
 					labelMaker("");
 				}
 				
-				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_USE_CONFIG)){
+				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_USE_CONFIG) && dataService != null){
 									
 					EList<DataSourceConfiguration> configList = dataService.getConfig();
 					
@@ -656,7 +656,7 @@ public class DetailSection {
 					
 					String [] displayValues = new String [confArr.length];
 					
-					for(int j = 0;j< configList.size() ; j++){
+					for(int j = 0;j< confArr.length ; j++){
 						
 						displayValues[j] = confArr[j].getId();
 						
@@ -672,22 +672,44 @@ public class DetailSection {
 				}
 				
 				
-				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_INPUT_EVENT_TRIGGER)){
+				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_INPUT_EVENT_TRIGGER) && dataService != null){
+					
+					EList<EventTrigger> eventList = dataService.getEventTrigger();
+					
+					EventTrigger [] eventArr = eventList.toArray(new EventTrigger [0]);
+					
+					String [] displayValues = new String [eventArr.length];
+					
+					for(int j = 0 ; j < eventArr.length ; j++){
+						
+						displayValues[j] = eventArr[j].getId();
+					}
 					
 					labelMaker(displayName);
 					
-					sectionUtil.getAttributeField(detailsclient, toolkit, query, query.getInputEventTrigger(),
-							DsPackage.eINSTANCE.getQuery_InputEventTrigger(), DetailSectionCustomUiConstants.STRING);
+					sectionUtil.getCustomComboField(detailsclient, toolkit, query, query.getInputEventTrigger(),
+							DsPackage.eINSTANCE.getQuery_InputEventTrigger(), displayValues);
 					labelMaker("");
 					labelMaker("");
 				}
 				
 				if(displayName.equals(DetailSectionCustomUiConstants.QUERY_OUTPUT_EVENT_TRIGGER)){
 					
+					EList<EventTrigger> eventList = dataService.getEventTrigger();
+					
+					EventTrigger [] eventArr = eventList.toArray(new EventTrigger [0]);
+					
+					String [] displayValues = new String [eventArr.length];
+					
+					for(int j = 0 ; j < eventArr.length ; j++){
+						
+						displayValues[j] = eventArr[j].getId();
+					}
+					
 					labelMaker(displayName);
 					
-					sectionUtil.getAttributeField(detailsclient, toolkit, query, query.getOutputEventTrigger(),
-							DsPackage.eINSTANCE.getQuery_OutputEventTrigger(), DetailSectionCustomUiConstants.STRING);
+					sectionUtil.getCustomComboField(detailsclient, toolkit, query, query.getOutputEventTrigger(),
+							DsPackage.eINSTANCE.getQuery_OutputEventTrigger(), displayValues);
 					labelMaker("");
 					labelMaker("");
 					
