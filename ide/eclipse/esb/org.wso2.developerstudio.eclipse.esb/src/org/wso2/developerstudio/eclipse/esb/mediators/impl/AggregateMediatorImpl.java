@@ -164,6 +164,10 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 		setCorrelationExpression(correlateOnExpression);
 		setOnCompleteBranch(getMediatorFactory()
 				.createAggregateOnCompleteBranch());
+		
+		//Fixing TOOLS-994.
+		setCompletionMaxMessages(-1);
+		setCompletionMinMessages(-1);
 	}
 
 	/**
