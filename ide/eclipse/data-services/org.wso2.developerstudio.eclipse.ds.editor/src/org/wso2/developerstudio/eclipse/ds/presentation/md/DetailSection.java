@@ -1106,8 +1106,9 @@ public class DetailSection {
 				
 				labelMaker(DetailSectionCustomUiConstants.QUERY_PARAM_TYPE);
 				String [] displayValues = {"SCALAR","ARRAY"};
-				sectionUtil.getCustomComboField(detailsclient, toolkit,queryParam, queryParam.getParamType(),
+				Combo paramTypeCombo = sectionUtil.getCustomComboField(detailsclient, toolkit,queryParam, queryParam.getParamType(),
 						DsPackage.eINSTANCE.getQueryParameter_ParamType(),displayValues);
+				paramTypeCombo.select(0);
 				labelMaker("");
 				labelMaker("");
 						
@@ -1115,9 +1116,16 @@ public class DetailSection {
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.QUERY_PARAM_SQL_TYPE)){
 				
+				String [] displayValues = {"STRING","INTEGER","REAL"
+											,"DOUBLE","NUMERIC","TINYINT",
+											"SMALLINT","BIGINT","DATE",
+											"TIME","TIMESTAMP",
+											"BIT","ORACLE_REF_CURSOR",
+											"BINARY"}; 
 				labelMaker(DetailSectionCustomUiConstants.QUERY_PARAM_SQL_TYPE);
-				sectionUtil.getAttributeField(detailsclient, toolkit, queryParam, queryParam.getSqlType(),
-						DsPackage.eINSTANCE.getQueryParameter_SqlType(), DetailSectionCustomUiConstants.STRING);
+				Combo sqlTypeCombo = sectionUtil.getCustomComboField(detailsclient, toolkit, queryParam, queryParam.getSqlType(),
+						DsPackage.eINSTANCE.getQueryParameter_SqlType(), displayValues);
+				sqlTypeCombo.select(0);
 				labelMaker("");
 				labelMaker("");
 				
