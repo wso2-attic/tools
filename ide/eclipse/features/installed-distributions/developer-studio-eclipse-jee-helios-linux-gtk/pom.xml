@@ -215,7 +215,7 @@
                             		<version>${carbonserver.remote.feature.version}</version>
                             	</feature>
                             	<feature>
-                            		<id>org.jboss.tools:org.jboss.tools.smooks.feature.feature.group</id>
+                            		<id>org.jboss.tools.smooks.feature.feature.group</id>
                             		<version>${smooks.feature.version}</version>
                             	</feature>
                             	<feature>
