@@ -80,7 +80,7 @@
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.wso2.eclipse</groupId>
-                                    <artifactId>wso2-carbon-studio</artifactId>
+                                    <artifactId>wso2-developer-studio</artifactId>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>target/p2-repo</outputDirectory>

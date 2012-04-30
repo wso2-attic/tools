@@ -80,7 +80,7 @@
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.wso2.eclipse</groupId>
-                                    <artifactId>wso2-carbon-studio</artifactId>
+                                    <artifactId>wso2-developer-studio</artifactId>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>target/p2-repo</outputDirectory>
@@ -94,7 +94,7 @@
             <plugin>
                 <groupId>org.wso2.maven</groupId>
                 <artifactId>carbon-p2-plugin</artifactId>
-                <version>1.3.1</version>
+                <version>1.2</version>
                 <executions>
                       <execution>
                         <id>3-p2-profile-generation</id>
