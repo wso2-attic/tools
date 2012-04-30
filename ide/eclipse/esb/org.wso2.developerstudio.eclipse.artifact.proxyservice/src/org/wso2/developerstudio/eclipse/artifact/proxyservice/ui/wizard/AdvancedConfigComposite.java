@@ -39,7 +39,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
