@@ -27,6 +27,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -116,7 +117,13 @@ public abstract class AbstractXMLDoc extends AbstractManifest {
 	}
 
 	public void deserialize(File file) throws Exception {
-		deserialize(new FileInputStream(file));
+		FileInputStream fileInputStream = new FileInputStream(file);
+		deserialize(fileInputStream);
+		try {
+	        fileInputStream.close();
+        } catch (IOException e) {
+        	// stream is already closed
+        }
 	}
 
 	public void deserialize(IFile file) throws Exception {

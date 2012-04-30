@@ -27,7 +27,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -37,18 +36,26 @@ public class MavenUtils {
 	public static final String CAPP_SCOPE_PREFIX = "capp";
 	public static final String PROPERTY_CAPP_TYPE = "CApp.type";
 	
-	public static MavenProject getMavenProject(File file) throws Exception{
+	public static MavenProject getMavenProject(File file) throws Exception {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		Model model;
-			model = mavenXpp3Reader.read(new FileInputStream(file));
-			return new MavenProject(model);
+		final FileInputStream stream = new FileInputStream(file);
+		model = mavenXpp3Reader.read(stream);
+		try {
+			if (stream != null) {
+				stream.close();
+			}
+		} catch (IOException e) {
+			// ignore, stream is already closed
+		}
+		return new MavenProject(model);
 	}
 	
-	public static MavenProject getMavenProject(InputStream input) throws Exception{
+	public static MavenProject getMavenProject(InputStream input) throws Exception {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		Model model;
-			model = mavenXpp3Reader.read(input);
-			return new MavenProject(model);
+		model = mavenXpp3Reader.read(input);
+		return new MavenProject(model);
 	}
 	
 	public static void saveMavenProject(MavenProject project, File file) throws Exception{

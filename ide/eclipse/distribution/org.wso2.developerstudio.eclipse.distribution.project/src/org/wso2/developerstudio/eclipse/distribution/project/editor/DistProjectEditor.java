@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.distribution.project.editor;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -145,6 +146,11 @@ public class DistProjectEditor extends FormEditor {
 		try {
 			InputStream content = new ByteArrayInputStream(getDocument().get().getBytes());
 			getFile().setContents(content, true, true, null);
+			try {
+				content.close();
+	        } catch (IOException e) {
+	        	// ignore, stream is already closed
+	        }
 			distProjectEditorPage.refreshForm();
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);

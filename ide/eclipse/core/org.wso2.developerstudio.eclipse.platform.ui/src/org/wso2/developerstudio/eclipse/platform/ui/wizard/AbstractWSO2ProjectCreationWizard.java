@@ -18,8 +18,11 @@ package org.wso2.developerstudio.eclipse.platform.ui.wizard;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -34,8 +37,14 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -53,6 +62,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	private ProjectDataModel model;
 	private IConfigurationElement configElement;
 	private ISelection currentSelection;
+	final String DIST_EDITOR_ID = "org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor";
 
 	
 	public void addPages() {
@@ -166,6 +176,32 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 			}
 		}
 		return groupId;
+	}
+	
+	public void refreshDistProjects(){
+		try {
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			IWorkbenchPage page = window.getActivePage();
+			List<IEditorReference> openEditors = new ArrayList<IEditorReference>();
+			List<IFile> openFiles = new ArrayList<IFile>();
+			IEditorReference[] editorReferences = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+			for (IEditorReference iEditorReference : editorReferences) {
+				if (DIST_EDITOR_ID.equals(iEditorReference.getId())) {
+					openEditors.add(iEditorReference);
+					IEditorInput editorInput = iEditorReference.getEditorInput();
+					if (editorInput instanceof FileEditorInput) {
+						openFiles.add(((FileEditorInput) editorInput).getFile());
+					}
+				}
+			}
+			if (openEditors.size() > 0) {
+				page.closeEditors(openEditors.toArray(new IEditorReference[] {}), false);
+			}
+			for (IFile file : openFiles) {
+				page.openEditor(new FileEditorInput(file), DIST_EDITOR_ID);
+			}
+		} catch (Exception e) { /* ignore */}
 	}
 
 	public void setCurrentSelection(ISelection currentSelection) {

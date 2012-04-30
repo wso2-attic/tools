@@ -133,8 +133,7 @@ public abstract class AbstractXMLDoc extends AbstractManifest{
 		try {
 	        fileInputStream.close();
         } catch (IOException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
+        	// stream is already closed
         }
 	}
 	
@@ -143,12 +142,22 @@ public abstract class AbstractXMLDoc extends AbstractManifest{
 	}
 	
 	public void deserialize(InputStream stream) throws XMLStreamException, FactoryConfigurationError {
-        XMLStreamReader parser = XMLInputFactory.newInstance().createXMLStreamReader(stream);
-        StAXOMBuilder builder = new StAXOMBuilder(parser);
-        OMElement documentElement =  builder.getDocumentElement();
-        deserialize(documentElement);
-        builder.close();
-        parser.close();
+		try {
+			XMLStreamReader parser = XMLInputFactory.newInstance().createXMLStreamReader(stream);
+			StAXOMBuilder builder = new StAXOMBuilder(parser);
+			OMElement documentElement = builder.getDocumentElement();
+			deserialize(documentElement);
+			builder.close();
+			parser.close();
+		} finally {
+			try {
+				if (stream != null) {
+					stream.close();
+				}
+			} catch (IOException e) {
+				// stream is already closed
+			}
+		}
 	}
 	
 	public void deserialize(String xml) throws XMLStreamException, FactoryConfigurationError {
