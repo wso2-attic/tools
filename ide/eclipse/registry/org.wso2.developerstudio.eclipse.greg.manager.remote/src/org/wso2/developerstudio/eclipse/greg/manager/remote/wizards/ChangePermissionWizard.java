@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.wizard.Wizard;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.UserPermissionDialog.RoleData;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserRole;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.UserPermissionDialog.RoleData;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.manager.remote.Activator;
 import org.wso2.developerstudio.eclipse.greg.resource.authorization.ResourceAdmin;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;

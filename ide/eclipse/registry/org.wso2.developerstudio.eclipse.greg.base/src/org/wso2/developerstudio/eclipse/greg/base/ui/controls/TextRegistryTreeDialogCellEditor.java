@@ -4,9 +4,9 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.ui.widgets.TextAndDialogCellEditor;
 
 public class TextRegistryTreeDialogCellEditor extends TextAndDialogCellEditor{

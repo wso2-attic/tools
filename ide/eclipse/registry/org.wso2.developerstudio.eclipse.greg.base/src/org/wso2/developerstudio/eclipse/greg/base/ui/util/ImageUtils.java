@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developer.studio.eclipse.greg.base.ui.util;
+package org.wso2.developerstudio.eclipse.greg.base.ui.util;
 
 import java.net.URL;
 import java.util.HashMap;

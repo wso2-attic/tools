@@ -44,7 +44,6 @@ import org.eclipse.ui.part.ViewPart;
 import org.wso2.carbon.registry.core.Comment;
 import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.Tag;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.core.RegistryAssociation;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;
 import org.wso2.developerstudio.eclipse.greg.base.interfaces.IRegistryFormEditorPage;
@@ -53,6 +52,7 @@ import org.wso2.developerstudio.eclipse.greg.base.interfaces.RegistryItemSelecti
 import org.wso2.developerstudio.eclipse.greg.base.managers.RemoteContentManager;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.ui.editor.RegistryResourceEditor;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.core.exception.InvalidRegistryURLException;
 import org.wso2.developerstudio.eclipse.greg.core.exception.UnknownRegistryException;
 import org.wso2.developerstudio.eclipse.greg.manager.remote.Activator;

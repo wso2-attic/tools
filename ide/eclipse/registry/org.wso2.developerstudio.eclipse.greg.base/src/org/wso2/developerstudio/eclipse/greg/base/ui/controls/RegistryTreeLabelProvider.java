@@ -21,7 +21,6 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.core.MediaTypes;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryContentContainer;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
@@ -33,6 +32,7 @@ import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserContainer;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserManagerContainer;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserRole;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserRoleContainer;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.ui.image.OverlayImageDescriptor;
 
 public class RegistryTreeLabelProvider implements ILabelProvider {

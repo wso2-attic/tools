@@ -19,11 +19,11 @@ package org.wso2.developerstudio.eclipse.greg.base.model;
 import java.net.URL;
 
 import org.eclipse.swt.widgets.Display;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.SWTControlUtils;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryCredentialData;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryCredentialData.Credentials;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.SWTControlUtils;
 import org.wso2.developerstudio.eclipse.greg.resource.authorization.ResourceAdmin;
 
 public class RegistryNode {

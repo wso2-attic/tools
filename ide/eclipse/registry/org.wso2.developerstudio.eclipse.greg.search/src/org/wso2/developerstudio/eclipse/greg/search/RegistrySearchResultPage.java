@@ -27,13 +27,13 @@ import org.eclipse.search.internal.ui.text.FileSearchPage;
 import org.eclipse.search.ui.ISearchResult;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;
 import org.wso2.developerstudio.eclipse.greg.base.logger.ExceptionHandler;
 import org.wso2.developerstudio.eclipse.greg.base.managers.RemoteContentManager;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.ui.controls.RegistryTreeContentProvider;
 import org.wso2.developerstudio.eclipse.greg.base.ui.controls.RegistryTreeLabelProvider;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.search.RegistrySearchQuery.RegistrySearchResult;
 
 public class RegistrySearchResultPage extends FileSearchPage {

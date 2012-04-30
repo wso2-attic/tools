@@ -24,9 +24,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.UserPermissionDialog;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.UserPermissionDialog;
 import org.wso2.developerstudio.eclipse.greg.base.usermgt.ui.controls.UserPermissionTreeViewer;
 
 import java.util.ArrayList;

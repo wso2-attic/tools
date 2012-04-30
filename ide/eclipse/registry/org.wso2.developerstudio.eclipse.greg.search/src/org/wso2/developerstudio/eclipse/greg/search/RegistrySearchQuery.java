@@ -31,7 +31,6 @@ import org.eclipse.search.ui.ISearchResult;
 import org.eclipse.search.ui.text.FileTextSearchScope;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.SWTControlUtils;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
@@ -39,6 +38,7 @@ import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryCredentialD
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryCredentialData.Credentials;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.SWTControlUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 

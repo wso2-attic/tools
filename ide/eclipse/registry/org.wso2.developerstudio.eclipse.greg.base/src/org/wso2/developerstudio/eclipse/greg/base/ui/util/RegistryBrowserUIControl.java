@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developer.studio.eclipse.greg.base.ui.util;
+package org.wso2.developerstudio.eclipse.greg.base.ui.util;
 
 import java.util.List;
 
@@ -33,10 +33,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IFieldControlData;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IOnAction;

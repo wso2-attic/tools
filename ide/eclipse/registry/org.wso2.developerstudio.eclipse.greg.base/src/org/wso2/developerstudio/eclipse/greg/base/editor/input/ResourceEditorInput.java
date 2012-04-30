@@ -19,9 +19,9 @@ package org.wso2.developerstudio.eclipse.greg.base.editor.input;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceType;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 
 public class ResourceEditorInput implements IEditorInput {
 	private RegistryResourceNode parentResource;

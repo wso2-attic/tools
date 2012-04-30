@@ -16,7 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.greg.manager.remote.utils;
 
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 
 public class RegBrowserImageUtils extends ImageUtils {
 

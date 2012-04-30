@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developernstudio.eclipse.greg.base.ui.dialog;
+package org.wso2.developerstudio.eclipse.greg.base.ui.dialog;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -41,7 +41,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
-import org.wso2.developer.studio.eclipse.greg.base.ui.util.ImageUtils;
 import org.wso2.developerstudio.eclipse.greg.base.heartbeat.RegistryHeartBeatTester;
 import org.wso2.developerstudio.eclipse.greg.base.logger.ExceptionHandler;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryContentContainer;
@@ -52,6 +51,7 @@ import org.wso2.developerstudio.eclipse.greg.base.model.RegistryUserRoleContaine
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.ui.controls.RegistryTreeViewer;
 import org.wso2.developerstudio.eclipse.greg.base.ui.controls.RegistryTreeViewer.IRegistryTreeItemSelectionListener;
+import org.wso2.developerstudio.eclipse.greg.base.ui.util.ImageUtils;
 
 public class RegistryTreeBrowserDialog extends Dialog {
 	private RegistryTreeViewer treeViewer;

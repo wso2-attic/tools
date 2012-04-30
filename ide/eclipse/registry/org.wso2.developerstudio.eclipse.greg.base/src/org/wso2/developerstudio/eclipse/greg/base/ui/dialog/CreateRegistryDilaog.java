@@ -1,4 +1,4 @@
-package org.wso2.developernstudio.eclipse.greg.base.ui.dialog;
+package org.wso2.developerstudio.eclipse.greg.base.ui.dialog;
 
 import java.util.Arrays;
 import java.util.List;
