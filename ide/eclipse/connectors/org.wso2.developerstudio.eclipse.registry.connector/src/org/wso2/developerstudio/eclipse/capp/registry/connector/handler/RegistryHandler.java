@@ -27,7 +27,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 //import org.wso2.developerstudio.eclipse.capp.artifact.registry.utils.RegistryResourceUtils;
 import org.wso2.carbon.registry.synchronization.SynchronizationException;
-import org.wso2.developernstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.capp.core.model.RegistryConnection;
 import org.wso2.developerstudio.eclipse.capp.core.model.RegistryData;
 import org.wso2.developerstudio.eclipse.capp.core.utils.Constants;
