@@ -397,6 +397,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	
 	public void openEditor(File file){
 		try {
+			refreshDistProjects();
 			IFile dbsFile  = ResourcesPlugin
 			.getWorkspace()
 			.getRoot()

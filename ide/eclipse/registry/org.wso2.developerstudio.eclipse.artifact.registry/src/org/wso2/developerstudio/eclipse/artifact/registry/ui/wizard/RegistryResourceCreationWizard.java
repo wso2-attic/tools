@@ -361,6 +361,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	
 	public void openEditor(IProject project){
 		try {
+			 refreshDistProjects();
 			 IFile arifactXml = project.getFile("artifact.xml");
 		     IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	         IWorkbenchPage page = window.getActivePage();

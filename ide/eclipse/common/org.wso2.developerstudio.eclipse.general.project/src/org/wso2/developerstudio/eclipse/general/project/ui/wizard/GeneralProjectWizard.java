@@ -57,7 +57,7 @@ public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			artifact.toFile();
 			//Refresh the project to show the changes. But still won't see the newly created project.
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
+			refreshDistProjects();
 			//Setting the created file to be hidden so that users won't see it.
 			if(file.exists()){
 				file.setHidden(true);

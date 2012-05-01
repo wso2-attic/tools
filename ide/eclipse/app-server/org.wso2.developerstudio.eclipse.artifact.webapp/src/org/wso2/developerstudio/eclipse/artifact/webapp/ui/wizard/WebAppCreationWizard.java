@@ -67,6 +67,7 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			try {
+				refreshDistProjects();
 				IFile activatorClassForProject = getIndexFileForProject(project);
 				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),activatorClassForProject);
 			} catch (Exception e) {

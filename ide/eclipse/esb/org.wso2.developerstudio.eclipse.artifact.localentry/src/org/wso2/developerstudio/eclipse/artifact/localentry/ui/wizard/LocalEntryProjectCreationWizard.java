@@ -278,6 +278,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	
 	public void openEditor(File file){
 		try {
+			refreshDistProjects();
 			IFile dbsFile  = ResourcesPlugin
 			.getWorkspace()
 			.getRoot()

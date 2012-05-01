@@ -117,7 +117,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 			updatePom();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
+			refreshDistProjects();
 			if (!fileList.isEmpty()) {
 	            if (MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor",
 	                                           "Do you like to open the file(s) in Developer Studio?")) {

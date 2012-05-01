@@ -293,6 +293,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	
 	public void openEditor(File file){
 		try {
+			refreshDistProjects();
 			IFile dbsFile  = ResourcesPlugin
 			.getWorkspace()
 			.getRoot()

@@ -145,6 +145,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 			
 			customMediatorModel.addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			refreshDistProjects();
 	    } catch (CoreException e) {
 			 log.error(e);
 		} catch (Exception e) {

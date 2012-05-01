@@ -55,7 +55,7 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			getModel().addToWorkingSet(project);
 			//Refresh the project to show the changes. But still won't see the newly created project.
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
+			refreshDistProjects();
 			//Setting the created file to be hidden so that users won't see it.
 			if(file.exists()){
 				file.setHidden(true);

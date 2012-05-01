@@ -147,6 +147,7 @@ public class RegistryFilterCreationWizard extends
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			try {
+				refreshDistProjects();
 				IEditorPart javaEditor = JavaUI.openInEditor(cu);
 				JavaUI.revealInEditor(javaEditor, (IJavaElement) cu);
 			} catch (Exception e) { /* ignore */}

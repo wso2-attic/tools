@@ -346,6 +346,7 @@ public class RegistryHandlerCreationWizard extends
 		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
 		try {
+			refreshDistProjects();
 			IFile openFile = project.getFile("registry-handler-info.xml");
 			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
 			               openFile);

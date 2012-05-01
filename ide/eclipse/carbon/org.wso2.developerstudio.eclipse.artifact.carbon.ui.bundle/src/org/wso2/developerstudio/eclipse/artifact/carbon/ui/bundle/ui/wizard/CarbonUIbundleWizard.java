@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.ui.wizard;
 
 import java.io.File;
@@ -22,15 +38,17 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.Activator;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.model.CarbonUiModel;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.templates.CarbonUIbudleTemplate;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.utils.CarbonUIImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -38,7 +56,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
     private static CarbonUiModel uibundleModel;
 	private  IProject project;
-//	private  IDeveloperStudioLog log;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
     public CarbonUIbundleWizard(){
      setUibundleModel(new CarbonUiModel());
@@ -59,7 +77,7 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 				    			  "1.0.0"));
 					      getModel().setProjectName(temp.getName());
 					} catch (Exception e) {
-						//log.error("project update fail",e);
+						log.error("project update fail",e);
 					}
 					}else{					    
 					   nextPage=null;
@@ -122,15 +140,16 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			try {
+				refreshDistProjects();
 				IFile activatorClassForProject = getManifestFileForProject(project);
 				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),activatorClassForProject);
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("Cannot open file in editor", e);
 			}
 	    } catch (CoreException e) {
-			e.printStackTrace();
+			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("An unexpected error has occurred", e);
 		}
 		return true;
 	}

@@ -116,7 +116,7 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 											"org.wso2.developerstudio.eclipse.jaxws.project.nature");
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-
+			refreshDistProjects();
 		}  catch (CoreException e) {
 			log.error("CoreException has occurred", e);
 		} catch (IOException e) {
@@ -150,7 +150,6 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				ProcessBuilder pb=null;
 				
 				if(os.indexOf("win") >= 0){
-					//shell = "cmd.exe /c";
 					shell = "cmd.exe";
 					wsdl2java = "wsdl2java.bat";
 					if(sourcePkg!=null && sourcePkg.trim().length()>0){

@@ -87,6 +87,16 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			IProject project = createNewProject();
 			IFolder sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
 			JavaUtils.addJavaSupportAndSourceFolder(project, sourceFolder);
+			File pomfile = project.getFile("pom.xml").getLocation().toFile();
+			getModel().getMavenInfo().setPackageName("service/axis2");
+			createPOM(pomfile);
+			getModel().addToWorkingSet(project);
+			ProjectUtils.addNatureToProject(project,
+											false,
+			                                "org.wso2.developerstudio.eclipse.axis2.project.nature");
+			
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			
 			if (getModel().getSelectedOption().equals("import.Axis2")) {
 				//TODO: import AAR
 				
@@ -119,6 +129,7 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				IPath path = compilationUnit.getResource().getProjectRelativePath();
 				IFile sourceFile = project.getFile(path);
 				try {
+					refreshDistProjects();
 					IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),sourceFile);
 				} catch (Exception e) {
 					log.error("Cannot open file in editor", e);
@@ -151,15 +162,8 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 					//axis2GenServiceXML.delete(true, new NullProgressMonitor());
 				}
 				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				refreshDistProjects();
 			}
-
-			File pomfile = project.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("service/axis2");
-			createPOM(pomfile);
-			getModel().addToWorkingSet(project);
-			ProjectUtils.addNatureToProject(project,
-											false,
-			                                "org.wso2.developerstudio.eclipse.axis2.project.nature");
 			
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 

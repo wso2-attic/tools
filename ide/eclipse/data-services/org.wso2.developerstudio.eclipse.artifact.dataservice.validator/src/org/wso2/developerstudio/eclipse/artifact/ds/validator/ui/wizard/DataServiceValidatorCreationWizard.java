@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.ds.validator.ui.wizard;
 
 import java.io.File;
@@ -20,16 +36,17 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.IEditorPart;
+import org.wso2.developerstudio.eclipse.artifact.ds.validator.Activator;
 import org.wso2.developerstudio.eclipse.artifact.ds.validator.model.DataServiceValidatorModel;
 import org.wso2.developerstudio.eclipse.artifact.ds.validator.template.DataServiceValidatorClassTemplate;
 import org.wso2.developerstudio.eclipse.artifact.ds.validator.utils.DSValidatorImageUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -38,7 +55,7 @@ public class DataServiceValidatorCreationWizard extends AbstractWSO2ProjectCreat
 	
     private static  DataServiceValidatorModel dsValidatorModel;
 	private  IProject project;
-	private IDeveloperStudioLog log;
+	private IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
     public DataServiceValidatorCreationWizard(){
      setDsValidatorModel(new DataServiceValidatorModel());
@@ -122,6 +139,7 @@ public class DataServiceValidatorCreationWizard extends AbstractWSO2ProjectCreat
 			                       "org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature");
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			refreshDistProjects();
 	    } catch (CoreException e) {
 			 log.error(e);
 		} catch (Exception e) {

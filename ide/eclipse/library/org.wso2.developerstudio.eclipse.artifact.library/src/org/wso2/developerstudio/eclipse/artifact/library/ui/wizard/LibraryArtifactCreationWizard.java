@@ -214,6 +214,7 @@ public class LibraryArtifactCreationWizard extends
 					Constants.LIBRARY_PROJECT_NATURE);
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
+			refreshDistProjects();
 
 		} catch (Exception e) {
 			e.printStackTrace();
