@@ -39,9 +39,11 @@ public class RegistryHeartBeatTester implements Runnable {
 		while(!isStop()){
 			List<RegistryNode> urlInfoList = urlNodeList.getUrlInfoList();
 			boolean registryEnabledStateChanged=false;
-			for (RegistryNode registryNode : urlInfoList) {
-				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(registryNode);
-			}
+			int i=0;
+			while (i<urlInfoList.size()) {
+				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(urlInfoList.get(i));
+				i++;
+            }
 			if (registryEnabledStateChanged) {
 				Display.getDefault().asyncExec(new Runnable() {
 					public void run() {

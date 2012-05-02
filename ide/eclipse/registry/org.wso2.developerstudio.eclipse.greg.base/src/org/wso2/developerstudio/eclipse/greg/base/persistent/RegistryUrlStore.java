@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.wso2.developerstudio.eclipse.greg.base.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -183,6 +184,7 @@ public final class RegistryUrlStore {
 		info.setUsername(username);
 		urlList.add(info);
 		saveUrlsToFile();
+		createRegistryPropertyFile(registryUrl.getHost()+"."+registryUrl.getPort());
 		return info;
 	}
 
@@ -194,6 +196,7 @@ public final class RegistryUrlStore {
 		if (urlList.contains(info)) {
 			urlList.remove(info);
 			saveUrlsToFile();
+			removeRegistryPropertyFile(info.getUrl().getHost()+"."+info.getUrl().getPort());
 		}
 	}
 
@@ -202,5 +205,32 @@ public final class RegistryUrlStore {
 	 */
 	public void persist() {
 		saveUrlsToFile();
+	}
+	
+	private void createRegistryPropertyFile(String serverUrl){
+		File regiistryNodeFile= new File(ResourcesPlugin.getWorkspace().getRoot()
+					.getLocation().append(".metadata").append(Activator.PLUGIN_ID)
+					.append(serverUrl.concat(".txt")).toOSString());
+		if (regiistryNodeFile.exists()){
+			FileUtils.deleteQuietly(regiistryNodeFile);
+		}
+		if (!regiistryNodeFile.getParentFile().exists()){
+			regiistryNodeFile.getParentFile().mkdirs();
+		}
+		try {
+	        regiistryNodeFile.createNewFile();
+        } catch (IOException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+        }
+	}
+	
+	private void removeRegistryPropertyFile(String serverUrl){
+		File regiistryNodeFile= new File(ResourcesPlugin.getWorkspace().getRoot()
+		             					.getLocation().append(".metadata").append(Activator.PLUGIN_ID)
+		             					.append(serverUrl.concat(".txt")).toOSString());
+		if (regiistryNodeFile.exists()){
+			FileUtils.deleteQuietly(regiistryNodeFile);
+		}
 	}
 }
