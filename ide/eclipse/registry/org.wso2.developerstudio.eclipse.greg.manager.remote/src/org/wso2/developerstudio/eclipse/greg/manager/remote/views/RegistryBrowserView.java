@@ -2301,6 +2301,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 								getRegistryPropertyViewer().updateMe();
 							} catch (Exception e) {
 								log.error(e);
+								registry.clearSessionProperties();
 							}
 						}
 						
@@ -2310,6 +2311,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 								getResourceInfoViewer().updateMe();
 							} catch (Exception e) {
 								log.error(e);
+								registry.clearSessionProperties();
 							}
 						}
 					}

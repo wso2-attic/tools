@@ -30,12 +30,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axis2.AxisFault;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.QualifiedName;
 import org.wso2.carbon.registry.app.RemoteRegistry;
 import org.wso2.carbon.registry.core.Association;
 import org.wso2.carbon.registry.core.Collection;
@@ -80,6 +88,7 @@ public class Registry {
 	private String serverUrl;
 	private String userName;
 	private String passwd;
+	private IFile propertyFile;
 
 	/**
 	 * constructor 
@@ -91,6 +100,28 @@ public class Registry {
 		this.userName = userName;
 		this.passwd = pwd;
 		this.serverUrl = serverUrl.replaceAll("/$","").concat("/");
+		
+		init();
+	}
+	
+	private void init(){
+
+		try {
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
+	        project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+	        URL url = new URL(serverUrl);
+	        
+	        propertyFile=
+	        	project.getFile(Activator.PLUGIN_ID + File.separator + url.getHost() +
+	        	                "." + url.getPort() + ".txt");
+        } catch (CoreException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+        } catch (MalformedURLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+        }
+		
 	}
 
 	public Registry() {
@@ -137,21 +168,40 @@ public class Registry {
 	
 	/**
 	 * get registry instance via RemoteRegistry API
+	 * 
 	 * @return
 	 * @throws InvalidRegistryURLException
 	 * @throws UnknownRegistryException
 	 */
-	private org.wso2.carbon.registry.core.Registry getRemoteRegistry() throws InvalidRegistryURLException, UnknownRegistryException{
-			registryInit();
-			try {
-				remregistry = new RemoteRegistry(new URL(serverUrl + REMOTE_REGISTRY_URL), 
-												userName,
-												passwd);
-			} catch (MalformedURLException e) {
-				throw new InvalidRegistryURLException(e);
-			} catch (RegistryException e) {
-				throw new UnknownRegistryException(e);
+	private org.wso2.carbon.registry.core.Registry getRemoteRegistry()
+	                                                                  throws InvalidRegistryURLException,
+	                                                                  UnknownRegistryException {
+		try {
+			URL url = new URL(serverUrl + REMOTE_REGISTRY_URL);
+
+			if (propertyFile.exists()) {
+				Object sessionProperty =
+				                         propertyFile.getSessionProperty(new QualifiedName("",
+				                                                                    url.toString()));
+				Map sessionProperties = propertyFile.getSessionProperties();
+				if (sessionProperty != null) {
+					return (org.wso2.carbon.registry.core.Registry) sessionProperty;
+				}
 			}
+			registryInit();
+			remregistry = new RemoteRegistry(url, userName, passwd);
+			if (propertyFile.exists()) {
+				propertyFile.setSessionProperty(new QualifiedName("", url.toString()), remregistry);
+			}
+
+		} catch (MalformedURLException e) {
+			throw new InvalidRegistryURLException(e);
+		} catch (RegistryException e) {
+			throw new UnknownRegistryException(e);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return remregistry;
 	}
 	
@@ -856,5 +906,19 @@ public class Registry {
 		} catch (RegistryException e) {
 			throw new UnknownRegistryException("Error occured while restoring registry resource: "+e.getMessage(),e);
 		}				
+	}
+	
+	public void clearSessionProperties(){
+        try {
+	        if (propertyFile.exists()) {
+	        	propertyFile.setSessionProperty(new QualifiedName("",new URL(serverUrl + REMOTE_REGISTRY_URL).toString()), null);
+	        }
+        } catch (CoreException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+        } catch (MalformedURLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+        }
 	}
 }

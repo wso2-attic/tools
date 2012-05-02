@@ -67,6 +67,7 @@ public class RegistryHeartBeatTester implements Runnable {
 		}
 		if (!Utils.isValidServerURL(registryNode.getServerUrl())){
 			registryNode.setEnabled(false);
+			registryNode.getRegistry().clearSessionProperties();
 		}else{
 			if (registryNode.getRegistryUrlInfo().isEnabled()){
 				registryNode.setEnabled(true);

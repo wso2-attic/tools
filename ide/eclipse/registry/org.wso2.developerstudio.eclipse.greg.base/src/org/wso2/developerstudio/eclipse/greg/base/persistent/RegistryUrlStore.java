@@ -178,13 +178,13 @@ public final class RegistryUrlStore {
 	public RegistryURLInfo addRegistryUrl(URL registryUrl, 
 										  String username,
 										  String path) {
+		createRegistryPropertyFile(registryUrl.getHost()+"."+registryUrl.getPort());
 		RegistryURLInfo info = new RegistryURLInfo();
 		info.setUrl(registryUrl);
 		info.setPath(path);
 		info.setUsername(username);
 		urlList.add(info);
 		saveUrlsToFile();
-		createRegistryPropertyFile(registryUrl.getHost()+"."+registryUrl.getPort());
 		return info;
 	}
 
@@ -209,7 +209,7 @@ public final class RegistryUrlStore {
 	
 	private void createRegistryPropertyFile(String serverUrl){
 		File regiistryNodeFile= new File(ResourcesPlugin.getWorkspace().getRoot()
-					.getLocation().append(".metadata").append(Activator.PLUGIN_ID)
+					.getLocation().append(".tmp").append(Activator.PLUGIN_ID)
 					.append(serverUrl.concat(".txt")).toOSString());
 		if (regiistryNodeFile.exists()){
 			FileUtils.deleteQuietly(regiistryNodeFile);
@@ -227,7 +227,7 @@ public final class RegistryUrlStore {
 	
 	private void removeRegistryPropertyFile(String serverUrl){
 		File regiistryNodeFile= new File(ResourcesPlugin.getWorkspace().getRoot()
-		             					.getLocation().append(".metadata").append(Activator.PLUGIN_ID)
+		             					.getLocation().append(".tmp").append(Activator.PLUGIN_ID)
 		             					.append(serverUrl.concat(".txt")).toOSString());
 		if (regiistryNodeFile.exists()){
 			FileUtils.deleteQuietly(regiistryNodeFile);
