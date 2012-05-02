@@ -105,9 +105,9 @@ public class ResourceEditorPage extends FormPage implements
 	private Label lifeCycle;
 	private Label lifeCycleState;
 	
-	private String currentResourceName;
-	private String currentDescription;
-	private String currentMediaType;
+	private String currentResourceName ="";
+	private String currentDescription = "";
+	private String currentMediaType = "";
 	private boolean createGovernanceArchive = false;
 	private Date createdDate;
 	private String createdUser;
@@ -318,7 +318,7 @@ public class ResourceEditorPage extends FormPage implements
 	                doFinish();
 //	                refreshPage();
                 } catch (Exception e) {
-	                e.printStackTrace();
+                	log.error("An unexpected error has occurred", e);
                 }
 			}
 		});
@@ -472,7 +472,7 @@ public class ResourceEditorPage extends FormPage implements
 				String mediaType;
 				mediaType = MediaManager.getMediaType(file);
 				if (mediaType == null) {
-					mediaTypeText.setText("not specified");
+					mediaTypeText.setText("plain/text");
 					setMediaType(null);
 				} else {
 					mediaTypeText.setText(mediaType);
@@ -875,10 +875,15 @@ public class ResourceEditorPage extends FormPage implements
 						.getRegistry();
 				Resource regResource = registryConnection.get(resource.getRegistryResourcePath());
 				String selectedPath = resource.getRegistryResourcePath();
-				setCurrentMediaType(regResource.getMediaType());
-				setMediaType(getCurrentMediaType());
-				setCurrentDescription(regResource.getDescription());
-				setDescription(getCurrentDescription());
+				if(regResource.getMediaType() != null){
+					setCurrentMediaType(regResource.getMediaType());
+					setMediaType(getCurrentMediaType());
+				}
+				if(regResource.getDescription() != null){
+					setCurrentDescription(regResource.getDescription());
+					setDescription(getCurrentDescription());
+				}
+				
 				setCreatedDate(regResource.getCreatedTime());
 				setCreatedUser(regResource.getAuthorUserName());
 				setLastModifiedDate(regResource.getLastModified());
@@ -925,10 +930,13 @@ public class ResourceEditorPage extends FormPage implements
 	}
 
 	private void updateDirtyState() {
-		boolean dirtyState = getCurrentResourceName() == null
-				|| getCurrentMediaType() == null
-				|| getCurrentDescription() == null
-				|| (!getCurrentResourceName().equals(getResourceName()))
+		if(getResourceName().trim().isEmpty()){
+			setPageDirty(false);
+			btnOk.setEnabled(false);
+			return;
+		}
+		
+		boolean dirtyState =  (!getCurrentResourceName().equals(getResourceName()))
 				|| (!getCurrentMediaType().equals(getMediaType()))
 				|| (!getCurrentDescription().equals(getDescription())
 				|| getCurrentMyRating() != getMyRating());
@@ -1058,7 +1066,7 @@ public class ResourceEditorPage extends FormPage implements
 					try {
 						createContent(getResourceName(), getMediaType());
 					} catch (IOException e1) {
-						e1.printStackTrace();
+						log.error("An IO exception has occurred", e1);
 						throw new Exception("File cannot be empty");
 					}
 					//
@@ -1122,9 +1130,9 @@ public class ResourceEditorPage extends FormPage implements
 						}
 					}
 				} catch (MalformedURLException e) {
-					e.printStackTrace();
+					log.error("MalformedURL", e);
 				} catch (IOException e) {
-					e.printStackTrace();
+					log.error("An IO exception has occurred", e);
 				}
 			}
 			regResourcePathData = editorInput.getParentResource();
