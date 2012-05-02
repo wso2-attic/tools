@@ -23,6 +23,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.IWizard;
@@ -36,6 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
@@ -63,6 +65,7 @@ public class DashboardPage extends FormPage {
 	
 	private static Map<String, String[]> wizardCategoryMap=new HashMap<String, String[]>(); 
 	private  Map<String, IWizardDescriptor> wizardDescriptor; 
+	private  Map<String, Action> customActions = new HashMap<String, Action>(); 
 	
 	static{
 		wizardCategoryMap.put("Application Server", new String[] {
@@ -98,6 +101,7 @@ public class DashboardPage extends FormPage {
 				});
 		
 		wizardCategoryMap.put("Governance Registry", new String[]{
+				"org.wso2.developerstudio.registry.remote.registry.pespective.action",
 				"org.wso2.developerstudio.eclipse.general.project",
 				"org.wso2.developerstudio.eclipse.artifact.newregistryresource",
 				"org.wso2.developerstudio.eclipse.artifact.newregistryfilter",
@@ -159,6 +163,28 @@ public class DashboardPage extends FormPage {
 		composite.setLayout(new GridLayout(2, false));
 		
 		wizardDescriptor = getWizardDescriptors();
+		
+		customActions.put("org.wso2.developerstudio.registry.remote.registry.pespective.action", new Action() {
+			public void run() {
+				 try {
+					 	IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			        	PlatformUI.getWorkbench().showPerspective("org.wso2.developerstudio.registry.remote.registry.pespective", window);
+					} catch (Exception e) {
+						log.error("Cannot open registry perspective",e);
+					}
+			}
+			public String getText() {
+				return "Manage Your Registry";
+			}
+			public ImageDescriptor getImageDescriptor() {
+				return ImageDescriptor.createFromImage(resize(SWTResourceManager
+						.getImage(this.getClass(), "/intro/css/graphics/registry.png"),
+						16, 16));
+			}
+			public String getDescription() {
+				return "Manage your registry";
+			}
+		});
 
 		createCategory(managedForm,composite,"Application Server");
 		createCategory(managedForm,composite,"Enterprise Service Bus");
@@ -196,6 +222,7 @@ public class DashboardPage extends FormPage {
 		comSamples.setLayout(new GridLayout(1, false));
 		createSamples(managedForm,comSamples);
 		sctnSamples.setExpanded(true);
+		
 	}
 	
 	private Map<String, IWizardDescriptor> getWizardDescriptors() {
@@ -253,6 +280,9 @@ public class DashboardPage extends FormPage {
 		if(wizardDescriptor.containsKey(id)){
 			itemCount++;
 			createWizardLink(managedForm, composite,wizardDescriptor.get(id));
+		} else if (customActions.containsKey(id)){
+			itemCount++;
+			createLink(managedForm, composite,customActions.get(id));
 		}
 		}
 		if(itemCount %2 ==1){
@@ -304,6 +334,40 @@ public class DashboardPage extends FormPage {
 			
 			public void linkActivated(HyperlinkEvent evt) {
 				openWizard(wizardId);
+			}
+			
+			public void linkEntered(HyperlinkEvent evt) {
+				
+			}
+
+			public void linkExited(HyperlinkEvent evt) {
+				
+			}
+		});
+	}
+	
+	
+	/**
+	 * Create contents of link with custom action
+	 * @param managedForm
+	 * @param composite
+	 * @param action
+	 */
+	private void createLink(IManagedForm managedForm,Composite composite,final Action action){
+		ImageHyperlink wizardLink = managedForm.getToolkit().createImageHyperlink(composite, SWT.NONE);
+		ImageDescriptor descriptionImage = action.getImageDescriptor();
+		if(descriptionImage!=null){
+			wizardLink.setImage(descriptionImage.createImage());
+		}
+		managedForm.getToolkit().paintBordersFor(wizardLink);
+		wizardLink.setText(action.getText());
+		wizardLink.setToolTipText(action.getDescription());
+		GridData gd_wizardLink = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		wizardLink.setLayoutData(gd_wizardLink);
+		wizardLink.addHyperlinkListener(new IHyperlinkListener() {
+			
+			public void linkActivated(HyperlinkEvent evt) {
+				action.run();
 			}
 			
 			public void linkEntered(HyperlinkEvent evt) {
