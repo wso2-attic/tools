@@ -26,13 +26,16 @@
 					<a href="#Introduction">Introduction</a>
 				</li>
 				<li>
-					<a href="#System">Prerequisites</a>
+					<a href="#System">Pre-requisites</a>
 				</li>
 				<li>
 					<a href="#install2">Download and Install</a>
 				</li>
 				<li>
 					<a href="#install1">Online installation</a>
+				</li>
+				<li>
+					<a href="#install3">Install on top of Carbon Studio 1.0.x family</a>
 				</li>
 			</ul>
 		</div>
@@ -313,6 +316,65 @@
 		<p>
 		Choose the features you want to install and follow the same steps as listed above in offline installation.
 		</p>
+		
+		<h2 id="install3">Install on top of Carbon Studio 1.0.x family</h2>
+		
+		<p>
+		If your Eclipse Instance has Carbon Studio 1.0.x installed, before installing 
+		<strong>WSO2 Developer Studio 2.0.0</strong>, you have to remove <strong>Carbon 
+		Studio 1.0.x features</strong>.
+		</p>
+		
+		<p>
+		To remove 1.0.x related features, go to <strong>Help -> About Eclipse</strong>. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/install-13.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Click on <strong>Installation Details</strong> button. Now you will see that all the 
+		installed features are listed. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/install-14.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select all the features related to <strong>Carbon Studio 1.0.x</strong> family, 
+		and select <strong>Uninstall...</strong>.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/install-15.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Confirm the features to be un-installed by click <strong>Finish</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/install-16.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Once the un-installation is completed, restart the eclipse instance. Now you have 
+		successfully un-installed <strong>Carbon Studio 1.0.x</strong> features.
+		</p>
+		
+		<p>
+		Now follow the steps in <a href="#install2">Download and Install (Offline Installation)</a> 
+		to install <strong>Developer Studio 2.0.0</strong> features.
+		</p>		
 
 	</body>
 </html>
