@@ -574,7 +574,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				
 				queryPropertyGroupAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
 				
-				resultAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_RESULT_ACTION);
+				resultAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_OUTPUT_MAPPING_ACTION);
 				
 				excelAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EXCEL_QUERY_ACTION);
 				

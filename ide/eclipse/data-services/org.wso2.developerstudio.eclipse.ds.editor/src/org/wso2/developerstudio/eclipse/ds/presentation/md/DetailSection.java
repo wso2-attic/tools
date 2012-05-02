@@ -3,17 +3,27 @@ package org.wso2.developerstudio.eclipse.ds.presentation.md;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.CreateChildCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -26,6 +36,7 @@ import org.wso2.developerstudio.eclipse.ds.DataService;
 import org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration;
 import org.wso2.developerstudio.eclipse.ds.Description;
 import org.wso2.developerstudio.eclipse.ds.DoubleRangeValidator;
+import org.wso2.developerstudio.eclipse.ds.DsFactory;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.EventTrigger;
@@ -321,11 +332,11 @@ public class DetailSection {
 		
 		}else if(input instanceof CallQuery && dataService != null) {
 			
-			CallQuery callQuery = (CallQuery)input;
+			final CallQuery callQuery = (CallQuery)input;
 			
 			EList<Query> queryList = dataService.getQuery();
 			
-			Query [] q  = queryList.toArray(new Query [0]);
+			final Query [] q  = queryList.toArray(new Query [0]);
 			
 			String [] displayValues = new String [q.length];
 			
@@ -338,8 +349,49 @@ public class DetailSection {
 			labelMaker("");
 			
 			labelMaker(DetailSectionCustomUiConstants.CALL_QUERY_LINK);
-			sectionUtil.getCustomComboField(detailsclient, toolkit, callQuery, callQuery.getHref(),
+			final Combo queryCombo = sectionUtil.getCustomComboField(detailsclient, toolkit, callQuery, callQuery.getHref(),
 					DsPackage.eINSTANCE.getCallQuery_Href(), displayValues);
+			queryCombo.addSelectionListener(new SelectionAdapter() {
+				
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					
+					super.widgetSelected(e);
+					
+					EList<ParameterMapping> existingparms = callQuery.getWithParam();
+					
+					if(existingparms != null && !existingparms.isEmpty()){
+						
+						callQuery.getWithParam().removeAll(existingparms);
+					
+					}
+					
+					int selectionIndex  = queryCombo.getSelectionIndex();
+					
+					if(q[selectionIndex] != null && !q[selectionIndex].getId().equals("")){
+						
+						if(q[selectionIndex].getParam() != null){
+							
+							EList<QueryParameter> queryParams =  q[selectionIndex].getParam();
+							
+							if(!queryParams.isEmpty()){
+								
+								for (QueryParameter param  : queryParams){
+									
+									 String paramName = param.getName();
+									 
+									 ParameterMapping parammapping =  DsFactory.eINSTANCE.createParameterMapping();
+									 parammapping.setName(paramName);
+									 parammapping.setQueryParam(paramName);
+									 
+									 callQuery.getWithParam().add(parammapping);
+									 
+								}
+							}
+						}
+					}  
+				}
+			});
 			
 		}else if(input instanceof ParameterMapping){
 			

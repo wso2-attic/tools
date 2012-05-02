@@ -156,7 +156,7 @@ public class DSAction extends StaticSelectionCommandAction {
 			imageURL = "wso2/resource";
 		}
 
-		if (commandName.equals(DSActionConstants.ADD_RESULT_ACTION)) {
+		if (commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ACTION)) {
 			imageURL = "wso2/result";
 		}
 
@@ -336,7 +336,7 @@ public class DSAction extends StaticSelectionCommandAction {
 				
 				//result action
 				
-				if(childObj instanceof ResultMapping && commandName.equals(DSActionConstants.ADD_RESULT_ACTION)){
+				if(childObj instanceof ResultMapping && commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_ACTION)){
 					
 					return getChildCommand(param, collection, owner);
 				}

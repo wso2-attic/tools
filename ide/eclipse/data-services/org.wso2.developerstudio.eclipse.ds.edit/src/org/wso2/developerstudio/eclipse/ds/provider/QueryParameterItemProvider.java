@@ -294,9 +294,9 @@ public class QueryParameterItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((QueryParameter)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_QueryParameter_type") :
-			getString("_UI_QueryParameter_type") + " " + label;
+		String type = " (" + getString("_UI_QueryParameter_type") + ")";
+		return label != null ? label.toString() + type : type;
+		 
 	}
 
 	/**
