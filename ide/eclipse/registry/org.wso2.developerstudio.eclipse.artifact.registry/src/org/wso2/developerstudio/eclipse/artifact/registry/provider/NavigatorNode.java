@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.artifact.registry.provider;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,12 +64,12 @@ public class NavigatorNode {
 		for (RegistryElement item : items) {
 	        String path = item.getPath().replaceAll("^" + Pattern.quote(getPath()),"");
 	        path = path.replaceAll("^" + Pattern.quote("/"),"");
-	        String suffix = getPath() + (getPath().equals("/")?"":"/");
+	        String prefix = getPath() + (getPath().equals("/")?"":"/");
 	        if(!"".equals(path)){
 	        	if(path.indexOf("/")!=-1){
-	        		path = suffix + path.substring(0, path.indexOf("/"));
+	        		path = prefix + path.substring(0, path.indexOf("/"));
 	        	} else{
-	        		path = suffix + path.substring(0, path.length());
+	        		path = prefix + path.substring(0, path.length());
 	        	}
 	        	if(node.containsKey(path)){
 	        		node.get(path).getContent().add(item);
@@ -85,27 +87,65 @@ public class NavigatorNode {
 		    		  name = ((RegistryItem)item).getFile();
 		    		  NavigatorNode navigatorNode = new NavigatorNode();
 		        	  navigatorNode.setContent(new ArrayList<RegistryElement>());
-		        	  navigatorNode.setPath(suffix+name);
+		        	  navigatorNode.setPath(prefix+name);
 		        	  navigatorNode.setProject(getProject());
 		        	  navigatorNode.setData(item);
-		        	  node.put(suffix+name, navigatorNode);
+		        	  node.put(prefix+name, navigatorNode);
 		    	  } else if(item instanceof RegistryDump){
 		    		  name = ((RegistryDump)item).getFile();
 		    		  NavigatorNode navigatorNode = new NavigatorNode();
 		        	  navigatorNode.setContent(new ArrayList<RegistryElement>());
-		        	  navigatorNode.setPath(suffix+name);
+		        	  navigatorNode.setPath(prefix+name);
 		        	  navigatorNode.setProject(getProject());
 		        	  navigatorNode.setData(item);
-		        	  node.put(suffix+name, navigatorNode);
+		        	  node.put(prefix+name, navigatorNode);
 		    	  }else{
-		    		  name = ((RegistryCollection)item).getDirectory();
-		    		  //TODO: list real file(s) or dir(s) inside collection 
+		    		  RegistryCollection collection = (RegistryCollection)item;
+		    		  File dir = getProject().getFolder(collection.getDirectory()).getLocation().toFile();
+		    		  node.putAll(createNodes(dir, prefix+name));
 		    	  }
 	        }
         }
     	return node.values().toArray(new NavigatorNode[]{});
 		
     }
+	
+	private Map<String,NavigatorNode> createNodes(File dir,String basePath){
+		Map<String,NavigatorNode> nodes = new HashMap<String,NavigatorNode>();
+		String[] files = dir.list(new FilenameFilter() {
+			
+			public boolean accept(File dir, String name) {
+				return !name.equals(".meta");
+			}
+		});
+		for(String filename : files){
+			File resource = new File(dir,filename); 
+			String resourcePath = resource.toString().replaceAll("^" +getProject().getLocation().toOSString() + "/","");
+			if(resource.isDirectory()){
+				RegistryCollection collection = new RegistryCollection();
+				collection.setPath(basePath + resource.getName());
+				collection.setDirectory(resourcePath);
+				NavigatorNode navigatorNode = new NavigatorNode();
+        		navigatorNode.setContent(new ArrayList<RegistryElement>());
+        		navigatorNode.getContent().add(collection);
+        		navigatorNode.setPath(basePath + resource.getName());
+        		navigatorNode.setProject(getProject());
+        		nodes.put(basePath + resource.getName(), navigatorNode);
+			} else {
+				RegistryItem item = new RegistryItem();
+				item.setFile(resourcePath);
+				item.setPath(basePath);
+				NavigatorNode navigatorNode = new NavigatorNode();
+				navigatorNode.setContent(new ArrayList<RegistryElement>());
+				navigatorNode.setPath(basePath + resource.getName());
+				navigatorNode.setProject(getProject());
+				navigatorNode.setData(item);
+				nodes.put(basePath + resource.getName(), navigatorNode);
+			}
+		}
+		return nodes;
+	}
+	
 	
 	public String getText() {
 		int index = getPath().lastIndexOf("/");

@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifac
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
 
 public class ResourcesContentProvider implements ITreeContentProvider {
+	private static final String navigatorLabel = "Registry Resoures View";
 	private IProject project;
 	NavigatorNode root;
 	
@@ -69,9 +70,9 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 		if(IProject.class.isInstance(element)){
 			setProject((IProject)element);
 			initContent();
-			return new String[]{"Registry Resoures"};
+			return new String[]{navigatorLabel};
 		} else if(String.class.isInstance(element)){
-			if("Registry Resoures".equals(element.toString())){
+			if(navigatorLabel.equals(element.toString())){
 				return new Object[]{root};
 			}
 		} else if (NavigatorNode.class.isInstance(element)){
