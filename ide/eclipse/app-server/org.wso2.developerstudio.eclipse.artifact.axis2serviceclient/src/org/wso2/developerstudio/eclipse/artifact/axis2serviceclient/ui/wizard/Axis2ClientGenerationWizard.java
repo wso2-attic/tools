@@ -332,7 +332,9 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 
 	public IWizardPage getNextPage(IWizardPage page) {
 		IWizardPage nextPage = super.getNextPage(page);
-		nextPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
+		if(nextPage!=null){
+			nextPage.setImageDescriptor(Axis2ImageUtils.getInstance().getImageDescriptor("axis2-wizard.png"));
+		}
 		// if (page instanceof Axis2GenerateClientOptionPage){
 		// // if (clientOptionPage.getSourceFolder()==null){
 		// // clientOptionPage.setSourceFolder(sourceFolder);
