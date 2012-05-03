@@ -23,6 +23,8 @@ import java.util.Map;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryNode;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryURLNode;
+import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
+import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.developerstudio.eclipse.greg.base.util.Utils;
 
 public class RegistryHeartBeatTester implements Runnable {
@@ -30,9 +32,11 @@ public class RegistryHeartBeatTester implements Runnable {
 	private boolean stop=false;
 	private Map<RegistryNode,Boolean> originalState=new HashMap<RegistryNode, Boolean>();;
 	private static final int HEARTBEAT_RATE=5000;
+	private RegistryUrlStore urlStore;
 	
 	public RegistryHeartBeatTester(RegistryURLNode urlNodeList) {
 		setUrlNodeList(urlNodeList);
+		urlStore=RegistryUrlStore.getInstance();
 	}
 	
 	public void run() {
@@ -67,10 +71,20 @@ public class RegistryHeartBeatTester implements Runnable {
 		}
 		if (!Utils.isValidServerURL(registryNode.getServerUrl())){
 			registryNode.setEnabled(false);
+			List<RegistryURLInfo> allRegistryUrls = urlStore.getAllRegistryUrls();
+			int indexOf = allRegistryUrls.indexOf(registryNode.getRegistryUrlInfo());
+			RegistryURLInfo registryURLInfo = allRegistryUrls.get(indexOf);
+			registryURLInfo.setEnabled(false);
+			urlStore.persist();
 			registryNode.getRegistry().clearSessionProperties();
 		}else{
 			if (registryNode.getRegistryUrlInfo().isEnabled()){
 				registryNode.setEnabled(true);
+				List<RegistryURLInfo> allRegistryUrls = urlStore.getAllRegistryUrls();
+				int indexOf = allRegistryUrls.indexOf(registryNode.getRegistryUrlInfo());
+				RegistryURLInfo registryURLInfo = allRegistryUrls.get(indexOf);
+				registryURLInfo.setEnabled(true);
+				urlStore.persist();
 			}
 		}
 		if (currentEnableState!=registryNode.isEnabled()){

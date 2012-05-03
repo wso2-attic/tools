@@ -2298,7 +2298,9 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						if (getRegistryPropertyViewer() != null) {
 							getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
 							try {
-								getRegistryPropertyViewer().updateMe();
+								if (((RegistryNode) object).isEnabled()) {
+	                                getRegistryPropertyViewer().updateMe();
+                                }
 							} catch (Exception e) {
 								log.error(e);
 								registry.clearSessionProperties();
@@ -2308,7 +2310,9 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						if (getResourceInfoViewer() != null) {
 							getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
 							try {
-								getResourceInfoViewer().updateMe();
+								if (((RegistryNode) object).isEnabled()) {
+	                                getResourceInfoViewer().updateMe();
+                                }
 							} catch (Exception e) {
 								log.error(e);
 								registry.clearSessionProperties();
@@ -2397,20 +2401,22 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 								.setImageDescriptor(ImageUtils
 										.getImageDescriptor(ImageUtils.ACTION_DELETE_REGISTRY));
 						regNode = (RegistryNode) object;
-						regResourceNode = regNode.getRegistryContent()
-								.getRegistryContent().get(0);
-						resourcePath = regResourceNode
-								.getRegistryResourcePath();
-						if (resourceNodes != null) {
-							if (resourceNodes.isEmpty()) {
-								resourceNodes.add(regResourceNode);
-							}
-						}
-						// resourcePathList.add(regResourcePathData);
-						// regResourcePathData.setResourcePathList(resourcePathList);
-						setResourcePath(resourcePath);
-						setRegData(regNode);
-						setRegResourcePathData(regResourceNode);
+						if (regNode.isEnabled()) {
+	                        regResourceNode =
+	                                          regNode.getRegistryContent().getRegistryContent()
+	                                                 .get(0);
+	                        resourcePath = regResourceNode.getRegistryResourcePath();
+	                        if (resourceNodes != null) {
+		                        if (resourceNodes.isEmpty()) {
+			                        resourceNodes.add(regResourceNode);
+		                        }
+	                        }
+	                        // resourcePathList.add(regResourcePathData);
+	                        // regResourcePathData.setResourcePathList(resourcePathList);
+	                        setResourcePath(resourcePath);
+	                        setRegData(regNode);
+	                        setRegResourcePathData(regResourceNode);
+                        }
 
 					} else if (object instanceof RegistryResourceNode) {
 						regResourceNode = (RegistryResourceNode) object;
