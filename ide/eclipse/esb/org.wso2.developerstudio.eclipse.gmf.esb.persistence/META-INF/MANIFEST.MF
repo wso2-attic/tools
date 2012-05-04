@@ -105,7 +105,8 @@ Bundle-ClassPath: .,
  lib/xmlunit-1.1.jar,
  lib/synapse-extensions-2.1.0-wso2v4.jar,
  lib/synapse-fix-transport-2.1.0-wso2v4.jar,
- lib/stax-api-1.0-2.jar
+ lib/stax-api-1.0-2.jar,
+ lib/saxon-xqj-8.9.jar
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.wso2.developerstudio.eclipse.gmf.esb,
  org.eclipse.core.runtime,

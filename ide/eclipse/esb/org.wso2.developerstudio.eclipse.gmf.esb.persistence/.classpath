@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/saxon-xqj-9.1.0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/saxon-xqj-8.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/stax-api-1.0-2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions-2.1.0-wso2v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-fix-transport-2.1.0-wso2v4.jar"/>
