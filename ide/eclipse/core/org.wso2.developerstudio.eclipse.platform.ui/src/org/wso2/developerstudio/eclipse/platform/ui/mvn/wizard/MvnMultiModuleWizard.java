@@ -10,10 +10,12 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
@@ -76,6 +78,8 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		List modules = mavenProject.getModules();
 
 		List<IProject> selectedProjects = moduleModel.getSelectedProjects();
+		
+		selectedProjects=sortProjects(selectedProjects);
 
 		if (multiModuleProject != null) {
 			IFile pomFile = multiModuleProject.getFile("pom.xml");
@@ -134,6 +138,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 	 */
 	private void addMavenModules(IProject selectedProject, MavenProject mavenProject, List modules,
 	                             List<IProject> selectedProjects, IFile pomFile) {
+		modules.clear();
 		for (IProject iProject : selectedProjects) {
 			String relativePath =
 			                      FileUtils.getRelativePath(selectedProject.getLocation().toFile(),
@@ -161,5 +166,30 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 
 	public IProject getMultiModuleProject() {
 		return multiModuleProject;
+	}
+	
+	private List<IProject> sortProjects(List<IProject> projects){
+		try {
+		List<IProject> distributionProjects=new ArrayList<IProject>();
+		List<IProject> projectList=new ArrayList<IProject>();
+		
+		for (IProject iProject : projects) {
+	            if(iProject.hasNature(Constants.DISTRIBUTION_PROJECT_NATURE)){
+	            	distributionProjects.add(iProject);
+	            }else{
+	            	projectList.add(iProject);
+	            }
+        }
+		
+		projects=projectList;
+		for (IProject iProject : distributionProjects) {
+	        projectList.add(iProject);
+        }
+		
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return projects;
 	}
 }
