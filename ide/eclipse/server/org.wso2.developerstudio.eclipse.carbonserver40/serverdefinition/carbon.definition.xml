@@ -5,6 +5,13 @@
 	version="4.0"
 	xsi:schemaLocation="http://eclipse.org/jst/server/generic/ServerTypeDefinition ServerTypeDefinitionSchema.xsd">
 	<property 
+		id="server.name" 
+		label="Server Name" 
+		type="string"
+        context="runtime" 
+		default="WSO2 Carbon 4.0 based server" />
+		
+	<property 
 		id="carbon.home" 
 		label="CARBON_HOME" 
 		type="directory"

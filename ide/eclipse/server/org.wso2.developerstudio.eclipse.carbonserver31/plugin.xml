@@ -104,7 +104,7 @@
    
   <extension point="org.eclipse.wst.server.ui.wizardFragments">
       <fragment
-            class="org.eclipse.jst.server.generic.ui.internal.GenericServerRuntimeWizardFragment"
+            class="org.wso2.developerstudio.eclipse.carbonserver.base.internal.CarbonRuntimeWizardFragment"
             id="org.eclipse.jst.server.generic.runtime"
             typeIds="org.wso2.developerstudio.eclipse.carbon.runtime31">
       </fragment>
