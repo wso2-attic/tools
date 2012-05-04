@@ -291,6 +291,10 @@ public class CarbonServerUtils {
     	return new Path(resolveProperties(server, "wsas.home"));
 	}
 	
+	public static IPath getCarbonServerHome(IServer server){
+    	return new Path(resolveProperties(server, "carbon.home"));
+	}
+	
 	public static String getAxis2FilePath(IServer server){
 		IPath serverHome = getCarbonHome(server);
 		String axis2Xml=FileUtils.addNodesToPath(serverHome.toOSString(),new String[]{"conf","axis2.xml"});

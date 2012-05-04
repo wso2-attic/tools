@@ -20,8 +20,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -60,6 +62,8 @@ import org.w3c.dom.Node;
 import org.wso2.developerstudio.eclipse.carbonfeatures.Activator;
 import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICarbonServerBehavior;
 import org.wso2.developerstudio.eclipse.carbonserver.base.monitor.CarbonPingThread;
+import org.wso2.developerstudio.eclipse.carbonserver.base.utils.CarbonServerScriptParser;
+import org.wso2.developerstudio.eclipse.carbonserver.base.utils.CarbonServerUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.xml.sax.InputSource;
 
@@ -281,14 +285,36 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
 	}
  	
     protected String getVmArguments() {
-    	String vmParameters = getServerDefinition().getResolver().resolveProperties(getServerDefinition().getStart().getVmParametersAsString());
-//    	String serverLocalWorkspacePath = CarbonServerUtils.getCarbonHome(getServer()).toOSString();
+    	String defaultVMParameters = getServerDefinition().getResolver().resolveProperties(getServerDefinition().getStart().getVmParametersAsString());
+    	String serverLocalWorkspacePath = CarbonServerUtils.getCarbonServerHome(getServer()).toOSString();
+    	CarbonServerScriptParser parser=new CarbonServerScriptParser(serverLocalWorkspacePath);
+    	Map<String, String> serverVMParamaters = parser.getVMParamaters();
+    	String[] array=defaultVMParameters.split(" ");
+    	
+//    	for (Iterator iterator = serverVMParamaters.entrySet().iterator(); iterator.hasNext();) {
+//	        Entry<String, String> type = (Entry<String, String>) iterator.next();
+			for (int i = 0; i < array.length; i++) {
+                if (array[i].contains(CarbonServerScriptParser.MIN_MEMORY_STRING)) {
+                	array[i]=CarbonServerScriptParser.MIN_MEMORY_STRING+serverVMParamaters.get(CarbonServerScriptParser.MIN_MEMORY_STRING);
+                }else if (array[i].contains(CarbonServerScriptParser.MAX_MEMORY_STRING)) {
+                	array[i]=CarbonServerScriptParser.MAX_MEMORY_STRING+serverVMParamaters.get(CarbonServerScriptParser.MAX_MEMORY_STRING);
+                }else if (array[i].contains(CarbonServerScriptParser.MAX_PERM_SIZE_STRING)) {
+                	array[i]=CarbonServerScriptParser.MAX_PERM_SIZE_STRING+"="+serverVMParamaters.get(CarbonServerScriptParser.MAX_PERM_SIZE_STRING);
+                }
+            }
+			
+			StringBuffer buffer=new StringBuffer();
+			for (String string : array) {
+	            buffer.append(string).append(" ");
+            }
+//        }
 //    	String serverXmlPathFromLocalWorkspaceRepo = CarbonServerUtils.getServerXmlPathFromLocalWorkspaceRepo(serverLocalWorkspacePath);
 //    	String transportsXmlPathFromLocalWorkspaceRepo = CarbonServerUtils.getTransportsXmlPathFromLocalWorkspaceRepo(serverLocalWorkspacePath);
 //    	vmParameters=vmParameters+" -Dwso2.carbon.xml=\""+serverXmlPathFromLocalWorkspaceRepo+"\"";
 //    	vmParameters=vmParameters+" -Dwso2.transports.xml=\""+transportsXmlPathFromLocalWorkspaceRepo+"\"";
 //    	vmParameters=vmParameters+" -Dcomponents.repo=\""+serverLocalWorkspacePath+"/repository/components/plugins\"";
-    	return vmParameters;
+    	return buffer.toString();
+//			return defaultVMParameters;
     }
     
 //    private void checkClosed(IModule[] module) throws CoreException
