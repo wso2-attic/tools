@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/saxon-xqj-9.1.0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/stax-api-1.0-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions-2.1.0-wso2v4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/synapse-fix-transport-2.1.0-wso2v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/activation-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axiom-api-1.2.11-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axiom-dom-1.2.11-SNAPSHOT.jar"/>
@@ -75,16 +79,12 @@
 	<classpathentry exported="true" kind="lib" path="lib/sandesha2-core-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/saxon-8.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/saxon-dom-8.9.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/saxon-xqj-8.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/serializer-2.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/servlet-api-2.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.5.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/spring.framework-2.5.1.wso2v1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/stax-api-1.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-commons-2.1.0-wso2v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-core-2.1.0-wso2v4.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions-2.1.0.wso2v5.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/synapse-fix-transport-2.1.0.wso2v5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-nhttp-transport-2.1.0-wso2v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-samples-2.1.0.wso2v5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-securevault-2.1.0-wso2v2.jar"/>

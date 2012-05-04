@@ -193,7 +193,7 @@
   <version>6.0.16</version>
 </dependency>
 
-
+ 
 <dependency>
   <groupId>org.codehaus.woodstox</groupId>
   <artifactId>wstx-asl</artifactId>
@@ -233,11 +233,6 @@
 </dependency>
 
 
-<dependency>
-  <groupId>quartz</groupId>
-  <artifactId>quartz</artifactId>
-  <version>1.6.0</version>
-</dependency>
 
 
 
