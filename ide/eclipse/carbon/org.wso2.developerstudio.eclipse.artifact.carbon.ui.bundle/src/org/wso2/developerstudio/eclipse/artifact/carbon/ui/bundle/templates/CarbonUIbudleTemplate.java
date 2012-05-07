@@ -17,6 +17,14 @@ public class CarbonUIbudleTemplate {
 				
 				return fileContent;
 	}
+	
+	public static String createTemplete(String resourceName) throws Exception{
+		 
+		File resourceFile = new CarbonUIBundleTemplateUtils().getResourceFile("templates/" + resourceName);
+		String fileContent = FileUtils.getContentAsString(resourceFile);
+		
+		return fileContent;
+}
 
 	public static String createComponentXMLTemplate(){
 		

@@ -115,8 +115,18 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 				createProjectFile(metaInf, "component.xml", componentXmlSource);
 				String metaInfSource = CarbonUIbudleTemplate.createManifestFileTemplate(uibundleModel);
 				createProjectFile(metaInf, "MANIFEST.MF", metaInfSource);
-			    createDirectoryhierarchy(uibundleModel.getDeployPath()); 
-				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+			    IFolder webDir = createDirectoryhierarchy(uibundleModel.getDeployPath()); 
+			    IFolder cssDir = webDir.getFolder("css");
+			    cssDir.create(true, true, new NullProgressMonitor());
+			    IFolder imgDir = webDir.getFolder("images");
+			    imgDir.create(true, true, new NullProgressMonitor());
+			    IFolder jsDir = webDir.getFolder("js");
+			    jsDir.create(true, true, new NullProgressMonitor());
+			    
+			    copyResourceFiles(cssDir.getLocation().toFile(), "menu.css");
+			    copyResourceFiles(webDir.getLocation().toFile(), "index.jsp");
+			    
+			    project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			} else{
 		      project = uibundleModel.getCarbonUIproject();
 			}
@@ -169,6 +179,13 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 //		return null;
 //	}
 	
+	private void copyResourceFiles (File dir, String resourceName) throws Exception{
+		String content = CarbonUIbudleTemplate.createTemplete(resourceName);
+		File resourceFile = new File(dir, resourceName);
+		FileUtils.createFile(resourceFile, content);
+		
+	}
+	
 	private IFile getManifestFileForProject(IProject project) throws JavaModelException{
 		List<File> manifestFileList = new ArrayList<File>();
 		File[] manifestFiles = FileUtils.getAllExactMatchingFiles(project.getLocation().toString(), "MANIFEST", "MF", manifestFileList);
@@ -191,16 +208,25 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 		return (fullyQualifiedClassName.lastIndexOf('.') > 0)?fullyQualifiedClassName.substring(0,fullyQualifiedClassName.lastIndexOf('.')):"";
 	}
 
-	private void createDirectoryhierarchy(String path) throws CoreException {
+	private IFolder createDirectoryhierarchy(String path) throws CoreException {
 		 StringBuffer buff = new StringBuffer();
 		 String delimiter = "/";
 		 String[]  temp =path.split(delimiter);
+		 IFolder folder = null;
 		  for(int i =0; i < temp.length ; i++){
 			  buff.append(temp[i]);
-			  IFolder folder = project.getFolder(buff.toString());  
-			  folder.create(true, true, new NullProgressMonitor());
-			  buff.append("/");
+			  folder = project.getFolder(buff.toString()); 
+			  if(!folder.exists()){
+				  folder.create(true, true, new NullProgressMonitor());
+				  buff.append("/");
+			  }
+			  
 		  }
+		  if(folder != null){
+			  return folder;
+		  }
+		  return null;
+		  
 	}
 	
 	public static CarbonUiModel getUibundleModel() {
