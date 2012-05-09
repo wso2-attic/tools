@@ -294,7 +294,9 @@ public class ResourceInfoViewer extends ViewPart implements
 		else return "";
 	}
 	public void updateMe() throws InvalidRegistryURLException, UnknownRegistryException {
-		updateInfo();
+		if (getRegistryResourcePathData() != null && getRegistryResourcePathData().getConnectionInfo() != null && getRegistryResourcePathData().getConnectionInfo().isEnabled()) {
+	        updateInfo();
+        }
 		decideToolBarButtons();
 	}
 
