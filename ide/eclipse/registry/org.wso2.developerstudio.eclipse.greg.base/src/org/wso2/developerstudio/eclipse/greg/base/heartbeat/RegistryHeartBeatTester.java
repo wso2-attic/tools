@@ -78,7 +78,7 @@ public class RegistryHeartBeatTester implements Runnable {
 			urlStore.persist();
 			registryNode.getRegistry().clearSessionProperties();
 		}else{
-			if (registryNode.getRegistryUrlInfo().isEnabled()){
+			if (!registryNode.getRegistryUrlInfo().isEnabled()){
 				registryNode.setEnabled(true);
 				List<RegistryURLInfo> allRegistryUrls = urlStore.getAllRegistryUrls();
 				int indexOf = allRegistryUrls.indexOf(registryNode.getRegistryUrlInfo());
