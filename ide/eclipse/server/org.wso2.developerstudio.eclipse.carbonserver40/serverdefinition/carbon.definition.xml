@@ -134,7 +134,6 @@
 		<archive path="${carbon.home}/lib" />
 		<archive path="${carbon.home}/bin" />
 		<archive path="${carbon.home}/lib/endorsed" />
-		<archive path="${carbon.home}/lib/xboot" />
 		<archive path="${carbon.home}/lib/patches" />
 		<archive path="${carbon.home}/repository/components/lib" />
 		<archive path="${carbon.home}/repository/components/extensions" />		
