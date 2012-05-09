@@ -2296,10 +2296,14 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 					if (object instanceof RegistryNode) {
 //						closeOpenEditor();
 						registry = ((RegistryNode) object).getRegistry();
-						if (getRegistryPropertyViewer() != null) {
+					}else if(object instanceof RegistryResourceNode){
+						registry=((RegistryResourceNode) object).getConnectionInfo().getRegistry();
+					}
+						
+					if (getRegistryPropertyViewer() != null) {
 							getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
 							try {
-								if (((RegistryNode) object).isEnabled()) {
+								if (regResourceNode.getConnectionInfo().isEnabled()) {
 	                                getRegistryPropertyViewer().updateMe();
                                 }
 							} catch (Exception e) {
@@ -2311,7 +2315,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						if (getResourceInfoViewer() != null) {
 							getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
 							try {
-								if (((RegistryNode) object).isEnabled()) {
+								if (regResourceNode.getConnectionInfo().isEnabled()) {
 	                                getResourceInfoViewer().updateMe();
                                 }
 							} catch (Exception e) {
@@ -2319,7 +2323,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 								registry.clearSessionProperties();
 							}
 						}
-					}
+//					}
 
 				} else {
 
