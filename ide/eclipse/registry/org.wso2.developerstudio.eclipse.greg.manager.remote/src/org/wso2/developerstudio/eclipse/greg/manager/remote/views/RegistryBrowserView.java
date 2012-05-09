@@ -2292,38 +2292,40 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 			public void widgetSelected(SelectionEvent event) {
 				Object obj = event.getSource();
 				if (obj instanceof Tree) {
-					Object object = ((Tree) obj).getSelection()[0].getData();
-					if (object instanceof RegistryNode) {
-//						closeOpenEditor();
-						registry = ((RegistryNode) object).getRegistry();
-					}else if(object instanceof RegistryResourceNode){
-						registry=((RegistryResourceNode) object).getConnectionInfo().getRegistry();
-					}
-						
-					if (getRegistryPropertyViewer() != null) {
-							getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
-							try {
-								if (regResourceNode.getConnectionInfo().isEnabled()) {
-	                                getRegistryPropertyViewer().updateMe();
-                                }
-							} catch (Exception e) {
-								log.error(e);
-								registry.clearSessionProperties();
-							}
-						}
-						
-						if (getResourceInfoViewer() != null) {
-							getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
-							try {
-								if (regResourceNode.getConnectionInfo().isEnabled()) {
-	                                getResourceInfoViewer().updateMe();
-                                }
-							} catch (Exception e) {
-								log.error(e);
-								registry.clearSessionProperties();
-							}
-						}
-//					}
+					if (((Tree) obj).getSelection().length>0) {
+	                    Object object = ((Tree) obj).getSelection()[0].getData();
+	                    if (object instanceof RegistryNode) {
+		                    //						closeOpenEditor();
+		                    registry = ((RegistryNode) object).getRegistry();
+	                    } else if (object instanceof RegistryResourceNode) {
+		                    registry =
+		                               ((RegistryResourceNode) object).getConnectionInfo()
+		                                                              .getRegistry();
+	                    }
+	                    if (getRegistryPropertyViewer() != null) {
+		                    getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
+		                    try {
+			                    if (regResourceNode.getConnectionInfo().isEnabled()) {
+				                    getRegistryPropertyViewer().updateMe();
+			                    }
+		                    } catch (Exception e) {
+			                    log.error(e);
+			                    registry.clearSessionProperties();
+		                    }
+	                    }
+	                    if (getResourceInfoViewer() != null) {
+		                    getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
+		                    try {
+			                    if (regResourceNode.getConnectionInfo().isEnabled()) {
+				                    getResourceInfoViewer().updateMe();
+			                    }
+		                    } catch (Exception e) {
+			                    log.error(e);
+			                    registry.clearSessionProperties();
+		                    }
+	                    }
+	                    //					}
+                    }
 
 				} else {
 

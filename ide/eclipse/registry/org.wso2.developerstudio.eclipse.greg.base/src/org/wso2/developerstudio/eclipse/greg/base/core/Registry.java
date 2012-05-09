@@ -276,14 +276,14 @@ public class Registry {
 	}
 	
 	private org.wso2.carbon.registry.core.Registry getRegistry() throws InvalidRegistryURLException, UnknownRegistryException{
-		if (remregistry!=null){
-			try {
-				remregistry.get("/");
-			} catch (RegistryException e) {
-				//Assume session time out as the reason for the exception
-				remregistry=null;
-			}
-		}
+//		if (remregistry!=null){
+//			try {
+//				remregistry.get("/");
+//			} catch (RegistryException e) {
+//				//Assume session time out as the reason for the exception
+//				remregistry=null;
+//			}
+//		}
 		if (remregistry == null) {
 			if(isRegistryWSFeatureAvailable()){
 				remregistry = getWSRegistryServiceClient();
@@ -346,13 +346,19 @@ public class Registry {
 	 * @throws MalformedURLException
 	 */
 	public Resource getResourcesPerCollection(String collectionPath) throws InvalidRegistryURLException, UnknownRegistryException{
-		remregistry = getRegistry();
 		Resource resource;
 		try {
-			resource = remregistry.get(collectionPath);
+			resource = getRegistry().get(collectionPath);
 			return resource;
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException(e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            resource = getRegistry().get(collectionPath);
+	            return resource;
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException(e1);
+            }
 		}
 	}
 
@@ -394,7 +400,6 @@ public class Registry {
 	 * @throws IOException
 	 */
 	public File getContent(String resourcePath, String filePath) throws InvalidRegistryURLException, UnknownRegistryException, RegistryContentRetrieveException, IOException{
-		remregistry = getRegistry();
 		Resource resource = getResourcesPerCollection(resourcePath);
 		
 
@@ -594,8 +599,8 @@ public class Registry {
 	 */
 	public void addFolderToRegistry(File path, String registryPath,
 									String name, 
-									IResourceUploadListener resourceUploadListener) throws InvalidRegistryURLException, UnknownRegistryException
-									{
+									IResourceUploadListener resourceUploadListener) throws InvalidRegistryURLException{
+		try {
 		org.wso2.carbon.registry.core.Registry remote_reg = getRegistry();
 		String selectedPath = registryPath;
 		selectedPath = selectedPath.endsWith("/") ? selectedPath : 
@@ -604,25 +609,61 @@ public class Registry {
 		String mediaType = "";
 		String collectionName = selectedPath + (name == null ? path.getName() : name);
 
-		addRegistryCollection(remote_reg, description, mediaType,
-				collectionName);
-		File[] files = path.listFiles();
-		for (File file : files) {
-			if (file.exists()) {
-				try {
-					if (file.isDirectory())
-						addFolderToRegistry(file, collectionName, null,
-											resourceUploadListener);
-					else {
-						resourceUploadListener.uploadFileStarting(file);
-						addFileToRegistry(file, collectionName, null);
-						resourceUploadListener.uploadFileDone(file);
-					}
-				} catch (Exception e) {
-					log.error(e);
-				}
-			}
-		}
+	        addRegistryCollection(remote_reg, description, mediaType,
+	        		collectionName);
+	        File[] files = path.listFiles();
+	        for (File file : files) {
+	        	if (file.exists()) {
+	        		try {
+	        			if (file.isDirectory())
+	        				addFolderToRegistry(file, collectionName, null,
+	        				                    resourceUploadListener);
+	        			else {
+	        				resourceUploadListener.uploadFileStarting(file);
+	        				addFileToRegistry(file, collectionName, null);
+	        				resourceUploadListener.uploadFileDone(file);
+	        			}
+	        		} catch (Exception e) {
+	        			log.error(e);
+	        		}
+	        	}
+	        }
+        } catch (UnknownRegistryException e1) {
+	        remregistry=null;
+	        clearSessionProperties();
+			try {
+	            org.wso2.carbon.registry.core.Registry remote_reg = getRegistry();
+	            String selectedPath = registryPath;
+	            selectedPath = selectedPath.endsWith("/") ? selectedPath : 
+	            			   selectedPath + "/";
+	            String description = "Added by WSO2 Developer Studio";
+	            String mediaType = "";
+	            String collectionName = selectedPath + (name == null ? path.getName() : name);
+
+	                addRegistryCollection(remote_reg, description, mediaType,
+	                		collectionName);
+	                File[] files = path.listFiles();
+	                for (File file : files) {
+	                	if (file.exists()) {
+	                		try {
+	                			if (file.isDirectory())
+	                				addFolderToRegistry(file, collectionName, null,
+	                				                    resourceUploadListener);
+	                			else {
+	                				resourceUploadListener.uploadFileStarting(file);
+	                				addFileToRegistry(file, collectionName, null);
+	                				resourceUploadListener.uploadFileDone(file);
+	                			}
+	                		} catch (Exception e) {
+	                			log.error(e);
+	                		}
+	                	}
+	                }
+            } catch (UnknownRegistryException e) {
+            	log.error(e);
+            }
+	        
+        }
 	}
 
 	public void addRegistryCollection(org.wso2.carbon.registry.core.Registry remote_reg,
@@ -678,7 +719,18 @@ public class Registry {
 			resource.setMediaType(mediaType);
 			remote_reg.put(resourcePath, resource);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException(e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            org.wso2.carbon.registry.core.Registry remote_reg = getRegistry();
+	            Resource resource = remote_reg.newResource();
+	            resource.setDescription(description);
+	            resource.setContentStream(new FileInputStream(path));
+	            resource.setMediaType(mediaType);
+	            remote_reg.put(resourcePath, resource);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException(e1);
+            }
 		}
 	}
 
@@ -689,8 +741,8 @@ public class Registry {
 	}
 
 	public RegistryAssociation[] getAllAssociations(String registryResourcePath) throws InvalidRegistryURLException, UnknownRegistryException{
+		List<RegistryAssociation> regAssociations=new ArrayList<RegistryAssociation>();
 		try {
-			List<RegistryAssociation> regAssociations=new ArrayList<RegistryAssociation>();
 			Association[] associations = getRegistry().getAllAssociations(registryResourcePath);
 			for (Association association : associations) {
 				RegistryAssociation registryAssociation = createRegistryAssociation(association);
@@ -698,7 +750,18 @@ public class Registry {
 			}
 			return regAssociations.toArray(new RegistryAssociation[]{});
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error in retrieving registyr associations: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            Association[] associations = getRegistry().getAllAssociations(registryResourcePath);
+	            for (Association association : associations) {
+	            	RegistryAssociation registryAssociation = createRegistryAssociation(association);
+	            	regAssociations.add(registryAssociation);
+	            }
+	            return regAssociations.toArray(new RegistryAssociation[]{});
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error in retrieving registyr associations: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -711,8 +774,19 @@ public class Registry {
 		return registryAssociation;
 	}
 
-	public boolean resourceExists(String path) throws InvalidRegistryURLException, UnknownRegistryException, RegistryException{
-		boolean resourceExists = getRegistry().resourceExists(path);
+	public boolean resourceExists(String path) throws InvalidRegistryURLException, UnknownRegistryException{
+		boolean resourceExists = false;
+        try {
+	        resourceExists = getRegistry().resourceExists(path);
+        } catch (RegistryException e) {
+        	remregistry=null;
+        	clearSessionProperties();
+        	try {
+	            resourceExists = getRegistry().resourceExists(path);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error in checking existance of resource: "+e1.getMessage(),e1);
+            }
+        }
 		return resourceExists;
 	}
 
@@ -721,7 +795,13 @@ public class Registry {
 		try {
 			getRegistry().removeAssociation(selectedPath, destinationPath, associationType);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error in removing association: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().removeAssociation(selectedPath, destinationPath, associationType);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error in removing association: "+e1.getMessage(),e1);
+            }
 		}
 		
 	}
@@ -730,7 +810,13 @@ public class Registry {
 		try {
 			getRegistry().addAssociation(selectedPath, path, type);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error adding new association: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().addAssociation(selectedPath, path, type);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error adding new association: "+e1.getMessage(),e1);
+            }
 		}
 		
 	}
@@ -739,7 +825,13 @@ public class Registry {
 		try {
 			return getRegistry().get(selectedPath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while retrieving the registry resource: "+e.getMessage(),e); 
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().get(selectedPath);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while retrieving the registry resource: "+e1.getMessage(),e1); 
+            }
 		}
 	}
 
@@ -747,7 +839,13 @@ public class Registry {
 		try {
 			return getRegistry().newCollection();
 		} catch (Exception e) {
-			throw new UnknownRegistryException("Error occured while trying to create a new collection: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().newCollection();
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while trying to create a new collection: "+e1.getMessage(),e1);
+            }
 		}
 	}
 	
@@ -755,7 +853,13 @@ public class Registry {
 		try {
 			return getRegistry().newResource();
 		} catch (Exception e) {
-			throw new UnknownRegistryException("Error occured while trying to create a new resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+				return getRegistry().newResource();
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while trying to create a new resource: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -763,7 +867,13 @@ public class Registry {
 		try {
 			getRegistry().rename(currentPath, newPath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while trying to rename the registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().rename(currentPath, newPath);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error occured while trying to rename the registry resource: "+e1.getMessage(),e1);
+            }
 		}
 		
 	}
@@ -772,7 +882,13 @@ public class Registry {
 		try {
 			return getRegistry().put(path, resource);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while trying to add a registry resource to the registry: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().put(path, resource);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error occured while trying to add a registry resource to the registry: "+e1.getMessage(),e1);
+            }
 		}
 		
 	}
@@ -781,7 +897,13 @@ public class Registry {
 		try {
 			return getRegistry().getComments(registryResourcePath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while retrieving comments for the resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().getComments(registryResourcePath);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error occured while retrieving comments for the resource: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -789,7 +911,13 @@ public class Registry {
 		try {
 			getRegistry().addComment(selectedPath, comment);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error while saving new comment: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().addComment(selectedPath, comment);
+            } catch (RegistryException e1) {
+	            throw new UnknownRegistryException("Error while saving new comment: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -797,7 +925,13 @@ public class Registry {
 		try {
 			getRegistry().removeComment(commentPath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error while removing the comment: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().removeComment(commentPath);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error while removing the comment: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -805,20 +939,37 @@ public class Registry {
 		try {
 			getRegistry().editComment(commentPath,comment);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error while modifying the comment: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().editComment(commentPath,comment);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error while modifying the comment: "+e1.getMessage(),e1);
+            }
 		}		
 	}
 
 	public RegistryAssociation[] getAssociations(String resourcePath, String associationType) throws InvalidRegistryURLException, UnknownRegistryException {
+		List<RegistryAssociation> regAssociations=new ArrayList<RegistryAssociation>();
 		try {
-			List<RegistryAssociation> regAssociations=new ArrayList<RegistryAssociation>();
 			Association[] associations = getRegistry().getAssociations(resourcePath,associationType);
 			for (Association association : associations) {
 				regAssociations.add(createRegistryAssociation(association));
 			}
 			return regAssociations.toArray(new RegistryAssociation[]{});
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error in Retreiving associations: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			Association[] associations;
+            try {
+	            associations = getRegistry().getAssociations(resourcePath,associationType);
+	            for (Association association : associations) {
+	            	regAssociations.add(createRegistryAssociation(association));
+	            }
+	            return regAssociations.toArray(new RegistryAssociation[]{});
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error in Retreiving associations: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -826,7 +977,13 @@ public class Registry {
 		try {
 			return getRegistry().getVersions(registryResourcePath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while retrieving versions of the registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().getVersions(registryResourcePath);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while retrieving versions of the registry resource: "+e1.getMessage(),e1);
+            }
 		}
 	}
 	
@@ -863,7 +1020,13 @@ public class Registry {
 		try {
 			getRegistry().restoreVersion(versionPath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while restoring version: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().restoreVersion(versionPath);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while restoring version: "+e1.getMessage(),e1);
+            }
 		}
 		
 	}
@@ -872,7 +1035,13 @@ public class Registry {
 		try {
 			return getRegistry().getTags(registryResourcePath);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while trying to retrive tags: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().getTags(registryResourcePath);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while trying to retrive tags: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -880,7 +1049,13 @@ public class Registry {
 		try {
 			getRegistry().removeTag(registryResourcePath, tagName);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while trying to remove tag: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().removeTag(registryResourcePath, tagName);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while trying to remove tag: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -888,7 +1063,13 @@ public class Registry {
 		try {
 			getRegistry().applyTag(registryResourcePath, tag);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while trying to apply tag: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().applyTag(registryResourcePath, tag);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while trying to apply tag: "+e1.getMessage(),e1);
+            }
 		}		
 	}
 
@@ -896,7 +1077,13 @@ public class Registry {
 		try {
 			return getRegistry().getRating(path, username);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while retrieving ratings from the user: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().getRating(path, username);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while retrieving ratings from the user: "+e1.getMessage(),e1);
+            }
 		}
 	}
 	
@@ -904,7 +1091,13 @@ public class Registry {
 		try {
 	        getRegistry().rateResource(path, rate);
         } catch (RegistryException e) {
-        	throw new UnknownRegistryException("Error occured while setting ratings to the resource: "+ path,e);
+        	remregistry=null;
+        	clearSessionProperties();
+        	try {
+	            getRegistry().rateResource(path, rate);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while setting ratings to the resource: "+ path,e1);
+            }
         }
 	}
 
@@ -912,7 +1105,13 @@ public class Registry {
 		try {
 			return getRegistry().getAverageRating(path);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while retrieving the average ratings for the registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            return getRegistry().getAverageRating(path);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while retrieving the average ratings for the registry resource: "+e1.getMessage(),e1);
+            }
 		}
 	}
 
@@ -920,7 +1119,13 @@ public class Registry {
 		try {
 			getRegistry().delete(path);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while attempting to delete registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().delete(path);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while attempting to delete registry resource: "+e1.getMessage(),e1);
+            }
 		}			
 	}
 
@@ -928,7 +1133,13 @@ public class Registry {
 		try {
 			getRegistry().dump(path,writer);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while dumping registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().dump(path,writer);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while dumping registry resource: "+e1.getMessage(),e1);
+            }
 		}			
 		
 	}
@@ -937,7 +1148,13 @@ public class Registry {
 		try {
 			getRegistry().restore(destinationPath,input);
 		} catch (RegistryException e) {
-			throw new UnknownRegistryException("Error occured while restoring registry resource: "+e.getMessage(),e);
+			remregistry=null;
+			clearSessionProperties();
+			try {
+	            getRegistry().restore(destinationPath,input);
+            } catch (RegistryException e1) {
+            	throw new UnknownRegistryException("Error occured while restoring registry resource: "+e1.getMessage(),e1);
+            }
 		}				
 	}
 	
