@@ -95,6 +95,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPartListener2;
@@ -2291,7 +2292,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 			public void widgetSelected(SelectionEvent event) {
 				Object obj = event.getSource();
 				if (obj instanceof Tree) {
-					Object object = ((Tree) obj).getTopItem().getData();
+					Object object = ((Tree) obj).getSelection()[0].getData();
 					if (object instanceof RegistryNode) {
 //						closeOpenEditor();
 						registry = ((RegistryNode) object).getRegistry();
