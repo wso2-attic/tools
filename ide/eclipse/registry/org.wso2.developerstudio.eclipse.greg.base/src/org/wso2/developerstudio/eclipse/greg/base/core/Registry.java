@@ -137,32 +137,51 @@ public class Registry {
 	 * @throws RegistryException
 	 */
 	private org.wso2.carbon.registry.core.Registry getWSRegistryServiceClient() throws InvalidRegistryURLException, UnknownRegistryException{
-			registryInit();
-			try {
-				
-				AuthenticationAdminStub authenticationStub = new AuthenticationAdminStub(serverUrl+ AUTHENTICATION_ADMIN_SERVICE_URL);
-
-				authenticationStub._getServiceClient().getOptions().setManageSession(true);
-				boolean loginStatus = authenticationStub.login(userName, passwd, (new URL(serverUrl)).getHost());
-
-				if (!loginStatus) {
-					throw new Exception("Invalid Authentication");
+		try {
+			URL url = new URL(serverUrl + WS_REGISTRY_URL);
+			if (propertyFile.exists()) {
+				Object sessionProperty =
+				                         propertyFile.getSessionProperty(new QualifiedName(
+				                                                                           "",
+				                                                                           url.toString()));
+				if (sessionProperty != null) {
+					return (org.wso2.carbon.registry.core.Registry) sessionProperty;
 				}
-				ServiceContext serviceContext = authenticationStub._getServiceClient()
-				                                                  .getLastOperationContext()
-				                                                  .getServiceContext();
-				String sessionCookie = (String) serviceContext.getProperty(HTTPConstants.COOKIE_STRING);
-				remregistry =  new WSRegistryServiceClient(serverUrl + WS_REGISTRY_URL, sessionCookie);
-			
-
 			}
-			catch (RegistryException e) {
-				throw new UnknownRegistryException(e);
-			} catch (AxisFault e) {
-				throw new UnknownRegistryException(e);
-            } catch (Exception e) {
-            	throw new UnknownRegistryException(e);
+
+			registryInit();
+
+			AuthenticationAdminStub authenticationStub =
+			                                             new AuthenticationAdminStub(serverUrl +
+			                                                                         AUTHENTICATION_ADMIN_SERVICE_URL);
+
+			authenticationStub._getServiceClient().getOptions().setManageSession(true);
+			boolean loginStatus =
+			                      authenticationStub.login(userName, passwd,
+			                                               (new URL(serverUrl)).getHost());
+
+			if (!loginStatus) {
+				throw new Exception("Invalid Authentication");
+			}
+			ServiceContext serviceContext =
+			                                authenticationStub._getServiceClient()
+			                                                  .getLastOperationContext()
+			                                                  .getServiceContext();
+			String sessionCookie = (String) serviceContext.getProperty(HTTPConstants.COOKIE_STRING);
+			remregistry = new WSRegistryServiceClient(serverUrl + WS_REGISTRY_URL, sessionCookie);
+			
+			if (propertyFile.exists()) {
+                propertyFile.setSessionProperty(new QualifiedName("", url.toString()),
+                                                remregistry);
             }
+
+		} catch (RegistryException e) {
+			throw new UnknownRegistryException(e);
+		} catch (AxisFault e) {
+			throw new UnknownRegistryException(e);
+		} catch (Exception e) {
+			throw new UnknownRegistryException(e);
+		}
 		return remregistry;
 	}
 	
@@ -183,7 +202,6 @@ public class Registry {
 				Object sessionProperty =
 				                         propertyFile.getSessionProperty(new QualifiedName("",
 				                                                                    url.toString()));
-				Map sessionProperties = propertyFile.getSessionProperties();
 				if (sessionProperty != null) {
 					return (org.wso2.carbon.registry.core.Registry) sessionProperty;
 				}
@@ -207,6 +225,15 @@ public class Registry {
 	
 	private boolean isRegistryWSFeatureAvailable() {
 		try {
+			URL url = new URL(serverUrl + PROVISIONING_ADMIN_SERVICE_URL);
+			if (propertyFile.exists()) {
+				Object sessionProperty =
+				                         propertyFile.getSessionProperty(new QualifiedName("",
+				                                                                    url.toString()));
+				if (sessionProperty != null) {
+					return (Boolean) sessionProperty;
+				}
+			}
 			registryInit();
 			AuthenticationAdminStub authenticationStub = new AuthenticationAdminStub(serverUrl + AUTHENTICATION_ADMIN_SERVICE_URL);
 			authenticationStub._getServiceClient().getOptions().setManageSession(true);
@@ -232,6 +259,12 @@ public class Registry {
 				if (REGISTRY_WS_FEATURE_ID.equals(feature.getFeatureID())) {
 					int featureVersion = Integer.parseInt(feature.getFeatureVersion().replace(".",""));
 					if(featureVersion>=MIN_WS_API_VERSION){
+						if (propertyFile.exists()) {
+            	            propertyFile.setSessionProperty(new QualifiedName(
+            	                                                              "",
+            	                                                              url.toString()),
+            	                                            true);
+                        }
 						return true;
 					}
 				}
@@ -912,6 +945,11 @@ public class Registry {
         try {
 	        if (propertyFile.exists()) {
 	        	propertyFile.setSessionProperty(new QualifiedName("",new URL(serverUrl + REMOTE_REGISTRY_URL).toString()), null);
+	        	propertyFile.setSessionProperty(new QualifiedName(
+	                                                              "",
+	                                                              new URL(serverUrl +
+	                                                                      WS_REGISTRY_URL).toString()), null);
+	        	propertyFile.setSessionProperty(new QualifiedName("", new URL(serverUrl + PROVISIONING_ADMIN_SERVICE_URL).toString()), null);
 	        }
         } catch (CoreException e) {
 	        // TODO Auto-generated catch block
