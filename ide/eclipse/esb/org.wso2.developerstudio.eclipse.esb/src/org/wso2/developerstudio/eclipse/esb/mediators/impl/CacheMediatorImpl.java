@@ -235,7 +235,7 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		super();
 		
 		// OnHit branch.
-		setOnHitBranch(getMediatorFactory().createCacheOnHitBranch());
+		//setOnHitBranch(getMediatorFactory().createCacheOnHitBranch()); /* Fixing TOOLS-1052*/
 	}
 
 	/**
@@ -328,7 +328,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			elemImplementation.setAttribute("maxSize", Integer.toString(getMaxEntryCount()));
 
 			// OnHit branch.
-			getOnHitBranch().save(self);
+			if(getOnHitBranch()!=null){
+				getOnHitBranch().save(self);
+			}
+			
 		}
 		if(description!=null)
 			description.save(self);
