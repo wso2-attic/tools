@@ -21,6 +21,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class FileUtils {
+	private static List<String> excludeList=new ArrayList<String>();
+
+	static {
+		excludeList.add(".svn");
+		excludeList.add("target");
+		excludeList.add(".settings");
+	}
 
 	public FileUtils() {
 		super();
@@ -287,10 +294,14 @@ public class FileUtils {
 	public static List<File> getAllFilesPresentInFolder(File srcPath) {
 		List<File> fileList = new ArrayList<File>();
 		if (srcPath.isDirectory()) {
-			String files[] = srcPath.list();
-			for (int i = 0; i < files.length; i++) {
-				fileList.addAll(getAllFilesPresentInFolder(new File(srcPath, files[i])));
-			}
+			System.out.println(srcPath.getPath());
+			if (!excludeList.contains(srcPath.getName())) {
+				System.out.println("Allowed"+srcPath.getPath());
+	            String files[] = srcPath.list();
+	            for (int i = 0; i < files.length; i++) {
+		            fileList.addAll(getAllFilesPresentInFolder(new File(srcPath, files[i])));
+	            }
+            }
 		} else {
 			fileList.add(srcPath);
 		}
