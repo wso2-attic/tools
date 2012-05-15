@@ -99,9 +99,12 @@ public interface DetailSectionCustomUiConstants {
 	
 	public String CALL_QUERY_LINK = "Query Id";
 	
+	public String PARAM_MAPPING_TYPE = "Mapping Type";
 	public String PARAM_MAPPING_PARAM_NAME = "Query Parameter Name";
 	public String PARAM_MAPPING_PARAM = "Query-Parameter";
 	public String PARAM_MAPPING_COLUMN = "Column";
+	public String PARAM_MAPPING_COMBO_VAL_0 = "column";
+	public String PARAM_MAPPING_COMBO_VAL_1 = "query-param";
 	
 	public String RESOURCE_METHOD ="Resource Method";
 	public String RESOUCE_PATH = "Resource Path";

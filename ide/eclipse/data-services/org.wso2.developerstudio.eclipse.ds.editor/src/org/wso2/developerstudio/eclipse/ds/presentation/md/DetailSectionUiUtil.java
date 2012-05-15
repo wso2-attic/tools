@@ -75,7 +75,12 @@ public class DetailSectionUiUtil {
 		
 		
 		toolkit.adapt(combo, true, true);
-		addModifyListnerForCustomComboFields(combo,input,metaObject);
+		
+		if(input != null && metaObject != null){
+			
+			addModifyListnerForCustomComboFields(combo,input,metaObject);
+		
+		}
 		return combo;
 	}
 	/**
@@ -102,7 +107,12 @@ public class DetailSectionUiUtil {
 		}
 		
 		toolkit.adapt(combo, true, true);
-		addModifylistnersForBooleanComboFields(combo,input,metaObject);
+		
+		if(input != null && metaObject != null){
+			
+			addModifylistnersForBooleanComboFields(combo,input,metaObject);
+		}
+		
 		return combo;
 	}
 	
@@ -131,7 +141,13 @@ public class DetailSectionUiUtil {
 		}
 		
 		toolkit.adapt(combo, true, true);
-		addModifylistnersForBooleanComboWithStringPersi(combo,input,metaObject);
+		
+		if(input != null && metaObject != null){
+			
+			addModifylistnersForBooleanComboWithStringPersi(combo,input,metaObject);
+			
+		}
+		
 		return combo;
 	}
 	

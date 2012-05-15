@@ -3,23 +3,19 @@ package org.wso2.developerstudio.eclipse.ds.presentation.md;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.CreateChildCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
-import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -75,6 +71,14 @@ public class DetailSection {
 	private DetailSectionUiUtil sectionUtil;
 	private EditingDomain editingDomain;
 	private DataService dataService;
+	
+	private Combo paramTypeCombo = null;
+	private Label queryParamLabel = null;
+	private StyledText queryParamText = null;
+	private Label columnLabel = null;
+	private StyledText columnTxt = null;
+	private Color gray = new Color(Display.getCurrent(), new RGB(169,169,169));
+	private Color white = new Color(Display.getCurrent(), new RGB(255,255,255));
 	
 	public DetailSection(FormToolkit toolkit,
 			AdapterFactoryItemDelegator adapterFactoryItemDelegator,
@@ -1393,51 +1397,158 @@ public class DetailSection {
 		}
 	}
 	
-	private void paramMapObjectConfigurator(ParameterMapping paramMapping){
-		
-		ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = (ArrayList<IItemPropertyDescriptor>)
-		adapterFactoryItemDelegator
-	    .getPropertyDescriptors(paramMapping);
+	private void paramMapObjectConfigurator(final ParameterMapping paramMapping){
+
+		ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = (ArrayList<IItemPropertyDescriptor>) adapterFactoryItemDelegator
+				.getPropertyDescriptors(paramMapping);
 		labelMaker("");
 		labelMaker("");
-		for (Iterator<IItemPropertyDescriptor> i = detailPropertyDescriptors.iterator(); i.hasNext();) {
-			
+
+		String initialVal = "";
+		String[] displayValues = {
+				DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_0,
+				DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_1 };
+
+		if (paramMapping.getQueryParam() != null
+				&& !paramMapping.getQueryParam().equals("")) {
+
+			initialVal = DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_1;
+		} else if (paramMapping.getColumn() != null
+				&& !paramMapping.getColumn().equals("")) {
+
+			initialVal = DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_0;
+		}
+
+		labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_TYPE);
+
+		paramTypeCombo = sectionUtil.getCustomComboField(detailsclient,
+				toolkit, null, initialVal, null, displayValues);
+
+		paramTypeCombo.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+
+				if (paramTypeCombo.getSelectionIndex() == 0) {
+
+					queryParamLabel.setEnabled(false);
+					queryParamText.setEnabled(false);
+					queryParamText.setBackground(gray);
+					queryParamText.setText("");
+
+					if (!columnLabel.isEnabled()) {
+						columnLabel.setEnabled(true);
+					}
+					if (!columnTxt.isEnabled()) {
+						columnTxt.setEnabled(true);
+
+						columnTxt.setBackground(white);
+					}
+
+					if (paramMapping.getQueryParam() != null) {
+
+						EcoreUtil
+								.remove(paramMapping,
+										DsPackage.Literals.PARAMETER_MAPPING__QUERY_PARAM,
+										paramMapping.getQueryParam());
+
+					}
+
+				} else if (paramTypeCombo.getSelectionIndex() == 1) {
+
+					columnLabel.setEnabled(false);
+					columnTxt.setEnabled(false);
+					columnTxt.setBackground(gray);
+					columnTxt.setText("");
+
+					if (!queryParamLabel.isEnabled()) {
+						queryParamLabel.setEnabled(true);
+					}
+					if (!queryParamText.isEnabled()) {
+						queryParamText.setEnabled(true);
+
+						queryParamText.setBackground(white);
+					}
+
+					if (paramMapping.getColumn() != null) {
+
+						EcoreUtil.remove(paramMapping,
+								DsPackage.Literals.PARAMETER_MAPPING__COLUMN,
+								paramMapping.getColumn());
+					}
+
+				}
+
+			}
+		});
+
+		labelMaker("");
+		labelMaker("");
+
+		for (Iterator<IItemPropertyDescriptor> i = detailPropertyDescriptors
+				.iterator(); i.hasNext();) {
+
 			ItemPropertyDescriptor desc = (ItemPropertyDescriptor) i.next();
 
 			String displayName = desc.getDisplayName(paramMapping);
-			
+
 			if (desc.getFeature(paramMapping) instanceof EAttributeImpl) {
-				
-				if(displayName.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM_NAME)){
-					
+
+				if (displayName
+						.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM_NAME)) {
+
 					labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM_NAME);
-					sectionUtil.getAttributeField(detailsclient, toolkit, paramMapping, paramMapping.getName(),
-							DsPackage.eINSTANCE.getParameterMapping_Name(),DetailSectionCustomUiConstants.STRING);
+					sectionUtil.getAttributeField(detailsclient, toolkit,
+							paramMapping, paramMapping.getName(),
+							DsPackage.eINSTANCE.getParameterMapping_Name(),
+							DetailSectionCustomUiConstants.STRING);
 					labelMaker("");
 					labelMaker("");
 				}
-				
-				if(displayName.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM)){
-					
-					labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM);
-					sectionUtil.getAttributeField(detailsclient, toolkit, paramMapping, paramMapping.getQueryParam(),
-							DsPackage.eINSTANCE.getParameterMapping_QueryParam(),DetailSectionCustomUiConstants.STRING);
+
+				if (displayName
+						.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM)) {
+
+					queryParamLabel = labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_PARAM);
+					queryParamText = sectionUtil.getAttributeField(
+							detailsclient, toolkit, paramMapping, paramMapping
+									.getQueryParam(), DsPackage.eINSTANCE
+									.getParameterMapping_QueryParam(),
+							DetailSectionCustomUiConstants.STRING);
+					if (paramMapping.getQueryParam() == null) {
+
+						queryParamLabel.setEnabled(false);
+						queryParamText.setEnabled(false);
+						queryParamText.setBackground(gray);
+					}
 					labelMaker("");
 					labelMaker("");
+
 				}
-				
-				if(displayName.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_COLUMN)){
-					
-					labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_COLUMN);
-					sectionUtil.getAttributeField(detailsclient, toolkit, paramMapping, paramMapping.getColumn(),
-							DsPackage.eINSTANCE.getParameterMapping_Column(),DetailSectionCustomUiConstants.STRING);
+
+				if (displayName
+						.equals(DetailSectionCustomUiConstants.PARAM_MAPPING_COLUMN)) {
+
+					columnLabel = labelMaker(DetailSectionCustomUiConstants.PARAM_MAPPING_COLUMN);
+					columnTxt = sectionUtil.getAttributeField(detailsclient,
+							toolkit, paramMapping, paramMapping.getColumn(),
+							DsPackage.eINSTANCE.getParameterMapping_Column(),
+							DetailSectionCustomUiConstants.STRING);
+					if (paramMapping.getColumn() == null) {
+
+						columnLabel.setEnabled(false);
+						columnTxt.setEnabled(false);
+						columnTxt.setBackground(gray);
+					}
 					labelMaker("");
 					labelMaker("");
+
 				}
 			}
 		}
+		
 	}
-	
+
 	private void resourceObjectConfigurator(Resource resource){
 		
 		ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = (ArrayList<IItemPropertyDescriptor>)
@@ -1473,13 +1584,6 @@ public class DetailSection {
 					labelMaker("");
 				}
 				
-				/*if(displayName.equals(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS)){
-					
-					labelMaker(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS);
-					sectionUtil.getBooleanComboField(detailsclient, toolkit, resource, resource.isReturnRequestStatus(),
-							DsPackage.eINSTANCE.getResource_ReturnRequestStatus());
-					
-				}*/
 			}
 			
 		}
