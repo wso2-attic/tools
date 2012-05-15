@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="component-archetype"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<requiredProperties>
+		<requiredProperty key="package" />
+		<requiredProperty key="groupId" />
+		<requiredProperty key="backendArtifactId" />
+		<requiredProperty key="carbonVersion" />
+		<requiredProperty key="projectName" />
+		<requiredProperty key="reversedPackage" />
+		<requiredProperty key="serviceStubsParentArtifactId"/>
+		
+	</requiredProperties>
+	<modules>
+		<module id="${rootArtifactId}" dir="__rootArtifactId__" name="${rootArtifactId}">
+			<fileSets>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__</directory>
+					<includes>
+						<include>pom.xml</include>
+					</includes>
+				</fileSet>
+
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>__backendArtifactId__/src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__/src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>__backendArtifactId__/src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__/src/test/resources</directory>
+					<includes>
+						<include>**/*.html</include>
+						<include>**/*.xml</include>
+						<include>**/*.properties</include>
+						<include>**/*.txt</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8" packaged="false">
+					<directory>__backendArtifactId__/src/test/resources</directory>
+					<includes>
+						<include>**/*</include>
+						<include>**/*.db</include>
+						<include>**/*.zip</include>
+						<include>**/*.so</include>
+						<include>**/*.jks</include>
+						<include>**/*.list</include>
+						<include>**/*.conf</include>
+						<include>**/*.sh</include>
+						<include>**/*.ini</include>
+						<include>**/*.sql</include>
+						<include>**/*.jnilib</include>
+						<include>**/*.mappings</include>
+						<include>**/*.bat</include>
+						<include>**/*.dll</include>
+						<include>**/*.types</include>
+						<include>**/*.exe</include>
+						<include>**/*.options</include>
+					</includes>
+				</fileSet>
+
+
+
+				<!-- UI filesets -->
+
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui</directory>
+					<includes>
+						<include>pom.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/java</directory>
+					<includes>
+						<include>ui/**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources</directory>
+					<includes>
+						<include>ui/**/*.properties</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/META-INF</directory>
+					<includes>
+						<include>component.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/web</directory>
+					<includes>
+						<include>**/*.jsp</include>
+						<include>**/*.xml</include>
+						<include>**/*.html</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/web</directory>
+					<includes>
+						<include>**/*.jpg</include>
+						<include>**/*.xsl</include>
+						<include>**/*.JPG</include>
+						<include>**/*.js</include>
+						<include>**/*.xsd</include>
+						<include>**/*.dtd</include>
+						<include>**/*.gif</include>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/web/__rootArtifactId__/images</directory>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/web/__rootArtifactId__/js</directory>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>__backendArtifactId__.ui/src/main/resources/web/__rootArtifactId__/styles</directory>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="${backendArtifactId}.stub" dir="service-stubs"
+			name="${backendArtifactId}.stub">
+			<fileSets>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.wsdl</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="${rootArtifactId}-feature" dir="features"
+			name="${rootArtifactId}-feature">
+			<fileSets>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>**/pom.xml</include>
+						<include>feature.properties</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="wso2carbon-${rootArtifactId}-repository" dir="repository"
+			name="wso2carbon-${rootArtifactId}-repository">
+			<fileSets>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory></directory>
+					<includes>
+						<include>pom.xml</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+	</modules>
+</archetype-descriptor>

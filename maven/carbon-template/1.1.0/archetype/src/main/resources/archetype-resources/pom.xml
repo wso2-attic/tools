@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>${rootArtifactId}.aggregator</artifactId>
+	<groupId>${groupId}</groupId>
+	<packaging>pom</packaging>
+	<name>WSO2 Carbon - ${projectName} - Aggregator Module</name>
+	<description>A custom wso2 products or solution</description>
+	<version>${version}</version>
+	<url>http://wso2.org</url>
+
+	<repositories>
+		<repository>
+			<id>wso2-nexus1</id>
+			<name>WSO2 internal Repository</name>
+			<url>http://sr5.us1.wso2.com/nexus/content/repositories/wso2-public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>wso2-nexus2</id>
+			<name>WSO2 internal Repository</name>
+			<url>http://maven.wso2.org/nexus/content/repositories/wso2-public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+		</repository>
+	</repositories>
+
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<properties>
+	</properties>
+
+</project>	

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>${groupId}</groupId>
+		<artifactId>${rootArtifactId}-feature</artifactId>
+		<version>${version}</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>${backendArtifactId}.ui.feature</artifactId>
+	<packaging>pom</packaging>
+	<name>WSO2 Carbon - ${projectName} UI Feature</name>
+	<url>http://wso2.org</url>
+	<description>This feature contains the bundles required for Front-end ${projectName} functionality</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${backendArtifactId}.ui</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${backendArtifactId}.stub</artifactId>
+			<version>${version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.wso2.maven</groupId>
+				<artifactId>carbon-p2-plugin</artifactId>
+				<version>${carbon.p2.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>p2-feature-generation</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-feature-gen</goal>
+						</goals>
+						<configuration>
+							<id>${backendArtifactId}.ui</id>
+							<propertiesFile>../feature.properties</propertiesFile>
+							<adviceFile>
+								<properties>
+									<propertyDef>org.wso2.carbon.p2.category.type:console</propertyDef>
+									<propertyDef>org.eclipse.equinox.p2.type.group:false</propertyDef>
+								</properties>
+							</adviceFile>
+							<bundles>
+								<bundleDef>${groupId}:${backendArtifactId}.ui</bundleDef>
+								<bundleDef>${groupId}:${backendArtifactId}.stub</bundleDef>
+							</bundles>
+							<importFeatures>
+								<importFeatureDef>org.wso2.carbon.core.ui:${carbonVersion}</importFeatureDef>
+							</importFeatures>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
