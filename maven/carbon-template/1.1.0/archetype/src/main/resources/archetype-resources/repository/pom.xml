@@ -34,33 +34,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.0-alpha-4</version>
-				<inherited>false</inherited>
-				<executions>
-					<execution>
-						<id>1-unpack-p2-agent-distribution</id>
-						<phase>test</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.wso2.carbon</groupId>
-									<artifactId>wso2-p2-agent</artifactId>
-									<version>3.2.0 <!-- ${parent.version} --></version>
-									<type>zip</type>
-									<overWrite>true</overWrite>
-									<outputDirectory>target/p2-agent</outputDirectory>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			${p2AgentPluginElementStr}
 
 			<plugin>
 				<groupId>org.wso2.maven</groupId>

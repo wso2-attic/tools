@@ -90,6 +90,7 @@ public final class Mojo extends CreateProjectFromArchetypeMojo{
 	private String packageName;
 	private String reversedPackageName;
 	private String serviceStubsParentArtifactId;
+	private String p2AgentPluginElementStr;
 
 	
 	
@@ -187,6 +188,35 @@ public final class Mojo extends CreateProjectFromArchetypeMojo{
 		this.archetypeVersion = "1.1.0";
 		this.archetypeGroupId = "org.wso2.carbon";
 		this.goals = "";
+		
+		this.p2AgentPluginElementStr =
+"				<plugin>\r\n" +
+"					<groupId>org.apache.maven.plugins</groupId>\r\n" +
+"					<artifactId>maven-dependency-plugin</artifactId>\r\n" +
+"					<version>2.0-alpha-4</version>\r\n" +
+"					<inherited>false</inherited>\r\n" +
+"					<executions>\r\n" +
+"						<execution>\r\n" +
+"							<id>1-unpack-p2-agent-distribution</id>\r\n" +
+"							<phase>test</phase>\r\n" +
+"							<goals>\r\n" +
+"								<goal>unpack</goal>\r\n" + 
+"							</goals>\r\n" +
+"							<configuration>\r\n" +
+"								<artifactItems>\r\n" +
+"									<artifactItem>\r\n" +
+"										<groupId>org.wso2.carbon</groupId>\r\n" +
+"										<artifactId>wso2-p2-agent</artifactId>\r\n" + 
+"										<version>3.2.0</version>\r\n" +
+"										<type>zip</type>\r\n" +
+"										<overWrite>true</overWrite>\r\n" +
+"										<outputDirectory>target/p2-agent</outputDirectory>\r\n" +
+"									</artifactItem>\r\n" +
+"								</artifactItems>\r\n" +
+"							</configuration>\r\n" +
+"						</execution>\r\n" +
+"					</executions>\r\n" +
+"				</plugin>\r\n";
 	}
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
@@ -281,6 +311,7 @@ public final class Mojo extends CreateProjectFromArchetypeMojo{
 		int version = Integer.parseInt(carbonVersion.substring(0, i));
 		if (version >= 4) {		
 			this.serviceStubsParentArtifactId = "carbon-service-stubs";
+			this.p2AgentPluginElementStr = "<!--" + this.p2AgentPluginElementStr + "-->";
 		} else {
 			this.serviceStubsParentArtifactId = "service-stubs";
 		}		
@@ -313,6 +344,7 @@ public final class Mojo extends CreateProjectFromArchetypeMojo{
 		info.setProperty("backendArtifactId", this.artifactId);
 		info.setProperty("reversedPackage", this.reversedPackageName);
 		info.setProperty("serviceStubsParentArtifactId", this.serviceStubsParentArtifactId);
+		info.setProperty("p2AgentPluginElementStr", this.p2AgentPluginElementStr);
 		
 		this.session.getExecutionProperties().putAll(info);
 		

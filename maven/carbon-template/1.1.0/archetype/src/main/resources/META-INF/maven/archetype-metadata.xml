@@ -13,6 +13,7 @@
 		<requiredProperty key="projectName" />
 		<requiredProperty key="reversedPackage" />
 		<requiredProperty key="serviceStubsParentArtifactId"/>
+		<requiredProperty key="p2AgentPluginElementStr"/>
 		
 	</requiredProperties>
 	<modules>
