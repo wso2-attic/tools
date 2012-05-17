@@ -25,6 +25,7 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -54,6 +55,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 	private Combo cmbProjects;
 	private IProject selectedProject;
 	private String exportPath;
+	private String tmpExportPath;
 
 	protected ExportDetailsWizardPage(IWorkbench wb, IStructuredSelection selection) {
 		super("WSO2 Platform Distribution");
@@ -64,6 +66,9 @@ public class ExportDetailsWizardPage extends WizardPage {
 			if(project!=null){
 				setSelectedProject(project);
 			}
+			tmpExportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
+		} catch (CoreException e){
+			log.error("Error getting session properties", e);
 		} catch (Exception e) {
 			log.error("Error reading project", e);
 		}
@@ -101,6 +106,8 @@ public class ExportDetailsWizardPage extends WizardPage {
 		GridData gd_txtExportPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_txtExportPath.widthHint = 499;
 		txtExportPath.setLayoutData(gd_txtExportPath);
+		if(tmpExportPath!=null)
+			txtExportPath.setText(tmpExportPath);
 		txtExportPath.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent evt) {
@@ -213,6 +220,10 @@ public class ExportDetailsWizardPage extends WizardPage {
 
 	public void setExportPath(String path) {
 		this.exportPath = path;
+	}
+	
+	public Text getTxtExportPathText(){
+		return this.txtExportPath;
 	}
 }
 

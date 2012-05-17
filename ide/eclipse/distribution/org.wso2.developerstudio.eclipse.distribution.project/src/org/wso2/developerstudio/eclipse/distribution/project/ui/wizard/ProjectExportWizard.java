@@ -24,16 +24,21 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -42,6 +47,7 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 	private ExportDetailsWizardPage detailsPage;
 	private final int ESB_PROJECT=1;
 	private final int GENERAL_PROJECT=2;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public void init(IWorkbench wb, IStructuredSelection selection) {
 		detailsPage = new ExportDetailsWizardPage(wb, selection);
@@ -82,7 +88,16 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 							+ e.getMessage());
 			exportMsg.open();
 		}
+		setSessionProperty();
 		return true;
+	}
+	private void setSessionProperty(){		
+        try {
+        	detailsPage.getSelectedProject().setSessionProperty(new QualifiedName("",detailsPage.getSelectedProject().getName()),
+					detailsPage.getTxtExportPathText().getText());
+		} catch (CoreException e) {
+			log.error("Error geting session properties", e);	
+		}
 	}
 
 	private void exportArchivable(IProject project) throws Exception{
