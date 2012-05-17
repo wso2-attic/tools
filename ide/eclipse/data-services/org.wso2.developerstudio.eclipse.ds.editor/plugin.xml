@@ -28,7 +28,37 @@
 			name="DS Editor File" priority="high"
 		    describer=" org.eclipse.core.runtime.content.XMLRootElementContentDescriber:data">
 		</content-type>
-	</extension> 
+	</extension>
+	<!--Extention points for delete command. -->
+ <extension
+       point="org.eclipse.ui.commands">
+    <command
+          id="org.wso2.developerstudio.eclipse.ds.editor.delete"
+          name="Delete">
+    </command>
+ </extension>
+ 
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.wso2.developerstudio.eclipse.ds.command.DesignViewActionHandler"
+          commandId="org.wso2.developerstudio.eclipse.ds.editor.delete">
+    </handler>
+ </extension>
+ 
+ <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          locationURI="popup:org.wso2.developerstudio.eclipse.ds.presentation.DsEditorID?after=edit">
+           <command
+               commandId="org.wso2.developerstudio.eclipse.ds.editor.delete"
+               icon="icons/wso2/del.jpg"
+               label="Delete"
+               tooltip="Delete this tree item">
+          </command>
+    </menuContribution>
+ </extension> 
+	<!--Extention points for delete command ended. -->
 	
  <!--extension point="org.eclipse.ui.newWizards">
     <wizard

@@ -805,10 +805,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				
 				DataService dataService = getDataServiceObject(query);
 
-				if (dataService != null) {
-
-					String dataSourceType = getDataSourceType(dataService,
-							query.getUseConfig());
+				if (dataService != null && query.getUseConfig() != null) {
+					
+					String dataSourceType = getDataSourceType(dataService, query.getUseConfig());
 
 					if (dataSourceType
 							.equals(DSActionConstants.DRIVER_PROPERTY)
@@ -1218,60 +1217,66 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 	
 	private String getDataSourceType(DataService dataService,String usedDataSource){
-		
+
 		String dataSourceType = "";
-		
-		if(dataService != null){
+
+		if (dataService != null) {
 			int index = 0;
 			EList<DataSourceConfiguration> configList = dataService.getConfig();
-			
-			DataSourceConfiguration [] confArr = configList.toArray(new DataSourceConfiguration [0]);
-								
-			for(int j = 0;j< configList.size() ; j++){
-				
-				if(confArr[j].getId() != null && confArr[j].getId().equals(usedDataSource)){
-					
+
+			DataSourceConfiguration[] confArr = configList
+					.toArray(new DataSourceConfiguration[0]);
+
+			for (int j = 0; j < configList.size(); j++) {
+
+				if (confArr[j].getId() != null
+						&& confArr[j].getId().equals(usedDataSource)) {
+
 					index = j;
 				}
-				
+
 			}
-			
-			DataSourceConfiguration config  = configList.get(index);
-			EList<ConfigurationProperty> proplist  = config.getProperty();
-			
-			Iterator<ConfigurationProperty> iterator = proplist.iterator();
-			
-			while (iterator.hasNext()) {
 
-				ConfigurationProperty property = (ConfigurationProperty) iterator
-						.next();
+			if (configList != null && !configList.isEmpty()) {
+				DataSourceConfiguration config = configList.get(index);
 
-				if (property != null) {
+				EList<ConfigurationProperty> proplist = config.getProperty();
 
-					if (property.getName().equals(
-							DSActionConstants.DRIVER_PROPERTY)
-							|| property.getName().equals(
-									DSActionConstants.CSV_DATASOURCE_PROPERTY)
-							|| property
-									.getName()
-									.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)
-							|| property.getName().equals(
-									DSActionConstants.JNDI_CONTEXT_PROPERTY)
-							|| property
-									.getName()
-									.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)
-							|| property
-									.getName()
-									.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+				Iterator<ConfigurationProperty> iterator = proplist.iterator();
 
-						dataSourceType = property.getName();
+				while (iterator.hasNext()) {
+
+					ConfigurationProperty property = (ConfigurationProperty) iterator
+							.next();
+
+					if (property != null) {
+
+						if (property.getName().equals(
+								DSActionConstants.DRIVER_PROPERTY)
+								|| property
+										.getName()
+										.equals(DSActionConstants.CSV_DATASOURCE_PROPERTY)
+								|| property
+										.getName()
+										.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)
+								|| property
+										.getName()
+										.equals(DSActionConstants.JNDI_CONTEXT_PROPERTY)
+								|| property
+										.getName()
+										.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)
+								|| property
+										.getName()
+										.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+
+							dataSourceType = property.getName();
+						}
 					}
+
 				}
-
 			}
-
 		}
-		
+
 		return dataSourceType;
 	}
 }
