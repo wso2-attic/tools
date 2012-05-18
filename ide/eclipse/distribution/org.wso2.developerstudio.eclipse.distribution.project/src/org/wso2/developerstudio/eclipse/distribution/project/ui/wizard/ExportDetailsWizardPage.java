@@ -55,7 +55,6 @@ public class ExportDetailsWizardPage extends WizardPage {
 	private Combo cmbProjects;
 	private IProject selectedProject;
 	private String exportPath;
-	private String tmpExportPath;
 
 	protected ExportDetailsWizardPage(IWorkbench wb, IStructuredSelection selection) {
 		super("WSO2 Platform Distribution");
@@ -66,7 +65,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 			if(project!=null){
 				setSelectedProject(project);
 			}
-			tmpExportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
+			exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
 		} catch (CoreException e){
 			log.error("Error getting session properties", e);
 		} catch (Exception e) {
@@ -105,9 +104,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 		txtExportPath = new Text(container, SWT.BORDER);
 		GridData gd_txtExportPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_txtExportPath.widthHint = 499;
-		txtExportPath.setLayoutData(gd_txtExportPath);
-		if(tmpExportPath!=null)
-			txtExportPath.setText(tmpExportPath);
+		txtExportPath.setLayoutData(gd_txtExportPath);		
 		txtExportPath.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent evt) {
@@ -118,6 +115,11 @@ public class ExportDetailsWizardPage extends WizardPage {
 				validate();
 			}
 		});
+		if(exportPath!=null){
+			txtExportPath.setText(exportPath);
+		}else{
+			setPageComplete(false);
+		}
 		
 		Button btnBrowse = new Button(container, SWT.NONE);
 		btnBrowse.addSelectionListener(new SelectionAdapter() {
@@ -136,8 +138,7 @@ public class ExportDetailsWizardPage extends WizardPage {
 		if(getSelectedProject()!=null){
 			cmbProjects.setText(getSelectedProject().getName());
 			cmbProjects.setEnabled(true);
-		} 
-		setPageComplete(false);
+		} 		
 	}
 	
 	public static IProject getProject(Object obj) throws Exception {

@@ -27,7 +27,9 @@ import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
@@ -37,9 +39,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
@@ -53,11 +58,12 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 	private File pomFile; 
 	private IProject selectedProject;
 	private MavenProject parentPrj;	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	@SuppressWarnings("unchecked")
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		try {
-			detailsPage = new CarExportDetailsWizardPage();
+			detailsPage = new CarExportDetailsWizardPage(workbench,selection);
 			selectedProject = getSelectedProject(selection);
 			pomFileRes = selectedProject.getFile("pom.xml");
 			pomFile = pomFileRes.getLocation().toFile();
@@ -145,8 +151,17 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			               "Error occurred while exporting the archive :\n" + e.getMessage(),
 			               SWT.ICON_ERROR);
 		}
-		
+		setSessionProperty();
 		return true;
+	}
+	
+	private void setSessionProperty(){		
+        try {
+        	detailsPage.getSelectedProject().setSessionProperty(new QualifiedName("",detailsPage.getSelectedProject().getName()),
+					detailsPage.getTxtExportPathText().getText());
+		} catch (CoreException e) {
+			log.error("Error geting session properties", e);	
+		}
 	}
 	
 	protected int openMessageBox(Shell shell,String title,String message,int style){

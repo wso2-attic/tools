@@ -19,6 +19,11 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
 import java.io.File;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -32,6 +37,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IWorkbench;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class CarExportDetailsWizardPage extends WizardPage {
 	private Text txtExportPath;
@@ -40,10 +49,29 @@ public class CarExportDetailsWizardPage extends WizardPage {
 	private String name;
 	private String version;
 	private String exportPath;
+	private IProject selectedProject;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	protected CarExportDetailsWizardPage() {
 		super("WSO2 Platform Distribution");
 		setTitle("WSO2 Platform Distribution");
+
+	}
+	
+	protected CarExportDetailsWizardPage(IWorkbench wb, IStructuredSelection selection) {
+		super("WSO2 Platform Distribution");
+		setTitle("WSO2 Platform Distribution");
+		try {
+			IProject project = getProject(selection);
+			if(project!=null){
+				setSelectedProject(project);
+			}
+			exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
+		} catch (CoreException e){
+			log.error("Error getting session properties", e);
+		} catch (Exception e) {
+			log.error("Error reading project", e);
+		}
 
 	}
 	
@@ -112,7 +140,7 @@ public class CarExportDetailsWizardPage extends WizardPage {
 		txtExportPath = new Text(container, SWT.BORDER);
 		GridData gd_txtExportPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_txtExportPath.widthHint = 499;
-		txtExportPath.setLayoutData(gd_txtExportPath);
+		txtExportPath.setLayoutData(gd_txtExportPath);		
 		txtExportPath.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent evt) {
@@ -121,6 +149,11 @@ public class CarExportDetailsWizardPage extends WizardPage {
 				
 			}
 		});
+		if(exportPath!=null){
+			txtExportPath.setText(exportPath);
+		}else{
+			setPageComplete(false);
+		}
 		
 		Button btnBrowse = new Button(container, SWT.NONE);
 		btnBrowse.addSelectionListener(new SelectionAdapter() {
@@ -135,7 +168,6 @@ public class CarExportDetailsWizardPage extends WizardPage {
 			}
 		});
 		btnBrowse.setText("Browse..");
-		setPageComplete(false);
 	}
 
 	
@@ -181,12 +213,36 @@ public class CarExportDetailsWizardPage extends WizardPage {
 		setPageComplete(true);
 	}
 
+	public static IProject getProject(Object obj) throws Exception {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof IResource) {
+            return ((IResource) obj).getProject();
+        } else if (obj instanceof IStructuredSelection) {
+            return getProject(((IStructuredSelection) obj).getFirstElement());
+        }
+        return null;
+    }
+	
+	public void setSelectedProject(IProject selectedProject) {
+		this.selectedProject = selectedProject;
+	}
+	
+	public IProject getSelectedProject() {
+		return selectedProject;
+	}	
+	
 	public String getExportPath() {
 		return exportPath;
 	}
 
 	public void setExportPath(String path) {
 		this.exportPath = path;
+	}
+	
+	public Text getTxtExportPathText(){
+		return txtExportPath;
 	}
 }
 
