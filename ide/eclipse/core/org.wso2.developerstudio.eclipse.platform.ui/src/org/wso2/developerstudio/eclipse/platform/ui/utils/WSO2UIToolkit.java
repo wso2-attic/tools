@@ -57,6 +57,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IFieldControlData
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IOnAction;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.UIControl;
 import org.wso2.developerstudio.eclipse.platform.ui.startup.RegisterUIControl;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 
 import java.io.File;
@@ -379,7 +380,8 @@ public class WSO2UIToolkit {
 	}
 	
 	public static IFieldControlData createText(Composite container, String label, int columns,
-	        boolean isTextReadonly, Integer verticalIndent, Integer horizontalIndent,boolean multiline) {
+	        boolean isTextReadonly, Integer verticalIndent, Integer horizontalIndent,boolean multiline
+	        ,boolean addlistner,final AbstractWSO2ProjectCreationWizard wizard) {
 		int flags = (multiline)?(SWT.BORDER|SWT.MULTI|SWT.WRAP):SWT.BORDER;
 		Label lblCaption = new Label(container, SWT.None);
 		lblCaption.setText(label);
@@ -405,6 +407,9 @@ public class WSO2UIToolkit {
 			}
 			txtValue.setLayoutData(gridData);
 		}
+        if(addlistner){
+        	wizard.setMap(label.trim(), txtValue);	
+        }
 		FieldControlDataImpl feildControl = createFieldControlForString(txtValue);
 		return feildControl;
 	}

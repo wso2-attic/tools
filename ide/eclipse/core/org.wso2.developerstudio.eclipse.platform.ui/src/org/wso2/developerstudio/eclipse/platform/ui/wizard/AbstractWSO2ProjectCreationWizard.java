@@ -19,7 +19,9 @@ package org.wso2.developerstudio.eclipse.platform.ui.wizard;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -37,6 +39,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.INewWizard;
@@ -63,8 +67,16 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	private IConfigurationElement configElement;
 	private ISelection currentSelection;
 	final String DIST_EDITOR_ID = "org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor";
-
+    private Map<String,Text> map = new HashMap<String,Text>();
 	
+	public void setMap(String label, Text txt) {
+		 map.put(label, txt);
+	}
+
+	public Map<String,Text> getMap() {
+		return map;
+	}
+
 	public void addPages() {
 		URL resource = getWizardManifest();
 		try {
@@ -114,7 +126,6 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		return null;
 	}
 
-	
 	public void init(IWorkbench arg0, IStructuredSelection selection) {
 		setCurrentSelection(selection);
 	}

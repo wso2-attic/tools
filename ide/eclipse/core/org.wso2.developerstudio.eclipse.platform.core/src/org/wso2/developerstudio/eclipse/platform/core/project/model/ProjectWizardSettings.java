@@ -304,10 +304,15 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 	private void setupTextControlData(OMElement dataElement, ProjectOptionData projectOptionData) {
 		Map<String, String> controlData = getControlData(dataElement);
 		boolean multiline = false;
+		boolean listner = false;
 		if (controlData.containsKey("multiline")) {
 			multiline=controlData.get("multiline").toLowerCase().equals("true");
 			
 		}
+		if (controlData.containsKey("listner")) {
+			listner=controlData.get("listner").toLowerCase().equals("true");			
+		}
+		projectOptionData.setAddListnner(listner);
 		projectOptionData.setTextMultiline(multiline);
 		setupCommonControlData(dataElement, projectOptionData);
 	}

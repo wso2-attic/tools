@@ -62,6 +62,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectWizar
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IFieldControlData;
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.IOnAction;
 import org.wso2.developerstudio.eclipse.platform.ui.utils.WSO2UIToolkit;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -924,7 +925,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		final IFieldControlData txt =
 		        WSO2UIToolkit.createText(container, optionData.getCaption(), noOfcolumns, readonly,
 		                                 optionData.getVerticalIndent(), optionData
-		                                         .getHorizontalIndent(),optionData.isTextMultiline());
+		                                         .getHorizontalIndent(),optionData.isTextMultiline(),optionData.isAddListnner(),(AbstractWSO2ProjectCreationWizard)getWizard());
 		FieldExecutor fieldExecutor =
 		        new CommonFieldExecutor(optionData, getModel(), txt.getControl()) {
 			        

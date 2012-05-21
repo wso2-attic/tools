@@ -58,6 +58,7 @@ public class ProjectOptionData {
 	
 	//for textboxes 
 	private boolean textMultiline;
+    private boolean addListnner;
 	
 	//for composite
 	private ICompositeProvider iCompositeProvider;
@@ -145,6 +146,14 @@ public class ProjectOptionData {
 
 	public void setTextMultiline(boolean textMultiline) {
 		this.textMultiline = textMultiline;
+	}
+
+	public void setAddListnner(boolean addListnner) {
+		this.addListnner = addListnner;
+	}
+
+	public boolean isAddListnner() {
+		return addListnner;
 	}
 
 	public boolean isTextMultiline() {
