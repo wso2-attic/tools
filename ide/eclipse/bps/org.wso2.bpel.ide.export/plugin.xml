@@ -22,7 +22,7 @@
       </objectContribution> 
    </extension>
    -->
-   <extension point="org.eclipse.ui.exportWizards">
+   <!--extension point="org.eclipse.ui.exportWizards">
         <wizard id="org.wso2.wsf.bpel.export" name="WSO2 BPS Bpel Artifact" class="org.wso2.wsf.ide.bpel.export.ui.BpelExportWizard"
             category="org.wso2.exportcategory"
             icon="./icons/export_bpel.gif">
@@ -35,5 +35,5 @@
         <category
                  id="org.wso2.exportcategory"
                  name="WSO2 Exporter"/>
-    </extension>
+    </extension-->
 </plugin>
