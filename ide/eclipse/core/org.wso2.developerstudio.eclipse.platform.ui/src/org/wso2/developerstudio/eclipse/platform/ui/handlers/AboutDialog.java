@@ -40,7 +40,7 @@ public class AboutDialog extends Dialog {
 	 
 	 private static final String VERSION="Version 2.0.0";
 	 private static final String LICENSED ="Licensed under the Apache License, Version 2.0";
-	 private static final String URL ="http://wso2.org/library/carbon-studio";
+	 private static final String URL ="http://wso2.com/products/developer-studio";
 
 	public AboutDialog(Shell parentShell) {
 		super(parentShell);

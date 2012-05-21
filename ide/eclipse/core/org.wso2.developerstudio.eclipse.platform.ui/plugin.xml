@@ -20,23 +20,26 @@
                mnemonic="C"
                id="org.wso2.developerstudio.eclipse.platform.ui.main">
             <command
-                  commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand"
-                  icon="icons/carbon-studio-small-logo.gif"
-                  id="org.wso2.developerstudio.eclipse.platform.ui.toolbars.sampleCommand"
-                  label="About"
-                  tooltip="About Developer Studio">
-            </command>
-            <command
                   commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.opendashboard"
                   icon="icons/carbon-normal.png"
                   id="org.wso2.developerstudio.eclipse.platform.ui.toolbars.opendashboard"
                   label="Open Dashboard"
                   tooltip="Open Developer Studio Dashboard">
             </command>
+            <separator name="group.filter" visible="false" />
+            <command
+                  commandId="org.wso2.developerstudio.eclipse.platform.ui.commands.sampleCommand"
+                  icon="icons/carbon-studio-small-logo.gif"
+                  id="org.wso2.developerstudio.eclipse.platform.ui.toolbars.sampleCommand"
+                  label="About"
+                  tooltip="About Developer Studio">
+            </command>
+           
            <!--dynamic class="org.wso2.developerstudio.eclipse.samples.menu.contributors.DeveloperStudioSampleMenuContributor"
 				id="org.wso2.developerstudio.eclipse.capp.samples.menu.items" /-->
          </menu>
       </menuContribution>
+        
       <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
      <command
            commandId="org.wso2.developerstudio.eclipse.maven.pom.generator"

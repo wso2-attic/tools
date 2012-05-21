@@ -4,7 +4,7 @@
    <extension-point id="org.wso2.developerstudio.eclipse.samples" name="Developer Studio Samples" schema="schema/org.wso2.developerstudio.eclipse.samples.exsd"/>
 	<extension point="org.eclipse.ui.menus">
        <menuContribution
-            locationURI="menu:org.wso2.developerstudio.eclipse.platform.ui.main?after=additions">
+            locationURI="menu:org.wso2.developerstudio.eclipse.platform.ui.main?=group.filter">
          <menu label="Samples" mnemonic="S"
                id="org.wso2.developerstudio.eclipse.samples.menu">
 			<dynamic class="org.wso2.developerstudio.eclipse.samples.menu.contributors.DeveloperStudioSampleMenuContributor"
