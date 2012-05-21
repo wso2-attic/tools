@@ -59,7 +59,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 	private IProject selectedProject;
 	private MavenProject parentPrj;	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	
+	private boolean initError=false;
 	@SuppressWarnings("unchecked")
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		try {
@@ -93,11 +93,13 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			detailsPage.setName(parentPrj.getModel().getArtifactId());
 			detailsPage.setVersion(parentPrj.getModel().getVersion());
 		} catch (Exception e) {
-			Display display= PlatformUI.createDisplay();
+			initError=true;
+			Display display= PlatformUI.getWorkbench().getDisplay();
 			Shell shell = display.getActiveShell();
 			openMessageBox(shell,"WSO2 Platform Distribution",
 			               "Please select a valid carbon application project",
 			               SWT.ICON_INFORMATION);
+			
 		}
 		
 	}
@@ -122,9 +124,13 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
     }
 
 	public void addPages() {
-		addPage(detailsPage);
-		addPage(mainPage);
-		super.addPages();
+		if(!initError){
+			addPage(detailsPage);
+			addPage(mainPage);
+			super.addPages();
+		} else{
+			
+		}
 	}
 	
 	public boolean performFinish() {

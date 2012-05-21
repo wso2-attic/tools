@@ -64,8 +64,8 @@ public class ExportDetailsWizardPage extends WizardPage {
 			IProject project = getProject(selection);
 			if(project!=null){
 				setSelectedProject(project);
+				exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
 			}
-			exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
 		} catch (CoreException e){
 			log.error("Error getting session properties", e);
 		} catch (Exception e) {

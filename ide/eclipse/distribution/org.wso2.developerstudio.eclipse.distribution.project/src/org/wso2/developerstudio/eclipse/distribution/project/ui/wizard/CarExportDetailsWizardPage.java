@@ -46,9 +46,9 @@ public class CarExportDetailsWizardPage extends WizardPage {
 	private Text txtExportPath;
 	private Text txtName;
 	private Text txtVersion;
-	private String name;
-	private String version;
-	private String exportPath;
+	private String name = "";
+	private String version = "";
+	private String exportPath = "";
 	private IProject selectedProject;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
@@ -65,8 +65,8 @@ public class CarExportDetailsWizardPage extends WizardPage {
 			IProject project = getProject(selection);
 			if(project!=null){
 				setSelectedProject(project);
+				exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
 			}
-			exportPath=(String) getSelectedProject().getSessionProperty(new QualifiedName("",getSelectedProject().getName()));
 		} catch (CoreException e){
 			log.error("Error getting session properties", e);
 		} catch (Exception e) {
