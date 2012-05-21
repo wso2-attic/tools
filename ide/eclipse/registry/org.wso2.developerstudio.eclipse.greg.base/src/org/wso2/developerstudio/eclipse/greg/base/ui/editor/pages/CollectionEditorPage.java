@@ -37,6 +37,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -822,7 +823,7 @@ public class CollectionEditorPage extends FormPage implements
 	public void doFinish() throws Exception {
 		if (editorInput.getResource() == null) {
 			ResourceEditorInput editorInput = (ResourceEditorInput) getEditorInput();
-			RegistryResourceNode regResourcePathData = editorInput.getParentResource();
+			final RegistryResourceNode regResourcePathData = editorInput.getParentResource();
 			Registry registry = regResourcePathData.getConnectionInfo().getRegistry();
 			String selectedPath = regResourcePathData.getRegistryResourcePath();
 			selectedPath = selectedPath.endsWith("/") ? selectedPath: selectedPath + "/";
@@ -838,7 +839,20 @@ public class CollectionEditorPage extends FormPage implements
 			}
 			
 			registry.put(newPath, collection);
-			regResourcePathData.refreshChildren();
+			Display.getDefault().asyncExec(new Runnable() {
+				
+				public void run() {
+					try {
+	                    regResourcePathData.refreshChildren();
+                    } catch (InvalidRegistryURLException e) {
+	                    // TODO Auto-generated catch block
+	                    e.printStackTrace();
+                    } catch (UnknownRegistryException e) {
+	                    // TODO Auto-generated catch block
+	                    e.printStackTrace();
+                    }					
+				}
+			});
 			regResourcePathData.getConnectionInfo().getRegUrlData().refreshViewer(false);
 			ArrayList<RegistryResourceNode> resourcePathList = regResourcePathData
 																			 .getResourceNodeList();

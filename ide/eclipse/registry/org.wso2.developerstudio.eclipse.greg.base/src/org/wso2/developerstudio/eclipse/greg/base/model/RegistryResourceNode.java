@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPropertyListener;
 import org.wso2.carbon.registry.core.Collection;
@@ -59,6 +60,7 @@ public class RegistryResourceNode {
 	private IEditorPart editor;
 	private RegistryResourceType registryResource = RegistryResourceType.UNDEFINED;
 	private String resourceName;
+	private Boolean hasWritePermissions=null;
 	
 	public void setRegistryResource(RegistryResourceType registryResource) {
 		this.registryResource = registryResource;
@@ -128,13 +130,18 @@ public class RegistryResourceNode {
 		 * provider is called only when setError is set to false
 		 */
 		setError(false);
-		if (resourceNodeList == null || resourceNodeList.isEmpty()) {
+		if (resourceNodeList == null/* || resourceNodeList.isEmpty()*/) {
 			Registry registry = getConnectionInfo().getRegistry();
 			if (registry == null) {
 				setError(true);
 				return null;
 			}
-			setIterativeRefresh(true);
+//			Display.getDefault().syncExec(new Runnable() {
+//				
+//				public void run() {
+//					setIterativeRefresh(true);					
+//				}
+//			});
 			Resource resourcesPerCollection = registry
 					.getResourcesPerCollection(getRegistryResourcePath());
 			resourceNodeList = new ArrayList<RegistryResourceNode>();
@@ -156,15 +163,40 @@ public class RegistryResourceNode {
 				}
 				
 			} else {
-				setRegistryResource(RegistryResourceType.RESOURCE);
+				setRegistryResource(RegistryResourceType.UNDEFINED);
+				getResourceType();
 			}
-		}
-		if (isIterativeRefresh()) {
-			refreshChildren();
-			for (RegistryResourceNode child : resourceNodeList) {
-				child.setIterativeRefresh(true);
+			
+			if (isIterativeRefresh()) {
+//				Display.getDefault().syncExec(new Runnable() {
+//					public void run() {
+//						try {
+//							refreshChildren();
+//						} catch (InvalidRegistryURLException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						} catch (UnknownRegistryException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}					
+//					}
+//				});
+				
+				Display.getDefault().syncExec(new Runnable() {
+					
+					public void run() {
+						for (RegistryResourceNode child : resourceNodeList) {
+							child.setIterativeRefresh(true);
+						}					
+					}
+				});
+				Display.getDefault().syncExec(new Runnable() {
+					
+					public void run() {
+						setIterativeRefresh(false);					
+					}
+				});
 			}
-			setIterativeRefresh(false);
 		}
 		return resourceNodeList;
 	}
@@ -395,8 +427,8 @@ public class RegistryResourceNode {
 				getVersionContent(getLatestVersion(),
 						getFile().getAbsolutePath()).updateChecksum();
 			}
-			registryResource = RegistryResourceType.UNDEFINED;
-			
+//			registryResource = RegistryResourceType.UNDEFINED;
+			hasWritePermissions=null;
 		}
 		this.iterativeRefresh = iterativeRefresh;
 	}
@@ -662,9 +694,14 @@ public class RegistryResourceNode {
 	 * @return true if user has write permission, false if not
 	 */
 	public boolean hasWritePermissions() {
+		if(hasWritePermissions!=null){
+			return hasWritePermissions;
+		}
+		
 		try {
 				ResourceAdmin rsAd = this.getConnectionInfo().getResourceAdmin();
-				return rsAd.checkWritePermissionPerResource(this.getRegistryResourcePath());
+				hasWritePermissions=rsAd.checkWritePermissionPerResource(this.getRegistryResourcePath());
+				return hasWritePermissions;
 		} catch (Exception e) {
 		}
 		return false;

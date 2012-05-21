@@ -63,10 +63,10 @@ public class RegistryTreeContentProvider implements ITreeContentProvider {
 			RegistryURLNode regUrlData = (RegistryURLNode) parentElement;
 			List<RegistryNode> list = (ArrayList<RegistryNode>) regUrlData
 					.getUrlInfoList();
-			for (int i = 0; i < list.size(); i++) {
-				newList.add(list.get(i));
-			}
-			return newList.toArray();
+//			for (int i = 0; i < list.size(); i++) {
+//				newList.add(list.get(i));
+//			}
+			return (list!=null)?list.toArray():newList.toArray();
 
 		} else if (parentElement instanceof RegistryNode) {
 			RegistryNode regData = (RegistryNode) parentElement;
@@ -76,7 +76,7 @@ public class RegistryTreeContentProvider implements ITreeContentProvider {
 					children.add(regData.getUserManagerContent());
 				}
 				if (isShowRepositoryCategory()){
-					children.add(regData.getRegistryContent());
+					children.add(regData.getRegistryContainer());
 				}
 				return children.toArray();
 			}
@@ -113,12 +113,12 @@ public class RegistryTreeContentProvider implements ITreeContentProvider {
 				// exceptionHandler.showMessage(getShell(),
 				// "Cannot establish the connection with given URL");
 			}
-			if (resourcePathList != null) {
-				for (int i = 0; i < resourcePathList.size(); i++) {
-					newResourcePathList.add(resourcePathList.get(i));
-				}
-			}
-			return newResourcePathList.toArray();
+//			if (resourcePathList != null) {
+//				for (int i = 0; i < resourcePathList.size(); i++) {
+//					newResourcePathList.add(resourcePathList.get(i));
+//				}
+//			}
+			return (resourcePathList!=null)?resourcePathList.toArray():newResourcePathList.toArray();
 		} else {
 			return null;
 		}
@@ -130,9 +130,19 @@ public class RegistryTreeContentProvider implements ITreeContentProvider {
 	}
 
 	public boolean hasChildren(Object element) {
-		if (element instanceof RegistryURLNode) {
-			return true;
-		} else if (element instanceof RegistryNode) {
+		if (element instanceof RegistryResourceNode) {
+			RegistryResourceNode ele = (RegistryResourceNode) element;
+			if (!(ele.isAllowExapand()) || ele.getResourceType()==RegistryResourceType.UNDEFINED) {
+				return false;
+			} else {
+				try {
+					return ele.getResourceNodeList().size() > 0 && ele.getResourceType()==RegistryResourceType.COLLECTION;
+				} catch (Exception e) {
+					ele.setError(true);
+					return false;
+				}
+			}
+		}else if (element instanceof RegistryNode) {
 			return ((RegistryNode) element).isEnabled();
 		} else if (element instanceof RegistryContentContainer) {
 			return ((RegistryContentContainer) element).getRegistryContent()
@@ -145,18 +155,8 @@ public class RegistryTreeContentProvider implements ITreeContentProvider {
 			return ((RegistryUserRoleContainer) element).getUserRoles().size() > 0;
 		} else if (element instanceof RegistryUserRole) {
 			return ((RegistryUserRole) element).getUsers().size() > 0;
-		} else if (element instanceof RegistryResourceNode) {
-			RegistryResourceNode ele = (RegistryResourceNode) element;
-			if (!(ele.isAllowExapand()) || ele.getResourceType()==RegistryResourceType.UNDEFINED) {
-				return false;
-			} else {
-				try {
-					return ele.getResourceNodeList().size() > 0 && ele.getResourceType()==RegistryResourceType.COLLECTION;
-				} catch (Exception e) {
-					ele.setError(true);
-					return false;
-				}
-			}
+		} else if (element instanceof RegistryURLNode) {
+			return true;
 		} else {
 			return false;
 		}

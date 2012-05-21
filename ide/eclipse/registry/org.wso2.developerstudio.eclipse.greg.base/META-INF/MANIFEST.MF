@@ -7,7 +7,9 @@ Bundle-Activator: org.wso2.developerstudio.eclipse.greg.base.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.wso2.developerstudio.eclipse.libraries
-Export-Package: org.wso2.carbon.utils,
+Export-Package: org.wso2.carbon.registry.ws.client.registry,
+ org.wso2.carbon.registry.ws.stub.xsd,
+ org.wso2.carbon.utils,
  org.wso2.developerstudio.eclipse.greg.base,
  org.wso2.developerstudio.eclipse.greg.base.core,
  org.wso2.developerstudio.eclipse.greg.base.editor.input,
@@ -64,14 +66,13 @@ Bundle-ClassPath: .,
  lib/org.wso2.carbon.core.common-3.2.0.jar,
  lib/org.wso2.carbon.registry.api-3.2.0.jar,
  lib/org.wso2.carbon.registry.core-3.2.2.jar,
- lib/org.wso2.carbon.registry.ws.api-3.2.2.jar,
- lib/org.wso2.carbon.registry.ws.client-3.2.2.jar,
  lib/org.wso2.carbon.registry.ws.stub-3.2.2.jar,
  lib/wsdl4j-1.6.2.wso2v3.jar,
  lib/org.wso2.securevault-1.0.0.jar,
  lib/org.wso2.carbon.base-3.2.2.jar,
  lib/org.wso2.carbon.core-3.2.2.jar,
  lib/org.wso2.carbon.utils-3.2.2.jar,
- lib/org.wso2.carbon.component.mgt.stub-3.2.0.jar
+ lib/org.wso2.carbon.component.mgt.stub-3.2.0.jar,
+ lib/org.wso2.carbon.registry.ws.client-3.2.3.jar
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

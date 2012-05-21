@@ -112,6 +112,7 @@ import org.eclipse.ui.part.ViewPart;
 import org.wso2.carbon.registry.core.Collection;
 import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
+import org.wso2.carbon.registry.ws.stub.xsd.WSResourceData;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry.IResourceUploadListener;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;
@@ -1163,7 +1164,20 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 							}
 						}
-						targetRegResourceNode.refreshChildren();
+						Display.getDefault().asyncExec(new Runnable() {
+							
+							public void run() {
+								try {
+	                                targetRegResourceNode.refreshChildren();
+                                } catch (InvalidRegistryURLException e) {
+	                                // TODO Auto-generated catch block
+	                                e.printStackTrace();
+                                } catch (UnknownRegistryException e) {
+	                                // TODO Auto-generated catch block
+	                                e.printStackTrace();
+                                }								
+							}
+						});
 					} catch (Exception e) {
 						log.error(e);
 					}
@@ -1411,12 +1425,20 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						monitor.worked(1);
 		
 						try {
-							targetRegResource.refreshChildren();
 //							setCopyRegResourceNode(null);
 							Display.getDefault().asyncExec(
 									new Runnable() {
 		
 										public void run() {
+											try {
+	                                            targetRegResource.refreshChildren();
+                                            } catch (InvalidRegistryURLException e) {
+	                                            // TODO Auto-generated catch block
+	                                            e.printStackTrace();
+                                            } catch (UnknownRegistryException e) {
+	                                            // TODO Auto-generated catch block
+	                                            e.printStackTrace();
+                                            }
 											targetRegResource
 													.getConnectionInfo()
 													.getRegUrlData()
@@ -1575,7 +1597,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 	private String searchRegistryNodeForResource(RegistryNode node,String caption) throws InvalidRegistryURLException, UnknownRegistryException{
 		ConcurrentLinkedQueue<RegistryResourceNode> queue=new ConcurrentLinkedQueue<RegistryResourceNode>();
-		queue.addAll(node.getRegistryContent().getRegistryContent());
+		queue.addAll(node.getRegistryContainer().getRegistryContent());
 		while (queue.peek() != null) {
 			RegistryResourceNode registryResourceNode=queue.poll();
 			if(caption.equalsIgnoreCase(registryResourceNode.getCaption())){
@@ -1599,7 +1621,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 	
 	private RegistryResourceNode searchRegistryNodeForResourceNode(RegistryNode node,String caption) throws InvalidRegistryURLException, UnknownRegistryException{
 		ConcurrentLinkedQueue<RegistryResourceNode> queue=new ConcurrentLinkedQueue<RegistryResourceNode>();
-		queue.addAll(node.getRegistryContent().getRegistryContent());
+		queue.addAll(node.getRegistryContainer().getRegistryContent());
 		while (queue.peek() != null) {
 			RegistryResourceNode registryResourceNode=queue.poll();
 			if(caption.equalsIgnoreCase(registryResourceNode.getCaption())){
@@ -1714,7 +1736,20 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						if (regResourceNode.getRegistryResourceNodeParent() == null){
 							refreshItem();
 						}else {
-							regResourceNode.getRegistryResourceNodeParent().refreshChildren();
+							Display.getDefault().asyncExec(new Runnable() {
+								
+								public void run() {
+									try {
+	                                    regResourceNode.getRegistryResourceNodeParent().refreshChildren();
+                                    } catch (InvalidRegistryURLException e) {
+	                                    // TODO Auto-generated catch block
+	                                    e.printStackTrace();
+                                    } catch (UnknownRegistryException e) {
+	                                    // TODO Auto-generated catch block
+	                                    e.printStackTrace();
+                                    }									
+								}
+							});
 						}
 						
 						// TOOLS-623
@@ -1841,11 +1876,19 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 									monitor.worked(1);
 
 									try {
-										targetRegPathData.refreshChildren();
 										Display.getDefault().asyncExec(
 												new Runnable() {
 
 													public void run() {
+														try {
+	                                                        targetRegPathData.refreshChildren();
+                                                        } catch (InvalidRegistryURLException e) {
+	                                                        // TODO Auto-generated catch block
+	                                                        e.printStackTrace();
+                                                        } catch (UnknownRegistryException e) {
+	                                                        // TODO Auto-generated catch block
+	                                                        e.printStackTrace();
+                                                        }
 														targetRegPathData
 																.getConnectionInfo()
 																.getRegUrlData()
@@ -1953,11 +1996,19 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 									monitor.worked(1);
 
 									try {
-										targetPathData.refreshChildren();
 										Display.getDefault().asyncExec(
 												new Runnable() {
 
 													public void run() {
+														try {
+	                                                        targetPathData.refreshChildren();
+                                                        } catch (InvalidRegistryURLException e) {
+	                                                        // TODO Auto-generated catch block
+	                                                        e.printStackTrace();
+                                                        } catch (UnknownRegistryException e) {
+	                                                        // TODO Auto-generated catch block
+	                                                        e.printStackTrace();
+                                                        }
 														if (action
 																.equals(DragDropUtils.ACTION_EXPORT)) {
 															selectedPathData
@@ -2065,7 +2116,20 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 							        	if (selectedPathData.getRegistryResourceNodeParent() == null){
 											refreshItem();
 										}else {
-											selectedPathData.getRegistryResourceNodeParent().refreshChildren();
+											Display.getDefault().asyncExec(new Runnable() {
+												
+												public void run() {
+													try {
+	                                                    selectedPathData.getRegistryResourceNodeParent().refreshChildren();
+                                                    } catch (InvalidRegistryURLException e) {
+	                                                    // TODO Auto-generated catch block
+	                                                    e.printStackTrace();
+                                                    } catch (UnknownRegistryException e) {
+	                                                    // TODO Auto-generated catch block
+	                                                    e.printStackTrace();
+                                                    }													
+												}
+											});
 										}
 										selectedPathData.setRegistryResourceNodeParent(targetPathData);
 							        }
@@ -2277,16 +2341,16 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 			}
 		});
 
-		treeViewer.addTreeListener(new ITreeViewerListener() {
-			
-			public void treeExpanded(TreeExpansionEvent arg0) {
-				
-			}
-			
-			public void treeCollapsed(TreeExpansionEvent arg0) {
-				
-			}
-		});
+//		treeViewer.addTreeListener(new ITreeViewerListener() {
+//			
+//			public void treeExpanded(TreeExpansionEvent arg0) {
+//				
+//			}
+//			
+//			public void treeCollapsed(TreeExpansionEvent arg0) {
+//				
+//			}
+//		});
 		
 		treeViewer.getTree().addSelectionListener(new SelectionAdapter(){
 			public void widgetSelected(SelectionEvent event) {
@@ -2302,11 +2366,16 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 		                               ((RegistryResourceNode) object).getConnectionInfo()
 		                                                              .getRegistry();
 	                    }
+	                    WSResourceData wsResourceData = null;
+						if (registry != null && regResourceNode != null && regResourceNode.getConnectionInfo() != null && regResourceNode.getConnectionInfo().isEnabled()) {
+	                        wsResourceData =
+	                                         registry.getAll(regResourceNode.getRegistryResourcePath());
+                        }
 	                    if (getRegistryPropertyViewer() != null) {
 		                    getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
 		                    try {
-			                    if (regResourceNode.getConnectionInfo().isEnabled()) {
-				                    getRegistryPropertyViewer().updateMe();
+			                    if (regResourceNode != null && regResourceNode.getConnectionInfo() != null && regResourceNode.getConnectionInfo().isEnabled()) {
+				                    getRegistryPropertyViewer().updateMe(wsResourceData);
 			                    }
 		                    } catch (Exception e) {
 			                    log.error(e);
@@ -2316,8 +2385,8 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 	                    if (getResourceInfoViewer() != null) {
 		                    getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
 		                    try {
-			                    if (regResourceNode.getConnectionInfo().isEnabled()) {
-				                    getResourceInfoViewer().updateMe();
+			                    if (regResourceNode != null && regResourceNode.getConnectionInfo() != null && regResourceNode.getConnectionInfo().isEnabled()) {
+				                    getResourceInfoViewer().updateMe(wsResourceData);
 			                    }
 		                    } catch (Exception e) {
 			                    log.error(e);
@@ -2410,8 +2479,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 						regNode = (RegistryNode) object;
 						if (regNode.isEnabled()) {
 	                        regResourceNode =
-	                                          regNode.getRegistryContent().getRegistryContent()
-	                                                 .get(0);
+	                                          regNode.getRegistryContainer().getRegistryContent().get(0);
 	                        resourcePath = regResourceNode.getRegistryResourcePath();
 	                        if (resourceNodes != null) {
 		                        if (resourceNodes.isEmpty()) {
@@ -2420,6 +2488,12 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 	                        }
 	                        // resourcePathList.add(regResourcePathData);
 	                        // regResourcePathData.setResourcePathList(resourcePathList);
+	                        setResourcePath(resourcePath);
+	                        setRegData(regNode);
+	                        setRegResourcePathData(regResourceNode);
+                        }else{
+                        	regResourceNode=null;
+                        	resourcePath=null;
 	                        setResourcePath(resourcePath);
 	                        setRegData(regNode);
 	                        setRegResourcePathData(regResourceNode);
@@ -2754,7 +2828,6 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 															.setTaskName("Refreshing tree...");
 													monitor.worked(1);
 													try {
-														r.refreshChildren();
 														monitor.worked(++count);
 														Display
 																.getDefault()
@@ -2762,6 +2835,15 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 																		new Runnable() {
 
 																			public void run() {
+																				try {
+	                                                                                r.refreshChildren();
+                                                                                } catch (InvalidRegistryURLException e) {
+	                                                                                // TODO Auto-generated catch block
+	                                                                                e.printStackTrace();
+                                                                                } catch (UnknownRegistryException e) {
+	                                                                                // TODO Auto-generated catch block
+	                                                                                e.printStackTrace();
+                                                                                }
 																				r
 																						.getConnectionInfo()
 																						.getRegUrlData()
@@ -2860,10 +2942,18 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 										monitor.setTaskName("Refreshing tree...");
 										monitor.worked(1);
 										try {
-											r.refreshChildren();
 											monitor.worked(1);
 											Display.getDefault().asyncExec(new Runnable() {
 												public void run() {
+													try {
+	                                                    r.refreshChildren();
+                                                    } catch (InvalidRegistryURLException e) {
+	                                                    // TODO Auto-generated catch block
+	                                                    e.printStackTrace();
+                                                    } catch (UnknownRegistryException e) {
+	                                                    // TODO Auto-generated catch block
+	                                                    e.printStackTrace();
+                                                    }
 													r.getConnectionInfo().getRegUrlData().refreshViewer(false);
 												}
 											});

@@ -65,10 +65,10 @@ public class ChangePermissionWizardPage1 extends WizardPage {
 		regData.setEnabled(true);
 		r.getTree().setLayoutData(new GridData(GridData.FILL_BOTH));
 		RegistryNode regData2 = r.addRegistry(regUrl, regData
-				.getRegistryContent().getRegistryContent().get(0)
+				.getRegistryContainer().getRegistryContent().get(0)
 				.getRegistryResourcePath(), regData.getUsername(), regData
 				.getPassword(), false);
-		r.expandTree(regData2, regData.getRegistryContent()
+		r.expandTree(regData2, regData.getRegistryContainer()
 				.getRegistryContent().get(0).getRegistryResourcePath());
 
 		setControl(container);

@@ -35,6 +35,10 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.part.ViewPart;
 import org.wso2.carbon.registry.core.Resource;
+import org.wso2.carbon.registry.core.exceptions.RegistryException;
+import org.wso2.carbon.registry.ws.client.registry.WSRegistryClientUtils;
+import org.wso2.carbon.registry.ws.client.registry.WSRegistryServiceClient;
+import org.wso2.carbon.registry.ws.stub.xsd.WSResourceData;
 import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;
 import org.wso2.developerstudio.eclipse.greg.base.interfaces.IRegistryFormEditorPage;
@@ -112,7 +116,12 @@ public class ResourceInfoViewer extends ViewPart implements
 		generateControls(composite, names);
 		
 		try {
-			updateMe();
+			if (getRegistryResourcePathData() != null && getRegistryResourcePathData().getConnectionInfo() != null && getRegistryResourcePathData().getConnectionInfo()
+	                                                  .getRegistry() != null) {
+	            updateMe(getRegistryResourcePathData().getConnectionInfo()
+	                                                  .getRegistry()
+	                                                  .getAll(getRegistryResourcePathData().getRegistryResourcePath()));
+            }
 		} catch (Exception e) {
 			log.error(e);
 			MessageDialogUtils.error(getSite().getShell(), e);
@@ -211,8 +220,8 @@ public class ResourceInfoViewer extends ViewPart implements
 		setRegistryResourcePathData(selectedRegistryResourcePathData);
 	}
 
-	private void updateInfo() throws InvalidRegistryURLException, UnknownRegistryException{
-		updateGeneralInfo();
+	private void updateInfo(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
+		updateGeneralInfo(wsResourceData);
 	}
 
 
@@ -240,16 +249,32 @@ public class ResourceInfoViewer extends ViewPart implements
 	
 	}
 
-	private void updateGeneralInfo() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateGeneralInfo(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() != null) {
 			SimpleDateFormat formatter = new SimpleDateFormat("d MMM yyyy H:mm:ss");
 			String path = getRegistryResourcePathData().getRegistryResourcePath();
 			Registry registry = getRegistryResourcePathData().getConnectionInfo().getRegistry();
-			int rating =
-			             registry.getRating(path, getRegistryResourcePathData().getConnectionInfo()
-			                                                                   .getUsername());
-			float averageRating = registry.getAverageRating(path);
-			Resource resource = registry.get(path);
+			int rating;
+			float averageRating; 
+			Resource resource;
+			if (wsResourceData != null) {
+				rating=wsResourceData.getRating();
+				averageRating=wsResourceData.getAverageRating();
+				try {
+	                resource= WSRegistryClientUtils.transformWSResourcetoResource((WSRegistryServiceClient)registry.getRegistry(), wsResourceData.getResource(), null);
+                } catch (RegistryException e) {
+                	resource= registry.get(path);
+                }
+            }else{
+            	rating =
+            		registry.getRating(path, getRegistryResourcePathData().getConnectionInfo()
+            		                   .getUsername());
+            	averageRating=registry.getAverageRating(path);
+            	resource= registry.get(path);
+            }
+				
+			String lcNameProperty = resource.getProperty("registry.LC.name");
+			String lcStateProperty = resource.getProperty("registry.lifecycle." + lcNameProperty +".state");
 			String[] values =
 			                  new String[] {
 			                                getRegistryResourcePathData().getConnectionInfo()
@@ -263,9 +288,10 @@ public class ResourceInfoViewer extends ViewPart implements
 			                                        formatter.format(resource.getCreatedTime()),
 			                                "By " + resource.getLastUpdaterUserName() + " " +
 			                                        formatter.format(resource.getLastModified()),
+			                                        //We should have include these 3 in to the WSResourceData as well
 			                                getVersion(getRegistryResourcePathData()),
-			                                registry.getLifeCycleName(resource),
-			                                registry.getLifeCycleState(resource),
+			                                (lcNameProperty!=null)?lcNameProperty:"No Life Cycle available for this resource",
+			                                (lcStateProperty!=null)?lcStateProperty:"N/A",
 			                                Integer.toString(rating), Float.toString(averageRating) };
 
 			updateViewValues(values);
@@ -293,10 +319,8 @@ public class ResourceInfoViewer extends ViewPart implements
 		}
 		else return "";
 	}
-	public void updateMe() throws InvalidRegistryURLException, UnknownRegistryException {
-		if (getRegistryResourcePathData() != null && getRegistryResourcePathData().getConnectionInfo() != null && getRegistryResourcePathData().getConnectionInfo().isEnabled()) {
-	        updateInfo();
-        }
+	public void updateMe(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException {
+	    updateInfo(wsResourceData);
 		decideToolBarButtons();
 	}
 
@@ -304,7 +328,7 @@ public class ResourceInfoViewer extends ViewPart implements
 		actionRefresh = new Action("Refresh") {
 			public void run() {
 				try {
-					updateMe();
+					updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 				} catch (Exception e) {
 					log.error(e);
 				}
@@ -378,7 +402,7 @@ public class ResourceInfoViewer extends ViewPart implements
 			Display.getDefault().asyncExec(new Runnable(){
 				public void run() {
 					try {
-						updateMe();
+						updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 					} catch (InvalidRegistryURLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

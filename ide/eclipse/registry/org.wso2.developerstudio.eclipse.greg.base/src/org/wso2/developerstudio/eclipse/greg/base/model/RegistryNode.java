@@ -56,7 +56,7 @@ public class RegistryNode {
 		this.regUrlData = regUrlData;
 		setRegistryContent(new RegistryContentContainer());
 		setUserManagerContent(new RegistryUserManagerContainer(this));
-		getRegistryContent().addRegistryContent(new RegistryResourceNode(this, 
+		getRegistryContainer().addRegistryContent(new RegistryResourceNode(this, 
 																		registryUrlInfo.getPath(),
 																		null));
 	}
@@ -229,7 +229,7 @@ public class RegistryNode {
 	public void setEnabled(boolean enabled) {
 		this.enabled=enabled;
 		if (enabled){
-			getRegistryContent().setIterativeRefresh(true);
+			getRegistryContainer().setIterativeRefresh(true);
 		}else{
 			resetAllConnections();
 		}
@@ -298,7 +298,7 @@ public class RegistryNode {
 	 * 
 	 * @return
 	 */
-	public RegistryContentContainer getRegistryContent() {
+	public RegistryContentContainer getRegistryContainer() {
 		return registryContent;
 	}
 
@@ -306,7 +306,7 @@ public class RegistryNode {
 		this.iterativeRefresh = iterativeRefresh;
 		if (iterativeRefresh) {
 			resetAllConnections();
-			getRegistryContent().setIterativeRefresh(true);
+			getRegistryContainer().setIterativeRefresh(true);
 			getUserManagerContent().setIterativeRefresh(true);
 		}
 	}

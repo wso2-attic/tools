@@ -41,9 +41,18 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.part.ViewPart;
+import org.wso2.carbon.registry.core.Association;
 import org.wso2.carbon.registry.core.Comment;
 import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.Tag;
+import org.wso2.carbon.registry.core.exceptions.RegistryException;
+import org.wso2.carbon.registry.ws.client.registry.WSRegistryClientUtils;
+import org.wso2.carbon.registry.ws.client.registry.WSRegistryServiceClient;
+import org.wso2.carbon.registry.ws.stub.xsd.WSAssociation;
+import org.wso2.carbon.registry.ws.stub.xsd.WSComment;
+import org.wso2.carbon.registry.ws.stub.xsd.WSResourceData;
+import org.wso2.carbon.registry.ws.stub.xsd.WSTag;
+import org.wso2.developerstudio.eclipse.greg.base.core.Registry;
 import org.wso2.developerstudio.eclipse.greg.base.core.RegistryAssociation;
 import org.wso2.developerstudio.eclipse.greg.base.editor.input.ResourceEditorInput;
 import org.wso2.developerstudio.eclipse.greg.base.interfaces.IRegistryFormEditorPage;
@@ -63,6 +72,8 @@ import org.wso2.developerstudio.eclipse.platform.ui.utils.MessageDialogUtils;
 public class RegistryPropertyViewer extends ViewPart implements
 		RegistryItemSelectionListener, Observer{
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+
+	private static final String DEPENDENCY_ASSOCIATION_TYPE = "depends";
 
 	TabFolder tabFolder;
 	private RegistryResourceNode registryResourcePathData;
@@ -109,7 +120,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 //				.setText("Please double click on a registry resource/collection in registry browser viewer");
 		decideToolBarButtons();
 		try {
-			updateMe();
+			updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 		} catch (Exception e) {
 			MessageDialogUtils.error(getSite().getShell(), e);
 		}
@@ -143,16 +154,18 @@ public class RegistryPropertyViewer extends ViewPart implements
 		setRegistryResourcePathData(selectedRegistryResourcePathData);
 	}
 
-	private void updateInfo() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateInfo(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
 //		updateGeneralInfo();
-		updateProperties();
-		updateTags();
-		updateComments();
-		updateDependencies();
-		updateAssociations();
+//		WSResourceData wsResourceData = getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath());
+		updateProperties(wsResourceData);
+		updateTags(wsResourceData);
+		updateComments(wsResourceData);
+		RegistryAssociation[] wsRegistryAssociations = getWSRegistryAssociations(wsResourceData);
+		updateDependencies(wsRegistryAssociations);
+		updateAssociations(wsRegistryAssociations);
 	}
 
-	private void updateProperties() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateProperties(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() == null) {
 			setBlankPage(tabPageProperties);
 			return;
@@ -172,11 +185,24 @@ public class RegistryPropertyViewer extends ViewPart implements
 		}
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		Resource resource = getRegistryResourcePathData()
+		Resource resource = null;
+		if(wsResourceData!=null){
+			try {
+	            resource= WSRegistryClientUtils.transformWSResourcetoResource((WSRegistryServiceClient)getRegistryResourcePathData()
+	                                                          				.getConnectionInfo()
+	                                                        				.getRegistry().getRegistry(), wsResourceData.getResource(), null);
+            } catch (RegistryException e) {
+	            e.printStackTrace();
+            }
+		}
+		
+		if(resource==null){
+		 resource= getRegistryResourcePathData()
 				.getConnectionInfo()
 				.getRegistry()
 				.getResourcesPerCollection(
 						getRegistryResourcePathData().getRegistryResourcePath());
+		}
 		Properties properties = resource.getProperties();
 		for (Enumeration e = properties.keys(); e.hasMoreElements(); /**/) {
 			String key = (String) e.nextElement();
@@ -188,16 +214,34 @@ public class RegistryPropertyViewer extends ViewPart implements
 		tabPageProperties.setControl(table);
 	}
 
-	private void updateTags() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateTags(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() == null) {
 			setBlankPage(tabPageTags);
 			return;
 		}
 		ListViewer listViewer = new ListViewer(tabFolder);
-		Tag[] tags = getRegistryResourcePathData()
-				.getConnectionInfo()
-				.getRegistry().getTags(
-						getRegistryResourcePathData().getRegistryResourcePath());
+		
+		Tag[] tags=null;
+		if (wsResourceData != null) {
+			WSTag[] wsTags = new WSTag[0] ;
+	        wsTags = wsResourceData.getTags();
+	        if (wsTags != null) {
+	            Tag[] transformed = new Tag[wsTags.length];
+	            for (int i = 0; i < wsTags.length; i++) {
+		            transformed[i] = WSRegistryClientUtils.transformWSTagToTag(wsTags[i]);
+	            }
+	            tags = transformed;
+            }else{
+            	tags=new Tag[0];
+            }
+        }
+		
+		 if (tags == null) {
+	        tags =
+	               getRegistryResourcePathData().getConnectionInfo()
+	                                            .getRegistry()
+	                                            .getTags(getRegistryResourcePathData().getRegistryResourcePath());
+        }
 		listViewer.setContentProvider(new IStructuredContentProvider() {
 
 			public Object[] getElements(Object arg0) {
@@ -233,7 +277,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 
 	}
 
-	private void updateComments() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateComments(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() == null) {
 			setBlankPage(tabPageComments);
 			return;
@@ -253,10 +297,27 @@ public class RegistryPropertyViewer extends ViewPart implements
 		}
 		table.setHeaderVisible(false);
 		table.setLinesVisible(true);
-		Comment[] comments = getRegistryResourcePathData()
-				.getConnectionInfo()
-				.getRegistry().getComments(
-						getRegistryResourcePathData().getRegistryResourcePath());
+		Comment[] comments=null;
+		if (wsResourceData != null) {
+			 WSComment[] wsComments=new WSComment[0];
+	         wsComments= wsResourceData.getComments();
+	         if (wsComments != null) {
+	            Comment[] transformed = new Comment[wsComments.length];
+	            for (int i = 0; i < wsComments.length; i++) {
+		            transformed[i] =
+		                             WSRegistryClientUtils.WSCommenttoRegistryComment(wsComments[i]);
+	            }
+	            comments = transformed;
+            }else{
+            	comments= new Comment[0];
+            }
+        }
+		if (comments == null) {
+	        comments =
+	                   getRegistryResourcePathData().getConnectionInfo()
+	                                                .getRegistry()
+	                                                .getComments(getRegistryResourcePathData().getRegistryResourcePath());
+        }
 		for (Comment comment : comments) {
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setText(comment.getCreatedTime() + " by "
@@ -267,7 +328,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 		tabPageComments.setControl(table);
 	}
 
-	private void updateDependencies() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateDependencies(RegistryAssociation[] registryAssociations) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() == null) {
 			setBlankPage(tabPageDependencies);
 			return;
@@ -288,11 +349,16 @@ public class RegistryPropertyViewer extends ViewPart implements
 		table.setHeaderVisible(false);
 		table.setLinesVisible(false);
 
-		RegistryAssociation[] associations = getRegistryResourcePathData()
+		RegistryAssociation[] associations=null;
+		if (registryAssociations !=null) {
+	        associations = registryAssociations;
+        }else {
+		 associations = getRegistryResourcePathData()
 				.getConnectionInfo().getRegistry().getAssociations(
 						(getRegistryResourcePathData()
 								.getRegistryResourcePath()),
 						DEPENDENCY_ASSOCIATION_TYPE);
+        }
 		for (RegistryAssociation association : associations) {
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setText(association.getDestinationPath());
@@ -301,9 +367,8 @@ public class RegistryPropertyViewer extends ViewPart implements
 		tabPageDependencies.setControl(table);
 	}
 
-	private static final String DEPENDENCY_ASSOCIATION_TYPE = "depends";
 
-	private void updateAssociations() throws InvalidRegistryURLException, UnknownRegistryException{
+	private void updateAssociations(RegistryAssociation[] registryAssociations) throws InvalidRegistryURLException, UnknownRegistryException{
 		if (getRegistryResourcePathData() == null) {
 			setBlankPage(tabPageAssociations);
 			return;
@@ -323,11 +388,15 @@ public class RegistryPropertyViewer extends ViewPart implements
 		}
 		table.setHeaderVisible(true);
 		table.setLinesVisible(false);
-
-		RegistryAssociation[] associations = getRegistryResourcePathData()
-				.getConnectionInfo()
-				.getRegistry().getAllAssociations(
-						getRegistryResourcePathData().getRegistryResourcePath());
+		RegistryAssociation[] associations=null;
+		if (registryAssociations !=null) {
+	        associations = registryAssociations;
+        }else {
+	        associations =
+	                       getRegistryResourcePathData().getConnectionInfo()
+	                                                    .getRegistry()
+	                                                    .getAllAssociations(getRegistryResourcePathData().getRegistryResourcePath());
+        }
 		for (RegistryAssociation association : associations) {
 			if (!association.getAssociationType().equalsIgnoreCase(
 					DEPENDENCY_ASSOCIATION_TYPE)) {
@@ -339,6 +408,29 @@ public class RegistryPropertyViewer extends ViewPart implements
 		}
 		tabPageAssociations.setControl(table);
 	}
+
+	/**
+     * @param wsResourceData
+     * @param associations
+     * @return
+     */
+    private RegistryAssociation[] getWSRegistryAssociations(WSResourceData wsResourceData) {
+	    if (wsResourceData != null) {
+			WSAssociation[] wsAssociations=new WSAssociation[0];
+	        wsAssociations = wsResourceData.getAssociations();
+	        if (wsAssociations != null) {
+	            RegistryAssociation[] transformed = new RegistryAssociation[wsAssociations.length];
+	            for (int i = 0; i < wsAssociations.length; i++) {
+		            transformed[i] =
+		                             Registry.createRegistryAssociation(WSRegistryClientUtils.transformWSAssociationToAssociation(wsAssociations[i]));
+	            }
+	            return transformed;
+            }else{
+            	return new RegistryAssociation[0];
+            }
+        }
+	    return null;
+    }
 
 	private void setBlankPage(TabItem tabpage) {
 		tabpage.setControl(lblNoData);
@@ -392,8 +484,8 @@ public class RegistryPropertyViewer extends ViewPart implements
 //		tabPageGeneralInfo.setControl(composite);
 //	}
 
-	public void updateMe() throws InvalidRegistryURLException, UnknownRegistryException {
-		updateInfo();
+	public void updateMe(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException {
+		updateInfo(wsResourceData);
 		decideToolBarButtons();
 	}
 
@@ -473,7 +565,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 		actionRefresh = new Action("Refresh") {
 			public void run() {
 				try {
-					updateMe();
+					updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 				} catch (Exception e) {
 					log.error(e);
 				}
@@ -561,7 +653,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 			Display.getDefault().asyncExec(new Runnable(){
 				public void run() {
 					try {
-						updateMe();
+						updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 					} catch (InvalidRegistryURLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

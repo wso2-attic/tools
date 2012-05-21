@@ -81,6 +81,12 @@ public class RegistryTreeViewer extends TreeViewer implements Observer {
 		this(parent, style, exceptionHandler, true, true);
 	}
 	
+//	@Override
+//	public boolean isExpandable(Object element) {
+//	    // TODO Auto-generated method stub
+//	    return true;
+//	}
+	
 	/**
 	 * set up input for the tree view
 	 */
@@ -266,11 +272,11 @@ public class RegistryTreeViewer extends TreeViewer implements Observer {
 		expandToLevel(regData, 1);
 		refresh(regData, false);
 
-		setSelection(new StructuredSelection(regData.getRegistryContent()),	true);
-		expandToLevel(regData.getRegistryContent(), 1);
-		refresh(regData.getRegistryContent(), false);
+		setSelection(new StructuredSelection(regData.getRegistryContainer()),	true);
+		expandToLevel(regData.getRegistryContainer(), 1);
+		refresh(regData.getRegistryContainer(), false);
 
-		r = regData.getRegistryContent().getRegistryContent().get(0);
+		r = regData.getRegistryContainer().getRegistryContent().get(0);
 		String rootPath = r.getRegistryResourcePath();
 		String[] k;
 		if (rootPath.equalsIgnoreCase("")){

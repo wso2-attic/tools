@@ -16,6 +16,46 @@
 
 package org.wso2.developerstudio.eclipse.greg.base.core;
 
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+import org.apache.axis2.context.ServiceContext;
+import org.apache.axis2.transport.http.HTTPConstants;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.QualifiedName;
+import org.wso2.carbon.authenticator.stub.AuthenticationAdminStub;
+import org.wso2.carbon.component.mgt.stub.ProvisioningAdminServiceStub;
+import org.wso2.carbon.component.mgt.stub.prov.data.Feature;
+import org.wso2.carbon.registry.app.RemoteRegistry;
+import org.wso2.carbon.registry.core.Association;
+import org.wso2.carbon.registry.core.Collection;
+import org.wso2.carbon.registry.core.Comment;
+import org.wso2.carbon.registry.core.Resource;
+import org.wso2.carbon.registry.core.Tag;
+import org.wso2.carbon.registry.core.exceptions.RegistryException;
+import org.wso2.carbon.registry.core.utils.RegistryUtils;
+import org.wso2.carbon.registry.ws.client.registry.WSRegistryServiceClient;
+import org.wso2.carbon.registry.ws.stub.WSRegistryServiceRegistryExceptionException;
+import org.wso2.carbon.registry.ws.stub.xsd.WSResourceData;
+import org.wso2.developerstudio.eclipse.greg.base.Activator;
+import org.wso2.developerstudio.eclipse.greg.core.exception.InvalidRegistryURLException;
+import org.wso2.developerstudio.eclipse.greg.core.exception.RegistryContentRetrieveException;
+import org.wso2.developerstudio.eclipse.greg.core.exception.UnknownRegistryException;
+import org.wso2.developerstudio.eclipse.greg.core.interfaces.IGARImportDependency;
+import org.wso2.developerstudio.eclipse.greg.core.utils.GARUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.MediaManager;
+import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,51 +67,10 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
-
-import org.apache.axis2.AxisFault;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.QualifiedName;
-import org.wso2.carbon.registry.app.RemoteRegistry;
-import org.wso2.carbon.registry.core.Association;
-import org.wso2.carbon.registry.core.Collection;
-import org.wso2.carbon.registry.core.Comment;
-import org.wso2.carbon.registry.core.Resource;
-import org.wso2.carbon.registry.core.Tag;
-import org.wso2.carbon.registry.core.exceptions.RegistryException;
-import org.wso2.carbon.registry.core.utils.RegistryUtils;
-import org.wso2.carbon.registry.ws.client.registry.WSRegistryServiceClient;
-
-
-import org.apache.axis2.client.Options;
-import org.apache.axis2.client.ServiceClient;
-import org.apache.axis2.context.ServiceContext;
-import org.apache.axis2.transport.http.HTTPConstants;
-import org.wso2.carbon.authenticator.stub.AuthenticationAdminStub;
-import org.wso2.carbon.component.mgt.stub.ProvisioningAdminServiceStub;
-import org.wso2.carbon.component.mgt.stub.prov.data.Feature;
-import org.wso2.developerstudio.eclipse.greg.base.Activator;
-import org.wso2.developerstudio.eclipse.greg.core.exception.InvalidRegistryURLException;
-import org.wso2.developerstudio.eclipse.greg.core.exception.RegistryContentRetrieveException;
-import org.wso2.developerstudio.eclipse.greg.core.exception.UnknownRegistryException;
-import org.wso2.developerstudio.eclipse.greg.core.interfaces.IGARImportDependency;
-import org.wso2.developerstudio.eclipse.greg.core.utils.GARUtils;
-import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
-import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.platform.core.MediaManager;
-import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 
 public class Registry {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -275,7 +274,7 @@ public class Registry {
 		return false;
 	}
 	
-	private org.wso2.carbon.registry.core.Registry getRegistry() throws InvalidRegistryURLException, UnknownRegistryException{
+	public org.wso2.carbon.registry.core.Registry getRegistry() throws InvalidRegistryURLException, UnknownRegistryException{
 //		if (remregistry!=null){
 //			try {
 //				remregistry.get("/");
@@ -765,7 +764,7 @@ public class Registry {
 		}
 	}
 
-	private RegistryAssociation createRegistryAssociation(
+	public static RegistryAssociation createRegistryAssociation(
 			Association association) {
 		RegistryAssociation registryAssociation = new RegistryAssociation();
 		registryAssociation.setAssociationType(association.getAssociationType());
@@ -1175,5 +1174,26 @@ public class Registry {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
         }
+	}
+	
+	public WSResourceData getAll(String registryResourcePath){
+		if(isRegistryWSFeatureAvailable()){
+			try {
+	            return ((WSRegistryServiceClient)getRegistry()).getStub().getAll(registryResourcePath);
+            } catch (RemoteException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+            } catch (InvalidRegistryURLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+            } catch (UnknownRegistryException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+            } catch (WSRegistryServiceRegistryExceptionException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+            }
+		}
+		return null;
 	}
 }

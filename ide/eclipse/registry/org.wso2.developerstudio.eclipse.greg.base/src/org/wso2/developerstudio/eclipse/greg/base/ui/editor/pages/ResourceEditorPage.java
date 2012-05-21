@@ -1161,7 +1161,7 @@ public class ResourceEditorPage extends FormPage implements
 						}
 						RegistryResourceNode registryResourceNode = editorInput
 								.getParentResource().getConnectionInfo()
-								.getRegistryContent()
+								.getRegistryContainer()
 								.getRegistryResourceNode(sb.toString());
 						if (registryResourceNode != null) {
 							editorInput.setParentResource(registryResourceNode);
