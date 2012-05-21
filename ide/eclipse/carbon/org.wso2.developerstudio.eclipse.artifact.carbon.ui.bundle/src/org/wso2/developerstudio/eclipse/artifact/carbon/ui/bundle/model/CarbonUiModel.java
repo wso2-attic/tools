@@ -26,8 +26,8 @@ public class CarbonUiModel extends ProjectDataModel {
 	private String name;
     private IProject carbonUIproject;
     private boolean isActivatorRequired=true;
-    private String  activatorClassName="Activator";
-    private String deployPath ="web/customui";
+    private String  activatorClassName=".Activator";
+    private String deployPath ="web/customui/";
     
 	
 	public Object getModelPropertyValue(String key) {
@@ -129,7 +129,7 @@ public class CarbonUiModel extends ProjectDataModel {
 	}
 
 	public void setActivatorClassName(String activatorClassName) {
-		this.activatorClassName = activatorClassName;
+			this.activatorClassName = activatorClassName;
 	}
 
 	public String getDeployPath() {
@@ -139,16 +139,5 @@ public class CarbonUiModel extends ProjectDataModel {
 	public void setDeployPath(String deployPath) {
 		this.deployPath = deployPath;
 	}
-	
-	public void setProjectName(String projectName) throws ObserverFailedException {
-		if (projectName != null && !projectName.equals("")) {
-			setActivatorClassName(projectName + "." + "Activator");
-			setDeployPath("web/customui/" + projectName);
-			setName(projectName);
-			setId(projectName);
-		}
-		super.setProjectName(projectName);
-	}
-
 	
 }

@@ -12,26 +12,32 @@
  			  		description="Create a new Carbon UI Component"
  			  		error="Project name must be specified to create the Carbon UI bundle">
  		<data modelProperty="project.name"
- 					type="string" 
+ 					type="string"
+ 					controlData="listner=true"
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController">Project Name*  </data>
  		<data modelProperty="uibundle.id" 
  					type="string" 
+ 					controlData="listner=true"
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="testid">Id*</data>
  		<data modelProperty="uibundle.version" 
- 					type="string" 
+ 					type="string"
+ 					controlData="listner=true" 
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="testid">Version*</data>	
  		<data modelProperty="uibundle.name" 
- 					type="string" 
+ 					type="string"
+ 					controlData="listner=true" 
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="testid">Name</data>
  		<data modelProperty="deploy.path" 
- 					type="string" 
+ 					type="string"
+ 					controlData="listner=true" 
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="testid">Deploy Path*</data>														  
  		<group id="testid"></group>
  		
  		<data modelProperty="create.class" type="choice" 
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="zoptional">Create Activator Class</data>	
  		<data modelProperty="activator.class" 
- 					type="string" 
+ 					type="string"
+ 					controlData="listner=true" 
  					fieldController="org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators.UIbundleFieldsController" group="zoptional">Activator </data>
  		<group id="zoptional"></group>		
  		<projectNatures>

@@ -13,7 +13,11 @@ public class CarbonUIbudleTemplate {
 				File resourceFile = new CarbonUIBundleTemplateUtils().getResourceFile("templates/Activator.temp");
 				String fileContent = FileUtils.getContentAsString(resourceFile);
 				
+				if(!"".equals(packgeName)){
 				fileContent = fileContent.replace("package", "package " + packgeName + ";");
+				}else{
+					fileContent = fileContent.replace("package","");
+				}
 				
 				return fileContent;
 	}
@@ -60,8 +64,8 @@ public class CarbonUIbudleTemplate {
         buffer.append(uibundleModel.getVersion());
         buffer.append("\n");
         buffer.append("Bundle-Activator: ");
-        buffer.append(uibundleModel.getProjectName());
-        buffer.append(".Activator \n");
+        buffer.append(uibundleModel.getActivatorClassName());
+        buffer.append("\n");
         buffer.append("Bundle-ManifestVersion: 2");
         buffer.append("\n");
         buffer.append("Carbon-Component: UIBundle");
@@ -73,8 +77,8 @@ public class CarbonUIbudleTemplate {
         buffer.append("\"");
         buffer.append("\n");
         buffer.append("Bundle-SymbolicName: ");
-        buffer.append(uibundleModel.getProjectName());
-        buffer.append("\n");
+        buffer.append(uibundleModel.getId());
+        buffer.append(";singleton:=true\n");
         
         return buffer.toString();
 	}

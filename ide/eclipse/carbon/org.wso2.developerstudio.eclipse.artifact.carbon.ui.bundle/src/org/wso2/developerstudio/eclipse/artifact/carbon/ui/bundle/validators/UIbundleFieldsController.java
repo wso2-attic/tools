@@ -18,16 +18,17 @@ public class UIbundleFieldsController extends AbstractFieldController {
 				throw new FieldValidationException("Project name must be specified");
 			}
 			String projectName = value.toString();
+			
 			if (projectName.trim().equals("")) {
 				throw new FieldValidationException("Project name must be specified");
 			}
 			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
 			if (project.exists()) {
-				throw new FieldValidationException("Project with the name '" + projectName +
-				                                   "' already exists");
-			}		
-		} else if (modelProperty.equals("uibundle.id")){
+				throw new FieldValidationException("Project with the name '" + projectName + "' already exists");
+			}	
+				
+		}  else if (modelProperty.equals("uibundle.id")){
 			String id = value.toString();
 			if ("".equals(id)) {
 				throw new FieldValidationException("Id is not set");
@@ -52,24 +53,10 @@ public class UIbundleFieldsController extends AbstractFieldController {
 			if ((value == null)||(value.equals(""))) {
 				throw new FieldValidationException("Deploy path must be specified");
 			}
-		}
+		} 
+		
 	}
-	
-	public List<String> getUpdateFields(String modelProperty,
-			ProjectDataModel model) {
-		List<String> updateFields = super.getUpdateFields(modelProperty, model);
-		if(modelProperty.equals("project.name")){
-			updateFields.add("activator.class");
-			updateFields.add("deploy.path");
-			updateFields.add("uibundle.name");
-			updateFields.add("uibundle.id");
-		}
-		if(modelProperty.equals("create.class")){
-			updateFields.add("activator.class");
-		}
-		return updateFields;
-	}
-	
+
 	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 		boolean enableField = super.isEnableField(modelProperty, model);
 		if(modelProperty.equals("activator.class")){

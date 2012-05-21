@@ -20,8 +20,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -36,6 +38,9 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.wizard.IWizardPage;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.Activator;
@@ -49,6 +54,7 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -56,7 +62,9 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
     private static CarbonUiModel uibundleModel;
 	private  IProject project;
+	private Map<String, Text> controlersMap ;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private String projectName="";
 	
     public CarbonUIbundleWizard(){
      setUibundleModel(new CarbonUiModel());
@@ -64,10 +72,57 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
      setWindowTitle("Carbon UI bundle wizard");
      setDefaultPageImageDescriptor(CarbonUIImageUtils.getInstance().getImageDescriptor("carbon-ui-bundle-wizard.png"));
     }
+       
+    public void executeListener(){	
+    	try{
+    		 controlersMap = getMap();
+    	    	if(controlersMap!=null){
+    	            ModifyListener listener = new ModifyListener() {
+    	       	      public void modifyText(ModifyEvent e) {
+    	       	       String curprojectName = ((Text)e.widget).getText();	  
+    	       	       if(!projectName.equals(curprojectName)){
+    	       	    	   Text activator = controlersMap.get("Activator");       	       
+    	          	       Text id = controlersMap.get("Id*");
+    	          	       Text name = controlersMap.get("Name");
+    	          	       Text path = controlersMap.get("Deploy Path*");
+    	          	       
+    	          	       String actiatorName =projectName+".Activator";
+    	          	       if(actiatorName.equals(activator.getText())){
+    	          	    	 activator.setText(curprojectName+".Activator"); 
+    	          	       }
+    	          	       if(projectName.equals(id.getText())){
+    	          	    	 id.setText(curprojectName);
+    	          	       }
+    	          	       if(projectName.equals(name.getText())){
+    	          	    	 name.setText(curprojectName);
+    	          	       }
+    	          	       String oldpath = "web/customui/"+projectName;
+    	          	       if(oldpath.equals(path.getText())){
+    	          	    	 path.setText("web/customui/"+curprojectName);
+    	          	       }        
+    	       	    	   projectName = curprojectName;
+    	       	       }   
+    	       	      }
+    	       	    };
+    	    	Text projectName = controlersMap.get("Project Name*");
+    	    	       if(projectName!=null){
+    	    			projectName.addModifyListener(listener);
+    	    	    }
+    	    	}
+    	}catch (Exception e) {
+			 log.error("add execution Linstner"+e);
+		}
+    }
     
-   public IWizardPage getNextPage(IWizardPage page) {
-		IWizardPage nextPage = super.getNextPage(page);
+    public IWizardPage getNextPage(IWizardPage page) {	    
+	   IWizardPage currentPage = super.getContainer().getCurrentPage();
+	   if(currentPage instanceof ProjectOptionsPage){	
+			executeListener(); 
+		}
+		
+	  IWizardPage nextPage = super.getNextPage(page);
 		if(page instanceof ProjectOptionsDataPage ){
+		
 				if(getModel().getSelectedOption().equalsIgnoreCase("import.uibundle")){
 					IProject temp =uibundleModel.getCarbonUIproject();
 					File pomfile = temp.getFile("pom.xml").getLocation().toFile();
@@ -86,22 +141,22 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 		}
 		return nextPage;
 	}
-
     
 	public boolean performFinish(){
 	    try {
 			if(uibundleModel.getSelectedOption().equals("new.uibundle")){
 				project = createNewProject();
-//				IFolder  srcFolder= ProjectUtils.getWorkspaceFolder(project, "src",uibundleModel.getProjectName());
 				IFolder  srcFolder= ProjectUtils.getWorkspaceFolder(project, "src");
 		     	JavaUtils.addJavaSupportAndSourceFolder(project, srcFolder);
 		     	ProjectUtils.createFolder(srcFolder);
 		     	
 		     	if(uibundleModel.isActivatorRequired()){
-//			     	String className = "Activator";
 		     		String className = uibundleModel.getActivatorClassName();
+		     		if(".Activator".equals(className)){
+		     			className = "Activator";
+		     			uibundleModel.setActivatorClassName(className);
+		     		}
 		     		className = getClassName(uibundleModel.getActivatorClassName());
-//			     	String packageName = uibundleModel.getProjectName();
 		     		String packageName = getPackageName(uibundleModel.getActivatorClassName());
 			     	IJavaProject iJavaProject = JavaCore.create(project);
 			     	IPackageFragmentRoot root = iJavaProject.getPackageFragmentRoot(srcFolder);
@@ -133,11 +188,18 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			getModel().getMavenInfo().setPackageName("bundle");
 			if(!pomfile.exists()){
-				createPOM(pomfile);
-				addDependancies(project);
+				createPOM(pomfile);		
 			}
+			addDependancies(project);
 			MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-			List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+			Dependency dependencies = new Dependency();
+			dependencies.setGroupId("org.eclipse.osgi");
+			dependencies.setArtifactId("org.eclipse.osgi");
+			dependencies.setVersion("3.6.0.v20100517");
+			MavenUtils.addMavenDependency(mavenProject, dependencies);	
+			mavenProject.getBuild().setSourceDirectory("src");
+			MavenUtils.saveMavenProject(mavenProject, pomfile);
+    		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
 			for(Plugin plg:plugins){
 				if(plg.getId().equals("maven-bundle-plugin")){ 
 					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -163,22 +225,7 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 		}
 		return true;
 	}
-	
-	
-//	private IFile getActivatorClassForProject(IProject project) throws JavaModelException{
-//		List<File> javaFileList = new ArrayList<File>();
-//		File[] javaFiles = FileUtils.getAllExactMatchingFiles(project.getLocation().toString(), null, "java", javaFileList);
-//		for (File javaFile : javaFiles) {
-//			String relativePath = FileUtils.getRelativePath(project.getLocation().toFile(), javaFile);
-//			IFile sourceFile = project.getFile(relativePath);
-//			boolean isClassImplemented = JavaUtils.isClassImplement(project, "BundleActivator");
-//			if(isClassImplemented){
-//				return sourceFile;
-//			}
-//		}
-//		return null;
-//	}
-	
+		
 	private void copyResourceFiles (File dir, String resourceName) throws Exception{
 		String content = CarbonUIbudleTemplate.createTemplete(resourceName);
 		File resourceFile = new File(dir, resourceName);
@@ -195,7 +242,6 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 //			boolean isClassImplemented = JavaUtils.isClassImplement(project, "BundleActivator");
 //			if(isClassImplemented){
 			return sourceFile;
-//			}
 		}
 		return null;
 	}
