@@ -707,6 +707,11 @@ public class DistProjectEditorPage extends FormPage {
 				.getActiveWorkbenchWindow().getShell(), SWT.ICON_INFORMATION);
 		exportMsg.setText("WSO2 Platform Distribution");
 		String finalFileName = String.format("%s_%s.car",parentPrj.getModel().getArtifactId(), parentPrj.getModel().getVersion()); 
+		if(dependencyList.size()==0){
+			exportMsg.setMessage("Cannot export an empty carbon archive. please tick/check atleast one artifact from the dependencies" );
+			exportMsg.open();
+			return;
+		}
 		try {	
 			savePOM();
 			IResource CarbonArchive = ExportUtil.BuildCAppProject(pomFileRes.getProject());

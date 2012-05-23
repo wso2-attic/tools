@@ -186,6 +186,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		
 		setControl(container);
+		 validate();
 	}
 	
 	/**

@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
 import java.io.File;
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +61,9 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 	private MavenProject parentPrj;	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private boolean initError=false;
+	private Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+	private Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+	
 	@SuppressWarnings("unchecked")
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		try {
@@ -74,8 +78,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			
 			ProjectList projectListProvider = new ProjectList();
 			List<ListData> projectListData = projectListProvider.getListData(null, null);
-			Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
-			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+		
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
 				projectList.put(data.getCaption(), dependencyData);
@@ -131,6 +134,14 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 		} else{
 			
 		}
+	}
+	
+	@Override
+	public boolean canFinish() {
+		if(dependencyMap.size()==0){
+			return false;
+		}
+		return super.canFinish();
 	}
 	
 	public boolean performFinish() {
