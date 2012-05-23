@@ -103,6 +103,26 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
    </repository>
+   <repository>
+     <id>WSO2-Nexus-Maven-Repository</id>
+     <layout>default</layout>
+     <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+     <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+      </releases>
+   </repository>
+   <repository>
+     <id>WSO2-Nexus-Maven-SNAPSHOT-Repository</id>
+     <layout>default</layout>
+     <url>http://maven.wso2.org/nexus/content/repositories/wso2.maven2.snapshot/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+      </snapshots>
+   </repository>
   </repositories>
 
     <build>
