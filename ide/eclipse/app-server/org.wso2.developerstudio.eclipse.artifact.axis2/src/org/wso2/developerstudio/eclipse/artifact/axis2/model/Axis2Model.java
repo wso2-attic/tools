@@ -63,8 +63,10 @@ public class Axis2Model extends ProjectDataModel {
 	}
 
 
-	public void setPackageName(String packageName) {
+	public void setPackageName(String packageName) throws ObserverFailedException {
 		this.packageName = packageName;
+		super.setGroupId(packageName);
+		
 	}
 
 

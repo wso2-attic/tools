@@ -63,8 +63,9 @@ public class DataServiceValidatorModel extends ProjectDataModel {
 		return validatorClass;
 	}
 
-	public void setValidatorClassPackage(String validatorClassPackage) {
+	public void setValidatorClassPackage(String validatorClassPackage) throws ObserverFailedException {
 		this.validatorClassPackage = validatorClassPackage;
+		super.setGroupId(validatorClassPackage);
 	}
 
 	public String getValidatorClassPackage() {

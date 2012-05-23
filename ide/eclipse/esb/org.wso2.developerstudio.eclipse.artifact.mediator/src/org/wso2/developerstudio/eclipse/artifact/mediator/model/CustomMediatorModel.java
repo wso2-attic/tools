@@ -63,8 +63,9 @@ public class CustomMediatorModel extends ProjectDataModel {
 		return mediatorClass;
 	}
 
-	public void setMediatorClassPackageName(String mediatorClassPackage) {
+	public void setMediatorClassPackageName(String mediatorClassPackage) throws ObserverFailedException {
 		this.mediatorClassPackage = mediatorClassPackage;
+		super.setGroupId(mediatorClassPackage);
 	}
 
 	public String getMediatorClassPackageName() {

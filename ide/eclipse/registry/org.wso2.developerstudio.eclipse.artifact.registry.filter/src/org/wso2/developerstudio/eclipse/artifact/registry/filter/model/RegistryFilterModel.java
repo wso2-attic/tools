@@ -36,8 +36,9 @@ public class RegistryFilterModel extends ProjectDataModel {
 		return filterClassPackage;
 	}
 
-	public void setFilterClassPackage(String filterClassPackage) {
+	public void setFilterClassPackage(String filterClassPackage) throws ObserverFailedException {
 		this.filterClassPackage = filterClassPackage;
+		super.setGroupId(filterClassPackage);
 	}
 
 	public Object getModelPropertyValue(String key) {

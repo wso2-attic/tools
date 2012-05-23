@@ -34,16 +34,28 @@ public abstract class ProjectDataModel extends Observable {
 	private File importFile;
 	private IWorkingSet[] selectedWorkingSets;
 	private String selectedOption;
+    private String groupId="org.wso2.carbon";
 
 	public String getProjectName() {
 		return projectName;
 	}
 
 	public void setProjectName(String projectName) throws ObserverFailedException {
-		if (this.projectName != projectName) {
+		if ((projectName!=null)&&(!projectName.equals(this.projectName))) {
 			this.projectName = projectName;
 			trigger();
 		}
+	}
+
+	public void setGroupId(String groupId)throws ObserverFailedException{
+		if (!this.groupId.equals(groupId)&&(groupId!=null)&&(!"".equals(groupId))) {
+			this.groupId = groupId;
+			trigger();
+		}
+	}
+
+	public String getGroupId() {
+		return groupId;
 	}
 
 	public File getLocation() {
@@ -56,7 +68,7 @@ public abstract class ProjectDataModel extends Observable {
 
 	public MavenInfo getMavenInfo() {
 		if (mavenInfo == null) {
-			mavenInfo = new MavenInfo("org.wso2.carbon", getProjectName(), "1.0.0");
+			mavenInfo = new MavenInfo(getGroupId(), getProjectName(), "1.0.0");
 		}
 		return mavenInfo;
 	}

@@ -25,6 +25,15 @@ public class ValidatorFieldsController extends AbstractFieldController {
 				                                   "' already exists");
 			}
 		}
+		if(modelProperty.equals("vaildatorClass.package.name")){
+			if (value == null) {
+				throw new FieldValidationException("Package name cannot be empty");
+			}
+			String projectName = value.toString();
+			if (projectName.trim().equals("")) {
+				throw new FieldValidationException("Package name cannot be empty");
+			}
+		}
 		if(modelProperty.equals("vaildatorClass.name")){
 			String className = value.toString();
 			if ("".equals(className)) {

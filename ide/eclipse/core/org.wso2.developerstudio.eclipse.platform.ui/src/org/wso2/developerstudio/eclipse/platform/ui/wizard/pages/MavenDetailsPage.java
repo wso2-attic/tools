@@ -16,13 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.wizard.pages;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.apache.maven.project.MavenProject;
 import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -37,7 +33,6 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
@@ -52,7 +47,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 	private Label lblParentVersion;
 	private Link lnkLoadParentFrom;
 	// private StringExtended artifactId;
-	private Label lblArtifactIdValue;
+	private Text lblArtifactIdValue;
 	private Button btnNoMavenParent;
 	private Combo parentProjectInfoCombo;
 
@@ -70,7 +65,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 	private String parentProjectName;
 	private final ProjectDataModel dataModel;
 	private final MavenInfo mavenProjectInfo;
-	private String defaultGroupId;
+
 
 	/**
 	 * Create the wizard.
@@ -88,6 +83,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		// mavenParentProject.addObserver(this);
 	}
 
+	
 	/**
 	 * Create contents of the wizard.
 	 * 
@@ -120,6 +116,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 				updatePageStatus();
 			}
 		});
+	
 		GridData gd_txtGroupId = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_txtGroupId.widthHint = 257;
 		txtGroupId.setLayoutData(gd_txtGroupId);
@@ -127,7 +124,14 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		Label lblArtifactId = new Label(grpMaven, SWT.NONE);
 		lblArtifactId.setText("Artifact Id");
 
-		lblArtifactIdValue = new Label(grpMaven, SWT.NONE);
+		lblArtifactIdValue = new Text(grpMaven, SWT.BORDER);
+		lblArtifactIdValue.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				mavenProjectInfo.setArtifactId(lblArtifactIdValue.getText());
+				dataModel.setMavenInfo(mavenProjectInfo);
+				updatePageStatus();
+			}
+		});
 		if (dataModel.getProjectName() != null) {
 			lblArtifactIdValue.setText(dataModel.getProjectName());
 			mavenProjectInfo.setArtifactId(dataModel.getProjectName());
@@ -135,8 +139,9 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		} else {
 			lblArtifactIdValue.setText("");
 		}
-
-		lblArtifactIdValue.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		GridData gd_txtArtifact = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_txtArtifact.widthHint = 257;
+		lblArtifactIdValue.setLayoutData(gd_txtArtifact);
 
 		Label lblNewLabel_1 = new Label(grpMaven, SWT.NONE);
 		lblNewLabel_1.setText("Version");
@@ -373,13 +378,11 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		
 		if (dataModel.getProjectName() != null && !dataModel.getProjectName().equals("")) {
 			MavenInfo newmavenProjectInfo=dataModel.getMavenInfo();	
-			newmavenProjectInfo.setGroupId(defaultGroupId + "." + dataModel.getProjectName());
+		    newmavenProjectInfo.setGroupId(dataModel.getGroupId()+"."+dataModel.getProjectName());
 			newmavenProjectInfo.setArtifactId(dataModel.getProjectName());
-			txtGroupId.setText(newmavenProjectInfo.getGroupId());
+			txtGroupId.setText(dataModel.getGroupId()+"."+dataModel.getProjectName());
 			lblArtifactIdValue.setText(newmavenProjectInfo.getArtifactId());
 			txtVersion.setText(newmavenProjectInfo.getVersion());
-		} else{
-			defaultGroupId = dataModel.getMavenInfo().getGroupId();
-		}
+		} 
 	}
 }
