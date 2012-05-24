@@ -40,6 +40,8 @@ import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyDat
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -54,6 +56,7 @@ import org.wso2.developerstudio.eclipse.utils.file.TempFileUtils;
 public class CarExportHandler extends ProjectArtifactHandler {
    private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
    private static final String POM_FILE = "pom.xml";
+   private static final String SPLIT_DIR_NAME = "split_esb_resources";
 
 	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
@@ -64,12 +67,14 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		MavenProject parentPrj;	
 		
 			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
-	  
+			
+			clearTarget(project);
+			
 	        //Let's create a temp project 
 	        File tempProject = createTempProject();
 	        
 	        File carResources = createTempDir(tempProject,"car_resources");
-	        
+	        IFolder splitESBResources = getTempDirInWorksapce(project.getName(),SPLIT_DIR_NAME);
 	        pomFileRes = project.getFile(POM_FILE);
 	        if(!pomFileRes.exists()) {
 	        	throw new Exception("not a valid carbon application project");
@@ -107,11 +112,69 @@ public class CarExportHandler extends ProjectArtifactHandler {
 						if(parent instanceof IProject && self instanceof String) {
 							IFile file = ((IProject) parent).getFile((String)self);
 							if(file.exists()) {
-								ArtifactData artifactData = new ArtifactData();
-								artifactData.setDependencyData(dependencyData);
-								artifactData.setFile(getFileName(dependencyData));
-								artifactData.setResource((IResource)file);
-								artifactList.add(artifactData);
+								File synapseConf = file.getLocation().toFile();
+								if (SynapseFileUtils.isSynapseConfGiven(synapseConf ,SynapseEntryType.ALL)) {
+									List<OMElement> synapseArtifacts = SynapseFileUtils.synapseFileProcessing(synapseConf.getPath(),
+									                                               SynapseEntryType.ALL);
+									for (OMElement element : synapseArtifacts) {
+										String localName = element.getLocalName();
+										String qualifiedName = element.getAttributeValue(new QName("name"));
+										if ((qualifiedName == null) || ("".equals(qualifiedName))) {
+											qualifiedName = element.getAttributeValue(new QName("key"));
+											if((qualifiedName == null) || ("".equals(qualifiedName))){
+												log.warn("ignoring unrecognized configuration element" + element.toString());
+												continue;
+											}
+										}
+										File artifact = new File(splitESBResources.getLocation().toFile(),qualifiedName + ".xml");
+										if(!artifact.exists()){
+											FileUtils.createFile(artifact, element.toString());
+										} else{
+											log.warn("artifact already exists. ignoring... " + element.toString() );
+											continue;
+										}
+										Dependency dummyDependency = new Dependency();
+										dummyDependency.setArtifactId(dependencyData.getDependency().getGroupId());
+										dummyDependency.setVersion(dependencyData.getDependency().getVersion());
+										dummyDependency.setArtifactId(qualifiedName);
+										dummyDependency.setScope(dependencyData.getDependency().getScope());
+										
+										DependencyData dummyDependencyData = new DependencyData();
+										dummyDependencyData.setServerRole(dependencyData.getDependency().getScope().replaceAll("^capp/",""));
+										
+										if (localName.equalsIgnoreCase("sequence")) {
+											dummyDependency.setType("synapse/sequence");
+											dummyDependencyData.setDependency(dummyDependency);
+											dummyDependencyData.setCApptype("synapse/sequence");
+										} else if (localName.equalsIgnoreCase("endpoint")) {
+											dummyDependency.setType("synapse/endpoint");
+											dummyDependencyData.setDependency(dummyDependency);
+											dummyDependencyData.setCApptype("synapse/endpoint");
+										}else if (localName.equalsIgnoreCase("proxy")) {
+											dummyDependency.setType("synapse/proxy-service");
+											dummyDependencyData.setDependency(dummyDependency);
+											dummyDependencyData.setCApptype("synapse/proxy-service");
+										}else if (localName.equalsIgnoreCase("localEntry")) {
+											dummyDependency.setType("synapse/local-entry");
+											dummyDependencyData.setDependency(dummyDependency);
+											dummyDependencyData.setCApptype("synapse/local-entry");
+										} else{
+											log.warn("ignoring unrecognized configuration element" + element.toString());
+											continue;
+										}
+										ArtifactData artifactData = new ArtifactData();
+										artifactData.setDependencyData(dummyDependencyData);
+										artifactData.setFile(getFileName(dummyDependencyData));
+										artifactData.setResource((IResource)splitESBResources.getFile(artifact.getName()));
+										artifactList.add(artifactData);
+									} 
+								} else{
+									ArtifactData artifactData = new ArtifactData();
+									artifactData.setDependencyData(dependencyData);
+									artifactData.setFile(getFileName(dependencyData));
+									artifactData.setResource((IResource)file);
+									artifactList.add(artifactData);
+								}
 							}
 						}
 					} else if (parent==null && self!=null) { // artifacts as single archive
@@ -189,7 +252,7 @@ public class CarExportHandler extends ProjectArtifactHandler {
 	        IFile carbonArchive = getTargetArchive(project,"car");
 	        FileUtils.copy(tmpArchive, carbonArchive.getLocation().toFile());
 	        exportResources.add((IResource)carbonArchive);
-	        
+	        clearTempDirInWorksapce(project.getName(),SPLIT_DIR_NAME);
 	        //cleaning temp project
 //	        clearProject(tempProject);
 	        TempFileUtils.cleanUp();

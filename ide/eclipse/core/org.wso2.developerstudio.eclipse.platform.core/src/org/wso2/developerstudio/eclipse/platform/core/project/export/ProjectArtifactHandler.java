@@ -88,6 +88,47 @@ public abstract class ProjectArtifactHandler {
 		}
 	}
 	
+	protected IFolder getTempDirInWorksapce(String projectName, String dirName){
+		String dir = String.format("%s_%s", projectName,dirName);
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
+		if(project.exists()){
+			IFolder tmpDir = project.getFolder(dir);
+			if(!tmpDir.exists()){
+				try {
+					tmpDir.create(false, true, null);
+					return tmpDir;
+				} catch (CoreException e) {
+					return null;
+				}
+			} else {
+				return tmpDir ;
+			}
+			
+		} else{
+			try {
+				project.create(null);
+				return getTempDirInWorksapce(projectName,dir);
+			} catch (Exception e) {
+				return null;
+			}
+		}
+	}
+	
+	protected void clearTempDirInWorksapce(String projectName, String dirName){
+		String dir = String.format("%s_%s", projectName,dirName);
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
+		if(project.exists()){
+			IFolder tmpDir = project.getFolder(dir);
+			if(tmpDir.exists()){
+				try {
+					tmpDir.delete(true, null);
+				} catch (CoreException e) {
+					//ignore
+				}
+			} 
+		}
+	}
+	
 	/**
 	 * create new StorageManager
 	 * @param project

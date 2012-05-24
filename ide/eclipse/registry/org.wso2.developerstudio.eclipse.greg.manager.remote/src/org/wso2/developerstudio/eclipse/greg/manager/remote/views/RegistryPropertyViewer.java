@@ -122,7 +122,7 @@ public class RegistryPropertyViewer extends ViewPart implements
 		try {
 			updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
 		} catch (Exception e) {
-			MessageDialogUtils.error(getSite().getShell(), e);
+			log.error("An unexpected error has occurred", e);
 		}
 	}
 
