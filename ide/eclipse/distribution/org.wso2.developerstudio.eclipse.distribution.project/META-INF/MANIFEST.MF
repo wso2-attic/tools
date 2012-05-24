@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: DistributionProject
 Bundle-SymbolicName: org.wso2.developerstudio.eclipse.distribution.project;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.0.0
 Bundle-Activator: org.wso2.developerstudio.eclipse.distribution.project.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
@@ -32,6 +32,7 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.carbonserver.base.interfaces,
  org.wso2.developerstudio.eclipse.carbonserver.base.manager,
  org.wso2.developerstudio.eclipse.carbonserver.base.utils,
+ org.wso2.developerstudio.eclipse.esb.core.utils,
  org.wso2.developerstudio.eclipse.esb.project.artifact,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.maven.util,
