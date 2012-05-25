@@ -199,12 +199,12 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 			MavenUtils.addMavenDependency(mavenProject, dependencies);	
 			mavenProject.getBuild().setSourceDirectory("src");
 			MavenUtils.saveMavenProject(mavenProject, pomfile);
-    		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-			for(Plugin plg:plugins){
-				if(plg.getId().equals("maven-bundle-plugin")){ 
-					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-					return true;
-				}
+
+			boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+					"org.apache.felix", "maven-bundle-plugin", "2.3.4");
+			if(pluginExists){
+				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				return true;
 			}
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			ProjectUtils.addNatureToProject(project,false,

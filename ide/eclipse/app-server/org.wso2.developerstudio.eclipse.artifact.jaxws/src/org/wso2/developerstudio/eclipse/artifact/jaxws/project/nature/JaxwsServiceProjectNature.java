@@ -78,9 +78,10 @@ public class JaxwsServiceProjectNature extends AbstractWSO2ProjectNature {
 		if (!mavenProject.getRepositories().contains(repo)) {
 	        mavenProject.getModel().addRepository(repo);
         }
-		if (!mavenProject.getPluginArtifactRepositories().contains(repo)) {
-	        mavenProject.getModel().addPluginRepository(repo);
-        }
+		if (mavenProject.getPluginArtifactRepositories() == null
+				|| !mavenProject.getPluginArtifactRepositories().contains(repo)) {
+			mavenProject.getModel().addPluginRepository(repo);
+		}
 		List<Dependency> dependencyList = new ArrayList<Dependency>();
 		
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(getProject());

@@ -8,8 +8,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.axiom.om,
- org.apache.maven.model,
- org.apache.maven.project,
+ org.apache.maven.model;version="[2.2.1,3.0.0)",
+ org.apache.maven.project;version="[2.2.1,3.0.0)",
  org.eclipse.core.resources,
  org.eclipse.jdt.core,
  org.eclipse.jface.text,

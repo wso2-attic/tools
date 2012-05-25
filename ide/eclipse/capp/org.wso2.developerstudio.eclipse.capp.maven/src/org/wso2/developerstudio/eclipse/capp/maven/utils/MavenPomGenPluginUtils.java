@@ -14,11 +14,11 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.wso2.developerstudio.eclipse.capp.core.artifacts.manager.CAppEnvironment;
+import org.wso2.developerstudio.eclipse.capp.maven.Activator;
 import org.wso2.developerstudio.eclipse.capp.maven.IMavenPluginContributorProvider;
 import org.wso2.developerstudio.eclipse.capp.maven.MavenPluginContributor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.maven.Activator;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 

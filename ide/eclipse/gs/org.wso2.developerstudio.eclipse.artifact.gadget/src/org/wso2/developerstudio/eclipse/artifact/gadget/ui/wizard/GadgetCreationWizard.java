@@ -20,6 +20,7 @@ import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.gadget.model.GadgetModel;
 import org.wso2.developerstudio.eclipse.artifact.gadget.template.GadgetTemplate;
 import org.wso2.developerstudio.eclipse.artifact.gadget.utils.GadgetImageUtils;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
@@ -79,12 +80,13 @@ public class GadgetCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			addDependancies(project);
 		}
 		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-		for(Plugin plg:plugins){
-			if(plg.getId().equals("maven-gadget-plugin")){ 
-				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-				return true;
-			}
+
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "maven-gadget-plugin",
+				MavenConstants.MAVEN_GADGET_PLUGIN_VERSION);
+		if(pluginExists){
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			return true;
 		}
 		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		ProjectUtils.addNatureToProject(project,false,

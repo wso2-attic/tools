@@ -39,6 +39,7 @@ import org.eclipse.ui.IEditorPart;
 import org.wso2.developerstudio.eclipse.artifact.mediator.model.CustomMediatorModel;
 import org.wso2.developerstudio.eclipse.artifact.mediator.template.CustomMediatorClassTemplate;
 import org.wso2.developerstudio.eclipse.artifact.mediator.utils.MediatorImageUtils;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -133,12 +134,14 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 			}
 			MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 			List<Plugin> plugins = mavenProject.getBuild().getPlugins();
-			for(Plugin plg:plugins){
-				if(plg.getId().equals("maven-synapse-mediator-plugin")){ 
-					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-					return true;
-				}
+			boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+					"org.wso2.maven", "maven-synapse-mediator-plugin",
+					MavenConstants.WSO2_ESB_PROXY_VERSION);
+			if(pluginExists){
+				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				return true;
 			}
+
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			ProjectUtils.addNatureToProject(project,false,
 			                       "org.wso2.developerstudio.eclipse.artifact.mediator.project.nature");
