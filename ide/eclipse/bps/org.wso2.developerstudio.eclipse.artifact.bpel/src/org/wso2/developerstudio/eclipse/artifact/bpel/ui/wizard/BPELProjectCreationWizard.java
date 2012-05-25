@@ -151,7 +151,7 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		//deploy.xml
 		//read project
 		//"http://eclipse.org/bpel/sample"
-		processName = ((BpelModel)getModel()).getProcessName();
+		processName = ((BpelModel)getModel()).getProcessName().trim();
 		namespace = ((BpelModel)getModel()).getProcessNS();
 		
 		File processFile = project.getFile("HelloWorldBPELProcess.bpel").getLocation().toFile();
