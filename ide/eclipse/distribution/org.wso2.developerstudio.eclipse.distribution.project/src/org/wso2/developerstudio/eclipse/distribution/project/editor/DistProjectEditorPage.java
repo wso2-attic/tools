@@ -744,6 +744,9 @@ public class DistProjectEditorPage extends FormPage {
 			String dirName = dirDlg.open();
 			if(dirName!=null) {
 				File destFileName = new File(dirName, finalFileName) ;
+				if(destFileName.exists()){
+					org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
+				}
 				FileUtils.copy(CarbonArchive.getLocation().toFile(), destFileName);
 //				exportMsg.setMessage("archive created successfully at " + destFileName );
 //				exportMsg.open();

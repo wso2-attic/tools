@@ -167,6 +167,8 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 				                                      SWT.ICON_QUESTION | SWT.YES | SWT.NO );
 				if (response == SWT.NO) 
 					return false;
+				
+				org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
 			      
 			}
 			savePOM();
