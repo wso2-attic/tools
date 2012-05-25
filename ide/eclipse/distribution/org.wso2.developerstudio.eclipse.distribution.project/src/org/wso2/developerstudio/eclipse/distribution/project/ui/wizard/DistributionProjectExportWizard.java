@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -78,20 +79,28 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 			
 			ProjectList projectListProvider = new ProjectList();
 			List<ListData> projectListData = projectListProvider.getListData(null, null);
-		
+			parentPrj = MavenUtils.getMavenProject(pomFile);
+			Properties mvnProperties =  parentPrj.getModel().getProperties();
+			if(mvnProperties==null){
+				mvnProperties = new Properties();
+			}
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
 				projectList.put(data.getCaption(), dependencyData);
+				Dependency dependency = dependencyData.getDependency();
+				String propertyValue = dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion();
+				if(null==mvnProperties.getProperty(propertyValue)){
+				mvnProperties.put(propertyValue, dependencyData.getServerRole());
+				}
 			}
-			
-			parentPrj = MavenUtils.getMavenProject(pomFile);
-			
+
 			for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){
 				dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
 			}
 			mainPage = new DistributionProjectExportWizardPage();
 			mainPage.setProjectList(projectList);
 			mainPage.setDependencyList(dependencyMap);
+			mainPage.setProperties(mvnProperties);
 			mainPage.setMissingDependencyList((Map<String,Dependency>)((HashMap)mainPage.getDependencyList()).clone());
 			detailsPage.setName(parentPrj.getModel().getArtifactId());
 			detailsPage.setVersion(parentPrj.getModel().getVersion());
@@ -109,6 +118,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 
 	public void savePOM() throws Exception{
 		parentPrj.setDependencies(new ArrayList<Dependency>(mainPage.getDependencyList().values()));
+		parentPrj.getModel().setProperties(mainPage.getProperties());
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 		

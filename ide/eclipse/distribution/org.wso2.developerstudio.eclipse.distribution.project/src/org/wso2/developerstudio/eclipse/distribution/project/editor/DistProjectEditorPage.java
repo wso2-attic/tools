@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -67,6 +68,7 @@ import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.NodeData;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
+import org.wso2.developerstudio.eclipse.distribution.project.util.ServerRoleMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -98,7 +100,7 @@ public class DistProjectEditorPage extends FormPage {
 	private Map<String,Dependency> dependencyList = new HashMap<String, Dependency>();
 	private Map<String,DependencyData> projectList = new HashMap<String, DependencyData>();
 	private Map<String,Dependency> missingDependencyList = new HashMap<String, Dependency>();
-	
+	private Properties properties = new Properties();
 	
 	private Tree trDependencies;
 	private HashMap<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
@@ -137,16 +139,28 @@ public class DistProjectEditorPage extends FormPage {
 		List<ListData> projectListData = projectListProvider.getListData(null, null);
 		HashMap<String,DependencyData> projectList= new HashMap<String, DependencyData>();
 		HashMap<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+		//Properties mvnProperties = new Properties();
+		parentPrj = MavenUtils.getMavenProject(pomFile);
+		//Properties mvn = parentPrj.getModel().getProperties();
+		Properties mvnProperties =  parentPrj.getModel().getProperties();
+		if(mvnProperties==null){
+			mvnProperties = new Properties();
+		}
+		
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData)data.getData();
 			projectList.put(data.getCaption(), dependencyData);
+			Dependency dependency = dependencyData.getDependency();
+			String propertyValue = dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion();
+			if(null==mvnProperties.getProperty(propertyValue)){
+			mvnProperties.put(propertyValue, dependencyData.getServerRole());
+			}
 		}
-		
-		parentPrj = MavenUtils.getMavenProject(pomFile);
-		
-		for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){
+
+		for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){	
 			dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
 		}
+		
 		setProjectName(parentPrj.getName());
 		setArtifactId(parentPrj.getArtifactId());
 		setGroupId(parentPrj.getGroupId());
@@ -154,6 +168,7 @@ public class DistProjectEditorPage extends FormPage {
 		setDescription(parentPrj.getDescription());
 		setProjectList(projectList);
 		setDependencyList(dependencyMap);
+		setProperties(mvnProperties);
 		setMissingDependencyList((Map<String, Dependency>)((HashMap) getDependencyList()).clone());
 	}
 	
@@ -162,6 +177,7 @@ public class DistProjectEditorPage extends FormPage {
 		parentPrj.setVersion(getVersion());
 		parentPrj.setDescription(getDescription());
 		parentPrj.setDependencies(new ArrayList<Dependency>(getDependencyList().values()));
+		parentPrj.getModel().setProperties(getProperties());
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		setPageDirty(false);
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
@@ -441,7 +457,9 @@ public class DistProjectEditorPage extends FormPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getDependencyList().get(artifactInfo).setScope("capp/" + role);
+					getProperties().setProperty(artifactInfo, "capp/"+role);
+					
+				//	setScope("capp/" + role);
 					setPageDirty(true);
 				}
 				updateDirtyState();
@@ -455,7 +473,7 @@ public class DistProjectEditorPage extends FormPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getDependencyList().get(artifactInfo).setScope("capp/" + role);
+					getProperties().setProperty(artifactInfo, "capp/"+role);
 					setPageDirty(true);
 				}
 				updateDirtyState();
@@ -474,6 +492,7 @@ public class DistProjectEditorPage extends FormPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			getDependencyList().remove(artifactInfo);
+			getProperties().remove(artifactInfo);
 		}
 	}
 	
@@ -483,7 +502,7 @@ public class DistProjectEditorPage extends FormPage {
 	 */
 	private void addDependency(NodeData nodeData){
 		Dependency project = nodeData.getDependency();
-		String serverRole = nodeData.getServerRole();
+	//	String serverRole = nodeData.getServerRole();
 		String artifactInfo = DistProjectUtils
 		.getArtifactInfoAsString(project);
 		
@@ -494,9 +513,13 @@ public class DistProjectEditorPage extends FormPage {
 			dependency.setGroupId(project.getGroupId());
 			dependency.setVersion(project.getVersion());
 			dependency.setType(project.getType());
-			dependency.setScope("capp/"
-						+ serverRole);
-
+			///dependency.setScope("capp/"
+				//		+ serverRole);
+			String propertyName = project.getGroupId()+":"+project.getArtifactId()+":"+project.getVersion();
+			String serverRole =getProperties().getProperty(propertyName);
+			if(serverRole!=null){
+			getProperties().put(propertyName,  serverRole);
+			}
 			getDependencyList().put(artifactInfo, dependency);
 		}
 	}
@@ -579,11 +602,11 @@ public class DistProjectEditorPage extends FormPage {
 	TreeItem createNode(TreeItem parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		String serverRole = project.getScope().replaceAll("^capp/","");
+		//String serverRole = project.getScope().replaceAll("^capp/","");
+			
+		String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
 		String version = project.getVersion();
-		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
-		
 		item.setText(2,version);
 		NodeData nodeData = new NodeData(project);
 		nodeData.setServerRole(serverRole);
@@ -591,8 +614,7 @@ public class DistProjectEditorPage extends FormPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getDependencyList().get(artifactInfo)
-							.getScope().replaceAll("^capp/", ""));
+			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -616,8 +638,11 @@ public class DistProjectEditorPage extends FormPage {
 	TreeItem createNode(Tree parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		final String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		final String serverRole = project.getScope().replaceAll("^capp/","");
+	//	String cAppType = (String) parentPrj.getModel().getProperties().get("CApp.type");
+		final String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
+		//final String serverRole = project.getScope().replaceAll("^capp/","");
 		final String version = project.getVersion();
+		
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
@@ -631,8 +656,7 @@ public class DistProjectEditorPage extends FormPage {
 		if(available) {
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getDependencyList().get(artifactInfo)
-							.getScope().replaceAll("^capp/", ""));
+		    item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -770,6 +794,14 @@ public class DistProjectEditorPage extends FormPage {
 
 	public Map<String,Dependency> getDependencyList() {
 		return dependencyList;
+	}
+
+	public void setProperties(Properties properties) {
+		this.properties = properties;
+	}
+
+	public Properties getProperties() {
+		return properties;
 	}
 
 	public void setProjectList(Map<String,DependencyData> projectList) {

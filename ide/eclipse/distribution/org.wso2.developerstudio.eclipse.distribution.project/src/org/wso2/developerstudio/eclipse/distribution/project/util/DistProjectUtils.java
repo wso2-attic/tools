@@ -39,6 +39,8 @@ public class DistProjectUtils {
 		return getArtifactInfoAsString(dep,null);
 	}
 	
+	//public static String get
+	
 	public static String getArtifactInfoAsString(Dependency dep,String parent) {
 		String suffix= "";
 		if(parent!=null){

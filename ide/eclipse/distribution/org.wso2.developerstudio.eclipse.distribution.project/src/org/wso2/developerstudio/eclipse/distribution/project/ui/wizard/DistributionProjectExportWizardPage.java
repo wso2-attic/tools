@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -50,6 +51,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	private Map<String,Dependency> dependencyList;
 	private Map<String,DependencyData> projectList;
 	private Map<String,Dependency> missingDependencyList;
+	private Properties properties;
 	private Tree trDependencies;
 	private TreeEditor editor;
 	private Map<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
@@ -75,6 +77,14 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	
 	public void setDependencyList(Map<String, Dependency> dependencyList) {
 		this.dependencyList = dependencyList;
+	}
+
+	public void setProperties(Properties properties) {
+		this.properties = properties;
+	}
+
+	public Properties getProperties() {
+		return properties;
 	}
 
 	public void setProjectList(Map<String, DependencyData> projectList) {
@@ -266,7 +276,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	TreeItem createNode(TreeItem parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		String serverRole = project.getScope().replaceAll("^capp/","");
+		String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
 		String version = project.getVersion();
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
@@ -278,8 +288,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getDependencyList().get(artifactInfo)
-							.getScope().replaceAll("^capp/", ""));
+			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -303,7 +312,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	TreeItem createNode(Tree parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		final String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		final String serverRole = project.getScope().replaceAll("^capp/","");
+		final String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
 		final String version = project.getVersion();
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
@@ -318,8 +327,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		if(available) {
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getDependencyList().get(artifactInfo)
-							.getScope().replaceAll("^capp/", ""));
+			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -464,7 +472,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getDependencyList().get(artifactInfo).setScope("capp/" + role);
+					getProperties().setProperty(artifactInfo, "capp/"+role);
 				}
 			}
 		});
@@ -493,6 +501,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			getDependencyList().remove(artifactInfo);
+			getProperties().remove(artifactInfo);
 		}
 	}
 	
@@ -502,7 +511,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	 */
 	private void addDependency(NodeData nodeData){
 		Dependency project = nodeData.getDependency();
-		String serverRole = nodeData.getServerRole();
+		//String serverRole = nodeData.getServerRole();
 		String artifactInfo = DistProjectUtils
 		.getArtifactInfoAsString(project);
 		
@@ -513,9 +522,11 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 			dependency.setGroupId(project.getGroupId());
 			dependency.setVersion(project.getVersion());
 			dependency.setType(project.getType());
-			dependency.setScope("capp/"
-						+ serverRole);
-
+			String propertyName = project.getGroupId()+":"+project.getArtifactId()+":"+project.getVersion();
+			String serverRole =getProperties().getProperty(propertyName);
+			if(serverRole!=null){
+			getProperties().put(propertyName,  serverRole);
+			}
 			getDependencyList().put(artifactInfo, dependency);
 		}
 	}

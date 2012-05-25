@@ -40,6 +40,7 @@ import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyDat
 import org.wso2.developerstudio.eclipse.distribution.project.model.DistributionProjectModel;
 import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistributionProjectImageUtils;
+import org.wso2.developerstudio.eclipse.distribution.project.util.ServerRoleMapping;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -103,7 +104,13 @@ public class DistributionProjectWizard extends
 			Properties properties = mavenProject.getModel().getProperties();
 			for (DependencyData dependencyData : projectModel.getSelectedProjects()) {
 				Dependency dependency = dependencyData.getDependency();
+				String propertyValue = dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion();
+				//String cAppType = (String) mavenProject.getModel().getProperties().get("CApp.type");
+				//String serverRole = ServerRoleMapping.getServerRole(cAppType);
+				 properties.put(propertyValue, dependencyData.getServerRole());
+				//dependency.setScope("test");
 				dependencyList.add(dependency);
+				
 			}	
 			properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 			mavenProject.getModel().setProperties(properties);

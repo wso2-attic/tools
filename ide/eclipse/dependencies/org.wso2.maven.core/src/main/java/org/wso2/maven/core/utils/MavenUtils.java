@@ -69,6 +69,12 @@ public class MavenUtils {
 		return createDependency(groupId, artifactId, version, scope, type, null);
 	}
 	
+	public static MavenProject addProperty(MavenProject mavenProject, Dependency dependency){
+		mavenProject.getProperties().put(dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion(), dependency.getScope());
+		dependency.setScope(null);
+		return mavenProject;
+	}
+	
 	public static Dependency createDependency(String groupId, String artifactId,
 			String version, String scope, String type, String systemPath) {
 		Dependency dependency = new Dependency();

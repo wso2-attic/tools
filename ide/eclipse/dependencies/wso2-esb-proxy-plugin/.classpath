@@ -27,7 +27,7 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-project/2.0.7/maven-project-2.0.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-repository-metadata/2.0.7/maven-repository-metadata-2.0.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-settings/2.0.7/maven-settings-2.0.7.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/maven/org.wso2.maven.capp/1.0.3/org.wso2.maven.capp-1.0.3.jar"/>
+  <classpathentry kind="src" path="/org.wso2.maven.capp"/>
   <classpathentry kind="src" path="/org.wso2.maven.core"/>
   <classpathentry kind="src" path="/org.wso2.maven.esb"/>
   <classpathentry kind="src" path="/org.wso2.maven.utils"/>

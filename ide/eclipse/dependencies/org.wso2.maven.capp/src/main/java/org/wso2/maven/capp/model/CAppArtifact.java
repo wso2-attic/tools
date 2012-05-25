@@ -32,6 +32,8 @@ import org.wso2.maven.capp.utils.CAppMavenUtils;
 import org.wso2.maven.capp.utils.CAppUtils;
 import org.wso2.maven.core.model.AbstractXMLDoc;
 
+import sun.security.action.GetLongAction;
+
 public class CAppArtifact extends AbstractXMLDoc{
 
 	private MavenProject project;
@@ -82,10 +84,12 @@ public class CAppArtifact extends AbstractXMLDoc{
 
 	public List<CAppArtifactDependency> getDependencies() throws MojoExecutionException {
 		List<CAppArtifactDependency> dependencies = new ArrayList<CAppArtifactDependency>();
+		Properties properties = getProject().getProperties();
 		for (Object object: getProject().getDependencies()) {
 			Dependency dependency=(Dependency)object;
-			if (dependency.getScope()!=null && dependency.getScope().toLowerCase().startsWith(CAppMavenUtils.CAPP_SCOPE_PREFIX)){
-				String[] scopeElements = dependency.getScope().split("/");
+			String property = properties.getProperty(dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion());
+			if (property !=null && property.toLowerCase().startsWith(CAppMavenUtils.CAPP_SCOPE_PREFIX)){
+				String[] scopeElements = property.split("/");
 				String dependencyServerRole;
 				if (scopeElements.length>1){
 					dependencyServerRole=scopeElements[1];

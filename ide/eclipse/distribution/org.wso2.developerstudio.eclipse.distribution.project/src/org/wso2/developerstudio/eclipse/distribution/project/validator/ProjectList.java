@@ -68,6 +68,7 @@ public class ProjectList extends AbstractListDataProvider {
 					   project.hasNature(Constants.GENERAL_PROJECT_NATURE) ||
 					   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)){
 						try {
+							DependencyData dependencyData = new DependencyData();
 							if (project.hasNature(Constants.ESB_PROJECT_NATURE) || project.hasNature(Constants.GENERAL_PROJECT_NATURE)) {
 								IFile artifactXMLFile = project.getFile(Constants.ARTIFACT_XML);
 								MavenProject mavenProject = DistProjectUtils.getMavenProject(project);
@@ -86,14 +87,14 @@ public class ProjectList extends AbstractListDataProvider {
 											}
 											dependency.setVersion(artifact.getVersion());
 											dependency.setType(ArtifactTypeMapping.getType(artifact.getType()));
-											dependency.setScope("capp/"+ artifact.getServerRole());
+											//dependency.setScope("capp/"+ artifact.getServerRole());
 											
-											DependencyData dependencyData = new DependencyData();
+											//DependencyData dependencyData = new DependencyData();
 											dependencyData.setDependency(dependency);
 											dependencyData.setParent(project);
 											dependencyData.setSelf(artifact.getFile());
 											dependencyData.setCApptype(artifact.getType());
-											
+											dependencyData.setServerRole("capp/"+ artifact.getServerRole());
 											list.add(createListData(
 													DistProjectUtils
 															.getArtifactInfoAsString(dependency,project.getName()),
@@ -121,12 +122,14 @@ public class ProjectList extends AbstractListDataProvider {
 								dependency.setType(ArtifactTypeMapping.getType(cAppType));
 								String serverRole = ServerRoleMapping.getServerRole(cAppType);
 								if(!"".equals(serverRole)) {
-								dependency.setScope("capp/"	+ serverRole);
+								//dependency.setScope("capp/"	+ serverRole);
+									dependencyData.setServerRole("capp/"	+ serverRole);	
 								} else {
-										dependency.setScope("capp/ApplicationServer");
+										//dependency.setScope("capp/ApplicationServer");
+									dependencyData.setServerRole("capp/ApplicationServer");
 								}
 								
-								DependencyData dependencyData = new DependencyData();
+								
 								dependencyData.setDependency(dependency);
 								dependencyData.setSelf(project);
 								dependencyData.setCApptype(cAppType);
