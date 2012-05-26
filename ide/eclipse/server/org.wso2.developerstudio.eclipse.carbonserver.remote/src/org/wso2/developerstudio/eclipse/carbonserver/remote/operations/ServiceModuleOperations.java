@@ -70,9 +70,14 @@ public class ServiceModuleOperations {
 			redeployModule(false);
 			return;
 		}
-		if (!RemoteCarbonServerUtils.isServerHotUpdate(server)){
-			return;
-		}
+		/*XXX:This segment always retrns false for remote servers bt we can simulate the hot update behavior for remote servers
+		and StratosLive using undeploy and deploy in the same manner of Redeplpy option.
+		Hence disabling this check
+		*/
+		
+//		if (!RemoteCarbonServerUtils.isServerHotUpdate(server)){
+//			return;
+//		}
 		redeployModule(true);
 	}
 	
