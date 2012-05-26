@@ -252,7 +252,7 @@
 			wizardManifest="project_wizard_mvn.xml"
 			id="org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard"
 			descriptionImage="mvn-wizard.png"
-			project="false" icon="icons/mvn.png">
+			project="false" icon="icons/maven-16x16.png">
 			<description>Maven Multimodule Project</description>
 		</wizard>
 	</extension>
