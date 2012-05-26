@@ -67,7 +67,7 @@ public class ConfigurationServerInfoSection extends ServerEditorSection{
 		toolkit.createLabel(composite, "Server URL");
 		urlText = toolkit.createText(composite, rcs.getServerURL().toString());
 		urlText.setEditable(false);
-		gd = new GridData();
+		gd = new GridData(GridData.FILL_HORIZONTAL);
 		gd.widthHint = 200;
 		urlText.setLayoutData(gd);
 		

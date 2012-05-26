@@ -45,7 +45,7 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 //	Text passwordText;
 //	Text confirmPasswordText;
 //	Button changePWDButton;
-	Button changeUserName;
+//	Button changeUserName;
 	
 	String username;
 	private RemoteCarbonServer remoteCarbonServer;
@@ -113,11 +113,11 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 		usernameText.setText(givenUName);
 		usernameText.setEditable(false);
 		
-		toolkit.createLabel(composite, "");
-		changeUserName = toolkit.createButton(composite, "Change", SWT.PUSH);
-		GridData gd = new GridData(GridData.HORIZONTAL_ALIGN_END | GridData.BEGINNING);
-		gd.widthHint = 70;
-		changeUserName.setLayoutData(gd);
+//		toolkit.createLabel(composite, "");
+//		changeUserName = toolkit.createButton(composite, "Change", SWT.PUSH);
+//		GridData gd = new GridData(GridData.HORIZONTAL_ALIGN_END | GridData.BEGINNING);
+//		gd.widthHint = 70;
+//		changeUserName.setLayoutData(gd);
 		
 //		toolkit.createLabel(composite, "Password");
 //		passwordText = toolkit.createText(composite, "");
@@ -159,21 +159,21 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 			
 		});
 		
-		changeUserName.addSelectionListener(new SelectionListener() {
-			
-			public void widgetSelected(SelectionEvent arg0) {
-				RemoteServerCredentialDialog dialog = new RemoteServerCredentialDialog(composite.getShell(),remoteCarbonServer);
-				dialog.setBlockOnOpen(true);
-				dialog.create();
-				dialog.getShell().setSize(300, 170);
-				dialog.open();
-			}
-			
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+//		changeUserName.addSelectionListener(new SelectionListener() {
+//			
+//			public void widgetSelected(SelectionEvent arg0) {
+//				RemoteServerCredentialDialog dialog = new RemoteServerCredentialDialog(composite.getShell(),remoteCarbonServer);
+//				dialog.setBlockOnOpen(true);
+//				dialog.create();
+//				dialog.getShell().setSize(300, 170);
+//				dialog.open();
+//			}
+//			
+//			public void widgetDefaultSelected(SelectionEvent arg0) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 //		passwordText.addModifyListener(new ModifyListener(){
 //			public void modifyText(ModifyEvent arg0) {
 //				setPwd(passwordText.getText().trim());
@@ -211,12 +211,12 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 ////		rcs.setPassword(pwd);
 //	}
 
-	private boolean validateUsername() {
-		if(username==null || username.equals("")){
-			return false;
-		}
-		return true;
-	}
+//	private boolean validateUsername() {
+//		if(username==null || username.equals("")){
+//			return false;
+//		}
+//		return true;
+//	}
 
 
 //	public boolean validatePWD(){
