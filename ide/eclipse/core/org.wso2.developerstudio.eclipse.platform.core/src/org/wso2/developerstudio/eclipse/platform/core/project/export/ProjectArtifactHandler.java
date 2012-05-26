@@ -77,6 +77,17 @@ public abstract class ProjectArtifactHandler {
 		return archive;
 	}
 	
+	protected IFile getTargetArchive(IProject project,String version,String ext) throws Exception{
+		String finalName = String.format("%s.%s", project.getName()+"_"+version, ext);
+		IFolder binaries = project.getFolder("target");
+		if (!binaries.exists()) {
+			binaries.create(true, true, getProgressMonitor());
+			binaries.setHidden(true);
+		}
+		IFile archive = project.getFile("target" + File.separator + finalName);
+		return archive;
+	}
+	
 	protected void clearTarget(IProject project) {
 		try {
 			project.build(IncrementalProjectBuilder.CLEAN_BUILD,

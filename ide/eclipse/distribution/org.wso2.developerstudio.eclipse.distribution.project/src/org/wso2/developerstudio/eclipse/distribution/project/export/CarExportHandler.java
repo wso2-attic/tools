@@ -252,10 +252,10 @@ public class CarExportHandler extends ProjectArtifactHandler {
 			File artifactsXml = new File(carResources,"artifacts.xml");
 			XMLUtil.prettify(artifactsDocRoot, new FileOutputStream(artifactsXml));
 	        
-	        File tmpArchive = new File(tempProject,project.getName().concat(".car"));
+	        File tmpArchive = new File(tempProject,project.getName().concat("_").concat(parentPrj.getVersion()).concat(".car"));
 	        archiveManipulator.archiveDir(tmpArchive.toString(), carResources.toString());
 	       
-	        IFile carbonArchive = getTargetArchive(project,"car");
+	        IFile carbonArchive = getTargetArchive(project,parentPrj.getVersion(),"car");
 	        FileUtils.copy(tmpArchive, carbonArchive.getLocation().toFile());
 	        exportResources.add((IResource)carbonArchive);
 	        clearTempDirInWorksapce(project.getName(),SPLIT_DIR_NAME);
