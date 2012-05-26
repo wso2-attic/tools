@@ -12,8 +12,10 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
+import org.wso2.developerstudio.eclipse.platform.ui.mvn.util.MavenMultiModuleProjectImageUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		moduleModel = new MvnMultiModuleModel();
 		setModel(moduleModel);
 		setWindowTitle("Maven Modules Creation Wizard");
-		// setDefaultPageImageDescriptor(MediatorImageUtils.getInstance().getImageDescriptor("new-mediator-wizard.png"));
-
+		setDefaultPageImageDescriptor(MavenMultiModuleProjectImageUtils.getInstance().getImageDescriptor("maven-24x24.png"));
 	}
 
 	public void init() {
@@ -112,11 +113,15 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 				addMavenModules(multiModuleProject, mavenProject, modules, selectedProjects,
 				                pomFile);
 			}
+//			Adding Maven Multi Module Nature to POM generated Project 
+			addMavenMultiModuleProjectNature(multiModuleProject);
 
 		} else {
 			try {
 				moduleModel.setProjectName(moduleModel.getArtifactId());
 				project = createNewProject();
+				
+				addMavenMultiModuleProjectNature(project);
 
 				addMavenModules(project, mavenProject, modules, selectedProjects,
 				                project.getFile("pom.xml"));
@@ -128,6 +133,15 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 		}
 		return true;
+	}
+
+	private void addMavenMultiModuleProjectNature(IProject projectToAdddNature){
+		try {
+			ProjectUtils.addNatureToProject(projectToAdddNature, false,"org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature");
+			projectToAdddNature.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+		} catch (CoreException e) {
+			log.error("Error occured while adding the Maven Multi Module Nature to Project", e);
+		}
 	}
 
 	/**
