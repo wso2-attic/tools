@@ -706,17 +706,19 @@ public final class CarbonServerManager implements IServerManager {
 										//									if (javaProjectSourceDirectories.contains(pathChanged.toOSString())){
 										IServer[] serversForProject = getServersForProject(project);
 										for (IServer server : serversForProject) {
-											CarbonServerInformation serverInformation = getAppServerInformation()
-													.get(server);
-											if (!serverInformation
-													.getChangedProjects()
-													.contains(project)) {
-												serverInformation
+											if (!server.getServerType().getId().equalsIgnoreCase("org.wso2.developerstudio.eclipse.carbon.server.remote")) {
+												CarbonServerInformation serverInformation = getAppServerInformation()
+														.get(server);
+												if (!serverInformation
 														.getChangedProjects()
-														.add(project);
-												hotUpdateServiceModule(server
-														.getId(), "", project
-														.getName());
+														.contains(project)) {
+													serverInformation
+															.getChangedProjects()
+															.add(project);
+													hotUpdateServiceModule(
+															server.getId(), "",
+															project.getName());
+												}
 											}
 										}
 										break;
