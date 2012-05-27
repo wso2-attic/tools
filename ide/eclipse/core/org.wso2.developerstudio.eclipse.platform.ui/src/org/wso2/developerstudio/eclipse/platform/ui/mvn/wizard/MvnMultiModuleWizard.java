@@ -173,6 +173,11 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 	public IResource getCreatedResource() {
 		return project;
 	}
+	
+	@Override
+	protected boolean isProjectWizard() {
+		return false;
+	}
 
 	public void setMultiModuleProject(IProject multiModuleProject) {
 		this.multiModuleProject = multiModuleProject;
