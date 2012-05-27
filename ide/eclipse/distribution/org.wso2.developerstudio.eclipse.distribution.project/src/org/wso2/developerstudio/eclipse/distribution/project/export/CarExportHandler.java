@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.xml.namespace.QName;
 
@@ -81,24 +80,22 @@ public class CarExportHandler extends ProjectArtifactHandler {
 	        	throw new Exception("not a valid carbon application project");
 	        }
 	        pomFile = pomFileRes.getLocation().toFile();
-	        parentPrj = MavenUtils.getMavenProject(pomFile);
-	        Properties mvnProperties = parentPrj.getModel().getProperties();
-			if(mvnProperties==null){
-				mvnProperties = new Properties();
-			}
+	        
 	    	ProjectList projectListProvider = new ProjectList();
 			List<ListData> projectListData = projectListProvider.getListData(null, null);
 			Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
 			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
+			Map<String,String> serverRoleList = new HashMap<String, String>();
 			for (ListData data : projectListData) {
 				DependencyData dependencyData = (DependencyData)data.getData();
 				projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
 			}
 			
-			//parentPrj = MavenUtils.getMavenProject(pomFile);
+			parentPrj = MavenUtils.getMavenProject(pomFile);
 			
 			for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){
 				dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
+				serverRoleList.put(DistProjectUtils.getArtifactInfoAsString(dependency), DistProjectUtils.getServerRole(parentPrj, dependency));
 			}
 			
 			//for(String dependency : dependencyMap.keySet()) {
@@ -110,8 +107,8 @@ public class CarExportHandler extends ProjectArtifactHandler {
 					Object parent = dependencyData.getParent();
 					Object self = dependencyData.getSelf();
 					dependencyMap.get(dependencyKey);
-					String property =dependencyData.getDependency().getGroupId()+":"+dependencyData.getDependency().getArtifactId()+":"+dependencyData.getDependency().getVersion();
-				    dependencyData.setServerRole(mvnProperties.getProperty(property)
+					String serverRole = serverRoleList.get(DistProjectUtils.getArtifactInfoAsString(dependency));
+					dependencyData.setServerRole(serverRole
 				                                          .replaceAll("^capp/", ""));
 					
 					if(parent!=null && self!=null) { //ESB artifacts 
@@ -143,7 +140,6 @@ public class CarExportHandler extends ProjectArtifactHandler {
 										dummyDependency.setArtifactId(dependencyData.getDependency().getGroupId());
 										dummyDependency.setVersion(dependencyData.getDependency().getVersion());
 										dummyDependency.setArtifactId(qualifiedName);
-										//dummyDependency.setScope(dependencyData.getDependency().getScope());
 										
 										DependencyData dummyDependencyData = new DependencyData();
 										dummyDependencyData.setServerRole(dependencyData.getServerRole());

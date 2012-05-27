@@ -16,6 +16,11 @@
 
 package org.wso2.developerstudio.eclipse.distribution.project.util;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +28,10 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
+import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 
 
@@ -38,8 +46,6 @@ public class DistProjectUtils {
 	public static String getArtifactInfoAsString(Dependency dep) {
 		return getArtifactInfoAsString(dep,null);
 	}
-	
-	//public static String get
 	
 	public static String getArtifactInfoAsString(Dependency dep,String parent) {
 		String suffix= "";
@@ -58,6 +64,47 @@ public class DistProjectUtils {
 			 suffix= matcher.group().toString();
 	        }
 		return info.replaceFirst(suffix,"");
+	}
+	
+	public static String getServerRole(final MavenProject project,final Dependency dependency){
+		String serverRole = "";
+		if(project!=null){
+			Properties properties = project.getModel().getProperties();
+			String artifactInfo = getArtifactInfoAsString(dependency);
+			if(properties.containsKey(artifactInfo)){
+				serverRole = properties.getProperty(artifactInfo);
+			} else {
+				ProjectList projectListProvider = new ProjectList();
+				List<ListData> projectListData = projectListProvider.getListData(null, null);
+				Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+				for (ListData data : projectListData) {
+					DependencyData dependencyData = (DependencyData)data.getData();
+					projectList.put(data.getCaption(), dependencyData);
+				}
+				serverRole = getDefaultServerRole(projectList, artifactInfo);
+			}
+		}
+		return serverRole;
+	}
+	
+	public static String getDefaultServerRole(final Map<String, DependencyData> projectList,final Dependency dependency){
+		return getDefaultServerRole(projectList,DistProjectUtils.getArtifactInfoAsString(dependency));
+	}
+	
+	public static String getDefaultServerRole(final Map<String, DependencyData> projectList,final String artifactInfo){
+		String serverRole = "capp/ApplicationServer"; // default role
+		if(projectList.containsKey(artifactInfo)){
+			serverRole = projectList.get(artifactInfo).getServerRole();
+		} else{
+			for(Map.Entry<String,DependencyData> entry : projectList.entrySet()){
+				String mavenInfoAsString = getMavenInfoAsString(entry.getKey());
+				if(mavenInfoAsString.equals(artifactInfo)){
+					serverRole = entry.getValue().getServerRole();
+					break;
+				}
+			}
+		}
+		return serverRole;
 	}
 	
 }

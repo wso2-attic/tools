@@ -18,7 +18,6 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -48,10 +47,11 @@ import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUti
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 public class DistributionProjectExportWizardPage extends WizardPage {
+	private MavenProject mavenProject;
 	private Map<String,Dependency> dependencyList;
 	private Map<String,DependencyData> projectList;
 	private Map<String,Dependency> missingDependencyList;
-	private Properties properties;
+	private Map<String,String> serverRoleList = new HashMap<String, String>();
 	private Tree trDependencies;
 	private TreeEditor editor;
 	private Map<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
@@ -79,12 +79,12 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		this.dependencyList = dependencyList;
 	}
 
-	public void setProperties(Properties properties) {
-		this.properties = properties;
+	public void setServerRoleList(Map<String,String> serverRoleList) {
+		this.serverRoleList = serverRoleList;
 	}
 
-	public Properties getProperties() {
-		return properties;
+	public Map<String,String> getServerRoleList() {
+		return serverRoleList;
 	}
 
 	public void setProjectList(Map<String, DependencyData> projectList) {
@@ -99,8 +99,9 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	/**
 	 * Create the wizard.
 	 */
-	public DistributionProjectExportWizardPage() {
+	public DistributionProjectExportWizardPage(MavenProject project) {
 		super("WSO2 Platform Distribution");
+		this.mavenProject = project;
 		setTitle("WSO2 Platform Distribution");
 		setDescription("Create an deployable CAR file");
 	}
@@ -170,8 +171,10 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 			public void handleEvent(Event evt) {
 				TreeItem[] items = trDependencies.getItems();
 				for (TreeItem item : items) {
-	                item.setChecked(true);
-	                handleTreeItemChecked(item);
+					if(!item.getChecked() || item.getGrayed()){
+						item.setChecked(true);
+		                handleTreeItemChecked(item);
+					}
                 }
 			}
 		});
@@ -276,7 +279,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	TreeItem createNode(TreeItem parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
+		String serverRole = DistProjectUtils.getDefaultServerRole(getProjectList(),artifactInfo).replaceAll("^capp/","");
 		String version = project.getVersion();
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
@@ -288,7 +291,8 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
+			String role = DistProjectUtils.getServerRole(mavenProject,getDependencyList().get(artifactInfo)).replaceAll("^capp/","");
+			item.setText(1,role);
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -312,7 +316,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	TreeItem createNode(Tree parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		final String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		final String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
+		final String serverRole = DistProjectUtils.getDefaultServerRole(getProjectList(),artifactInfo).replaceAll("^capp/","");
 		final String version = project.getVersion();
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
@@ -327,7 +331,8 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		if(available) {
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
+			String role = DistProjectUtils.getServerRole(mavenProject,getDependencyList().get(artifactInfo)).replaceAll("^capp/","");
+			item.setText(1,role);
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -472,7 +477,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getProperties().setProperty(artifactInfo, "capp/"+role);
+						serverRoleList.put(artifactInfo, "capp/" + role);
 				}
 			}
 		});
@@ -501,7 +506,9 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			getDependencyList().remove(artifactInfo);
-			getProperties().remove(artifactInfo);
+			if(serverRoleList.containsKey(artifactInfo)){
+				serverRoleList.remove(artifactInfo);
+			}
 		}
 	}
 	
@@ -511,7 +518,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	 */
 	private void addDependency(NodeData nodeData){
 		Dependency project = nodeData.getDependency();
-		//String serverRole = nodeData.getServerRole();
+		String serverRole = nodeData.getServerRole();
 		String artifactInfo = DistProjectUtils
 		.getArtifactInfoAsString(project);
 		
@@ -522,10 +529,8 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 			dependency.setGroupId(project.getGroupId());
 			dependency.setVersion(project.getVersion());
 			dependency.setType(project.getType());
-			String propertyName = project.getGroupId()+":"+project.getArtifactId()+":"+project.getVersion();
-			String serverRole =getProperties().getProperty(propertyName);
-			if(serverRole!=null){
-			getProperties().put(propertyName,  serverRole);
+			if(!serverRoleList.containsKey(artifactInfo)){
+				serverRoleList.put(artifactInfo, "capp/" + serverRole);
 			}
 			getDependencyList().put(artifactInfo, dependency);
 		}

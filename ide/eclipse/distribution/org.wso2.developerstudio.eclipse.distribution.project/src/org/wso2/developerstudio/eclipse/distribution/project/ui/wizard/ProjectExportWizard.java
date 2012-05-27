@@ -124,9 +124,9 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 					version, ext);
 			File destFileName = new File(detailsPage.getExportPath(),
 					finalFileName);
-			if(destFileName.exists()){
-				org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
-			}
+            if(destFileName.exists()){
+                org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
+            }
 			FileUtils.copy(archive.get(0).getLocation().toFile(), destFileName);
 		} else {
 			throw new Exception("No resource found that matches the given type " + cAppType);
@@ -189,9 +189,9 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 				} else{
 					continue;
 				}
-				if(dstFile.exists()){
-					org.apache.commons.io.FileUtils.deleteQuietly(dstFile);
-				}
+                if(dstFile.exists()){
+                    org.apache.commons.io.FileUtils.deleteQuietly(dstFile);
+                }
 				FileUtils.copy(file, dstFile);
 			}
 		}
@@ -204,9 +204,9 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 		for(IResource res : buildProject) {
 			if(res instanceof IFolder){
 				File dstFile= new File(dir,res.getName());
-				if(dstFile.exists()){
-					org.apache.commons.io.FileUtils.deleteQuietly(dstFile);
-				}
+                if(dstFile.exists()){
+                    org.apache.commons.io.FileUtils.deleteQuietly(dstFile);
+                }
 				FileUtils.copyDirectory(res.getLocation().toFile(),
 						dstFile);
 			}

@@ -28,7 +28,9 @@ import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -67,8 +69,8 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.NodeData;
+import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactTypeMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.util.DistProjectUtils;
-import org.wso2.developerstudio.eclipse.distribution.project.util.ServerRoleMapping;
 import org.wso2.developerstudio.eclipse.distribution.project.validator.ProjectList;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -98,9 +100,10 @@ public class DistProjectEditorPage extends FormPage {
 	
 
 	private Map<String,Dependency> dependencyList = new HashMap<String, Dependency>();
+	private Map<String,String> serverRoleList = new HashMap<String, String>();
 	private Map<String,DependencyData> projectList = new HashMap<String, DependencyData>();
 	private Map<String,Dependency> missingDependencyList = new HashMap<String, Dependency>();
-	private Properties properties = new Properties();
+	
 	
 	private Tree trDependencies;
 	private HashMap<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
@@ -137,30 +140,19 @@ public class DistProjectEditorPage extends FormPage {
 		
 		ProjectList projectListProvider = new ProjectList();
 		List<ListData> projectListData = projectListProvider.getListData(null, null);
-		HashMap<String,DependencyData> projectList= new HashMap<String, DependencyData>();
-		HashMap<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
-		//Properties mvnProperties = new Properties();
-		parentPrj = MavenUtils.getMavenProject(pomFile);
-		//Properties mvn = parentPrj.getModel().getProperties();
-		Properties mvnProperties =  parentPrj.getModel().getProperties();
-		if(mvnProperties==null){
-			mvnProperties = new Properties();
-		}
-		
+		Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+		Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData)data.getData();
 			projectList.put(data.getCaption(), dependencyData);
-			Dependency dependency = dependencyData.getDependency();
-			String propertyValue = dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion();
-			if(null==mvnProperties.getProperty(propertyValue)){
-			mvnProperties.put(propertyValue, dependencyData.getServerRole());
-			}
-		}
-
-		for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){	
-			dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
 		}
 		
+		parentPrj = MavenUtils.getMavenProject(pomFile);
+		
+		for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){
+			dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
+			serverRoleList.put(DistProjectUtils.getArtifactInfoAsString(dependency), DistProjectUtils.getServerRole(parentPrj, dependency));
+		}
 		setProjectName(parentPrj.getName());
 		setArtifactId(parentPrj.getArtifactId());
 		setGroupId(parentPrj.getGroupId());
@@ -168,7 +160,6 @@ public class DistProjectEditorPage extends FormPage {
 		setDescription(parentPrj.getDescription());
 		setProjectList(projectList);
 		setDependencyList(dependencyMap);
-		setProperties(mvnProperties);
 		setMissingDependencyList((Map<String, Dependency>)((HashMap) getDependencyList()).clone());
 	}
 	
@@ -176,12 +167,27 @@ public class DistProjectEditorPage extends FormPage {
 		parentPrj.setGroupId(getGroupId());
 		parentPrj.setVersion(getVersion());
 		parentPrj.setDescription(getDescription());
+		writeProperties();
 		parentPrj.setDependencies(new ArrayList<Dependency>(getDependencyList().values()));
-		parentPrj.getModel().setProperties(getProperties());
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		setPageDirty(false);
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 		
+	}
+	
+	private void writeProperties(){
+		Properties properties = parentPrj.getModel().getProperties();
+		properties.clear();
+		for (Dependency dependency : getDependencyList().values()) {
+			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
+			if(serverRoleList.containsKey(artifactInfo)){
+				properties.put(artifactInfo, serverRoleList.get(artifactInfo));
+			} else{
+				properties.put(artifactInfo, "capp/ApplicationServer");
+			}
+		}	
+		properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
+		parentPrj.getModel().setProperties(properties);
 	}
 	
 
@@ -333,8 +339,10 @@ public class DistProjectEditorPage extends FormPage {
 			public void handleEvent(Event evt) {
 				TreeItem[] items = trDependencies.getItems();
 				for (TreeItem item : items) {
-	                item.setChecked(true);
-	                handleTreeItemChecked(item);
+					if(!item.getChecked() || item.getGrayed()){
+						item.setChecked(true);
+		                handleTreeItemChecked(item);
+					}
                 }
 			}
 		});
@@ -457,9 +465,7 @@ public class DistProjectEditorPage extends FormPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getProperties().setProperty(artifactInfo, "capp/"+role);
-					
-				//	setScope("capp/" + role);
+					serverRoleList.put(artifactInfo, "capp/" + role);
 					setPageDirty(true);
 				}
 				updateDirtyState();
@@ -473,7 +479,7 @@ public class DistProjectEditorPage extends FormPage {
 				item.setText(1, role);
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
-					getProperties().setProperty(artifactInfo, "capp/"+role);
+					serverRoleList.put(artifactInfo, "capp/" + role);
 					setPageDirty(true);
 				}
 				updateDirtyState();
@@ -492,7 +498,9 @@ public class DistProjectEditorPage extends FormPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			getDependencyList().remove(artifactInfo);
-			getProperties().remove(artifactInfo);
+			if(serverRoleList.containsKey(artifactInfo)){
+				serverRoleList.remove(artifactInfo);
+			}
 		}
 	}
 	
@@ -502,7 +510,7 @@ public class DistProjectEditorPage extends FormPage {
 	 */
 	private void addDependency(NodeData nodeData){
 		Dependency project = nodeData.getDependency();
-	//	String serverRole = nodeData.getServerRole();
+		String serverRole = nodeData.getServerRole();
 		String artifactInfo = DistProjectUtils
 		.getArtifactInfoAsString(project);
 		
@@ -513,13 +521,8 @@ public class DistProjectEditorPage extends FormPage {
 			dependency.setGroupId(project.getGroupId());
 			dependency.setVersion(project.getVersion());
 			dependency.setType(project.getType());
-			///dependency.setScope("capp/"
-				//		+ serverRole);
-			String propertyName = project.getGroupId()+":"+project.getArtifactId()+":"+project.getVersion();
-			String serverRole =getProperties().getProperty(propertyName);
-			if(serverRole!=null){
-			getProperties().put(propertyName,  serverRole);
-			}
+			serverRoleList.put(artifactInfo, "capp/" + serverRole);
+
 			getDependencyList().put(artifactInfo, dependency);
 		}
 	}
@@ -602,11 +605,11 @@ public class DistProjectEditorPage extends FormPage {
 	TreeItem createNode(TreeItem parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-		//String serverRole = project.getScope().replaceAll("^capp/","");
-			
-		String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
+		String serverRole = DistProjectUtils.getDefaultServerRole(getProjectList(),artifactInfo).replaceAll("^capp/","");
 		String version = project.getVersion();
+		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
+		
 		item.setText(2,version);
 		NodeData nodeData = new NodeData(project);
 		nodeData.setServerRole(serverRole);
@@ -614,7 +617,8 @@ public class DistProjectEditorPage extends FormPage {
 		
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-			item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
+			String role = DistProjectUtils.getServerRole(parentPrj,getDependencyList().get(artifactInfo)).replaceAll("^capp/","");
+			item.setText(1,role);
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -638,11 +642,8 @@ public class DistProjectEditorPage extends FormPage {
 	TreeItem createNode(Tree parent, final Dependency project, boolean available){
 		TreeItem item= new TreeItem(parent, SWT.NONE);
 		final String artifactInfo = DistProjectUtils.getArtifactInfoAsString(project);
-	//	String cAppType = (String) parentPrj.getModel().getProperties().get("CApp.type");
-		final String serverRole = getProperties().getProperty(artifactInfo).replaceAll("^capp/", "");
-		//final String serverRole = project.getScope().replaceAll("^capp/","");
+		final String serverRole = DistProjectUtils.getDefaultServerRole(getProjectList(),artifactInfo).replaceAll("^capp/","");
 		final String version = project.getVersion();
-		
 		
 		item.setText(0,DistProjectUtils.getMavenInfoAsString(artifactInfo));
 		
@@ -656,7 +657,8 @@ public class DistProjectEditorPage extends FormPage {
 		if(available) {
 		if (getDependencyList().containsKey(artifactInfo)) {
 			item.setChecked(true);
-		    item.setText(1,getProperties().getProperty(artifactInfo).replaceAll("^capp/", ""));
+			String role = DistProjectUtils.getServerRole(parentPrj,getDependencyList().get(artifactInfo)).replaceAll("^capp/","");
+			item.setText(1,role);
 		} else{
 			item.setText(1,serverRole);
 		}
@@ -741,15 +743,18 @@ public class DistProjectEditorPage extends FormPage {
 			IResource CarbonArchive = ExportUtil.BuildCAppProject(pomFileRes.getProject());
 			DirectoryDialog dirDlg = new DirectoryDialog(PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell());
+			String recentExportLocation = getRecentExportLocation(pomFileRes.getProject());
+			if(recentExportLocation!=null){
+				dirDlg.setFilterPath(recentExportLocation);
+			}
 			String dirName = dirDlg.open();
 			if(dirName!=null) {
-				File destFileName = new File(dirName, finalFileName) ;
-				if(destFileName.exists()){
-					org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
-				}
+				setRecentExportLocation(pomFileRes.getProject(),dirName);
+				File destFileName = new File(dirName, finalFileName);
+                if(destFileName.exists()){
+                    org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
+                }
 				FileUtils.copy(CarbonArchive.getLocation().toFile(), destFileName);
-//				exportMsg.setMessage("archive created successfully at " + destFileName );
-//				exportMsg.open();
 			}	 
 		} catch (Exception e) {
 			exportMsg.setMessage("Error occurred while exporting the archive :\n" + e.getMessage());
@@ -797,14 +802,6 @@ public class DistProjectEditorPage extends FormPage {
 
 	public Map<String,Dependency> getDependencyList() {
 		return dependencyList;
-	}
-
-	public void setProperties(Properties properties) {
-		this.properties = properties;
-	}
-
-	public Properties getProperties() {
-		return properties;
 	}
 
 	public void setProjectList(Map<String,DependencyData> projectList) {
@@ -877,6 +874,23 @@ public class DistProjectEditorPage extends FormPage {
 
 	public boolean isDirty() {
 		return isPageDirty();
+	}
+	
+	private String getRecentExportLocation(IProject project){
+		try {
+			return (String) project.getSessionProperty(new QualifiedName("devStudio.export", "export-path"));
+		} catch (CoreException e) {
+			log.error("cannot read session propery 'export-path'", e);
+			return null;
+		}
+	}
+	
+	private void setRecentExportLocation(IProject project,String location){
+		try {
+			project.setSessionProperty(new QualifiedName("devStudio.export", "export-path"), location);
+		} catch (CoreException e) {
+			log.error("cannot save session propery 'export-path'", e);
+		}
 	}
 
 }
