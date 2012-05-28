@@ -471,8 +471,8 @@ public class DistProjectEditorPage extends FormPage {
 				updateDirtyState();
 			}
 		});
-		
-		cmbServerRole.addFocusListener(new FocusAdapter() {
+//		temporary commented out, eclipse freezes when handling dispose()		
+/*		cmbServerRole.addFocusListener(new FocusAdapter() {
 			public void focusLost(FocusEvent e) {
 				String role = cmbServerRole.getText();
 				cmbServerRole.dispose();
@@ -484,7 +484,7 @@ public class DistProjectEditorPage extends FormPage {
 				}
 				updateDirtyState();
 			}
-		});
+		});*/
 	}
 	
 	/**
