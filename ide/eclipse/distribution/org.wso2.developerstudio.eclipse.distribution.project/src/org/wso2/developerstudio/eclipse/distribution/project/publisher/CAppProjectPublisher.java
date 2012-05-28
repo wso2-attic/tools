@@ -22,6 +22,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -29,6 +31,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.wst.server.core.IServer;
 import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICarbonServerModulePublisher;
 import org.wso2.developerstudio.eclipse.distribution.project.export.CarExportHandler;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -119,13 +122,19 @@ public class CAppProjectPublisher implements ICarbonServerModulePublisher {
 
     public void unpublish(IProject project, IServer server, File serverHome, File deployLocation)throws Exception {
 	    if (project.hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")){
+	    	IFile file = project.getFile("pom.xml");
+	    	
+	    	MavenProject mavenProject = MavenUtils.getMavenProject(file.getLocation().toFile());
+	    	
+	    	String version = mavenProject.getVersion();
+	    	
 	    	File repoLocation=deployLocation;
 	    	String[] repoPath=new String[]{"carbonapps"};
 	    	for (String path : repoPath) {
 	            repoLocation=new File(repoLocation,path);
             }
 			try {
-				File carFile = new File(repoLocation+File.separator+project.getName()+".car");
+				File carFile = new File(repoLocation+File.separator+project.getName()+"_"+version+".car");
 				carFile.delete();
             } catch (Exception e) {
             	throw e;
