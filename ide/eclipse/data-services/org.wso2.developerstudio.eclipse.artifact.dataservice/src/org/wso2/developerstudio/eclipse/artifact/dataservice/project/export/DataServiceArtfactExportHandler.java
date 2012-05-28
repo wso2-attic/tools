@@ -32,16 +32,22 @@ public class DataServiceArtfactExportHandler extends ProjectArtifactHandler{
 	private static final String DBS_FILE_EXTENSION = "dbs";
 
     public List<IResource> exportArtifact(IProject project) throws Exception{
+    	String projectPath = project.getLocation().toFile().toString();
 		List<IResource> exportResources = new ArrayList<IResource>();
+    	clearTarget(project);
 		File[] dbsFiles = FileUtils.getAllMatchingFiles(project.getLocation()
 				.toString(), null, DBS_FILE_EXTENSION, new ArrayList<File>());
 		for (File dbsFile : dbsFiles) {
-			IFile dbsFileRef = ResourcesPlugin
-					.getWorkspace()
-					.getRoot()
-					.getFileForLocation(
-							Path.fromOSString(dbsFile.getAbsolutePath()));
-			exportResources.add((IResource) dbsFileRef);
+			String filePath = dbsFile.toString();
+			//excluded any files inside target dir
+			if(!filePath.replaceFirst("^" + projectPath ,"").startsWith("/target/")){
+				IFile dbsFileRef = ResourcesPlugin
+				.getWorkspace()
+				.getRoot()
+				.getFileForLocation(
+						Path.fromOSString(dbsFile.getAbsolutePath()));
+				exportResources.add((IResource) dbsFileRef);
+			}
 		}
 		return exportResources;
     }
