@@ -115,6 +115,9 @@ public class DashboardPage extends FormPage {
 		wizardCategoryMap.put("Distribution", new String[]{
 				"org.wso2.developerstudio.eclipse.distribution.project",
 				});
+		wizardCategoryMap.put("Maven", new String[]{
+				"org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard",
+				});
 	}
 	/**
 	 * Create the form page.
@@ -211,8 +214,23 @@ public class DashboardPage extends FormPage {
 		createTitlelessCategory(managedForm,comDistribution,"Distribution",distImageDesc);
 		sctnDistribution.setExpanded(true);
 		
+		Section sctnMaven = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnMaven.setBounds(650, 90, 300, 75);
+		managedForm.getToolkit().paintBordersFor(sctnMaven);
+		sctnMaven.setText("Maven");
+		
+		Composite comMaven = managedForm.getToolkit().createComposite(sctnMaven, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(comMaven);
+		sctnMaven.setClient(comMaven);
+		comMaven.setLayout(new GridLayout(1, false));
+		ImageDescriptor mavenImageDesc = ImageDescriptor.createFromImage(resize(SWTResourceManager
+				.getImage(this.getClass(), "/intro/css/graphics/maven-24x24.png"),
+				32, 32));
+		createTitlelessCategory(managedForm,comMaven,"Maven",mavenImageDesc);
+		sctnMaven.setExpanded(true);
+		
 		Section sctnSamples = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnSamples.setBounds(650, 90, 300, 800);
+		sctnSamples.setBounds(650, 170, 300, 800);
 		managedForm.getToolkit().paintBordersFor(sctnSamples);
 		sctnSamples.setText("Samples");
 		
@@ -241,7 +259,8 @@ public class DashboardPage extends FormPage {
 				"org.wso2.developerstudio.eclipse.extensions.project.types",
 				"org.wso2.developerstudio.eclipse.extensions.features",
 				"org.wso2.developerstudio.eclipse.message.mediation.project.types",
-				"org.wso2.developerstudio.eclipse.message.mediation.features");
+				"org.wso2.developerstudio.eclipse.message.mediation.features",
+				"org.wso2.developerstudio.eclipse.maven.features");
 		
 		for (IWizardDescriptor descriptor : descriptors) {
 			descriptorMap.put(descriptor.getId(), descriptor);
