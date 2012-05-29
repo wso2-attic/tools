@@ -52,7 +52,7 @@
           locationURI="popup:org.wso2.developerstudio.eclipse.ds.presentation.DsEditorID?after=edit">
            <command
                commandId="org.wso2.developerstudio.eclipse.ds.editor.delete"
-               icon="icons/wso2/del.jpg"
+               icon="icons/wso2/del.gif"
                label="Delete"
                tooltip="Delete this tree item">
           </command>
