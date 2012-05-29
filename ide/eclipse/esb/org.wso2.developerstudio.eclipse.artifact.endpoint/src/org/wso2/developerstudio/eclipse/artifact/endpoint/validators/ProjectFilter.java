@@ -21,15 +21,11 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 public class ProjectFilter extends ViewerFilter {
-	private static ProjectFilter instance = null;
 	private static final String GENERAL_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.general.project.nature";
 	private static final String ESB_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.esb.project.nature";
-	private boolean showGeneralProjects;
+	private static boolean showGeneralProjects;
 	
 	public ProjectFilter() {
-		if (instance == null) {
-			instance = this;
-		}
 	}
 	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
@@ -45,18 +41,7 @@ public class ProjectFilter extends ViewerFilter {
 		return false;
 	}
 	
-	public void setShowGeneralProjects(boolean showGeneralProjects) {
-		this.showGeneralProjects = showGeneralProjects;
-	}
-	
-	public static ProjectFilter getInstance() {
-		if (instance == null) {
-			instance = new ProjectFilter();
-		}
-		return instance;
-	}
-	
-	public static void disposeInstance() {
-		instance = null;
+	public static void setShowGeneralProjects(boolean showGeneralProjects) {
+		ProjectFilter.showGeneralProjects = showGeneralProjects;
 	}
 }

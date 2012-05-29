@@ -117,21 +117,18 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 		}
-		ProjectFilter.disposeInstance();
+		ProjectFilter.setShowGeneralProjects(false);
 		return true;
 	}
 	
 	@Override
 	public boolean performCancel() {
-		ProjectFilter.disposeInstance();
+		ProjectFilter.setShowGeneralProjects(false);
 		return super.performCancel();
 	}
 	
 	@Override
 	public IWizardPage getPreviousPage(IWizardPage page) {
-		if (getContainer().getCurrentPage() instanceof ProjectOptionsPage) {
-			ProjectFilter.disposeInstance();
-		}
 		return super.getPreviousPage(page);
 	}
 	

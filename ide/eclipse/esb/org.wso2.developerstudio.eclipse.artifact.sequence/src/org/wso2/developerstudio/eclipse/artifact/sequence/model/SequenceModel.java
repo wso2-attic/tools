@@ -109,7 +109,7 @@ public class SequenceModel extends ProjectDataModel {
 			}
 		} else if (key.equals("dynamic.sequence")) {
 			setSaveAsDynamic((Boolean) data);
-			ProjectFilter.getInstance().setShowGeneralProjects((Boolean) data);
+			ProjectFilter.setShowGeneralProjects((Boolean) data);
 			setSequenceSaveLocation("");
 		} else if (key.equals("reg.path")) {
 			setDynamicSeqRegistryPath("");
