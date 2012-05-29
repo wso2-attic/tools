@@ -29,6 +29,7 @@ import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.Activator;
@@ -54,7 +55,7 @@ public class CustomMediatorProjectNature extends AbstractWSO2ProjectNature {
         ResourceBundle mediatorPropetiesBundle = ResourceBundle.getBundle("mediator");
 		String groupId = mediatorPropetiesBundle.getString("Plugin_groupId");
 		String artifactId = mediatorPropetiesBundle.getString("Plugin_artficatId");
-		String version = mediatorPropetiesBundle.getString("Plugin_version");
+		String version = MavenConstants.MAVEN_SYNAPSE_MEDIATOR_PLUGIN_VERSION;
 		
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);

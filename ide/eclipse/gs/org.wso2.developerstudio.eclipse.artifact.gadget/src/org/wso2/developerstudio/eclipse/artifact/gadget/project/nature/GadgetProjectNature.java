@@ -9,6 +9,7 @@ import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
 
@@ -25,7 +26,7 @@ public class GadgetProjectNature extends AbstractWSO2ProjectNature {
 		ResourceBundle mediatorPropetiesBundle = ResourceBundle.getBundle("gadget");
 		String groupId = mediatorPropetiesBundle.getString("Plugin_groupId");
 		String artifactId = mediatorPropetiesBundle.getString("Plugin_artficatId");
-		String version = mediatorPropetiesBundle.getString("Plugin_version");
+		String version = MavenConstants.MAVEN_GADGET_PLUGIN_VERSION;
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, groupId,artifactId, version,true);

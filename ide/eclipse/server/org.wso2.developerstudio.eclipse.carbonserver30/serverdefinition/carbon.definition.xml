@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://eclipse.org/jst/server/generic/ServerTypeDefinition ServerTypeDefinitionSchema.xsd">
 	<property 
 		id="server.name" 
-		label="Server Name" 
+		label="Runtime Name" 
 		type="string"
         context="runtime" 
 		default="WSO2 Carbon 3.0.1 based server" />
