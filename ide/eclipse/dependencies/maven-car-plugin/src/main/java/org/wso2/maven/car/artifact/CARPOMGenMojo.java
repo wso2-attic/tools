@@ -80,6 +80,13 @@ public class CARPOMGenMojo extends AbstractPOMGenMojo {
 	 * @parameter
 	 */
 	public String groupId;
+	
+	/**
+	 * finalName to use for the generated capp project if the user wants to override the default name
+	 * 
+	 * @parameter
+	 */
+	public String finalName;
 
 	/**
 	 * Comma separated list of "artifact_type=extension" to be used when creating dependencies for other capp artifacts
@@ -106,6 +113,16 @@ public class CARPOMGenMojo extends AbstractPOMGenMojo {
 		//add configuration
 		Xpp3Dom aritfact = CAppMavenUtils.createConfigurationNode(configuration,"archiveLocation");
 		aritfact.setValue(archiveLocation);
+		if (finalName != null && !finalName.trim().equals("")) {
+			Xpp3Dom finalNameNode =
+			                        CAppMavenUtils.createConfigurationNode(configuration,
+			                                                               "finalName");
+			if (!finalName.endsWith(".car")) {
+				finalNameNode.setValue(finalName);
+			} else {
+				finalNameNode.setValue(finalName.substring(0, finalName.length() - 4));
+			}
+		}
 	}
 
 	protected String getArtifactType() {

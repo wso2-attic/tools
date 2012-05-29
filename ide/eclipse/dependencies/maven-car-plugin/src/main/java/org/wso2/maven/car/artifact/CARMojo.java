@@ -45,6 +45,13 @@ public class CARMojo extends AbstractMojo {
      */
     private File archiveLocation;
     
+	/**
+	 * finalName to use for the generated capp project if the user wants to override the default name
+	 * 
+	 * @parameter
+	 */
+	public String finalName;
+    
 
 	/**
 	 * @parameter default-value="${project}"
@@ -179,6 +186,9 @@ public class CARMojo extends AbstractMojo {
 
 	private File getArchiveFile(){
 		File archiveFile = new File(getArchiveLocation(),project.getArtifactId()+"_"+project.getVersion()+".car");
+		if(finalName != null && !finalName.trim().equals("")){
+			archiveFile=new File(getArchiveLocation(), finalName+".car");
+		}
 		return archiveFile;
 	}
 	
