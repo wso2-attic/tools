@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.sequence.validators;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
@@ -35,7 +36,14 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class AvailableEPList extends AbstractListDataProvider{
 
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	
+
+	private static List<String> skipList = new ArrayList<String>();
+
+	static {
+		skipList.add("target");
+		skipList.add(".svn");
+	}
+
 	public List<ListData> getListData(String modelProperty,
 			ProjectDataModel model) {
 		List<ListData> list = new ArrayList<ListData>();
@@ -61,13 +69,11 @@ public class AvailableEPList extends AbstractListDataProvider{
 			if (workspaceProject.isOpen()) {
 				if (workspaceProject
 						.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
-					File[] allFiles = FileUtils.getAllMatchingFiles(
-							workspaceProject.getLocation().toOSString(), "",
-							"xml", allMatchingFiles);
-
-					for (File file : allFiles) {
-						allMatchingFiles.add(file);
-					}
+					File[] allFiles = FileUtils.getAllExactMatchingFiles(
+							workspaceProject.getLocation().toOSString(), null,
+							"xml", allMatchingFiles,skipList);
+					
+					allMatchingFiles=Arrays.asList(allFiles);
 				}
 			}
 		}
