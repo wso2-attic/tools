@@ -122,7 +122,7 @@ public class EndpointModel extends ProjectDataModel {
 			setSelectedTemplate(template);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
 			setSaveAsDynamic((Boolean) data);
-			ProjectFilter.setShowGeneralProjects((Boolean) data);
+			ProjectFilter.getInstance().setShowGeneralProjects((Boolean) data);
 			setEndpointSaveLocation("");
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
 			setDynamicEpRegistryPath("");

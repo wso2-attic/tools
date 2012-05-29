@@ -40,6 +40,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
@@ -49,6 +50,7 @@ import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Const
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
 import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
 import org.wso2.developerstudio.eclipse.artifact.sequence.utils.SequenceImageUtils;
+import org.wso2.developerstudio.eclipse.artifact.sequence.validators.ProjectFilter;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
@@ -62,6 +64,8 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
@@ -112,8 +116,22 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 		}
-
+		ProjectFilter.disposeInstance();
 		return true;
+	}
+	
+	@Override
+	public boolean performCancel() {
+		ProjectFilter.disposeInstance();
+		return super.performCancel();
+	}
+	
+	@Override
+	public IWizardPage getPreviousPage(IWizardPage page) {
+		if (getContainer().getCurrentPage() instanceof ProjectOptionsPage) {
+			ProjectFilter.disposeInstance();
+		}
+		return super.getPreviousPage(page);
 	}
 	
 	public void updatePom() throws Exception{
@@ -388,6 +406,8 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		}
         return content;
 	}
+	
+	
 
 	
 	public IResource getCreatedResource() {
