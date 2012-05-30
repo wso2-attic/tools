@@ -2371,7 +2371,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 	                        wsResourceData =
 	                                         registry.getAll(regResourceNode.getRegistryResourcePath());
                         }
-	                    if (getRegistryPropertyViewer() != null) {
+	                    if (registry != null && getRegistryPropertyViewer() != null) {
 		                    getRegistryPropertyViewer().setRegistryResourcePathData(regResourceNode);
 		                    try {
 			                    if (regResourceNode != null && regResourceNode.getConnectionInfo() != null && regResourceNode.getConnectionInfo().isEnabled()) {
@@ -2382,7 +2382,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 			                    registry.clearSessionProperties();
 		                    }
 	                    }
-	                    if (getResourceInfoViewer() != null) {
+	                    if (registry != null && getResourceInfoViewer() != null) {
 		                    getResourceInfoViewer().setRegistryResourcePathData(regResourceNode);
 		                    try {
 			                    if (regResourceNode != null && regResourceNode.getConnectionInfo() != null && regResourceNode.getConnectionInfo().isEnabled()) {

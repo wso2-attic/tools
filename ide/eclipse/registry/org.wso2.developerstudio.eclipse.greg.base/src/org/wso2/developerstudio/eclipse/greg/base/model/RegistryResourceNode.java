@@ -252,6 +252,7 @@ public class RegistryResourceNode {
 	public RegistryResourceType getResourceType() {
 		if (registryResource == RegistryResourceType.UNDEFINED) {
 			Registry registry = getConnectionInfo().getRegistry();
+			if(registry!=null){
 			try {
 				Resource resourceItem = registry
 						.getResourcesPerCollection(getRegistryResourcePath());
@@ -270,10 +271,12 @@ public class RegistryResourceNode {
 						registryResource = RegistryResourceType.RESOURCE;
 					}
 				}
+		 
 			} catch (Exception e) {
 				setError(true);
 				log.error(e);
 			}
+		  }
 		}
 		return registryResource;
 	}

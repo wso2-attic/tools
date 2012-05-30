@@ -120,7 +120,9 @@ public class RegistryPropertyViewer extends ViewPart implements
 //				.setText("Please double click on a registry resource/collection in registry browser viewer");
 		decideToolBarButtons();
 		try {
-			updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
+			if (getRegistryResourcePathData() != null) {
+				updateMe(getRegistryResourcePathData().getConnectionInfo().getRegistry().getAll(getRegistryResourcePathData().getRegistryResourcePath()));
+			}
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 		}

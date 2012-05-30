@@ -65,4 +65,15 @@ public class RegistryURLInfo {
 	public boolean isEnabled() {
 		return enabled;
 	}
+	
+	      public boolean equals(Object obj) {
+		                if (obj instanceof RegistryURLInfo){
+		            if(path.equals(((RegistryURLInfo)obj).path) &&url.equals(((RegistryURLInfo)obj).url) &&
+		                       username.equals(((RegistryURLInfo)obj).username)){
+		               return true;
+		            }
+		               }
+		                return false;
+		     }
+
 }

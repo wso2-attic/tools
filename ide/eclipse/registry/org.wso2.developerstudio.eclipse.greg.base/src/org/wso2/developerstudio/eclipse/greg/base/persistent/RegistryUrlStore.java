@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -183,10 +184,28 @@ public final class RegistryUrlStore {
 		info.setUrl(registryUrl);
 		info.setPath(path);
 		info.setUsername(username);
-		urlList.add(info);
-		saveUrlsToFile();
+	    if(!urlList.contains(info)){
+	    	urlList.add(info);
+		    saveUrlsToFile();
+	       }
 		return info;
 	}
+	   
+	public void modifyRegistryUrl(String registryUrl, String username,
+			String oldUser) {
+
+		Iterator<RegistryURLInfo> iterator = urlList.iterator();
+		while (iterator.hasNext()) {
+			RegistryURLInfo reginfo = iterator.next();
+			if (registryUrl.equals(reginfo.getUrl().toString())
+					&& (oldUser.equals(reginfo.getUsername()))) {
+				reginfo.setUsername(username);
+			}
+		}
+		saveUrlsToFile();
+	}
+	
+	
 
 	/**
 	 * remove Registry url to url list and update the file

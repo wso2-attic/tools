@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.greg.base.Activator;
 import org.wso2.developerstudio.eclipse.greg.base.logger.ExceptionHandler;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryCredentialData;
+import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.developerstudio.eclipse.greg.resource.authorization.ResourceAdmin;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -55,7 +56,7 @@ public class CredentialsDialog extends Dialog {
 	private static final int RESET_ID = IDialogConstants.NO_TO_ALL_ID + 1;
 	private Text usernameField;
 	private Text passwordField;
-
+    private String oldUsername;
 	/**
 	 * CredentialsDialog constructor
 	 * @param parentShell
@@ -64,7 +65,12 @@ public class CredentialsDialog extends Dialog {
 	 */
 	public CredentialsDialog(Shell parentShell, String registryUrl,String username) {
 		super(parentShell);
-		userName = username;
+		oldUsername = username;
+		if ("null".equals(username)) {
+			userName = "admin";
+		} else {
+			userName = username;
+		     }
 		this.registryUrl = registryUrl;
 	}
 
@@ -226,6 +232,10 @@ public class CredentialsDialog extends Dialog {
 //	        if(urlValid(hostUrl)){
 				ResourceAdmin rsAdmin = new ResourceAdmin(getServerUrl(), getUserName(), getPasswd());
 				if(rsAdmin.isUserAuthenticate(getUserName(), getPasswd(), hostUrl)){
+			 
+				     if(!oldUsername.equals(userName)){
+				         RegistryUrlStore.getInstance().modifyRegistryUrl(registryUrl, userName, oldUsername);
+					  }
 					super.okPressed();
 	//			}
 	//			if(passwd.equals(RegistryCredentialData.getInstance().getPassword(registryUrl))){
