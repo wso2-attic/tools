@@ -936,10 +936,17 @@ public class ResourceEditorPage extends FormPage implements
 			return;
 		}
 		
-		boolean dirtyState =  (!getCurrentResourceName().equals(getResourceName()))
-				|| (!getCurrentMediaType().equals(getMediaType()))
-				|| (!getCurrentDescription().equals(getDescription())
+		boolean dirtyState = ((getCurrentResourceName() != null) && !getCurrentResourceName()
+				.equals(getResourceName()))
+
+				|| ((getCurrentMediaType() != null) && !getCurrentMediaType()
+						.equals(getMediaType()))
+
+				|| ((getCurrentDescription() != null)
+						&& !getCurrentDescription().equals(getDescription())
+
 				|| getCurrentMyRating() != getMyRating());
+
 		setPageDirty(dirtyState);
 
 		// Enabling Save button if delta exists
