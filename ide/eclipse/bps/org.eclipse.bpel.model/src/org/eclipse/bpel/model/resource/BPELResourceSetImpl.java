@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryRegistryImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.wso2.developerstudio.eclipse.distribution.project.Activator;
+import org.eclipse.bpel.model.BPELPlugin;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -48,7 +48,7 @@ public class BPELResourceSetImpl extends ResourceSetImpl implements IResourceCha
 	// this ID identifies the BPEL file content type
 	public static final String BPEL_CONTENT_TYPE = "org.eclipse.bpel.contenttype"; //$NON-NLS-1$
 	
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private static IDeveloperStudioLog log=Logger.getLog(BPELPlugin.PLUGIN_ID);
 	 
 	public BPELResourceSetImpl() {
 		super();

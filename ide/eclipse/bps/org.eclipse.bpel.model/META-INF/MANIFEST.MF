@@ -35,7 +35,5 @@ Export-Package: org.eclipse.bpel.model,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.wst.xml.ui.internal.wizards,
  org.eclipse.wst.xsd.contentmodel.internal,
- org.wso2.developerstudio.eclipse.distribution.project,
- org.wso2.developerstudio.eclipse.distribution.project.export,
  org.wso2.developerstudio.eclipse.logging.core
 
