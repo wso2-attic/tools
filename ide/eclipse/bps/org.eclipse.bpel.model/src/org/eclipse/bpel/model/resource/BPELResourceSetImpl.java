@@ -24,10 +24,14 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.content.IContentDescription;
 import org.eclipse.core.runtime.content.IContentType;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryRegistryImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.wso2.developerstudio.eclipse.distribution.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 
 /**
@@ -43,6 +47,8 @@ public class BPELResourceSetImpl extends ResourceSetImpl implements IResourceCha
 	// Bugzilla 320545:
 	// this ID identifies the BPEL file content type
 	public static final String BPEL_CONTENT_TYPE = "org.eclipse.bpel.contenttype"; //$NON-NLS-1$
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	 
 	public BPELResourceSetImpl() {
 		super();
@@ -129,7 +135,12 @@ public class BPELResourceSetImpl extends ResourceSetImpl implements IResourceCha
 						+ uri + "'; a registered resource factory is needed");
 			}
 
+			try{
 			demandLoadHelper(resource);
+			}
+			catch(WrappedException e){
+				log.error("Resource(*.wsdl) does not exist as you are creating Empty BPEL Process. But you can proceed.", e);
+			}
 
 			if (map != null) {
 				map.put(uri, resource);
