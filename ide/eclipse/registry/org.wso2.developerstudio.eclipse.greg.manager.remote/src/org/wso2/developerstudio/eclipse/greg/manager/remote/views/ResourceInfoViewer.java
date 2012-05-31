@@ -266,11 +266,21 @@ public class ResourceInfoViewer extends ViewPart implements
                 	resource= registry.get(path);
                 }
             }else{
-            	rating =
-            		registry.getRating(path, getRegistryResourcePathData().getConnectionInfo()
-            		                   .getUsername());
-            	averageRating=registry.getAverageRating(path);
             	resource= registry.get(path);
+            	try {
+					rating =
+						registry.getRating(path, getRegistryResourcePathData().getConnectionInfo()
+						                   .getUsername());
+				} catch (Exception e) {
+					log.error("Error occured while retriveing the Rating for the user", e);
+					rating=0;
+				}
+            	try {
+					averageRating=registry.getAverageRating(path);
+				} catch (Exception e) {
+					log.error("Error occured while retriveing the Average Rating of the Resource", e);
+					averageRating=0;
+				}
             }
 				
 			String lcNameProperty = resource.getProperty("registry.LC.name");

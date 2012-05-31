@@ -116,16 +116,22 @@ public class RegistryTreeViewer extends TreeViewer implements Observer {
 							state = state | SELECTED_REGISTRY;
 						} else if (object instanceof RegistryResourceNode) {
 							RegistryResourceNode rrpd = (RegistryResourceNode) object;
-							RegistryResourceType resourceType=rrpd.getResourceType();
-							if (resourceType==RegistryResourceType.RESOURCE) {
+							RegistryResourceType resourceType = rrpd.getResourceType();
+							if (resourceType == RegistryResourceType.RESOURCE) {
 								addSelectedRegistryPathResources(rrpd);
 								state = state | SELECTED_REGISTRY_RESOURCE;
-							} else if(resourceType==RegistryResourceType.COLLECTION){
+							} else if (resourceType == RegistryResourceType.COLLECTION) {
 								addSelectedRegistryPathCollections(rrpd);
 								state = state | SELECTED_REGISTRY_PATH;
-							}else if(resourceType==RegistryResourceType.UNDEFINED){
+							} else if (resourceType == RegistryResourceType.SYMLINK) {
+								addSelectedRegistryPathResources(rrpd);
+								state = state | SELECTED_REGISTRY_RESOURCE;
+							} else if (resourceType == RegistryResourceType.REMOTELINK) {
+								addSelectedRegistryPathResources(rrpd);
+								state = state | SELECTED_REGISTRY_RESOURCE;
+							} else if (resourceType == RegistryResourceType.UNDEFINED) {
 								addSelectedRegistryPathCollections(null);
-								state=SELECTED_NONE;
+								state = SELECTED_NONE;
 							}
 						}
 					}
