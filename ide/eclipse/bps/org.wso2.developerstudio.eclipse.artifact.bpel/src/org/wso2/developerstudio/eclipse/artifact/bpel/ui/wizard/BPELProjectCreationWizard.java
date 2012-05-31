@@ -175,12 +175,16 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		
 		replacedProcessContent = replaceFileContent(replacedProcessContent, "http://eclipse.org/bpel/sample", namespace);
 		replacedWSDLContent = replaceFileContent(replacedWSDLContent, "http://eclipse.org/bpel/sample", namespace);
-		replacedDeployContent = replaceFileContent(replacedDeployContent, "http://eclipse.org/bpel/sample", namespace);
-		
-		FileUtils.createFile(newProcessFile, replacedProcessContent);
-		FileUtils.createFile(newWSDLFile, replacedWSDLContent);
+		replacedDeployContent = replaceFileContent(replacedDeployContent, "http://eclipse.org/bpel/sample", namespace);		
+				
+		FileUtils.createFile(newProcessFile, replacedProcessContent);	
 		FileUtils.createFile(deployfile, replacedDeployContent);
 		FileUtils.createFile(newSettingsFile, replacedSettingContent);
+		if(!BPELArtifactConstants.EMPTY_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
+			FileUtils.createFile(newWSDLFile, replacedWSDLContent);			
+		}else{
+			org.apache.commons.io.FileUtils.deleteQuietly(deployfile);
+		}		
 		
 		processFile.delete();
 		wsdlfile.delete();
