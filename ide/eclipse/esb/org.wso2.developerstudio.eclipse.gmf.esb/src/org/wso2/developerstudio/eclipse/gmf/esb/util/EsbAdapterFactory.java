@@ -173,6 +173,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createMediatorFlowAdapter();
 			}
 			@Override
+			public Adapter caseEndpointFlow(EndpointFlow object) {
+				return createEndpointFlowAdapter();
+			}
+			@Override
 			public Adapter caseAbstractEndPoint(AbstractEndPoint object) {
 				return createAbstractEndPointAdapter();
 			}
@@ -225,8 +229,24 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createFilterMediatorAdapter();
 			}
 			@Override
+			public Adapter caseFilterContainer(FilterContainer object) {
+				return createFilterContainerAdapter();
+			}
+			@Override
+			public Adapter caseFilterPassContainer(FilterPassContainer object) {
+				return createFilterPassContainerAdapter();
+			}
+			@Override
+			public Adapter caseFilterFailContainer(FilterFailContainer object) {
+				return createFilterFailContainerAdapter();
+			}
+			@Override
 			public Adapter caseFilterMediatorInputConnector(FilterMediatorInputConnector object) {
 				return createFilterMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseFilterMediatorOutputConnector(FilterMediatorOutputConnector object) {
+				return createFilterMediatorOutputConnectorAdapter();
 			}
 			@Override
 			public Adapter caseFilterMediatorPassOutputConnector(FilterMediatorPassOutputConnector object) {
@@ -689,6 +709,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createThrottleMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseThrottleMediatorOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector object) {
+				return createThrottleMediatorOnAcceptOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseThrottleMediatorOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector object) {
+				return createThrottleMediatorOnRejectOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseThrottlePolicyConfiguration(ThrottlePolicyConfiguration object) {
 				return createThrottlePolicyConfigurationAdapter();
 			}
@@ -703,6 +731,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseThrottleOnRejectBranch(ThrottleOnRejectBranch object) {
 				return createThrottleOnRejectBranchAdapter();
+			}
+			@Override
+			public Adapter caseThrottleContainer(ThrottleContainer object) {
+				return createThrottleContainerAdapter();
+			}
+			@Override
+			public Adapter caseThrottleOnAcceptContainer(ThrottleOnAcceptContainer object) {
+				return createThrottleOnAcceptContainerAdapter();
+			}
+			@Override
+			public Adapter caseThrottleOnRejectContainer(ThrottleOnRejectContainer object) {
+				return createThrottleOnRejectContainerAdapter();
 			}
 			@Override
 			public Adapter caseCommandMediator(CommandMediator object) {
@@ -809,6 +849,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createRuleChildMediatorsConfigurationAdapter();
 			}
 			@Override
+			public Adapter caseCallTemplateParameter(CallTemplateParameter object) {
+				return createCallTemplateParameterAdapter();
+			}
+			@Override
+			public Adapter caseCallTemplateMediator(CallTemplateMediator object) {
+				return createCallTemplateMediatorAdapter();
+			}
+			@Override
+			public Adapter caseCallTemplateMediatorInputConnector(CallTemplateMediatorInputConnector object) {
+				return createCallTemplateMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCallTemplateMediatorOutputConnector(CallTemplateMediatorOutputConnector object) {
+				return createCallTemplateMediatorOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseSmooksMediator(SmooksMediator object) {
 				return createSmooksMediatorAdapter();
 			}
@@ -833,6 +889,46 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createStoreMediatorAdapter();
 			}
 			@Override
+			public Adapter caseStoreMediatorInputConnector(StoreMediatorInputConnector object) {
+				return createStoreMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseStoreMediatorOutputConnector(StoreMediatorOutputConnector object) {
+				return createStoreMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseBuilderMediator(BuilderMediator object) {
+				return createBuilderMediatorAdapter();
+			}
+			@Override
+			public Adapter caseBuilderMediatorInputConnector(BuilderMediatorInputConnector object) {
+				return createBuilderMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseBuilderMediatorOutputConector(BuilderMediatorOutputConector object) {
+				return createBuilderMediatorOutputConectorAdapter();
+			}
+			@Override
+			public Adapter caseMessageBuilder(MessageBuilder object) {
+				return createMessageBuilderAdapter();
+			}
+			@Override
+			public Adapter casePayloadFactoryMediator(PayloadFactoryMediator object) {
+				return createPayloadFactoryMediatorAdapter();
+			}
+			@Override
+			public Adapter casePayloadFactoryMediatorInputConnector(PayloadFactoryMediatorInputConnector object) {
+				return createPayloadFactoryMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter casePayloadFactoryMediatorOutputConnector(PayloadFactoryMediatorOutputConnector object) {
+				return createPayloadFactoryMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter casePayloadFactoryArgument(PayloadFactoryArgument object) {
+				return createPayloadFactoryArgumentAdapter();
+			}
+			@Override
 			public Adapter caseConditionalRouteBranch(ConditionalRouteBranch object) {
 				return createConditionalRouteBranchAdapter();
 			}
@@ -845,12 +941,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createSendMediatorAdapter();
 			}
 			@Override
+			public Adapter caseSendContainer(SendContainer object) {
+				return createSendContainerAdapter();
+			}
+			@Override
 			public Adapter caseSendMediatorInputConnector(SendMediatorInputConnector object) {
 				return createSendMediatorInputConnectorAdapter();
 			}
 			@Override
 			public Adapter caseSendMediatorOutputConnector(SendMediatorOutputConnector object) {
 				return createSendMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseSendMediatorEndpointOutputConnector(SendMediatorEndpointOutputConnector object) {
+				return createSendMediatorEndpointOutputConnectorAdapter();
 			}
 			@Override
 			public Adapter caseFailoverEndPoint(FailoverEndPoint object) {
@@ -1288,6 +1392,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow <em>Endpoint Flow</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow
+	 * @generated
+	 */
+    public Adapter createEndpointFlowAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint <em>Abstract End Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1470,6 +1588,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterContainer <em>Filter Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FilterContainer
+	 * @generated
+	 */
+    public Adapter createFilterContainerAdapter() {
+		return null;
+	}
+
+    /**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterPassContainer <em>Filter Pass Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FilterPassContainer
+	 * @generated
+	 */
+    public Adapter createFilterPassContainerAdapter() {
+		return null;
+	}
+
+    /**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterFailContainer <em>Filter Fail Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FilterFailContainer
+	 * @generated
+	 */
+    public Adapter createFilterFailContainerAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorInputConnector <em>Filter Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1484,6 +1644,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorOutputConnector <em>Filter Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorOutputConnector
+	 * @generated
+	 */
+    public Adapter createFilterMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorPassOutputConnector <em>Filter Mediator Pass Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3094,6 +3268,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnAcceptOutputConnector <em>Throttle Mediator On Accept Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnAcceptOutputConnector
+	 * @generated
+	 */
+    public Adapter createThrottleMediatorOnAcceptOutputConnectorAdapter() {
+		return null;
+	}
+
+    /**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnRejectOutputConnector <em>Throttle Mediator On Reject Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnRejectOutputConnector
+	 * @generated
+	 */
+    public Adapter createThrottleMediatorOnRejectOutputConnectorAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration <em>Throttle Policy Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3150,6 +3352,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleContainer <em>Throttle Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleContainer
+	 * @generated
+	 */
+    public Adapter createThrottleContainerAdapter() {
+		return null;
+	}
+
+    /**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptContainer <em>Throttle On Accept Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptContainer
+	 * @generated
+	 */
+    public Adapter createThrottleOnAcceptContainerAdapter() {
+		return null;
+	}
+
+    /**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectContainer <em>Throttle On Reject Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectContainer
+	 * @generated
+	 */
+    public Adapter createThrottleOnRejectContainerAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator <em>Command Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3514,6 +3758,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter <em>Call Template Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter
+	 * @generated
+	 */
+	public Adapter createCallTemplateParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator <em>Call Template Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator
+	 * @generated
+	 */
+	public Adapter createCallTemplateMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorInputConnector <em>Call Template Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createCallTemplateMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorOutputConnector <em>Call Template Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createCallTemplateMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator <em>Smooks Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3598,6 +3898,146 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector <em>Store Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createStoreMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorOutputConnector <em>Store Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createStoreMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator <em>Builder Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator
+	 * @generated
+	 */
+	public Adapter createBuilderMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorInputConnector <em>Builder Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createBuilderMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorOutputConector <em>Builder Mediator Output Conector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorOutputConector
+	 * @generated
+	 */
+	public Adapter createBuilderMediatorOutputConectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageBuilder <em>Message Builder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageBuilder
+	 * @generated
+	 */
+	public Adapter createMessageBuilderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator <em>Payload Factory Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator
+	 * @generated
+	 */
+	public Adapter createPayloadFactoryMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector <em>Payload Factory Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createPayloadFactoryMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConnector <em>Payload Factory Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createPayloadFactoryMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument <em>Payload Factory Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument
+	 * @generated
+	 */
+	public Adapter createPayloadFactoryArgumentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch <em>Conditional Route Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3640,6 +4080,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendContainer <em>Send Container</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendContainer
+	 * @generated
+	 */
+    public Adapter createSendContainerAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorInputConnector <em>Send Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3668,6 +4122,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorEndpointOutputConnector <em>Send Mediator Endpoint Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorEndpointOutputConnector
+	 * @generated
+	 */
+    public Adapter createSendMediatorEndpointOutputConnectorAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint <em>Failover End Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

@@ -281,50 +281,11 @@
       visualID="3198"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceOutSequence') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceSequenceContainer') and _containmentMF_.name = 'outSequence')"/>
   <childNodeTraces
-      visualID="3382"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'children')">
-    <nodeLabelTraces
-        visualID="5099"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3383"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'children')">
-    <nodeLabelTraces
-        visualID="5100"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3384"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'children')">
-    <nodeLabelTraces
-        visualID="5101"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3385"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'children')">
-    <nodeLabelTraces
-        visualID="5102"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3386"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'children')">
-    <nodeLabelTraces
-        visualID="5103"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3391"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceSequenceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceSequenceAndEndpointContainer') and _containmentMF_.name = 'sequenceContainer')"/>
   <childNodeTraces
       visualID="3392"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceSequenceAndEndpointContainer') and _containmentMF_.name = 'endpointContainer')">
-    <compartmentTraces
-        visualID="7011"
-        queryText="true"/>
-  </childNodeTraces>
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceSequenceAndEndpointContainer') and _containmentMF_.name = 'endpointContainer')"/>
   <childNodeTraces
       visualID="3486"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyService') and _containmentMF_.name = 'container')"/>
@@ -576,6 +537,149 @@
         visualID="7019"
         queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces
+      visualID="3531"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'filterContainer')"/>
+  <childNodeTraces
+      visualID="3534"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3535"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterPassContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterContainer') and _containmentMF_.name = 'passContainer')"/>
+  <childNodeTraces
+      visualID="3536"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterPassContainer') and _containmentMF_.name = 'mediatorFlow')">
+    <compartmentTraces
+        visualID="7022"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3537"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterFailContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterContainer') and _containmentMF_.name = 'failContainer')"/>
+  <childNodeTraces
+      visualID="3538"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FilterFailContainer') and _containmentMF_.name = 'mediatorFlow')">
+    <compartmentTraces
+        visualID="7023"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3539"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediatorEndpointOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'endpointOutputConnector')"/>
+  <childNodeTraces
+      visualID="3562"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'SendMediator') and _containmentMF_.name = 'endpointFlow')">
+    <compartmentTraces
+        visualID="7028"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3563"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'DefaultEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5150"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3564"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'AddressEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5151"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3565"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'FailoverEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5152"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3566"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'WSDLEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5153"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3567"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'LoadBalanceEndPoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and _containmentMF_.name = 'children')">
+    <nodeLabelTraces
+        visualID="5154"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3580"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EndpointFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ProxyServiceEndpointContainer') and _containmentMF_.name = 'endpointFlow')">
+    <compartmentTraces
+        visualID="7029"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3581"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediatorOnAcceptOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and _containmentMF_.name = 'onAcceptOutputConnector')"/>
+  <childNodeTraces
+      visualID="3582"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediatorOnRejectOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and _containmentMF_.name = 'onRejectOutputConnector')"/>
+  <childNodeTraces
+      visualID="3583"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleMediator') and _containmentMF_.name = 'throttleContainer')"/>
+  <childNodeTraces
+      visualID="3584"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleOnAcceptContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleContainer') and _containmentMF_.name = 'onAcceptContainer')"/>
+  <childNodeTraces
+      visualID="3585"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleOnAcceptContainer') and _containmentMF_.name = 'mediatorFlow')">
+    <compartmentTraces
+        visualID="7030"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3586"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleOnRejectContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleContainer') and _containmentMF_.name = 'onRejectContainer')"/>
+  <childNodeTraces
+      visualID="3587"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'ThrottleOnRejectContainer') and _containmentMF_.name = 'mediatorFlow')">
+    <compartmentTraces
+        visualID="7031"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3588"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'StoreMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3589"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'StoreMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'StoreMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3590"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'StoreMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'StoreMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3591"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'BuilderMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3592"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'BuilderMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'BuilderMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3593"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'BuilderMediatorOutputConector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'BuilderMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3594"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'CallTemplateMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3595"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'CallTemplateMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'CallTemplateMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3596"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'CallTemplateMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'CallTemplateMediator') and _containmentMF_.name = 'outputConnector')"/>
+  <childNodeTraces
+      visualID="3597"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'PayloadFactoryMediator') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and _containmentMF_.name = 'children')"/>
+  <childNodeTraces
+      visualID="3598"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'PayloadFactoryMediatorInputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'PayloadFactoryMediator') and _containmentMF_.name = 'inputConnector')"/>
+  <childNodeTraces
+      visualID="3599"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'PayloadFactoryMediatorOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'PayloadFactoryMediator') and _containmentMF_.name = 'outputConnector')"/>
   <linkTraces
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbLink')"/>

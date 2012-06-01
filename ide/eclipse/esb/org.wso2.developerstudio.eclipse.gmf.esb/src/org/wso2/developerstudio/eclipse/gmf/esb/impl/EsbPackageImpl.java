@@ -38,6 +38,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorOutputConector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
@@ -46,6 +49,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorOutputConnector;
@@ -85,6 +92,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorInputConnector;
@@ -129,10 +137,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultSoapVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultStringType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterFailContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorFailOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorPassOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterPassContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector;
@@ -163,6 +175,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MergeNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeFirstInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeSecondInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageBuilder;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageOutputConnector;
@@ -173,6 +186,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
 import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
@@ -212,6 +230,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
@@ -226,7 +245,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
@@ -254,6 +275,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SqlResultMapping;
 import org.wso2.developerstudio.eclipse.gmf.esb.SqlStatement;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
@@ -267,11 +290,16 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnAcceptOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnRejectOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType;
@@ -490,6 +518,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass endpointFlowEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -581,12 +616,40 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass filterContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass filterPassContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass filterFailContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass filterMediatorInputConnectorEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass filterMediatorOutputConnectorEClass = null;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1393,6 +1456,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass throttleMediatorOnAcceptOutputConnectorEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass throttleMediatorOnRejectOutputConnectorEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1420,6 +1497,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	private EClass throttleOnRejectBranchEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass throttleContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass throttleOnAcceptContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass throttleOnRejectContainerEClass = null;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1606,6 +1704,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass callTemplateParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callTemplateMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callTemplateMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callTemplateMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass smooksMediatorEClass = null;
 
 	/**
@@ -1648,6 +1774,76 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass storeMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass storeMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderMediatorOutputConectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageBuilderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass payloadFactoryMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass payloadFactoryMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass payloadFactoryMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass payloadFactoryArgumentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass conditionalRouteBranchEClass = null;
 
 	/**
@@ -1666,6 +1862,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass sendContainerEClass = null;
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1679,6 +1882,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	private EClass sendMediatorOutputConnectorEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    private EClass sendMediatorEndpointOutputConnectorEClass = null;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2201,6 +2411,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum ruleOptionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum smooksIODataTypeEEnum = null;
 
 	/**
@@ -2230,6 +2447,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum keyTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum payloadFactoryArgumentTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2837,14 +3061,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyServiceEndpointContainer_Children() {
+    public EReference getProxyServiceEndpointContainer_EndpointFlow() {
 		return (EReference)proxyServiceEndpointContainerEClass.getEStructuralFeatures().get(0);
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2935,6 +3159,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getEndpointFlow() {
+		return endpointFlowEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getEndpointFlow_Children() {
+		return (EReference)endpointFlowEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3296,19 +3538,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilterMediator_PassOutputConnector() {
+    public EReference getFilterMediator_OutputConnector() {
 		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilterMediator_FailOutputConnector() {
+	public EReference getFilterMediator_PassOutputConnector() {
 		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3317,7 +3559,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilterMediator_Xpath() {
+	public EReference getFilterMediator_FailOutputConnector() {
 		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3326,11 +3568,92 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilterMediator_Source() {
+	public EReference getFilterMediator_Xpath() {
 		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFilterMediator_Source() {
+		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getFilterMediator_FilterContainer() {
+		return (EReference)filterMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getFilterContainer() {
+		return filterContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getFilterContainer_PassContainer() {
+		return (EReference)filterContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getFilterContainer_FailContainer() {
+		return (EReference)filterContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getFilterPassContainer() {
+		return filterPassContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getFilterPassContainer_MediatorFlow() {
+		return (EReference)filterPassContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getFilterFailContainer() {
+		return filterFailContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getFilterFailContainer_MediatorFlow() {
+		return (EReference)filterFailContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3340,6 +3663,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getFilterMediatorOutputConnector() {
+		return filterMediatorOutputConnectorEClass;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6671,6 +7003,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleMediator_OnAcceptOutputConnector() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleMediator_OnRejectOutputConnector() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleMediator_ThrottleContainer() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -6688,6 +7047,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getThrottleMediatorOnAcceptOutputConnector() {
+		return throttleMediatorOnAcceptOutputConnectorEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getThrottleMediatorOnRejectOutputConnector() {
+		return throttleMediatorOnRejectOutputConnectorEClass;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6850,6 +7227,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getThrottleContainer() {
+		return throttleContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleContainer_OnAcceptContainer() {
+		return (EReference)throttleContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleContainer_OnRejectContainer() {
+		return (EReference)throttleContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getThrottleOnAcceptContainer() {
+		return throttleOnAcceptContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleOnAcceptContainer_MediatorFlow() {
+		return (EReference)throttleOnAcceptContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getThrottleOnRejectContainer() {
+		return throttleOnRejectContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getThrottleOnRejectContainer_MediatorFlow() {
+		return (EReference)throttleOnRejectContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7772,6 +8212,114 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCallTemplateParameter() {
+		return callTemplateParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallTemplateParameter_ParameterName() {
+		return (EAttribute)callTemplateParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallTemplateParameter_TemplateParameterType() {
+		return (EAttribute)callTemplateParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallTemplateParameter_ParameterValue() {
+		return (EAttribute)callTemplateParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallTemplateParameter_ParameterExpression() {
+		return (EReference)callTemplateParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallTemplateMediator() {
+		return callTemplateMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallTemplateMediator_TargetTemplate() {
+		return (EAttribute)callTemplateMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallTemplateMediator_TemplateParameters() {
+		return (EReference)callTemplateMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallTemplateMediator_InputConnector() {
+		return (EReference)callTemplateMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallTemplateMediator_OutputConnector() {
+		return (EReference)callTemplateMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallTemplateMediatorInputConnector() {
+		return callTemplateMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallTemplateMediatorOutputConnector() {
+		return callTemplateMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSmooksMediator() {
 		return smooksMediatorEClass;
 	}
@@ -7952,6 +8500,231 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStoreMediator_InputConnector() {
+		return (EReference)storeMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStoreMediator_OutputConnector() {
+		return (EReference)storeMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStoreMediatorInputConnector() {
+		return storeMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStoreMediatorOutputConnector() {
+		return storeMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuilderMediator() {
+		return builderMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderMediator_MessageBuilders() {
+		return (EReference)builderMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderMediator_InputConnector() {
+		return (EReference)builderMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderMediator_OutputConnector() {
+		return (EReference)builderMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuilderMediatorInputConnector() {
+		return builderMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuilderMediatorOutputConector() {
+		return builderMediatorOutputConectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMessageBuilder() {
+		return messageBuilderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageBuilder_ContentType() {
+		return (EAttribute)messageBuilderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageBuilder_BuilderClass() {
+		return (EAttribute)messageBuilderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageBuilder_FormatterClass() {
+		return (EAttribute)messageBuilderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPayloadFactoryMediator() {
+		return payloadFactoryMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPayloadFactoryMediator_Format() {
+		return (EAttribute)payloadFactoryMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPayloadFactoryMediator_Args() {
+		return (EReference)payloadFactoryMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPayloadFactoryMediator_InputConnector() {
+		return (EReference)payloadFactoryMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPayloadFactoryMediator_OutputConnector() {
+		return (EReference)payloadFactoryMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPayloadFactoryMediatorInputConnector() {
+		return payloadFactoryMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPayloadFactoryMediatorOutputConnector() {
+		return payloadFactoryMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPayloadFactoryArgument() {
+		return payloadFactoryArgumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPayloadFactoryArgument_ArgumentType() {
+		return (EAttribute)payloadFactoryArgumentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPayloadFactoryArgument_ArgumentValue() {
+		return (EAttribute)payloadFactoryArgumentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPayloadFactoryArgument_ArgumentExpression() {
+		return (EReference)payloadFactoryArgumentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConditionalRouteBranch() {
 		return conditionalRouteBranchEClass;
 	}
@@ -8057,6 +8830,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getSendMediator_EndpointOutputConnector() {
+		return (EReference)sendMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getSendMediator_EndpointFlow() {
+		return (EReference)sendMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getSendContainer() {
+		return sendContainerEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EReference getSendContainer_EndpointFlow() {
+		return (EReference)sendContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -8074,6 +8883,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EClass getSendMediatorEndpointOutputConnector() {
+		return sendMediatorEndpointOutputConnectorEClass;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -8951,6 +9769,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRuleOptionType() {
+		return ruleOptionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSmooksIODataType() {
 		return smooksIODataTypeEEnum;
 	}
@@ -8989,6 +9816,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EEnum getKeyType() {
 		return keyTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPayloadFactoryArgumentType() {
+		return payloadFactoryArgumentTypeEEnum;
 	}
 
 	/**
@@ -9124,7 +9960,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE);
 
 		proxyServiceEndpointContainerEClass = createEClass(PROXY_SERVICE_ENDPOINT_CONTAINER);
-		createEReference(proxyServiceEndpointContainerEClass, PROXY_SERVICE_ENDPOINT_CONTAINER__CHILDREN);
+		createEReference(proxyServiceEndpointContainerEClass, PROXY_SERVICE_ENDPOINT_CONTAINER__ENDPOINT_FLOW);
 
 		proxyServiceSequenceAndEndpointContainerEClass = createEClass(PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER);
 		createEReference(proxyServiceSequenceAndEndpointContainerEClass, PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__SEQUENCE_CONTAINER);
@@ -9139,6 +9975,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		mediatorFlowEClass = createEClass(MEDIATOR_FLOW);
 		createEReference(mediatorFlowEClass, MEDIATOR_FLOW__CHILDREN);
+
+		endpointFlowEClass = createEClass(ENDPOINT_FLOW);
+		createEReference(endpointFlowEClass, ENDPOINT_FLOW__CHILDREN);
 
 		abstractEndPointEClass = createEClass(ABSTRACT_END_POINT);
 		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__RELIABLE_MESSAGING_ENABLED);
@@ -9192,12 +10031,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(filterMediatorEClass, FILTER_MEDIATOR__CONDITION_TYPE);
 		createEAttribute(filterMediatorEClass, FILTER_MEDIATOR__REGEX);
 		createEReference(filterMediatorEClass, FILTER_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(filterMediatorEClass, FILTER_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(filterMediatorEClass, FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR);
 		createEReference(filterMediatorEClass, FILTER_MEDIATOR__FAIL_OUTPUT_CONNECTOR);
 		createEReference(filterMediatorEClass, FILTER_MEDIATOR__XPATH);
 		createEReference(filterMediatorEClass, FILTER_MEDIATOR__SOURCE);
+		createEReference(filterMediatorEClass, FILTER_MEDIATOR__FILTER_CONTAINER);
+
+		filterContainerEClass = createEClass(FILTER_CONTAINER);
+		createEReference(filterContainerEClass, FILTER_CONTAINER__PASS_CONTAINER);
+		createEReference(filterContainerEClass, FILTER_CONTAINER__FAIL_CONTAINER);
+
+		filterPassContainerEClass = createEClass(FILTER_PASS_CONTAINER);
+		createEReference(filterPassContainerEClass, FILTER_PASS_CONTAINER__MEDIATOR_FLOW);
+
+		filterFailContainerEClass = createEClass(FILTER_FAIL_CONTAINER);
+		createEReference(filterFailContainerEClass, FILTER_FAIL_CONTAINER__MEDIATOR_FLOW);
 
 		filterMediatorInputConnectorEClass = createEClass(FILTER_MEDIATOR_INPUT_CONNECTOR);
+
+		filterMediatorOutputConnectorEClass = createEClass(FILTER_MEDIATOR_OUTPUT_CONNECTOR);
 
 		filterMediatorPassOutputConnectorEClass = createEClass(FILTER_MEDIATOR_PASS_OUTPUT_CONNECTOR);
 
@@ -9681,10 +10534,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_BRANCH);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__THROTTLE_CONTAINER);
 
 		throttleMediatorInputConnectorEClass = createEClass(THROTTLE_MEDIATOR_INPUT_CONNECTOR);
 
 		throttleMediatorOutputConnectorEClass = createEClass(THROTTLE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		throttleMediatorOnAcceptOutputConnectorEClass = createEClass(THROTTLE_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR);
+
+		throttleMediatorOnRejectOutputConnectorEClass = createEClass(THROTTLE_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR);
 
 		throttlePolicyConfigurationEClass = createEClass(THROTTLE_POLICY_CONFIGURATION);
 		createEAttribute(throttlePolicyConfigurationEClass, THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE);
@@ -9707,6 +10567,16 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		throttleOnRejectBranchEClass = createEClass(THROTTLE_ON_REJECT_BRANCH);
 		createEAttribute(throttleOnRejectBranchEClass, THROTTLE_ON_REJECT_BRANCH__SEQUENCE_TYPE);
 		createEReference(throttleOnRejectBranchEClass, THROTTLE_ON_REJECT_BRANCH__SEQUENCE_KEY);
+
+		throttleContainerEClass = createEClass(THROTTLE_CONTAINER);
+		createEReference(throttleContainerEClass, THROTTLE_CONTAINER__ON_ACCEPT_CONTAINER);
+		createEReference(throttleContainerEClass, THROTTLE_CONTAINER__ON_REJECT_CONTAINER);
+
+		throttleOnAcceptContainerEClass = createEClass(THROTTLE_ON_ACCEPT_CONTAINER);
+		createEReference(throttleOnAcceptContainerEClass, THROTTLE_ON_ACCEPT_CONTAINER__MEDIATOR_FLOW);
+
+		throttleOnRejectContainerEClass = createEClass(THROTTLE_ON_REJECT_CONTAINER);
+		createEReference(throttleOnRejectContainerEClass, THROTTLE_ON_REJECT_CONTAINER__MEDIATOR_FLOW);
 
 		commandMediatorEClass = createEClass(COMMAND_MEDIATOR);
 		createEAttribute(commandMediatorEClass, COMMAND_MEDIATOR__CLASS_NAME);
@@ -9836,6 +10706,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		ruleChildMediatorsConfigurationEClass = createEClass(RULE_CHILD_MEDIATORS_CONFIGURATION);
 
+		callTemplateParameterEClass = createEClass(CALL_TEMPLATE_PARAMETER);
+		createEAttribute(callTemplateParameterEClass, CALL_TEMPLATE_PARAMETER__PARAMETER_NAME);
+		createEAttribute(callTemplateParameterEClass, CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE);
+		createEAttribute(callTemplateParameterEClass, CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE);
+		createEReference(callTemplateParameterEClass, CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION);
+
+		callTemplateMediatorEClass = createEClass(CALL_TEMPLATE_MEDIATOR);
+		createEAttribute(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE);
+		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS);
+		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR);
+
+		callTemplateMediatorInputConnectorEClass = createEClass(CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR);
+
+		callTemplateMediatorOutputConnectorEClass = createEClass(CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR);
+
 		smooksMediatorEClass = createEClass(SMOOKS_MEDIATOR);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__CONFIGURATION_KEY);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT);
@@ -9861,6 +10747,41 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		storeMediatorEClass = createEClass(STORE_MEDIATOR);
 		createEAttribute(storeMediatorEClass, STORE_MEDIATOR__MESSAGE_STORE);
 		createEReference(storeMediatorEClass, STORE_MEDIATOR__ON_STORE_SEQUENCE);
+		createEReference(storeMediatorEClass, STORE_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(storeMediatorEClass, STORE_MEDIATOR__OUTPUT_CONNECTOR);
+
+		storeMediatorInputConnectorEClass = createEClass(STORE_MEDIATOR_INPUT_CONNECTOR);
+
+		storeMediatorOutputConnectorEClass = createEClass(STORE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		builderMediatorEClass = createEClass(BUILDER_MEDIATOR);
+		createEReference(builderMediatorEClass, BUILDER_MEDIATOR__MESSAGE_BUILDERS);
+		createEReference(builderMediatorEClass, BUILDER_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(builderMediatorEClass, BUILDER_MEDIATOR__OUTPUT_CONNECTOR);
+
+		builderMediatorInputConnectorEClass = createEClass(BUILDER_MEDIATOR_INPUT_CONNECTOR);
+
+		builderMediatorOutputConectorEClass = createEClass(BUILDER_MEDIATOR_OUTPUT_CONECTOR);
+
+		messageBuilderEClass = createEClass(MESSAGE_BUILDER);
+		createEAttribute(messageBuilderEClass, MESSAGE_BUILDER__CONTENT_TYPE);
+		createEAttribute(messageBuilderEClass, MESSAGE_BUILDER__BUILDER_CLASS);
+		createEAttribute(messageBuilderEClass, MESSAGE_BUILDER__FORMATTER_CLASS);
+
+		payloadFactoryMediatorEClass = createEClass(PAYLOAD_FACTORY_MEDIATOR);
+		createEAttribute(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__FORMAT);
+		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__ARGS);
+		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR);
+
+		payloadFactoryMediatorInputConnectorEClass = createEClass(PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR);
+
+		payloadFactoryMediatorOutputConnectorEClass = createEClass(PAYLOAD_FACTORY_MEDIATOR_OUTPUT_CONNECTOR);
+
+		payloadFactoryArgumentEClass = createEClass(PAYLOAD_FACTORY_ARGUMENT);
+		createEAttribute(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE);
+		createEAttribute(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE);
+		createEReference(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION);
 
 		conditionalRouteBranchEClass = createEClass(CONDITIONAL_ROUTE_BRANCH);
 		createEAttribute(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE);
@@ -9876,10 +10797,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(sendMediatorEClass, SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE);
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE);
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE);
+		createEReference(sendMediatorEClass, SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR);
+		createEReference(sendMediatorEClass, SEND_MEDIATOR__ENDPOINT_FLOW);
+
+		sendContainerEClass = createEClass(SEND_CONTAINER);
+		createEReference(sendContainerEClass, SEND_CONTAINER__ENDPOINT_FLOW);
 
 		sendMediatorInputConnectorEClass = createEClass(SEND_MEDIATOR_INPUT_CONNECTOR);
 
 		sendMediatorOutputConnectorEClass = createEClass(SEND_MEDIATOR_OUTPUT_CONNECTOR);
+
+		sendMediatorEndpointOutputConnectorEClass = createEClass(SEND_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR);
 
 		failoverEndPointEClass = createEClass(FAILOVER_END_POINT);
 		createEReference(failoverEndPointEClass, FAILOVER_END_POINT__INPUT_CONNECTOR);
@@ -9995,11 +10923,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		ruleFactValueTypeEEnum = createEEnum(RULE_FACT_VALUE_TYPE);
 		ruleResultTypeEEnum = createEEnum(RULE_RESULT_TYPE);
 		ruleResultValueTypeEEnum = createEEnum(RULE_RESULT_VALUE_TYPE);
+		ruleOptionTypeEEnum = createEEnum(RULE_OPTION_TYPE);
 		smooksIODataTypeEEnum = createEEnum(SMOOKS_IO_DATA_TYPE);
 		expressionActionEEnum = createEEnum(EXPRESSION_ACTION);
 		outputMethodEEnum = createEEnum(OUTPUT_METHOD);
 		receivingSequenceTypeEEnum = createEEnum(RECEIVING_SEQUENCE_TYPE);
 		keyTypeEEnum = createEEnum(KEY_TYPE);
+		payloadFactoryArgumentTypeEEnum = createEEnum(PAYLOAD_FACTORY_ARGUMENT_TYPE);
 		typeEEnum = createEEnum(TYPE);
 		localEntryValueTypeEEnum = createEEnum(LOCAL_ENTRY_VALUE_TYPE);
 
@@ -10056,6 +10986,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyServiceFaultContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceContainerEClass.getESuperTypes().add(this.getEsbNode());
 		mediatorFlowEClass.getESuperTypes().add(this.getEsbNode());
+		endpointFlowEClass.getESuperTypes().add(this.getEsbNode());
 		abstractEndPointEClass.getESuperTypes().add(this.getEndPoint());
 		messageMediatorEClass.getESuperTypes().add(this.getEsbElement());
 		messageInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -10069,7 +11000,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		dropMediatorEClass.getESuperTypes().add(this.getMediator());
 		dropMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		filterMediatorEClass.getESuperTypes().add(this.getMediator());
+		filterContainerEClass.getESuperTypes().add(this.getEsbNode());
+		filterPassContainerEClass.getESuperTypes().add(this.getEsbNode());
+		filterFailContainerEClass.getESuperTypes().add(this.getEsbNode());
 		filterMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		filterMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		filterMediatorPassOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		filterMediatorFailOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		mergeNodeEClass.getESuperTypes().add(this.getMediator());
@@ -10175,6 +11110,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		throttleMediatorEClass.getESuperTypes().add(this.getMediator());
 		throttleMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		throttleMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		throttleMediatorOnAcceptOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		throttleMediatorOnRejectOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		throttleContainerEClass.getESuperTypes().add(this.getEsbNode());
+		throttleOnAcceptContainerEClass.getESuperTypes().add(this.getEsbNode());
+		throttleOnRejectContainerEClass.getESuperTypes().add(this.getEsbNode());
 		commandMediatorEClass.getESuperTypes().add(this.getMediator());
 		commandMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		commandMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -10190,14 +11130,30 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		ruleMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		ruleSetCreationPropertyEClass.getESuperTypes().add(this.getAbstractNameValueProperty());
 		ruleSessionPropertyEClass.getESuperTypes().add(this.getAbstractNameValueProperty());
+		callTemplateParameterEClass.getESuperTypes().add(this.getEsbNode());
+		callTemplateMediatorEClass.getESuperTypes().add(this.getMediator());
+		callTemplateMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		callTemplateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		smooksMediatorEClass.getESuperTypes().add(this.getMediator());
 		smooksMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		smooksMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		storeMediatorEClass.getESuperTypes().add(this.getMediator());
+		storeMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		storeMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		builderMediatorEClass.getESuperTypes().add(this.getMediator());
+		builderMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		builderMediatorOutputConectorEClass.getESuperTypes().add(this.getOutputConnector());
+		messageBuilderEClass.getESuperTypes().add(this.getEsbNode());
+		payloadFactoryMediatorEClass.getESuperTypes().add(this.getMediator());
+		payloadFactoryMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		payloadFactoryMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		payloadFactoryArgumentEClass.getESuperTypes().add(this.getEsbNode());
 		conditionalRouterMediatorEClass.getESuperTypes().add(this.getMediator());
 		sendMediatorEClass.getESuperTypes().add(this.getMediator());
+		sendContainerEClass.getESuperTypes().add(this.getEsbNode());
 		sendMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		sendMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		sendMediatorEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		failoverEndPointEClass.getESuperTypes().add(this.getParentEndPoint());
 		failoverEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		failoverEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -10300,7 +11256,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getProxyServiceSequenceContainer_OutSequence(), this.getProxyServiceOutSequence(), null, "outSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceEndpointContainerEClass, ProxyServiceEndpointContainer.class, "ProxyServiceEndpointContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceEndpointContainer_Children(), this.getEsbElement(), null, "children", null, 0, -1, ProxyServiceEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceEndpointContainer_EndpointFlow(), this.getEndpointFlow(), null, "endpointFlow", null, 0, 1, ProxyServiceEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceSequenceAndEndpointContainerEClass, ProxyServiceSequenceAndEndpointContainer.class, "ProxyServiceSequenceAndEndpointContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServiceSequenceAndEndpointContainer_SequenceContainer(), this.getProxyServiceSequenceContainer(), null, "sequenceContainer", null, 0, 1, ProxyServiceSequenceAndEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10315,6 +11271,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(mediatorFlowEClass, MediatorFlow.class, "MediatorFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMediatorFlow_Children(), this.getEsbElement(), null, "children", null, 0, -1, MediatorFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(endpointFlowEClass, EndpointFlow.class, "EndpointFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEndpointFlow_Children(), this.getEsbElement(), null, "children", null, 0, -1, EndpointFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractEndPointEClass, AbstractEndPoint.class, "AbstractEndPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractEndPoint_ReliableMessagingEnabled(), ecorePackage.getEBoolean(), "reliableMessagingEnabled", "false", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10368,12 +11327,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getFilterMediator_ConditionType(), this.getFilterConditionType(), "conditionType", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilterMediator_Regex(), ecorePackage.getEString(), "regex", "default_regex", 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFilterMediator_InputConnector(), this.getFilterMediatorInputConnector(), null, "inputConnector", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilterMediator_OutputConnector(), this.getFilterMediatorOutputConnector(), null, "outputConnector", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFilterMediator_PassOutputConnector(), this.getFilterMediatorPassOutputConnector(), null, "passOutputConnector", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFilterMediator_FailOutputConnector(), this.getFilterMediatorFailOutputConnector(), null, "failOutputConnector", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFilterMediator_Xpath(), this.getNamespacedProperty(), null, "xpath", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFilterMediator_Source(), this.getNamespacedProperty(), null, "source", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilterMediator_FilterContainer(), this.getFilterContainer(), null, "filterContainer", null, 0, 1, FilterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterContainerEClass, FilterContainer.class, "FilterContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFilterContainer_PassContainer(), this.getFilterPassContainer(), null, "passContainer", null, 0, 1, FilterContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilterContainer_FailContainer(), this.getFilterFailContainer(), null, "failContainer", null, 0, 1, FilterContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterPassContainerEClass, FilterPassContainer.class, "FilterPassContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFilterPassContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, FilterPassContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterFailContainerEClass, FilterFailContainer.class, "FilterFailContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFilterFailContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, FilterFailContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterMediatorInputConnectorEClass, FilterMediatorInputConnector.class, "FilterMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(filterMediatorOutputConnectorEClass, FilterMediatorOutputConnector.class, "FilterMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(filterMediatorPassOutputConnectorEClass, FilterMediatorPassOutputConnector.class, "FilterMediatorPassOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -10867,10 +11840,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getThrottleMediator_OnRejectBranch(), this.getThrottleOnRejectBranch(), null, "onRejectBranch", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_InputConnector(), this.getThrottleMediatorInputConnector(), null, "inputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_OutputConnector(), this.getThrottleMediatorOutputConnector(), null, "outputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_OnAcceptOutputConnector(), this.getThrottleMediatorOnAcceptOutputConnector(), null, "onAcceptOutputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_OnRejectOutputConnector(), this.getThrottleMediatorOnRejectOutputConnector(), null, "onRejectOutputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_ThrottleContainer(), this.getThrottleContainer(), null, "throttleContainer", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(throttleMediatorInputConnectorEClass, ThrottleMediatorInputConnector.class, "ThrottleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(throttleMediatorOutputConnectorEClass, ThrottleMediatorOutputConnector.class, "ThrottleMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(throttleMediatorOnAcceptOutputConnectorEClass, ThrottleMediatorOnAcceptOutputConnector.class, "ThrottleMediatorOnAcceptOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(throttleMediatorOnRejectOutputConnectorEClass, ThrottleMediatorOnRejectOutputConnector.class, "ThrottleMediatorOnRejectOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(throttlePolicyConfigurationEClass, ThrottlePolicyConfiguration.class, "ThrottlePolicyConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getThrottlePolicyConfiguration_PolicyType(), this.getThrottlePolicyType(), "policyType", "INLINE", 0, 1, ThrottlePolicyConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10893,6 +11873,16 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(throttleOnRejectBranchEClass, ThrottleOnRejectBranch.class, "ThrottleOnRejectBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getThrottleOnRejectBranch_SequenceType(), this.getThrottleSequenceType(), "sequenceType", "ANONYMOUS", 0, 1, ThrottleOnRejectBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleOnRejectBranch_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, ThrottleOnRejectBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(throttleContainerEClass, ThrottleContainer.class, "ThrottleContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThrottleContainer_OnAcceptContainer(), this.getThrottleOnAcceptContainer(), null, "onAcceptContainer", null, 0, 1, ThrottleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleContainer_OnRejectContainer(), this.getThrottleOnRejectContainer(), null, "onRejectContainer", null, 0, 1, ThrottleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(throttleOnAcceptContainerEClass, ThrottleOnAcceptContainer.class, "ThrottleOnAcceptContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThrottleOnAcceptContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ThrottleOnAcceptContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(throttleOnRejectContainerEClass, ThrottleOnRejectContainer.class, "ThrottleOnRejectContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThrottleOnRejectContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ThrottleOnRejectContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandMediatorEClass, CommandMediator.class, "CommandMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandMediator_ClassName(), ecorePackage.getEString(), "className", "class_name", 0, 1, CommandMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -11022,6 +12012,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(ruleChildMediatorsConfigurationEClass, RuleChildMediatorsConfiguration.class, "RuleChildMediatorsConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(callTemplateParameterEClass, CallTemplateParameter.class, "CallTemplateParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCallTemplateParameter_ParameterName(), ecorePackage.getEString(), "parameterName", null, 0, 1, CallTemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallTemplateParameter_TemplateParameterType(), this.getRuleOptionType(), "templateParameterType", null, 0, 1, CallTemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallTemplateParameter_ParameterValue(), ecorePackage.getEString(), "parameterValue", null, 0, 1, CallTemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallTemplateParameter_ParameterExpression(), this.getNamespacedProperty(), null, "parameterExpression", null, 0, 1, CallTemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(callTemplateMediatorEClass, CallTemplateMediator.class, "CallTemplateMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCallTemplateMediator_TargetTemplate(), ecorePackage.getEString(), "targetTemplate", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallTemplateMediator_TemplateParameters(), this.getCallTemplateParameter(), null, "templateParameters", null, 0, -1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallTemplateMediator_InputConnector(), this.getCallTemplateMediatorInputConnector(), null, "inputConnector", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallTemplateMediator_OutputConnector(), this.getCallTemplateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(callTemplateMediatorInputConnectorEClass, CallTemplateMediatorInputConnector.class, "CallTemplateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(callTemplateMediatorOutputConnectorEClass, CallTemplateMediatorOutputConnector.class, "CallTemplateMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(smooksMediatorEClass, SmooksMediator.class, "SmooksMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSmooksMediator_ConfigurationKey(), this.getRegistryKeyProperty(), null, "configurationKey", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSmooksMediator_Input(), this.getSmooksInConfiguration(), null, "input", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -11047,6 +12053,41 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(storeMediatorEClass, StoreMediator.class, "StoreMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStoreMediator_MessageStore(), ecorePackage.getEString(), "messageStore", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStoreMediator_OnStoreSequence(), this.getRegistryKeyProperty(), null, "onStoreSequence", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStoreMediator_InputConnector(), this.getStoreMediatorInputConnector(), null, "inputConnector", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStoreMediator_OutputConnector(), this.getStoreMediatorOutputConnector(), null, "outputConnector", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(storeMediatorInputConnectorEClass, StoreMediatorInputConnector.class, "StoreMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(storeMediatorOutputConnectorEClass, StoreMediatorOutputConnector.class, "StoreMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(builderMediatorEClass, BuilderMediator.class, "BuilderMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBuilderMediator_MessageBuilders(), this.getMessageBuilder(), null, "messageBuilders", null, 0, -1, BuilderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderMediator_InputConnector(), this.getBuilderMediatorInputConnector(), null, "inputConnector", null, 0, 1, BuilderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderMediator_OutputConnector(), this.getBuilderMediatorOutputConector(), null, "outputConnector", null, 0, 1, BuilderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(builderMediatorInputConnectorEClass, BuilderMediatorInputConnector.class, "BuilderMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(builderMediatorOutputConectorEClass, BuilderMediatorOutputConector.class, "BuilderMediatorOutputConector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(messageBuilderEClass, MessageBuilder.class, "MessageBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMessageBuilder_ContentType(), ecorePackage.getEString(), "contentType", null, 0, 1, MessageBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageBuilder_BuilderClass(), ecorePackage.getEString(), "builderClass", null, 0, 1, MessageBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageBuilder_FormatterClass(), ecorePackage.getEString(), "formatterClass", null, 0, 1, MessageBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(payloadFactoryMediatorEClass, PayloadFactoryMediator.class, "PayloadFactoryMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPayloadFactoryMediator_Format(), ecorePackage.getEString(), "format", null, 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPayloadFactoryMediator_Args(), this.getPayloadFactoryArgument(), null, "args", null, 0, -1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPayloadFactoryMediator_InputConnector(), this.getPayloadFactoryMediatorInputConnector(), null, "inputConnector", null, 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPayloadFactoryMediator_OutputConnector(), this.getPayloadFactoryMediatorOutputConnector(), null, "outputConnector", null, 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(payloadFactoryMediatorInputConnectorEClass, PayloadFactoryMediatorInputConnector.class, "PayloadFactoryMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(payloadFactoryMediatorOutputConnectorEClass, PayloadFactoryMediatorOutputConnector.class, "PayloadFactoryMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(payloadFactoryArgumentEClass, PayloadFactoryArgument.class, "PayloadFactoryArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPayloadFactoryArgument_ArgumentType(), this.getPayloadFactoryArgumentType(), "argumentType", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPayloadFactoryArgument_ArgumentValue(), ecorePackage.getEString(), "argumentValue", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPayloadFactoryArgument_ArgumentExpression(), this.getNamespacedProperty(), null, "argumentExpression", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalRouteBranchEClass, ConditionalRouteBranch.class, "ConditionalRouteBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConditionalRouteBranch_BreakRoute(), ecorePackage.getEBoolean(), "breakRoute", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -11062,10 +12103,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getSendMediator_ReceivingSequenceType(), this.getReceivingSequenceType(), "receivingSequenceType", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendMediator_StaticReceivingSequence(), this.getRegistryKeyProperty(), null, "StaticReceivingSequence", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendMediator_DynamicReceivingSequence(), this.getNamespacedProperty(), null, "DynamicReceivingSequence", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSendMediator_EndpointOutputConnector(), this.getSendMediatorEndpointOutputConnector(), null, "endpointOutputConnector", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSendMediator_EndpointFlow(), this.getEndpointFlow(), null, "endpointFlow", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sendContainerEClass, SendContainer.class, "SendContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSendContainer_EndpointFlow(), this.getEndpointFlow(), null, "endpointFlow", null, 0, 1, SendContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sendMediatorInputConnectorEClass, SendMediatorInputConnector.class, "SendMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sendMediatorOutputConnectorEClass, SendMediatorOutputConnector.class, "SendMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sendMediatorEndpointOutputConnectorEClass, SendMediatorEndpointOutputConnector.class, "SendMediatorEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(failoverEndPointEClass, FailoverEndPoint.class, "FailoverEndPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFailoverEndPoint_InputConnector(), this.getFailoverEndPointInputConnector(), null, "inputConnector", null, 0, 1, FailoverEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -11437,6 +12485,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(ruleResultValueTypeEEnum, RuleResultValueType.EXPRESSION);
 		addEEnumLiteral(ruleResultValueTypeEEnum, RuleResultValueType.REGISTRY_REFERENCE);
 
+		initEEnum(ruleOptionTypeEEnum, RuleOptionType.class, "RuleOptionType");
+		addEEnumLiteral(ruleOptionTypeEEnum, RuleOptionType.VALUE);
+		addEEnumLiteral(ruleOptionTypeEEnum, RuleOptionType.EXPRESSION);
+
 		initEEnum(smooksIODataTypeEEnum, SmooksIODataType.class, "SmooksIODataType");
 		addEEnumLiteral(smooksIODataTypeEEnum, SmooksIODataType.XML);
 		addEEnumLiteral(smooksIODataTypeEEnum, SmooksIODataType.TEXT);
@@ -11459,6 +12511,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(keyTypeEEnum, KeyType.class, "KeyType");
 		addEEnumLiteral(keyTypeEEnum, KeyType.STATIC);
 		addEEnumLiteral(keyTypeEEnum, KeyType.DYNAMIC);
+
+		initEEnum(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.class, "PayloadFactoryArgumentType");
+		addEEnumLiteral(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.VALUE);
+		addEEnumLiteral(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.EXPRESSION);
 
 		initEEnum(typeEEnum, Type.class, "Type");
 		addEEnumLiteral(typeEEnum, Type.HTTP);

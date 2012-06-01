@@ -78,6 +78,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_SERVICE_FAULT_CONTAINER: return createProxyServiceFaultContainer();
 			case EsbPackage.PROXY_SERVICE_CONTAINER: return createProxyServiceContainer();
 			case EsbPackage.MEDIATOR_FLOW: return createMediatorFlow();
+			case EsbPackage.ENDPOINT_FLOW: return createEndpointFlow();
 			case EsbPackage.MESSAGE_MEDIATOR: return createMessageMediator();
 			case EsbPackage.MESSAGE_INPUT_CONNECTOR: return createMessageInputConnector();
 			case EsbPackage.MESSAGE_OUTPUT_CONNECTOR: return createMessageOutputConnector();
@@ -90,7 +91,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.DROP_MEDIATOR: return createDropMediator();
 			case EsbPackage.DROP_MEDIATOR_INPUT_CONNECTOR: return createDropMediatorInputConnector();
 			case EsbPackage.FILTER_MEDIATOR: return createFilterMediator();
+			case EsbPackage.FILTER_CONTAINER: return createFilterContainer();
+			case EsbPackage.FILTER_PASS_CONTAINER: return createFilterPassContainer();
+			case EsbPackage.FILTER_FAIL_CONTAINER: return createFilterFailContainer();
 			case EsbPackage.FILTER_MEDIATOR_INPUT_CONNECTOR: return createFilterMediatorInputConnector();
+			case EsbPackage.FILTER_MEDIATOR_OUTPUT_CONNECTOR: return createFilterMediatorOutputConnector();
 			case EsbPackage.FILTER_MEDIATOR_PASS_OUTPUT_CONNECTOR: return createFilterMediatorPassOutputConnector();
 			case EsbPackage.FILTER_MEDIATOR_FAIL_OUTPUT_CONNECTOR: return createFilterMediatorFailOutputConnector();
 			case EsbPackage.MERGE_NODE: return createMergeNode();
@@ -202,10 +207,15 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.THROTTLE_MEDIATOR: return createThrottleMediator();
 			case EsbPackage.THROTTLE_MEDIATOR_INPUT_CONNECTOR: return createThrottleMediatorInputConnector();
 			case EsbPackage.THROTTLE_MEDIATOR_OUTPUT_CONNECTOR: return createThrottleMediatorOutputConnector();
+			case EsbPackage.THROTTLE_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR: return createThrottleMediatorOnAcceptOutputConnector();
+			case EsbPackage.THROTTLE_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR: return createThrottleMediatorOnRejectOutputConnector();
 			case EsbPackage.THROTTLE_POLICY_CONFIGURATION: return createThrottlePolicyConfiguration();
 			case EsbPackage.THROTTLE_POLICY_ENTRY: return createThrottlePolicyEntry();
 			case EsbPackage.THROTTLE_ON_ACCEPT_BRANCH: return createThrottleOnAcceptBranch();
 			case EsbPackage.THROTTLE_ON_REJECT_BRANCH: return createThrottleOnRejectBranch();
+			case EsbPackage.THROTTLE_CONTAINER: return createThrottleContainer();
+			case EsbPackage.THROTTLE_ON_ACCEPT_CONTAINER: return createThrottleOnAcceptContainer();
+			case EsbPackage.THROTTLE_ON_REJECT_CONTAINER: return createThrottleOnRejectContainer();
 			case EsbPackage.COMMAND_MEDIATOR: return createCommandMediator();
 			case EsbPackage.COMMAND_MEDIATOR_INPUT_CONNECTOR: return createCommandMediatorInputConnector();
 			case EsbPackage.COMMAND_MEDIATOR_OUTPUT_CONNECTOR: return createCommandMediatorOutputConnector();
@@ -231,17 +241,33 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.RULE_RESULTS_CONFIGURATION: return createRuleResultsConfiguration();
 			case EsbPackage.RULE_RESULT: return createRuleResult();
 			case EsbPackage.RULE_CHILD_MEDIATORS_CONFIGURATION: return createRuleChildMediatorsConfiguration();
+			case EsbPackage.CALL_TEMPLATE_PARAMETER: return createCallTemplateParameter();
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR: return createCallTemplateMediator();
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR: return createCallTemplateMediatorInputConnector();
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR: return createCallTemplateMediatorOutputConnector();
 			case EsbPackage.SMOOKS_MEDIATOR: return createSmooksMediator();
 			case EsbPackage.SMOOKS_MEDIATOR_INPUT_CONNECTOR: return createSmooksMediatorInputConnector();
 			case EsbPackage.SMOOKS_MEDIATOR_OUTPUT_CONNECTOR: return createSmooksMediatorOutputConnector();
 			case EsbPackage.SMOOKS_IN_CONFIGURATION: return createSmooksInConfiguration();
 			case EsbPackage.SMOOKS_OUT_CONFIGURATION: return createSmooksOutConfiguration();
 			case EsbPackage.STORE_MEDIATOR: return createStoreMediator();
+			case EsbPackage.STORE_MEDIATOR_INPUT_CONNECTOR: return createStoreMediatorInputConnector();
+			case EsbPackage.STORE_MEDIATOR_OUTPUT_CONNECTOR: return createStoreMediatorOutputConnector();
+			case EsbPackage.BUILDER_MEDIATOR: return createBuilderMediator();
+			case EsbPackage.BUILDER_MEDIATOR_INPUT_CONNECTOR: return createBuilderMediatorInputConnector();
+			case EsbPackage.BUILDER_MEDIATOR_OUTPUT_CONECTOR: return createBuilderMediatorOutputConector();
+			case EsbPackage.MESSAGE_BUILDER: return createMessageBuilder();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR: return createPayloadFactoryMediator();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR: return createPayloadFactoryMediatorInputConnector();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR_OUTPUT_CONNECTOR: return createPayloadFactoryMediatorOutputConnector();
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT: return createPayloadFactoryArgument();
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH: return createConditionalRouteBranch();
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR: return createConditionalRouterMediator();
 			case EsbPackage.SEND_MEDIATOR: return createSendMediator();
+			case EsbPackage.SEND_CONTAINER: return createSendContainer();
 			case EsbPackage.SEND_MEDIATOR_INPUT_CONNECTOR: return createSendMediatorInputConnector();
 			case EsbPackage.SEND_MEDIATOR_OUTPUT_CONNECTOR: return createSendMediatorOutputConnector();
+			case EsbPackage.SEND_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR: return createSendMediatorEndpointOutputConnector();
 			case EsbPackage.FAILOVER_END_POINT: return createFailoverEndPoint();
 			case EsbPackage.FAILOVER_END_POINT_INPUT_CONNECTOR: return createFailoverEndPointInputConnector();
 			case EsbPackage.FAILOVER_END_POINT_OUTPUT_CONNECTOR: return createFailoverEndPointOutputConnector();
@@ -388,6 +414,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createRuleResultTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_RESULT_VALUE_TYPE:
 				return createRuleResultValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.RULE_OPTION_TYPE:
+				return createRuleOptionTypeFromString(eDataType, initialValue);
 			case EsbPackage.SMOOKS_IO_DATA_TYPE:
 				return createSmooksIODataTypeFromString(eDataType, initialValue);
 			case EsbPackage.EXPRESSION_ACTION:
@@ -398,6 +426,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createReceivingSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.KEY_TYPE:
 				return createKeyTypeFromString(eDataType, initialValue);
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
+				return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
 			case EsbPackage.TYPE:
 				return createTypeFromString(eDataType, initialValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
@@ -534,6 +564,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertRuleResultTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_RESULT_VALUE_TYPE:
 				return convertRuleResultValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.RULE_OPTION_TYPE:
+				return convertRuleOptionTypeToString(eDataType, instanceValue);
 			case EsbPackage.SMOOKS_IO_DATA_TYPE:
 				return convertSmooksIODataTypeToString(eDataType, instanceValue);
 			case EsbPackage.EXPRESSION_ACTION:
@@ -544,6 +576,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertReceivingSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.KEY_TYPE:
 				return convertKeyTypeToString(eDataType, instanceValue);
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
+				return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
 			case EsbPackage.TYPE:
 				return convertTypeToString(eDataType, instanceValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
@@ -688,14 +722,15 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated NOT
+     */
 	public ProxyServiceEndpointContainer createProxyServiceEndpointContainer() {
-		ProxyServiceEndpointContainerImpl proxyServiceEndpointContainer = new ProxyServiceEndpointContainerImpl();
-		return proxyServiceEndpointContainer;
-	}
+        ProxyServiceEndpointContainerImpl proxyServiceEndpointContainer = new ProxyServiceEndpointContainerImpl();
+        proxyServiceEndpointContainer.setEndpointFlow(createEndpointFlow());
+        return proxyServiceEndpointContainer;
+    }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -743,6 +778,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public EndpointFlow createEndpointFlow() {
+		EndpointFlowImpl endpointFlow = new EndpointFlowImpl();
+		return endpointFlow;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -834,12 +879,48 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public FilterMediator createFilterMediator() {
 		FilterMediatorImpl filterMediator = new FilterMediatorImpl();
 		filterMediator.setInputConnector(createFilterMediatorInputConnector());
+		filterMediator.setOutputConnector(createFilterMediatorOutputConnector());
 		filterMediator.setPassOutputConnector(createFilterMediatorPassOutputConnector());
 		filterMediator.setFailOutputConnector(createFilterMediatorFailOutputConnector());
+		filterMediator.setFilterContainer(createFilterContainer());
 		return filterMediator;
 	}
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public FilterContainer createFilterContainer() {
+        FilterContainerImpl filterContainer = new FilterContainerImpl();
+        filterContainer.setPassContainer(createFilterPassContainer());
+        filterContainer.setFailContainer(createFilterFailContainer());
+        return filterContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public FilterPassContainer createFilterPassContainer() {
+        FilterPassContainerImpl filterPassContainer = new FilterPassContainerImpl();
+        filterPassContainer.setMediatorFlow(createMediatorFlow());
+        return filterPassContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public FilterFailContainer createFilterFailContainer() {
+        FilterFailContainerImpl filterFailContainer = new FilterFailContainerImpl();
+        filterFailContainer.setMediatorFlow(createMediatorFlow());
+        return filterFailContainer;
+    }
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -850,6 +931,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public FilterMediatorOutputConnector createFilterMediatorOutputConnector() {
+		FilterMediatorOutputConnectorImpl filterMediatorOutputConnector = new FilterMediatorOutputConnectorImpl();
+		return filterMediatorOutputConnector;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1599,6 +1690,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		aggregateMediator.setInputConnector(createAggregateMediatorInputConnector());
 		aggregateMediator.setOutputConnector(createAggregateMediatorOutputConnector());
 		aggregateMediator.setOnCompleteOutputConnector(createAggregateMediatorOnCompleteOutputConnector());
+		aggregateMediator.setMediatorFlow(createMediatorFlow());
 		return aggregateMediator;
 	}
 
@@ -2049,6 +2141,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		ThrottleMediatorImpl throttleMediator = new ThrottleMediatorImpl();
 		throttleMediator.setInputConnector(createThrottleMediatorInputConnector());
 		throttleMediator.setOutputConnector(createThrottleMediatorOutputConnector());
+		throttleMediator.setOnAcceptOutputConnector(createThrottleMediatorOnAcceptOutputConnector());
+		throttleMediator.setOnRejectOutputConnector(createThrottleMediatorOnRejectOutputConnector());
+		throttleMediator.setThrottleContainer(createThrottleContainer());
 		return throttleMediator;
 	}
 
@@ -2073,6 +2168,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public ThrottleMediatorOnAcceptOutputConnector createThrottleMediatorOnAcceptOutputConnector() {
+		ThrottleMediatorOnAcceptOutputConnectorImpl throttleMediatorOnAcceptOutputConnector = new ThrottleMediatorOnAcceptOutputConnectorImpl();
+		return throttleMediatorOnAcceptOutputConnector;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public ThrottleMediatorOnRejectOutputConnector createThrottleMediatorOnRejectOutputConnector() {
+		ThrottleMediatorOnRejectOutputConnectorImpl throttleMediatorOnRejectOutputConnector = new ThrottleMediatorOnRejectOutputConnectorImpl();
+		return throttleMediatorOnRejectOutputConnector;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2113,6 +2228,40 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public ThrottleContainer createThrottleContainer() {
+        ThrottleContainerImpl throttleContainer = new ThrottleContainerImpl();
+        throttleContainer.setOnAcceptContainer(createThrottleOnAcceptContainer());
+        throttleContainer.setOnRejectContainer(createThrottleOnRejectContainer());
+        return throttleContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public ThrottleOnAcceptContainer createThrottleOnAcceptContainer() {
+        ThrottleOnAcceptContainerImpl throttleOnAcceptContainer = new ThrottleOnAcceptContainerImpl();
+        throttleOnAcceptContainer.setMediatorFlow(createMediatorFlow());
+        return throttleOnAcceptContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public ThrottleOnRejectContainer createThrottleOnRejectContainer() {
+        ThrottleOnRejectContainerImpl throttleOnRejectContainer = new ThrottleOnRejectContainerImpl();
+        throttleOnRejectContainer.setMediatorFlow(createMediatorFlow());
+        return throttleOnRejectContainer;
+    }
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -2373,6 +2522,48 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallTemplateParameter createCallTemplateParameter() {
+		CallTemplateParameterImpl callTemplateParameter = new CallTemplateParameterImpl();
+		return callTemplateParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public CallTemplateMediator createCallTemplateMediator() {
+		CallTemplateMediatorImpl callTemplateMediator = new CallTemplateMediatorImpl();
+		callTemplateMediator.setInputConnector(createCallTemplateMediatorInputConnector());
+		callTemplateMediator.setOutputConnector(createCallTemplateMediatorOutputConnector());
+		return callTemplateMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallTemplateMediatorInputConnector createCallTemplateMediatorInputConnector() {
+		CallTemplateMediatorInputConnectorImpl callTemplateMediatorInputConnector = new CallTemplateMediatorInputConnectorImpl();
+		return callTemplateMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallTemplateMediatorOutputConnector createCallTemplateMediatorOutputConnector() {
+		CallTemplateMediatorOutputConnectorImpl callTemplateMediatorOutputConnector = new CallTemplateMediatorOutputConnectorImpl();
+		return callTemplateMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public SmooksMediator createSmooksMediator() {
@@ -2425,11 +2616,117 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public StoreMediator createStoreMediator() {
 		StoreMediatorImpl storeMediator = new StoreMediatorImpl();
+		storeMediator.setInputConnector(createStoreMediatorInputConnector());
+		storeMediator.setOutputConnector(createStoreMediatorOutputConnector());
 		return storeMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StoreMediatorInputConnector createStoreMediatorInputConnector() {
+		StoreMediatorInputConnectorImpl storeMediatorInputConnector = new StoreMediatorInputConnectorImpl();
+		return storeMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StoreMediatorOutputConnector createStoreMediatorOutputConnector() {
+		StoreMediatorOutputConnectorImpl storeMediatorOutputConnector = new StoreMediatorOutputConnectorImpl();
+		return storeMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BuilderMediator createBuilderMediator() {
+		BuilderMediatorImpl builderMediator = new BuilderMediatorImpl();
+		builderMediator.setInputConnector(createBuilderMediatorInputConnector());
+		builderMediator.setOutputConnector(createBuilderMediatorOutputConector());
+		return builderMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderMediatorInputConnector createBuilderMediatorInputConnector() {
+		BuilderMediatorInputConnectorImpl builderMediatorInputConnector = new BuilderMediatorInputConnectorImpl();
+		return builderMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderMediatorOutputConector createBuilderMediatorOutputConector() {
+		BuilderMediatorOutputConectorImpl builderMediatorOutputConector = new BuilderMediatorOutputConectorImpl();
+		return builderMediatorOutputConector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageBuilder createMessageBuilder() {
+		MessageBuilderImpl messageBuilder = new MessageBuilderImpl();
+		return messageBuilder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public PayloadFactoryMediator createPayloadFactoryMediator() {
+		PayloadFactoryMediatorImpl payloadFactoryMediator = new PayloadFactoryMediatorImpl();
+		payloadFactoryMediator.setInputConnector(createPayloadFactoryMediatorInputConnector());
+		payloadFactoryMediator.setOutputConnector(createPayloadFactoryMediatorOutputConnector());
+		return payloadFactoryMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFactoryMediatorInputConnector createPayloadFactoryMediatorInputConnector() {
+		PayloadFactoryMediatorInputConnectorImpl payloadFactoryMediatorInputConnector = new PayloadFactoryMediatorInputConnectorImpl();
+		return payloadFactoryMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFactoryMediatorOutputConnector createPayloadFactoryMediatorOutputConnector() {
+		PayloadFactoryMediatorOutputConnectorImpl payloadFactoryMediatorOutputConnector = new PayloadFactoryMediatorOutputConnectorImpl();
+		return payloadFactoryMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFactoryArgument createPayloadFactoryArgument() {
+		PayloadFactoryArgumentImpl payloadFactoryArgument = new PayloadFactoryArgumentImpl();
+		return payloadFactoryArgument;
 	}
 
 	/**
@@ -2461,10 +2758,22 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		SendMediatorImpl sendMediator = new SendMediatorImpl();
 		sendMediator.setInputConnector(createSendMediatorInputConnector());
 		sendMediator.setOutputConnector(createSendMediatorOutputConnector());
+		sendMediator.setEndpointOutputConnector(createSendMediatorEndpointOutputConnector());
+		sendMediator.setEndpointFlow(createEndpointFlow());
 		return sendMediator;
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public SendContainer createSendContainer() {
+		SendContainerImpl sendContainer = new SendContainerImpl();
+		return sendContainer;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2485,6 +2794,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public SendMediatorEndpointOutputConnector createSendMediatorEndpointOutputConnector() {
+		SendMediatorEndpointOutputConnectorImpl sendMediatorEndpointOutputConnector = new SendMediatorEndpointOutputConnectorImpl();
+		return sendMediatorEndpointOutputConnector;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -3812,6 +4131,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RuleOptionType createRuleOptionTypeFromString(EDataType eDataType, String initialValue) {
+		RuleOptionType result = RuleOptionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRuleOptionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SmooksIODataType createSmooksIODataTypeFromString(EDataType eDataType, String initialValue) {
 		SmooksIODataType result = SmooksIODataType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -3904,6 +4243,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertKeyTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFactoryArgumentType createPayloadFactoryArgumentTypeFromString(EDataType eDataType, String initialValue) {
+		PayloadFactoryArgumentType result = PayloadFactoryArgumentType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPayloadFactoryArgumentTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

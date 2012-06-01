@@ -15,8 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnAcceptOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOnRejectOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectBranch;
@@ -35,6 +38,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectBranch <em>On Reject Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnAcceptOutputConnector <em>On Accept Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectOutputConnector <em>On Reject Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getThrottleContainer <em>Throttle Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +118,36 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	protected ThrottleMediatorOutputConnector outputConnector;
 
 	/**
+	 * The cached value of the '{@link #getOnAcceptOutputConnector() <em>On Accept Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getOnAcceptOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+    protected ThrottleMediatorOnAcceptOutputConnector onAcceptOutputConnector;
+
+    /**
+	 * The cached value of the '{@link #getOnRejectOutputConnector() <em>On Reject Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getOnRejectOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+    protected ThrottleMediatorOnRejectOutputConnector onRejectOutputConnector;
+
+    /**
+	 * The cached value of the '{@link #getThrottleContainer() <em>Throttle Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getThrottleContainer()
+	 * @generated
+	 * @ordered
+	 */
+    protected ThrottleContainer throttleContainer;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -369,6 +405,135 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public ThrottleMediatorOnAcceptOutputConnector getOnAcceptOutputConnector() {
+		return onAcceptOutputConnector;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public NotificationChain basicSetOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector newOnAcceptOutputConnector, NotificationChain msgs) {
+		ThrottleMediatorOnAcceptOutputConnector oldOnAcceptOutputConnector = onAcceptOutputConnector;
+		onAcceptOutputConnector = newOnAcceptOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR, oldOnAcceptOutputConnector, newOnAcceptOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector newOnAcceptOutputConnector) {
+		if (newOnAcceptOutputConnector != onAcceptOutputConnector) {
+			NotificationChain msgs = null;
+			if (onAcceptOutputConnector != null)
+				msgs = ((InternalEObject)onAcceptOutputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR, null, msgs);
+			if (newOnAcceptOutputConnector != null)
+				msgs = ((InternalEObject)newOnAcceptOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOnAcceptOutputConnector(newOnAcceptOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR, newOnAcceptOutputConnector, newOnAcceptOutputConnector));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public ThrottleMediatorOnRejectOutputConnector getOnRejectOutputConnector() {
+		return onRejectOutputConnector;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public NotificationChain basicSetOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector newOnRejectOutputConnector, NotificationChain msgs) {
+		ThrottleMediatorOnRejectOutputConnector oldOnRejectOutputConnector = onRejectOutputConnector;
+		onRejectOutputConnector = newOnRejectOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR, oldOnRejectOutputConnector, newOnRejectOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector newOnRejectOutputConnector) {
+		if (newOnRejectOutputConnector != onRejectOutputConnector) {
+			NotificationChain msgs = null;
+			if (onRejectOutputConnector != null)
+				msgs = ((InternalEObject)onRejectOutputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR, null, msgs);
+			if (newOnRejectOutputConnector != null)
+				msgs = ((InternalEObject)newOnRejectOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOnRejectOutputConnector(newOnRejectOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR, newOnRejectOutputConnector, newOnRejectOutputConnector));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public ThrottleContainer getThrottleContainer() {
+		return throttleContainer;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public NotificationChain basicSetThrottleContainer(ThrottleContainer newThrottleContainer, NotificationChain msgs) {
+		ThrottleContainer oldThrottleContainer = throttleContainer;
+		throttleContainer = newThrottleContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER, oldThrottleContainer, newThrottleContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setThrottleContainer(ThrottleContainer newThrottleContainer) {
+		if (newThrottleContainer != throttleContainer) {
+			NotificationChain msgs = null;
+			if (throttleContainer != null)
+				msgs = ((InternalEObject)throttleContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER, null, msgs);
+			if (newThrottleContainer != null)
+				msgs = ((InternalEObject)newThrottleContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER, null, msgs);
+			msgs = basicSetThrottleContainer(newThrottleContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER, newThrottleContainer, newThrottleContainer));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -386,6 +551,12 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.THROTTLE_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+				return basicSetOnAcceptOutputConnector(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+				return basicSetOnRejectOutputConnector(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+				return basicSetThrottleContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -411,6 +582,12 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return getInputConnector();
 			case EsbPackage.THROTTLE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+				return getOnAcceptOutputConnector();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+				return getOnRejectOutputConnector();
+			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+				return getThrottleContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -441,6 +618,15 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return;
 			case EsbPackage.THROTTLE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((ThrottleMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+				setOnAcceptOutputConnector((ThrottleMediatorOnAcceptOutputConnector)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+				setOnRejectOutputConnector((ThrottleMediatorOnRejectOutputConnector)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+				setThrottleContainer((ThrottleContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -473,6 +659,15 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 			case EsbPackage.THROTTLE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((ThrottleMediatorOutputConnector)null);
 				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+				setOnAcceptOutputConnector((ThrottleMediatorOnAcceptOutputConnector)null);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+				setOnRejectOutputConnector((ThrottleMediatorOnRejectOutputConnector)null);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+				setThrottleContainer((ThrottleContainer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -498,6 +693,12 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return inputConnector != null;
 			case EsbPackage.THROTTLE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+				return onAcceptOutputConnector != null;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+				return onRejectOutputConnector != null;
+			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+				return throttleContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

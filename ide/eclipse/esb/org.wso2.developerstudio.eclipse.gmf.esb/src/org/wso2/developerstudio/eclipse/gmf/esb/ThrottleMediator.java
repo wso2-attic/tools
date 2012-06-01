@@ -21,6 +21,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectBranch <em>On Reject Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptOutputConnector <em>On Accept Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectOutputConnector <em>On Reject Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getThrottleContainer <em>Throttle Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,5 +188,83 @@ public interface ThrottleMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputConnector(ThrottleMediatorOutputConnector value);
+
+    /**
+	 * Returns the value of the '<em><b>On Accept Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>On Accept Output Connector</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Accept Output Connector</em>' containment reference.
+	 * @see #setOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getThrottleMediator_OnAcceptOutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+    ThrottleMediatorOnAcceptOutputConnector getOnAcceptOutputConnector();
+
+    /**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptOutputConnector <em>On Accept Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Accept Output Connector</em>' containment reference.
+	 * @see #getOnAcceptOutputConnector()
+	 * @generated
+	 */
+    void setOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector value);
+
+    /**
+	 * Returns the value of the '<em><b>On Reject Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>On Reject Output Connector</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Reject Output Connector</em>' containment reference.
+	 * @see #setOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getThrottleMediator_OnRejectOutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+    ThrottleMediatorOnRejectOutputConnector getOnRejectOutputConnector();
+
+    /**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectOutputConnector <em>On Reject Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Reject Output Connector</em>' containment reference.
+	 * @see #getOnRejectOutputConnector()
+	 * @generated
+	 */
+    void setOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector value);
+
+    /**
+	 * Returns the value of the '<em><b>Throttle Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Throttle Container</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>Throttle Container</em>' containment reference.
+	 * @see #setThrottleContainer(ThrottleContainer)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getThrottleMediator_ThrottleContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+    ThrottleContainer getThrottleContainer();
+
+    /**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getThrottleContainer <em>Throttle Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Throttle Container</em>' containment reference.
+	 * @see #getThrottleContainer()
+	 * @generated
+	 */
+    void setThrottleContainer(ThrottleContainer value);
 
 } // ThrottleMediator

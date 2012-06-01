@@ -262,6 +262,13 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.ENDPOINT_FLOW: {
+				EndpointFlow endpointFlow = (EndpointFlow)theEObject;
+				T result = caseEndpointFlow(endpointFlow);
+				if (result == null) result = caseEsbNode(endpointFlow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.ABSTRACT_END_POINT: {
 				AbstractEndPoint abstractEndPoint = (AbstractEndPoint)theEObject;
 				T result = caseAbstractEndPoint(abstractEndPoint);
@@ -373,11 +380,40 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.FILTER_CONTAINER: {
+				FilterContainer filterContainer = (FilterContainer)theEObject;
+				T result = caseFilterContainer(filterContainer);
+				if (result == null) result = caseEsbNode(filterContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.FILTER_PASS_CONTAINER: {
+				FilterPassContainer filterPassContainer = (FilterPassContainer)theEObject;
+				T result = caseFilterPassContainer(filterPassContainer);
+				if (result == null) result = caseEsbNode(filterPassContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.FILTER_FAIL_CONTAINER: {
+				FilterFailContainer filterFailContainer = (FilterFailContainer)theEObject;
+				T result = caseFilterFailContainer(filterFailContainer);
+				if (result == null) result = caseEsbNode(filterFailContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.FILTER_MEDIATOR_INPUT_CONNECTOR: {
 				FilterMediatorInputConnector filterMediatorInputConnector = (FilterMediatorInputConnector)theEObject;
 				T result = caseFilterMediatorInputConnector(filterMediatorInputConnector);
 				if (result == null) result = caseInputConnector(filterMediatorInputConnector);
 				if (result == null) result = caseEsbConnector(filterMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.FILTER_MEDIATOR_OUTPUT_CONNECTOR: {
+				FilterMediatorOutputConnector filterMediatorOutputConnector = (FilterMediatorOutputConnector)theEObject;
+				T result = caseFilterMediatorOutputConnector(filterMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(filterMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(filterMediatorOutputConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1297,6 +1333,22 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.THROTTLE_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR: {
+				ThrottleMediatorOnAcceptOutputConnector throttleMediatorOnAcceptOutputConnector = (ThrottleMediatorOnAcceptOutputConnector)theEObject;
+				T result = caseThrottleMediatorOnAcceptOutputConnector(throttleMediatorOnAcceptOutputConnector);
+				if (result == null) result = caseOutputConnector(throttleMediatorOnAcceptOutputConnector);
+				if (result == null) result = caseEsbConnector(throttleMediatorOnAcceptOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.THROTTLE_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR: {
+				ThrottleMediatorOnRejectOutputConnector throttleMediatorOnRejectOutputConnector = (ThrottleMediatorOnRejectOutputConnector)theEObject;
+				T result = caseThrottleMediatorOnRejectOutputConnector(throttleMediatorOnRejectOutputConnector);
+				if (result == null) result = caseOutputConnector(throttleMediatorOnRejectOutputConnector);
+				if (result == null) result = caseEsbConnector(throttleMediatorOnRejectOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.THROTTLE_POLICY_CONFIGURATION: {
 				ThrottlePolicyConfiguration throttlePolicyConfiguration = (ThrottlePolicyConfiguration)theEObject;
 				T result = caseThrottlePolicyConfiguration(throttlePolicyConfiguration);
@@ -1318,6 +1370,27 @@ public class EsbSwitch<T> {
 			case EsbPackage.THROTTLE_ON_REJECT_BRANCH: {
 				ThrottleOnRejectBranch throttleOnRejectBranch = (ThrottleOnRejectBranch)theEObject;
 				T result = caseThrottleOnRejectBranch(throttleOnRejectBranch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.THROTTLE_CONTAINER: {
+				ThrottleContainer throttleContainer = (ThrottleContainer)theEObject;
+				T result = caseThrottleContainer(throttleContainer);
+				if (result == null) result = caseEsbNode(throttleContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.THROTTLE_ON_ACCEPT_CONTAINER: {
+				ThrottleOnAcceptContainer throttleOnAcceptContainer = (ThrottleOnAcceptContainer)theEObject;
+				T result = caseThrottleOnAcceptContainer(throttleOnAcceptContainer);
+				if (result == null) result = caseEsbNode(throttleOnAcceptContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.THROTTLE_ON_REJECT_CONTAINER: {
+				ThrottleOnRejectContainer throttleOnRejectContainer = (ThrottleOnRejectContainer)theEObject;
+				T result = caseThrottleOnRejectContainer(throttleOnRejectContainer);
+				if (result == null) result = caseEsbNode(throttleOnRejectContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1512,6 +1585,38 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CALL_TEMPLATE_PARAMETER: {
+				CallTemplateParameter callTemplateParameter = (CallTemplateParameter)theEObject;
+				T result = caseCallTemplateParameter(callTemplateParameter);
+				if (result == null) result = caseEsbNode(callTemplateParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR: {
+				CallTemplateMediator callTemplateMediator = (CallTemplateMediator)theEObject;
+				T result = caseCallTemplateMediator(callTemplateMediator);
+				if (result == null) result = caseMediator(callTemplateMediator);
+				if (result == null) result = caseEsbElement(callTemplateMediator);
+				if (result == null) result = caseEsbNode(callTemplateMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR: {
+				CallTemplateMediatorInputConnector callTemplateMediatorInputConnector = (CallTemplateMediatorInputConnector)theEObject;
+				T result = caseCallTemplateMediatorInputConnector(callTemplateMediatorInputConnector);
+				if (result == null) result = caseInputConnector(callTemplateMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(callTemplateMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR: {
+				CallTemplateMediatorOutputConnector callTemplateMediatorOutputConnector = (CallTemplateMediatorOutputConnector)theEObject;
+				T result = caseCallTemplateMediatorOutputConnector(callTemplateMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(callTemplateMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(callTemplateMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.SMOOKS_MEDIATOR: {
 				SmooksMediator smooksMediator = (SmooksMediator)theEObject;
 				T result = caseSmooksMediator(smooksMediator);
@@ -1558,6 +1663,86 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.STORE_MEDIATOR_INPUT_CONNECTOR: {
+				StoreMediatorInputConnector storeMediatorInputConnector = (StoreMediatorInputConnector)theEObject;
+				T result = caseStoreMediatorInputConnector(storeMediatorInputConnector);
+				if (result == null) result = caseInputConnector(storeMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(storeMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.STORE_MEDIATOR_OUTPUT_CONNECTOR: {
+				StoreMediatorOutputConnector storeMediatorOutputConnector = (StoreMediatorOutputConnector)theEObject;
+				T result = caseStoreMediatorOutputConnector(storeMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(storeMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(storeMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BUILDER_MEDIATOR: {
+				BuilderMediator builderMediator = (BuilderMediator)theEObject;
+				T result = caseBuilderMediator(builderMediator);
+				if (result == null) result = caseMediator(builderMediator);
+				if (result == null) result = caseEsbElement(builderMediator);
+				if (result == null) result = caseEsbNode(builderMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BUILDER_MEDIATOR_INPUT_CONNECTOR: {
+				BuilderMediatorInputConnector builderMediatorInputConnector = (BuilderMediatorInputConnector)theEObject;
+				T result = caseBuilderMediatorInputConnector(builderMediatorInputConnector);
+				if (result == null) result = caseInputConnector(builderMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(builderMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BUILDER_MEDIATOR_OUTPUT_CONECTOR: {
+				BuilderMediatorOutputConector builderMediatorOutputConector = (BuilderMediatorOutputConector)theEObject;
+				T result = caseBuilderMediatorOutputConector(builderMediatorOutputConector);
+				if (result == null) result = caseOutputConnector(builderMediatorOutputConector);
+				if (result == null) result = caseEsbConnector(builderMediatorOutputConector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.MESSAGE_BUILDER: {
+				MessageBuilder messageBuilder = (MessageBuilder)theEObject;
+				T result = caseMessageBuilder(messageBuilder);
+				if (result == null) result = caseEsbNode(messageBuilder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR: {
+				PayloadFactoryMediator payloadFactoryMediator = (PayloadFactoryMediator)theEObject;
+				T result = casePayloadFactoryMediator(payloadFactoryMediator);
+				if (result == null) result = caseMediator(payloadFactoryMediator);
+				if (result == null) result = caseEsbElement(payloadFactoryMediator);
+				if (result == null) result = caseEsbNode(payloadFactoryMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR: {
+				PayloadFactoryMediatorInputConnector payloadFactoryMediatorInputConnector = (PayloadFactoryMediatorInputConnector)theEObject;
+				T result = casePayloadFactoryMediatorInputConnector(payloadFactoryMediatorInputConnector);
+				if (result == null) result = caseInputConnector(payloadFactoryMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(payloadFactoryMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR_OUTPUT_CONNECTOR: {
+				PayloadFactoryMediatorOutputConnector payloadFactoryMediatorOutputConnector = (PayloadFactoryMediatorOutputConnector)theEObject;
+				T result = casePayloadFactoryMediatorOutputConnector(payloadFactoryMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(payloadFactoryMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(payloadFactoryMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT: {
+				PayloadFactoryArgument payloadFactoryArgument = (PayloadFactoryArgument)theEObject;
+				T result = casePayloadFactoryArgument(payloadFactoryArgument);
+				if (result == null) result = caseEsbNode(payloadFactoryArgument);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH: {
 				ConditionalRouteBranch conditionalRouteBranch = (ConditionalRouteBranch)theEObject;
 				T result = caseConditionalRouteBranch(conditionalRouteBranch);
@@ -1582,6 +1767,13 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.SEND_CONTAINER: {
+				SendContainer sendContainer = (SendContainer)theEObject;
+				T result = caseSendContainer(sendContainer);
+				if (result == null) result = caseEsbNode(sendContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.SEND_MEDIATOR_INPUT_CONNECTOR: {
 				SendMediatorInputConnector sendMediatorInputConnector = (SendMediatorInputConnector)theEObject;
 				T result = caseSendMediatorInputConnector(sendMediatorInputConnector);
@@ -1595,6 +1787,14 @@ public class EsbSwitch<T> {
 				T result = caseSendMediatorOutputConnector(sendMediatorOutputConnector);
 				if (result == null) result = caseOutputConnector(sendMediatorOutputConnector);
 				if (result == null) result = caseEsbConnector(sendMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SEND_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR: {
+				SendMediatorEndpointOutputConnector sendMediatorEndpointOutputConnector = (SendMediatorEndpointOutputConnector)theEObject;
+				T result = caseSendMediatorEndpointOutputConnector(sendMediatorEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(sendMediatorEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(sendMediatorEndpointOutputConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2107,6 +2307,21 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Endpoint Flow</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Endpoint Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseEndpointFlow(EndpointFlow object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract End Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2302,6 +2517,51 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseFilterContainer(FilterContainer object) {
+		return null;
+	}
+
+    /**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Pass Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Pass Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseFilterPassContainer(FilterPassContainer object) {
+		return null;
+	}
+
+    /**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Fail Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Fail Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseFilterFailContainer(FilterFailContainer object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Filter Mediator Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2317,6 +2577,21 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseFilterMediatorOutputConnector(FilterMediatorOutputConnector object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Filter Mediator Pass Output Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4042,6 +4317,36 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Throttle Mediator On Accept Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throttle Mediator On Accept Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseThrottleMediatorOnAcceptOutputConnector(ThrottleMediatorOnAcceptOutputConnector object) {
+		return null;
+	}
+
+    /**
+	 * Returns the result of interpreting the object as an instance of '<em>Throttle Mediator On Reject Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throttle Mediator On Reject Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseThrottleMediatorOnRejectOutputConnector(ThrottleMediatorOnRejectOutputConnector object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Throttle Policy Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4102,6 +4407,51 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Throttle Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throttle Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseThrottleContainer(ThrottleContainer object) {
+		return null;
+	}
+
+    /**
+	 * Returns the result of interpreting the object as an instance of '<em>Throttle On Accept Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throttle On Accept Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseThrottleOnAcceptContainer(ThrottleOnAcceptContainer object) {
+		return null;
+	}
+
+    /**
+	 * Returns the result of interpreting the object as an instance of '<em>Throttle On Reject Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throttle On Reject Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseThrottleOnRejectContainer(ThrottleOnRejectContainer object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Command Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4492,6 +4842,66 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Template Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Template Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallTemplateParameter(CallTemplateParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Template Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Template Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallTemplateMediator(CallTemplateMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Template Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Template Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallTemplateMediatorInputConnector(CallTemplateMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Template Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Template Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallTemplateMediatorOutputConnector(CallTemplateMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Smooks Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4582,6 +4992,156 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Store Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Store Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStoreMediatorInputConnector(StoreMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Store Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Store Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStoreMediatorOutputConnector(StoreMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderMediator(BuilderMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderMediatorInputConnector(BuilderMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Mediator Output Conector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Mediator Output Conector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderMediatorOutputConector(BuilderMediatorOutputConector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message Builder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessageBuilder(MessageBuilder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Payload Factory Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Payload Factory Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePayloadFactoryMediator(PayloadFactoryMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Payload Factory Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Payload Factory Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePayloadFactoryMediatorInputConnector(PayloadFactoryMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Payload Factory Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Payload Factory Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePayloadFactoryMediatorOutputConnector(PayloadFactoryMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Payload Factory Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Payload Factory Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePayloadFactoryArgument(PayloadFactoryArgument object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Conditional Route Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4627,6 +5187,21 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Send Container</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Send Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseSendContainer(SendContainer object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Send Mediator Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4657,6 +5232,21 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Send Mediator Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Send Mediator Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+    public T caseSendMediatorEndpointOutputConnector(SendMediatorEndpointOutputConnector object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Failover End Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

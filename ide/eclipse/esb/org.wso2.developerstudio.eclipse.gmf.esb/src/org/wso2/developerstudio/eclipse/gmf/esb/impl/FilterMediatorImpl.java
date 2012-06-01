@@ -17,10 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorFailOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorPassOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 
 /**
@@ -33,10 +36,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getConditionType <em>Condition Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getPassOutputConnector <em>Pass Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getFailOutputConnector <em>Fail Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getXpath <em>Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FilterMediatorImpl#getFilterContainer <em>Filter Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +99,16 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 	protected FilterMediatorInputConnector inputConnector;
 
 	/**
+	 * The cached value of the '{@link #getOutputConnector() <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+    protected FilterMediatorOutputConnector outputConnector;
+
+    /**
 	 * The cached value of the '{@link #getPassOutputConnector() <em>Pass Output Connector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +149,16 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 	protected NamespacedProperty source;
 
 	/**
+	 * The cached value of the '{@link #getFilterContainer() <em>Filter Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getFilterContainer()
+	 * @generated
+	 * @ordered
+	 */
+    protected FilterContainer filterContainer;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -232,6 +257,49 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public FilterContainer getFilterContainer() {
+		return filterContainer;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public NotificationChain basicSetFilterContainer(FilterContainer newFilterContainer, NotificationChain msgs) {
+		FilterContainer oldFilterContainer = filterContainer;
+		filterContainer = newFilterContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER, oldFilterContainer, newFilterContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setFilterContainer(FilterContainer newFilterContainer) {
+		if (newFilterContainer != filterContainer) {
+			NotificationChain msgs = null;
+			if (filterContainer != null)
+				msgs = ((InternalEObject)filterContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER, null, msgs);
+			if (newFilterContainer != null)
+				msgs = ((InternalEObject)newFilterContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER, null, msgs);
+			msgs = basicSetFilterContainer(newFilterContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER, newFilterContainer, newFilterContainer));
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -340,6 +408,49 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 
 	/**
 	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public FilterMediatorOutputConnector getOutputConnector() {
+		return outputConnector;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public NotificationChain basicSetOutputConnector(FilterMediatorOutputConnector newOutputConnector, NotificationChain msgs) {
+		FilterMediatorOutputConnector oldOutputConnector = outputConnector;
+		outputConnector = newOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR, oldOutputConnector, newOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 */
+    public void setOutputConnector(FilterMediatorOutputConnector newOutputConnector) {
+		if (newOutputConnector != outputConnector) {
+			NotificationChain msgs = null;
+			if (outputConnector != null)
+				msgs = ((InternalEObject)outputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			if (newOutputConnector != null)
+				msgs = ((InternalEObject)newOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOutputConnector(newOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR, newOutputConnector, newOutputConnector));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -435,6 +546,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 		switch (featureID) {
 			case EsbPackage.FILTER_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
+			case EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR:
+				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR:
 				return basicSetPassOutputConnector(null, msgs);
 			case EsbPackage.FILTER_MEDIATOR__FAIL_OUTPUT_CONNECTOR:
@@ -443,6 +556,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return basicSetXpath(null, msgs);
 			case EsbPackage.FILTER_MEDIATOR__SOURCE:
 				return basicSetSource(null, msgs);
+			case EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER:
+				return basicSetFilterContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -462,6 +577,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return getRegex();
 			case EsbPackage.FILTER_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
+			case EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR:
+				return getOutputConnector();
 			case EsbPackage.FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR:
 				return getPassOutputConnector();
 			case EsbPackage.FILTER_MEDIATOR__FAIL_OUTPUT_CONNECTOR:
@@ -470,6 +587,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return getXpath();
 			case EsbPackage.FILTER_MEDIATOR__SOURCE:
 				return getSource();
+			case EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER:
+				return getFilterContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -492,6 +611,9 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 			case EsbPackage.FILTER_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((FilterMediatorInputConnector)newValue);
 				return;
+			case EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((FilterMediatorOutputConnector)newValue);
+				return;
 			case EsbPackage.FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR:
 				setPassOutputConnector((FilterMediatorPassOutputConnector)newValue);
 				return;
@@ -503,6 +625,9 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return;
 			case EsbPackage.FILTER_MEDIATOR__SOURCE:
 				setSource((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER:
+				setFilterContainer((FilterContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -526,6 +651,9 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 			case EsbPackage.FILTER_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((FilterMediatorInputConnector)null);
 				return;
+			case EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((FilterMediatorOutputConnector)null);
+				return;
 			case EsbPackage.FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR:
 				setPassOutputConnector((FilterMediatorPassOutputConnector)null);
 				return;
@@ -537,6 +665,9 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return;
 			case EsbPackage.FILTER_MEDIATOR__SOURCE:
 				setSource((NamespacedProperty)null);
+				return;
+			case EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER:
+				setFilterContainer((FilterContainer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -557,6 +688,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return REGEX_EDEFAULT == null ? regex != null : !REGEX_EDEFAULT.equals(regex);
 			case EsbPackage.FILTER_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
+			case EsbPackage.FILTER_MEDIATOR__OUTPUT_CONNECTOR:
+				return outputConnector != null;
 			case EsbPackage.FILTER_MEDIATOR__PASS_OUTPUT_CONNECTOR:
 				return passOutputConnector != null;
 			case EsbPackage.FILTER_MEDIATOR__FAIL_OUTPUT_CONNECTOR:
@@ -565,6 +698,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 				return xpath != null;
 			case EsbPackage.FILTER_MEDIATOR__SOURCE:
 				return source != null;
+			case EsbPackage.FILTER_MEDIATOR__FILTER_CONTAINER:
+				return filterContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -122,8 +122,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceEndpointContainer" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//EsbElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceAndEndpointContainer"
       eSuperTypes="#//EsbNode">
@@ -143,6 +143,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MediatorFlow" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//EsbElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndpointFlow" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//EsbElement" containment="true"/>
   </eClassifiers>
@@ -214,6 +218,8 @@
         defaultValueLiteral="default_regex"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//FilterMediatorInputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//FilterMediatorOutputConnector"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="passOutputConnector" eType="#//FilterMediatorPassOutputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="failOutputConnector" eType="#//FilterMediatorFailOutputConnector"
@@ -222,12 +228,29 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//NamespacedProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filterContainer" eType="#//FilterContainer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passContainer" eType="#//FilterPassContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="failContainer" eType="#//FilterFailContainer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterPassContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterFailContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FilterConditionType">
     <eLiterals name="SOURCE_AND_REGEX"/>
     <eLiterals name="XPATH" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FilterMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="FilterMediatorPassOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="FilterMediatorFailOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="MergeNode" eSuperTypes="#//Mediator">
@@ -1079,9 +1102,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//ThrottleMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptOutputConnector"
+        eType="#//ThrottleMediatorOnAcceptOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onRejectOutputConnector"
+        eType="#//ThrottleMediatorOnRejectOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="throttleContainer" eType="#//ThrottleContainer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorOnAcceptOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorOnRejectOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottlePolicyConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyType" eType="#//ThrottlePolicyType"
         defaultValueLiteral="INLINE"/>
@@ -1126,6 +1159,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//ThrottleSequenceType"
         defaultValueLiteral="ANONYMOUS"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrottleContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptContainer" eType="#//ThrottleOnAcceptContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onRejectContainer" eType="#//ThrottleOnRejectContainer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrottleOnAcceptContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrottleOnRejectContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ThrottleSequenceType">
@@ -1415,6 +1462,31 @@
     <eLiterals name="REGISTRY_REFERENCE" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleChildMediatorsConfiguration"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RuleOptionType">
+    <eLiterals name="VALUE" literal="Value"/>
+    <eLiterals name="EXPRESSION" value="1" literal="Expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallTemplateParameter" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="templateParameterType"
+        eType="#//RuleOptionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallTemplateMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templateParameters" upperBound="-1"
+        eType="#//CallTemplateParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CallTemplateMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CallTemplateMediatorOutputConnector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallTemplateMediatorInputConnector"
+      eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallTemplateMediatorOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SmooksIODataType">
     <eLiterals name="XML" literal="xml"/>
     <eLiterals name="TEXT" literal="text"/>
@@ -1469,6 +1541,50 @@
   <eClassifiers xsi:type="ecore:EClass" name="StoreMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageStore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onStoreSequence" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//StoreMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//StoreMediatorOutputConnector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StoreMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StoreMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageBuilders" upperBound="-1"
+        eType="#//MessageBuilder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//BuilderMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//BuilderMediatorOutputConector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderMediatorOutputConector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageBuilder" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="builderClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatterClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//PayloadFactoryArgument"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//PayloadFactoryMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//PayloadFactoryMediatorOutputConnector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediatorInputConnector"
+      eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediatorOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryArgument" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="argumentType" eType="#//PayloadFactoryArgumentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="argumentValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PayloadFactoryArgumentType">
+    <eLiterals name="VALUE" literal="Value"/>
+    <eLiterals name="EXPRESSION" value="1" literal="Expression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRouteBranch">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakRoute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -1491,9 +1607,19 @@
         eType="#//RegistryKeyProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DynamicReceivingSequence"
         eType="#//NamespacedProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointOutputConnector"
+        eType="#//SendMediatorEndpointOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SendContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SendMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SendMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SendMediatorEndpointOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="FailoverEndPoint" eSuperTypes="#//ParentEndPoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//FailoverEndPointInputConnector"
         containment="true"/>

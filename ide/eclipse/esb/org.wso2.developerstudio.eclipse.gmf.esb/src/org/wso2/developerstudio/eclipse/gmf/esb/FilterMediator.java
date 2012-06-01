@@ -18,10 +18,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getConditionType <em>Condition Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getRegex <em>Regex</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getPassOutputConnector <em>Pass Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getFailOutputConnector <em>Fail Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getXpath <em>Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getSource <em>Source</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getFilterContainer <em>Filter Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +88,32 @@ public interface FilterMediator extends Mediator {
 	void setSource(NamespacedProperty value);
 
 	/**
+	 * Returns the value of the '<em><b>Filter Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Filter Container</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>Filter Container</em>' containment reference.
+	 * @see #setFilterContainer(FilterContainer)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFilterMediator_FilterContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+    FilterContainer getFilterContainer();
+
+    /**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getFilterContainer <em>Filter Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Filter Container</em>' containment reference.
+	 * @see #getFilterContainer()
+	 * @generated
+	 */
+    void setFilterContainer(FilterContainer value);
+
+    /**
 	 * Returns the value of the '<em><b>Regex</b></em>' attribute.
 	 * The default value is <code>"default_regex"</code>.
 	 * <!-- begin-user-doc -->
@@ -165,6 +193,32 @@ public interface FilterMediator extends Mediator {
 	void setInputConnector(FilterMediatorInputConnector value);
 
 	/**
+	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Output Connector</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Connector</em>' containment reference.
+	 * @see #setOutputConnector(FilterMediatorOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFilterMediator_OutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+    FilterMediatorOutputConnector getOutputConnector();
+
+    /**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator#getOutputConnector <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Connector</em>' containment reference.
+	 * @see #getOutputConnector()
+	 * @generated
+	 */
+    void setOutputConnector(FilterMediatorOutputConnector value);
+
+    /**
 	 * Returns the value of the '<em><b>Pass Output Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

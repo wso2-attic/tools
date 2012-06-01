@@ -179,6 +179,15 @@ public interface EsbFactory extends EFactory {
 	MediatorFlow createMediatorFlow();
 
 	/**
+	 * Returns a new object of class '<em>Endpoint Flow</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Endpoint Flow</em>'.
+	 * @generated
+	 */
+    EndpointFlow createEndpointFlow();
+
+    /**
 	 * Returns a new object of class '<em>Message Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,6 +296,33 @@ public interface EsbFactory extends EFactory {
 	FilterMediator createFilterMediator();
 
 	/**
+	 * Returns a new object of class '<em>Filter Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter Container</em>'.
+	 * @generated
+	 */
+    FilterContainer createFilterContainer();
+
+    /**
+	 * Returns a new object of class '<em>Filter Pass Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter Pass Container</em>'.
+	 * @generated
+	 */
+    FilterPassContainer createFilterPassContainer();
+
+    /**
+	 * Returns a new object of class '<em>Filter Fail Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter Fail Container</em>'.
+	 * @generated
+	 */
+    FilterFailContainer createFilterFailContainer();
+
+    /**
 	 * Returns a new object of class '<em>Filter Mediator Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +332,15 @@ public interface EsbFactory extends EFactory {
 	FilterMediatorInputConnector createFilterMediatorInputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Filter Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter Mediator Output Connector</em>'.
+	 * @generated
+	 */
+    FilterMediatorOutputConnector createFilterMediatorOutputConnector();
+
+    /**
 	 * Returns a new object of class '<em>Filter Mediator Pass Output Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,6 +1354,24 @@ public interface EsbFactory extends EFactory {
 	ThrottleMediatorOutputConnector createThrottleMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Throttle Mediator On Accept Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throttle Mediator On Accept Output Connector</em>'.
+	 * @generated
+	 */
+    ThrottleMediatorOnAcceptOutputConnector createThrottleMediatorOnAcceptOutputConnector();
+
+    /**
+	 * Returns a new object of class '<em>Throttle Mediator On Reject Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throttle Mediator On Reject Output Connector</em>'.
+	 * @generated
+	 */
+    ThrottleMediatorOnRejectOutputConnector createThrottleMediatorOnRejectOutputConnector();
+
+    /**
 	 * Returns a new object of class '<em>Throttle Policy Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1345,6 +1408,33 @@ public interface EsbFactory extends EFactory {
 	ThrottleOnRejectBranch createThrottleOnRejectBranch();
 
 	/**
+	 * Returns a new object of class '<em>Throttle Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throttle Container</em>'.
+	 * @generated
+	 */
+    ThrottleContainer createThrottleContainer();
+
+    /**
+	 * Returns a new object of class '<em>Throttle On Accept Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throttle On Accept Container</em>'.
+	 * @generated
+	 */
+    ThrottleOnAcceptContainer createThrottleOnAcceptContainer();
+
+    /**
+	 * Returns a new object of class '<em>Throttle On Reject Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throttle On Reject Container</em>'.
+	 * @generated
+	 */
+    ThrottleOnRejectContainer createThrottleOnRejectContainer();
+
+    /**
 	 * Returns a new object of class '<em>Command Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1570,6 +1660,42 @@ public interface EsbFactory extends EFactory {
 	RuleChildMediatorsConfiguration createRuleChildMediatorsConfiguration();
 
 	/**
+	 * Returns a new object of class '<em>Call Template Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Template Parameter</em>'.
+	 * @generated
+	 */
+	CallTemplateParameter createCallTemplateParameter();
+
+	/**
+	 * Returns a new object of class '<em>Call Template Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Template Mediator</em>'.
+	 * @generated
+	 */
+	CallTemplateMediator createCallTemplateMediator();
+
+	/**
+	 * Returns a new object of class '<em>Call Template Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Template Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	CallTemplateMediatorInputConnector createCallTemplateMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Call Template Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Template Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	CallTemplateMediatorOutputConnector createCallTemplateMediatorOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Smooks Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1624,6 +1750,96 @@ public interface EsbFactory extends EFactory {
 	StoreMediator createStoreMediator();
 
 	/**
+	 * Returns a new object of class '<em>Store Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Store Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	StoreMediatorInputConnector createStoreMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Store Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Store Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	StoreMediatorOutputConnector createStoreMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Builder Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Mediator</em>'.
+	 * @generated
+	 */
+	BuilderMediator createBuilderMediator();
+
+	/**
+	 * Returns a new object of class '<em>Builder Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	BuilderMediatorInputConnector createBuilderMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Builder Mediator Output Conector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Mediator Output Conector</em>'.
+	 * @generated
+	 */
+	BuilderMediatorOutputConector createBuilderMediatorOutputConector();
+
+	/**
+	 * Returns a new object of class '<em>Message Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Builder</em>'.
+	 * @generated
+	 */
+	MessageBuilder createMessageBuilder();
+
+	/**
+	 * Returns a new object of class '<em>Payload Factory Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payload Factory Mediator</em>'.
+	 * @generated
+	 */
+	PayloadFactoryMediator createPayloadFactoryMediator();
+
+	/**
+	 * Returns a new object of class '<em>Payload Factory Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payload Factory Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	PayloadFactoryMediatorInputConnector createPayloadFactoryMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Payload Factory Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payload Factory Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	PayloadFactoryMediatorOutputConnector createPayloadFactoryMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Payload Factory Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payload Factory Argument</em>'.
+	 * @generated
+	 */
+	PayloadFactoryArgument createPayloadFactoryArgument();
+
+	/**
 	 * Returns a new object of class '<em>Conditional Route Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1651,6 +1867,15 @@ public interface EsbFactory extends EFactory {
 	SendMediator createSendMediator();
 
 	/**
+	 * Returns a new object of class '<em>Send Container</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Send Container</em>'.
+	 * @generated
+	 */
+    SendContainer createSendContainer();
+
+    /**
 	 * Returns a new object of class '<em>Send Mediator Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1669,6 +1894,15 @@ public interface EsbFactory extends EFactory {
 	SendMediatorOutputConnector createSendMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Send Mediator Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Send Mediator Endpoint Output Connector</em>'.
+	 * @generated
+	 */
+    SendMediatorEndpointOutputConnector createSendMediatorEndpointOutputConnector();
+
+    /**
 	 * Returns a new object of class '<em>Failover End Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

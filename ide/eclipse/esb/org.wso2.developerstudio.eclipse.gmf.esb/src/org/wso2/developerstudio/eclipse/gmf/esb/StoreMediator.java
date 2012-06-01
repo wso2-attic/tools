@@ -17,6 +17,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getMessageStore <em>Message Store</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +78,57 @@ public interface StoreMediator extends Mediator {
 	 * @generated
 	 */
 	void setOnStoreSequence(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Connector</em>' containment reference.
+	 * @see #setInputConnector(StoreMediatorInputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getStoreMediator_InputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	StoreMediatorInputConnector getInputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getInputConnector <em>Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Input Connector</em>' containment reference.
+	 * @see #getInputConnector()
+	 * @generated
+	 */
+	void setInputConnector(StoreMediatorInputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Connector</em>' containment reference.
+	 * @see #setOutputConnector(StoreMediatorOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getStoreMediator_OutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	StoreMediatorOutputConnector getOutputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOutputConnector <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Connector</em>' containment reference.
+	 * @see #getOutputConnector()
+	 * @generated
+	 */
+	void setOutputConnector(StoreMediatorOutputConnector value);
 
 } // StoreMediator
