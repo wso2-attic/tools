@@ -112,6 +112,7 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.forms.editor.FormEditor;
@@ -1904,11 +1905,19 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			
 			
 			public void handleEvent(Event event) {
-				
-				if (dsEditor.getActivePage() == DESIGN_VIEW_INDEX && !DetailSectionUiUtil.isFocusedOnDetailSection) {
-					if (event.keyCode == SWT.DEL) {
+				IEditorPart editorPart = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage()
+						.getActiveEditor();
+				if (editorPart == DsEditor.this) {
 
-						designViewActionHandler.delete(dsEditor);
+					DsEditor dsEditor = (DsEditor) editorPart;
+
+					if ((dsEditor.getActivePage() == DESIGN_VIEW_INDEX)
+							&& !DetailSectionUiUtil.isFocusedOnDetailSection) {
+						if (event.keyCode == SWT.DEL) {
+
+							designViewActionHandler.delete(dsEditor);
+						}
 					}
 				}
 			}

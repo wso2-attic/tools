@@ -132,6 +132,7 @@ import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IPropertyListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.FileStoreEditorInput;
@@ -1124,6 +1125,14 @@ public class EsbEditor extends MultiPageEditorPart implements
 				Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
 
 					public void handleEvent(Event e) {
+						IEditorPart activeEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+						if(!(activeEditor == EsbEditor.this)){
+							return ;
+						} else{
+							if(SOURCE_VIEW_PAGE_INDEX == getActivePage()) {
+								return ;
+							}
+						}
 						if (e.keyCode == SWT.INSERT) {
 							try {
 								if (menu != null && getSelection() != null) {

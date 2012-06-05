@@ -51,7 +51,7 @@ public class DesignViewActionHandler extends AbstractHandler {
 					DataService dataService = (DataService) referenceObject;
 					MessageDialog.openError(Display.getCurrent()
 							.getActiveShell(), "Can not complete this action!",
-							"You Con not delete " + dataService.getName()
+							"You Can not delete " + dataService.getName()
 									+ " service!");
 					return;
 				}
@@ -62,7 +62,7 @@ public class DesignViewActionHandler extends AbstractHandler {
 			} else {
 
 				MessageDialog.openError(Display.getCurrent().getActiveShell(),
-						"Error Occuerd", "Con not delete this component");
+						"Error Occuerd", "Can not delete this component");
 				return;
 			}
 
