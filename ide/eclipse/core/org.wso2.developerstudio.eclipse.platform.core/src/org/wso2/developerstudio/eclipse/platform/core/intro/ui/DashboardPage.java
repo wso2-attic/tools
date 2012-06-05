@@ -177,7 +177,7 @@ public class DashboardPage extends FormPage {
 					}
 			}
 			public String getText() {
-				return "Manage Your Registry";
+				return "Switch to registry perspective";
 			}
 			public ImageDescriptor getImageDescriptor() {
 				return ImageDescriptor.createFromImage(resize(SWTResourceManager
@@ -185,7 +185,7 @@ public class DashboardPage extends FormPage {
 						16, 16));
 			}
 			public String getDescription() {
-				return "Manage your registry";
+				return "Switch to registry perspective";
 			}
 		});
 
