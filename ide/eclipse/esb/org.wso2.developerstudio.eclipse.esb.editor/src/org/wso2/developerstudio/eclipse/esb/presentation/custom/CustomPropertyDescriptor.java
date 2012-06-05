@@ -48,7 +48,7 @@ public class CustomPropertyDescriptor extends PropertyDescriptor {
 		
 //		if (object instanceof HeaderMediator) {
 			PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
-			if(wrapper.getEditableValue(object) instanceof NamespacedProperty){
+			if(wrapper!=null && wrapper.getEditableValue(object) instanceof NamespacedProperty){
 				//PropertyValueWrapper wrapper = (PropertyValueWrapper) itemPropertyDescriptor.getPropertyValue(object);
 				
 				NamespacedProperty namespacedProperty = (NamespacedProperty) wrapper.getEditableValue(object);
