@@ -145,10 +145,10 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 			listOfProperties.add(DSActionConstants.VALIDATIONQUERY_PROPERTY);
 
 			listOfValues = new ArrayList<String>();
-			listOfValues.add(driverValue);
+			listOfValues.add("");
+			listOfValues.add("");
 			listOfValues.add(protocolValue);
-			listOfValues.add("");
-			listOfValues.add("");
+			listOfValues.add(driverValue);
 			listOfValues.add("");
 			listOfValues.add("");
 			listOfValues.add("");

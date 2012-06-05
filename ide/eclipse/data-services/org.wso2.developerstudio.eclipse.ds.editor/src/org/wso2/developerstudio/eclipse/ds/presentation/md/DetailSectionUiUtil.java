@@ -11,8 +11,6 @@ import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.StyleRange;
-import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.ModifyEvent;
@@ -22,9 +20,11 @@ import org.eclipse.swt.events.TraverseListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.wso2.developerstudio.eclipse.ds.DataService;
 
@@ -42,6 +42,15 @@ public class DetailSectionUiUtil {
 	}
 	
 	
+	/**
+	 * @param detailsclient
+	 * @param toolkit
+	 * @param input Selected object
+	 * @param initialValue
+	 * @param metaObject
+	 * @param displayValues
+	 * @return
+	 */
 	public Combo getCustomComboField(Composite detailsclient,
 			FormToolkit toolkit,
 			Object input,
@@ -58,7 +67,7 @@ public class DetailSectionUiUtil {
 			if(displayValues[i] != null)
 			combo.add(displayValues[i],i);
 		}
-		if(initialValue != null){
+		if(initialValue != null && !initialValue.equals("")){
 			
 			for(int j = 0 ; j<displayValues.length ;j++){
 				
@@ -68,6 +77,11 @@ public class DetailSectionUiUtil {
 						break;
 					}
 				}
+			}
+		}else{
+			if(combo.getItemCount() >= 1){
+				
+				combo.select(0);
 			}
 		}
 		combo.setLayoutData(gd);
@@ -117,12 +131,12 @@ public class DetailSectionUiUtil {
 	}
 	
 	/**
-	 * @param detailsclient : Client that hold the creting combo.
+	 * @param detailsclient : Client that hold the creating combo.
 	 * @param toolkit
 	 * @param input
 	 * @param initialVal
 	 * @param metaObject
-	 * @return : Combo with string persistance feature.
+	 * @return : Combo with string persistence feature.
 	 */
 	public Combo getBooleanComboWithStringPersistance(Composite detailsclient,FormToolkit toolkit,Object input,String initialVal,EAttribute metaObject){
 		
@@ -160,9 +174,9 @@ public class DetailSectionUiUtil {
 	 * @param dataType : Data Type of the focused value
 	 * @return Configured Styled Text field
 	 */
-	public StyledText getAttributeField(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
+	public Text getAttributeField(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
 		
-		StyledText dtxt = new StyledText(detailsclient,SWT.BORDER );		
+		Text dtxt = toolkit.createText(detailsclient,"",SWT.NONE);	
 		addCommonActions(dtxt);
 		dtxt.setEditable(true);
 		dtxt.setEnabled(true);
@@ -174,16 +188,48 @@ public class DetailSectionUiUtil {
 		if(existingVal != null)
 		dtxt.setText(existingVal);
 
-		StyleRange styleRange = new StyleRange();
+		/*StyleRange styleRange = new StyleRange();
 		styleRange.start = 0;
 		styleRange.length = "".length();
 		styleRange.fontStyle = SWT.NORMAL;
 		styleRange.foreground = detailsclient.getDisplay().getSystemColor(SWT.COLOR_BLACK);
-		dtxt.setStyleRange(styleRange);
+		dtxt.setStyleRange(styleRange);*/
 				
 		GridData gd = new GridData();
 		gd.widthHint = 200;
-		gd.heightHint = 20;
+		gd.heightHint = 15;
+		dtxt.setLayoutData(gd);
+		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
+		addFocusListner(dtxt);
+		addTraverseListner(dtxt);
+		return dtxt;
+		
+	}
+	
+	public Text getPassWordField(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
+		
+		Text dtxt = toolkit.createText(detailsclient,"", SWT.PASSWORD);		
+		addCommonActions(dtxt);
+		dtxt.setEditable(true);
+		dtxt.setEnabled(true);
+		
+		//adding control decoration for validation 
+		final ControlDecoration controlDecoration = crateControlDecoration(dtxt);
+		controlDecoration.hide();
+		toolkit.adapt(dtxt, true, true);
+		if(existingVal != null)
+		dtxt.setText(existingVal);
+
+		/*StyleRange styleRange = new StyleRange();
+		styleRange.start = 0;
+		styleRange.length = "".length();
+		styleRange.fontStyle = SWT.NORMAL;
+		styleRange.foreground = detailsclient.getDisplay().getSystemColor(SWT.COLOR_BLACK);
+		dtxt.setStyleRange(styleRange);*/
+				
+		GridData gd = new GridData();
+		gd.widthHint = 200;
+		gd.heightHint = 15;
 		dtxt.setLayoutData(gd);
 		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
 		addFocusListner(dtxt);
@@ -201,9 +247,9 @@ public class DetailSectionUiUtil {
 	 * @param dataType : Data Type of the focused value
 	 * @return Configured Styled Text field
 	 */
-	public StyledText getMultilineTextFileld(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
+	public Text getMultilineTextFileld(Composite detailsclient,FormToolkit toolkit,Object input,String existingVal,EAttribute metaObject,String dataType){
 		
-		StyledText dtxt = new StyledText(detailsclient,SWT.BORDER | SWT.MULTI | SWT.WRAP);		
+		Text dtxt = toolkit.createText(detailsclient,"",SWT.MULTI | SWT.WRAP);		
 		addCommonActions(dtxt);
 		dtxt.setEditable(true);
 		dtxt.setEnabled(true);
@@ -215,15 +261,15 @@ public class DetailSectionUiUtil {
 		if(existingVal != null)
 		dtxt.setText(existingVal);
 
-		StyleRange styleRange = new StyleRange();
+		/*StyleRange styleRange = new StyleRange();
 		styleRange.start = 0;
 		styleRange.length = "".length();
 		styleRange.fontStyle = SWT.NORMAL;
 		styleRange.foreground = detailsclient.getDisplay().getSystemColor(SWT.COLOR_BLACK);
-		dtxt.setStyleRange(styleRange);
+		dtxt.setStyleRange(styleRange);*/
 				
 		GridData gd = new GridData();
-		gd.widthHint = 400;
+		gd.widthHint = 350;
 		gd.heightHint = 200;
 		dtxt.setLayoutData(gd);
 		addModifyListnersForTextFields(dtxt,dataType,input,metaObject,controlDecoration);
@@ -233,26 +279,26 @@ public class DetailSectionUiUtil {
 		
 	}
 	
-	private  void addCommonActions(StyledText text){
+	private  void addCommonActions(Text text){
 		
 		Listener keyBindListener = new Listener() {
 			
 			   public void handleEvent( Event event ) {
 			      if ( event.stateMask == SWT.CTRL && event.keyCode == 'a') {
 			    	  
-			         ((StyledText)event.widget).selectAll();
+			         ((Text)event.widget).selectAll();
 			         
 			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'c'){
 			    	  
-			    	  ((StyledText)event.widget).copy();
+			    	  ((Text)event.widget).copy();
 			    	  
 			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'v'){
 			    	  
-			    	  ((StyledText)event.widget).paste();
+			    	  ((Text)event.widget).paste();
 			    	  
 			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'x'){
 			    	  
-			    	  ((StyledText)event.widget).cut();
+			    	  ((Text)event.widget).cut();
 			    	  
 			      }else if(event.stateMask == SWT.CTRL && event.keyCode == 'z'){
 			    	  
@@ -264,7 +310,7 @@ public class DetailSectionUiUtil {
 			text.addListener(SWT.KeyUp, keyBindListener);
 	}
 
-	private  ControlDecoration crateControlDecoration(StyledText dtxt){
+	private  ControlDecoration crateControlDecoration(Text dtxt){
 	
 		ControlDecoration controlDecoration = new ControlDecoration(dtxt, SWT.LEFT | SWT.TOP);
 			
@@ -275,7 +321,7 @@ public class DetailSectionUiUtil {
 		return controlDecoration;
 	}
 	
-	private void addFocusListner(Composite comp){
+	private void addFocusListner(Control comp){
 		
 		comp.addFocusListener(new FocusListener() {
 			
@@ -294,7 +340,7 @@ public class DetailSectionUiUtil {
 		});
 	}
 	
-	private void addTraverseListner(Composite comp) {
+	private void addTraverseListner(Control comp) {
 
 		comp.addTraverseListener(new TraverseListener() {
 
@@ -349,7 +395,7 @@ public class DetailSectionUiUtil {
 		});
     	
     }
- 	private  void addModifyListnersForTextFields(StyledText dtxt,String dataType,final Object input,final EAttribute metaObject,final ControlDecoration controlDecoration ){
+ 	private  void addModifyListnersForTextFields(Text dtxt,String dataType,final Object input,final EAttribute metaObject,final ControlDecoration controlDecoration ){
 	 
 	 if(dataType.equals(DetailSectionCustomUiConstants.STRING)){
 			
@@ -357,7 +403,7 @@ public class DetailSectionUiUtil {
 				
 				public void modifyText(ModifyEvent event) {
 					
-					setStringAttribute(input,metaObject,((StyledText) event.widget).getText());
+					setStringAttribute(input,metaObject,((Text) event.widget).getText());
 				}
 			});
 			
@@ -370,7 +416,7 @@ public class DetailSectionUiUtil {
 				
 				public void modifyText(ModifyEvent event) {
 					
-					String longNum = ((StyledText) event.widget).getText();
+					String longNum = ((Text) event.widget).getText();
 					if(isValidLongString(longNum)){
 						
 						setLongAttribute(input,metaObject,longNum);
@@ -390,7 +436,7 @@ public class DetailSectionUiUtil {
 				
 				public void modifyText(ModifyEvent event) {
 					
-					String doubleNum = ((StyledText) event.widget).getText();
+					String doubleNum = ((Text) event.widget).getText();
 					if(isValidDoubleString(doubleNum)){
 						
 						setDoubleAttribute(input,metaObject,doubleNum);
@@ -411,7 +457,7 @@ public class DetailSectionUiUtil {
 				
 				public void modifyText(ModifyEvent event) {
 					
-					String bigInt = ((StyledText) event.widget).getText();
+					String bigInt = ((Text) event.widget).getText();
 					if(isValidBigIntString(bigInt)){
 						
 						setBigIntAttribute(input,metaObject,bigInt);
@@ -432,7 +478,7 @@ public class DetailSectionUiUtil {
 				@Override
 				public void modifyText(ModifyEvent event) {
 					
-					String Int = ((StyledText)event.widget).getText();
+					String Int = ((Text)event.widget).getText();
 					if(isValidIntString(Int)){
 						
 						setIntegerAttribute(input, metaObject, Int);
