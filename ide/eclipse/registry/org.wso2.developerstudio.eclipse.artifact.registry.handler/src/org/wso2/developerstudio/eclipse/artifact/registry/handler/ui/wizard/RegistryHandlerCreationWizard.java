@@ -528,7 +528,7 @@ public class RegistryHandlerCreationWizard extends
 	}
 	
 	public IWizardPage getPreviousPage(IWizardPage page) {
-		IWizardPage previousPage = super.getNextPage(page);
+		IWizardPage previousPage = super.getPreviousPage(page);
 		if (page instanceof MavenDetailsPage) {
 			if(filterCreationOptionsWizardPage.getFilterClassCreationMethod().equals(Constants.FROM_EXISTING_FILTER_CLASS)){
 				previousPage = importFilterClassWizardPage;
