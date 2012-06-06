@@ -19,6 +19,8 @@ import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -125,6 +127,11 @@ public class XPathSelectorDialog extends Dialog {
 	 * Selected xpath.
 	 */
 	private String selectedXpath;
+	
+	/**
+	 * XML namespaces.
+	 */
+	private Map<String,String> nameSpaces;
 
 	/**
 	 * A utility class used to track {@link TreeItem} state as well as store
@@ -426,6 +433,7 @@ public class XPathSelectorDialog extends Dialog {
 									new UIJob("add-root-tree-item-job") {
 										public IStatus runInUIThread(IProgressMonitor monitor) {
 											addTreeItem(null, rootNode);
+											addNameSpaces(rootNode);
 											return Status.OK_STATUS;
 										}
 									}.schedule();
@@ -498,6 +506,23 @@ public class XPathSelectorDialog extends Dialog {
 			grandChild.setText("Working...");
 		}
 	}
+	
+	/**
+	 * Adding NameSpaces
+	 * @param node
+	 */
+	private void addNameSpaces(Node node){
+		nameSpaces = new HashMap<String, String>();
+		NamedNodeMap nsList = node.getAttributes();
+		if (nsList.getLength() > 0) {
+			for (int i = 0; i < nsList.getLength(); i++) {
+				Node item = nsList.item(i);
+				if (null != item.getNodeName() && item.getNodeName().startsWith("xmlns:")) {
+					nameSpaces.put(item.getNodeName().replaceAll("^xmlns:", ""), item.getNodeValue());
+				}
+			}
+		}
+	}
 
 	private void centerDialog() {
 		Rectangle parentBounds = getParent().getBounds();
@@ -522,5 +547,9 @@ public class XPathSelectorDialog extends Dialog {
 	 */
 	public String getSelectedXpath() {
 		return selectedXpath;
-	}				
+	}
+	
+	public Map<String,String> getNameSpaces(){
+		return nameSpaces;
+	}
 }

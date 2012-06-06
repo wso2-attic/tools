@@ -379,6 +379,11 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 				xpathEditorDialog.open();
 				if (!StringUtils.isBlank(xpathEditorDialog.getSelectedXpath())) {
 					propertyTextField.setText(xpathEditorDialog.getSelectedXpath());
+					nsListBox.removeAll();
+					collectedNamespaces.clear();
+					for (Entry<String, String> nsEntry: xpathEditorDialog.getNameSpaces().entrySet()) {
+						addNamespace(nsEntry.getKey(), nsEntry.getValue());
+					}
 				}
 			}
 		});
