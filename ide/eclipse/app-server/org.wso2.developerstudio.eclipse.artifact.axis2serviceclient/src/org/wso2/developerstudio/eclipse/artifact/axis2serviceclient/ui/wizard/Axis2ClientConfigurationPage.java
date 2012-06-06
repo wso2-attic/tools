@@ -473,7 +473,7 @@ public class Axis2ClientConfigurationPage extends WizardPage {
 				isWSDL20=false;
 			if (!"".equals(lname.trim())) {
 				if (reader == null) {
-					if (new UrlValidator().isValid(lname)) {
+					if (new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS).isValid(lname)) {
 						reader = WSDLUtils.readWSDL(new URI(lname).toURL());
 					} else {
 						reader = WSDLUtils.readWSDL((new File(lname)).toURI()
