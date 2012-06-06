@@ -133,9 +133,8 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				createPOM(pomfile);
 			}
 
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
 			esbProjectArtifact.toFile();
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			if(fileLst.size()>0){
 				openEditor(fileLst.get(0));
