@@ -130,7 +130,7 @@ public class RegistryResourceNode {
 		 * provider is called only when setError is set to false
 		 */
 		setError(false);
-		if (resourceNodeList == null/* || resourceNodeList.isEmpty()*/) {
+		if (resourceNodeList == null || iterativeRefresh) {
 			Registry registry = getConnectionInfo().getRegistry();
 			if (registry == null) {
 				setError(true);
