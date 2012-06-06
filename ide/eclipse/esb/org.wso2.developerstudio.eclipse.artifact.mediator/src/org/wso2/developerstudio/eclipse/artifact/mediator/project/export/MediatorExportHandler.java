@@ -88,7 +88,18 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	        File metainfPath = new File(mediatorResource,"META-INF");
 	        metainfPath.mkdir();
 	        File manifestFile=new File(metainfPath,"MANIFEST.MF");
-	        FileUtils.createFile(manifestFile, manifest.toString());	               
+	        FileUtils.createFile(manifestFile, manifest.toString());	   
+
+			// Copy the folder resources/META-INF/services to META-INF
+			IFolder manifestFolder = project.getFolder("src" + File.separator + "main" +
+			                                           File.separator + "resources" +
+			                                           File.separator + "META-INF" +
+			                                           File.separator + "services");
+			if (manifestFolder.exists()) {
+				File destinationServices = new File(metainfPath, "services");
+				FileUtils.copyDirectory(manifestFolder.getLocation().toFile(), destinationServices);
+			}
+
 	        File tmpArchive = new File(tempProject.getLocation().toFile(),project.getName().concat(".jar"));
 	        archiveManipulator.archiveDir(tmpArchive.toString(), mediatorResource.toString());
 	        IFolder binaries = project.getFolder("target");
