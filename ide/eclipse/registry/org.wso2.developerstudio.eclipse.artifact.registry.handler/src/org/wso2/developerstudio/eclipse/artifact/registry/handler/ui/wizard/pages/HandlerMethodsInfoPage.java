@@ -22,7 +22,6 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -49,6 +48,7 @@ public class HandlerMethodsInfoPage extends WizardPage{
 	private String[] methodTypes;
 	private Button selectAllButton;
 	private Button deSelectAllButton;
+	private Button btnRemove;
 	private ArrayList<String> selectedMethods;
 
 	public HandlerMethodsInfoPage(String pageName) {
@@ -79,21 +79,32 @@ public class HandlerMethodsInfoPage extends WizardPage{
 				   SWT.FULL_SELECTION);
 		handlerPropertiesTable.setHeaderVisible(true);
 		handlerPropertiesTable.setLinesVisible(true);
-//		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
-		GridData data = new GridData();
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
 		data.heightHint = 100;
 		data.horizontalSpan = 3;
 		handlerPropertiesTable.setLayoutData(data);
 		
+		
+		handlerPropertiesTable.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (handlerPropertiesTable.getSelection().length>0){
+					btnRemove.setEnabled(true);	 
+				} else{
+					btnRemove.setEnabled(false);	 
+				}
+			}
+		});
+		
 		TableLayout handlerProptableLayout = new TableLayout();
 		handlerPropertiesTable.setLayout(handlerProptableLayout);
 		
-		handlerProptableLayout.addColumnData(new ColumnWeightData(10, 250, true));
+		handlerProptableLayout.addColumnData(new ColumnWeightData(10, 200, true));
 		TableColumn column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(TITLES[0]);
 		column.setAlignment(SWT.LEFT);
 		
-		handlerProptableLayout.addColumnData(new ColumnWeightData(15, 250, true));
+		handlerProptableLayout.addColumnData(new ColumnWeightData(15, 200, true));
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(TITLES[1]);
 		column.setAlignment(SWT.LEFT);
@@ -102,17 +113,6 @@ public class HandlerMethodsInfoPage extends WizardPage{
 		column = new TableColumn(handlerPropertiesTable, SWT.NONE);
 		column.setText(TITLES[2]);
 		column.setAlignment(SWT.LEFT);
-		
-		column.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent event) {
-				// System.out.println(event.toString());
-			}
-
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-
-			}
-		});
 		
 		viewer = new TableViewer(handlerPropertiesTable);
 		viewer.setColumnProperties(TITLES);
@@ -126,9 +126,38 @@ public class HandlerMethodsInfoPage extends WizardPage{
 		viewer.setCellEditors(editors);
 		viewer.setCellModifier(new HandlerPropertyTableCellModifier());
 		
+		GridData gdBtnRemove = new GridData(SWT.RIGHT, SWT.FILL, true, false);
+		gdBtnRemove.horizontalSpan=3;
+		gdBtnRemove.horizontalIndent=30;
+		gdBtnRemove.widthHint=100;
+		gdBtnRemove.heightHint=27;
+		
+		btnRemove = new Button(container, SWT.NONE);
+		btnRemove.setText("Remove");
+		btnRemove.setLayoutData(gdBtnRemove);
+		btnRemove.setEnabled(false);
+		btnRemove.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (handlerPropertiesTable.getSelectionIndex() != -1) {
+					TableItem[] selection = handlerPropertiesTable.getSelection();
+					for (TableItem item : selection) {
+						if(null!=item.getText(0)){
+							handlerPropertyMap.remove(item.getText(0));
+						}
+					}
+					handlerPropertiesTable.remove(handlerPropertiesTable.getSelectionIndices());
+				}
+				
+			}
+		});
+		
+		GridData gdLabelRemove = new GridData();
+		gdLabelRemove.horizontalSpan=3;
+		
 		Label lblNewLabel = new Label(container, SWT.NONE);
-		lblNewLabel.setBounds(10, 145, 167, 13);
 		lblNewLabel.setText("Handler Methods");
+		lblNewLabel.setLayoutData(gdLabelRemove);
 		
 		handlerMethodsTable = new Table(container, 
 										SWT.BORDER | 
