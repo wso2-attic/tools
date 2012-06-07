@@ -151,8 +151,6 @@ public class FileUtils {
 
 	public static List<File> getBpelValidFileList(String relativePath, File[] fileList) {
 		List<File> list = new ArrayList<File>();
-		List<File> existingWSDL = new ArrayList<File>();
-		List<File> requiredWsdl = new ArrayList<File>();
 		List<String> excludeList=new ArrayList<String>();
 		excludeList.add("pom.xml");
 		excludeList.add("build.xml");
@@ -166,11 +164,11 @@ public class FileUtils {
 			if (!file.isDirectory()) {
 				try {
 					if ((file.getName().toLowerCase().endsWith(".bpel")) &&
-					    (isValidBPelFile(file, requiredWsdl))){
+					    (isValidBPelFile(file))){
 						list.add(file);
-					}else if ((file.getName().toLowerCase().endsWith(".wsdl")) &&
-					         (isValidWSDLFile(file))){
-						existingWSDL.add(file);
+//					}else if ((file.getName().toLowerCase().endsWith(".wsdl")) &&
+//					         (isValidWSDLFile(file))){
+//						existingWSDL.add(file);
 					}else if (!excludeList.contains(file.getName()) && !excludeList.contains(file.getParentFile().getName())) {
 	                	list.add(file);
 					}
@@ -178,17 +176,17 @@ public class FileUtils {
 				}
 			}
 		}
-		List<String> compareList=getToStringList(requiredWsdl);
-		for (File wsdlFileName : existingWSDL) {
-			if (compareList.contains(wsdlFileName.toString()))
-				list.add(wsdlFileName);
-		}
+//		List<String> compareList=getToStringList(requiredWsdl);
+//		for (File wsdlFileName : existingWSDL) {
+//			if (compareList.contains(wsdlFileName.toString()))
+//				list.add(wsdlFileName);
+//		}
 		return list;
 	}
 
-	private static List<String> getToStringList(List<File> requiredWsdl){
+	private static List<String> getToStringList(List<File> fileList){
 		List<String> resultStrings=new ArrayList<String>();
-		for (Object object : requiredWsdl) {
+		for (Object object : fileList) {
 			resultStrings.add(object.toString());
 		}
 		return resultStrings;
@@ -214,26 +212,27 @@ public class FileUtils {
 		return getXmlDocument(fileName)!= null?true:false;
 	}
 
-	public static boolean isValidBPelFile(File file, List<File> wsdlList) throws IOException {
+	public static boolean isValidBPelFile(File file) throws IOException {
 		Document xmlDocument = getXmlDocument(file);
-		if (xmlDocument == null)
+		if (xmlDocument == null){
 			return false;
-		else {
+		}else {
 			if (xmlDocument.getDocumentElement().getNodeName().toLowerCase().endsWith("process")) {
-				NodeList childNodes = xmlDocument.getDocumentElement().getChildNodes();
-				for (int i = 0; i < childNodes.getLength(); i++) {
-					Node item = childNodes.item(i);
-					if (item.getNodeName().toLowerCase().endsWith("import")) {
-						Node namedItem = item.getAttributes().getNamedItem("location");
-						String nodeValue = namedItem.getNodeValue();
-						File parentFile = file.getParentFile();
-						File importedFile = new File(parentFile, nodeValue);
-						wsdlList.add(importedFile.getCanonicalFile());
-					}
-				}
+//				NodeList childNodes = xmlDocument.getDocumentElement().getChildNodes();
+//				for (int i = 0; i < childNodes.getLength(); i++) {
+//					Node item = childNodes.item(i);
+//					if (item.getNodeName().toLowerCase().endsWith("import")) {
+//						Node namedItem = item.getAttributes().getNamedItem("location");
+//						String nodeValue = namedItem.getNodeValue();
+//						File parentFile = file.getParentFile();
+//						File importedFile = new File(parentFile, nodeValue);
+//						wsdlList.add(importedFile.getCanonicalFile());
+//					}
+//				}
 				return true;
-			} else
+			} else{
 				return false;
+			}
 		}
 	}
 
