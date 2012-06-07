@@ -60,6 +60,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 	private Text txtBundle;
 	private TableViewer tblLibraryInfoViewer;
 	private LibraryArtifactModel model;
+	private Button chkFragmentBundle;
 
 	public NewJavaLibraryWizardPage() {
 		super("wizardPage");
@@ -147,6 +148,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 
 			public void widgetSelected(SelectionEvent e) {
 				showFileBrowser();
+				validate();
 			}
 		});
 		GridData gd_btnFileSystem = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
@@ -160,6 +162,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 
 			public void widgetSelected(SelectionEvent e) {
 				showWorkspaceDialog();
+				validate();
 			}
 		});
 		GridData gd_btnWorkspace = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
@@ -184,6 +187,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 					model.getLibraries().remove(selected);
 					tblLibraryInfoViewer.refresh();
 				}
+				validate();
 			}
 		});
 		GridData gd_btnRemove = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
@@ -191,13 +195,14 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 		btnRemove.setLayoutData(gd_btnRemove);
 		btnRemove.setText("Remove");
 		
-		Button chkFragmentBundle = new Button(container, SWT.CHECK);
+		chkFragmentBundle = new Button(container, SWT.CHECK);
 		chkFragmentBundle.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
 				boolean b = ((Button) (e.widget)).getSelection();
 				txtBundle.setEnabled(b);
 				model.setFragmentHostBundle(b);
+				validate();
 			}	
 		});
 		chkFragmentBundle.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
@@ -209,11 +214,13 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 		txtBundle.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				model.setFragmentHostBundleName(txtBundle.getText());
+				validate();
 			}
 		});
 		GridData gd_txtBundle = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_txtBundle.widthHint = 156;
 		txtBundle.setLayoutData(gd_txtBundle);
+		setPageComplete(false);
 	}
 	
 	void showWorkspaceDialog() {
@@ -281,5 +288,21 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 			}
 		}
 		tblLibraryInfoViewer.refresh();
+	}
+	
+	private void validate(){
+		if(tblLibraryInfoViewer.getTable().getItemCount()>0){
+			if(chkFragmentBundle.getSelection()){
+				if(null==txtBundle.getText() || txtBundle.getText().trim().isEmpty()){
+					setPageComplete(false);
+				} else{
+					setPageComplete(true);
+				}
+			} else{
+				setPageComplete(true);
+			}
+		} else {
+			setPageComplete(false);
+		}
 	}
 }
