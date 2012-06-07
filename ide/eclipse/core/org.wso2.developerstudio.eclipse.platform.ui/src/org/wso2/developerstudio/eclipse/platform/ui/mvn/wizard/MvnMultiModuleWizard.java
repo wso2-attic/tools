@@ -10,6 +10,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
+import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
 import org.wso2.developerstudio.eclipse.platform.ui.mvn.util.MavenMultiModuleProjectImageUtils;
@@ -47,6 +48,20 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 
 					setMavenProperty(mavenProject2.getGroupId(), mavenProject2.getArtifactId(),
 					                 mavenProject2.getVersion());
+					
+					List<String> modules = mavenProject2.getModules();
+					MvnMultiModuleProjectList projectListProvider = new MvnMultiModuleProjectList();
+					List<ListData> listData = projectListProvider.getListData(null, null);
+
+					for (ListData data : listData) {
+						IProject moduleProject = (IProject) data.getData();
+						String relativePath = FileUtils.getRelativePath(multiModuleProject.getLocation()
+								.toFile(), moduleProject.getLocation().toFile());
+						if (modules.contains(relativePath)) {
+							moduleModel.getSelectedProjects().add(moduleProject);
+						}
+					}
+					
 				} catch (Exception e) {
 					log.error("Error occured while trying to create the Maven Project", e);
 				}
