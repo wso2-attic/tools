@@ -40,7 +40,7 @@ public class DataServiceArtfactExportHandler extends ProjectArtifactHandler{
 		for (File dbsFile : dbsFiles) {
 			String filePath = dbsFile.toString();
 			//excluded any files inside target dir
-			if(!filePath.replaceFirst("^" + projectPath ,"").startsWith("/target/")){
+			if(!filePath.substring(projectPath.length()).startsWith(File.separator+"target"+File.separator)){
 				IFile dbsFileRef = ResourcesPlugin
 				.getWorkspace()
 				.getRoot()
