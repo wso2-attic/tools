@@ -26,7 +26,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.wizard.IWizard;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
@@ -37,7 +38,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
@@ -66,6 +71,10 @@ public class DashboardPage extends FormPage {
 	private static Map<String, String[]> wizardCategoryMap=new HashMap<String, String[]>(); 
 	private  Map<String, IWizardDescriptor> wizardDescriptor; 
 	private  Map<String, Action> customActions = new HashMap<String, Action>(); 
+	private static final String PROJECT_EXPLORER_PARTID = "org.eclipse.ui.navigator.ProjectExplorer";
+	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
+	private ISelectionListener selectionListener = null;
+	private ISelection selection = null;
 	
 	static{
 		wizardCategoryMap.put("Application Server", new String[] {
@@ -146,6 +155,15 @@ public class DashboardPage extends FormPage {
 	 * @param managedForm
 	 */
 	protected void createFormContent(IManagedForm managedForm) {
+		
+		selectionListener = new ISelectionListener() {
+			public void selectionChanged(IWorkbenchPart workbenchPart, ISelection sel) {
+				selection = sel;
+			}
+		};
+		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PROJECT_EXPLORER_PARTID,selectionListener);
+		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PACKAGE_EXPLORER_PARTID,selectionListener);
+		
 		managedForm.getForm().setImage(resize(SWTResourceManager.getImage(this.getClass(), "/intro/css/graphics/cApp-wizard.png"),32,32));
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
@@ -492,7 +510,8 @@ public class DashboardPage extends FormPage {
 		   .getNewWizardRegistry().findWizard(id);
 		 try {
 		   if (null != descriptor) {
-		     IWizard wizard = descriptor.createWizard();
+			 IWorkbenchWizard wizard = descriptor.createWizard();
+			 wizard.init(PlatformUI.getWorkbench(), getCurrentSelection());
 		     WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getShell(), wizard);
 		     wd.setTitle(wizard.getWindowTitle());
@@ -502,5 +521,23 @@ public class DashboardPage extends FormPage {
 		   log.error("Cannot open wizard",e);
 		 }
 		}
+	
+	/**
+	 * Get current selection
+	 * @return
+	 */
+	private IStructuredSelection getCurrentSelection() {
+		if (selection instanceof IStructuredSelection) {
+			return (IStructuredSelection) selection;
+		}
+		return null;
+	}
+	
+	public void dispose() {
+		ISelectionService selectionService = getSite().getWorkbenchWindow()
+				.getSelectionService();
+		selectionService.removeSelectionListener(selectionListener);
+		super.dispose();
+	}
 
 }
