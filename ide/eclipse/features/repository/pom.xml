@@ -87,7 +87,7 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>                                 
 						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
@@ -269,7 +269,7 @@
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>     
 						        <!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
 						        
