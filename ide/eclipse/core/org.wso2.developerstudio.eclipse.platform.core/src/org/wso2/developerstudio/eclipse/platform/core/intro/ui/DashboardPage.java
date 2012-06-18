@@ -28,6 +28,7 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
@@ -155,6 +156,19 @@ public class DashboardPage extends FormPage {
 	 * @param managedForm
 	 */
 	protected void createFormContent(IManagedForm managedForm) {
+		
+		//setting initial selection
+		ISelection initialSelection = getSite().getWorkbenchWindow().getSelectionService()
+				.getSelection(PROJECT_EXPLORER_PARTID);
+		if (initialSelection != null) {
+			selection = initialSelection;
+		} else {
+			initialSelection = getSite().getWorkbenchWindow().getSelectionService()
+					.getSelection(PACKAGE_EXPLORER_PARTID);
+			if (initialSelection != null) {
+				selection = initialSelection;
+			}
+		}
 		
 		selectionListener = new ISelectionListener() {
 			public void selectionChanged(IWorkbenchPart workbenchPart, ISelection sel) {
@@ -530,7 +544,7 @@ public class DashboardPage extends FormPage {
 		if (selection instanceof IStructuredSelection) {
 			return (IStructuredSelection) selection;
 		}
-		return null;
+		return new StructuredSelection();
 	}
 	
 	public void dispose() {
