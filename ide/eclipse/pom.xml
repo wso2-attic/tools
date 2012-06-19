@@ -225,7 +225,7 @@
     	<user.mgt.tools.version>2.0.0-SNAPSHOT</user.mgt.tools.version>
         <carbon.tools.version>2.0.0-SNAPSHOT</carbon.tools.version>
         <ds.tools.version>2.0.0-SNAPSHOT</ds.tools.version>  
-		<ds.tools.artifact.version>2.0.1-SNAPSHOT</ds.tools.artifact.version>
+	<ds.tools.artifact.version>2.0.0-SNAPSHOT</ds.tools.artifact.version>
         <esb.tools.version>2.0.0-SNAPSHOT</esb.tools.version>  
         <common.ui.version>2.0.0-SNAPSHOT</common.ui.version>                   
         <common.maven.version>2.0.0-SNAPSHOT</common.maven.version>    
@@ -263,7 +263,7 @@
         <registry.tools.feature.version>2.0.0-SNAPSHOT</registry.tools.feature.version>
         <carbon.tools.feature.version>2.0.0-SNAPSHOT</carbon.tools.feature.version>
         <ds.tools.feature.version>2.0.0-SNAPSHOT</ds.tools.feature.version>
-		<ds.tools.artifact.feature.version>2.0.1-SNAPSHOT</ds.tools.artifact.feature.version>
+	<ds.tools.artifact.feature.version>2.0.0-SNAPSHOT</ds.tools.artifact.feature.version>
         <esb.tools.feature.version>2.0.0-SNAPSHOT</esb.tools.feature.version>
         <capp.tools.feature.version>2.0.0-SNAPSHOT</capp.tools.feature.version>
         
