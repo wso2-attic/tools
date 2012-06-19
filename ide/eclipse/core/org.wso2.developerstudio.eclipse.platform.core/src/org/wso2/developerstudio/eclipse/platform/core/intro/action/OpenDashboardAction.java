@@ -15,11 +15,14 @@
 
 package org.wso2.developerstudio.eclipse.platform.core.intro.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -34,6 +37,7 @@ import org.wso2.developerstudio.eclipse.platform.core.Activator;
 public class OpenDashboardAction extends Action implements IIntroAction {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.dashboard";
 
 	public void run(IIntroSite introSite, Properties properties) {
 		final IIntroPart introPart = PlatformUI.getWorkbench().getIntroManager().getIntro(); 
@@ -41,12 +45,36 @@ public class OpenDashboardAction extends Action implements IIntroAction {
         IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
         IWorkbenchPage page = window.getActivePage();
         try {
+        	hideDashboards();
         	PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", window);
 			page.openEditor(new NullEditorInput(), "org.wso2.developerstudio.eclipse.dashboard");
 		} catch (Exception e) {
 			log.error("Cannot open dashboard",e);
 		}
 	}
+	
+	 /**
+     * hide open dashboards
+     */
+    private void hideDashboards(){
+    	try {
+    		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			IWorkbenchPage page = window.getActivePage();
+			List<IEditorReference> openEditors = new ArrayList<IEditorReference>();
+			IEditorReference[] editorReferences = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+			for (IEditorReference iEditorReference : editorReferences) {
+				if (DASHBOARD_VIEW_ID.equals(iEditorReference.getId())) {
+					openEditors.add(iEditorReference);
+				}
+			}
+			if (openEditors.size() > 0) {
+				page.closeEditors(openEditors.toArray(new IEditorReference[] {}), false);
+			}
+		} catch (Exception e) {
+			/* safe to ignore */
+		}
+    }
 	
 	class NullEditorInput implements IEditorInput {
 
