@@ -61,6 +61,7 @@ import org.wso2.developerstudio.eclipse.ds.CallQueryList;
 import org.wso2.developerstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.developerstudio.eclipse.ds.DataService;
 import org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration;
+import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.developerstudio.eclipse.ds.EventTrigger;
 import org.wso2.developerstudio.eclipse.ds.Operation;
@@ -130,6 +131,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 */
 	private boolean generateOutputMappingMenu = false;
 	
+	private boolean generateElementMappingMenu = false;
 	
 	private boolean generateExcelMenu = false;
 
@@ -612,6 +614,16 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				generateOutputMappingMenu = false;
 			}
 			
+			if(referenceObject != null && referenceObject instanceof ElementMapping){
+				
+				generateElementMappingMenu = true;
+				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
+				
+			}else{
+				
+				generateElementMappingMenu = false;
+			}
+			
 			//If the selected element is of type QueryParameter
 
 			if (referenceObject != null && referenceObject instanceof QueryParameter) {
@@ -852,7 +864,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		
 		// To add an Output Mapping to a Result element, the Grouped By Element
 		// and Row Name values should be provided.
-		if (generateOutputMappingMenu) {
+		if (generateOutputMappingMenu | generateElementMappingMenu) {
 			
 			if (result != null && (result.getElementName() == null || StringUtils.isBlank(result.getElementName()))) {
 				
@@ -863,10 +875,15 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				displayError("Enter value for Row Name");
 				
 			} else {
-				
-				generateOutputMappingSubMenusAndActions();
+				String lb = DSActionConstants.ADD_OUTPUT_MAPPING_ACTION;
+				if(generateElementMappingMenu){
+					lb = DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT;
+					generateElementMappingMenu = false;
+				}
+				generateOutputMappingSubMenusAndActions(lb);
 				menuManager.insertBefore("edit", outputMappingsMenuManager);
 				generateOutputMappingMenu = false;
+									
 			}
 		}
 		 //Validator menu
@@ -1171,9 +1188,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	/**
 	 * Generate output mapping sub menus and actions.
 	 */
-	protected void generateOutputMappingSubMenusAndActions() {
+	protected void generateOutputMappingSubMenusAndActions(String actionLable) {
 
-		outputMappingsMenuManager = new MenuManager(DSActionConstants.ADD_OUTPUT_MAPPING_ACTION);
+		outputMappingsMenuManager = new MenuManager(actionLable);
 
 		for (IAction action : outputMappingsActions) {
 			outputMappingsMenuManager.add(action);

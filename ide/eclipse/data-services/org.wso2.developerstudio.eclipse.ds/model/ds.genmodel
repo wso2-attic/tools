@@ -79,6 +79,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/exportType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/xsdType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ElementMapping/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ElementMapping/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//ElementMapping/callQuery"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventSubscriptionList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventSubscriptionList/subscription"/>

@@ -42,6 +42,8 @@ public interface DSActionConstants {
 	public String ADD_EVENT_TRIGGER_ACTION = "Add Event Trigger";
 
 	public String ADD_OUTPUT_MAPPING_ACTION = "Add Output Mapping";
+	
+	public String ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT = "Add Nested Element";
 
 	public String ADD_OUTPUT_MAPPING_ELEMENT_ACTION = "Add Element";
 

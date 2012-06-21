@@ -6,13 +6,22 @@
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.wso2.developerstudio.eclipse.ds.AttributeMapping;
+import org.wso2.developerstudio.eclipse.ds.CallQuery;
+import org.wso2.developerstudio.eclipse.ds.ConfigurationProperty;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 
@@ -30,6 +39,9 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getExportType <em>Export Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getXsdType <em>Xsd Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getCallQuery <em>Call Query</em>}</li>
  * </ul>
  * </p>
  *
@@ -175,6 +187,36 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * @ordered
 	 */
 	protected String xsdType = XSD_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ElementMapping> element;
+
+	/**
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AttributeMapping> attribute;
+
+	/**
+	 * The cached value of the '{@link #getCallQuery() <em>Call Query</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCallQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected CallQuery callQuery;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -349,6 +391,91 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ElementMapping> getElement() {
+		if (element == null) {
+			element = new EObjectContainmentEList<ElementMapping>(ElementMapping.class, this, DsPackage.ELEMENT_MAPPING__ELEMENT);
+		}
+		return element;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AttributeMapping> getAttribute() {
+		if (attribute == null) {
+			attribute = new EObjectContainmentEList<AttributeMapping>(AttributeMapping.class, this, DsPackage.ELEMENT_MAPPING__ATTRIBUTE);
+		}
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallQuery getCallQuery() {
+		return callQuery;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCallQuery(CallQuery newCallQuery, NotificationChain msgs) {
+		CallQuery oldCallQuery = callQuery;
+		callQuery = newCallQuery;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__CALL_QUERY, oldCallQuery, newCallQuery);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCallQuery(CallQuery newCallQuery) {
+		if (newCallQuery != callQuery) {
+			NotificationChain msgs = null;
+			if (callQuery != null)
+				msgs = ((InternalEObject)callQuery).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.ELEMENT_MAPPING__CALL_QUERY, null, msgs);
+			if (newCallQuery != null)
+				msgs = ((InternalEObject)newCallQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.ELEMENT_MAPPING__CALL_QUERY, null, msgs);
+			msgs = basicSetCallQuery(newCallQuery, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__CALL_QUERY, newCallQuery, newCallQuery));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DsPackage.ELEMENT_MAPPING__ELEMENT:
+				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+			case DsPackage.ELEMENT_MAPPING__ATTRIBUTE:
+				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
+			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
+				return basicSetCallQuery(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	
 	@Override
@@ -368,6 +495,12 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return getNamespace();
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				return getXsdType();
+			case DsPackage.ELEMENT_MAPPING__ELEMENT:
+				return getElement();
+			case DsPackage.ELEMENT_MAPPING__ATTRIBUTE:
+				return getAttribute();
+			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
+				return getCallQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -379,6 +512,7 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 */
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -402,6 +536,17 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return;
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				setXsdType((String)newValue);
+				return;
+			case DsPackage.ELEMENT_MAPPING__ELEMENT:
+				getElement().clear();
+				getElement().addAll((Collection<? extends ElementMapping>)newValue);
+				return;
+			case DsPackage.ELEMENT_MAPPING__ATTRIBUTE:
+				getAttribute().clear();
+				getAttribute().addAll((Collection<? extends AttributeMapping>)newValue);
+				return;
+			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
+				setCallQuery((CallQuery)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -438,6 +583,15 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				setXsdType(XSD_TYPE_EDEFAULT);
 				return;
+			case DsPackage.ELEMENT_MAPPING__ELEMENT:
+				getElement().clear();
+				return;
+			case DsPackage.ELEMENT_MAPPING__ATTRIBUTE:
+				getAttribute().clear();
+				return;
+			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
+				setCallQuery((CallQuery)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -466,6 +620,12 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
 				return XSD_TYPE_EDEFAULT == null ? xsdType != null : !XSD_TYPE_EDEFAULT.equals(xsdType);
+			case DsPackage.ELEMENT_MAPPING__ELEMENT:
+				return element != null && !element.isEmpty();
+			case DsPackage.ELEMENT_MAPPING__ATTRIBUTE:
+				return attribute != null && !attribute.isEmpty();
+			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
+				return callQuery != null;
 		}
 		return super.eIsSet(featureID);
 	}

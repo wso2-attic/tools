@@ -6,6 +6,7 @@
  */
 package org.wso2.developerstudio.eclipse.ds;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,6 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getExportType <em>Export Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getXsdType <em>Xsd Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getElement <em>Element</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery <em>Call Query</em>}</li>
  * </ul>
  * </p>
  *
@@ -219,5 +223,66 @@ public interface ElementMapping extends EObject {
 	 * @generated
 	 */
 	void setXsdType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.ds.ElementMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_Element()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='element' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ElementMapping> getElement();
+
+	/**
+	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.ds.AttributeMapping}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attribute</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attribute</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_Attribute()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='attribute' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<AttributeMapping> getAttribute();
+
+	/**
+	 * Returns the value of the '<em><b>Call Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Call Query</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Call Query</em>' containment reference.
+	 * @see #setCallQuery(CallQuery)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_CallQuery()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='call-query' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CallQuery getCallQuery();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery <em>Call Query</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Call Query</em>' containment reference.
+	 * @see #getCallQuery()
+	 * @generated
+	 */
+	void setCallQuery(CallQuery value);
 
 } // ElementMapping

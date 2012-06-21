@@ -78,12 +78,12 @@ public class DetailSectionUiUtil {
 					}
 				}
 			}
-		}else{
+		}/*else{
 			if(combo.getItemCount() >= 1){
 				
 				combo.select(0);
 			}
-		}
+		}*/
 		combo.setLayoutData(gd);
 		addFocusListner(combo);
 		

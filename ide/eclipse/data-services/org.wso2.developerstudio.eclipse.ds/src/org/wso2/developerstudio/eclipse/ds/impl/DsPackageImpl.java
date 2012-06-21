@@ -912,6 +912,33 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getElementMapping_Element() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementMapping_Attribute() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementMapping_CallQuery() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEventSubscriptionList() {
 		return eventSubscriptionListEClass;
 	}
@@ -1938,6 +1965,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__EXPORT_TYPE);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__NAMESPACE);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__XSD_TYPE);
+		createEReference(elementMappingEClass, ELEMENT_MAPPING__ELEMENT);
+		createEReference(elementMappingEClass, ELEMENT_MAPPING__ATTRIBUTE);
+		createEReference(elementMappingEClass, ELEMENT_MAPPING__CALL_QUERY);
 
 		eventSubscriptionListEClass = createEClass(EVENT_SUBSCRIPTION_LIST);
 		createEReference(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
@@ -2173,6 +2203,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_ExportType(), theXMLTypePackage.getString(), "exportType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Namespace(), theXMLTypePackage.getString(), "namespace", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_XsdType(), theXMLTypePackage.getString(), "xsdType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2769,6 +2802,30 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "xsdType",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_Element(), 
+		   source, 
+		   new String[] {
+			 "kind", "element",
+			 "name", "element",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_Attribute(), 
+		   source, 
+		   new String[] {
+			 "kind", "element",
+			 "name", "attribute",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_CallQuery(), 
+		   source, 
+		   new String[] {
+			 "kind", "element",
+			 "name", "call-query",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

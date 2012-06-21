@@ -677,13 +677,40 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__XSD_TYPE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__ELEMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__ATTRIBUTE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__CALL_QUERY = 9;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 7;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2491,6 +2518,39 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_XsdType();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Element</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getElement()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EReference getElementMapping_Element();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getAttribute()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EReference getElementMapping_Attribute();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery <em>Call Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Call Query</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EReference getElementMapping_CallQuery();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4108,6 +4168,30 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__XSD_TYPE = eINSTANCE.getElementMapping_XsdType();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_MAPPING__ELEMENT = eINSTANCE.getElementMapping_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_MAPPING__ATTRIBUTE = eINSTANCE.getElementMapping_Attribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Call Query</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_MAPPING__CALL_QUERY = eINSTANCE.getElementMapping_CallQuery();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
