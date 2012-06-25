@@ -92,8 +92,9 @@ public class ESBMetaDataFileChange extends TextFileChange {
 	}
 	
 	private int charsOnTheLine(String line){
-		//Here we need to add one to represent the newline character 
-		return line.length()+1;
+		//Here we need to add one to represent the newline character
+		line+=System.getProperty( "line.separator" );
+		return line.length();
 	}
 	
 	private int getarrayIndexWithString(String stringToSearch, String[] array){

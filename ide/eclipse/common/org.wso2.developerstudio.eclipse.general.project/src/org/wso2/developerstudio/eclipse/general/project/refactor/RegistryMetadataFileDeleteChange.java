@@ -139,6 +139,7 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 
 	private int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length() + 1;
+		line+=System.getProperty( "line.separator" );
+		return line.length();
 	}
 }

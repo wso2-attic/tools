@@ -60,7 +60,7 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	        	try {
 					IFile pomFile = project.getFile("pom.xml");
 					MavenProject mavenProject = RefactorUtils.getMavenProject(project);
-					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalFile.getProject());
+					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalFile);
 					projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
 					
 					List<?> dependencies = mavenProject.getDependencies();

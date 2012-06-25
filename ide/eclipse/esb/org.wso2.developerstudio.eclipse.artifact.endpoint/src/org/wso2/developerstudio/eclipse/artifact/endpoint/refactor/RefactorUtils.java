@@ -16,8 +16,11 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
+import java.io.File;
+
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -27,15 +30,37 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 public class RefactorUtils {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
-	public static Dependency getDependencyForTheProject(IProject project) {
+	public static Dependency getDependencyForTheProject(IFile file) {
+		IProject project=file.getProject();
 		MavenProject mavenProject = getMavenProject(project);
 
 		String groupId = mavenProject.getGroupId();
 		String artifactId = mavenProject.getArtifactId();
 		String version = mavenProject.getVersion();
-
+		
+		String filePath = file.getLocation().toOSString();
+		int startIndex = (project.getLocation().toOSString()+File.separator+"src"+File.separator+"main"+File.separator+"synapse-config"+File.separator).length();
+		int endIndex = filePath.lastIndexOf(File.separator);
+		
+		String typeString;
+		if (startIndex<endIndex) {
+			String typeStringFromPath = filePath.substring(startIndex,endIndex);
+			if(typeStringFromPath.equalsIgnoreCase("sequences")){
+				typeString="sequence";
+			}else if(typeStringFromPath.equalsIgnoreCase("endpoints")){
+				typeString="endpoint";
+			}else if(typeStringFromPath.equalsIgnoreCase("proxy-services")){
+				typeString="proxy-service";
+			}else{
+				typeString="local-entry";
+			}
+			
+		}else{
+			typeString="synapse";
+		}
+		
 		Dependency dependency = new Dependency();
-		dependency.setGroupId(groupId);
+		dependency.setGroupId(groupId+"."+typeString);
 		dependency.setArtifactId(artifactId);
 		dependency.setVersion(version);
 
@@ -59,7 +84,7 @@ public class RefactorUtils {
 	
 	public static int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length() + 1;
+		return line.length()+1;
 	}
 
 }

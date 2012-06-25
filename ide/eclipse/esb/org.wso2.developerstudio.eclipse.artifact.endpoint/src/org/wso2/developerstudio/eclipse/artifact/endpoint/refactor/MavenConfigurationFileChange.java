@@ -77,7 +77,7 @@ public class MavenConfigurationFileChange extends TextFileChange {
 
 	private int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length() + 1;
+		return line.length()+1;
 	}
 
 	private void dependencyReplacement() throws IOException {

@@ -35,7 +35,7 @@ public class RefactorUtils {
 		String version = mavenProject.getVersion();
 
 		Dependency dependency = new Dependency();
-		dependency.setGroupId(groupId);
+		dependency.setGroupId(groupId+".resource");
 		dependency.setArtifactId(artifactId);
 		dependency.setVersion(version);
 
@@ -59,7 +59,7 @@ public class RefactorUtils {
 	
 	public static int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length() + 1;
+		return line.length()+1;
 	}
 
 }

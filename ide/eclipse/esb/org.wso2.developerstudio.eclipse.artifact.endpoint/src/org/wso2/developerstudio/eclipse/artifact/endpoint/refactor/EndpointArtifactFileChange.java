@@ -85,11 +85,11 @@ public class EndpointArtifactFileChange extends TextFileChange {
 					String keyElement = "key=";
 					int localEntryArrayIndex = getArrayIndexWithString(keyElement, stringArray);
 					if (localEntryArrayIndex != -1) {
-						if (stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						if (stringArray[localEntryArrayIndex].startsWith(keyElement +
 						                                                       case1String) ||
-						    stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						    stringArray[localEntryArrayIndex].startsWith(keyElement +
 						                                                       case1String + ">") ||
-						    stringArray[localEntryArrayIndex].equalsIgnoreCase(keyElement +
+						    stringArray[localEntryArrayIndex].startsWith(keyElement +
 						                                                       case1String + "/>")) {
 							int case1LineIndex = line.indexOf(case1String) + 1;
 							addEdit(new ReplaceEdit(fullIndex + case1LineIndex,
@@ -106,7 +106,7 @@ public class EndpointArtifactFileChange extends TextFileChange {
 
 	private int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length() + 1;
+		return line.length()+1;
 	}
 
 	private int getArrayIndexWithString(String stringToSearch, String[] array) {
