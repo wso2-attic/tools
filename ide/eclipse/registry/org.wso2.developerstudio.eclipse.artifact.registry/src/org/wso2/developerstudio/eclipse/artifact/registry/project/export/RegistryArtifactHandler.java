@@ -76,7 +76,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 							RegistryResourceFile.getContents());
 					StAXOMBuilder builder = new StAXOMBuilder(parser);
 					OMElement documentElement = builder.getDocumentElement();
-					Iterator artifacts = documentElement.getChildren();
+					Iterator artifacts = documentElement.getChildElements();
 					while (artifacts.hasNext()) {
 						Object o = artifacts.next();
 						if (o instanceof OMElement) {
@@ -96,7 +96,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 									OMElement resourcesEl = factory.createOMElement(new QName(
 											"resources"));
 
-									Iterator items = artifact.getChildren();
+									Iterator items = artifact.getChildElements();
 									while (items.hasNext()) {
 										Object obj = items.next();
 										if (obj instanceof OMElement) {
