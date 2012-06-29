@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AppFactory Tools UI
+Bundle-SymbolicName: org.wso2.developerstudio.appfactory.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.wso2.developerstudio.appfactory.ui.Activator
+Bundle-Vendor: WSO2 Inc
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.ui.forms.events,
+ org.eclipse.ui.forms.widgets,
+ org.wso2.developerstudio.appfactory.core,
+ org.wso2.developerstudio.appfactory.core.model,
+ org.wso2.developerstudio.eclipse.logging.core,
+ org.wso2.developerstudio.eclipse.platform.core.utils
