@@ -42,6 +42,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	private RegistryTemplate selectedTemplate;
 	private String registryPath="/_system/custom";
 	private String resourceName;
+	private String artifactName="";
 	private boolean copyContent;
 	private RegistryResourceNode checkoutPath;
 	
@@ -111,7 +112,9 @@ public class RegistryArtifactModel extends ProjectDataModel {
                 }
 			}
 		}
-		
+		else if("artifact.name".equals(key)){
+			this.setArtifactName(data.toString());
+		}
 		return returnResult;
 	}
 	
@@ -131,6 +134,8 @@ public class RegistryArtifactModel extends ProjectDataModel {
 				modelPropertyValue = getCopyContent();
 			} else if (key.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
 				modelPropertyValue = getCheckoutPath();
+			} else if ((modelPropertyValue == null)&&("artifact.name".equals(key))){
+				modelPropertyValue = getArtifactName();
 			}
 		}
 		return modelPropertyValue;
@@ -212,5 +217,14 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	public RegistryResourceNode getCheckoutPath() {
 	    return checkoutPath;
     }
+
+	public void setArtifactName(String artifactName) {
+		this.artifactName = artifactName;
+	}
+
+	public String getArtifactName() {
+		return artifactName;
+	}
+	
 	
 }

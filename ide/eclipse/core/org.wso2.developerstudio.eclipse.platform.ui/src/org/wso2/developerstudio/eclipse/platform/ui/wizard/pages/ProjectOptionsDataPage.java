@@ -1348,6 +1348,11 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 			setPageComplete(true);
 			setErrorMessage(null);
 		} catch (FieldValidationException e) {
+			try {
+				doControlStatusUpdate(optionData);
+			} catch (Exception e1) {
+				log.error("An unexpected error has occurred", e);
+			}
 			setPageComplete(false);
 			setErrorMessage(e.getMessage());
 		} catch (Exception e) {

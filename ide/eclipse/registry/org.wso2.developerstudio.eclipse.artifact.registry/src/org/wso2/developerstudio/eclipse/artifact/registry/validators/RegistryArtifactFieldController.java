@@ -19,17 +19,24 @@ package org.wso2.developerstudio.eclipse.artifact.registry.validators;
 import java.io.File;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.wso2.developerstudio.eclipse.artifact.registry.model.RegistryArtifactModel;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
-public class RegistryArtifactFieldController extends AbstractFieldController {
 
+
+public class RegistryArtifactFieldController extends AbstractFieldController {
 	
-	public void validate(String modelProperty, Object value,
+ 
+public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
 		if (modelProperty.equals(RegistryArtifactConstants.DATA_REG_LOCATION)) {
 			if (value == null) {
@@ -47,7 +54,37 @@ public class RegistryArtifactFieldController extends AbstractFieldController {
 			if (resource.trim().equals("")) {
 				throw new FieldValidationException("Resource name cannot be empty");
 			}
-		} else if (modelProperty.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)) {
+
+		}else if (modelProperty.equals("artifact.name")) {
+			if (value != null) {
+				String resource = value.toString();
+				RegistryArtifactModel regModel = (RegistryArtifactModel) model;
+				if (regModel != null) {
+					IContainer resLocation = regModel.getResourceSaveLocation();
+					if (resLocation != null) {
+						IProject project = resLocation.getProject();
+						GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
+						try {
+							generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+							List<RegistryArtifact> allArtifacts = generalProjectArtifact.getAllArtifacts();
+							for (RegistryArtifact registryArtifact : allArtifacts) {
+								if (resource.equals(registryArtifact.getName())) {
+									throw new FieldValidationException("");
+								}
+							}
+
+						} catch (Exception e) {
+							throw new FieldValidationException("Artifact name already exsits");
+						}
+					}
+				}		 	 
+			}
+			String resource = value.toString();
+			if (resource.trim().equals("")) {	 
+			 throw new FieldValidationException("Artifact name cannot be empty");
+			}
+
+		}else if (modelProperty.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)) {
 			if (value == null) {
 				throw new FieldValidationException("Specified resource location is invalid");
 			}
@@ -72,7 +109,6 @@ public class RegistryArtifactFieldController extends AbstractFieldController {
 		}
 	}
 	
-
 public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 	boolean enableField = super.isEnableField(modelProperty, model);
 	if (modelProperty.equals(RegistryArtifactConstants.DATA_COPY_CONTENT)) {
@@ -88,12 +124,10 @@ public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 		else{
 			enableField=false;
 		}
-			
+	
 	}
 	return enableField;
 }
-
-
 
 public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
     boolean isReadOnly = super.isReadOnlyField(modelProperty, model);
@@ -103,8 +137,7 @@ public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
     return isReadOnly;
 }
 	
-	
-	public List<String> getUpdateFields(String modelProperty,
+public List<String> getUpdateFields(String modelProperty,
 			ProjectDataModel model) {
 		List<String> updateFields = super.getUpdateFields(modelProperty, model);
 		if (modelProperty.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)) {
@@ -112,6 +145,36 @@ public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
 		}  else if (modelProperty.equals("create.prj")) {
 			updateFields.add("save.file");
 		} 
+		
+		if (("resource.name".equals(modelProperty))
+				|| ("import.file".equals(modelProperty))
+				|| ("registry.browser".equals(modelProperty))) {
+
+			RegistryArtifactModel tempmodel = (RegistryArtifactModel) model;
+			if (("resource.name".equals(modelProperty))) {
+				String resourcesName = tempmodel.getResourceName();
+				String oldresourcesName = "";
+				if (resourcesName.length() >= 1) {
+					oldresourcesName = resourcesName.substring(0,
+							resourcesName.length() - 1);
+				}
+				String artifactName = tempmodel.getArtifactName();
+				String oldArtifactName = "";
+				if (artifactName.length() >= 1) {
+					oldArtifactName = artifactName.substring(0,
+							artifactName.length() - 1);
+				}
+				if (oldresourcesName.equals(tempmodel.getArtifactName())
+						|| (resourcesName.equals(oldArtifactName))) {
+					tempmodel.setArtifactName(resourcesName);			
+					updateFields.add("artifact.name");
+				}
+			} else {
+				tempmodel.setArtifactName(tempmodel.getResourceName());
+				updateFields.add("artifact.name");
+			}
+		}
+
 		return updateFields;
 	}
 

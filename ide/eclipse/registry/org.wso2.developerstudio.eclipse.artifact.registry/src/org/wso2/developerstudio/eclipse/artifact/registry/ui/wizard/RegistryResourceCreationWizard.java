@@ -176,7 +176,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 			
 			RegistryArtifact artifact=new RegistryArtifact();
-			artifact.setName(regModel.getResourceName());
+			artifact.setName(regModel.getArtifactName());
 			artifact.setVersion("1.0.0");
 			artifact.setType("registry/resource");
 			artifact.setServerRole("GovernanceRegistry");
@@ -208,9 +208,6 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 		} catch (Exception e) {
 			log.error("cannot create resource ", e);
 		}
-		
-		
-		
 		return true;
 	}
 	
@@ -376,7 +373,6 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	         page.openEditor(new FileEditorInput(arifactXml), REGISTRY_EDITOR_ID); 
 		} catch (Exception e) { /* ignore */}
 	}
-	
 	
 	public IWizardPage getPreviousPage(IWizardPage page) {
 		if(page instanceof ProjectOptionsPage){
