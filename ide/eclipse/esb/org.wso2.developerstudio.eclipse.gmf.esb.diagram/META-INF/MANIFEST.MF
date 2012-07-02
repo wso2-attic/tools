@@ -67,6 +67,8 @@ Import-Package: org.apache.commons.lang,
  org.wso2.developerstudio.eclipse.greg.core.interfaces,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.platform.core.interfaces,
+ org.wso2.developerstudio.eclipse.platform.core.project.model,
  org.wso2.developerstudio.eclipse.platform.core.templates,
+ org.wso2.developerstudio.eclipse.platform.ui.wizard,
  org.wso2.developerstudio.eclipse.utils.data,
  org.wso2.developerstudio.eclipse.utils.file

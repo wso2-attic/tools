@@ -648,6 +648,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String EnqueueMediator35CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EnqueueMediator35CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -748,6 +758,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment11EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MediatorFlowMediatorFlowCompartment12EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment3EditPart_title;
 
 	/**
@@ -804,6 +824,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EsbDiagram_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IterateMediatorTargetOutputConnector_3606_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1143,6 +1168,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EnqueueMediatorOutputConnector_3602_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_FilterMediatorFailOutputConnector_3012_outgoinglinks;
 
 	/**
@@ -1224,6 +1254,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DBReportMediatorInputConnector_3079_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EnqueueMediatorInputConnector_3601_incominglinks;
 
 	/**
 	 * @generated

@@ -15,11 +15,17 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow12EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
@@ -74,6 +80,17 @@ public class MediatorFigureReverser {
 			 * Reverse the mediators inside the Aggregate mediator.
 			 */
 			children = ((MediatorFlowMediatorFlowCompartment3EditPart) ((MediatorFlow3EditPart) editorPart
+					.getChildren().get(4)).getChildren().get(0)).getChildren();
+		}
+		
+		if(editorPart instanceof IterateMediatorEditPart){
+			arrangeType1Compartment(editorPart,
+					((IterateMediatorEditPart) editorPart).targetOutputConnector,
+					childFigures);
+			/*
+			 * Reverse the mediators inside the Iterate mediator.
+			 */			
+			children = ((MediatorFlowMediatorFlowCompartment12EditPart) ((MediatorFlow12EditPart) editorPart
 					.getChildren().get(4)).getChildren().get(0)).getChildren();
 		}
 
@@ -169,6 +186,42 @@ public class MediatorFigureReverser {
 				}
 			}
 		}
+		
+		
+		if (editorPart instanceof CloneMediatorEditPart) {
+
+			for (int i = 0; (i < ((CloneMediatorEditPart) editorPart).targetOutputConnectors.size()&&(i < (((IFigure) ((DefaultSizeNodeFigure) childFigures
+					.get(0)).getChildren().get(0)).getChildren().size()))); ++i) {
+				BorderItemLocator targetLocator = new FixedBorderItemLocator(
+						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
+								.getChildren().get(0)).getChildren().get(i),
+						((CloneMediatorEditPart) editorPart).targetOutputConnectors.get(i),
+						PositionConstants.EAST, 0.5);
+				((CloneMediatorEditPart) editorPart)
+						.getBorderedFigure()
+						.getBorderItemContainer()
+						.add(((CloneMediatorEditPart) editorPart).targetOutputConnectors.get(i),
+								targetLocator);
+			}
+
+			for (int j = 0; j < editorPart.getChildren().size(); ++j) {
+				if (editorPart.getChildren().get(j) instanceof CloneMediatorContainerEditPart) {
+
+					List<CloneTargetContainerEditPart> cloneTargetContainerEditPartList = ((CloneMediatorContainerEditPart) editorPart
+							.getChildren().get(j)).getChildren();
+					for (int p = 0; p < cloneTargetContainerEditPartList.size(); ++p) {
+						childrenCaseContainer
+								.addAll(((EditPart) ((EditPart) ((EditPart) cloneTargetContainerEditPartList
+										.get(p)).getChildren().get(0)).getChildren().get(0))
+										.getChildren());
+					}
+
+					children = childrenCaseContainer;
+					break;
+				}
+			}
+		}	
+		
 
 		if (children != null) {
 			for (int i = 0; i < children.size(); ++i) {

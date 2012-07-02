@@ -65,14 +65,19 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new XQueryMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new XQueryMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new XQueryMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new XQueryMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -90,7 +95,8 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 				case XQueryMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -127,24 +133,29 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof XQueryMediatorScriptKeyTypeEditPart) {
-			((XQueryMediatorScriptKeyTypeEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureXQueryMediatorPropertyValue());
+			((XQueryMediatorScriptKeyTypeEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureXQueryMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof XQueryMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((XQueryMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((XQueryMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -159,12 +170,14 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof XQueryMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((XQueryMediatorInputConnectorEditPart) childEditPart).getFigure());
+					((XQueryMediatorInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof XQueryMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((XQueryMediatorOutputConnectorEditPart) childEditPart).getFigure());
+					((XQueryMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -322,7 +335,8 @@ public class XQueryMediatorEditPart extends AbstractMediator {
 			fFigureXQueryMediatorPropertyValue.setText("<...>");
 			fFigureXQueryMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(fFigureXQueryMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(
+					fFigureXQueryMediatorPropertyValue);
 
 		}
 

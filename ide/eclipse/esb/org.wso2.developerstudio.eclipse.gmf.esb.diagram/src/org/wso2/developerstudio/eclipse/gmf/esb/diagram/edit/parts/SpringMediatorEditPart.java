@@ -65,14 +65,19 @@ public class SpringMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SpringMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new SpringMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new SpringMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new SpringMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -90,7 +95,8 @@ public class SpringMediatorEditPart extends AbstractMediator {
 				case SpringMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -127,24 +133,29 @@ public class SpringMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof SpringMediatorBeanNameEditPart) {
-			((SpringMediatorBeanNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureSpringMediatorPropertyValue());
+			((SpringMediatorBeanNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSpringMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof SpringMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((SpringMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof SpringMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((SpringMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -159,12 +170,14 @@ public class SpringMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof SpringMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SpringMediatorInputConnectorEditPart) childEditPart).getFigure());
+					((SpringMediatorInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof SpringMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SpringMediatorOutputConnectorEditPart) childEditPart).getFigure());
+					((SpringMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -322,7 +335,8 @@ public class SpringMediatorEditPart extends AbstractMediator {
 			fFigureSpringMediatorPropertyValue.setText("<...>");
 			fFigureSpringMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(fFigureSpringMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(
+					fFigureSpringMediatorPropertyValue);
 
 		}
 

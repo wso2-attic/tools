@@ -65,11 +65,13 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ProxyServiceOutSequenceItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new ProxyServiceOutSequenceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -84,7 +86,8 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -127,8 +130,10 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 	protected void refreshInputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceEditPart) {
 			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
-			BorderItemLocator locator = new FixedBorderItemLocator(this.getFigure(),
-					proxyServiceEditPart.inputConnectorFigure, PositionConstants.WEST, 0.5);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					this.getFigure(),
+					proxyServiceEditPart.inputConnectorFigure,
+					PositionConstants.WEST, 0.5);
 			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(proxyServiceEditPart.inputConnectorFigure, locator);
 		} else {
@@ -138,8 +143,8 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent().getParent()
-				.getParent().getParent().getParent()));
+		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent()
+				.getParent().getParent().getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -259,8 +264,8 @@ public class ProxyServiceOutSequenceEditPart extends ShapeNodeEditPart {
 
 			this.setOutline(true);
 			// TODO: review this:
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
-					.DPtoLP(4000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
+					getMapMode().DPtoLP(4000)));
 			this.setForegroundColor(new Color(null, 255, 255, 255));
 			//this.setLineWidthFloat((float) -0.1);
 

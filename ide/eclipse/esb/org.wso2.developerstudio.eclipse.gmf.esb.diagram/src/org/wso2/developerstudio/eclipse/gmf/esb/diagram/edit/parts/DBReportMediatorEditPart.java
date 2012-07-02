@@ -65,15 +65,19 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new DBReportMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DBReportMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new DBReportMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -91,7 +95,8 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 				case DBReportMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -128,24 +133,29 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DBReportMediatorConnectionURLEditPart) {
-			((DBReportMediatorConnectionURLEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDBReportMediatorPropertyValue());
+			((DBReportMediatorConnectionURLEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureDBReportMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof DBReportMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBReportMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBReportMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -160,12 +170,14 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof DBReportMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((DBReportMediatorInputConnectorEditPart) childEditPart).getFigure());
+					((DBReportMediatorInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DBReportMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((DBReportMediatorOutputConnectorEditPart) childEditPart).getFigure());
+					((DBReportMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -323,7 +335,8 @@ public class DBReportMediatorEditPart extends AbstractMediator {
 			fFigureDBReportMediatorPropertyValue.setText("<...>");
 			fFigureDBReportMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(fFigureDBReportMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(
+					fFigureDBReportMediatorPropertyValue);
 
 		}
 

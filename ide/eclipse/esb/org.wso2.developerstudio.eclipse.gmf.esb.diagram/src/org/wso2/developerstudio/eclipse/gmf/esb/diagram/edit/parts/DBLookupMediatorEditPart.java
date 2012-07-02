@@ -65,15 +65,19 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new DBLookupMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DBLookupMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new DBLookupMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -91,7 +95,8 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 				case DBLookupMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -128,25 +133,30 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DBLookupMediatorConnectionURLEditPart) {
-			((DBLookupMediatorConnectionURLEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDBLookupMediatorPropertyValue());
+			((DBLookupMediatorConnectionURLEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureDBLookupMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((DBLookupMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBLookupMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -161,12 +171,14 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((DBLookupMediatorInputConnectorEditPart) childEditPart).getFigure());
+					((DBLookupMediatorInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof DBLookupMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((DBLookupMediatorOutputConnectorEditPart) childEditPart).getFigure());
+					((DBLookupMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -324,7 +336,8 @@ public class DBLookupMediatorEditPart extends AbstractMediator {
 			fFigureDBLookupMediatorPropertyValue.setText("<...>");
 			fFigureDBLookupMediatorPropertyValue.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(fFigureDBLookupMediatorPropertyValue);
+			this.getPropertyValueRectangle1().add(
+					fFigureDBLookupMediatorPropertyValue);
 		}
 
 		/**

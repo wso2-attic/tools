@@ -10,11 +10,16 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
@@ -78,11 +83,18 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 								.getParent() instanceof MediatorFlowMediatorFlowCompartment8EditPart))
 								&& (editorPart.getParent().getParent().getParent().getParent()
 										.getParent() instanceof FilterMediatorEditPart) && (((AbstractMediator) editorPart
-								.getParent().getParent().getParent().getParent().getParent()).reversed)) | (((editorPart
-						.getParent() instanceof MediatorFlowMediatorFlowCompartment9EditPart) | (editorPart
-						.getParent() instanceof MediatorFlowMediatorFlowCompartment10EditPart))
-						&& (editorPart.getParent().getParent().getParent().getParent().getParent() instanceof ThrottleMediatorEditPart) && (((AbstractMediator) editorPart
-						.getParent().getParent().getParent().getParent().getParent()).reversed)))) {
+								.getParent().getParent().getParent().getParent().getParent()).reversed))								
+						| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment11EditPart)
+								&&(editorPart.getParent().getParent().getParent().getParent()
+								.getParent() instanceof CloneMediatorEditPart)&&(((AbstractMediator) editorPart
+										.getParent().getParent().getParent().getParent().getParent()).reversed))											
+						| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment12EditPart)
+								&& (editorPart.getParent().getParent().getParent() instanceof IterateMediatorEditPart) && (((AbstractMediator) editorPart
+								.getParent().getParent().getParent()).reversed))										
+						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment9EditPart) | (editorPart
+					        	.getParent() instanceof MediatorFlowMediatorFlowCompartment10EditPart))
+					        	&& (editorPart.getParent().getParent().getParent().getParent().getParent() instanceof ThrottleMediatorEditPart) && (((AbstractMediator) editorPart
+					                	.getParent().getParent().getParent().getParent().getParent()).reversed)))) {
 
 			AbstractMediator selectedEP = (AbstractMediator) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();
@@ -178,7 +190,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
 				|| (this instanceof FilterMediatorEditPart)
 				|| (this instanceof ThrottleMediatorEditPart)
-				|| (this instanceof SendMediatorEditPart)) {
+				|| (this instanceof SendMediatorEditPart)
+				|| (this instanceof CloneMediatorEditPart)
+				|| (this instanceof IterateMediatorEditPart)) {
 			return true;
 		} else {
 			return false;

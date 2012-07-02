@@ -29,7 +29,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEditPart {
+public class MergeNodeFirstInputConnectorEditPart extends
+		AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -58,7 +59,8 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MergeNodeFirstInputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -73,7 +75,8 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -244,6 +247,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3133);
 			types.add(EsbElementTypes.CacheMediatorOutputConnector_3107);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3110);
+			types.add(EsbElementTypes.IterateMediatorTargetOutputConnector_3606);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3116);
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3119);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3125);
@@ -255,6 +259,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.BuilderMediatorOutputConector_3593);
 			types.add(EsbElementTypes.CallTemplateMediatorOutputConnector_3596);
 			types.add(EsbElementTypes.PayloadFactoryMediatorOutputConnector_3599);
+			types.add(EsbElementTypes.EnqueueMediatorOutputConnector_3602);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 		}
@@ -272,7 +277,8 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 		}
 
 	}

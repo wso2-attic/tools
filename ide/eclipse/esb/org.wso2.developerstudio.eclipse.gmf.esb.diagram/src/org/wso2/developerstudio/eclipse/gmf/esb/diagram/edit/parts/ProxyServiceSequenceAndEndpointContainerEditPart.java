@@ -30,7 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServi
 /**
  * @generated
  */
-public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeEditPart {
+public class ProxyServiceSequenceAndEndpointContainerEditPart extends
+		ShapeNodeEditPart {
 
 	/**
 	 * @generated
@@ -58,12 +59,16 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new ProxyServiceSequenceAndEndpointContainerItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
 				new ProxyServiceSequenceAndEndpointContainerCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
@@ -77,7 +82,8 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -198,7 +204,8 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 	/**
 	 * @generated
 	 */
-	public class ProxyServiceSequenceAndEndpointContainerFigure extends RoundedRectangle {
+	public class ProxyServiceSequenceAndEndpointContainerFigure extends
+			RoundedRectangle {
 
 		/**
 		 * @generated NOT
@@ -217,7 +224,8 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 		}

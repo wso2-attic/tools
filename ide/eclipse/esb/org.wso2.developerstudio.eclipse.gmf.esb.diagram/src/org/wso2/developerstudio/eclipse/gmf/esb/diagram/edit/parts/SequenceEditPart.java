@@ -157,15 +157,20 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SequenceItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new SequenceCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new SequenceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new SequenceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new SequenceOpenEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new SequenceOpenEditPolicy());
 
 		// XXX need an SCR to runtime to have another abstract superclass that
 		// would let children add reasonable editpolicies
@@ -185,7 +190,8 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 				case SequenceOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -227,18 +233,23 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof SequenceInputConnectorEditPart) {
-			IFigure borderItemFigure = ((SequenceInputConnectorEditPart) childEditPart).getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			IFigure borderItemFigure = ((SequenceInputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof SequenceOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((SequenceOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -253,12 +264,14 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof SequenceInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SequenceInputConnectorEditPart) childEditPart).getFigure());
+					((SequenceInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof SequenceOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SequenceOutputConnectorEditPart) childEditPart).getFigure());
+					((SequenceOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -349,14 +362,17 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
 		IFigure borderItemFigure = borderItemEditPart.getFigure();
 		if (borderItemEditPart instanceof SequenceInputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure, new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5));
+			borderItemContainer.add(borderItemFigure,
+					new FixedBorderItemLocator(getMainFigure(),
+							borderItemFigure, PositionConstants.WEST, 0.5));
 		} else if (borderItemEditPart instanceof SequenceOutputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure, new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5));
+			borderItemContainer.add(borderItemFigure,
+					new FixedBorderItemLocator(getMainFigure(),
+							borderItemFigure, PositionConstants.EAST, 0.5));
 		} else {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
@@ -402,24 +418,27 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry.getType(SequenceNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry
+				.getType(SequenceNameEditPart.VISUAL_ID));
 	}
 
 	public void openWithSeparateEditor() {
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
-		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().getEditorReferences();
+		IEditorReference editorReferences[] = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences();
 		for (int i = 0; i < editorReferences.length; i++) {
 			IEditorPart editor = editorReferences[i].getEditor(false);
 
 			if (editor != null) {
-				editorPart = editor.getSite().getWorkbenchWindow().getActivePage()
-						.getActiveEditor();
+				editorPart = editor.getSite().getWorkbenchWindow()
+						.getActivePage().getActiveEditor();
 			}
 
 			if (editorPart != null) {
-				IFileEditorInput input = (IFileEditorInput) editorPart.getEditorInput();
+				IFileEditorInput input = (IFileEditorInput) editorPart
+						.getEditorInput();
 				IFile file = input.getFile();
 				activeProject = file.getProject();
 
@@ -439,13 +458,16 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.SEQUENCE) {
-				getEditDomain().getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
+			if ((getEditDomain().getPaletteViewer().getPaletteRoot()
+					.getChildren().size() - 1) != ToolPalleteDetails.SEQUENCE) {
+				getEditDomain().getPaletteViewer().getPaletteRoot()
+						.add(createSequenceGroup());
 			}
 
 			if (!definedSequenceNames.contains(name)) {
-				((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
-						.getChildren().get(ToolPalleteDetails.SEQUENCE))
+				((PaletteContainer) getEditDomain().getPaletteViewer()
+						.getPaletteRoot().getChildren()
+						.get(ToolPalleteDetails.SEQUENCE))
 						.add(createSequence4CreationTool(name));
 				definedSequenceNames.add(name);
 			}
@@ -456,8 +478,9 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		 * File creations.
 		 */
 		SequenceFileCreator sequenceFileCreator = new SequenceFileCreator();
-		sequenceFileCreator.createFiles("sequence_" + name + ".sequence_diagram", "sequence_"
-				+ name + ".sequence", activeProject);
+		sequenceFileCreator.createFiles("sequence_" + name
+				+ ".sequence_diagram", "sequence_" + name + ".sequence",
+				activeProject);
 
 	}
 
@@ -474,9 +497,11 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		/*types.add(EsbElementTypes.Sequence_3187);
 		types.add(EsbElementTypes.Sequence_3254);
 		types.add(EsbElementTypes.Sequence_3375);*/
-		NodeToolEntry entry = new NodeToolEntry(name, Messages.Sequence4CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(name,
+				Messages.Sequence4CreationTool_desc, types);
 		entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.Sequence_3503));
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.Sequence_3503));
 		entry.setLargeIcon(entry.getSmallIcon());
 
 		// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
@@ -498,7 +523,8 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		if (((Sequence) sequence).getName().equals("")) {
 
 			Shell parent = new Shell();
-			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER | SWT.APPLICATION_MODAL);
+			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER
+					| SWT.APPLICATION_MODAL);
 			shell.setText("Enter Sequence Name");
 
 			shell.setLayout(new GridLayout(2, true));
@@ -529,9 +555,10 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 				public void handleEvent(Event event) {
 
 					TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
-							EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
-									.getTest() + 1);
+					SetRequest setRequestSequenceCount = new SetRequest(
+							editingDomain, diagram, EsbPackage.eINSTANCE
+									.getEsbDiagram_Test(),
+							((EsbDiagram) diagram).getTest() + 1);
 					SetValueCommand operationSequenceCount = new SetValueCommand(
 							setRequestSequenceCount) {
 
@@ -544,16 +571,19 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 						}
 					};
 
-					ICommandProxy commandSequenceCount = new ICommandProxy(operationSequenceCount);
+					ICommandProxy commandSequenceCount = new ICommandProxy(
+							operationSequenceCount);
 					if (commandSequenceCount.canExecute()) {
-						getEditDomain().getCommandStack().execute(commandSequenceCount);
+						getEditDomain().getCommandStack().execute(
+								commandSequenceCount);
 					}
 
 					// Set Name
 
 					//TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequest = new SetRequest(editingDomain, sequence,
-							EsbPackage.eINSTANCE.getSequence_Name(), text.getText());
+					SetRequest setRequest = new SetRequest(editingDomain,
+							sequence, EsbPackage.eINSTANCE.getSequence_Name(),
+							text.getText());
 					SetValueCommand operation = new SetValueCommand(setRequest) {
 
 						public boolean canUndo() {
@@ -565,7 +595,8 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 						}
 					};
 
-					getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+					getEditDomain().getCommandStack().execute(
+							new ICommandProxy(operation));
 
 					shell.dispose();
 
@@ -737,10 +768,12 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 		private ToolEntry createSequence4CreationTool(String name) {
-			NodeToolEntry entry = new NodeToolEntry(name, Messages.Sequence4CreationTool_desc,
+			NodeToolEntry entry = new NodeToolEntry(name,
+					Messages.Sequence4CreationTool_desc,
 					Collections.singletonList(EsbElementTypes.Sequence_3503));
 			entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
-			entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.Sequence_3503));
+			entry.setSmallIcon(EsbElementTypes
+					.getImageDescriptor(EsbElementTypes.Sequence_3503));
 			entry.setLargeIcon(entry.getSmallIcon());
 
 			// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
@@ -802,7 +835,8 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 
 		private final List<IElementType> elementTypes;
 
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
+		private NodeToolEntry(String title, String description,
+				List<IElementType> elementTypes) {
 			// super(title, description, null, null);
 			super(null, title, null);
 			this.setDescription(description);

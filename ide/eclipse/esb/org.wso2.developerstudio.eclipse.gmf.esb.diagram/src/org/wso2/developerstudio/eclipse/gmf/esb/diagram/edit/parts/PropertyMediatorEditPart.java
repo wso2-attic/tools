@@ -468,15 +468,19 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new PropertyMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new PropertyMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new PropertyMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -494,7 +498,8 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 				case PropertyMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -531,24 +536,29 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof PropertyMediatorPropertyNameEditPart) {
-			((PropertyMediatorPropertyNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigurePropertyMediatorPropertyValueLabel());
+			((PropertyMediatorPropertyNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigurePropertyMediatorPropertyValueLabel());
 			return true;
 		}
 		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((PropertyMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((PropertyMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -563,12 +573,14 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 		}
 		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((PropertyMediatorInputConnectorEditPart) childEditPart).getFigure());
+					((PropertyMediatorInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((PropertyMediatorOutputConnectorEditPart) childEditPart).getFigure());
+					((PropertyMediatorOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -726,7 +738,8 @@ public class PropertyMediatorEditPart extends AbstractMediator {
 			fFigurePropertyMediatorPropertyValueLabel.setText("<...>");
 			fFigurePropertyMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(fFigurePropertyMediatorPropertyValueLabel);
+			this.getPropertyValueRectangle1().add(
+					fFigurePropertyMediatorPropertyValueLabel);
 
 		}
 

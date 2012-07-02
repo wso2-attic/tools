@@ -59,7 +59,8 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MessageOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -74,7 +75,8 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -202,7 +204,8 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
@@ -330,6 +333,9 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof PayloadFactoryMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof EnqueueMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -390,6 +396,7 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.BuilderMediatorInputConnector_3592);
 			types.add(EsbElementTypes.CallTemplateMediatorInputConnector_3595);
 			types.add(EsbElementTypes.PayloadFactoryMediatorInputConnector_3598);
+			types.add(EsbElementTypes.EnqueueMediatorInputConnector_3601);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
@@ -408,7 +415,8 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 		}
 
 	}

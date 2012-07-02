@@ -31,7 +31,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEditPart {
+public class EndpointFlowEndpointCompartment2EditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -59,15 +60,19 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new EndpointFlowEndpointCompartment2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new EndpointFlowEndpointCompartment2CanonicalEditPolicy());
 	}
 
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
@@ -100,7 +105,9 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 				for (int i = 0; i < 2; ++i) {
 					FailoverEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
 							.createFailoverEndPointOutputConnector();
-					AddCommand addCmd = new AddCommand(domain, parentEndpoint,
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
 							EsbPackage.Literals.FAILOVER_END_POINT__OUTPUT_CONNECTOR,
 							outputConnector);
 					if (addCmd.canExecute()) {
@@ -108,11 +115,16 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 					}
 				}
 			}
-			if (((FailoverEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
-				if (((FailoverEndPoint) parentEndpoint).getWestOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((FailoverEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.FAILOVER_END_POINT__WEST_OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createFailoverEndPointWestOutputConnector());
+							EsbFactory.eINSTANCE
+									.createFailoverEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -122,12 +134,15 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 			LoadBalanceEndPointEditPart endpointEditPart = (LoadBalanceEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((LoadBalanceEndPoint) parentEndpoint).getOutputConnector().size() == 0) {
+			if (((LoadBalanceEndPoint) parentEndpoint).getOutputConnector()
+					.size() == 0) {
 				TransactionalEditingDomain domain = getEditingDomain();
 				for (int i = 0; i < 2; ++i) {
 					LoadBalanceEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
 							.createLoadBalanceEndPointOutputConnector();
-					AddCommand addCmd = new AddCommand(domain, parentEndpoint,
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
 							EsbPackage.Literals.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR,
 							outputConnector);
 					if (addCmd.canExecute()) {
@@ -135,12 +150,16 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 					}
 				}
 			}
-			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
-					.size() == 0) {
-				if (((LoadBalanceEndPoint) parentEndpoint).getWestOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((LoadBalanceEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createLoadBalanceEndPointWestOutputConnector());
+							EsbFactory.eINSTANCE
+									.createLoadBalanceEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -151,11 +170,15 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 			DefaultEndPointEditPart endpointEditPart = (DefaultEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((DefaultEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((DefaultEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((DefaultEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.DEFAULT_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createDefaultEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createDefaultEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -165,11 +188,15 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 			AddressEndPointEditPart endpointEditPart = (AddressEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((AddressEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((AddressEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((AddressEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.ADDRESS_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createAddressEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createAddressEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -179,11 +206,15 @@ public class EndpointFlowEndpointCompartment2EditPart extends ShapeCompartmentEd
 			WSDLEndPointEditPart endpointEditPart = (WSDLEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((WSDLEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((WSDLEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createWSDLEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createWSDLEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}

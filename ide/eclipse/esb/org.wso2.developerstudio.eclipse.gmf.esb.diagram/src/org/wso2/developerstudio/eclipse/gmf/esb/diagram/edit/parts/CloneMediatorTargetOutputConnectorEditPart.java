@@ -23,14 +23,16 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloneMediatorTargetOutputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderItemEditPart {
+public class CloneMediatorTargetOutputConnectorEditPart extends
+		AdditionalOutputConnector {
 
 	/**
 	 * @generated
@@ -59,7 +61,8 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CloneMediatorTargetOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -74,7 +77,8 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -123,7 +127,7 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
@@ -131,6 +135,8 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		figure_ = figure;
+		createNodeShapeReverse();
 		return figure;
 	}
 
@@ -202,7 +208,8 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
@@ -330,6 +337,9 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 		if (targetEditPart instanceof PayloadFactoryMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof EnqueueMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -390,6 +400,7 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 			types.add(EsbElementTypes.BuilderMediatorInputConnector_3592);
 			types.add(EsbElementTypes.CallTemplateMediatorInputConnector_3595);
 			types.add(EsbElementTypes.PayloadFactoryMediatorInputConnector_3598);
+			types.add(EsbElementTypes.EnqueueMediatorInputConnector_3601);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
@@ -408,7 +419,8 @@ public class CloneMediatorTargetOutputConnectorEditPart extends AbstractBorderIt
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 		}
 
 	}

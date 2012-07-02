@@ -36,7 +36,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class EndpointFlowEndpointCompartmentEditPart extends ShapeCompartmentEditPart {
+public class EndpointFlowEndpointCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -61,7 +62,8 @@ public class EndpointFlowEndpointCompartmentEditPart extends ShapeCompartmentEdi
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
@@ -74,12 +76,16 @@ public class EndpointFlowEndpointCompartmentEditPart extends ShapeCompartmentEdi
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new EndpointFlowEndpointCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new EndpointFlowEndpointCompartmentCanonicalEditPolicy());
 	}
