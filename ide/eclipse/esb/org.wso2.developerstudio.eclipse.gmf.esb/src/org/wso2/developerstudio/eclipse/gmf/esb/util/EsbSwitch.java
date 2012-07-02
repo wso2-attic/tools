@@ -827,6 +827,22 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.ENQUEUE_MEDIATOR_INPUT_CONNECTOR: {
+				EnqueueMediatorInputConnector enqueueMediatorInputConnector = (EnqueueMediatorInputConnector)theEObject;
+				T result = caseEnqueueMediatorInputConnector(enqueueMediatorInputConnector);
+				if (result == null) result = caseInputConnector(enqueueMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(enqueueMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENQUEUE_MEDIATOR_OUTPUT_CONNECTOR: {
+				EnqueueMediatorOutputConnector enqueueMediatorOutputConnector = (EnqueueMediatorOutputConnector)theEObject;
+				T result = caseEnqueueMediatorOutputConnector(enqueueMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(enqueueMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(enqueueMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.CLASS_MEDIATOR: {
 				ClassMediator classMediator = (ClassMediator)theEObject;
 				T result = caseClassMediator(classMediator);
@@ -1056,6 +1072,20 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CLONE_MEDIATOR_CONTAINER: {
+				CloneMediatorContainer cloneMediatorContainer = (CloneMediatorContainer)theEObject;
+				T result = caseCloneMediatorContainer(cloneMediatorContainer);
+				if (result == null) result = caseEsbNode(cloneMediatorContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLONE_TARGET_CONTAINER: {
+				CloneTargetContainer cloneTargetContainer = (CloneTargetContainer)theEObject;
+				T result = caseCloneTargetContainer(cloneTargetContainer);
+				if (result == null) result = caseEsbNode(cloneTargetContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.ITERATE_MEDIATOR: {
 				IterateMediator iterateMediator = (IterateMediator)theEObject;
 				T result = caseIterateMediator(iterateMediator);
@@ -1078,6 +1108,14 @@ public class EsbSwitch<T> {
 				T result = caseIterateMediatorOutputConnector(iterateMediatorOutputConnector);
 				if (result == null) result = caseOutputConnector(iterateMediatorOutputConnector);
 				if (result == null) result = caseEsbConnector(iterateMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ITERATE_MEDIATOR_TARGET_OUTPUT_CONNECTOR: {
+				IterateMediatorTargetOutputConnector iterateMediatorTargetOutputConnector = (IterateMediatorTargetOutputConnector)theEObject;
+				T result = caseIterateMediatorTargetOutputConnector(iterateMediatorTargetOutputConnector);
+				if (result == null) result = caseOutputConnector(iterateMediatorTargetOutputConnector);
+				if (result == null) result = caseEsbConnector(iterateMediatorTargetOutputConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3372,6 +3410,36 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enqueue Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enqueue Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnqueueMediatorInputConnector(EnqueueMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enqueue Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enqueue Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnqueueMediatorOutputConnector(EnqueueMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Class Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3807,6 +3875,36 @@ public class EsbSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Clone Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Clone Mediator Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloneMediatorContainer(CloneMediatorContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Clone Target Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Clone Target Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloneTargetContainer(CloneTargetContainer object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Iterate Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3848,6 +3946,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseIterateMediatorOutputConnector(IterateMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Iterate Mediator Target Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Iterate Mediator Target Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIterateMediatorTargetOutputConnector(IterateMediatorTargetOutputConnector object) {
 		return null;
 	}
 

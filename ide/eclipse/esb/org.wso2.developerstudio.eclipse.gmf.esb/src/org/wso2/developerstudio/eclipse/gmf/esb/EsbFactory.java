@@ -787,6 +787,24 @@ public interface EsbFactory extends EFactory {
 	EnqueueMediator createEnqueueMediator();
 
 	/**
+	 * Returns a new object of class '<em>Enqueue Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enqueue Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	EnqueueMediatorInputConnector createEnqueueMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Enqueue Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enqueue Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	EnqueueMediatorOutputConnector createEnqueueMediatorOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Class Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1048,6 +1066,24 @@ public interface EsbFactory extends EFactory {
 	CloneMediatorTargetOutputConnector createCloneMediatorTargetOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Clone Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clone Mediator Container</em>'.
+	 * @generated
+	 */
+	CloneMediatorContainer createCloneMediatorContainer();
+
+	/**
+	 * Returns a new object of class '<em>Clone Target Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clone Target Container</em>'.
+	 * @generated
+	 */
+	CloneTargetContainer createCloneTargetContainer();
+
+	/**
 	 * Returns a new object of class '<em>Iterate Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1073,6 +1109,15 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	IterateMediatorOutputConnector createIterateMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Iterate Mediator Target Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Iterate Mediator Target Output Connector</em>'.
+	 * @generated
+	 */
+	IterateMediatorTargetOutputConnector createIterateMediatorTargetOutputConnector();
 
 	/**
 	 * Returns a new object of class '<em>Iterate Target</em>'.

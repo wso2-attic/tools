@@ -144,6 +144,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR: return createEntitlementMediatorInputConnector();
 			case EsbPackage.ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR: return createEntitlementMediatorOutputConnector();
 			case EsbPackage.ENQUEUE_MEDIATOR: return createEnqueueMediator();
+			case EsbPackage.ENQUEUE_MEDIATOR_INPUT_CONNECTOR: return createEnqueueMediatorInputConnector();
+			case EsbPackage.ENQUEUE_MEDIATOR_OUTPUT_CONNECTOR: return createEnqueueMediatorOutputConnector();
 			case EsbPackage.CLASS_MEDIATOR: return createClassMediator();
 			case EsbPackage.CLASS_MEDIATOR_INPUT_CONNECTOR: return createClassMediatorInputConnector();
 			case EsbPackage.CLASS_MEDIATOR_OUTPUT_CONNECTOR: return createClassMediatorOutputConnector();
@@ -173,9 +175,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.CLONE_MEDIATOR_INPUT_CONNECTOR: return createCloneMediatorInputConnector();
 			case EsbPackage.CLONE_MEDIATOR_OUTPUT_CONNECTOR: return createCloneMediatorOutputConnector();
 			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR: return createCloneMediatorTargetOutputConnector();
+			case EsbPackage.CLONE_MEDIATOR_CONTAINER: return createCloneMediatorContainer();
+			case EsbPackage.CLONE_TARGET_CONTAINER: return createCloneTargetContainer();
 			case EsbPackage.ITERATE_MEDIATOR: return createIterateMediator();
 			case EsbPackage.ITERATE_MEDIATOR_INPUT_CONNECTOR: return createIterateMediatorInputConnector();
 			case EsbPackage.ITERATE_MEDIATOR_OUTPUT_CONNECTOR: return createIterateMediatorOutputConnector();
+			case EsbPackage.ITERATE_MEDIATOR_TARGET_OUTPUT_CONNECTOR: return createIterateMediatorTargetOutputConnector();
 			case EsbPackage.ITERATE_TARGET: return createIterateTarget();
 			case EsbPackage.ABSTRACT_COMMON_TARGET: return createAbstractCommonTarget();
 			case EsbPackage.MEDIATOR_SEQUENCE: return createMediatorSequence();
@@ -1495,11 +1500,33 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EnqueueMediator createEnqueueMediator() {
 		EnqueueMediatorImpl enqueueMediator = new EnqueueMediatorImpl();
+		enqueueMediator.setInputConnector(createEnqueueMediatorInputConnector());
+		enqueueMediator.setOutputConnector(createEnqueueMediatorOutputConnector());
 		return enqueueMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnqueueMediatorInputConnector createEnqueueMediatorInputConnector() {
+		EnqueueMediatorInputConnectorImpl enqueueMediatorInputConnector = new EnqueueMediatorInputConnectorImpl();
+		return enqueueMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnqueueMediatorOutputConnector createEnqueueMediatorOutputConnector() {
+		EnqueueMediatorOutputConnectorImpl enqueueMediatorOutputConnector = new EnqueueMediatorOutputConnectorImpl();
+		return enqueueMediatorOutputConnector;
 	}
 
 	/**
@@ -1773,6 +1800,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		CloneMediatorImpl cloneMediator = new CloneMediatorImpl();
 		cloneMediator.setInputConnector(createCloneMediatorInputConnector());
 		cloneMediator.setOutputConnector(createCloneMediatorOutputConnector());
+		cloneMediator.setCloneContainer(createCloneMediatorContainer());
 		return cloneMediator;
 	}
 
@@ -1809,12 +1837,35 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloneMediatorContainer createCloneMediatorContainer() {
+		CloneMediatorContainerImpl cloneMediatorContainer = new CloneMediatorContainerImpl();
+		return cloneMediatorContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public CloneTargetContainer createCloneTargetContainer() {
+		CloneTargetContainerImpl cloneTargetContainer = new CloneTargetContainerImpl();
+		cloneTargetContainer.setMediatorFlow(createMediatorFlow());
+		return cloneTargetContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public IterateMediator createIterateMediator() {
 		IterateMediatorImpl iterateMediator = new IterateMediatorImpl();
 		iterateMediator.setInputConnector(createIterateMediatorInputConnector());
 		iterateMediator.setOutputConnector(createIterateMediatorOutputConnector());
+		iterateMediator.setTargetOutputConnector(createIterateMediatorTargetOutputConnector());
+		iterateMediator.setMediatorFlow(createMediatorFlow());
 		return iterateMediator;
 	}
 
@@ -1836,6 +1887,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public IterateMediatorOutputConnector createIterateMediatorOutputConnector() {
 		IterateMediatorOutputConnectorImpl iterateMediatorOutputConnector = new IterateMediatorOutputConnectorImpl();
 		return iterateMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IterateMediatorTargetOutputConnector createIterateMediatorTargetOutputConnector() {
+		IterateMediatorTargetOutputConnectorImpl iterateMediatorTargetOutputConnector = new IterateMediatorTargetOutputConnectorImpl();
+		return iterateMediatorTargetOutputConnector;
 	}
 
 	/**

@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getExecutor <em>Executor</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getSequenceKey <em>Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +107,57 @@ public interface EnqueueMediator extends Mediator {
 	 * @generated
 	 */
 	void setSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Connector</em>' containment reference.
+	 * @see #setInputConnector(EnqueueMediatorInputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEnqueueMediator_InputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EnqueueMediatorInputConnector getInputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getInputConnector <em>Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Input Connector</em>' containment reference.
+	 * @see #getInputConnector()
+	 * @generated
+	 */
+	void setInputConnector(EnqueueMediatorInputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Connector</em>' containment reference.
+	 * @see #setOutputConnector(EnqueueMediatorOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEnqueueMediator_OutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EnqueueMediatorOutputConnector getOutputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator#getOutputConnector <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Connector</em>' containment reference.
+	 * @see #getOutputConnector()
+	 * @generated
+	 */
+	void setOutputConnector(EnqueueMediatorOutputConnector value);
 
 } // EnqueueMediator

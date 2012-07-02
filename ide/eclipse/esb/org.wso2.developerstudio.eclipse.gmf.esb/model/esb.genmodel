@@ -707,7 +707,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnqueueMediator/executor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnqueueMediator/priority"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnqueueMediator/sequenceKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnqueueMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnqueueMediator/outputConnector"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EnqueueMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EnqueueMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ClassMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ClassMediator/className"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference esb.ecore#//ClassMediator/properties"/>
@@ -809,12 +813,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/targetsOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/cloneContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloneMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloneMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloneMediatorTargetOutputConnector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediatorTargetOutputConnector/soapAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediatorTargetOutputConnector/toAddress"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloneMediatorContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediatorContainer/cloneTargetContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloneTargetContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneTargetContainer/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//IterateMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//IterateMediator/iterateID"/>
@@ -826,9 +837,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/target"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/targetOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//IterateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//IterateMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//IterateMediatorTargetOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//IterateTarget">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//IterateTarget/soapAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//IterateTarget/toAddress"/>

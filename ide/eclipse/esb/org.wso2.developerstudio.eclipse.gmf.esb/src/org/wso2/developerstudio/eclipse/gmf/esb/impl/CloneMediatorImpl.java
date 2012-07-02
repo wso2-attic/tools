@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
@@ -41,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getTargetsOutputConnector <em>Targets Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getCloneContainer <em>Clone Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,6 +138,16 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @ordered
 	 */
 	protected CloneMediatorOutputConnector outputConnector;
+
+	/**
+	 * The cached value of the '{@link #getCloneContainer() <em>Clone Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCloneContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected CloneMediatorContainer cloneContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +335,49 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CloneMediatorContainer getCloneContainer() {
+		return cloneContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCloneContainer(CloneMediatorContainer newCloneContainer, NotificationChain msgs) {
+		CloneMediatorContainer oldCloneContainer = cloneContainer;
+		cloneContainer = newCloneContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER, oldCloneContainer, newCloneContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCloneContainer(CloneMediatorContainer newCloneContainer) {
+		if (newCloneContainer != cloneContainer) {
+			NotificationChain msgs = null;
+			if (cloneContainer != null)
+				msgs = ((InternalEObject)cloneContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER, null, msgs);
+			if (newCloneContainer != null)
+				msgs = ((InternalEObject)newCloneContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER, null, msgs);
+			msgs = basicSetCloneContainer(newCloneContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER, newCloneContainer, newCloneContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -333,6 +388,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
+				return basicSetCloneContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -358,6 +415,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return getInputConnector();
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
+				return getCloneContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,6 +450,9 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CloneMediatorOutputConnector)newValue);
 				return;
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
+				setCloneContainer((CloneMediatorContainer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -422,6 +484,9 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CloneMediatorOutputConnector)null);
 				return;
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
+				setCloneContainer((CloneMediatorContainer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -447,6 +512,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return inputConnector != null;
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
+				return cloneContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

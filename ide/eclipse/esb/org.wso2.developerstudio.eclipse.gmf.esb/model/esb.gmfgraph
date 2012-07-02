@@ -675,7 +675,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CloneMediatorGraphicalFigure"
-          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CloneMediatorGraphicalShape">
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1246,6 +1246,56 @@
       <accessors
           accessor="getFigurePayloadFactoryMediatorPropertyValue"
           figure="//@figures.0/@descriptors.70/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EnqueueMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="EnqueueMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnqueueMediatorPropertyValue"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureEnqueueMediatorPropertyValue"
+          figure="//@figures.0/@descriptors.71/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="CloneMediatorContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CloneMediatorContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="CloneTargetContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CloneTargetContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
     </descriptors>
   </figures>
   <nodes
@@ -1861,6 +1911,27 @@
       affixedParentSide="WEST"/>
   <nodes
       name="PayloadFactoryMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="EnqueueMediator"
+      figure="EnqueueMediatorFigure"/>
+  <nodes
+      name="EnqueueMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EnqueueMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="CloneMediatorContainer"
+      figure="CloneMediatorContainerFigure"/>
+  <nodes
+      name="CloneTargetContainer"
+      figure="CloneTargetContainerFigure"/>
+  <nodes
+      name="IterateMediatorTargetOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
   <connections

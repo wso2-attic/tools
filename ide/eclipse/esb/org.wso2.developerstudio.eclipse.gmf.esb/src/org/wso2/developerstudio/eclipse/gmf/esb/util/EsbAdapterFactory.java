@@ -457,6 +457,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createEnqueueMediatorAdapter();
 			}
 			@Override
+			public Adapter caseEnqueueMediatorInputConnector(EnqueueMediatorInputConnector object) {
+				return createEnqueueMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEnqueueMediatorOutputConnector(EnqueueMediatorOutputConnector object) {
+				return createEnqueueMediatorOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseClassMediator(ClassMediator object) {
 				return createClassMediatorAdapter();
 			}
@@ -573,6 +581,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createCloneMediatorTargetOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseCloneMediatorContainer(CloneMediatorContainer object) {
+				return createCloneMediatorContainerAdapter();
+			}
+			@Override
+			public Adapter caseCloneTargetContainer(CloneTargetContainer object) {
+				return createCloneTargetContainerAdapter();
+			}
+			@Override
 			public Adapter caseIterateMediator(IterateMediator object) {
 				return createIterateMediatorAdapter();
 			}
@@ -583,6 +599,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIterateMediatorOutputConnector(IterateMediatorOutputConnector object) {
 				return createIterateMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseIterateMediatorTargetOutputConnector(IterateMediatorTargetOutputConnector object) {
+				return createIterateMediatorTargetOutputConnectorAdapter();
 			}
 			@Override
 			public Adapter caseIterateTarget(IterateTarget object) {
@@ -2386,6 +2406,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorInputConnector <em>Enqueue Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createEnqueueMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorOutputConnector <em>Enqueue Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createEnqueueMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator <em>Class Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2792,6 +2840,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer <em>Clone Mediator Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer
+	 * @generated
+	 */
+	public Adapter createCloneMediatorContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer <em>Clone Target Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer
+	 * @generated
+	 */
+	public Adapter createCloneTargetContainerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator <em>Iterate Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2830,6 +2906,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIterateMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector <em>Iterate Mediator Target Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector
+	 * @generated
+	 */
+	public Adapter createIterateMediatorTargetOutputConnectorAdapter() {
 		return null;
 	}
 
