@@ -2046,6 +2046,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnqueueMediatorInputConnectorItemProvider enqueueMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnqueueMediatorInputConnectorAdapter() {
+		if (enqueueMediatorInputConnectorItemProvider == null) {
+			enqueueMediatorInputConnectorItemProvider = new EnqueueMediatorInputConnectorItemProvider(this);
+		}
+
+		return enqueueMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnqueueMediatorOutputConnectorItemProvider enqueueMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnqueueMediatorOutputConnectorAdapter() {
+		if (enqueueMediatorOutputConnectorItemProvider == null) {
+			enqueueMediatorOutputConnectorItemProvider = new EnqueueMediatorOutputConnectorItemProvider(this);
+		}
+
+		return enqueueMediatorOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2736,6 +2782,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloneMediatorContainerItemProvider cloneMediatorContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloneMediatorContainerAdapter() {
+		if (cloneMediatorContainerItemProvider == null) {
+			cloneMediatorContainerItemProvider = new CloneMediatorContainerItemProvider(this);
+		}
+
+		return cloneMediatorContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloneTargetContainerItemProvider cloneTargetContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloneTargetContainerAdapter() {
+		if (cloneTargetContainerItemProvider == null) {
+			cloneTargetContainerItemProvider = new CloneTargetContainerItemProvider(this);
+		}
+
+		return cloneTargetContainerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2803,6 +2895,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return iterateMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IterateMediatorTargetOutputConnectorItemProvider iterateMediatorTargetOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIterateMediatorTargetOutputConnectorAdapter() {
+		if (iterateMediatorTargetOutputConnectorItemProvider == null) {
+			iterateMediatorTargetOutputConnectorItemProvider = new IterateMediatorTargetOutputConnectorItemProvider(this);
+		}
+
+		return iterateMediatorTargetOutputConnectorItemProvider;
 	}
 
 	/**
@@ -5527,6 +5642,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (entitlementMediatorInputConnectorItemProvider != null) entitlementMediatorInputConnectorItemProvider.dispose();
 		if (entitlementMediatorOutputConnectorItemProvider != null) entitlementMediatorOutputConnectorItemProvider.dispose();
 		if (enqueueMediatorItemProvider != null) enqueueMediatorItemProvider.dispose();
+		if (enqueueMediatorInputConnectorItemProvider != null) enqueueMediatorInputConnectorItemProvider.dispose();
+		if (enqueueMediatorOutputConnectorItemProvider != null) enqueueMediatorOutputConnectorItemProvider.dispose();
 		if (classMediatorItemProvider != null) classMediatorItemProvider.dispose();
 		if (classMediatorInputConnectorItemProvider != null) classMediatorInputConnectorItemProvider.dispose();
 		if (classMediatorOutputConnectorItemProvider != null) classMediatorOutputConnectorItemProvider.dispose();
@@ -5556,9 +5673,12 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (cloneMediatorInputConnectorItemProvider != null) cloneMediatorInputConnectorItemProvider.dispose();
 		if (cloneMediatorOutputConnectorItemProvider != null) cloneMediatorOutputConnectorItemProvider.dispose();
 		if (cloneMediatorTargetOutputConnectorItemProvider != null) cloneMediatorTargetOutputConnectorItemProvider.dispose();
+		if (cloneMediatorContainerItemProvider != null) cloneMediatorContainerItemProvider.dispose();
+		if (cloneTargetContainerItemProvider != null) cloneTargetContainerItemProvider.dispose();
 		if (iterateMediatorItemProvider != null) iterateMediatorItemProvider.dispose();
 		if (iterateMediatorInputConnectorItemProvider != null) iterateMediatorInputConnectorItemProvider.dispose();
 		if (iterateMediatorOutputConnectorItemProvider != null) iterateMediatorOutputConnectorItemProvider.dispose();
+		if (iterateMediatorTargetOutputConnectorItemProvider != null) iterateMediatorTargetOutputConnectorItemProvider.dispose();
 		if (iterateTargetItemProvider != null) iterateTargetItemProvider.dispose();
 		if (abstractCommonTargetItemProvider != null) abstractCommonTargetItemProvider.dispose();
 		if (mediatorSequenceItemProvider != null) mediatorSequenceItemProvider.dispose();

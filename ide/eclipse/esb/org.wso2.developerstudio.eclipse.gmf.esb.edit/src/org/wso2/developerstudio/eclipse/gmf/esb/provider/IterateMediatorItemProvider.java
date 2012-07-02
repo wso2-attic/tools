@@ -247,6 +247,8 @@ public class IterateMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.ITERATE_MEDIATOR__TARGET);
 			childrenFeatures.add(EsbPackage.Literals.ITERATE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ITERATE_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ITERATE_MEDIATOR__TARGET_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ITERATE_MEDIATOR__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -314,6 +316,8 @@ public class IterateMediatorItemProvider
 			case EsbPackage.ITERATE_MEDIATOR__TARGET:
 			case EsbPackage.ITERATE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.ITERATE_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.ITERATE_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
+			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -356,6 +360,16 @@ public class IterateMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ITERATE_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createIterateMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ITERATE_MEDIATOR__TARGET_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createIterateMediatorTargetOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ITERATE_MEDIATOR__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 	/**

@@ -15,28 +15,26 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnqueueMediatorItemProvider
-	extends MediatorItemProvider
+public class CloneMediatorContainerItemProvider
+	extends EsbNodeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +47,7 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnqueueMediatorItemProvider(AdapterFactory adapterFactory) {
+	public CloneMediatorContainerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,60 +57,13 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExecutorPropertyDescriptor(object);
-			addPriorityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Executor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExecutorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnqueueMediator_executor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_executor_feature", "_UI_EnqueueMediator_type"),
-				 EsbPackage.Literals.ENQUEUE_MEDIATOR__EXECUTOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Priority feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPriorityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnqueueMediator_priority_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_priority_feature", "_UI_EnqueueMediator_type"),
-				 EsbPackage.Literals.ENQUEUE_MEDIATOR__PRIORITY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -123,14 +74,11 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.ENQUEUE_MEDIATOR__SEQUENCE_KEY);
-			childrenFeatures.add(EsbPackage.Literals.ENQUEUE_MEDIATOR__INPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.ENQUEUE_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR_CONTAINER__CLONE_TARGET_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +88,6 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
@@ -150,15 +97,14 @@ public class EnqueueMediatorItemProvider
 	}
 
 	/**
-	 * This returns EnqueueMediator.gif.
+	 * This returns CloneMediatorContainer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnqueueMediator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CloneMediatorContainer"));
 	}
 
 	/**
@@ -167,11 +113,9 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String getText(Object object) {
-		EnqueueMediator enqueueMediator = (EnqueueMediator)object;
-		return getString("_UI_EnqueueMediator_type") + " " + enqueueMediator.isReverse();
+		return getString("_UI_CloneMediatorContainer_type");
 	}
 
 	/**
@@ -181,19 +125,12 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EnqueueMediator.class)) {
-			case EsbPackage.ENQUEUE_MEDIATOR__EXECUTOR:
-			case EsbPackage.ENQUEUE_MEDIATOR__PRIORITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case EsbPackage.ENQUEUE_MEDIATOR__SEQUENCE_KEY:
-			case EsbPackage.ENQUEUE_MEDIATOR__INPUT_CONNECTOR:
-			case EsbPackage.ENQUEUE_MEDIATOR__OUTPUT_CONNECTOR:
+		switch (notification.getFeatureID(CloneMediatorContainer.class)) {
+			case EsbPackage.CLONE_MEDIATOR_CONTAINER__CLONE_TARGET_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -207,25 +144,14 @@ public class EnqueueMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.ENQUEUE_MEDIATOR__SEQUENCE_KEY,
-				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENQUEUE_MEDIATOR__INPUT_CONNECTOR,
-				 EsbFactory.eINSTANCE.createEnqueueMediatorInputConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENQUEUE_MEDIATOR__OUTPUT_CONNECTOR,
-				 EsbFactory.eINSTANCE.createEnqueueMediatorOutputConnector()));
+				(EsbPackage.Literals.CLONE_MEDIATOR_CONTAINER__CLONE_TARGET_CONTAINER,
+				 EsbFactory.eINSTANCE.createCloneTargetContainer()));
 	}
 
 }

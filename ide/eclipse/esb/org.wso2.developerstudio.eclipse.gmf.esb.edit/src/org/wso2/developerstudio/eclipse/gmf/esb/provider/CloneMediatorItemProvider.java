@@ -154,6 +154,7 @@ public class CloneMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__CLONE_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -218,6 +219,7 @@ public class CloneMediatorItemProvider
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 			case EsbPackage.CLONE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.CLONE_MEDIATOR__CLONE_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -250,6 +252,11 @@ public class CloneMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.CLONE_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createCloneMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CLONE_MEDIATOR__CLONE_CONTAINER,
+				 EsbFactory.eINSTANCE.createCloneMediatorContainer()));
 	}
 
 }
