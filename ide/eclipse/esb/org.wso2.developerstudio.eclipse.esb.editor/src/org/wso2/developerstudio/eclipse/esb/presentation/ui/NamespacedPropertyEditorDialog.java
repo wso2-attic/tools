@@ -21,8 +21,15 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.xml.xpath.XPathExpressionException;
+
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.jface.fieldassist.ControlDecoration;
+import org.eclipse.jface.fieldassist.FieldDecoration;
+import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FormAttachment;
@@ -39,6 +46,7 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.wst.xml.xpath.core.util.XSLTXPathHelper;
 import org.wso2.developerstudio.eclipse.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 
@@ -216,6 +224,10 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 			textFieldLayoutData.top = new FormAttachment(selectXpathButton, 0, SWT.CENTER);
 			textFieldLayoutData.left = new FormAttachment(0);			
 			propertyTextField.setLayoutData(textFieldLayoutData);
+			ControlDecoration decoration = crateControlDecoration(propertyTextField);
+			decoration.setDescriptionText("Invalid Xpath expression!");
+			decoration.hide();
+			addModifyListnerForPropertyTextField(decoration);
 		}
 		
 		// OK button.
@@ -388,6 +400,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 			}
 		});
 		
+				
 		addButton.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
 				String prefix = nsPrefixTextField.getText();
@@ -513,4 +526,51 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	public boolean isSaved() {
 		return saved;
 	}
+	
+	private void addModifyListnerForPropertyTextField(final ControlDecoration decoration){
+		
+		propertyTextField.addModifyListener(new ModifyListener() {
+			
+			public void modifyText(ModifyEvent e) {
+				if(isValidXPathExpression(propertyTextField.getText())){
+					
+					okButton.setEnabled(true);
+					decoration.hide();
+					
+				}else{
+					
+					okButton.setEnabled(false);
+					decoration.show();
+				}
+				
+			}
+		});
+				
+	}
+	
+	private boolean isValidXPathExpression(String expression){
+		boolean isValid = true;
+		try {
+			
+			XSLTXPathHelper.compile(expression);
+			
+		} catch (XPathExpressionException e) {
+			
+			isValid = false;
+		}
+		
+		return isValid;
+	}
+	
+	private  ControlDecoration crateControlDecoration(Text dtxt){
+		
+		ControlDecoration controlDecoration = new ControlDecoration(dtxt, SWT.LEFT | SWT.TOP);
+			
+		FieldDecoration fieldDecoration = FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_ERROR);
+			
+		controlDecoration.setImage(fieldDecoration.getImage());
+	
+		return controlDecoration;
+	}
+
 }
