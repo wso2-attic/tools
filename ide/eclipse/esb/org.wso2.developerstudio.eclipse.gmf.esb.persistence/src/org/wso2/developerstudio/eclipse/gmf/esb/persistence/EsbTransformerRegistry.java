@@ -15,41 +15,37 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.synapse.endpoints.FailoverEndpoint;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
@@ -57,21 +53,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddressEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AggregateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CacheMediatorTransformer;
@@ -81,8 +69,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloneMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CommandMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBLookupMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBReportMediatorTransformer;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DropMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DefaultEndPointTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DropMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EnqueueMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EnrichMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EntitlementMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EventMediatorTransformer;
@@ -95,6 +84,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LoadBalance
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LogMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.MessageMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.OAuthMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PayloadFactoryMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PropertyMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ProxyServiceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RMSequenceMediatorTransformer;
@@ -104,6 +94,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SendMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SequenceMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SmooksMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SpringMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.StoreMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SwitchMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ThrottleMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.TransactionMediatorTransformer;
@@ -168,6 +159,9 @@ public class EsbTransformerRegistry {
 		addTransformer(SmooksMediator.class, new SmooksMediatorTransformer());
 		addTransformer(EntitlementMediator.class, new EntitlementMediatorTransformer());
 		addTransformer(CommandMediator.class, new CommandMediatorTransformer());
+		addTransformer(StoreMediator.class, new StoreMediatorTransformer());
+		addTransformer(EnqueueMediator.class, new EnqueueMediatorTransformer());
+		addTransformer(PayloadFactoryMediator.class, new PayloadFactoryMediatorTransformer());
 		
 	}
 	
