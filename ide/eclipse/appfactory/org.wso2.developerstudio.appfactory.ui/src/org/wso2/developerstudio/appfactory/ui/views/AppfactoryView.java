@@ -96,13 +96,22 @@ public class AppfactoryView extends ViewPart {
 		};
 		loginAction.setText("login");
 		
-		checkoutAction = new Action("checkout") {
+		checkoutAction = new Action("checkout",
+				ImageDescriptor.createFromImage(SWTResourceManager
+						.getImage(this.getClass(),
+								"/icons/svn-co.png"))) {
 		};
 		checkoutAction.setText("Checkout");
-		deployToDevAction = new Action("deployToDev") {
+		deployToDevAction = new Action("deployToDev",
+				ImageDescriptor.createFromImage(SWTResourceManager
+						.getImage(this.getClass(),
+								"/icons/deploy.png"))) {
 		};
 		deployToDevAction.setText("Deploy to Development");
-		deploytoLiveAction = new Action("deploytoLive") {
+		deploytoLiveAction = new Action("deploytoLive",
+				ImageDescriptor.createFromImage(SWTResourceManager
+						.getImage(this.getClass(),
+								"/icons/deploy.png"))) {
 		};
 		deploytoLiveAction.setText("Deploy to Development");
 		
