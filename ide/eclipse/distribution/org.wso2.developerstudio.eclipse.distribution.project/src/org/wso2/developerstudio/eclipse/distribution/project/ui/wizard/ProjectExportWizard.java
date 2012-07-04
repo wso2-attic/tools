@@ -66,7 +66,6 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 		try {
 			if(project.hasNature(Constants.AXIS2_PROJECT_NATURE) ||
 					   project.hasNature(Constants.BPEL_PROJECT_NATURE) ||
-					   project.hasNature(Constants.DS_PROJECT_NATURE) ||
 					   project.hasNature(Constants.DS_VALIDATOR_PROJECT_NATURE) ||
 					   project.hasNature(Constants.JAXWS_PROJECT_NATURE) ||
 					   project.hasNature(Constants.WEBAPP_PROJECT_NATURE) ||
@@ -83,9 +82,9 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 				exportNonArchivable(project,GENERAL_PROJECT);
 			}
 		} catch (Exception e) {
+			log.error("An error occured while creating the archive file", e);
 			exportMsg
-					.setMessage("Error occurred while exporting the archive :\n"
-							+ e.getMessage());
+					.setMessage("An error occured while creating the archive file. For more details view the log.");
 			exportMsg.open();
 		}
 		setSessionProperty();

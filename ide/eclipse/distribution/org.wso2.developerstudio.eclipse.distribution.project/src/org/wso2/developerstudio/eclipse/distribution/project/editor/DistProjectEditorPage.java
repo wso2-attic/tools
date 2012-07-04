@@ -757,7 +757,8 @@ public class DistProjectEditorPage extends FormPage {
 				FileUtils.copy(CarbonArchive.getLocation().toFile(), destFileName);
 			}	 
 		} catch (Exception e) {
-			exportMsg.setMessage("Error occurred while exporting the archive :\n" + e.getMessage());
+			log.error("An error occured while creating the carbon archive file", e);
+			exportMsg.setMessage("An error occured while creating the carbon archive file. For more details view the log");
 			exportMsg.open();
 		}
 	}

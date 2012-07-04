@@ -163,7 +163,6 @@ public class ExportDetailsWizardPage extends WizardPage {
 					if(project.isOpen()){
 						if(project.hasNature(Constants.AXIS2_PROJECT_NATURE) ||
 						   project.hasNature(Constants.BPEL_PROJECT_NATURE) ||
-						   project.hasNature(Constants.DS_PROJECT_NATURE) ||
 						   project.hasNature(Constants.DS_VALIDATOR_PROJECT_NATURE) ||
 						   project.hasNature(Constants.JAXWS_PROJECT_NATURE) ||
 						   project.hasNature(Constants.WEBAPP_PROJECT_NATURE) ||
@@ -173,7 +172,6 @@ public class ExportDetailsWizardPage extends WizardPage {
 						   project.hasNature(Constants.REGISTRY_FILTER_PROJECT_NATURE) ||
 						   project.hasNature(Constants.REGISTRY_HANDLER_PROJECT_NATURE) ||
 						   project.hasNature(Constants.ESB_PROJECT_NATURE) ||
-						   project.hasNature(Constants.GENERAL_PROJECT_NATURE) ||
 						   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)){
 							cmbProjects.add(project.getName());
 							cmbProjects.setData(project.getName(), project);
