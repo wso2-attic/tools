@@ -22,9 +22,10 @@ import java.util.Map;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.SafeRunner;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 /**
  * Carbon application export utility 
@@ -33,7 +34,8 @@ import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArti
 public class ExportUtil {
 	private static final String EXT_POINT_ID = "org.wso2.developerstudio.eclipse.project.export.handler";
 	private static Map<String,IConfigurationElement> handlers = new HashMap<String,IConfigurationElement>();
-
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	static {
 		try {
 			IConfigurationElement[] config = Platform.getExtensionRegistry()
@@ -43,11 +45,15 @@ public class ExportUtil {
 				if(null!=type) {
 					if(!handlers.containsKey(type)) { // ignoring multiple handlers with same CApp type 
 						handlers.put(type, handlerConf);
+					} else{
+						log.warn("CApp type \"" + type +"\" is already registered with another handler");
 					}
+				} else{
+					log.warn("Ignoring export-handler with CApp type unknown");
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error obtaining export-handler extensions configuration", e);
 		}
 	}
 	/**
@@ -71,18 +77,8 @@ public class ExportUtil {
 				IConfigurationElement handlerConf = getHandlers().get(cAppType);
 				final Object o = handlerConf.createExecutableExtension("class");
 				if (o instanceof ProjectArtifactHandler) {
-					ISafeRunnable runnable = new ISafeRunnable() {
-
-						public void handleException(Throwable exception) {
-
-						}
-
-						public void run() throws Exception {
-							exportResources.addAll(((ProjectArtifactHandler) o)
-									.exportArtifact(project));
-						}
-					};
-					SafeRunner.run(runnable);
+					exportResources.addAll(((ProjectArtifactHandler) o)
+							.exportArtifact(project));
 				}
 			} else {
 				throw new Exception("Can't find export handler for " + cAppType);
