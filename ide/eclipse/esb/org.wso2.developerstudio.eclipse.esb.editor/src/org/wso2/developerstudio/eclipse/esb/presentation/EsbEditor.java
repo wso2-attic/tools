@@ -1114,9 +1114,12 @@ public class EsbEditor extends MultiPageEditorPart implements
 					
 					public void selectionChanged(SelectionChangedEvent e) {
 						try {
-							ISelection iSelection = e.getSelection();
-							setSelection(iSelection);
-							iDoubleClickListener.doubleClick(new DoubleClickEvent(treeViewer, iSelection));
+							if (DESIGN_VIEW_PAGE_INDEX == getActivePage()) {
+								ISelection iSelection = e.getSelection();
+								setSelection(iSelection);
+								iDoubleClickListener.doubleClick(new DoubleClickEvent(treeViewer,
+										iSelection));
+							}
 				        } catch (Exception ex) {/* ignore*/}
 						
 					}
