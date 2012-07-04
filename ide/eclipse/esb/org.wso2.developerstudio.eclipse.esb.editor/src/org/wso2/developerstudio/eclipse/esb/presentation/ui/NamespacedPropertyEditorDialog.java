@@ -155,6 +155,47 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	private boolean saved;
 	
 	/**
+	 * Regex pattern used to identify a get-property() .
+	 */
+	
+	private static final Pattern getPropertyPattern = Pattern.compile("get-property\\((.*?)\\)");
+	
+	/**
+	 * Regex pattern used to identify a base64Encode() .
+	 */
+	
+	private static final Pattern base64EncodePattern = Pattern.compile("base64Encode\\((.*?)\\)");
+	
+	/**
+	 * Regex pattern used to identify a $axis2.
+	 */
+	
+	private static final Pattern axis2var = Pattern.compile("\\$axis2:(.*?)");
+	
+	/**
+	 * Regex pattern used to identify a $trp.
+	 */
+	
+	private static final Pattern trpvar = Pattern.compile("\\$trp:(.*?)");
+	
+	/**
+	 * Regex pattern used to identify a $ctx.
+	 */
+	
+	private static final Pattern ctxVar = Pattern.compile("\\$ctx:(.*?)");
+	
+	/**
+	 * Regex pattern used to identify a $url
+	 */
+	
+	private static final Pattern urlVar = Pattern.compile("\\$url:(.*?)");
+	
+	/**
+	 * array containing patterns
+	 */
+	private Pattern [] xPathPatternArr = {getPropertyPattern,base64EncodePattern,axis2var,trpvar,ctxVar,urlVar};
+	
+	/**
 	 * Constructs a new dialog.
 	 * 
 	 * @param parent parent shell.
@@ -549,17 +590,29 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	}
 	
 	private boolean isValidXPathExpression(String expression){
-		boolean isValid = true;
+		
+        for(int i = 0 ; i < xPathPatternArr.length ; i++){
+        	
+        	 Matcher matcher = xPathPatternArr[i].matcher(expression);
+        	 
+        	 if(matcher.find()){
+        		 
+        		 return true;
+        	 }
+        }
+		
 		try {
 			
 			XSLTXPathHelper.compile(expression);
 			
+			return true;
+			
 		} catch (XPathExpressionException e) {
 			
-			isValid = false;
+			return false;
 		}
 		
-		return isValid;
+		
 	}
 	
 	private  ControlDecoration crateControlDecoration(Text dtxt){
