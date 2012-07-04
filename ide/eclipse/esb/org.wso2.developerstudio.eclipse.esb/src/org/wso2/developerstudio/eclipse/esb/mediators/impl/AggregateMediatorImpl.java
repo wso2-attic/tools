@@ -259,7 +259,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 		case ESB400:
 
 			// ID
-			if(getAggregateID()!=""){
+			//Fixing TOOLS-1137
+			if(getAggregateID()!=null){
 				self.setAttribute("id",getAggregateID());
 			}
 
