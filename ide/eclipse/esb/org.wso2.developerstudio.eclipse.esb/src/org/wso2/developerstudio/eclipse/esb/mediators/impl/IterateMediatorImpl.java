@@ -275,7 +275,7 @@ public class IterateMediatorImpl extends MediatorImpl implements
 			break;
 		case ESB400:
 			// ID
-			if (getIterateID() != "") {
+			if (getIterateID() != null) {
 				self.setAttribute("id", getIterateID());
 			}
 			// Sequential Mediation

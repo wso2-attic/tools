@@ -187,7 +187,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			if (isSequentialMediation()) {
 				self.setAttribute("sequential", "true");
 			}
-			if (getCloneID() != "") {
+			if (getCloneID() != null) {
 				self.setAttribute("id", getCloneID());
 			}
 			if(description!=null)
