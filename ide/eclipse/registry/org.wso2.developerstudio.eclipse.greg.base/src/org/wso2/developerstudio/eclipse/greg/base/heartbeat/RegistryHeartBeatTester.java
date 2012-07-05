@@ -43,11 +43,14 @@ public class RegistryHeartBeatTester implements Runnable {
 		while(!isStop()){
 			List<RegistryNode> urlInfoList = urlNodeList.getUrlInfoList();
 			boolean registryEnabledStateChanged=false;
-			int i=0;
-			while (i<urlInfoList.size()) {
-				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(urlInfoList.get(i));
-				i++;
-            }
+			int index=0;
+			while (urlInfoList.size()<index) {
+				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(urlInfoList.get(index));
+				index++;
+			}
+//			for (RegistryNode registryNode : urlInfoList) {
+//				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(registryNode);
+//			}
 			if (registryEnabledStateChanged) {
 				Display.getDefault().asyncExec(new Runnable() {
 					public void run() {
@@ -66,6 +69,7 @@ public class RegistryHeartBeatTester implements Runnable {
 	private boolean validateRegistryNode(RegistryNode registryNode) {
 		boolean registryEnabledStateChanged=false;
 		boolean currentEnableState = registryNode.isEnabled();
+		if(registryNode.isUserEnabled()){
 		if (currentEnableState || !originalState.containsKey(registryNode)){
 			originalState.put(registryNode, currentEnableState);
 		}
@@ -92,6 +96,8 @@ public class RegistryHeartBeatTester implements Runnable {
 				registryNode.setIterativeRefresh(true);
 			}
 			registryEnabledStateChanged=true;
+		}
+		
 		}
 		return registryEnabledStateChanged;
 	}

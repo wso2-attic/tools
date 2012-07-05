@@ -293,12 +293,12 @@ public class FileUtils {
 	public static List<File> getAllFilesPresentInFolder(File srcPath) {
 		List<File> fileList = new ArrayList<File>();
 		if (srcPath.isDirectory()) {
-			if (!excludeList.contains(srcPath.getName())) {
-	            String files[] = srcPath.list();
+		if (!excludeList.contains(srcPath.getName())) {
+		    String files[] = srcPath.list();
 	            for (int i = 0; i < files.length; i++) {
 		            fileList.addAll(getAllFilesPresentInFolder(new File(srcPath, files[i])));
 	            }
-            }
+            	}
 		} else {
 			fileList.add(srcPath);
 		}

@@ -329,8 +329,9 @@ public class ResourceInfoViewer extends ViewPart implements
 		}
 		else return "";
 	}
+
 	public void updateMe(WSResourceData wsResourceData) throws InvalidRegistryURLException, UnknownRegistryException {
-	    updateInfo(wsResourceData);
+	        updateInfo(wsResourceData);
 		decideToolBarButtons();
 	}
 

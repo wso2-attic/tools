@@ -24,7 +24,7 @@ public class ExceptionHandler {
 	public boolean showMessage(Shell parentShell, String message) {
 		MessageBox messageBox = new MessageBox(parentShell, SWT.OK);
 		messageBox.setMessage(message);
-		messageBox.setText("Add User Operation Failed");
+		messageBox.setText("Operation Failed");
 		messageBox.open();
 		return false;
 	}

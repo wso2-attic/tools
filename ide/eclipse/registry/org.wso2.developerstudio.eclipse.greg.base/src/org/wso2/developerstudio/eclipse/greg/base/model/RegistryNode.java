@@ -38,6 +38,7 @@ public class RegistryNode {
 	private ResourceAdmin resourceAdmin;
 	private boolean connectionValid=false;
 	private boolean enabled=true;
+	private boolean userEnabled=true;
 	private boolean isFirstTimeEnableAccess=true;
 	
 	/**
@@ -261,9 +262,18 @@ public class RegistryNode {
 	public boolean isEnabled() {
 		if (isFirstTimeEnableAccess){
 			enabled=registryUrlInfo.isEnabled();
+			setUserEnabled(enabled);
 			isFirstTimeEnableAccess=false;
 		}
 		return enabled;
+	}
+
+	public void setUserEnabled(boolean userEnabled) {
+		this.userEnabled = userEnabled;
+	}
+
+	public boolean isUserEnabled() {
+		return userEnabled;
 	}
 
 	/**
@@ -358,17 +368,18 @@ public class RegistryNode {
 	public String getServerUrl() {
 		URL url = getUrl();
 		StringBuffer sb=new StringBuffer();
-		sb.append(url.getProtocol()).append("://").append(url.getHost()).append(":").append(url.getPort()).append("/");
+	    sb.append(url.toString().replaceAll("/$","").concat("/").replaceAll("/carbon/","/"));
+		/*sb.append(url.getProtocol()).append("://").append(url.getHost()).append(":").append(url.getPort()).append("/");
 		String[] pathSegments = url.getPath().split("/");
 		for (int i = 0; i < pathSegments.length - 1; i++) {
 			String pathSegment = pathSegments[i];
 			if (!pathSegment.trim().equalsIgnoreCase("")){
 				sb.append(pathSegment).append("/");
 			}
-		}
+		} */
 		return sb.toString();
 	}
-
+	
 	public void setConnectionValid(boolean connectionValid) {
 		if (!this.connectionValid && connectionValid){
 			this.connectionValid = connectionValid;

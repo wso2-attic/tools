@@ -98,7 +98,7 @@ public class Registry {
 	public Registry(String userName, String pwd, String serverUrl) {
 		this.userName = userName;
 		this.passwd = pwd;
-		this.serverUrl = serverUrl.replaceAll("/$","").concat("/");
+		this.serverUrl = serverUrl.replaceAll("/$","");
 		
 		init();
 	}
@@ -192,15 +192,14 @@ public class Registry {
 	 * @throws UnknownRegistryException
 	 */
 	private org.wso2.carbon.registry.core.Registry getRemoteRegistry()
-	                                                                  throws InvalidRegistryURLException,
-	                                                                  UnknownRegistryException {
+			throws InvalidRegistryURLException, UnknownRegistryException {
 		try {
 			URL url = new URL(serverUrl + REMOTE_REGISTRY_URL);
 
 			if (propertyFile.exists()) {
-				Object sessionProperty =
-				                         propertyFile.getSessionProperty(new QualifiedName("",
-				                                                                    url.toString()));
+				Object sessionProperty = propertyFile
+						.getSessionProperty(new QualifiedName("", url
+								.toString()));
 				if (sessionProperty != null) {
 					return (org.wso2.carbon.registry.core.Registry) sessionProperty;
 				}
@@ -208,7 +207,8 @@ public class Registry {
 			registryInit();
 			remregistry = new RemoteRegistry(url, userName, passwd);
 			if (propertyFile.exists()) {
-				propertyFile.setSessionProperty(new QualifiedName("", url.toString()), remregistry);
+				propertyFile.setSessionProperty(
+						new QualifiedName("", url.toString()), remregistry);
 			}
 
 		} catch (MalformedURLException e) {

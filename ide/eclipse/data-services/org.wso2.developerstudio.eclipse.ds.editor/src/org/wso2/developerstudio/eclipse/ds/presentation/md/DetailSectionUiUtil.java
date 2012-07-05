@@ -62,6 +62,18 @@ public class DetailSectionUiUtil {
 		gd.widthHint = 200;
 		Combo combo = new Combo(detailsclient, SWT.READ_ONLY);
 		
+		combo.setLayoutData(gd);
+		addFocusListner(combo);
+		
+		
+		toolkit.adapt(combo, true, true);
+		
+		if(input != null && metaObject != null){
+			
+			addModifyListnerForCustomComboFields(combo,input,metaObject);
+			
+		}
+		
 		for (int i= 0;i<displayValues.length;i++){
 			
 			if(displayValues[i] != null)
@@ -78,22 +90,11 @@ public class DetailSectionUiUtil {
 					}
 				}
 			}
-		}/*else{
+		}else{
 			if(combo.getItemCount() >= 1){
 				
 				combo.select(0);
 			}
-		}*/
-		combo.setLayoutData(gd);
-		addFocusListner(combo);
-		
-		
-		toolkit.adapt(combo, true, true);
-		
-		if(input != null && metaObject != null){
-			
-			addModifyListnerForCustomComboFields(combo,input,metaObject);
-		
 		}
 		return combo;
 	}

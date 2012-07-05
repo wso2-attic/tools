@@ -247,6 +247,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 	private ArrayList<String> children;
 	private Action resourceInformationAction;
+	 
 	private Text txtTraverse;
 	private ArrayList<Object> selectedItemList;
 
@@ -282,6 +283,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 
 	public boolean isCntrlKeyPressed() {
 		return cntrlKeyPressed;
+	 
 	}
 
 	public void setCntrlKeyPressed(boolean cntrlKeyPressed) {
@@ -2477,27 +2479,28 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 								.setImageDescriptor(ImageUtils
 										.getImageDescriptor(ImageUtils.ACTION_DELETE_REGISTRY));
 						regNode = (RegistryNode) object;
-						if (regNode.isEnabled()) {
-	                        regResourceNode =
-	                                          regNode.getRegistryContainer().getRegistryContent().get(0);
-	                        resourcePath = regResourceNode.getRegistryResourcePath();
-	                        if (resourceNodes != null) {
-		                        if (resourceNodes.isEmpty()) {
-			                        resourceNodes.add(regResourceNode);
-		                        }
-	                        }
-	                        // resourcePathList.add(regResourcePathData);
-	                        // regResourcePathData.setResourcePathList(resourcePathList);
-	                        setResourcePath(resourcePath);
-	                        setRegData(regNode);
-	                        setRegResourcePathData(regResourceNode);
+                                                if (regNode.isEnabled()) {
+                                regResourceNode =
+                                                  regNode.getRegistryContainer().getRegistryContent().get(0);
+                                resourcePath = regResourceNode.getRegistryResourcePath();
+                                if (resourceNodes != null) {
+                                        if (resourceNodes.isEmpty()) {
+                                                resourceNodes.add(regResourceNode);
+                                        }
+                                }
+                                // resourcePathList.add(regResourcePathData);
+                                // regResourcePathData.setResourcePathList(resourcePathList);
+                                setResourcePath(resourcePath);
+                                setRegData(regNode);
+                                setRegResourcePathData(regResourceNode);
                         }else{
-                        	regResourceNode=null;
-                        	resourcePath=null;
-	                        setResourcePath(resourcePath);
-	                        setRegData(regNode);
-	                        setRegResourcePathData(regResourceNode);
+                                regResourceNode=null;
+                                resourcePath=null;
+                                setResourcePath(resourcePath);
+                                setRegData(regNode);
+                                setRegResourcePathData(regResourceNode);
                         }
+
 
 					} else if (object instanceof RegistryResourceNode) {
 						regResourceNode = (RegistryResourceNode) object;
@@ -2727,6 +2730,7 @@ public class RegistryBrowserView extends ViewPart implements Observer {
 					return;
 				}	
 			}
+			regData.setUserEnabled(enabled);
 			regData.setPersistantEnabled(enabled);
 			regData.getRegUrlData().refreshViewer(true);
 			updateToolbar();

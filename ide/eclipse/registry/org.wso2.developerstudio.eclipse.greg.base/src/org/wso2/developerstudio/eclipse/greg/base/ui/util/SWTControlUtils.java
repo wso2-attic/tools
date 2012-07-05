@@ -93,11 +93,11 @@ public class SWTControlUtils {
 //			}else{
 //				return null;
 //			}
-//		} else if(status==dialog.CANCEL){
-//			throw new RuntimeException();
-		}else{
+       } else if(status==dialog.CANCEL){
+        	dialog.close();
+        	//return new Credentials();
+		} 
 			return null;	
-		}
 	}
 
 	/**
