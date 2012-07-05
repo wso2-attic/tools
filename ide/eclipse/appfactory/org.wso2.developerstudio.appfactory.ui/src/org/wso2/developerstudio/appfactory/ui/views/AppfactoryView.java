@@ -16,11 +16,19 @@
 
 package org.wso2.developerstudio.appfactory.ui.views;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Properties;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -31,15 +39,24 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.team.core.TeamException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.*;
+import org.tigris.subversion.subclipse.core.ISVNRemoteFolder;
+import org.tigris.subversion.subclipse.core.ISVNRepositoryLocation;
+import org.tigris.subversion.subclipse.core.SVNProviderPlugin;
+import org.tigris.subversion.subclipse.ui.Policy;
+import org.tigris.subversion.subclipse.ui.SVNUIPlugin;
+import org.tigris.subversion.subclipse.ui.wizards.CheckoutWizard;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -100,6 +117,21 @@ public class AppfactoryView extends ViewPart {
 				ImageDescriptor.createFromImage(SWTResourceManager
 						.getImage(this.getClass(),
 								"/icons/svn-co.png"))) {
+			public void run() {
+				if (tblApplication.getSelectionCount() ==1){
+					String url = tblApplication.getSelection()[0].getText(1);
+					
+					ISVNRepositoryLocation location = createLocation(url,"appfac", "appfac");
+					
+					final ISVNRemoteFolder[] folders = new ISVNRemoteFolder[]{ location.getRootFolder()};
+					Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+					CheckoutWizard wizard = new CheckoutWizard(folders);
+					WizardDialog dialog = new WizardDialog(activeShell, wizard);
+					dialog.open();
+				}
+				
+
+			};
 		};
 		checkoutAction.setText("Checkout");
 		deployToDevAction = new Action("deployToDev",
@@ -113,7 +145,7 @@ public class AppfactoryView extends ViewPart {
 						.getImage(this.getClass(),
 								"/icons/deploy.png"))) {
 		};
-		deploytoLiveAction.setText("Deploy to Development");
+		deploytoLiveAction.setText("Deploy to Live");
 		
 		form.getToolBarManager().add(loginAction);
 		toolkit.decorateFormHeading(form.getForm());
@@ -277,6 +309,73 @@ public class AppfactoryView extends ViewPart {
 	public void dispose() {
 		toolkit.dispose();
 		super.dispose();
+	}
+	
+	private ISVNRepositoryLocation createLocation(String url, String userName, String password) {
+		Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+		Properties properties =  new Properties();
+		properties.setProperty("user", userName); //$NON-NLS-1$
+		properties.setProperty("password", password); //$NON-NLS-1$
+		properties.setProperty("url", url); //$NON-NLS-1$
+		
+		final ISVNRepositoryLocation[] root = new ISVNRepositoryLocation[1];
+		SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
+		try {
+			root[0] = provider.getRepositories().createRepository(properties);
+			// Validate the connection info.  This process also determines the rootURL
+			try {
+				new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
+					public void run(IProgressMonitor monitor) throws InvocationTargetException {
+						try {
+							root[0].validateConnection(monitor);
+						} catch (TeamException e) {
+							throw new InvocationTargetException(e);
+						}
+					}
+				});
+			} catch (InterruptedException e) {
+				return null;
+			} catch (InvocationTargetException e) {
+				Throwable t = e.getTargetException();
+				if (t instanceof TeamException) {
+					throw (TeamException)t;
+				}
+			}
+			provider.getRepositories().addOrUpdateRepository(root[0]);
+		} catch (TeamException e) {
+			if (root[0] == null) {
+				// Exception creating the root, we cannot continue
+				SVNUIPlugin.openError(activeShell, Policy.bind("NewLocationWizard.exception"), null, e); //$NON-NLS-1$
+				return null;
+			} else {
+				// Exception validating. We can continue if the user wishes.
+				IStatus error = e.getStatus();
+				if (error.isMultiStatus() && error.getChildren().length == 1) {
+					error = error.getChildren()[0];
+				}
+
+				boolean keep = false;
+				if (error.isMultiStatus()) {
+					SVNUIPlugin.openError(activeShell, Policy.bind("NewLocationWizard.validationFailedTitle"), null, e); //$NON-NLS-1$
+				} else {
+					keep = MessageDialog.openQuestion(activeShell,
+						Policy.bind("NewLocationWizard.validationFailedTitle"), //$NON-NLS-1$
+						Policy.bind("NewLocationWizard.validationFailedText", new Object[] {error.getMessage()})); //$NON-NLS-1$
+				}
+				try {
+					if (keep) {
+						provider.getRepositories().addOrUpdateRepository(root[0]);
+					} else {
+						provider.getRepositories().disposeRepository(root[0]);
+					}
+				} catch (TeamException e1) {
+					SVNUIPlugin.openError(activeShell, Policy.bind("exception"), null, e1); //$NON-NLS-1$
+					return null;
+				}
+				if (keep) return root[0];
+			}
+		}
+		return root[0];
 	}
 	
 }
