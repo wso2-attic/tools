@@ -102,7 +102,9 @@ public class NavigatorNode {
 		    	  }else{
 		    		  RegistryCollection collection = (RegistryCollection)item;
 		    		  File dir = getProject().getFolder(collection.getDirectory()).getLocation().toFile();
-		    		  node.putAll(createNodes(dir, prefix+name));
+		    		  if(dir.exists()){
+		    			  node.putAll(createNodes(dir, prefix+name));
+		    		  }
 		    	  }
 	        }
         }
@@ -120,7 +122,7 @@ public class NavigatorNode {
 		});
 		for(String filename : files){
 			File resource = new File(dir,filename); 
-			String resourcePath = resource.toString().replaceAll("^" +getProject().getLocation().toOSString() + "/","");
+			String resourcePath = resource.toString().replaceAll("^" + Pattern.quote(getProject().getLocation().toOSString() + File.separator) ,"");
 			if(resource.isDirectory()){
 				RegistryCollection collection = new RegistryCollection();
 				collection.setPath(basePath + resource.getName());
