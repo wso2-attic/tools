@@ -22,7 +22,7 @@ permissions and ~ limitations under the License.
 					<a href="#regResourceArtifact">Registry Resource</a>
 				</li>
 				<li>
-					<a href="greg_user_guide.html">Manage your registry</a>
+					<a href="greg_user_guide.html">Manage your registry - WSO2 Registry Perspective</a>
 				</li>
 				<li>
 					<a href="#RegistryFilter">Registry Filters</a>

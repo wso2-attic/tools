@@ -15,6 +15,21 @@ permissions and ~ limitations under the License.
 	<body>
 
 		<h1>WSO2 Developer Studio Maven Support</h1>
+		
+		<h2>Content</h2>
+		<div class="toc">
+			<ul>
+				<li>
+					<a href="#MavenArtifacts">Maven support for Deployable Artifacts</a>
+				</li>
+				<li>
+					<a href="#MavenMultiModule">Maven Multi Module Project</a>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<h2 id="MavenArtifacts">Maven support for Deployable Artifacts</h2>
 		<p>
 		For each and every project created by <strong>WSO2 Developer Studio</strong>, you can 
 		find a <strong>pom</strong> file has been created in order to build it using 
@@ -30,7 +45,7 @@ permissions and ~ limitations under the License.
 		<p>
 		To build individual level <strong>Deployable Artifacts</strong> using maven command, go to the project 
 		location in the command line and run the command <strong>mvn clean install</strong>. Once the build was 
-		successful, you will see the <strong>Deployable Artigact</strong> has been created under 
+		successful, you will see the <strong>Deployable Artifact</strong> has been created under 
 		<strong>target</strong> folder of your project location.
 		</p>
 		
@@ -128,5 +143,118 @@ permissions and ~ limitations under the License.
 				</tr>
 			</tbody>
 		</table>
+		
+		<h2 id="MavenMultiModule">Maven Multi Module Project</h2>
+				
+		<p>
+		As you are already aware of,<strong>WSO2 Developer Studio</strong> creates separate projects
+		for most of the <strong>Deployable Artifacts</strong> with a Maven pom file  for each 
+		<strong>Artifact</strong>. But if you consider Maven centric development, there we have a  
+		Parent Project and then we have couple of Child Modules and a separate Distribution Module
+		which is again a Child module of the Parent Project.
+		</p>
+		<p>
+		In our attempt to support Maven Centric development in WSO2 Developer Studio, we have introduced
+		this concept of <strong>Maven Multi Module project</strong> to <strong>WSO2 Developer Studio</strong>.
+		You can create a Maven <strong>Multi Module Project</strong> in your workspace and then create your 
+		Artifact Projects inside that <strong>Maven Multi Module project</strong> in a nested manner and then
+		 create the Carbon Application Project which is the Distribution module for WSO2 platform. 
+		</p>
+		<p>
+		It is also possible to convert an existing project in to Maven Multi Module Project as well.
+		</p>
+		<div>
+			<ul>
+				<li>
+					<a href="#CreateMaven">Creating a new Maven Multi Module Project</a>
+				</li>
+				<li>
+					<a href="#ConvertMaven">Convert an existing Project in to a Maven Multi Module Project</a>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<h3 id="CreateMaven">Creating a new Maven Multi Module Project</h3>
+		
+		<p>
+		You can create a Maven Multi Module Project by selecting <strong>File</strong> then <strong>New</strong> 
+		and selecting <strong>Project</strong>. When you follow these steps, you get the Eclipse New Project
+		Wizard.
+		</p>
+		<p>
+		In the Eclipse New Project Wizard, you can see the <strong>WSO2</strong> main category and under that
+		you can see <strong>Maven Project</strong> sub category. <strong>Maven Multi Module Project</strong> option
+		is listed under <strong>Maven Project</strong> sub category.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj1.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		When you select the <strong>Maven Multi Module Project</strong> option and select <strong>Next</strong>, then
+		you will get a new Maven Multi Module Project Wizard.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Unlike other Projects you have seen in WSO2 Developer Studio, in this Project Wizard you need to provide Maven 
+		information such as <strong>GroupID</strong>, <strong>ArtifactId</strong> and <strong>Version</strong>. In this 
+		case if you are wondering what is going to be your <strong>Project Name</strong>, it would be the <strong>ArtifactId</strong>.
+		</p>
+		<p>
+		Then you can select the Modules you need to include in your <strong>Maven Multi Module Project</strong> by 
+		selecting the Projects from the list of Projects populated in the Wizard.
+		</p>	
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj3.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		 you can click <strong>Finish</strong> to complete the wizard.If you open the <strong>pom.xml</strong>you
+		 can see the selected projects have been listed as<strong>maven modules</strong>
+		</p>	
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj4.png"></img>
+			<br></br>
+		</p>
+		
+		<h3 id="ConvertMaven">Convert an existing Project in to a Maven Multi Module Project</h3>
+		
+		<p>Right Click on the project and select the <strong>GeneratePOM</strong> from the menu</p>
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj5.png"></img>
+			<br></br>
+		</p>
+		<p>
+		Then you can select the Modules you need to include in your <strong>Maven Multi Module Project</strong> by 
+		selecting the Projects from the list of Projects populated in the Wizard.
+		</p>	
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj6.png"></img>
+			<br></br>
+		</p>
+		<p>
+		 you can complete the wizard by clicking the <strong>Finish</strong> button of the wizard.If you open the <strong>pom.xml</strong>you
+		 can see the selected projects have been listed as<strong>maven modules</strong>
+		</p>	
+		<p>
+			<br></br>
+			<img alt="Maven Project" src="images/MavenPrj7.png"></img>
+			<br></br>
+		</p>
 	</body>
 </html>

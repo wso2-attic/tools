@@ -22,9 +22,9 @@
 </head>
 
 <body>
-<h1>WSO2 Developer Studio 2.0.0.Beta Release Notes</h1>
+<h1>WSO2 Developer Studio 2.0.0 Release Notes</h1>
 
-<h3>26th April 2012</h3>
+<h3>9th June 2012</h3>
 
 <p>
 WSO2 Developer Studio is a fully functioned tooling environment which facilitate you to develop, 
@@ -42,7 +42,7 @@ IDE Eclipse.
    functionality as well.
 </p>
 <p>
-You can download this distribution from <a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/Beta/">here</a> 
+You can download this distribution from <a href="http://dist.wso2.org/products/developer-studio/2.0.0/wso2-developer-studio-2.0.0.zip">here</a> 
 and give it a try.
 </p>
 
@@ -61,6 +61,7 @@ and give it a try.
 		</ul>
 	</li>
 	<li>Enterprise Service Bus Tools<ul>
+		<li>WSO2 ESB Graphical Composition Tool - Technical Preview Available</li>
 		<li>Sequences</li>
 		<li>Endpoints</li>
 		<li>Proxy Services</li>
@@ -136,6 +137,7 @@ and give it a try.
 	        <li>Synapse Configurations</li>
 	        <li>Gadget</li>
 	        <li>Carbon UI Bundle</li>
+	        <li>Maven Multi Module Support</li>
 	    </ul>
 	</li>
 	<li>Testing, Deploying and Redeploying</li>
@@ -148,7 +150,7 @@ WSO2 Developer Studio Features</a> page.
 
 <h2>Project Resources</h2>
 <ol>
-    <li><strong>Home page :</strong> <a href="http://wso2.org/library/carbon-studio">WSO2 Developer Studio</a></li>
+    <li><strong>Home page :</strong> <a href="http://wso2.org/library/developer-studio">WSO2 Developer Studio</a></li>
     <li><strong>JIRA-Issue Tracker :</strong> <a href="https://wso2.org/jira/browse/tools">
     			WSO2 Developer Studio - JIRA Issues</a></li>
 </ol>
@@ -183,8 +185,8 @@ WSO2 Tools developers can be contacted via the mailing lists:
 <a href="mailto:tools-dev@wso2.org">tools-dev@wso2.org</a-->
 <br/>
 For details on subscriptions see
-<a href="http://wso2.org/projects/tools#mail">
-    http://wso2.org/projects/tools#mail</a>
+<a href="http://wso2.org/mail">
+    http://wso2.org/mail</a>
 <br/>
 <!-- 
 <br/>
@@ -224,7 +226,7 @@ Alternatively, questions can also be raised in the WSO2 Tools forum:
 <br></br>
 <p>
 For more information about WSO2 Developer Studio please see, 
-    <a href="http://wso2.org/library/carbon-studio/" target="_blank">http://wso2.org/library/carbon-studio/</a>. 
+    <a href="http://wso2.org/library/developer-studio/" target="_blank">http://wso2.org/library/developer-studio/</a>. 
     visit the <a href="http://wso2.org">WSO2 Oxygen Tank developer portal</a>  for additional resources.
 </p>
 

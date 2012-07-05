@@ -3,12 +3,12 @@
     <body>
 
         <menu name="Developer Studio">
-        	<item name="Project Home" href="http://wso2.org/library/carbon-studio"/>  
+        	<item name="Project Home" href="http://wso2.com/products/developer-studio"/>  
             <item name="Release Notes" href="release_notes.html"/>        
         </menu>
         
         <menu name="Downloads">
-            <item name="Releases" href="http://wso2.org/downloads/carbon-studio"/>
+            <item name="Releases" href="http://wso2.org/downloads/developer-studio"/>
        </menu>
         
        <menu name="Documentation">

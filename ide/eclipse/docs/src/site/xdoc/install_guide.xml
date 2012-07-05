@@ -53,7 +53,7 @@
 				<tr>
 					<td>IDE</td>
 					<td>Eclipse WTP 3.1.0 or higher (If you are planing to install offline, we recommend you to use 
-					<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>)</td>
+					<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr2">Eclipse IDE for Java EE Developers</a>)</td>
 				</tr>
 				<tr>
 					<td>WSO2 Developer Studio</td>
@@ -62,7 +62,7 @@
 							<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1_without_dependencies.zip">2.0.0-without dependencies</a>
 						</p>-->
 						<p>
-							<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1.zip">2.0.0-with dependencies</a>
+							<a href="http://dist.wso2.org/products/developer-studio/2.0.0/wso2-developer-studio-2.0.0.zip">2.0.0-with dependencies</a>
 						</p >
 					</td>
 				</tr>
@@ -77,7 +77,7 @@
 				<tr>
 					<td>Disk Space</td>
 					<td>
-						<p>Approximately 100MB</p>
+						<p>Approximately 300MB</p>
 					</td>
 				</tr>
 			</tbody>
@@ -89,14 +89,14 @@
 
 		<p>
 			We assume you have already downloaded
-			<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1_with_dependencies.zip">WSO2 Developer Studio binary distribution</a>
-			from the download page and you are using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr1">Eclipse IDE for Java EE Developers</a>.
+			<a href="http://dist.wso2.org/products/developer-studio/2.0.0/wso2-developer-studio-2.0.0.zip">WSO2 Developer Studio binary distribution</a>
+			from the download page and you are using <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr2">Eclipse IDE for Java EE Developers</a>.
 		</p>
 		<p>
-		If you download <a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1_with_dependencies.zip">WSO2 Developer Studio With 
-		Dependencies</a> version, you can go ahead with the <strong>Offline Installation</strong>. But if you download 
+		If you download <a href="http://dist.wso2.org/products/developer-studio/2.0.0/wso2-developer-studio-2.0.0.zip">WSO2 Developer Studio With 
+		Dependencies</a> version, you can go ahead with the <strong>Offline Installation</strong>. <!-- But if you download 
 		<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1_without_dependencies.zip">WSO2 Developer Studio Without 
-		Dependencies</a> version, you need to go with the <strong>Online Installation</strong>.
+		Dependencies</a> version, you need to go with the <strong>Online Installation</strong>.-->
 		</p>
 		<p>
 		Latest Developer Studio release includes several third party Eclipse plugins.
@@ -147,7 +147,7 @@
 		</p>
 		<p>
 			If you wish to install tools online type the update site url
-			<strong>http://builder1.us1.wso2.org/~developerstudio/carbon-studio/2.0.0/Beta/p2-repo</strong>
+			<strong>http://dist.wso2.org/p2/developer-studio/releases/2.0.0</strong>
 			
 		</p>
 		<p>
@@ -277,8 +277,8 @@
 		<p>
 			For online installation of all the WSO2 Eclipse Tools use the update
 			site url:
-			<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/p2-repo">
-				<strong>http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/p2-repo</strong>
+			<a href="http://dist.wso2.org/p2/developer-studio/releases/2.0.0">
+				<strong>http://dist.wso2.org/p2/developer-studio/releases/2.0.0</strong>
 			</a>
 		</p>
 		<p>

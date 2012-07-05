@@ -21,6 +21,9 @@ permissions and ~ limitations under the License.
 				<li>
 					<a href="#GettingStarted">Getting Started with Developer Studio</a>
 				</li>
+								<li>
+					<a href="#ImportProjects">Import existing WSO2 Project types to WSO2 Developer Studio Workspace</a>
+				</li>
 			</ul>
 		</div>
 		<h2 id="GettingStarted">Getting Started with Developer Studio</h2>
@@ -203,14 +206,107 @@ permissions and ~ limitations under the License.
 				<br></br>
 			</p>
 			<p>
-			As you can see, all the new projects are being added. So in a collaborative development 
-			environment, developers from different branches can work simultaneously without an issue. 
+			As you can see, all the new projects are being added. So in a collaborative Development 
+			Environment, developers from different branches can work simultaneously without an issue. 
 			</p>
 			<p>
 			With the <strong>Carbon Application</strong> projects, you can generate the 
 			<strong>Carbon Application Archives (CAR)</strong> files which can be deployed to 
 			<strong>Carbon Servers</strong>.
 			</p>
+			
+			<h2 id="ImportProjects">Import existing WSO2 Project types to WSO2 Developer Studio Workspace</h2>
+			
+			<p>
+			Let's consider a scenario related to Collaborative Development Environement. 
+			
+				<br/>
+			There are one or more developers who works on the same code base actively at any given time. Developer A, create
+			 a hierarchycal project with several sub projects nested under Parent project and Checkin the generated project 
+			hierarchy to Source Control System (E.g: Subversion). 
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/svn.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			
+			Then the Developer B, want to add some other sub projects under parent project. Hence Developer B, first Checkout
+			 the source generated and CheckedIn by Developer A. Then Developer B can Import the CheckedOut source to 
+			 Developer Studio.    
+			</p>
+			
+			<p>
+			In order to Import the Existing WSO2 Project types to workspace, first <strong>Right Click</strong> on the 
+			<strong>Project Explorer</strong> and select <strong>Import</strong>. Then it will populate another Pop Up menu.
+			Select <strong>Import</strong> in that menu as well.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import1.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Then you will get the <strong>Eclipse Project Import Wizard</strong> and there you will see a new category called 
+			<strong>WSO2</strong>. When you expand the <strong>WSO2</strong> category, you will see the option of importing
+			<strong>Existing WSO2 Projects in to workspace</strong> option. 
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import2.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Once you select the option of <strong>Existing WSO2 Projects in to workspace</strong> and click on <strong>Next</strong>,
+			you can see the standard Eclipse Import project wizard pops up. 
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import3.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			You can select the <strong>Browse</strong> button in the dialog and point to the CheckedOut source code location and click 
+			on <strong>OK</strong>.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import4.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Then you will see the Import Projects wizard shows all the WSO2 projects in your source code location. Then you can 
+			select the WSO2 project you need to import to the workspace and click on <strong>Finish</strong>. 
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import5.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Then you can see your WSO2 projects are imported in to the workspace in the correctly in the same order Developer A
+			created.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="Project Import" src="images/Import6.png"></img>
+				<br></br>
+			</p>
+			
 	</body>
 </html>
 
