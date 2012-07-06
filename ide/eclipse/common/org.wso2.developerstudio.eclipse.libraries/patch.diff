@@ -21,7 +21,7 @@ Index: META-INF/MANIFEST.MF
  Bundle-ManifestVersion: 2
  Bundle-Name: Libraries
  Bundle-SymbolicName: org.wso2.developerstudio.eclipse.libraries;singleton:=true
--Bundle-Version: 2.0.0-SNAPSHOT
+-Bundle-Version: 2.1.0-SNAPSHOT
 +Bundle-Version: 1.0.10
  Bundle-ActivationPolicy: lazy
  Export-Package: javax.activation;version="1.2.9.wso2v1",

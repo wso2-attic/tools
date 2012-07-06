@@ -192,7 +192,7 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-core/2.5.1/spring-core-2.5.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/2.5.1/spring-web-2.5.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/synapse/synapse-securevault/2.0.0-SNAPSHOT/synapse-securevault-2.0.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/synapse/synapse-securevault/2.1.0-SNAPSHOT/synapse-securevault-2.1.0-SNAPSHOT.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tiles/wso2/tiles-jsp/2.0.5.wso2v1/tiles-jsp-2.0.5.wso2v1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tribes/6.0.16/tribes-6.0.16.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar"/>
