@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.general.project.refactor;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.MultiTextEdit;
@@ -64,10 +65,23 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 		BufferedReader reader =
 		                        new BufferedReader(new FileReader(metaDataFile.getLocation()
 		                                                                      .toFile()));
-		String case1String = "\""+originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1))+"\"";
+		String case1String = null;
+		String originalResourceName = originalName.getName();
+		if (originalName instanceof IFile) {
+			case1String = "\""
+					+ originalResourceName
+							.substring(
+									0,
+									originalResourceName.length()
+											- (originalName.getFileExtension()
+													.length() + 1)) + "\"";
+		}else if(originalName instanceof IFolder){
+			case1String = "\""
+				+ originalResourceName+ "\"";
+		}
 		String nameElement = "name=";
 		String line = reader.readLine();
-		String case2String = originalName.getName();
+		String case2String = originalResourceName;
 		while (line != null) {
 //				There can be only 2 occurrences. Pls have a look below.
 //			    <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
@@ -77,16 +91,16 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 			if(line.contains(case1String) && stringArray[getarrayIndexWithString(nameElement, stringArray)].equals(nameElement+case1String)){
 				//CASE 1 => <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 				//Swapping 1 element for "\""
-				int case1LineIndex = line.indexOf(case1String)+1;
-				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1)).length(), newName.substring(0, newName.lastIndexOf("."))));
+//				int case1LineIndex = line.indexOf(case1String)+1;
+//				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1)).length(), newName.substring(0, newName.lastIndexOf("."))));
 			} else {
-	            if(type==RegistryArtifactType.Resource && line.contains(case2String) && line.endsWith(originalName.getName()+"</file>")){
+	            if(type==RegistryArtifactType.Resource && line.contains(case2String) && line.endsWith(originalResourceName+"</file>")){
 	            	//CASE 2 => <file>src/main/synapse-config/proxy-services/proxy1.xml</file>
 	            	int case2LineIndex=line.indexOf(case2String);
-	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalName.getName().length(), newName));
-	            }else if(type==RegistryArtifactType.Collection && line.contains(case2String) && line.endsWith(originalName.getName()+"</directory>")){
+	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
+	            }else if(type==RegistryArtifactType.Collection && line.contains(case2String) && line.endsWith(originalResourceName+"</directory>")){
 	            	int case2LineIndex=line.indexOf(case2String);
-	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalName.getName().length(), newName));
+	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
 	            }
             }
 			fullIndex+=charsOnTheLine(line);

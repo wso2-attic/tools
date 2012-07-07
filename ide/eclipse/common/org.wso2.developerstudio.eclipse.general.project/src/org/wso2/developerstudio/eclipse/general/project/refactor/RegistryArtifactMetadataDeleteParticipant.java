@@ -42,7 +42,7 @@ public class RegistryArtifactMetadataDeleteParticipant extends DeleteParticipant
 	@Override
     public Change createChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
-		CompositeChange change = new CompositeChange("ESB Artifact Rename");
+		CompositeChange change = new CompositeChange("Registry Artifact Deletion");
 		change.add(new RegistryMetadataFileDeleteChange(registryProject.getName(),
 		                                           registryProject.getFile("artifact.xml"), originalResource));
 		return change;
