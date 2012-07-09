@@ -20,15 +20,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.axis2.addressing.EndpointReference;
-import org.apache.axis2.client.Options;
-import org.apache.axis2.client.ServiceClient;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import static org.apache.axis2.transport.http.HTTPConstants.*;
+
 
 public class AppMgtClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -63,7 +58,8 @@ public class AppMgtClient {
 	public List<String> getAllApps(String UserName){
 		List<String> allApps = new ArrayList<String>();
 		String payload = String.format(GET_ALL_APP_PAYLOAD, UserName);
-		String reply = axisSendReceive(GET_ALL_APP_OPERATION,authenticator.getServerURL() + APP_MGT_ADMIN_SERVICE_URL,payload);
+		ServiceClientUtil clientUtil = new ServiceClientUtil(authenticator.getSessionCookie());
+		String reply = clientUtil.callSynchronous(GET_ALL_APP_OPERATION,authenticator.getServerURL() + APP_MGT_ADMIN_SERVICE_URL,payload);
 		Pattern pattern = Pattern.compile("<ns:return>(.*?)</ns:return>");
 		Matcher matcher = pattern.matcher(reply);
 		 while (matcher.find()) {
@@ -91,7 +87,8 @@ public class AppMgtClient {
 	public List<String> getUserRolesForApplication(String applicationKey,String UserName){
 		List<String> allApps = new ArrayList<String>();
 		String payload = String.format(GET_ROLES_PAYLOAD,applicationKey, UserName);
-		String reply = axisSendReceive(GET_ROLES_OPERATION,authenticator.getServerURL() + APP_MGT_ADMIN_SERVICE_URL,payload);
+		ServiceClientUtil clientUtil = new ServiceClientUtil(authenticator.getSessionCookie());
+		String reply = clientUtil.callSynchronous(GET_ROLES_OPERATION,authenticator.getServerURL() + APP_MGT_ADMIN_SERVICE_URL,payload);
 		Pattern pattern = Pattern.compile("<ns:return>(.*?)</ns:return>");
 		Matcher matcher = pattern.matcher(reply);
 		 while (matcher.find()) {
@@ -99,34 +96,5 @@ public class AppMgtClient {
 	        }
 		return allApps;
 	}
-	
-	
-	private String axisSendReceive(String operation, String endPoint, String payLoad) {
-		ServiceClient client;
-		try {
-			client = new ServiceClient();
-			Options opts = new Options();
-			opts.setTo(new EndpointReference(endPoint));
-			opts.setAction("urn:" + operation);
-			opts.setManageSession(true);
-			opts.setProperty(COOKIE_STRING,authenticator.getSessionCookie());
-			client.setOptions(opts);
-				OMElement element = client.sendReceive(AXIOMUtil.stringToOM(payLoad));
-				String SOAPmsg;
-				SOAPmsg = element.getBuilder().getDocumentElement().toStringWithConsume();
-				int iSoapBodyElementStartFrom = SOAPmsg.indexOf("<" + "soapenv:Body");
-				int iSoapBodyElementStartEnd = SOAPmsg.indexOf(">", iSoapBodyElementStartFrom);
-				int iSoapBodyStartIndex = iSoapBodyElementStartEnd + 1;
-
-				int iSoapBodyEndIndex = SOAPmsg.indexOf("</soapenv:Body>") - 1;
-				SOAPmsg = SOAPmsg.substring(iSoapBodyStartIndex, iSoapBodyEndIndex + 1);
-				SOAPmsg = SOAPmsg.replace("><", ">\n<");
-				return SOAPmsg;
-		} catch (Exception ex) {
-			log.error("Exception occured:", ex);
-			return "";
-		}
-	}
-	
 
 }
