@@ -90,7 +90,7 @@ public class AppMgtClient {
 	
 	public List<String> getUserRolesForApplication(String applicationKey,String UserName){
 		List<String> allApps = new ArrayList<String>();
-		String payload = String.format(GET_ROLES_PAYLOAD, UserName);
+		String payload = String.format(GET_ROLES_PAYLOAD,applicationKey, UserName);
 		String reply = axisSendReceive(GET_ROLES_OPERATION,authenticator.getServerURL() + APP_MGT_ADMIN_SERVICE_URL,payload);
 		Pattern pattern = Pattern.compile("<ns:return>(.*?)</ns:return>");
 		Matcher matcher = pattern.matcher(reply);

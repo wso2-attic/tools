@@ -121,7 +121,7 @@ public class AppfactoryView extends ViewPart {
 				if (tblApplication.getSelectionCount() ==1){
 					String url = tblApplication.getSelection()[0].getText(1);
 					
-					ISVNRepositoryLocation location = createLocation(url,"appfac", "appfac");
+					ISVNRepositoryLocation location = createLocation(url,auth.getUserName(), auth.getPassword());
 					
 					final ISVNRemoteFolder[] folders = new ISVNRemoteFolder[]{ location.getRootFolder()};
 					Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
@@ -262,10 +262,13 @@ public class AppfactoryView extends ViewPart {
 						appMgtClient = new AppMgtClient(auth);
 						List<ApplicationInfo> allAppInfo = appMgtClient.getAllApplicationInfo(auth.getUserName());
 						for (ApplicationInfo appInfo : allAppInfo) {
-							TableItem item = new TableItem(tblApplication, SWT.None);
-							item.setText(0, appInfo.getApplicationName());
-							item.setText(1, appInfo.getApplicationRepoLink());
-							item.setText(2, "r0");
+							List<String> roles = appMgtClient.getUserRolesForApplication(appInfo.getApplicationKey(),auth.getUserName());
+							if(roles.contains("developer")){
+								TableItem item = new TableItem(tblApplication, SWT.None);
+								item.setText(0, appInfo.getApplicationName());
+								item.setText(1, appInfo.getApplicationRepoLink());
+								item.setText(2, "r0"); //TODO: show correct revision
+							}
 						}
 						sctnApplication.setVisible(true);
 						((GridData) sctnApplication.getLayoutData()).exclude = false;
@@ -321,6 +324,12 @@ public class AppfactoryView extends ViewPart {
 		final ISVNRepositoryLocation[] root = new ISVNRepositoryLocation[1];
 		SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
 		try {
+			root[0] = provider.getRepositories().getRepository(properties.getProperty("url"));
+			
+			if(root[0]!=null){
+				return root[0];
+			}
+			
 			root[0] = provider.getRepositories().createRepository(properties);
 			// Validate the connection info.  This process also determines the rootURL
 			try {
