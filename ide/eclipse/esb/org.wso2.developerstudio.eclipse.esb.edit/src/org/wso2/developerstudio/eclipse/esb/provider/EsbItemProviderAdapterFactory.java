@@ -142,6 +142,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.Comment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommentItemProvider commentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.Comment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommentAdapter() {
+		if (commentItemProvider == null) {
+			commentItemProvider = new CommentItemProvider(this);
+		}
+
+		return commentItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.MediatorSequence} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -821,6 +844,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	public void dispose() {
 		if (synapseConfigurationItemProvider != null) synapseConfigurationItemProvider.dispose();
 		if (descriptionItemProvider != null) descriptionItemProvider.dispose();
+		if (commentItemProvider != null) commentItemProvider.dispose();
 		if (unknownObjectItemProvider != null) unknownObjectItemProvider.dispose();
 		if (mediatorSequenceItemProvider != null) mediatorSequenceItemProvider.dispose();
 		if (namespacedPropertyItemProvider != null) namespacedPropertyItemProvider.dispose();

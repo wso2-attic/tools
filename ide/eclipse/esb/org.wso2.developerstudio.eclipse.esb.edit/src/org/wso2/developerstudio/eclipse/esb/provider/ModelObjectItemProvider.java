@@ -36,6 +36,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.developerstudio.eclipse.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.ModelObject;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectState;
@@ -150,6 +151,9 @@ public class ModelObjectItemProvider
 			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -165,6 +169,11 @@ public class ModelObjectItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MODEL_OBJECT__COMMENT,
+				 EsbFactory.eINSTANCE.createComment()));
 	}
 	
 	/**

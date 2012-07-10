@@ -146,6 +146,7 @@ public class MediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.MEDIATOR__DESCRIPTION,
