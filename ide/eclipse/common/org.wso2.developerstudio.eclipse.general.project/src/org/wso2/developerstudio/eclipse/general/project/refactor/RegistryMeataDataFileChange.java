@@ -27,8 +27,10 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class RegistryMeataDataFileChange extends TextFileChange  {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -98,10 +100,31 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 	            	//CASE 2 => <file>src/main/synapse-config/proxy-services/proxy1.xml</file>
 	            	int case2LineIndex=line.indexOf(case2String);
 	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
-	            }else if(type==RegistryArtifactType.Collection && line.contains(case2String) && line.endsWith(originalResourceName+"</directory>")){
-	            	int case2LineIndex=line.indexOf(case2String);
-	            	addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
-	            }
+	            	
+	            } else {
+					String directoryStart = "<directory>";
+					String directoryEnd = "</directory>";
+					if(type==RegistryArtifactType.Collection && line.trim().startsWith(directoryStart) && line.contains(case2String) && line.endsWith(originalResourceName+directoryEnd)){
+						
+						int directoryStartIndex = line.indexOf(directoryStart)+directoryStart.length();
+						String directoryString = line.substring(directoryStartIndex, line.indexOf(directoryEnd));
+						String[] array = directoryString.split(Pattern.quote(File.separator));
+						int case2LineIndex=line.subSequence(0, directoryStartIndex).length()+generateString(array).length()+array[array.length-1].indexOf(case2String);
+						addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
+						
+					} else {
+						String pathStart = "<path>";
+						String pathEnd = "</path>";
+						if(type==RegistryArtifactType.Collection && line.trim().startsWith(pathStart) && line.contains(case2String) && line.endsWith(originalResourceName+pathEnd)){
+							
+							int pathStartIndex = line.indexOf(pathStart)+pathStart.length();
+							String directoryString = line.substring(pathStartIndex, line.indexOf(pathEnd));
+							String[] array = directoryString.split("/");
+							int case2LineIndex=line.subSequence(0, pathStartIndex).length()+generateString(array).length()+array[array.length-1].indexOf(case2String);
+							addEdit(new ReplaceEdit(fullIndex+case2LineIndex, originalResourceName.length(), newName));
+						}
+					}
+				}
             }
 			fullIndex+=charsOnTheLine(line);
 			line = reader.readLine();
@@ -113,6 +136,14 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 		//Here we need to add one to represent the newline character
 		line+=System.getProperty( "line.separator" );
 		return line.length();
+	}
+	
+	private String generateString(String[] array){
+		StringBuffer sb=new StringBuffer();
+		for (int i = 0; i < array.length-1; i++) {
+				sb.append(array[i]).append("/");
+		}
+		return sb.toString();
 	}
 	
 	private int getarrayIndexWithString(String stringToSearch, String[] array){
