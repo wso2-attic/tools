@@ -63,6 +63,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.appfactory.core.AppMgtClient;
 import org.wso2.developerstudio.appfactory.core.Authenticator;
+import org.wso2.developerstudio.appfactory.core.DeployUtil;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 
 public class AppfactoryView extends ViewPart {
@@ -119,7 +120,9 @@ public class AppfactoryView extends ViewPart {
 								"/icons/svn-co.png"))) {
 			public void run() {
 				if (tblApplication.getSelectionCount() ==1){
-					String url = tblApplication.getSelection()[0].getText(1);
+					ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
+					
+					String url = appInfo.getApplicationRepoLink();
 					
 					ISVNRepositoryLocation location = createLocation(url,auth.getUserName(), auth.getPassword());
 					
@@ -129,8 +132,6 @@ public class AppfactoryView extends ViewPart {
 					WizardDialog dialog = new WizardDialog(activeShell, wizard);
 					dialog.open();
 				}
-				
-
 			};
 		};
 		checkoutAction.setText("Checkout");
@@ -138,12 +139,24 @@ public class AppfactoryView extends ViewPart {
 				ImageDescriptor.createFromImage(SWTResourceManager
 						.getImage(this.getClass(),
 								"/icons/deploy.png"))) {
+			public void run() {
+				if (tblApplication.getSelectionCount() ==1){
+					ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
+					deployApp(appInfo, "Development");
+				}
+			};
 		};
 		deployToDevAction.setText("Deploy to Development");
 		deploytoLiveAction = new Action("deploytoLive",
 				ImageDescriptor.createFromImage(SWTResourceManager
 						.getImage(this.getClass(),
 								"/icons/deploy.png"))) {
+				public void run() {
+					if (tblApplication.getSelectionCount() ==1){
+						ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
+						deployApp(appInfo, "Live");
+					}
+				};
 		};
 		deploytoLiveAction.setText("Deploy to Live");
 		
@@ -265,6 +278,7 @@ public class AppfactoryView extends ViewPart {
 							List<String> roles = appMgtClient.getUserRolesForApplication(appInfo.getApplicationKey(),auth.getUserName());
 							if(roles.contains("developer")){
 								TableItem item = new TableItem(tblApplication, SWT.None);
+								item.setData(appInfo);
 								item.setText(0, appInfo.getApplicationName());
 								item.setText(1, appInfo.getApplicationRepoLink());
 								item.setText(2, "r0"); //TODO: show correct revision
@@ -385,6 +399,14 @@ public class AppfactoryView extends ViewPart {
 			}
 		}
 		return root[0];
+	}
+	
+	
+	private boolean deployApp(ApplicationInfo appInfo, String stage){
+		String appKey = appInfo.getApplicationKey();
+		String url = appInfo.getApplicationRepoLink();
+		DeployUtil deployUtil= new DeployUtil(auth);
+		return deployUtil.deployToStage(url, appKey, stage);
 	}
 	
 }
