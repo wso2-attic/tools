@@ -118,10 +118,12 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
@@ -1128,43 +1130,58 @@ public class EsbEditor extends MultiPageEditorPart implements
 				Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
 
 					public void handleEvent(Event e) {
-						IEditorPart activeEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-						if(!(activeEditor == EsbEditor.this)){
-							return ;
-						} else{
-							if(SOURCE_VIEW_PAGE_INDEX == getActivePage()) {
-								return ;
-							}
-						}
-						if (e.keyCode == SWT.INSERT) {
-							try {
-								if (menu != null && getSelection() != null) {
-									TreeItem[] selection = treeViewer.getTree().getSelection();
-									if (selection != null) {
-										if (selection.length > 0 && selection[0] != null) {
-											Point point = treeViewer.getControl()
-											                        .toDisplay(selection[0].getBounds().x,
-											                                   selection[0].getBounds().y);
-											menu.setLocation(point.x, point.y);
-											menu.setVisible(true);
-											while (!menu.isDisposed() && menu.isVisible()) {
-												if (!Display.getCurrent().readAndDispatch())
-													Display.getCurrent().sleep();
+						IEditorPart activeEditor = PlatformUI.getWorkbench()
+								.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+						if ((activeEditor == EsbEditor.this)) {
+							if (DESIGN_VIEW_PAGE_INDEX == getActivePage()) {
+								Control focusControl = Display.getCurrent().getFocusControl();
+								if (focusControl instanceof Tree) {
+									// Due to fix for TOOLS-836 treeViewer.getTree() is never get as
+									// focusControl, so we are considering propertySheetPage.getControl()
+									if (treeViewer.getTree().equals(focusControl)
+											|| propertySheetPage.getControl().equals(focusControl)) {
+										if (e.keyCode == SWT.INSERT) {
+											try {
+												if (menu != null && getSelection() != null) {
+													TreeItem[] selection = treeViewer.getTree()
+															.getSelection();
+													if (selection != null) {
+														if (selection.length > 0
+																&& selection[0] != null) {
+															Point point = treeViewer.getControl()
+																	.toDisplay(
+																			selection[0]
+																					.getBounds().x,
+																			selection[0]
+																					.getBounds().y);
+															menu.setLocation(point.x, point.y);
+															menu.setVisible(true);
+															while (!menu.isDisposed()
+																	&& menu.isVisible()) {
+																if (!Display.getCurrent()
+																		.readAndDispatch())
+																	Display.getCurrent().sleep();
+															}
+														}
+													}
+
+												}
+											} catch (Exception ex) {/* ignore */
+											}
+										} else if (e.keyCode == SWT.DEL) {
+											try {
+												if (getSelection() instanceof TreeSelection) {
+													deleteNode((TreeSelection) getSelection());
+												}
+											} catch (Exception ex) {/* ignore */
 											}
 										}
 									}
 
 								}
-							} catch (Exception ex) {/* ignore */
-							}
-						} else if (e.keyCode == SWT.DEL) {
-							try {
-								if (getSelection() instanceof TreeSelection) {
-									deleteNode((TreeSelection) getSelection());
-								}
-							} catch (Exception ex) {/* ignore */
 							}
 						}
+
 					}
 				});
 
